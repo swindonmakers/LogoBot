@@ -12,6 +12,13 @@
 
 // LogoBot Base Connectors
 //
+// Connectors are defined as an array of 5 parameters:
+// 0: Translation vector as [x,y,z]
+// 1: Vector defining the normal of the connection as [x,y,z]
+// 2: Rotation angle for the connection
+// 3: Thickness of the mating part - used for bolt holes
+// 4: Clearance diameter of the mating hole - used for bolt holes
+//
 Base_Con_Caster = [ [0, -BaseDiameter/2 + 10, 0], [0,0,1], 0, 0, 0];
 
 
@@ -27,7 +34,8 @@ module LogoBotAssembly() {
 	
 		// Bumper assembly
 	
-		// Motor + Wheel assembly
+		// Motor + Wheel assemblies (x2)
+		
 	
 		// Battery assembly
 	

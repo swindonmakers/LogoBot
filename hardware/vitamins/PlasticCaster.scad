@@ -14,6 +14,16 @@
 //
 
 PlasticCastor_DistFromFlangeToGround	= 15;
+
+// Connectors
+//
+// Connectors are defined as an array of 5 parameters:
+// 0: Translation vector as [x,y,z]
+// 1: Vector defining the normal of the connection as [x,y,z]
+// 2: Rotation angle for the connection
+// 3: Thickness of the mating part - used for bolt holes
+// 4: Clearance diameter of the mating hole - used for bolt holes
+//
 PlasticCastor_Con_Default				= [ [0,0,0], [0,0,1], 0, 6, 10];
 
 
