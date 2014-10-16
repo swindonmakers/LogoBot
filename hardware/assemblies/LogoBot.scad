@@ -8,7 +8,7 @@
 		Front of the robot faces towards y+
 	
 	Parameters:
-		None
+		PenLift - Set to true to include a PenLift, defaults to false
 	
 	Returns:
 		Complete LogoBot model
@@ -16,34 +16,54 @@
 */
 
 
-module LogoBotAssembly() {
+module LogoBotAssembly ( PenLift=false ) {
 	
 	// TODO: needs to be translated up to correct height
 	translate([0, 0, 0]) {
 	
+		// Default Design Elements
+		// -----------------------
+	
 		// Base
 		LogoBotBase_STL();
 	
-		// Bumper assembly
+		// Bumper assemblies (x2)
 	
 		// Motor + Wheel assemblies (x2)
 		
+		// Arduino
+		
+		// Motor Drivers
 	
 		// Battery assembly
 	
-		// Shell
+		// Power Switch
 	
-		// bolts?
+		// LED
+		
+		// Piezo
 	
+		// Shell + fixings
 	
-		// etc
 	
 	
 		// Caster
 		//   Example of using attach
+		//   TODO: Replace this with a printed skid?  
 		attach(Base_Con_Caster, PlasticCastor_Con_Default)
 			PlasticCaster();
 		
+			
+		// Conditional Design Elements
+		// ---------------------------
+			
+		// PenLift
+		//   Placeholder of a micro servo to illustrate having conditional design elements
+		if (PenLift) {
+			// TODO: wrap into a PenLift sub-assembly
+			attach( Base_Con_PenLift, MicroServo_Con_Horn )
+				MicroServo();
+		}
 	}
 }
 
@@ -67,7 +87,8 @@ module LogoBotAssembly() {
 */
 
 // LogoBot Base Connectors
-//
+// -----------------------
+
 // Connectors are defined as an array of 5 parameters:
 // 0: Translation vector as [x,y,z]
 // 1: Vector defining the normal of the connection as [x,y,z]
@@ -75,9 +96,16 @@ module LogoBotAssembly() {
 // 3: Thickness of the mating part - used for bolt holes
 // 4: Clearance diameter of the mating hole - used for bolt holes
 
+
 // Connector: Base_Con_Caster
 // Connection point for the caster at back edge of the base plate
 Base_Con_Caster = [ [0, -BaseDiameter/2 + 10, 0], [0,0,1], 0, 0, 0];
+
+
+// Connector: Base_Con_Caster
+// Connection point for the caster at back edge of the base plate
+Base_Con_PenLift = [ [-20, -5, 10], [0,1,0], 0, 0, 0];
+
 
 
 module LogoBotBase_STL() {
