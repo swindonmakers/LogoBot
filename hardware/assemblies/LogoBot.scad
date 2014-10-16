@@ -2,28 +2,24 @@
 // LogoBot Assembly
 //
 
-// LogoBot Orientation
-// -----------
-// Centred at the origin
-// Width is along the x-axis
-// Depth is along the y-axis
-// Front is towards y+
+/*
+	Assembly: LogoBotAssembly
+	
+	Master assembly for the LogoBot
+	
+	Local Frame:
+		Centred on the origin, such that bottom edge of wheels sit on XY plane.
+		Front of the robot faces towards y+
+	
+	Parameters:
+		None
+	
+	Returns:
+		Complete LogoBot model
+	
+*/
 
 
-// LogoBot Base Connectors
-//
-// Connectors are defined as an array of 5 parameters:
-// 0: Translation vector as [x,y,z]
-// 1: Vector defining the normal of the connection as [x,y,z]
-// 2: Rotation angle for the connection
-// 3: Thickness of the mating part - used for bolt holes
-// 4: Clearance diameter of the mating hole - used for bolt holes
-//
-Base_Con_Caster = [ [0, -BaseDiameter/2 + 10, 0], [0,0,1], 0, 0, 0];
-
-
-// LogoBot Assembly
-//
 module LogoBotAssembly() {
 	
 	// TODO: needs to be translated up to correct height
@@ -53,15 +49,39 @@ module LogoBotAssembly() {
 }
 
 
-// LogoBot Base STL
+
+/*
+	STL: LogoBotBase_STL
+	
+	The printable base plate for the robot
+	
+	Local Frame:
+		Base lies on XY plane, centered on origin, front of robot is towards y+
+	
+	Parameters:
+		None
+	
+	Returns:
+		Base plate, rendered and colored
+*/
+
+// LogoBot Base Connectors
 //
+// Connectors are defined as an array of 5 parameters:
+// 0: Translation vector as [x,y,z]
+// 1: Vector defining the normal of the connection as [x,y,z]
+// 2: Rotation angle for the connection
+// 3: Thickness of the mating part - used for bolt holes
+// 4: Clearance diameter of the mating hole - used for bolt holes
 
-// The _STL suffix denotes this is a printable part, 
+// Connector: Base_Con_Caster
+// Connection point for the caster at back edge of the base plate
+Base_Con_Caster = [ [0, -BaseDiameter/2 + 10, 0], [0,0,1], 0, 0, 0];
+
+
+// NB: The _STL suffix denotes this is a printable part, 
 // and is used by the bulk STL generating program
-
 module LogoBotBase_STL() {
-	// Base lies on XY plane, centered on origin - ready for printing!
-	// Front of robot is towards y+
 	
 	// Color it as a printed plastic part
 	color(PlasticColor)

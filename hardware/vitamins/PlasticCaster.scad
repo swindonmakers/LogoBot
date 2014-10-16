@@ -1,18 +1,22 @@
-//
-// Plastic Caster Library
-//
-// Example vitamin library that models a simple plastic caster wheel
+/*
+	Vitamin: PlasticCaster
+	Model of a simple plastic caster
+	
+	Local Frame: 
+		Centred on the origin, the top edge of the mounting flange lies in XY plane
+	
+	Parameters:
+		None
+		
+	Returns:
+		A Plastic Caster model, rendered and colored
+*/
 
-
-// PlasticCaster
-// -------------
-//
-// Centred on the origin
-// the top edge of the mounting flange lies in XY plane
 
 // PlasticCaster Variables
-//
 
+// Variable: PlasticCastor_DistFromFlangeToGround
+// Distance from top edge of mounting flange to the bottom of the ball
 PlasticCastor_DistFromFlangeToGround	= 15;
 
 // Connectors
@@ -24,6 +28,9 @@ PlasticCastor_DistFromFlangeToGround	= 15;
 // 3: Thickness of the mating part - used for bolt holes
 // 4: Clearance diameter of the mating hole - used for bolt holes
 //
+
+// Connector: PlasticCastor_Con_Default
+// Default connector for <PlasticCaster>
 PlasticCastor_Con_Default				= [ [0,0,0], [0,0,1], 0, 6, 10];
 
 
