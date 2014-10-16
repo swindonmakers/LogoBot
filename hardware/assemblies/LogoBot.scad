@@ -82,5 +82,13 @@ module LogoBotBase_STL() {
 			attach(Base_Con_Caster, PlasticCastor_Con_Default)
 				circle(r = connector_bore(PlasticCastor_Con_Default) / 2);
 	
+			
+			
+			// A load of fixing holes around the edge...  just as an example of how to do it
+			// NB: This is one of the examples we discussed during the wk1 session
+			for (i=[0:9])
+				rotate([0, 0, i * 360/10])
+				translate([BaseDiameter/2 - 5, 0, 0])
+				circle(r=4.3/2);  // M4 fixing holes
 		}
 }

@@ -5,8 +5,10 @@
 
 
 // Chevron
+// -------
 // Width is along x, height is along y, points towards y+
 // Centred along x, base on y=0
+
 module Chevron(width=10, height=6, thickness=3) {
 
 	// Union the two halves together
