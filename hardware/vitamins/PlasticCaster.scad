@@ -2,6 +2,9 @@
 	Vitamin: PlasticCaster
 	Model of a simple plastic caster
 	
+	Authors:
+		Damian Axford
+	
 	Local Frame: 
 		Centred on the origin, the top edge of the mounting flange lies in XY plane
 	
