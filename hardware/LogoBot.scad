@@ -9,6 +9,7 @@ include <config/config.scad>
 
 
 // Master assembly
+//   Defined within: assemblies/LogoBot.scad
 LogoBotAssembly();
 
 
