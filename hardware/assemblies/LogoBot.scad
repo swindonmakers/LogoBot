@@ -1,7 +1,3 @@
-//
-// LogoBot Assembly
-//
-
 /*
 	Assembly: LogoBotAssembly
 	
@@ -53,7 +49,9 @@ module LogoBotAssembly() {
 /*
 	STL: LogoBotBase_STL
 	
-	The printable base plate for the robot
+	The printable base plate for the robot.
+	
+	The _STL suffix denotes this is a printable part, and is used by the bulk STL generating program
 	
 	Local Frame:
 		Base lies on XY plane, centered on origin, front of robot is towards y+
@@ -79,8 +77,6 @@ module LogoBotAssembly() {
 Base_Con_Caster = [ [0, -BaseDiameter/2 + 10, 0], [0,0,1], 0, 0, 0];
 
 
-// NB: The _STL suffix denotes this is a printable part, 
-// and is used by the bulk STL generating program
 module LogoBotBase_STL() {
 	
 	// Color it as a printed plastic part
