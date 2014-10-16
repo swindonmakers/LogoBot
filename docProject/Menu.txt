@@ -47,6 +47,8 @@ Format: 1.52
 
 
 File: assemblies/LogoBot.scad  (assemblies/LogoBot.scad)
+File: LogoBot.scad  (LogoBot.scad)
+File: LogoBotInAnEnclosure.scad  (LogoBotInAnEnclosure.scad)
 File: vitamins/PlasticCaster.scad  (vitamins/PlasticCaster.scad)
 
 Group: Index  {

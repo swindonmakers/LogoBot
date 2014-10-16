@@ -1,6 +1,8 @@
 /*
 
-LogoBot.scad
+	File: LogoBot.scad
+
+	The master project file, open this in OpenSCAD to view the complete robot.
 
 */
 

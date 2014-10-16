@@ -1,7 +1,12 @@
 /*
 
-LogoBot.scad
+	File: LogoBotInAnEnclosure.scad
 
+	Example to show how to use the complete robot within a more complex model.
+	This example models a basic tabletop enclosure, with the robot positioned inside.
+	
+	This kind of technique is useful for creating various visualisations of the design.
+	
 */
 
 // Master include statement, causes everything else for the model to be included
