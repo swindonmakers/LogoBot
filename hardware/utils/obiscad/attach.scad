@@ -97,7 +97,7 @@ module attach(a,b)
     rotate(a=roll, v=v)  rotate(a=ang, v=raxis)
       //-- Attachable part to the origin
       translate(-pos2)
-		child(i);
+		children(i);
 }
 
 
@@ -115,7 +115,7 @@ module attachWithOffset(a,b,o) {
 	];
 	
 	for (i=[0:$children-1])
-		attach(newa,b) child(i);
+		attach(newa,b) children(i);
 }
   
 
@@ -123,38 +123,38 @@ module attachWithOffset(a,b,o) {
 // up to 12 children
 module threadTogether(a) {
 	echo($children);
-	child(0);
+	children(0);
 	if ($children>1)
 		translate([0,0,-a[0]]) 
-		child(1);
+		children(1);
 	if ($children>2)
 		translate([0,0,-a[0]-a[1]]) 
-		child(2);
+		children(2);
 	if ($children>3)
 		translate([0,0,-a[0]-a[1]-a[2]]) 
-		child(3);
+		children(3);
 	if ($children>4)
 		translate([0,0,-a[0]-a[1]-a[2]-a[3]]) 
-		child(4);
+		children(4);
 	if ($children>5)
 		translate([0,0,-a[0]-a[1]-a[2]-a[3]-a[4]]) 
-		child(5);
+		children(5);
 	if ($children>6)
 		translate([0,0,-a[0]-a[1]-a[2]-a[3]-a[4]-a[5]]) 
-		child(6);
+		children(6);
 	if ($children>7)
 		translate([0,0,-a[0]-a[1]-a[2]-a[3]-a[4]-a[5]-a[6]]) 
-		child(7);
+		children(7);
 	if ($children>8)
 		translate([0,0,-a[0]-a[1]-a[2]-a[3]-a[4]-a[5]-a[6]-a[7]]) 
-		child(8);
+		children(8);
 	if ($children>9)
 		translate([0,0,-a[0]-a[1]-a[2]-a[3]-a[4]-a[5]-a[6]-a[7]-a[8]]) 
-		child(9);
+		children(9);
 	if ($children>10)
 		translate([0,0,-a[0]-a[1]-a[2]-a[3]-a[4]-a[5]-a[6]-a[7]-a[8]-a[9]]) 
-		child(10);
+		children(10);
 	if ($children>11)
 		translate([0,0,-a[0]-a[1]-a[2]-a[3]-a[4]-a[5]-a[6]-a[7]-a[8]-a[9]-a[10]]) 
-		child(11);
+		children(11);
 }
