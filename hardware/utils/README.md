@@ -7,5 +7,7 @@ This directory contains a set of utility libraries that make modelling parts eas
 File Structure
 --------------
 
-*This Directory*
+**This Directory**
+
+* chevron.scad - An example utility library that helps make 2D chevrons
 
