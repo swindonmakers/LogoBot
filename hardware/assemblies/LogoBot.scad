@@ -10,30 +10,48 @@
 // Front is towards y+
 
 
+// LogoBot Base Connectors
+//
+Base_Con_Caster = [ [0, -BaseDiameter/2 + 10, 0], [0,0,1], 0, 0, 0];
+
+
+// LogoBot Assembly
+//
 module LogoBotAssembly() {
 	
-	// Base
 	// TODO: needs to be translated up to correct height
-	translate([0, 0, 0])
-		LogoBotBase_stl();
+	translate([0, 0, 0]) {
 	
-	// Bumper assembly
+		// Base
+		LogoBotBase_STL();
 	
-	// Motor + Wheel assembly
+		// Bumper assembly
 	
-	// Battery assembly
+		// Motor + Wheel assembly
 	
-	// Shell
+		// Battery assembly
 	
-	// etc
+		// Shell
 	
+		// etc
+	
+	
+		// Caster
+		//   Example of using attach
+		attach(Base_Con_Caster, PlasticCastor_Con_Default)
+			PlasticCaster();
+		
+	}
 }
 
 
-// The _stl suffix denotes this is a printable part, 
+// LogoBot Base STL
+//
+
+// The _STL suffix denotes this is a printable part, 
 // and is used by the bulk STL generating program
 
-module LogoBotBase_stl() {
+module LogoBotBase_STL() {
 	// Base lies on XY plane, centered on origin - ready for printing!
 	// Front of robot is towards y+
 	
@@ -58,6 +76,11 @@ module LogoBotBase_stl() {
 			// Chevron at the front so we're clear where the front is!
 			translate([0, BaseDiameter/2 - 10, 0])
 				Chevron(width=10, height=6, thickness=3);
+				
+			// Caster
+			//   Example of using attach to punch an appropriate fixing hole
+			attach(Base_Con_Caster, PlasticCastor_Con_Default)
+				circle(r = connector_bore(PlasticCastor_Con_Default) / 2);
 	
 		}
 }

@@ -19,6 +19,7 @@ eta = 0.01;                     // small fudge factor to stop CSG barfing on coi
 $fa = 5;
 $fs = 0.5;
 
+
 // Printer specific parameters
 //
 Perim = 0.5;    // perim extrusion width for 0.2 or 0.3 layer height
@@ -32,6 +33,14 @@ layers = Layers;
 2perim = 2Perim;
 4perim = 4Perim;
 
+
+// Debugging
+
+DebugConnectors = 1;  			// set to 1 to debug, set to 0 for production
+DebugCoordinateFrames = 1; 		// set to 1 to debug, set to 0 for production
+
+
+// Include all other configuration files
 
 include <colors.scad>
 include <utils.scad>
