@@ -49,9 +49,9 @@ module LogoBotAssembly ( PenLift=false ) {
 	
 		// Caster
 		//   Example of using attach
-		//   TODO: Replace this with a printed skid?  
-		attach(Base_Con_Caster, PlasticCastor_Con_Default)
-			PlasticCaster();
+		// TODO: Insert correct ground clearance!
+		attach(Base_Con_Caster, MarbleCastor_Con_Default)
+			MarbleCasterAssembly( GroundClearance = 20);
 		
 			
 		// Conditional Design Elements

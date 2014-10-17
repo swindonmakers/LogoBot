@@ -31,11 +31,15 @@ Grey90                          = [0.9, 0.9, 0.9];
 AluColor  						= Grey70;
 MetalColor						= Grey60;
 BeltColor 						= "white";
-PlasticColor 					= "orange";
 PolycarbonateColor 			 	= [1,0.8,0.5,0.5];
 SiliconeColor 					= [1,0.8,0.8,0.8];
 WoodColor 						= "orange";
 
+PlasticColor 					= "orange";
+
+// Additional Plastic colours to differentiate sub-assemblies
+Level2PlasticColor				= [1, 0.5, 0];
+Level3PlasticColor 				= [1, 0.4, 0];
 
 // Material Color aliases
 // For compatibility with 3rd party libraries
