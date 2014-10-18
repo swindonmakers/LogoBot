@@ -69,12 +69,12 @@ module MarbleCaster_STL ( GroundClearance ) {
 				cylinder(r=od/2, h=plateThickness+eta);
 			
 				// push fitting upper taper
-				translate([0, 0, plateThickness + 2])
-					cylinder(r1=od/2 + 1, r2=od/2 - dw, h= dw + 1);
+				translate([0, 0, plateThickness + 1])
+					cylinder(r1=od/2 + 0.5, r2=od/2 - 1, h= dw + 1);
 				
 				// push fitting lower taper
 				translate([0, 0, plateThickness])
-					cylinder(r1=od/2, r2=od/2 + 1, h=2 + eta);
+					cylinder(r1=od/2, r2=od/2 + 0.5, h=1 + eta);
 			
 			
 				//flange
@@ -94,8 +94,8 @@ module MarbleCaster_STL ( GroundClearance ) {
 			// slit the push fitting
 			for (i=[0,1])
 				rotate([0,0, i*90])
-				translate([-ballr, -od/8, eta])
-				cube([2*ballr, od/4, 100]);
+				translate([-ballr, -1, eta])
+				cube([2*ballr, 2, 100]);
 			
 			// chop the bottom off
 			translate([-50, -50, -100 - GroundClearance + ballr/2])
