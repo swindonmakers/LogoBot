@@ -50,16 +50,33 @@ module ArduinoPro_Headers() {
 
 }
 
+module ArduinoPro_Serial_Header() {
+  // y position for header
+  header_y = pcbLength - holeInset*2;
+  // width for holes, leaving room for insets
+  rowwidth = pcbWidth - holeInset*2;
+
+  // Add serial header along top of board (along x)
+  for (x = [holeInset : holeSpace : rowwidth]) {
+    translate([x, header_y, 0]) {
+      // Standard PCB hole
+      circle(r = holeDiam/2);
+    }
+  }
+
+}
+
 module ArduinoPro(type = "mini") {
   difference() {
     // Common Features for Pro Mini/Micro
     ArduinoPro_PCB();
     ArduinoPro_Headers();
 
-  }
-
-  // Features for Pro Mini
-  if (type == "mini") {
+    // Features for Pro Mini
+    if (type == "mini") {
+      // Pro Mini Serial Header
+      ArduinoPro_Serial_Header();
+    }
   }
 
   // Features for Pro Micro
