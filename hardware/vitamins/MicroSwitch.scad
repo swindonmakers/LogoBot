@@ -11,24 +11,24 @@
 //
 // Parameters :
 //
-// ms_length 			= Length of body in X.
-// ms_width 			= Width of body in Y.
-// ms_height 			= Height (thickness) of body in Z.
-// ms_datxoffset		= X Position of lower left corner of body from Datum hole.
-// ms_datyoffset 		= Y Position of lower left corner of body from Datum hole.
-// ms_orientation		= Defines whether the switch is mounted left or right (0:1).
-// ms_hole_diam		= Size of Datum mounting hole and slot width of second hole.
-// ms_xholepitch		= Mounting hole X pitch.
-// ms_yholepitch		= Mounting hole Y pitch.
-// ms_hole_slot_length	= Slot length of second mounting hole.
-// ms_lever_length		= Length of lever.
-// ms_lever_width		= Width of lever.
-// ms_lever_thickness	= Thickness of lever.
-// ms_lever_height		= Height of lever (OP) from Datum hole.
-// ms_tab_length		= Length of terminal tab from Datum hole.
-// ms_tab_width		= Width of terminal tab.
-// ms_tab_thickness	= Thickness of terminal tab.
-// ms_tab_hole_diam	= Diameter of terminal tab hole.
+// ms_length           = Length of body in X.
+// ms_width            = Width of body in Y.
+// ms_height           = Height (thickness) of body in Z.
+// ms_datxoffset       = X Position of lower left corner of body from Datum hole.
+// ms_datyoffset       = Y Position of lower left corner of body from Datum hole.
+// ms_orientation      = Defines whether the switch is mounted left or right (0:1).
+// ms_hole_diam        = Size of Datum mounting hole and slot width of second hole.
+// ms_xholepitch       = Mounting hole X pitch.
+// ms_yholepitch       = Mounting hole Y pitch.
+// ms_hole_slot_length = Slot length of second mounting hole.
+// ms_lever_length     = Length of lever.
+// ms_lever_width      = Width of lever.
+// ms_lever_thickness  = Thickness of lever.
+// ms_lever_height     = Height of lever (OP) from Datum hole.
+// ms_tab_length       = Length of terminal tab from Datum hole.
+// ms_tab_width        = Width of terminal tab.
+// ms_tab_thickness    = Thickness of terminal tab.
+// ms_tab_hole_diam    = Diameter of terminal tab hole.
 //
 
 module microswitch(ms_length = 19.8, ms_width = 10.2, ms_height = 6.4, ms_datxoffset = -14.6, ms_datyoffset = -2.5, ms_orientation = 0, ms_hole_diam = 2.35, ms_xholepitch = 9.5, ms_yholepitch = 0, ms_hole_slot_length = 0.15, ms_lever_length = 14.5, ms_lever_width = 3.6, ms_lever_thickness = 0.3, ms_lever_height = 8.8, ms_tab_length = 6.4, ms_tab_width = 3.2, ms_tab_thickness = 0.3, ms_tab_hole_diam = 1.6){
@@ -116,5 +116,3 @@ module terminal (ms_tab_length, ms_tab_width, ms_tab_thickness, ms_tab_hole_diam
 		}
 	}
 }
-
-microswitch(ms_orientation=0);
