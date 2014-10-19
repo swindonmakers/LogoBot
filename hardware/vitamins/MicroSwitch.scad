@@ -1,4 +1,4 @@
-// MicroSwitch v1.0 by Gyrobot
+// MicroSwitch v1.1 by Gyrobot
 // http://www.gyrobot.co.uk
 //
 // Default values based upon :
