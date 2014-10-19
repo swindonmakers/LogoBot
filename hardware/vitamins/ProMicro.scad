@@ -27,6 +27,21 @@ pcbHeight = .063 * 25.4;  // The thickness of the PCB in mm
 pcbLength =  1.3 * 25.4;  // The length of the PCB in mm
 pcbWidth  =  0.7 * 25.4;  // The width of the PCB in mm
 
+// Pro Micro/Mini
+board_colour = [26/255, 90/255, 160/255];
+metal_colour = [220/255, 220/255, 220/255];
+
+module Micro_USB_Clearance() {
+  // Rough dimensions for micro usb header
+  micro_usb_area    = [7.7, 5.2];
+  micro_usb_height  = 2.7;
+
+  color(metal_colour)
+  translate([pcbWidth/2 - holeInset, pcbLength - holeSpace, pcbHeight])
+  linear_extrude(height=2.7)
+    square(size = micro_usb_area, center = true);
+}
+
 module ArduinoPro_PCB() {
   // Bare PCB, origin at location for bottom left hole
   translate([-holeInset, -holeInset, 0]) {
@@ -63,26 +78,29 @@ module ArduinoPro_Serial_Header() {
       circle(r = holeDiam/2);
     }
   }
-
 }
 
 module ArduinoPro(type = "mini") {
-  color([26/255, 90/255, 160/255])
-  linear_extrude(height=pcbHeight)
-  difference() {
-    // Common Features for Pro Mini/Micro
-    ArduinoPro_PCB();
-    ArduinoPro_Headers();
+  union() {
+    color(board_colour)
+    linear_extrude(height=pcbHeight)
+    difference() {
+      // Common Features for Pro Mini/Micro
+      ArduinoPro_PCB();
+      ArduinoPro_Headers();
 
-    // Features for Pro Mini
-    if (type == "mini") {
-      // Pro Mini Serial Header
-      ArduinoPro_Serial_Header();
+      // Features for Pro Mini
+      if (type == "mini") {
+        // Pro Mini Serial Header
+        ArduinoPro_Serial_Header();
+      }
     }
-  }
 
-  // Features for Pro Micro
-  if (type == "micro") {
+    // Features for Pro Micro
+    if (type == "micro") {
+      // Pro Micro USB port
+      Micro_USB_Clearance();
+    }
   }
 }
 
