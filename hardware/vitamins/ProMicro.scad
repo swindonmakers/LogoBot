@@ -1,6 +1,6 @@
 /*
-  Vitamin: Pro Micro
-  Model of an Arduino Pro Micro
+  Vitamin: ArduinoPro
+  Model of an Arduino Pro Mini/Micro
 
   Derived from: https://github.com/sparkfun/Pro_Micro/
            and: https://github.com/sparkfun/Arduino_Pro_Mini_328/
@@ -12,82 +12,85 @@
     Point of origin is the centre of the bottom left pin (9)
 
   Parameters:
-    FIXME: type: can be "mini", or "micro";
-           otherwise returns a blank board with header pin holes
+    type: can be "mini", or "micro";
+          otherwise returns a blank board with header pin holes
 
   Returns:
-    FIXME: Model of an Arduino Pro Mini/Micro with header holes
+    Model of an Arduino Pro Mini/Micro with header holes
 */
 
-// PCB Variables
-holeDiam  = 1.25;         // The hole diameter in mm
-holeSpace = 2.54;         // The spacing of the holes in mm
-holeInset = holeSpace/2;  // The spacing of the holes in mm
-pcbHeight = .063 * 25.4;  // The thickness of the PCB in mm
-pcbLength =  1.3 * 25.4;  // The length of the PCB in mm
-pcbWidth  =  0.7 * 25.4;  // The width of the PCB in mm
-
-// Pro Micro/Mini
-board_colour = [26/255, 90/255, 160/255];
-metal_colour = [220/255, 220/255, 220/255];
+// ArduinoPro PCB Variables
+ArduinoPro_Hole_Diam  = 1.25;                    // hole diameter
+ArduinoPro_Hole_Space = 2.54;                    // spacing of the holes
+ArduinoPro_Hole_Inset = ArduinoPro_Hole_Space/2; // Inset from board edge
+ArduinoPro_PCB_Height = .063 * 25.4;             // thickness of the PCB
+ArduinoPro_PCB_Length =  1.3 * 25.4;             // length of the PCB
+ArduinoPro_PCB_Width  =  0.7 * 25.4;             // width of the PCB
+ArduinoPro_PCB_Colour = [26/255, 90/255, 160/255];
 
 // Show board clearance area for components
-board_clearance = 3;
-show_clearance  = true;
+ArduinoPro_PCB_Clearance = 3;
+ArduinoPro_PCB_Clearance_Show  = true;
 
+// FIXME: export to external vitamin?
 module Micro_USB_Clearance() {
   // Rough dimensions for micro usb header
-  micro_usb_area    = [7.7, 5.2];
-  micro_usb_height  = 2.7;
+  height  = 2.7;
+  area    = [7.7, 5.2];
+  colour  = [220/255, 220/255, 220/255];
+  move_x  = ArduinoPro_PCB_Width/2 - ArduinoPro_Hole_Inset;
+  move_y  = ArduinoPro_PCB_Length - ArduinoPro_Hole_Space;
+  move_z  = ArduinoPro_PCB_Height;
 
-  color(metal_colour)
-  translate([pcbWidth/2 - holeInset, pcbLength - holeSpace, pcbHeight])
-  linear_extrude(height=2.7)
-    square(size = micro_usb_area, center = true);
+  color(colour)
+    translate([move_x, move_y, move_z])
+    linear_extrude(height=height)
+    square(size = area, center = true);
 }
 
 module ArduinoPro_PCB() {
   // Bare PCB, origin at location for bottom left hole
-  translate([-holeInset, -holeInset, 0]) {
-    square(size = [pcbWidth, pcbLength]);
-  }
+  translate([-ArduinoPro_Hole_Inset, -ArduinoPro_Hole_Inset, 0])
+    square(size = [ArduinoPro_PCB_Width, ArduinoPro_PCB_Length]);
+}
+
+// TODO: Add throughhole/padding
+// TODO: Option to show header pins?
+// FIXME: export to external vitamin?
+module ArduinoPro_Header_Hole() {
+  // Standard PCB hole
+  circle(r = ArduinoPro_Hole_Diam/2);
 }
 
 module ArduinoPro_Headers() {
   // distance between the two header rows
-  rowpitch  = pcbWidth - holeInset*2;
+  rowpitch  = ArduinoPro_PCB_Width - ArduinoPro_Hole_Inset*2;
   // length for holes, leaving room for end header and insets
-  rowlength = pcbLength - holeSpace - holeInset*2;
+  rowlength = ArduinoPro_PCB_Length - ArduinoPro_Hole_Space - ArduinoPro_Hole_Inset*2;
 
   // Add headers to either side (along y)
-  for (x = [0, rowpitch], y = [0 : holeSpace : rowlength]) {
-    translate([x, y, 0]) {
-      // Standard PCB hole
-      circle(r = holeDiam/2);
-    }
+  for (x = [0, rowpitch], y = [0 : ArduinoPro_Hole_Space : rowlength]) {
+    translate([x, y, 0]) ArduinoPro_Header_Hole();
   }
 
 }
 
 module ArduinoPro_Serial_Header() {
   // y position for header
-  header_y = pcbLength - holeInset*2;
+  header_y = ArduinoPro_PCB_Length - ArduinoPro_Hole_Inset*2;
   // width for holes, leaving room for insets
-  rowwidth = pcbWidth - holeInset*2;
+  rowwidth = ArduinoPro_PCB_Width - ArduinoPro_Hole_Inset*2;
 
   // Add serial header along top of board (along x)
-  for (x = [holeInset : holeSpace : rowwidth]) {
-    translate([x, header_y, 0]) {
-      // Standard PCB hole
-      circle(r = holeDiam/2);
-    }
+  for (x = [ArduinoPro_Hole_Inset : ArduinoPro_Hole_Space : rowwidth]) {
+    translate([x, header_y, 0]) ArduinoPro_Header_Hole();
   }
 }
 
 module ArduinoPro(type = "mini") {
   union() {
-    color(board_colour)
-    linear_extrude(height=pcbHeight)
+    color(ArduinoPro_PCB_Colour)
+    linear_extrude(height=ArduinoPro_PCB_Height)
     difference() {
       // Common Features for Pro Mini/Micro
       ArduinoPro_PCB();
@@ -107,13 +110,16 @@ module ArduinoPro(type = "mini") {
     }
 
     // Indicate area for minimum board clearance
-    if (show_clearance)
-    color(board_colour, 0.1)
-    translate([-holeInset, -holeInset, pcbHeight])
-    linear_extrude(height=board_clearance)
-      square(size = [pcbWidth, pcbLength]);
+    if (ArduinoPro_PCB_Clearance_Show)
+      color(ArduinoPro_PCB_Colour, 0.1)
+      translate([-ArduinoPro_Hole_Inset, -ArduinoPro_Hole_Inset, ArduinoPro_PCB_Height])
+      linear_extrude(height=ArduinoPro_PCB_Clearance)
+      square(size = [ArduinoPro_PCB_Width, ArduinoPro_PCB_Length]);
   }
 }
 
-ArduinoPro("mini");
-*ArduinoPro("micro");
+
+
+// Example Usage
+*ArduinoPro("mini");
+ArduinoPro("micro");
