@@ -31,6 +31,10 @@ pcbWidth  =  0.7 * 25.4;  // The width of the PCB in mm
 board_colour = [26/255, 90/255, 160/255];
 metal_colour = [220/255, 220/255, 220/255];
 
+// Show board clearance area for components
+board_clearance = 3;
+show_clearance  = true;
+
 module Micro_USB_Clearance() {
   // Rough dimensions for micro usb header
   micro_usb_area    = [7.7, 5.2];
@@ -101,6 +105,13 @@ module ArduinoPro(type = "mini") {
       // Pro Micro USB port
       Micro_USB_Clearance();
     }
+
+    // Indicate area for minimum board clearance
+    if (show_clearance)
+    color(board_colour, 0.1)
+    translate([-holeInset, -holeInset, pcbHeight])
+    linear_extrude(height=board_clearance)
+      square(size = [pcbWidth, pcbLength]);
   }
 }
 
