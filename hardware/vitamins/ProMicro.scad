@@ -67,6 +67,8 @@ module ArduinoPro_Serial_Header() {
 }
 
 module ArduinoPro(type = "mini") {
+  color([26/255, 90/255, 160/255])
+  linear_extrude(height=pcbHeight)
   difference() {
     // Common Features for Pro Mini/Micro
     ArduinoPro_PCB();
