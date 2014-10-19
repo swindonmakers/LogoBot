@@ -20,7 +20,6 @@
 */
 
 // ArduinoPro PCB Variables
-ArduinoPro_Hole_Diam  = 1.25;                    // hole diameter
 ArduinoPro_Hole_Space = 2.54;                    // spacing of the holes
 ArduinoPro_Hole_Inset = ArduinoPro_Hole_Space/2; // Inset from board edge
 ArduinoPro_PCB_Height = .063 * 25.4;             // thickness of the PCB
@@ -57,9 +56,9 @@ module ArduinoPro_PCB() {
 // TODO: Add throughhole/padding
 // TODO: Option to show header pins?
 // FIXME: export to external vitamin?
-module ArduinoPro_Header_Hole() {
+module ArduinoPro_Header_Hole(d = 1.25) {
   // Standard PCB hole
-  circle(r = ArduinoPro_Hole_Diam/2);
+  circle(d = d);
 }
 
 module ArduinoPro_Headers() {
@@ -122,4 +121,4 @@ module ArduinoPro(type = "mini") {
 
 // Example Usage
 *ArduinoPro("mini");
-ArduinoPro("micro");
+*ArduinoPro("micro");
