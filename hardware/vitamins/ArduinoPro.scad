@@ -20,12 +20,12 @@
 */
 
 // ArduinoPro PCB Variables
-ArduinoPro_Hole_Space = 2.54;                    // spacing of the holes
-ArduinoPro_Hole_Inset = ArduinoPro_Hole_Space/2; // Inset from board edge
-ArduinoPro_PCB_Height = .063 * 25.4;             // thickness of the PCB
-ArduinoPro_PCB_Length =  1.3 * 25.4;             // length of the PCB
-ArduinoPro_PCB_Width  =  0.7 * 25.4;             // width of the PCB
-ArduinoPro_PCB_Colour = [26/255, 90/255, 160/255];
+ArduinoPro_PCB_Pitch  = 2.54;                       // spacing of the holes
+ArduinoPro_PCB_Inset  = ArduinoPro_PCB_Pitch/2;     // inset from board edge
+ArduinoPro_PCB_Width  =  0.7 * 25.4;                // width of the PCB     (along x)
+ArduinoPro_PCB_Length =  1.3 * 25.4;                // length of the PCB    (along y)
+ArduinoPro_PCB_Height = .063 * 25.4;                // thickness of the PCB (along z)
+ArduinoPro_PCB_Colour = [26/255, 90/255, 160/255];  // colour of solder mask
 
 // Show board clearance area for components
 ArduinoPro_PCB_Clearance = 3;
@@ -37,8 +37,8 @@ module Micro_USB_Clearance() {
   height  = 2.7;
   area    = [7.7, 5.2];
   colour  = [220/255, 220/255, 220/255];
-  move_x  = ArduinoPro_PCB_Width/2 - ArduinoPro_Hole_Inset;
-  move_y  = ArduinoPro_PCB_Length - ArduinoPro_Hole_Space;
+  move_x  = ArduinoPro_PCB_Width/2 - ArduinoPro_PCB_Inset;
+  move_y  = ArduinoPro_PCB_Length - ArduinoPro_PCB_Pitch;
   move_z  = ArduinoPro_PCB_Height;
 
   color(colour)
@@ -48,8 +48,8 @@ module Micro_USB_Clearance() {
 }
 
 module ArduinoPro_PCB() {
-  // Bare PCB, origin at location for bottom left hole
-  translate([-ArduinoPro_Hole_Inset, -ArduinoPro_Hole_Inset, 0])
+  // Bare PCB, origin through location for bottom left hole
+  translate([-ArduinoPro_PCB_Inset, -ArduinoPro_PCB_Inset, 0])
     square(size = [ArduinoPro_PCB_Width, ArduinoPro_PCB_Length]);
 }
 
@@ -63,12 +63,12 @@ module ArduinoPro_Header_Hole(d = 1.25) {
 
 module ArduinoPro_Headers() {
   // distance between the two header rows
-  rowpitch  = ArduinoPro_PCB_Width - ArduinoPro_Hole_Inset*2;
+  rowpitch  = ArduinoPro_PCB_Width - ArduinoPro_PCB_Inset*2;
   // length for holes, leaving room for end header and insets
-  rowlength = ArduinoPro_PCB_Length - ArduinoPro_Hole_Space - ArduinoPro_Hole_Inset*2;
+  rowlength = ArduinoPro_PCB_Length - ArduinoPro_PCB_Pitch - ArduinoPro_PCB_Inset*2;
 
   // Add headers to either side (along y)
-  for (x = [0, rowpitch], y = [0 : ArduinoPro_Hole_Space : rowlength]) {
+  for (x = [0, rowpitch], y = [0 : ArduinoPro_PCB_Pitch : rowlength]) {
     translate([x, y, 0]) ArduinoPro_Header_Hole();
   }
 
@@ -76,12 +76,12 @@ module ArduinoPro_Headers() {
 
 module ArduinoPro_Serial_Header() {
   // y position for header
-  header_y = ArduinoPro_PCB_Length - ArduinoPro_Hole_Inset*2;
+  header_y = ArduinoPro_PCB_Length - ArduinoPro_PCB_Inset*2;
   // width for holes, leaving room for insets
-  rowwidth = ArduinoPro_PCB_Width - ArduinoPro_Hole_Inset*2;
+  rowwidth = ArduinoPro_PCB_Width - ArduinoPro_PCB_Inset*2;
 
   // Add serial header along top of board (along x)
-  for (x = [ArduinoPro_Hole_Inset : ArduinoPro_Hole_Space : rowwidth]) {
+  for (x = [ArduinoPro_PCB_Inset : ArduinoPro_PCB_Pitch : rowwidth]) {
     translate([x, header_y, 0]) ArduinoPro_Header_Hole();
   }
 }
@@ -111,7 +111,7 @@ module ArduinoPro(type = "mini") {
     // Indicate area for minimum board clearance
     if (ArduinoPro_PCB_Clearance_Show)
       color(ArduinoPro_PCB_Colour, 0.1)
-      translate([-ArduinoPro_Hole_Inset, -ArduinoPro_Hole_Inset, ArduinoPro_PCB_Height])
+      translate([-ArduinoPro_PCB_Inset, -ArduinoPro_PCB_Inset, ArduinoPro_PCB_Height])
       linear_extrude(height=ArduinoPro_PCB_Clearance)
       square(size = [ArduinoPro_PCB_Width, ArduinoPro_PCB_Length]);
   }
