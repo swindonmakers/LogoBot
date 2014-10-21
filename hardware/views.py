@@ -3,9 +3,32 @@
 # Renders pre-defined views into the images directory
 
 import os
+from PIL import Image
 import sys
 import shutil
 import openscad
+
+def polish(filename, w, h):
+	img = Image.open(filename)
+	img = img.convert("RGBA")
+
+	pixdata = img.load()
+
+	# Read top left pixel color
+	bkc = pixdata[0,0]
+
+	# Set background to white and transparent
+	for y in xrange(img.size[1]):
+   		for x in xrange(img.size[0]):
+   			if pixdata[x, y] == bkc:
+   				pixdata[x, y] = (255, 255, 255, 0)
+   				
+   	# downsample (half the res)
+   	img = img.resize((w, h), Image.ANTIALIAS)
+   				
+   	# Save it
+   	img.save(filename)
+
 
 
 def views(force_update):
@@ -31,8 +54,9 @@ def views(force_update):
             	
             	cmd = words[1]
             	if cmd == "view":
-                    w = int(words[2])
-                    h = int(words[3])
+            		# Up-sample images
+                    w = int(words[2]) * 2
+                    h = int(words[3]) * 2
                     
                     dx = float(words[4])
                     dy = float(words[5])
@@ -51,6 +75,8 @@ def views(force_update):
 									"--camera=" + camera,
 									"-o", png_name, 
 									scad_name)
+									
+						polish(png_name, w/2, h/2)
                     print
 
 if __name__ == '__main__':
