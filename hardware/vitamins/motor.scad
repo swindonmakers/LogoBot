@@ -1,10 +1,10 @@
 module logo_motor(motor_rotation_x, motor_rotation_y, motor_rotation_z){
 motor_shaft_r=5;
-motor_shaft_h=8;
+motor_shaft_h=8.27;
 motor_flange_h = 1;
 motor_flange_r = 9.20;
-Motor_body_r = 28.00;
-Motor_body_h = 19.30;
+Motor_body_r = 28.09;
+Motor_body_h = 19.24;
 
 	///rotate object around to Y access
 	rotate([motor_rotation_x, motor_rotation_y, motor_rotation_z]){
@@ -16,13 +16,13 @@ Motor_body_h = 19.30;
 		cylinder(r=motor_shaft_r, h=motor_shaft_h, center=true);
 			///add some flats
 				
-				translate([-5,2,-4])
-				cube([10,5,6]);
+				translate([-5,2,-4.27])
+				cube([10,5,6.27]);
 				
 				mirror([0,1,0]){
 				
-				translate([-5,2,-4])
-				cube([10,5,6]);
+				translate([-5,2,-4.27])
+				cube([10,5,6.27]);
 				}
 					}
 	
