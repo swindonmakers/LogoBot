@@ -10,16 +10,16 @@ The LogoBot build is broken down into sub-assemblies that can be worked on seque
 All the diagrams can be viewed in OpenSCAD allowing real time zooming, rotating and panning to get the best view.
 
 
-## General Build Tips
+### General Build Tips
 
 * X if left/right, Y is backwards/forwards, Z is up.down
 
 
-## Tools Required
+### Tools Required
 
 * Screwdriver ?
 
-### Consumables
+#### Consumables
 
 * 4x AA Batteries
 
