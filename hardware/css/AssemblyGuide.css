@@ -49,17 +49,6 @@ h2 {
     margin-left: -2em;
     margin-right: 0em;
 }
-@media print {
-    h2 {
-        page-break-before: always;
-        color: #d72;
-        background-color: #fff;
-        border-bottom: 1px solid #ccc;
-        padding: 0px 0px;
-        margin-left:0;
-        margin-right:0;
-    }
-}
 
 h4 {
   color: #111;
@@ -164,4 +153,26 @@ td img:hover {
     -moz-transform: scale(2);
     -o-transform: scale(2);
     transform: scale(2);
+}
+
+
+@media print {
+    #mdcontent:before {
+        display:none;
+    }
+    
+    h2 {
+        page-break-before: always;
+        color: #d72;
+        background-color: #fff;
+        border-bottom: 1px solid #ccc;
+        padding: 0px 0px;
+        margin-left:0;
+        margin-right:0;
+    }
+    
+    th {
+        color: black;
+        border-bottom: 1px solid #888;
+    }
 }
