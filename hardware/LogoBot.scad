@@ -9,6 +9,7 @@
 // Master include statement, causes everything else for the model to be included
 include <config/config.scad>
 
+STLPath = "stl/";
 
 // Master assembly
 //   Defined within: assemblies/LogoBot.scad

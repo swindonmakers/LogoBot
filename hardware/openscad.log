@@ -1,3 +1,2 @@
-2014-10-21 13:20:24.252 OpenSCAD[12573:707]   compiled module: 0x10296f160
-2014-10-21 13:20:24.446 OpenSCAD[12573:707] Compiling design (CSG Products normalization)...
-2014-10-21 13:20:24.447 OpenSCAD[12573:707] Normalized CSG tree has 26 elements
+2014-10-21 14:22:37.247 OpenSCAD[15309:707]   compiled module: 0x102d670f0
+2014-10-21 14:22:37.248 OpenSCAD[15309:707] ECHO: "MarbleCaster.stl"

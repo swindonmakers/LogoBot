@@ -9,7 +9,7 @@ import sys
 import shutil
 import openscad
 
-source_dir = "scad"
+source_dir = "assemblies"
 
 def find_scad_file(assembly):
     for filename in os.listdir(source_dir):
@@ -105,22 +105,19 @@ class BOM:
         for ass in sorted(self.assemblies):
             print("%3d %s" % (self.assemblies[ass].count, self.assemblies[ass].make_name(ass)), file=file)
 
-def boms(machine, assembly = None):
+def boms(assembly = None):
 
-    bom_dir = machine + "/bom"
+    bom_dir = "bom"
     if assembly:
         bom_dir += "/accessories"
         if not os.path.isdir(bom_dir):
             os.makedirs(bom_dir)
     else:
-        assembly = "machine_assembly"
+        assembly = "LogoBotAssembly"
         if os.path.isdir(bom_dir):
             shutil.rmtree(bom_dir)
         os.makedirs(bom_dir)
 
-    f = open("scad/conf/machine.scad","wt")
-    f. write("include <%s_config.scad>\n" % machine);
-    f.close()
     #
     # Find the scad file that makes the module
     #
@@ -130,9 +127,9 @@ def boms(machine, assembly = None):
     #
     # make a file to use the module
     #
-    bom_maker_name = source_dir + "/bom.scad"
+    bom_maker_name = bom_dir + "/bom.scad"
     f = open(bom_maker_name, "w")
-    f.write("use <%s>\n" % scad_file)
+    f.write("include <../config/config.scad>\n")
     f.write("%s();\n" % assembly);
     f.close()
     #
@@ -164,7 +161,7 @@ def boms(machine, assembly = None):
                     if stack:
                         main.assemblies[stack[-1]].add_part(s)
 
-    if assembly == "machine_assembly":
+    if assembly == "LogoBotAssembly":
         main.print_bom(True, open(bom_dir + "/bom.txt","wt"))
 
     for ass in sorted(main.assemblies):
@@ -177,12 +174,4 @@ def boms(machine, assembly = None):
     print(" done")
 
 if __name__ == '__main__':
-    args = len(sys.argv)
-    if args > 1:
-        if args > 2:
-            boms(sys.argv[1], sys.argv[2])
-        else:
-            boms(sys.argv[1])
-    else:
-        print("usage: bom mendel|sturdy|your_machine [assembly_name]")
-        sys.exit(1)
+    boms()

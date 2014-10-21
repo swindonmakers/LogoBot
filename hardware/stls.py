@@ -8,7 +8,7 @@ import c14n_stl
 
 from bom import source_dir
 
-def bom_to_stls(machine, assembly = None):
+def bom_to_stls(assembly = None):
     #
     # Make a list of all the stls in the BOM
     #
@@ -17,7 +17,7 @@ def bom_to_stls(machine, assembly = None):
         bom = "accessories/%s.txt" % assembly
     else:
         bom = "bom.txt"
-    for line in open(machine + "/bom/" + bom, "rt").readlines():
+    for line in open("bom/" + bom, "rt").readlines():
         words = line.split()
         if words:
             last_word = words[-1]
@@ -25,24 +25,13 @@ def bom_to_stls(machine, assembly = None):
                 stl_files.append(last_word)
     return stl_files
 
-def stls(machine, parts = None):
+def stls(parts = None):
     #
     # Make the target directory
     #
-    target_dir = machine + "/stls"
-    if os.path.isdir(target_dir):
-        if not parts:
-            shutil.rmtree(target_dir)   #if making the BOM clear the directory first
-            os.makedirs(target_dir)
-    else:
+    target_dir = "stl"
+    if not os.path.isdir(target_dir):
         os.makedirs(target_dir)
-
-    #
-    # Set the target machine
-    #
-    f = open(source_dir + "/conf/machine.scad","wt")
-    f. write("include <%s_config.scad>\n" % machine);
-    f.close()
 
     #
     # Decide which files to make
@@ -50,7 +39,8 @@ def stls(machine, parts = None):
     if parts:
         targets = list(parts)           #copy the list so we dont modify the list passed in
     else:
-        targets = bom_to_stls(machine)
+        targets = bom_to_stls()
+    
     #
     # Find all the scad files
     #
@@ -64,14 +54,17 @@ def stls(machine, parts = None):
                 words = line.split()
                 if(len(words) and words[0] == "module"):
                     module = words[1].split('(')[0]
-                    stl = module.replace("_stl", ".stl")
+                    stl = module.replace("_STL", ".stl")
                     if stl in targets:
                         #
                         # make a file to use the module
                         #
                         stl_maker_name = source_dir + "/stl.scad"
                         f = open(stl_maker_name, "w")
-                        f.write("use <%s>\n" % filename)
+                        f.write("include <../config/config.scad>\n")
+                        f.write("UseSTL=false;\n");
+                        f.write("DebugConnectors=false;\n");
+                        f.write("DebugCoordinateFrames=false;\n");
                         f.write("%s();\n" % module);
                         f.close()
                         #
@@ -95,8 +88,4 @@ def stls(machine, parts = None):
     return used
 
 if __name__ == '__main__':
-    if len(sys.argv) > 1:
-        stls(sys.argv[1], sys.argv[2:])
-    else:
-        print("usage: stls [mendel|sturdy|your_machine] [part.stl ...]")
-    sys.exit(1)
+    stls()
