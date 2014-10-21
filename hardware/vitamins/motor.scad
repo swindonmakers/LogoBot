@@ -70,5 +70,6 @@ Motor_body_h = 19.24;
 
 
 // Usage
+// logo_motor(x,y,z);
 // logo_motor(90,0,0);
     
