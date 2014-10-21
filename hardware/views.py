@@ -8,7 +8,7 @@ import shutil
 import openscad
 
 
-def views():
+def views(force_update):
     scad_dir = "views"
     render_dir = "images"
 
@@ -23,7 +23,7 @@ def views():
         scad_name = scad_dir + os.sep + scad
         png_name = render_dir + os.sep + scad[:-4] + "png"
 
-        print scad_name
+        print "Checking: " + scad_name
 
         for line in open(scad_name, "r").readlines():
             words = line.split()
@@ -45,7 +45,7 @@ def views():
                     d = float(words[10])
                     camera = "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f" % (dx, dy, dz, rx, ry, rz, d)
                     
-                    if not os.path.isfile(png_name) or os.path.getmtime(png_name) < os.path.getmtime(scad_name):                    
+                    if (force_update) or (not os.path.isfile(png_name) or os.path.getmtime(png_name) < os.path.getmtime(scad_name)):                    
 						openscad.run("--projection=p",
 									("--imgsize=%d,%d" % (w, h)),
 									"--camera=" + camera,
@@ -54,5 +54,8 @@ def views():
                     print
 
 if __name__ == '__main__':
-    views()
+	if len(sys.argv) == 2:
+		views(sys.argv[1])
+	else:
+		views(0)
     

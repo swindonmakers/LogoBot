@@ -14,7 +14,7 @@ group() {
 				}
 				color([1, 0.647059, 0, 1]) {
 					group() {
-						import(file = "../stl/LogoBotBase.stl", layer = "", origin = [0, 0], scale = 1, convexity = 1, $fn = 0, $fa = 5, $fs = 0.5, timestamp = 0);
+						import(file = "../stl/LogoBotBase.stl", layer = "", origin = [0, 0], scale = 1, convexity = 1, $fn = 0, $fa = 5, $fs = 0.5, timestamp = 1413897757);
 					}
 				}
 			}
@@ -163,7 +163,7 @@ group() {
 												}
 												color([1, 0.5, 0, 1]) {
 													group() {
-														import(file = "../stl/MarbleCaster.stl", layer = "", origin = [0, 0], scale = 1, convexity = 1, $fn = 64, $fa = 5, $fs = 0.5, timestamp = 1413797649);
+														import(file = "../stl/MarbleCaster.stl", layer = "", origin = [0, 0], scale = 1, convexity = 1, $fn = 64, $fa = 5, $fs = 0.5, timestamp = 1413897816);
 													}
 												}
 											}

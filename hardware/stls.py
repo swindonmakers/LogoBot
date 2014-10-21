@@ -59,7 +59,7 @@ def stls(parts = None):
                         #
                         # make a file to use the module
                         #
-                        stl_maker_name = source_dir + "/stl.scad"
+                        stl_maker_name = target_dir + "/stl.scad"
                         f = open(stl_maker_name, "w")
                         f.write("include <../config/config.scad>\n")
                         f.write("UseSTL=false;\n");
@@ -68,11 +68,14 @@ def stls(parts = None):
                         f.write("%s();\n" % module);
                         f.close()
                         #
-                        # Run openscad on the created file
+                        # Run openscad on the created file if timestamps have changed
                         #
                         stl_name = target_dir + "/" + module[:-4] + ".stl"
-                        openscad.run("-D$bom=1","-o", stl_name, stl_maker_name)
-                        c14n_stl.canonicalise(stl_name)
+                        if (not os.path.isfile(stl_name) or os.path.getmtime(stl_name) < os.path.getmtime(source_dir + "/" + filename)):
+                            openscad.run("-D$bom=1","-o", stl_name, stl_maker_name)
+                            c14n_stl.canonicalise(stl_name)
+                        else:
+                            print filename + " is up to date"
                         targets.remove(stl)
                         #
                         # Add the files on the BOM to the used list for plates.py
