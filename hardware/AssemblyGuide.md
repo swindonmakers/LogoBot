@@ -59,7 +59,7 @@ All the diagrams can be viewed in OpenSCAD allowing real time zooming, rotating 
 
 | Qty | Sub Assembly Name |
 | -- | -- |
-| 1 | [Caster Assembly](#1. Caster Assembly) |
+| 1 | [Caster Assembly](#1-caster-assembly) |
 
 
 ### Assembly
