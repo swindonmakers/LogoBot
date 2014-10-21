@@ -12,7 +12,7 @@
 	
 	Returns:
 		Complete LogoBot model
-	
+		
 */
 
 
