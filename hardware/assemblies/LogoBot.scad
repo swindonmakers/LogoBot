@@ -61,7 +61,7 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 			
 		// PenLift
 		//   Placeholder of a micro servo to illustrate having conditional design elements
-		if (PenLift) {
+		if (PenLift || true) {
 			// TODO: wrap into a PenLift sub-assembly
 			attach( Base_Con_PenLift, MicroServo_Con_Horn, Explode=Explode )
 				MicroServo();

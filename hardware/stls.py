@@ -5,6 +5,7 @@ import openscad
 import shutil
 import sys
 import c14n_stl
+import re
 
 from bom import source_dir
 
@@ -14,15 +15,13 @@ def bom_to_stls(assembly = None):
     #
     stl_files = []
     if assembly:
-        bom = "accessories/%s.txt" % assembly
+        bom = "accessories/%s.md" % assembly
     else:
-        bom = "bom.txt"
+        bom = "bom.md"
     for line in open("bom/" + bom, "rt").readlines():
-        words = line.split()
-        if words:
-            last_word = words[-1]
-            if len(last_word) > 4 and last_word[-4:] == ".stl":
-                stl_files.append(last_word)
+        r = re.search(r'\[(.*\.stl)\]', line, re.M|re.I)
+        if r:
+            stl_files.append(r.group(1))
     return stl_files
 
 def stls(parts = None):

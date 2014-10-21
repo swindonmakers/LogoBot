@@ -7,10 +7,10 @@ include <../vitamins/Breadboard.scad>
 DebugCoordinateFrame = true;
 DebugConnectors = true;
 
-Breadboard(Breadboard170);
+Breadboard(Breadboard_170);
 
-translate([Breadboard_Width(Breadboard170) + 10, 0, 0])
-	Breadboard(Breadboard270, BoardColor = "red");
+translate([Breadboard_Width(Breadboard_170) + 10, 0, 0])
+	Breadboard(Breadboard_270, BoardColor = "red");
 	
-translate([0, Breadboard_Depth(Breadboard270) + 10, 0])
-	Breadboard(Breadboard400, BoardColor = [0.3,1,0.3]);
+translate([0, Breadboard_Depth(Breadboard_270) + 10, 0])
+	Breadboard(Breadboard_400, BoardColor = [0.3,1,0.3]);

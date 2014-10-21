@@ -2,7 +2,8 @@
 
 Logobot | Marblecaster |  Qty | Vitamin
 --- | --- |  --- | --- 
-  | 1|  1  | Marble_16mm
+  | 1|  1  | [Marble_16mm](../vitamins/Marble.scad)
+ 1|  |  1  | [MicroServo_9g](../vitamins/MicroServo.scad)
 
 ### Printed Parts
 

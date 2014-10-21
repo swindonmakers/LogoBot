@@ -27,10 +27,10 @@ Breadboard_PinWidth   = 1;
 
 // Breadboard Types
 
-//                Width, Depth, Thickness, PinsWide, PowerRails, PowerRailGrouping, GutterWidth, MountPoints, MountInsetX, MountInsetY
-Breadboard170 = [ 47,    35,    8.5,       17,       0,          0,                 32,          2,           4,           0 ];
-Breadboard270 = [ 85.4,  45,    8.3,       23,       1,          5,                 58,          4,           5,           6 ];
-Breadboard400 = [ 85,   55,    9.7,        30,       2,          5,                 83,          0,           5,           6 ];
+//                Width, Depth, Thickness, PinsWide, PowerRails, PowerRailGrouping, GutterWidth, MountPoints, MountInsetX, MountInsetY, TypeName
+Breadboard_170 = [ 47,    35,    8.5,       17,       0,          0,                 32,          2,           4,           0,           "170" ];
+Breadboard_270 = [ 85.4,  45,    8.3,       23,       1,          5,                 58,          4,           5,           6,           "270"  ];
+Breadboard_400 = [ 85,   55,    9.7,        30,       2,          5,                 83,          0,           5,           6,           "400"  ];
 
 
 // Breadboard Type Getters
@@ -45,7 +45,7 @@ function Breadboard_GutterWidth(BreadboardType) = BreadboardType[6];
 function Breadboard_MountPoints(BreadboardType) = BreadboardType[7];
 function Breadboard_MountInsetX(BreadboardType) = BreadboardType[8];
 function Breadboard_MountInsetY(BreadboardType) = BreadboardType[9];
-
+function Breadboard_TypeName(BreadboardType) = BreadboardType[10];
 
 // Breadboard Utility Getters
 
@@ -95,7 +95,7 @@ function Breadboard_Con_TopRight(BreadboardType) = [
 	];
 
 
-module Breadboard(BreadboardType = Breadboard170, ShowPins=true, BoardColor = "white") {
+module Breadboard(BreadboardType = Breadboard_170, ShowPins=true, BoardColor = "white") {
 	
 	// local shortcuts
 	
@@ -112,6 +112,7 @@ module Breadboard(BreadboardType = Breadboard170, ShowPins=true, BoardColor = "w
 	mp =  Breadboard_MountPoints(BreadboardType);
 	mix = Breadboard_MountInsetX(BreadboardType);
 	miy = Breadboard_MountInsetY(BreadboardType);
+	tn = Breadboard_TypeName(BreadboardType);
 	
 	// calculations
 	
@@ -126,6 +127,8 @@ module Breadboard(BreadboardType = Breadboard170, ShowPins=true, BoardColor = "w
 	
 	// power pin offset, for uneven numbers of power pins
 	prpo = (pinsWide - prp) * ps / 2;
+	
+	Vitamin("Breadboard",tn);
 	
 	if (DebugCoordinateFrame) frame();
 	

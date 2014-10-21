@@ -91,7 +91,7 @@ class BOM:
                             file.write("%2d|" % bom.vitamins[part])
                         else:
                             file.write("  |")
-                print("%3d" % self.vitamins[part], " | "+description, file=file)
+                print("%3d" % self.vitamins[part], " | ["+description+"](../vitamins/"+description.split("_")[0]+".scad)", file=file)
 
             print(file=file)
         

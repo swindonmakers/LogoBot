@@ -4,7 +4,7 @@
 
  Qty | Vitamin
  --- | --- 
-  1  | Marble_16mm
+  1  | [Marble_16mm](../vitamins/Marble.scad)
 
 ### Printed Parts
 

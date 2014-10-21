@@ -1,5 +1,11 @@
 ## LogoBot Assembly
 
+### Vitamins
+
+ Qty | Vitamin
+ --- | --- 
+  1  | [MicroServo_9g](../vitamins/MicroServo.scad)
+
 ### Printed Parts
 
  Qty | STL Filename | Image

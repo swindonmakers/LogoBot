@@ -24,7 +24,7 @@ module STL(name) {                      // name an stl
         echo(str(name,".stl"));
 }
 
-module Vitamin(name) {                  // name a vitamin
+module Vitamin(name,typeName) {                  // name a vitamin
     if(BOMLevel > 1)
-        echo(name);
+        echo(str(name,"_",typeName));
 }
