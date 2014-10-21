@@ -39,14 +39,14 @@ All the diagrams can be viewed in OpenSCAD allowing real time zooming, rotating 
 
 Qty | STL Filename | Image
 --- | ------------ | -------
-1 | MarbleCaster.stl | ![](images/MarbleCaster_STL.png)
-
+1 | [MarbleCaster.stl](stl/MarbleCaster.stl) | ![](images/MarbleCaster_STL.png)
 
 ###Assembly
 
 ![](images/MarbleCasterAssembly.png)
 
 * Insert the marble into the printed housing
+
 
 
 ## 2. Base Assembly
@@ -60,7 +60,6 @@ Qty | STL Filename | Image
 Qty | Sub Assembly Name
 --- | --------------
 1 | [Caster Assembly](#1-caster-assembly)
-
 
 ### Assembly
 
