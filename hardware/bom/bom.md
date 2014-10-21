@@ -15,5 +15,5 @@ Logobot | Marblecaster |  Qty | STL Filename | Image
 
 Qty | Sub-Assembly Name
 --- | ---
-  1 | LogoBot
-  1 | MarbleCaster
+  1 | [LogoBot Assembly](#LogoBot Assembly)
+  1 | [MarbleCaster Assembly](#MarbleCaster Assembly)

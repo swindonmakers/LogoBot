@@ -19,25 +19,22 @@ All the diagrams can be viewed in OpenSCAD allowing real time zooming, rotating 
 
 * Screwdriver ?
 
-#### Consumables
-
-* 4x AA Batteries
 
 
+## Bill of Materials
 
-## 1. Caster Assembly
+Make sure you have all of the following parts before you begin.  The tables show the number of vitamins/parts required for each sub-assembly, as well as the total.
 
-###Vitamins
+[BOM](bom/bom.md)
 
-Qty | Vitamin
---- | --------------
-1   | 16mm Marble
+### Consumables
 
-### Printed Parts
+Qty | Item
+--- | ---
+4   | AA Batteries
 
-Qty | STL Filename | Image
---- | ------------ | -------
-1 | [MarbleCaster.stl](stl/MarbleCaster.stl) | ![](images/MarbleCaster_STL.png)
+
+[MarbleCaster BOM](bom/MarbleCaster.md)
 
 ###Assembly
 
@@ -47,17 +44,7 @@ Qty | STL Filename | Image
 
 
 
-## 2. Base Assembly
-
-### Vitamins
-
-None (yet)
-
-### Sub-Assemblies
-
-Qty | Sub Assembly Name
---- | --------------
-1 | [Caster Assembly](#1-caster-assembly)
+[LogoBot BOM](bom/LogoBot.md)
 
 ### Assembly
 

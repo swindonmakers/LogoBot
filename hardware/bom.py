@@ -134,7 +134,7 @@ class BOM:
             print("--- | ---", file=file)
             
             for ass in sorted(self.assemblies):
-                print("%3d | %s" % (self.assemblies[ass].count, self.assemblies[ass].make_name(ass)), file=file)
+                print("%3d | %s" % (self.assemblies[ass].count, "[" + self.assemblies[ass].make_name(ass) + " Assembly](#"+self.assemblies[ass].make_name(ass)+" Assembly)"), file=file)
 
 def boms(assembly = None):
 
@@ -203,7 +203,7 @@ def boms(assembly = None):
         print("Writing BOM for sub-assembly: "+ass)
         f = open(bom_dir + "/" + ass + ".md", "wt");
         bom = main.assemblies[ass]
-        print("## " + bom.make_name(ass), file=f)
+        print("## " + bom.make_name(ass) + " Assembly", file=f)
         print(file=f)
         bom.print_bom(False, f)
         f.close()

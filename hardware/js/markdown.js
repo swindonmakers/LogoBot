@@ -1645,13 +1645,11 @@ if(typeof exports == 'undefined'){
         no_leading_pipe = /^ {0,3}(\S(?:\\.|[^\\|])*\|.*)\n {0,3}([\-:]+\s*\|[\-| :]*)\n((?:(?:\\.|[^\\|])*\|.*(?:\n|$))*)(?=\n|$)/,
         i,
         m;
-    console.log(m);
     if ( ( m = block.match( leading_pipe ) ) ) {
       // remove leading pipes in contents
       // (header and horizontal rule already have the leading pipe left out)
       m[3] = m[3].replace(/^\s*\|/gm, '');
     } else if ( ! ( m = block.match( no_leading_pipe ) ) ) {
-      console.log(m);
       return undefined;
     }
 

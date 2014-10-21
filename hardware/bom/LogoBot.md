@@ -1,4 +1,4 @@
-## LogoBot
+## LogoBot Assembly
 
 ### Printed Parts
 
@@ -10,4 +10,4 @@
 
 Qty | Sub-Assembly Name
 --- | ---
-  1 | MarbleCaster
+  1 | [MarbleCaster Assembly](#MarbleCaster Assembly)
