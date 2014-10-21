@@ -13,7 +13,8 @@ use <vector.scad>
 
 // default connector
 DefCon = [[0,0,0],[0,0,1],0,0,0];
-
+DefaultConnector = DefCon;
+Con_Default = DefCon;
 
 // Connector getter functions
 
@@ -67,7 +68,7 @@ module connector(c,clr="Gray")
 //--    a -> Connector of the main part
 //--    b -> Connector of the attachable part
 //-------------------------------------------------------------------------
-module attach(a,b)
+module attach(a,b, Explode=false, ExplodeSpacing = 10)
 {
   //-- Get the data from the connectors
   pos1 = a[0];  //-- Attachment point. Main part
@@ -97,7 +98,15 @@ module attach(a,b)
     rotate(a=roll, v=v)  rotate(a=ang, v=raxis)
       //-- Attachable part to the origin
       translate(-pos2)
-		children(i);
+        translate([0,0, Explode ? -ExplodeSpacing : 0]) {
+		    children(i);
+		
+		    if (Explode) {
+		        // show attachment axis
+		        color([0,0,0, 0.5])
+		            vector(unitv(v) * ExplodeSpacing, l_arrow=2, mark=false);
+		    }
+		}
 }
 
 

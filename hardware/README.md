@@ -8,6 +8,7 @@ File Structure
 **This Directory**
 
 * LogoBot.scad - the complete reference robot design, open this in OpenSCAD to view the completed model
+* [AssemblyGuide.md](AssemblyGuide.md) - detailed assembly instructions
 
 **Sub Directories**
 

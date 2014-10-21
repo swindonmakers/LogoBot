@@ -45,12 +45,12 @@ def views():
                     d = float(words[10])
                     camera = "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f" % (dx, dy, dz, rx, ry, rz, d)
                     
-                    #if not os.path.isfile(png_name) or os.path.getmtime(png_name) < os.path.getmtime(scad_name):                    
-                    openscad.run("--projection=p",
-								("--imgsize=%d,%d" % (w, h)),
-								"--camera=" + camera,
-								"-o", png_name, 
-								scad_name)
+                    if not os.path.isfile(png_name) or os.path.getmtime(png_name) < os.path.getmtime(scad_name):                    
+						openscad.run("--projection=p",
+									("--imgsize=%d,%d" % (w, h)),
+									"--camera=" + camera,
+									"-o", png_name, 
+									scad_name)
                     print
 
 if __name__ == '__main__':

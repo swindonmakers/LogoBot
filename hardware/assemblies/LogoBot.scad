@@ -16,7 +16,7 @@
 */
 
 
-module LogoBotAssembly ( PenLift=false ) {
+module LogoBotAssembly ( PenLift=false, Explode=false ) {
 	
 	// TODO: needs to be translated up to correct height
 	translate([0, 0, 0]) {
@@ -50,7 +50,7 @@ module LogoBotAssembly ( PenLift=false ) {
 		// Caster
 		//   Example of using attach
 		// TODO: Insert correct ground clearance!
-		attach(Base_Con_Caster, MarbleCastor_Con_Default)
+		attach(Base_Con_Caster, MarbleCastor_Con_Default, Explode=Explode, ExplodeSpacing=15)
 			MarbleCasterAssembly( GroundClearance = 20);
 		
 			
@@ -61,7 +61,7 @@ module LogoBotAssembly ( PenLift=false ) {
 		//   Placeholder of a micro servo to illustrate having conditional design elements
 		if (PenLift) {
 			// TODO: wrap into a PenLift sub-assembly
-			attach( Base_Con_PenLift, MicroServo_Con_Horn )
+			attach( Base_Con_PenLift, MicroServo_Con_Horn, Explode=Explode )
 				MicroServo();
 		}
 	}

@@ -15,6 +15,7 @@
 		A Marble Caster assembly, rendered and colored
 */
 
+MarbleCaster_BallRadius = 16/2;
 
 
 // Connectors
@@ -25,9 +26,16 @@
 MarbleCastor_Con_Default				= [ [0,0,0], [0,0,1], 0, BaseThickness, 10];
 
 
-module MarbleCasterAssembly ( GroundClearance = 20 ) {
+function MarbleCastor_Con_Ball(GroundClearance) = [ 
+    [0,0, -GroundClearance + MarbleCaster_BallRadius], 
+    [0,0,1], 
+    0, BaseThickness, 10
+];
 
-	ballr = 16/2;
+
+module MarbleCasterAssembly ( GroundClearance = 20, Explode=false ) {
+
+	ballr = MarbleCaster_BallRadius;
 	
 	// debug coordinate frame?
 	if (DebugCoordinateFrames) {
@@ -44,8 +52,8 @@ module MarbleCasterAssembly ( GroundClearance = 20 ) {
 	
  	
 	// caster ball
-	color([0.7, 0.7, 0.7, 0.5])
-		translate([0,0, -GroundClearance + ballr])
+	attach(MarbleCastor_Con_Ball(GroundClearance), DefaultConnector, Explode=Explode, ExplodeSpacing = 2*ballr)
+		color([0.7, 0.7, 0.7, 0.5])
 		sphere(ballr, $fn=32);
 }
 
