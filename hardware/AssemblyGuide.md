@@ -37,9 +37,9 @@ All the diagrams can be viewed in OpenSCAD allowing real time zooming, rotating 
 
 ### Printed Parts
 
-| Qty | STL Filename | Image |
-| -- | -- | -- |
-| 1 | MarbleCaster.stl | ![](images/MarbleCaster_STL.png) |
+Qty | STL Filename | Image
+--- | ------------ | -------
+1 | MarbleCaster.stl | ![](images/MarbleCaster_STL.png)
 
 
 ###Assembly
@@ -57,9 +57,9 @@ All the diagrams can be viewed in OpenSCAD allowing real time zooming, rotating 
 
 ### Sub-Assemblies
 
-| Qty | Sub Assembly Name |
-| -- | -- |
-| 1 | [Caster Assembly](#1-caster-assembly) |
+Qty | Sub Assembly Name
+--- | --------------
+1 | [Caster Assembly](#1-caster-assembly)
 
 
 ### Assembly
