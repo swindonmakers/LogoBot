@@ -28,6 +28,9 @@ h2 {
     margin-top: 2em;
     border-bottom: 1px solid #ddd;
 }
+@media print {
+    h2 {page-break-before: always;}
+}
 
 h4 {
   color: #111;
