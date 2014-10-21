@@ -56,54 +56,85 @@ class BOM:
         return ass.replace("assembly", "assemblies")
 
     def print_bom(self, breakdown, file = None):
-        print("Vitamins:", file=file)
-        if breakdown:
-            longest = 0
-            for ass in self.assemblies:
-                name = ass.replace("_assembly","")
-                longest = max(longest, len(name))
-            for i in range(longest):
+        
+        if (self.vitamins):
+            print("### Vitamins", file=file)
+            print(file=file)
+        
+            headings = ""
+            underline = ""
+            if breakdown:
+                # Table headings
                 line = ""
+                underline = ""
                 for ass in sorted(self.assemblies):
                     name = ass.replace("_assembly","").replace("_"," ").capitalize()
-                    index = i - (longest - len(name))
-                    if index < 0:
-                        line += "   "
-                    else:
-                        line += (" %s " % name[index])
-                print(line[:-1], file=file)
+                    headings += name
+                    underline += "---"
+                    headings += " | "
+                    underline += " | "
+            headings += " Qty | Vitamin"
+            underline += " --- | --- "
+            print(headings, file=file)
+            print(underline, file=file)
+        
+            for part in sorted(self.vitamins):
+                if ': ' in part:
+                    part_no, description = part.split(': ')
+                else:
+                    part_no, description = "", part
+                if breakdown:
+                    # Row for each vitamin
+                    for ass in sorted(self.assemblies):
+                        bom = self.assemblies[ass]
+                        if part in bom.vitamins:
+                            file.write("%2d|" % bom.vitamins[part])
+                        else:
+                            file.write("  |")
+                print("%3d" % self.vitamins[part], " | "+description, file=file)
 
-        for part in sorted(self.vitamins):
-            if ': ' in part:
-                part_no, description = part.split(': ')
-            else:
-                part_no, description = "", part
+            print(file=file)
+        
+        if (self.printed):
+            print("### Printed Parts", file=file)
+            print(file=file)
+            
+            # Table headings
+            headings = ""
+            underline = ""
             if breakdown:
                 for ass in sorted(self.assemblies):
-                    bom = self.assemblies[ass]
-                    if part in bom.vitamins:
-                        file.write("%2d|" % bom.vitamins[part])
-                    else:
-                        file.write("  |")
-            print("%3d" % self.vitamins[part], description, file=file)
-
-        print(file=file)
-        print("Printed:", file=file)
-        for part in sorted(self.printed):
-            if breakdown:
-                for ass in sorted(self.assemblies):
-                    bom = self.assemblies[ass]
-                    if part in bom.printed:
-                        file.write("%2d|" % bom.printed[part])
-                    else:
-                        file.write("  |")
-            print("%3d" % self.printed[part], part, file=file)
+                    name = ass.replace("_assembly","").replace("_"," ").capitalize()
+                    headings += name
+                    underline += "---"
+                    headings += " | "
+                    underline += " | "
+            headings += " Qty | STL Filename | Image"
+            underline += " --- | --- | ---"
+            print(headings, file=file)
+            print(underline, file=file)
+            
+            # Row for each printed part
+            for part in sorted(self.printed):
+                if breakdown:
+                    for ass in sorted(self.assemblies):
+                        bom = self.assemblies[ass]
+                        if part in bom.printed:
+                            file.write("%2d|" % bom.printed[part])
+                        else:
+                            file.write("  |")
+                print("%3d" % self.printed[part], " | ["+part+"](../stl/"+part+") | ![](../images/"+part[:-4]+"_STL.png)", file=file)
 
         print(file=file)
         if self.assemblies:
-            print("Sub-assemblies:", file=file)
-        for ass in sorted(self.assemblies):
-            print("%3d %s" % (self.assemblies[ass].count, self.assemblies[ass].make_name(ass)), file=file)
+            print("### Sub-Assemblies", file=file)
+            print(file=file)
+            
+            print("Qty | Sub-Assembly Name", file=file)
+            print("--- | ---", file=file)
+            
+            for ass in sorted(self.assemblies):
+                print("%3d | %s" % (self.assemblies[ass].count, self.assemblies[ass].make_name(ass)), file=file)
 
 def boms(assembly = None):
 
@@ -135,8 +166,9 @@ def boms(assembly = None):
     #
     # Run openscad
     #
+    print("Generating BOM for "+assembly+" ...")
     openscad.run("-D","$bom=2","-o", "dummy.csg", bom_maker_name)
-    print("Generating bom ...", end=" ")
+    print("Parsing BOM ...")
 
     main = BOM()
     stack = []
@@ -161,13 +193,18 @@ def boms(assembly = None):
                     if stack:
                         main.assemblies[stack[-1]].add_part(s)
 
+    print("Found "+str(len(main.assemblies)) + " sub-assemblies")
+    
     if assembly == "LogoBotAssembly":
-        main.print_bom(True, open(bom_dir + "/bom.txt","wt"))
+        print("Writing summary BOM")
+        main.print_bom(True, open(bom_dir + "/bom.md","wt"))
 
     for ass in sorted(main.assemblies):
-        f = open(bom_dir + "/" + ass + ".txt", "wt");
+        print("Writing BOM for sub-assembly: "+ass)
+        f = open(bom_dir + "/" + ass + ".md", "wt");
         bom = main.assemblies[ass]
-        print(bom.make_name(ass) + ":", file=f)
+        print("## " + bom.make_name(ass), file=f)
+        print(file=f)
         bom.print_bom(False, f)
         f.close()
 

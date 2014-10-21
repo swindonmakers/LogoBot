@@ -1,7 +1,0 @@
-MarbleCaster:
-Vitamins:
-  1 Marble_16mm
-
-Printed:
-  1 MarbleCaster.stl
-

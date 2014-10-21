@@ -1,8 +1,0 @@
-LogoBot:
-Vitamins:
-
-Printed:
-  1 LogoBotBase.stl
-
-Sub-assemblies:
-  1 MarbleCaster
