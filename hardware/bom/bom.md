@@ -1,9 +1,9 @@
 ### Vitamins
 
-Logobot | Marblecaster |  Qty | Vitamin
---- | --- |  --- | --- 
-  | 1|  1  | [Marble_16mm](../vitamins/Marble.scad)
- 1|  |  1  | [MicroServo_9g](../vitamins/MicroServo.scad)
+Logobot | Marblecaster |  Qty | Vitamin | Image 
+--- | --- |  --- | --- | ---
+  | 1|  1  | [Marble_16mm](../vitamins/Marble.scad) | ![](../vitamins/views/Marble_16mm.png)
+ 1|  |  1  | [MicroServo_9g](../vitamins/MicroServo.scad) | ![](../vitamins/views/MicroServo_9g.png)
 
 ### Printed Parts
 

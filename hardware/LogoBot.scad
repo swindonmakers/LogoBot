@@ -10,6 +10,7 @@
 include <config/config.scad>
 
 STLPath = "stl/";
+VitaminSTL = "vitamins/stl/";
 
 // Master assembly
 //   Defined within: assemblies/LogoBot.scad

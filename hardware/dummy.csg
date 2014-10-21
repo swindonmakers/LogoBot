@@ -431,14 +431,14 @@ group() {
 												group() {
 													color([0, 0, 1, 0.8]) {
 														group() {
-															import(file = "vitamins/stl/MicroServo_Body_9g.stl", layer = "", origin = [0, 0], scale = 1, convexity = 1, $fn = 0, $fa = 5, $fs = 0.5, timestamp = 0);
+															import(file = "../vitamins/stl/MicroServo_Body_9g.stl", layer = "", origin = [0, 0], scale = 1, convexity = 1, $fn = 0, $fa = 5, $fs = 0.5, timestamp = 1413930494);
 														}
 													}
 												}
 												group() {
 													color([1, 1, 1, 0.8]) {
 														group() {
-															import(file = "vitamins/stl/MicroServo_Spline_9g.stl", layer = "", origin = [0, 0], scale = 1, convexity = 1, $fn = 0, $fa = 5, $fs = 0.5, timestamp = 0);
+															import(file = "../vitamins/stl/MicroServo_Spline_9g.stl", layer = "", origin = [0, 0], scale = 1, convexity = 1, $fn = 0, $fa = 5, $fs = 0.5, timestamp = 1413930494);
 														}
 													}
 												}

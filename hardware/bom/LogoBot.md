@@ -2,9 +2,9 @@
 
 ### Vitamins
 
- Qty | Vitamin
- --- | --- 
-  1  | [MicroServo_9g](../vitamins/MicroServo.scad)
+ Qty | Vitamin | Image 
+ --- | --- | ---
+  1  | [MicroServo_9g](../vitamins/MicroServo.scad) | ![](../vitamins/views/MicroServo_9g.png)
 
 ### Printed Parts
 

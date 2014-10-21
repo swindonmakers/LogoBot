@@ -46,6 +46,7 @@ DebugCoordinateFrames = 1; 		// set to 1 to debug, set to 0 for production
 UseSTL = true;
 STLPath = "../stl/";
 UseVitaminSTL = true;
+VitaminSTL = "../vitamins/stl/";
 
 // BOM
 

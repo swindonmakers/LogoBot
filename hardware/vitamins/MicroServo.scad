@@ -61,7 +61,7 @@ module MicroServo() {
 module MicroServo_Body() {
     color(Blue, 0.8) 
         if (UseVitaminSTL) {
-            import("vitamins/stl/MicroServo_Body_9g.stl");
+            import(str(VitaminSTL,"MicroServo_Body_9g.stl"));
         } 
         else 
         {
@@ -88,7 +88,7 @@ module MicroServo_Body() {
 module MicroServo_Spline() {
     color(White, 0.8) 
         if (UseVitaminSTL) {
-            import("vitamins/stl/MicroServo_Spline_9g.stl");
+            import(str(VitaminSTL,"MicroServo_Spline_9g.stl"));
         } 
         else 
         {
@@ -99,4 +99,8 @@ module MicroServo_Spline() {
 module MicroServo_Parts() {
     echo("_Body");
     echo("_Spline");
+}
+
+module MicroServo_View() {
+    echo("300 200 6.9 13.6 10.3 72 0 33 280");
 }

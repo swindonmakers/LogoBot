@@ -9,7 +9,7 @@
     
     <script>
     
-    function addIdsToHeadings() {
+    function polish() {
           // add ids to headings to accommodate anchor links
           $('h1').each(function(index) {
             $(this).attr('id', $(this).text().replace(/[\s]+/g, "-").replace(/[\.]+/g,"").toLowerCase());
@@ -20,6 +20,7 @@
           $('h3').each(function(index) {
             $(this).attr('id', $(this).text().replace(/[\s]+/g, "-").replace(/[\.]+/g,"").toLowerCase());
           });
+          
     }
     
     $(document).ready(function(){
@@ -60,11 +61,21 @@
                     
                     $(a).replaceWith(md);
                     
-                    addIdsToHeadings();
+                    polish();
                   });
               });
               
-              addIdsToHeadings();
+              polish();
+              
+              // hide broken images
+          $(window).load(function() { 
+               $("img").each(function(){ 
+                  var image = $(this); 
+                  if(image.context.naturalWidth == 0 || image.readyState == 'uninitialized'){  
+                     $(image).unbind("error").hide();
+                  } 
+               }); 
+            });
           
         });
       

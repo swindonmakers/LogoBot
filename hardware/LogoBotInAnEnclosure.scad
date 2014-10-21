@@ -13,6 +13,7 @@
 include <config/config.scad>
 
 STLPath = "stl/";
+VitaminSTL = "vitamins/stl/";
 
 EnclosureWidth 		= 500;
 EnclosureDepth 		= 500;

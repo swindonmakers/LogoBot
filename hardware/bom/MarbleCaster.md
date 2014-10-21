@@ -2,9 +2,9 @@
 
 ### Vitamins
 
- Qty | Vitamin
- --- | --- 
-  1  | [Marble_16mm](../vitamins/Marble.scad)
+ Qty | Vitamin | Image 
+ --- | --- | ---
+  1  | [Marble_16mm](../vitamins/Marble.scad) | ![](../vitamins/views/Marble_16mm.png)
 
 ### Printed Parts
 
