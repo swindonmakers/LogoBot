@@ -11,18 +11,20 @@
     $(document).ready(function(){
       
         $.get("AssemblyGuide.md",function(data,status){
-          $('#mdcontent').html(markdown.toHTML(data, markdown.Markdown.dialects.Maruku));
+                
+              $('#mdcontent').html(markdown.toHTML(data, markdown.Markdown.dialects.Maruku));
+  
+              // add ids to headings to accommodate anchor links
+              $('h1').each(function(index) {
+                $(this).attr('id', $(this).text().replace(/[\s]+/g, "-").replace(/[\.]+/g,"").toLowerCase());
+              });
+              $('h2').each(function(index) {
+                $(this).attr('id', $(this).text().replace(/[\s]+/g, "-").replace(/[\.]+/g,"").toLowerCase());
+              });
+              $('h3').each(function(index) {
+                $(this).attr('id', $(this).text().replace(/[\s]+/g, "-").replace(/[\.]+/g,"").toLowerCase());
+              });
           
-          // add ids to headings
-          $('h1').each(function(index) {
-            $(this).attr('id', $(this).text().replace(/[\s]+/g, "-").replace(/[\.]+/g,"").toLowerCase());
-          });
-          $('h2').each(function(index) {
-            $(this).attr('id', $(this).text().replace(/[\s]+/g, "-").replace(/[\.]+/g,"").toLowerCase());
-          });
-          $('h3').each(function(index) {
-            $(this).attr('id', $(this).text().replace(/[\s]+/g, "-").replace(/[\.]+/g,"").toLowerCase());
-          });
         });
       
     });
@@ -31,6 +33,8 @@
   <body>
    
     <div id="mdcontent"></div>
+    
+    <iframe id="mdsrc" src="AssemblyGuide.md" style="display:none"></iframe>
    
   </body>
 </html>

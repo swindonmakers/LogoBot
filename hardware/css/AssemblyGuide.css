@@ -22,6 +22,20 @@ body,p,td,div,li {
     box-shadow: 0px 0px 40px #888888;
 }
 
+/* Add HackSpace logo */
+#mdcontent:before {
+    content: '';
+    background: url('https://rawgithub.com/snhack/documentation/master/publicity/assets/hackspace_logo.svg');
+    background-size: 60px 60px;
+    width:60px;
+    height: 60px;
+    display:block;
+    position:fixed;
+    right: 10px;
+    top: 10px;
+    z-index:1000;
+}
+
 h1 { 
     margin-top: 2em; 
     font-size: 3em;
@@ -122,7 +136,8 @@ blockquote p {
 
 /* tables */
 table {
-
+    /* Indent tables */
+    margin-left: 2em; 
 }
 th {
     font-weight: normal;
