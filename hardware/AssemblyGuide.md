@@ -43,7 +43,7 @@ Qty | STL Filename | Image
 
 ![](images/MarbleCasterAssembly.png)
 
-* Insert the marble into the printed housing
+1. Insert the marble into the printed housing
 
 
 
@@ -63,4 +63,5 @@ Qty | Sub Assembly Name
 
 ![](images/LogoBotAssembly.png)
 
-* Push the caster assembly into the base so that it snaps into place
+1. Push the caster assembly into the base so that it snaps into place
+1. Fit the stepper motors
