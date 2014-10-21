@@ -9,8 +9,15 @@ body {
   padding: 0px;
   margin: 1em 1em;
 }
-body,p,td,div {
+body,p,td,div,li {
   word-wrap: break-word;
+  font-size:1em;
+}
+
+#mdcontent {
+    max-width: 50em;
+    margin: 0px auto;
+    text-align:left;
 }
 
 h1 { 
@@ -59,7 +66,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 li {
-  font-size: 110%
+  
 }
 li li {
   font-size: 100%
@@ -112,8 +119,8 @@ td {
 
 /* Thumbnail images in tables - e.g. Parts lists */
 td img {
-    height: 100px;
-    width: auto;
+    width: 100px;
+    height:auto;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     -o-transition: all .2s ease-in-out;
