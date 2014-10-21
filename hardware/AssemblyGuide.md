@@ -25,15 +25,13 @@ All the diagrams can be viewed in OpenSCAD allowing real time zooming, rotating 
 
 
 
-# Instructions
-
-
-
 ## 1. Caster Assembly
 
 ###Vitamins
 
-* 16mm Marble
+Qty | Vitamin
+--- | --------------
+1   | 16mm Marble
 
 ### Printed Parts
 
@@ -53,7 +51,7 @@ Qty | STL Filename | Image
 
 ### Vitamins
 
-* None (yet)
+None (yet)
 
 ### Sub-Assemblies
 

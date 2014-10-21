@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="css/AssemblyGuide.css">
+
+    <script src="js/markdown.js"></script>
+    <script src="js/jquery.js"></script>
+    
+    <script>
+    $(document).ready(function(){
+      
+        $.get("AssemblyGuide.md",function(data,status){
+          $('#mdcontent').html(markdown.toHTML(data, markdown.Markdown.dialects.Maruku));
+          
+          // add ids to headings
+          $('h1').each(function(index) {
+            $(this).attr('id', $(this).text().replace(/[\s]+/g, "-").replace(/[\.]+/g,"").toLowerCase());
+          });
+          $('h2').each(function(index) {
+            $(this).attr('id', $(this).text().replace(/[\s]+/g, "-").replace(/[\.]+/g,"").toLowerCase());
+          });
+          $('h3').each(function(index) {
+            $(this).attr('id', $(this).text().replace(/[\s]+/g, "-").replace(/[\.]+/g,"").toLowerCase());
+          });
+        });
+      
+    });
+    </script>
+</head>
+  <body>
+   
+    <div id="mdcontent"></div>
+   
+  </body>
+</html>
