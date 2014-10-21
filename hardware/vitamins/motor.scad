@@ -67,5 +67,8 @@ Motor_body_h = 19.24;
 			
 			}
 }
-logo_motor(90,0,0);
+
+
+// Usage
+// logo_motor(90,0,0);
     
