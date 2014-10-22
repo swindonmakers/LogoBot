@@ -3,59 +3,87 @@
 
 // Ratios make bolt heads grow relative to thread diameter.
 // Should probably be some kind of lookup to get to precise sizes
-BoltLib_HeadDiaRatio = 1.9;
+BoltLibrary_HeadDiaRatio = 1.9;
 BoltLibrary_HeadThicknessRatio = 1.3;
+
+// Connectors
+//
+// Connectors are defined as an array of 5 parameters:
+// 0: Translation vector as [x,y,z]
+// 1: Vector defining the normal of the connection as [x,y,z]
+// 2: Rotation angle for the connection
+// 3: Thickness of the mating part - used for bolt holes
+// 4: Clearance diameter of the mating hole - used for bolt holes
+
+BoltLibrary_HexHeadScrew_Con	= [ [0, 0, 0], [0, 0, 1], 0, 0, 0];
+BoltLibrary_HexHeadBolt_Con		= [ [0, 0, 0], [0, 0, 1], 0, 0, 0];
+BoltLibrary_Nut_Con				= [ [0, 0, 0], [0, 0, 1], 0, 0, 0];
 
 module HexHeadScrew(dia = 3, length = 20)
 {
-	// debug coordinate frame?
 	if (DebugCoordinateFrames) {
 		frame();
 	}
 
-	// Thread
-	translate([0,0,-length])
-		cylinder(r = dia/2, h = length + eta);
+	if (DebugConnectors) {
+		connector(BoltLibrary_HexHeadScrew_Con);
+	} 
 
-	// Head
-	difference()
-	{
-		cylinder(r = (dia*BoltLib_HeadDiaRatio)/2, h=dia * BoltLibrary_HeadThicknessRatio);
-		translate([0,0,1])
-			cylinder(r=dia/2, h=dia * BoltLibrary_HeadThicknessRatio, $fn=6);
+	color(MetalColor) {
+
+		// Thread
+		translate([0, 0, -length])
+			cylinder(r = dia / 2, h = length + eta);
+
+		// Head
+		difference() {
+			cylinder(r = (dia * BoltLibrary_HeadDiaRatio) /  2, h = dia * BoltLibrary_HeadThicknessRatio);
+			translate([0, 0, 1])
+				cylinder(r = dia / 2, h = dia * BoltLibrary_HeadThicknessRatio, $fn=6);
+		}
 	}
 }
 
 module HexHeadBolt(dia = 3, length = 20)
 {
-	// debug coordinate frame?
 	if (DebugCoordinateFrames) {
 		frame();
 	}
 
-	// Thread
-	translate([0,0,-length])
-		cylinder(r = dia/2, h = length + eta);
+	if (DebugConnectors) {
+		connector(BoltLibrary_HexHeadBolt_Con);
+	} 
 
-	// Head
-	difference()
-	{
-		cylinder(r = (dia*BoltLib_HeadDiaRatio)/2, h=dia * BoltLibrary_HeadThicknessRatio, $fn=6);
+	color(MetalColor) {
+
+		// Thread
+		translate([0, 0, -length])
+			cylinder(r = dia / 2, h = length + eta);
+
+		// Head
+		difference() {
+			cylinder(r = (dia * BoltLibrary_HeadDiaRatio) / 2, h=dia * BoltLibrary_HeadThicknessRatio, $fn=6);
+		}
 	}
 }
 
 module Nut(dia = 3)
 {
-	// debug coordinate frame?
 	if (DebugCoordinateFrames) {
 		frame();
 	}
 
-	translate([0,0,-dia * BoltLibrary_HeadThicknessRatio])
-	linear_extrude(dia * BoltLibrary_HeadThicknessRatio)
-		difference()
-		{
-			circle(r=(dia*BoltLib_HeadDiaRatio)/2, $fn=6);
-			circle(r=(dia)/2, $fn=6);
+	if (DebugConnectors) {
+		connector(BoltLibrary_Nut_Con);
+	} 
+
+	color(MetalColor) {
+
+		translate([0, 0, -dia * BoltLibrary_HeadThicknessRatio])
+		linear_extrude(dia * BoltLibrary_HeadThicknessRatio)
+		difference() {
+			circle(r = (dia * BoltLibrary_HeadDiaRatio) / 2, $fn=6);
+			circle(r = dia / 2, $fn=6);
 		}
+	}
 }
