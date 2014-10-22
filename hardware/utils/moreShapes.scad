@@ -3,9 +3,6 @@
 
 // some borrowed from nophead / Mendel90 utils.scad
 
-include <polyholes.scad>
-include <teardrops.scad>
-
 // fudge
 eta = 0.01;
 
@@ -120,7 +117,7 @@ module rotate_extrude_ext(r, childW, childH, convexity) {
     if(end_angle > start_angle)
 		render()
         intersection() {
-			rotate_extrude(convexity=convexity) translate([r,0,0]) child(0);
+			rotate_extrude(convexity=convexity) translate([r,0,0]) children(0);
 
 			translate([0,0,-childH/2 - 1])
 			linear_extrude(height=childH+2)
