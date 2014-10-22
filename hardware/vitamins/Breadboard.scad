@@ -95,6 +95,15 @@ function Breadboard_Con_TopRight(BreadboardType) = [
 	];
 
 
+// all connectors in an array - use Breadboard_MountPoints() as max iterator value
+function Breadboard_Cons(BreadboardType) = [
+        Breadboard_Con_BottomLeft(BreadboardType),
+        Breadboard_Con_BottomRight(BreadboardType),
+        Breadboard_Con_TopLeft(BreadboardType),
+        Breadboard_Con_TopRight(BreadboardType)
+    ];
+
+
 module Breadboard(BreadboardType = Breadboard_170, ShowPins=true, BoardColor = "white") {
 	
 	// local shortcuts
