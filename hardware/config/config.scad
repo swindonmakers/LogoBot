@@ -40,6 +40,18 @@ DebugConnectors = 1;  			// set to 1 to debug, set to 0 for production
 DebugCoordinateFrames = 1; 		// set to 1 to debug, set to 0 for production
 
 
+// Visualisation
+
+// set to true to use STL for printed parts rather than rendering on the fly
+UseSTL = true;
+STLPath = "../stl/";
+UseVitaminSTL = true;
+VitaminSTL = "../vitamins/stl/";
+
+// BOM
+
+BOMLevel = 2;
+
 // Include all other configuration files
 
 include <colors.scad>

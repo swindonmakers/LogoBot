@@ -17,6 +17,11 @@
 		A Micro Servo model, colored
 */
 
+// Types
+
+// dummy type to support part STL generation
+MicroServo_9g = "9g";
+
 
 // Connectors
 
@@ -36,6 +41,8 @@ MicroServo_Con_Fixing2			= [ [32.8-2.65 - 4.65, 6.3, 16.3 + 2], [0,0,-1], 0, 2, 
 
 module MicroServo() {
 
+    Vitamin("MicroServo","9g");
+
 	if (DebugCoordinateFrames) {
 		frame();
 	}
@@ -46,27 +53,54 @@ module MicroServo() {
 		connector(MicroServo_Con_Fixing2);
 	}
 
+	MicroServo_Body();
 	
-	color(Blue, 0.8) {
-		// body - bottom
-		cube([23.5,12.6,16.4]);
-		
-		// body - mounting flange
-		translate([-4.65,0,16.3]) difference() {
-			cube([32.8,12.6,2]);
-			
-			// fixing holes
-			translate([2.65,6.3,-0.1]) cylinder(r=1,h=3,$fn=45);
-			translate([32.8-2.65,6.3,-0.1]) cylinder(r=1,h=3,$fn=45);
-		}
-	
-		// body - top
-		translate([0,0,18.2]) cube([23.5,12.6,4.4]);
-	
-		// body very top
-		translate([6.3,6.3,22.5]) cylinder(r=6.3,h=4.1,$fn=45);
-	}
-	
-	// control horn spline
-	color(White, 0.8) translate([6.3,6.3,26.5]) cylinder(r=2.25,h=2.8,$fn=45);
+	MicroServo_Spline();
+}
+
+module MicroServo_Body() {
+    color(Blue, 0.8) 
+        if (UseVitaminSTL) {
+            import(str(VitaminSTL,"MicroServo_Body_9g.stl"));
+        } 
+        else 
+        {
+            // body - bottom
+            cube([23.5,12.6,16.4]);
+        
+            // body - mounting flange
+            translate([-4.65,0,16.3]) difference() {
+                cube([32.8,12.6,2]);
+            
+                // fixing holes
+                translate([2.65,6.3,-0.1]) cylinder(r=1,h=3,$fn=45);
+                translate([32.8-2.65,6.3,-0.1]) cylinder(r=1,h=3,$fn=45);
+            }
+    
+            // body - top
+            translate([0,0,18.2]) cube([23.5,12.6,4.4]);
+    
+            // body very top
+            translate([6.3,6.3,22.5]) cylinder(r=6.3,h=4.1,$fn=45);
+        }
+}
+
+module MicroServo_Spline() {
+    color(White, 0.8) 
+        if (UseVitaminSTL) {
+            import(str(VitaminSTL,"MicroServo_Spline_9g.stl"));
+        } 
+        else 
+        {
+            translate([6.3,6.3,26.5]) cylinder(r=2.25,h=2.8,$fn=45);
+        }
+}
+
+module MicroServo_Parts() {
+    echo("_Body");
+    echo("_Spline");
+}
+
+module MicroServo_View() {
+    echo("300 200 6.9 13.6 10.3 72 0 33 280");
 }

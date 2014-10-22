@@ -6,5 +6,6 @@
 
 // Order alphabetically - vitamins should not have inter-dependencies!
 
+include <../vitamins/BatteryPack.scad>
 include <../vitamins/MicroServo.scad>
 include <../vitamins/PlasticCaster.scad>

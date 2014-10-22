@@ -13,7 +13,8 @@ use <vector.scad>
 
 // default connector
 DefCon = [[0,0,0],[0,0,1],0,0,0];
-
+DefaultConnector = DefCon;
+Con_Default = DefCon;
 
 // Connector getter functions
 
@@ -67,11 +68,11 @@ module connector(c,clr="Gray")
 //--    a -> Connector of the main part
 //--    b -> Connector of the attachable part
 //-------------------------------------------------------------------------
-module attach(a,b)
+module attach(a,b, Invert=false, Explode=false, ExplodeSpacing = 10)
 {
   //-- Get the data from the connectors
   pos1 = a[0];  //-- Attachment point. Main part
-  v    = a[1];  //-- Attachment axis. Main part
+  v    = Invert ? [-a[1][0], -a[1][1], -a[1][2]] : a[1];  //-- Attachment axis. Main part
   roll = a[2];  //-- Rolling angle
   
   pos2 = b[0];  //-- Attachment point. Attachable part
@@ -97,11 +98,19 @@ module attach(a,b)
     rotate(a=roll, v=v)  rotate(a=ang, v=raxis)
       //-- Attachable part to the origin
       translate(-pos2)
-		children(i);
+        translate([0,0, Explode ? -ExplodeSpacing : 0]) {
+		    children(i);
+		
+		    if (Explode) {
+		        // show attachment axis
+		        color([0,0,0, 0.5])
+		            vector(unitv(v) * ExplodeSpacing, l_arrow=2, mark=false);
+		    }
+		}
 }
 
 
-module attachWithOffset(a,b,o) {
+module attachWithOffset(a,b,o, Invert=false, Explode=false, ExplodeSpacing = 10) {
 	// offsets attachment point on a by o
 	
 	newa = [
@@ -115,7 +124,7 @@ module attachWithOffset(a,b,o) {
 	];
 	
 	for (i=[0:$children-1])
-		attach(newa,b) children(i);
+		attach(newa,b, Invert, Explode, ExplodeSpacing) children(i);
 }
   
 

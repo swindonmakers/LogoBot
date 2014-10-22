@@ -12,6 +12,8 @@
 // Master include statement, causes everything else for the model to be included
 include <config/config.scad>
 
+STLPath = "stl/";
+VitaminSTL = "vitamins/stl/";
 
 EnclosureWidth 		= 500;
 EnclosureDepth 		= 500;

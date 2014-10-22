@@ -55,11 +55,12 @@ module vectorz(l=10, l_arrow=4, mark=false)
 
   //-- The vector is locatead at 0,0,0
   translate([0,0,lb/2])
+  render() 
   union() {
 
     //-- Draw the arrow
     translate([0,0,lb/2])
-      cylinder(r1=2/2, r2=0.2, h=l_arrow, $fn=20);
+      cylinder(r1=2/2, r2=0.2, h=l_arrow, $fn=6);
 
     //-- Draw the mark
     if (mark) {
@@ -69,11 +70,11 @@ module vectorz(l=10, l_arrow=4, mark=false)
     }
 
     //-- Draw the body
-    cylinder(r=1/2, h=lb, center=true, $fn=20);
+    cylinder(r=1/2, h=lb, center=true, $fn=6);
   }
 
   //-- Draw a sphere in the vector base
-  sphere(r=1/2, $fn=20);
+  render() sphere(r=1/2, $fn=6);
 }
 
 //-----------------------------------------------------------------
