@@ -30,7 +30,7 @@
               $('#mdcontent').html(markdown.toHTML(data, markdown.Markdown.dialects.Maruku));
   
               // expand linked markdown
-              $("a[href$='.md']").each(function(index) {
+              $("a[href$='.md?include']").each(function(index) {
                   var a = this;
                   var href = $(a).attr('href');
                   var parts = href.split('/');

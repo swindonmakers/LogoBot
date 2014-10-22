@@ -25,7 +25,7 @@ All the diagrams can be viewed in OpenSCAD allowing real time zooming, rotating 
 
 Make sure you have all of the following parts before you begin.  The tables show the number of vitamins/parts required for each sub-assembly, as well as the total.
 
-[BOM](bom/bom.md)
+[BOM](bom/bom.md?include)
 
 ### Consumables
 
@@ -34,7 +34,7 @@ Qty | Item
 4   | AA Batteries
 
 
-[MarbleCaster BOM](bom/MarbleCaster.md)
+[MarbleCaster BOM](bom/MarbleCaster.md?include)
 
 ###Assembly
 
@@ -44,7 +44,7 @@ Qty | Item
 
 
 
-[LogoBot BOM](bom/LogoBot.md)
+[LogoBot BOM](bom/LogoBot.md?include)
 
 ### Assembly
 
