@@ -156,6 +156,19 @@ td img:hover {
 }
 
 
+/* STL Viewer */
+#stlViewer { 
+    position:absolute;
+    z-index:100;
+    max-width: 50em;
+    margin:0 0;
+    padding: 0 0;
+    background-color: #fff;
+    box-shadow: 0px 5px 35px #555555;
+    display:none;
+}
+
+
 @media print {
     #mdcontent:before {
         display:none;
@@ -175,4 +188,10 @@ td img:hover {
         color: black;
         border-bottom: 1px solid #888;
     }
+    stlViewer {
+        display:none;
+    }
 }
+
+
+

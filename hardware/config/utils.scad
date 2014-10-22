@@ -15,6 +15,7 @@ include <../utils/bom.scad>
 
 // Order alphabetically
 include <../utils/chevron.scad>
+include <../utils/fakeGroundShadow.scad>
 
 
 

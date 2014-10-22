@@ -21,7 +21,7 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
     Assembly("LogoBot");
 	
 	// TODO: needs to be translated up to correct height
-	translate([0, 0, 0]) {
+	translate([0, 0, 20]) {
 	
 		// Default Design Elements
 		// -----------------------
@@ -61,7 +61,7 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 			
 		// PenLift
 		//   Placeholder of a micro servo to illustrate having conditional design elements
-		if (PenLift || true) {
+		if (PenLift) {
 			// TODO: wrap into a PenLift sub-assembly
 			attach( Base_Con_PenLift, MicroServo_Con_Horn, Explode=Explode )
 				MicroServo();
