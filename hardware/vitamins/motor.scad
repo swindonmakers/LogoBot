@@ -7,7 +7,8 @@ Motor_body_r = 28.09;
 Motor_body_h = 19.24;
 
 	///rotate object around to Y access
-	rotate([motor_rotation_x, motor_rotation_y, motor_rotation_z]){
+	rotate([motor_rotation_x, motor_rotation_y, motor_rotation_z])
+		scale([0.5, 0.5, 1]){
 	
 // shaft
 		

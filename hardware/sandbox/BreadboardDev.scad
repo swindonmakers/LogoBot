@@ -6,8 +6,8 @@ include <../vitamins/Bolt.scad>
 include <../vitamins/Breadboard.scad>
 
 
-DebugCoordinateFrame = false;
-DebugConnectors = false;
+DebugCoordinateFrame = true;
+DebugConnectors = true;
 
 ScrewCon = [[0,0,0],[0,0,-1],0];
 

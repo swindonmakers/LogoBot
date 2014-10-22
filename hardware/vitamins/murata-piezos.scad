@@ -1,6 +1,6 @@
 $fs=0.1;
 
-murata_PKM12EPYH4002_B0();
+*murata_PKM12EPYH4002_B0();
 
 // page 7: diaphram, external drive type
 module murata_7BB_12_9  () {murata_7series(12.0, 9.0,  8.0, 0.22, 0.10);} // Brass
@@ -80,4 +80,4 @@ module murata_PKM_cyl_type(od, height_to_pcb, height_gap, lead_sep, lead_dia, le
  }
 }
 
-murata_PKM12EPYH4002_B0();
+*murata_PKM12EPYH4002_B0();

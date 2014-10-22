@@ -36,6 +36,7 @@ module HexHeadScrew(dia = 3, length = 20)
 			cylinder(r = dia / 2, h = length + eta);
 
 		// Head
+		render()
 		difference() {
 			cylinder(r = (dia * BoltLibrary_HeadDiaRatio) /  2, h = dia * BoltLibrary_HeadThicknessRatio);
 			translate([0, 0, 1])

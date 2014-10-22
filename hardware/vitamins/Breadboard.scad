@@ -29,7 +29,9 @@ Breadboard_PinWidth   = 1;
 
 //                Width, Depth, Thickness, PinsWide, PowerRails, PowerRailGrouping, GutterWidth, MountPoints, MountInsetX, MountInsetY, TypeName
 Breadboard_170 = [ 47,    35,    8.5,       17,       0,          0,                 32,          2,           4,           0,           "170" ];
+
 Breadboard_270 = [ 85.4,  45,    8.3,       23,       1,          5,                 58,          4,           5,           6,           "270"  ];
+
 Breadboard_400 = [ 85,   55,    9.7,        30,       2,          5,                 83,          0,           5,           6,           "400"  ];
 
 

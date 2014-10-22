@@ -18,8 +18,8 @@
 
 module LogoBotAssembly ( PenLift=false, Explode=false ) {
 
-    Assembly("LogoBot");
-	
+   Assembly("LogoBot");
+
 	// TODO: needs to be translated up to correct height
 	translate([0, 0, 20]) {
 	
@@ -28,25 +28,75 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 	
 		// Base
 		LogoBotBase_STL();
-	
-		// Bumper assemblies (x2)
-	
-		// Motor + Wheel assemblies (x2)
+
+		translate([-25, 15, -9])
+			Breadboard(Breadboard_170);
 		
 		// Arduino
+		translate([14, 25, 5])
+			rotate([0,0,90])
+			ArduinoPro();
+		
+		// Bolts
+		*translate([50,0,20])
+			rotate()
+			HexHeadScrew();
+	
+		// Bumper assemblies (x2)
+		for (x=[0,1], y=[0,1])
+			mirror([0,y,0])
+			mirror([x,0,0])
+			translate([(BaseDiameter/2-10) * cos(45), (BaseDiameter/2-10) * sin(45), -8 ])
+			rotate([0,0,-30])
+			microswitch();
+	
+		// Motor + Wheel assemblies (x2)
+		for (i=[0:1])
+			mirror([i,0,0])
+			translate([BaseDiameter/2 - 20, 0, 10])
+			rotate([-90, 0, 90]) {
+				logo_motor();
+
+				translate([0,0, -3])
+					cylinder(r=30, h=3);
+			}
 		
 		// Motor Drivers
+		for(i=[0,1])
+			translate([20 - i*66, 15, 5])
+			ULN2003DriverBoard();
 	
 		// Battery assembly
+		*translate([-25, -25, 0])
+			battery_pack_linear(2,4);
+	
+		translate([-25, -45, 12])
+			rotate([90, 0, 90])
+			battery_pack_double(2, 4);
 	
 		// Power Switch
 	
 		// LED
+		translate([0, -10, BaseDiameter/2 - 4]) 
+			LED();
 		
 		// Piezo
+		translate([-37, -32, 10])
+			murata_7BB_12_9();
 	
 		// Shell + fixings
 	
+		color([0,0,0, 0.3])
+			render()
+			difference() {
+				hull() {
+					sphere(BaseDiameter/2);
+					
+				}
+				
+				translate([-BaseDiameter, -BaseDiameter, -BaseDiameter*2])
+					cube([BaseDiameter*2, BaseDiameter*2, BaseDiameter*2]);
+			}
 	
 	
 		// Caster
@@ -118,7 +168,7 @@ module LogoBotBase_STL() {
 	
 	// Color it as a printed plastic part
 	color(PlasticColor)
-	     if (UseSTL) {
+	     if (UseSTL && false) {
 	        import(str(STLPath, "LogoBotBase.stl"));
 	    } else {
             // Pre-render to speed editing and avoid overloading the cache
@@ -131,6 +181,10 @@ module LogoBotBase_STL() {
                     // Base plate
                     circle(r=BaseDiameter/2);
                 }
+				
+				// hole for breadboard
+				translate([-25 + 6, 15, -9])
+					square([Breadboard_Width(Breadboard_170) - 12, Breadboard_Depth(Breadboard_170)]);
             
                 // Now punch some holes...
         
