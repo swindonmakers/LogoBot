@@ -6,4 +6,7 @@ include <../vitamins/ULN2003DriverBoard.scad>
 
 $fn=50;
 
+DebugCoordinateFrames = true;
+DebugConnectors = true;
+
 ULN2003DriverBoard();
