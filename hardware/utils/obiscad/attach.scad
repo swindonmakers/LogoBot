@@ -15,6 +15,10 @@ use <vector.scad>
 DefCon = [[0,0,0],[0,0,1],0,0,0];
 DefaultConnector = DefCon;
 Con_Default = DefCon;
+DefConUp = DefCon;
+
+DefConDown = [[0,0,0],[0,0,-1],0,0,0];
+
 
 // Connector getter functions
 

@@ -105,6 +105,18 @@ function Breadboard_Cons(BreadboardType) = [
         Breadboard_Con_TopRight(BreadboardType)
     ];
 
+// dynamic connector to locate a particular pin on the breadboard
+// along is in x, across in in y, both numbered from 1
+function Breadboard_Con_Pin(t, along, across, ang) = [
+    [
+        (Breadboard_Width(t) - ((Breadboard_PinsWide(t)-1) * Breadboard_PinSpacing))/2 + (along-1) * Breadboard_PinSpacing, 
+        Breadboard_Depth(t)/2 + (across < 6 ? -1 : 1) * ( (3*2.54/2) + (across < 6 ? 5-across : across-6) * Breadboard_PinSpacing ),
+        Breadboard_Height(t) 
+    ],
+    [0,0,-1],
+    ang,0,0
+]; 
+
 
 module Breadboard(BreadboardType = Breadboard_170, ShowPins=true, BoardColor = "white") {
 	
