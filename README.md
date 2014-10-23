@@ -5,6 +5,8 @@ Cheap, extensible mobile robot design based on Arduino - inspired by Mirobot and
 
 Developed by the Swindon Hackspace - see [LogoBot wiki page](https://github.com/snhack/snhack.github.com/wiki/LogoBot) and [related Google Groups thread](https://groups.google.com/d/topic/swindon-hackspace/0EO_l_R9aW0/discussion)
 
+![](hardware/images/LogoBot.png)
+
 
 File Structure
 --------------
