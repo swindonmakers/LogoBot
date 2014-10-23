@@ -1,2 +1,6 @@
-2014-10-23 17:38:15.210 OpenSCAD[67177:707]   compiled module: 0x104418730
-2014-10-23 17:38:15.211 OpenSCAD[67177:707] ECHO: "300 200 21 17 9 62 0 218 316"
+2014-10-23 17:43:24.775 OpenSCAD[67409:707]   compiled module: 0x10441e430
+2014-10-23 17:43:24.777 OpenSCAD[67409:707] ECHO: "LogoBotBase.stl"
+2014-10-23 17:43:26.681 OpenSCAD[67409:707] WARNING: Duplicate vertices and/or intersecting lines found during DXF Tessellation.
+2014-10-23 17:43:26.682 OpenSCAD[67409:707] WARNING: Modify the polygon to be a Simple Polygon. Render is incomplete.
+2014-10-23 17:43:30.228 OpenSCAD[67409:707] Compiling design (CSG Products normalization)...
+2014-10-23 17:43:30.229 OpenSCAD[67409:707] Normalized CSG tree has 3 elements
