@@ -29,7 +29,7 @@ module BreadboardAssembly( Explode=false ) {
 	Breadboard(Breadboard_170);
 	
     // Arduino
-    attach(Breadboard_Con_Pin(Breadboard_170, along=3, across=7, ang=90), DefConDown, Explode=true) {
+    attachWithOffset(Breadboard_Con_Pin(Breadboard_170, along=3, across=7, ang=90), DefConDown, [0,0,3], Explode=Explode) {
         ArduinoPro("micro");
     }
 			

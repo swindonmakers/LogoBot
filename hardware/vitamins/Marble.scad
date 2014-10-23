@@ -26,7 +26,7 @@ module Marble(type=Marble_16mm, color=[0.7,0.7,0.7]) {
 	}
 
 	if (DebugConnectors) {
-		connector(MicroServo_Con_Default);
+		connector(Marble_Con_Default);
 	}
 
     color([color[0], color[1], color[2], 0.5])
