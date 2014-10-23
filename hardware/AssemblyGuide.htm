@@ -91,6 +91,7 @@
         $.get("AssemblyGuide.md",function(data,status){
                 
               $('#mdcontent').html(markdown.toHTML(data, markdown.Markdown.dialects.Maruku));
+              $('#mdcontent').append('<div style="clear:both;"></div>');
   
               // expand linked markdown
               $("a[href$='.md?include']").each(function(index) {

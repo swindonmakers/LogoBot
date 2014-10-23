@@ -34,14 +34,13 @@ LogoBot_Con_PenLift = [ [-20, -5, 10], [0,1,0], 0, 0, 0];
 // Assembly
 // --------
 
-module LogoBotAssembly ( PenLift=false, Explode=false ) {
+function LogoBotAssembly_NumSteps() = PenLift ? 10 : 9;
 
-   Assembly("LogoBot");
+module LogoBotAssembly ( PenLift=false ) {
 
-	// TODO: needs to be translated up to correct height
-	translate([0, 0, 20]) {
-	
-	    
+    Assembly("LogoBot");
+
+	translate([0, 0, GroundClearance]) {
 	
 		// Default Design Elements
 		// -----------------------
@@ -49,11 +48,15 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 		// Base
 		LogoBotBase_STL();
 
-		attach(LogoBot_Con_Breadboard, Breadboard_Con_BottomLeft(Breadboard_170))
+        step(1, 
+            "Connect the breadboard assembly to the underside of the base", 
+            "400 300 0 17 12 112 0 222 513")
+		    attach(LogoBot_Con_Breadboard, Breadboard_Con_BottomLeft(Breadboard_170), ExplodeSpacing=-20)
 		    BreadboardAssembly();
 	
 		// Bumper assemblies (x2)
-		for (x=[0,1], y=[0,1])
+		step(2, "Connect the two bumper assemblies", "400 300 -6 7 19 64 1 212 625" )
+		    for (x=[0,1], y=[0,1])
 			mirror([0,y,0])
 			mirror([x,0,0])
 			translate([(BaseDiameter/2-10) * cos(45), (BaseDiameter/2-10) * sin(45), -8 ])
@@ -61,6 +64,7 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 			MicroSwitch();
 	
 		// Motor + Wheel assemblies (x2)
+		step(3, "Connect the two wheel assemblies", "400 300 -6 7 19 64 1 212 625")
 		for (i=[0:1])
 			mirror([i,0,0])
 			translate([BaseDiameter/2 + MotorOffsetX, 0, MotorOffsetZ])
@@ -68,34 +72,41 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 				WheelAssembly();
 			}
 		
-		// Left Motor Driver
-		attach(LogoBot_Con_LeftMotorDriver, ULN2003DriverBoard_Con_UpperLeft)
-			ULN2003DriverBoard();
+		step(4, "Push the two motor drivers onto the mounting posts", "400 300 -6 7 19 64 1 212 625") {
+		    // Left Motor Driver
+		    attach(LogoBot_Con_LeftMotorDriver, ULN2003DriverBoard_Con_UpperLeft, ExplodeSpacing=-20)
+			    ULN2003DriverBoard();
 		
-		// Right Motor Driver
-		attach(LogoBot_Con_RightMotorDriver, ULN2003DriverBoard_Con_UpperRight)
-			ULN2003DriverBoard();
+		    // Right Motor Driver
+		    attach(LogoBot_Con_RightMotorDriver, ULN2003DriverBoard_Con_UpperRight, ExplodeSpacing=-20)
+			    ULN2003DriverBoard();
+		}
 	
 		// Battery assembly
-		translate([-25, -45, 12])
+		step(5, "Clip in the battery pack", "400 300 -6 7 19 64 1 212 625")
+		    translate([-25, -45, 12])
 			rotate([90, 0, 90])
 			battery_pack_double(2, 4);
 	
 		// Power Switch
 	
 		// LED
-		translate([0, -10, BaseDiameter/2 - 4]) 
+		step(6, "Clip the LED into place", "400 300 -6 7 19 64 1 212 625")
+		    translate([0, -10, BaseDiameter/2 - 4]) 
 			LED();
 		
 		// Piezo
-		translate([-37, -32, 10])
+		step(7, "Clip the piezo sounder into place", "400 300 -6 7 19 64 1 212 625")
+		    translate([-37, -32, 10])
 			murata_7BB_12_9();
 	
 	
 		// Caster
 		//   Example of using attach
 		// TODO: Correct ground clearance!
-		attach(LogoBot_Con_Caster, MarbleCastor_Con_Default, Explode=Explode, ExplodeSpacing=15)
+		step(8, "Push the caster assembly into the base so that it snaps into place", 
+		    "400 300 -6 7 19 115 1 26 625")
+		    attach(LogoBot_Con_Caster, MarbleCastor_Con_Default, Explode=Explode, ExplodeSpacing=15)
 			MarbleCasterAssembly();
 		
 			
@@ -106,12 +117,14 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 		//   Placeholder of a micro servo to illustrate having conditional design elements
 		if (PenLift) {
 			// TODO: wrap into a PenLift sub-assembly
-			attach( LogoBot_Con_PenLift, MicroServo_Con_Horn, Explode=Explode )
+			step(10, "Fit the pen lift assembly", "400 300 -6 7 19 64 1 212 625")
+			    attach( LogoBot_Con_PenLift, MicroServo_Con_Horn, Explode=Explode )
 				MicroServo();
 		}
 		
 		
 		// Shell + fixings
+		step(PenLift ? 10 : 9, "Push the shell down onto the base and twist to lock into place", "400 300 -6 7 19 64 1 212 625")
 	    color([0,0,0, 0.3])
 			render()
 			difference() {
@@ -147,14 +160,13 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 		Base plate, rendered and colored
 */
 
-
 module LogoBotBase_STL() {
 
     STL("LogoBotBase");
 	
 	// Color it as a printed plastic part
 	color(PlasticColor)
-	     if (UseSTL && false) {
+	    if (UseSTL) {
 	        import(str(STLPath, "LogoBotBase.stl"));
 	    } else {
 	        union() {

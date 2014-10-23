@@ -37,36 +37,11 @@ Qty | Item
 
 [MarbleCaster BOM](bom/MarbleCaster.md?include)
 
-###Assembly
-
-![](images/MarbleCasterAssembly.png)
-
-1. Insert the marble into the printed housing
-
 
 [Wheel BOM](bom/Wheel.md?include)
-
-###Assembly
-
-![](images/WheelAssembly.png)
-
-1. Push the wheel onto the motor shaft
 
 
 [Breadboard BOM](bom/Breadboard.md?include)
 
-###Assembly
-
-![](images/BreadboardAssembly.png)
-
-1. Push the Arduino onto the breadboard - make sure you position it correctly, as it's a tight fit with the Robot base!
-
 
 [LogoBot BOM](bom/LogoBot.md?include)
-
-### Assembly
-
-![](images/LogoBotAssembly.png)
-
-1. Push the caster assembly into the base so that it snaps into place
-1. Fit the stepper motors

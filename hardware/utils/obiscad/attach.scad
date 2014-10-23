@@ -72,7 +72,7 @@ module connector(c,clr="Gray")
 //--    a -> Connector of the main part
 //--    b -> Connector of the attachable part
 //-------------------------------------------------------------------------
-module attach(a,b, Invert=false, Explode=false, ExplodeSpacing = 10)
+module attach(a,b, Invert=false, ExplodeSpacing = 10)
 {
   //-- Get the data from the connectors
   pos1 = a[0];  //-- Attachment point. Main part
@@ -95,26 +95,29 @@ module attach(a,b, Invert=false, Explode=false, ExplodeSpacing = 10)
   //-- Apply the transformations to the child ---------------------------
 
   for (i=[0:$children-1])
-  //-- Place the attachable part on the main part attachment point
-  translate(pos1)
-    //-- Orientate operator. Apply the orientation so that
-    //-- both attachment axis are paralell. Also apply the roll angle
-    rotate(a=roll, v=v)  rotate(a=ang, v=raxis)
-      //-- Attachable part to the origin
-      translate(-pos2)
-        translate([0,0, Explode ? -vref[2] * ExplodeSpacing : 0]) {
-		    children(i);
-		
-		    if (Explode) {
+    //-- Place the attachable part on the main part attachment point
+    translate(pos1)
+        //-- Orientate operator. Apply the orientation so that
+        //-- both attachment axis are paralell. Also apply the roll angle
+        rotate(a=roll, v=v)  rotate(a=ang, v=raxis)
+        {
+             //-- Attachable part to the origin
+            translate(-pos2)
+                translate([0,0, $Explode ? -vref[2] * ExplodeSpacing : 0])
+                assign($Explode=false)  // turn off explosions for children
+                children(i);
+                
+            if ($Explode) {
 		        // show attachment axis
 		        color([0,0,0, 0.5])
-		            vector(unitv(v) * ExplodeSpacing, l_arrow=2, mark=false);
+		            translate(-vref * ExplodeSpacing)
+		            vector(vref * ExplodeSpacing, l=abs(ExplodeSpacing), l_arrow=2, mark=false);
 		    }
-		}
+        }
 }
 
 
-module attachWithOffset(a,b,o, Invert=false, Explode=false, ExplodeSpacing = 10) {
+module attachWithOffset(a,b,o, Invert=false, ExplodeSpacing = 10) {
 	// offsets attachment point on a by o
 	
 	newa = [
@@ -128,7 +131,7 @@ module attachWithOffset(a,b,o, Invert=false, Explode=false, ExplodeSpacing = 10)
 	];
 	
 	for (i=[0:$children-1])
-		attach(newa,b, Invert, Explode, ExplodeSpacing) children(i);
+		attach(newa,b, Invert, ExplodeSpacing) children(i);
 }
   
 
