@@ -54,10 +54,8 @@ module MarbleCasterAssembly (Explode=false ) {
 	
  	
 	// caster ball
-	Vitamin("Marble","16mm");
-	attach(MarbleCastor_Con_Ball(GroundClearance), DefaultConnector, Explode=Explode, ExplodeSpacing = 2*ballr)
-		color([0.7, 0.7, 0.7, 0.5])
-		sphere(ballr, $fn=32);
+	attach(MarbleCastor_Con_Ball(GroundClearance), Marble_Con_Default, Explode=Explode, ExplodeSpacing = 16)
+		Marble(Marble_16mm);
 		
 	End("MarbleCaster");
 }
