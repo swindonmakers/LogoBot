@@ -33,18 +33,24 @@ ArduinoPro_PCB_Clearance_Show  = true;
 
 // FIXME: export to external vitamin?
 module Micro_USB_Clearance() {
-  // Rough dimensions for micro usb header
-  height  = 2.7;
-  area    = [7.7, 5.2];
-  colour  = [220/255, 220/255, 220/255];
-  move_x  = ArduinoPro_PCB_Width/2 - ArduinoPro_PCB_Inset;
-  move_y  = ArduinoPro_PCB_Length - ArduinoPro_PCB_Pitch;
+  // dimensions for micro usb header
+  // http://www.farnell.com/datasheets/1693470.pdf
+  height = 2.8;
+  width  = 7.5;
+  depth  = 5.3;
+  flange = 7.8;  // width of front flange
+
+  // distance to overhang board edge
+  offset  = 2.15 + 0.6 - 1.45;
+
+  move_x  = ArduinoPro_PCB_Width / 2 - ArduinoPro_PCB_Inset;
+  move_y  = ArduinoPro_PCB_Length - ArduinoPro_PCB_Inset + offset - depth/2;
   move_z  = ArduinoPro_PCB_Height;
 
-  color(colour)
-    translate([move_x, move_y, move_z])
+  color(Grey80)
+  translate([move_x, move_y, move_z])
     linear_extrude(height=height)
-    square(size = area, center = true);
+    square([flange, depth], center=true);
 }
 
 module ArduinoPro_PCB() {
