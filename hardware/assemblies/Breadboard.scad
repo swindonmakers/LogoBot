@@ -30,7 +30,7 @@ module BreadboardAssembly( Explode=false ) {
 	
     // Arduino
     attach([[8.3, 23.8, 11], [0,0,-1], 90,0,0], [[0,0,0],[0,0,-1],0,0,0], Explode=Explode) {
-        ArduinoPro("micro");
+        ArduinoPro(ArduinoPro_Micro);
     }
 			
 	End("Breadboard");

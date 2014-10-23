@@ -20,9 +20,13 @@ ArduinoPro_PCB_Clearance_Show = false;
 
 // Create an Arduino Pro Micro
 translate([ArduinoPro_PCB_Pitch, 0, 0])
-  ArduinoPro("micro");
+  ArduinoPro(ArduinoPro_Mini);
 
 // Create an Arduino Pro Mini
 translate([-ArduinoPro_PCB_Width, 0, 0])
-  ArduinoPro("mini");
+  ArduinoPro(ArduinoPro_Micro);
+
+// Create an Arduino Pro (headerless)
+translate([ArduinoPro_PCB_Width*2, 0, 0])
+  ArduinoPro(ArduinoPro_No_Port);
 

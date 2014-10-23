@@ -19,6 +19,15 @@
     Model of an Arduino Pro Mini/Micro with header holes
 */
 
+
+// ArduinoPro Model Variants
+ArduinoPro_Mini       = 1;
+ArduinoPro_Micro      = 2;
+
+// ArduinoPro Without Header
+ArduinoPro_NoHeader   = 0;
+
+
 // ArduinoPro PCB Variables
 ArduinoPro_PCB_Pitch  = 2.54;                       // spacing of the holes
 ArduinoPro_PCB_Inset  = ArduinoPro_PCB_Pitch/2;     // inset from board edge
@@ -82,7 +91,7 @@ module ArduinoPro_Serial_Header() {
   }
 }
 
-module ArduinoPro(type = "mini") {
+module ArduinoPro(type = ArduinoPro_Mini) {
   union() {
     color(ArduinoPro_PCB_Colour)
     linear_extrude(height=ArduinoPro_PCB_Height)
@@ -94,11 +103,11 @@ module ArduinoPro(type = "mini") {
       ArduinoPro_Headers();
 
       // Pro Mini Serial Header
-      if (type == "mini") ArduinoPro_Serial_Header();
+      if (type == ArduinoPro_Mini) ArduinoPro_Serial_Header();
     }
 
     // Pro Micro USB port
-    if (type == "micro") ArduinoPro_MicroUSB();
+    if (type == ArduinoPro_Micro) ArduinoPro_MicroUSB();
 
     // Indicate area for minimum board clearance
     if (ArduinoPro_PCB_Clearance_Show)
@@ -112,5 +121,5 @@ module ArduinoPro(type = "mini") {
 
 
 // Example Usage
-*ArduinoPro("mini");
-*ArduinoPro("micro");
+// ArduinoPro(ArduinoPro_Mini);
+// ArduinoPro(ArduinoPro_Micro);
