@@ -3,7 +3,7 @@
 	Breadboard assembly - includes Arduino and fixings
 	
 	Local Frame: 
-		Breadboard_Con_BottomLeft at origin
+		Origin
 
 */
 
@@ -26,17 +26,13 @@ module BreadboardAssembly( Explode=false ) {
 	// --------
 	
 	// Breadboard
-	attach(DefCon, Breadboard_Con_BottomLeft(Breadboard_170), Invert=true) {
-	    Breadboard(Breadboard_170);
+	Breadboard(Breadboard_170);
 	
-	    // Arduino
-	    attach([[8.3, 23.8, 10], [0,0,1], -90,0,0], DefCon) {
-	        frame();
-	        ArduinoPro("micro");
-	    }
-	
-	}
-	
-		
+    // Arduino
+    attach([[8.3, 23.8, 11], [0,0,1], -90,0,0], DefCon) {
+        frame();
+        ArduinoPro("micro");
+    }
+			
 	End("Breadboard");
 }

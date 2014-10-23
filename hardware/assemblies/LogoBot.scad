@@ -16,6 +16,24 @@
 */
 
 
+// Connectors
+// ----------
+// These are used within this module to layout the various vitamins/sub-assemblies
+// The same connectors are used to shape associated portions of the LogoBotBase_STL
+
+LogoBot_Con_Breadboard          = [[0, 12, 0],[0,0,-1], -90,0,0];
+
+LogoBot_Con_LeftMotorDriver     = [[-20, 16, 3],[0,0,1],180,0,0];
+LogoBot_Con_RightMotorDriver    = [[20, 16, 3],[0,0,1],180,0,0];
+
+LogoBot_Con_Caster = [ [0, -BaseDiameter/2 + 10, 0], [0,0,1], 0, 0, 0];
+
+LogoBot_Con_PenLift = [ [-20, -5, 10], [0,1,0], 0, 0, 0];
+
+
+// Assembly
+// --------
+
 module LogoBotAssembly ( PenLift=false, Explode=false ) {
 
    Assembly("LogoBot");
@@ -31,7 +49,7 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 		// Base
 		LogoBotBase_STL();
 
-		attach([[0, 12, 0],[0,0,1], 90,0,0], DefCon)
+		attach(LogoBot_Con_Breadboard, Breadboard_Con_BottomLeft(Breadboard_170))
 		    BreadboardAssembly();
 	
 		// Bumper assemblies (x2)
@@ -51,11 +69,11 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 			}
 		
 		// Left Motor Driver
-		attach([[-20, 16, 3],[0,0,1],180,0,0], ULN2003DriverBoard_Con_UpperLeft)
+		attach(LogoBot_Con_LeftMotorDriver, ULN2003DriverBoard_Con_UpperLeft)
 			ULN2003DriverBoard();
 		
 		// Right Motor Driver
-		attach([[20, 16, 3],[0,0,1],180,0,0], ULN2003DriverBoard_Con_UpperRight)
+		attach(LogoBot_Con_RightMotorDriver, ULN2003DriverBoard_Con_UpperRight)
 			ULN2003DriverBoard();
 	
 		// Battery assembly
@@ -77,7 +95,7 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 		// Caster
 		//   Example of using attach
 		// TODO: Correct ground clearance!
-		attach(Base_Con_Caster, MarbleCastor_Con_Default, Explode=Explode, ExplodeSpacing=15)
+		attach(LogoBot_Con_Caster, MarbleCastor_Con_Default, Explode=Explode, ExplodeSpacing=15)
 			MarbleCasterAssembly();
 		
 			
@@ -88,7 +106,7 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 		//   Placeholder of a micro servo to illustrate having conditional design elements
 		if (PenLift) {
 			// TODO: wrap into a PenLift sub-assembly
-			attach( Base_Con_PenLift, MicroServo_Con_Horn, Explode=Explode )
+			attach( LogoBot_Con_PenLift, MicroServo_Con_Horn, Explode=Explode )
 				MicroServo();
 		}
 		
@@ -102,7 +120,7 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 					
 				}
 				
-				translate([-BaseDiameter, -BaseDiameter, -BaseDiameter*2])
+				translate([-BaseDiameter, -BaseDiameter, -BaseDiameter*2 + BaseThickness+eta])
 					cube([BaseDiameter*2, BaseDiameter*2, BaseDiameter*2]);
 			}
 	}
@@ -129,27 +147,6 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 		Base plate, rendered and colored
 */
 
-// LogoBot Base Connectors
-// -----------------------
-
-// Connectors are defined as an array of 5 parameters:
-// 0: Translation vector as [x,y,z]
-// 1: Vector defining the normal of the connection as [x,y,z]
-// 2: Rotation angle for the connection
-// 3: Thickness of the mating part - used for bolt holes
-// 4: Clearance diameter of the mating hole - used for bolt holes
-
-
-// Connector: Base_Con_Caster
-// Connection point for the caster at back edge of the base plate
-Base_Con_Caster = [ [0, -BaseDiameter/2 + 10, 0], [0,0,1], 0, 0, 0];
-
-
-// Connector: Base_Con_Caster
-// Connection point for the caster at back edge of the base plate
-Base_Con_PenLift = [ [-20, -5, 10], [0,1,0], 0, 0, 0];
-
-
 
 module LogoBotBase_STL() {
 
@@ -160,41 +157,95 @@ module LogoBotBase_STL() {
 	     if (UseSTL && false) {
 	        import(str(STLPath, "LogoBotBase.stl"));
 	    } else {
-            // Extrude to correct thickness
-            linear_extrude(BaseThickness)
-            difference() {
-                // Union together all the bits to make the plate
-                union() {
-                    // Base plate
-                    circle(r=BaseDiameter/2);
-                }
-				
-				// hole for breadboard
-				translate([-Breadboard_Depth(Breadboard_170)/2, 15, -9])
-					square([Breadboard_Depth(Breadboard_170), Breadboard_Width(Breadboard_170) - 12]);
-            
-                // Now punch some holes...
-        
-                // Centre hole for pen
-                circle(r=PenHoleDiameter/2);
-    
-                // Chevron at the front so we're clear where the front is!
-                translate([0, BaseDiameter/2 - 10, 0])
-                    Chevron(width=10, height=6, thickness=3);
+	        union() {
+	            // Start with an extruded base plate, with all the relevant holes punched in it
+                linear_extrude(BaseThickness)
+                    difference() {
+                        // Union together all the bits to make the plate
+                        union() {
+                            // Base plate
+                            circle(r=BaseDiameter/2);
+                        }
                 
-                // Caster
-                //   Example of using attach to punch an appropriate fixing hole
-                attach(Base_Con_Caster, PlasticCastor_Con_Default)
-                    circle(r = connector_bore(PlasticCastor_Con_Default) / 2);
+                        // hole for breadboard
+                        attach(LogoBot_Con_Breadboard, Breadboard_Con_BottomLeft(Breadboard_170))
+                            difference() {
+                                translate([2,2,0])
+                                    square([Breadboard_Width(Breadboard_170)-4, Breadboard_Depth(Breadboard_170)-4]);
+                            
+                                // attach mounting points, has the effect of not differencing them
+                                attach(Breadboard_Con_BottomLeft(Breadboard_170),DefCon) {
+                                    circle(r=4/2 + dw);
+                                    translate([0, -2 - dw, 0])
+                                        square([10, 4 + 2*dw]);
+                                }
+                                    
+                                attach(Breadboard_Con_BottomRight(Breadboard_170),DefCon) {
+                                    circle(r=4/2 + dw);
+                                    rotate([0,0,180])
+                                        translate([0, -2 - dw, 0])
+                                        square([10, 4 + 2*dw]);
+                                }
+                            }
+                            
+                        // mounting holes for breadboard
+                        attach(LogoBot_Con_Breadboard, Breadboard_Con_BottomLeft(Breadboard_170)) {
+                            attach(Breadboard_Con_BottomLeft(Breadboard_170),DefCon)
+                                circle(r=4.3/2);
+                                    
+                            attach(Breadboard_Con_BottomRight(Breadboard_170),DefCon)
+                                circle(r=4.3/2);
+                        }
+
+                        // slots for wheels
+                        for (i=[0:1])
+                            mirror([i,0,0])
+                            translate([BaseDiameter/2 + MotorOffsetX, 0, MotorOffsetZ])
+                            rotate([-90, 0, 90]) {
+                                translate([-1,0,0])
+                                    square([WheelThickness + tw, WheelDiameter], center=true);
+                            }
+        
+                        // Centre hole for pen
+                        circle(r=PenHoleDiameter/2);
+    
+                        // Chevron at the front so we're clear where the front is!
+                        translate([0, BaseDiameter/2 - 10, 0])
+                            Chevron(width=10, height=6, thickness=3);
+                
+                        // Caster
+                        //   Example of using attach to punch an appropriate fixing hole
+                        attach(LogoBot_Con_Caster, PlasticCastor_Con_Default)
+                            circle(r = connector_bore(PlasticCastor_Con_Default) / 2);
     
             
             
-                // A load of fixing holes around the edge...  just as an example of how to do it
-                // NB: This is one of the examples we discussed during the wk1 session
-                for (i=[0:9])
-                    rotate([0, 0, i * 360/10])
-                    translate([BaseDiameter/2 - 5, 0, 0])
-                    circle(r=4.3/2);  // M4 fixing holes
+                        // A load of fixing holes around the edge...  just as an example of how to do it
+                        // NB: This is one of the examples we discussed during the wk1 session
+                        for (i=[0:9])
+                            rotate([0, 0, i * 360/10])
+                            translate([BaseDiameter/2 - 5, 0, 0])
+                            circle(r=4.3/2);  // M4 fixing holes
+                    }
+                    
+                // Now union on any other bits (i.e. sticky-up bits!)
+                
+                // mounting posts for motor drivers
+                // left driver example
+                // TODO: Replace this with a loop
+                attachWithOffset(LogoBot_Con_LeftMotorDriver, ULN2003DriverBoard_Con_UpperLeft, [0,0, -LogoBot_Con_LeftMotorDriver[0][2]])
+                    LogoBotBase_MountingPost(r1=(ULN2003Driver_HoleDia+2)/2, h1 = LogoBot_Con_LeftMotorDriver[0][2], r2=ULN2003Driver_HoleDia/2, h2=3);
+                
+                
+                    
             }
         }
+}
+
+
+
+module LogoBotBase_MountingPost(r1=5/2, h1=3, r2=3/2, h2=3) {
+    cylinder(r=r1, h=h1);
+    translate([0,0,h1-eta])
+        cylinder(r1=r2, r2=r2 * 0.7, h=h2 +eta);
 }
