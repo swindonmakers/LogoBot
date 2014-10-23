@@ -35,5 +35,5 @@ module Marble(type=Marble_16mm, color=[0.7,0.7,0.7]) {
 }
 
 module Marble_View() {
-    echo("300 200 -1 0 -28 66 0 60 119");
+    echo("300 200 -1 0 -1 66 0 60 119");
 }

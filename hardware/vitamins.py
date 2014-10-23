@@ -102,6 +102,7 @@ def vitamins(force_update):
                         print fn + " is up to date"
                         
             # Generate vitamin view
+            print("Checking for _View")
             #
             # make a file to use the module
             #
