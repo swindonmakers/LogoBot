@@ -31,26 +31,15 @@ ArduinoPro_PCB_Colour = [26/255, 90/255, 160/255];  // colour of solder mask
 ArduinoPro_PCB_Clearance = 3;
 ArduinoPro_PCB_Clearance_Show  = true;
 
-// FIXME: export to external vitamin?
-module Micro_USB_Clearance() {
-  // dimensions for micro usb header
-  // http://www.farnell.com/datasheets/1693470.pdf
-  height = 2.8;
-  width  = 7.5;
-  depth  = 5.3;
-  flange = 7.8;  // width of front flange
 
-  // distance to overhang board edge
-  offset  = 2.15 + 0.6 - 1.45;
-
+module ArduinoPro_MicroUSB() {
+  include <MicroUSB.scad>
   move_x  = ArduinoPro_PCB_Width / 2 - ArduinoPro_PCB_Inset;
-  move_y  = ArduinoPro_PCB_Length - ArduinoPro_PCB_Inset + offset - depth/2;
+  move_y  = ArduinoPro_PCB_Length - ArduinoPro_PCB_Inset;
   move_z  = ArduinoPro_PCB_Height;
 
-  color(Grey80)
   translate([move_x, move_y, move_z])
-    linear_extrude(height=height)
-    square([flange, depth], center=true);
+    MicroUSB_Receptacle();
 }
 
 module ArduinoPro_PCB() {
@@ -69,6 +58,7 @@ module ArduinoPro_Header_Hole(d = 1.25) {
 
 module ArduinoPro_Headers() {
   // distance between the two header rows
+  // FIXME: improve this to be a multiple of 0.1 inch
   rowpitch  = ArduinoPro_PCB_Width - ArduinoPro_PCB_Inset*2;
   // length for holes, leaving room for end header and insets
   rowlength = ArduinoPro_PCB_Length - ArduinoPro_PCB_Pitch - ArduinoPro_PCB_Inset*2;
@@ -97,22 +87,18 @@ module ArduinoPro(type = "mini") {
     color(ArduinoPro_PCB_Colour)
     linear_extrude(height=ArduinoPro_PCB_Height)
     difference() {
-      // Common Features for Pro Mini/Micro
+      // Base PCB
       ArduinoPro_PCB();
+
+      // Common Headers for Pro Mini/Micro
       ArduinoPro_Headers();
 
-      // Features for Pro Mini
-      if (type == "mini") {
-        // Pro Mini Serial Header
-        ArduinoPro_Serial_Header();
-      }
+      // Pro Mini Serial Header
+      if (type == "mini") ArduinoPro_Serial_Header();
     }
 
-    // Features for Pro Micro
-    if (type == "micro") {
-      // Pro Micro USB port
-      Micro_USB_Clearance();
-    }
+    // Pro Micro USB port
+    if (type == "micro") ArduinoPro_MicroUSB();
 
     // Indicate area for minimum board clearance
     if (ArduinoPro_PCB_Clearance_Show)
