@@ -87,13 +87,11 @@ figure { margin: 0; }
 
 h1,h2,h3,h4,h5,h6 {
 /*  line-height: 1.5em*/
+   clear:both;
 }
 
 li {
   
-}
-li li {
-  font-size: 100%
 }
 li p {
   font-size: 100%;
@@ -156,6 +154,54 @@ td img:hover {
     -moz-transform: scale(2);
     -o-transform: scale(2);
     transform: scale(2);
+}
+
+
+/* Assembly lists */
+ol {
+    counter-reset: li;
+    list-style:none;
+    margin-top: 2em;
+}
+
+ol:after {
+    content:'';
+    display:block;
+    clear:both;
+}
+
+ol li {
+    clear:both;
+    position:relative;
+    display:block;
+}
+
+ol li:before {
+    content: counter(li);
+    counter-increment: li;
+    position:relative;
+    display:block;
+    float:left;
+    padding: .4em .4em .4em 0.4em;
+    margin: .5em 0;
+    left: -0.5em;
+    top: -1.3em;
+    background:  #d72;
+    color:white;
+    height:2em;
+    width:2em;
+    line-height:2em;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 2em;
+}
+
+ol li img {
+    position:relative;
+    float:left;
+    clear:both;
+    margin:0;
+    padding:0;
 }
 
 

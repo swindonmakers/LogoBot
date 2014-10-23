@@ -30,7 +30,10 @@ module WheelAssembly( Explode=false ) {
 	logo_motor();
 	
 	// STL
-	Wheel_STL();
+	step(1, 
+            "Push the wheel onto the motor shaft", 
+            "400 300 -0.4 0.2 0.7 349 125 180 415")
+	    Wheel_STL();
 	
 		
 	End("Wheel");

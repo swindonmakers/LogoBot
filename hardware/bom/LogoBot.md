@@ -13,3 +13,24 @@ Qty | Sub-Assembly Name
   1 | [Breadboard Assembly](#Breadboard Assembly)
   1 | [MarbleCaster Assembly](#MarbleCaster Assembly)
   2 | [Wheel Assembly](#Wheel Assembly)
+
+### Assembly Steps
+
+1. Connect the breadboard assembly to the underside of the base
+![](../images/LogoBotAssembly_Step1.png)
+2. Connect the two bumper assemblies
+![](../images/LogoBotAssembly_Step2.png)
+3. Connect the two wheel assemblies
+![](../images/LogoBotAssembly_Step3.png)
+4. connect the two motor drivers
+![](../images/LogoBotAssembly_Step4.png)
+5. Clip in the battery pack
+![](../images/LogoBotAssembly_Step5.png)
+6. Clip the LED into place
+![](../images/LogoBotAssembly_Step6.png)
+7. Clip the piezo sounder into place
+![](../images/LogoBotAssembly_Step7.png)
+8. Push the caster assembly into the base so that it snaps into place
+![](../images/LogoBotAssembly_Step8.png)
+9. Push the shell down onto the base and twist to lock into place
+![](../images/LogoBotAssembly_Step9.png)

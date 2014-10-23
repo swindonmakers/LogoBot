@@ -54,7 +54,10 @@ module MarbleCasterAssembly (Explode=false ) {
 	
  	
 	// caster ball
-	attach(MarbleCastor_Con_Ball(GroundClearance), Marble_Con_Default, Explode=Explode, ExplodeSpacing = 16)
+	step(1, 
+            "Insert the marble into the printed housing", 
+            "300 200 0.67 0 -15 108 0 91 261")
+	    attach(MarbleCastor_Con_Ball(GroundClearance), Marble_Con_Default, Explode=Explode, ExplodeSpacing = 16)
 		Marble(Marble_16mm);
 		
 	End("MarbleCaster");

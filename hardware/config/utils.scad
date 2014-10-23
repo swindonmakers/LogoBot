@@ -7,6 +7,7 @@
 
 // Dependent libraries
 
+include <../utils/assemblies.scad>
 include <../utils/obiscad/vector.scad>
 include <../utils/obiscad/attach.scad>
 include <../utils/bom.scad>

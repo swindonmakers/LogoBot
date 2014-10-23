@@ -8,8 +8,11 @@ import os
 import sys
 import shutil
 import openscad
+from views import polish
 
 source_dir = "assemblies"
+
+force_update = 0;
 
 def find_scad_file(assembly):
     for filename in os.listdir(source_dir):
@@ -30,9 +33,11 @@ def find_scad_file(assembly):
 class BOM:
     def __init__(self):
         self.count = 1
+        self.name = ''
         self.vitamins = {}
         self.printed = {}
         self.assemblies = {}
+        self.steps = {}
 
     def add_part(self, s):
         if s[-4:] == ".stl":
@@ -49,6 +54,12 @@ class BOM:
             self.assemblies[ass].count += 1
         else:
             self.assemblies[ass] = BOM()
+            
+    def add_step(self, n, s):
+        self.steps[n] = {'num': n, 'description': s, 'view': ''}
+        
+    def add_step_view(self, n, v):
+        self.steps[n]['view'] = v
 
     def make_name(self, ass):
         if self.count == 1:
@@ -135,6 +146,60 @@ class BOM:
             
             for ass in sorted(self.assemblies):
                 print("%3d | %s" % (self.assemblies[ass].count, "[" + self.assemblies[ass].make_name(ass) + " Assembly](#"+self.assemblies[ass].make_name(ass)+" Assembly)"), file=file)
+        
+        print(file=file)
+        if self.steps and self.name != 'BOM':
+            print("### Assembly Steps", file=file)
+            print(file=file)
+            
+            for step in self.steps:
+                print(str(self.steps[step]['num']) + '. '+self.steps[step]['description'], file=file)
+                png_name = 'images/'+ self.name +'Assembly_Step'+str(self.steps[step]['num'])+'.png'
+                print('![](../'+png_name+')', file=file)
+                
+                # Now generate a matching view!
+                words = self.steps[step]['view'].split();
+                
+                print(words)
+                    
+                # Up-sample images
+                w = int(words[0]) * 2
+                h = int(words[1]) * 2
+                
+                dx = float(words[2])
+                dy = float(words[3])
+                dz = float(words[4])
+                
+                rx = float(words[5])
+                ry = float(words[6])
+                rz = float(words[7])
+                
+                d = float(words[8])
+                camera = "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f" % (dx, dy, dz, rx, ry, rz, d)
+                
+                src_name = 'assemblies/' + self.name + '.scad'
+                scad_name = 'views/temp.scad'
+                
+                f = open(scad_name, "w")
+                f.write("include <../config/config.scad>\n")
+                f.write("DebugConnectors = false;\n");
+                f.write("DebugCoordinateFrames = false;\n");
+                f.write("$Explode = true;\n");
+                f.write("$ShowStep = "+ str(step) +";\n");
+                f.write("%sAssembly();\n" % self.name);
+                f.close()
+                
+                if (force_update) or (not os.path.isfile(png_name) or os.path.getmtime(png_name) < os.path.getmtime(src_name)):                    
+                    openscad.run("--projection=p",
+                                ("--imgsize=%d,%d" % (w, h)),
+                                "--camera=" + camera,
+                                "-o", png_name, 
+                                scad_name)
+                    print                
+                    polish(png_name, w/2, h/2)
+                else:
+                    print("  Up to date")
+        
 
 def boms(assembly = None):
 
@@ -192,20 +257,33 @@ def boms(assembly = None):
                         raise Exception("Mismatched assembly " + s[1:] + str(stack))
                     stack.pop()
                 else:
-                    main.add_part(s)
-                    if stack:
-                        main.assemblies[stack[-1]].add_part(s)
+                    cpos = s.find(': ');
+                    if cpos > -1:
+                        if s[:4] == 'Step':
+                            main.add_step(int(s[5:cpos]), s[cpos+2:])
+                            if stack:
+                                main.assemblies[stack[-1]].add_step(int(s[5:cpos]), s[cpos+2:])
+                        elif s[:4] == 'View':
+                            main.add_step_view(int(s[5:cpos]), s[cpos+2:])
+                            if stack:
+                                main.assemblies[stack[-1]].add_step_view(int(s[5:cpos]), s[cpos+2:])
+                    else:
+                        main.add_part(s)
+                        if stack:
+                            main.assemblies[stack[-1]].add_part(s)
 
     print("Found "+str(len(main.assemblies)) + " sub-assemblies")
     
     if assembly == "LogoBotAssembly":
         print("Writing summary BOM")
+        main.name = 'BOM'
         main.print_bom(False, open(bom_dir + "/bom.md","wt"))
 
     for ass in sorted(main.assemblies):
         print("Writing BOM for sub-assembly: "+ass)
         f = open(bom_dir + "/" + ass + ".md", "wt");
         bom = main.assemblies[ass]
+        bom.name = ass
         print("## " + bom.make_name(ass) + " Assembly", file=f)
         print(file=f)
         bom.print_bom(False, f)

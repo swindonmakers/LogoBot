@@ -29,9 +29,12 @@ module BreadboardAssembly( Explode=false ) {
 	Breadboard(Breadboard_170);
 	
     // Arduino
-    attachWithOffset(Breadboard_Con_Pin(Breadboard_170, along=3, across=7, ang=90), DefConDown, [0,0,3], Explode=Explode) {
-        ArduinoPro("micro");
-    }
+    step(1, 
+            "Push the Arduino onto the breadboard - make sure you position it correctly, as it's a tight fit with the Robot base!", 
+            "400 300 21 17 9 62 0 218 316")
+        attachWithOffset(Breadboard_Con_Pin(Breadboard_170, along=3, across=7, ang=90), DefConDown, [0,0,3], Explode=Explode) {
+            ArduinoPro("micro");
+        }
 			
 	End("Breadboard");
 }
