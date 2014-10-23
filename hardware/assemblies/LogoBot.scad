@@ -23,19 +23,16 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 	// TODO: needs to be translated up to correct height
 	translate([0, 0, 20]) {
 	
+	    
+	
 		// Default Design Elements
 		// -----------------------
 	
 		// Base
 		LogoBotBase_STL();
 
-		translate([-Breadboard_Width(Breadboard_170)/2, 15, -9])
-			Breadboard(Breadboard_170);
-		
-		// Arduino
-		translate([14, 25, 5])
-			rotate([0,0,90])
-			ArduinoPro();
+		attach([[0, 12, 0],[0,0,1], 90,0,0], DefCon)
+		    BreadboardAssembly();
 	
 		// Bumper assemblies (x2)
 		for (x=[0,1], y=[0,1])
@@ -53,9 +50,12 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 				WheelAssembly();
 			}
 		
-		// Motor Drivers
-		for(i=[0,1])
-			translate([20 - i*66, 15, 5])
+		// Left Motor Driver
+		attach([[-20, 16, 3],[0,0,1],180,0,0], ULN2003DriverBoard_Con_UpperLeft)
+			ULN2003DriverBoard();
+		
+		// Right Motor Driver
+		attach([[20, 16, 3],[0,0,1],180,0,0], ULN2003DriverBoard_Con_UpperRight)
 			ULN2003DriverBoard();
 	
 		// Battery assembly
@@ -72,20 +72,6 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 		// Piezo
 		translate([-37, -32, 10])
 			murata_7BB_12_9();
-	
-		// Shell + fixings
-	
-		color([0,0,0, 0.3])
-			render()
-			difference() {
-				hull() {
-					sphere(BaseDiameter/2);
-					
-				}
-				
-				translate([-BaseDiameter, -BaseDiameter, -BaseDiameter*2])
-					cube([BaseDiameter*2, BaseDiameter*2, BaseDiameter*2]);
-			}
 	
 	
 		// Caster
@@ -105,6 +91,20 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 			attach( Base_Con_PenLift, MicroServo_Con_Horn, Explode=Explode )
 				MicroServo();
 		}
+		
+		
+		// Shell + fixings
+	    color([0,0,0, 0.3])
+			render()
+			difference() {
+				hull() {
+					sphere(BaseDiameter/2);
+					
+				}
+				
+				translate([-BaseDiameter, -BaseDiameter, -BaseDiameter*2])
+					cube([BaseDiameter*2, BaseDiameter*2, BaseDiameter*2]);
+			}
 	}
 	
 	End("LogoBot");
@@ -160,8 +160,6 @@ module LogoBotBase_STL() {
 	     if (UseSTL && false) {
 	        import(str(STLPath, "LogoBotBase.stl"));
 	    } else {
-            // Pre-render to speed editing and avoid overloading the cache
-            render()
             // Extrude to correct thickness
             linear_extrude(BaseThickness)
             difference() {
@@ -172,8 +170,8 @@ module LogoBotBase_STL() {
                 }
 				
 				// hole for breadboard
-				translate([-25 + 6, 15, -9])
-					square([Breadboard_Width(Breadboard_170) - 12, Breadboard_Depth(Breadboard_170)]);
+				translate([-Breadboard_Depth(Breadboard_170)/2, 15, -9])
+					square([Breadboard_Depth(Breadboard_170), Breadboard_Width(Breadboard_170) - 12]);
             
                 // Now punch some holes...
         

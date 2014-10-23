@@ -50,7 +50,7 @@ module MarbleCasterAssembly (Explode=false ) {
 	}
 	
 	// STL
-	MarbleCaster_STL(GroundClearance);
+	MarbleCaster_STL();
 	
  	
 	// caster ball
@@ -63,7 +63,7 @@ module MarbleCasterAssembly (Explode=false ) {
 }
 
 
-module MarbleCaster_STL ( GroundClearance = 20 ) {
+module MarbleCaster_STL () {
 	od = connector_bore(MarbleCastor_Con_Default) - 0.5;  // include some tolerance!
 	fod = od + 3;
 	ballr = 16/2;

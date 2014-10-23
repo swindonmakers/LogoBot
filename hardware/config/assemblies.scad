@@ -9,6 +9,7 @@
 
 
 
+include <../assemblies/Breadboard.scad>
 include <../assemblies/MarbleCaster.scad>
 include <../assemblies/Wheel.scad>
 
