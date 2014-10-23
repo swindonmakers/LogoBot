@@ -22,7 +22,7 @@ Qty | Sub-Assembly Name
 ![](../images/LogoBotAssembly_Step2.png)
 3. Connect the two wheel assemblies
 ![](../images/LogoBotAssembly_Step3.png)
-4. connect the two motor drivers
+4. Push the two motor drivers onto the mounting posts
 ![](../images/LogoBotAssembly_Step4.png)
 5. Clip in the battery pack
 ![](../images/LogoBotAssembly_Step5.png)

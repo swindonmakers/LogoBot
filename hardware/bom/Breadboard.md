@@ -8,3 +8,7 @@
 
 
 
+### Assembly Steps
+
+1. Push the Arduino onto the breadboard - make sure you position it correctly, as it's a tight fit with the Robot base!
+![](../images/BreadboardAssembly_Step1.png)

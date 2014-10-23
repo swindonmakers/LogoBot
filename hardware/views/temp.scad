@@ -1,4 +1,6 @@
 include <../config/config.scad>
+DebugConnectors = false;
+DebugCoordinateFrames = false;
 $Explode = true;
-$ShowStep = 9;
-LogoBotAssembly();
+$ShowStep = 1;
+WheelAssembly();

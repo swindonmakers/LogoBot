@@ -13,3 +13,7 @@
   1  | [MarbleCaster.stl](../stl/MarbleCaster.stl) | ![](../images/MarbleCaster_STL.png)
 
 
+### Assembly Steps
+
+1. Insert the marble into the printed housing
+![](../images/MarbleCasterAssembly_Step1.png)
