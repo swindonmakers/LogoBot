@@ -1,4 +1,4 @@
-module logo_motor(motor_rotation_x, motor_rotation_y, motor_rotation_z){
+module logo_motor(motor_rotation_x=0, motor_rotation_y=0, motor_rotation_z=0){
 motor_shaft_r=5;
 motor_shaft_h=8.27;
 motor_flange_h = 1;

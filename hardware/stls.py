@@ -25,6 +25,9 @@ def bom_to_stls(assembly = None):
     return stl_files
 
 def stls(parts = None):
+    print("STL")
+    print("---")
+    
     #
     # Make the target directory
     #

@@ -4,7 +4,7 @@
 
  Qty | Vitamin | Image 
  --- | --- | ---
-  1  | [MicroServo_9g](../vitamins/MicroServo.scad) | ![](../vitamins/views/MicroServo_9g.png)
+  1  | [Breadboard_170](../vitamins/Breadboard.scad) | ![](../vitamins/views/Breadboard_170.png)
 
 ### Printed Parts
 

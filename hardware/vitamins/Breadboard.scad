@@ -141,7 +141,7 @@ module Breadboard(BreadboardType = Breadboard_170, ShowPins=true, BoardColor = "
 	
 	Vitamin("Breadboard",tn);
 	
-	if (DebugCoordinateFrame) frame();
+	if (DebugCoordinateFrames) frame();
 	
 	if (DebugConnectors) {
 		if (mp > 0) {

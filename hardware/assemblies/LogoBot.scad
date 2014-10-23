@@ -29,7 +29,7 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 		// Base
 		LogoBotBase_STL();
 
-		translate([-25, 15, -9])
+		translate([-Breadboard_Width(Breadboard_170)/2, 15, -9])
 			Breadboard(Breadboard_170);
 		
 		// Arduino

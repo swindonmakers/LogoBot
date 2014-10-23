@@ -30,6 +30,9 @@ def bom_to_vitamins(assembly = None):
     return vitamin_files
 
 def vitamins(force_update):
+    print("Vitamins")
+    print("---")
+
     #
     # Make the target directories
     #

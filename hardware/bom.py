@@ -138,6 +138,9 @@ class BOM:
 
 def boms(assembly = None):
 
+    print("BOM")
+    print("---")
+
     bom_dir = "bom"
     if assembly:
         bom_dir += "/accessories"
