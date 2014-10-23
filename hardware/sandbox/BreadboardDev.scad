@@ -18,6 +18,10 @@ attach(
     ) {
     Breadboard(Breadboard_170);
     
+    // place a pin
+    attach(Breadboard_Con_Pin(Breadboard_170, along=5, across=3), DefCon, Invert=true)
+        cylinder(r=1/2, h=10);
+    
     // put the screws in
     attach(Breadboard_Con_BottomLeft(Breadboard_170), ScrewCon)
         HexHeadScrew();
