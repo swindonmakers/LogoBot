@@ -33,7 +33,7 @@ function MarbleCastor_Con_Ball(GroundClearance) = [
 ];
 
 
-module MarbleCasterAssembly ( GroundClearance = 20, Explode=false ) {
+module MarbleCasterAssembly (Explode=false ) {
 
     Assembly("MarbleCaster");
 

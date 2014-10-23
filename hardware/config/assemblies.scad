@@ -9,9 +9,8 @@
 
 
 
-// Caster
 include <../assemblies/MarbleCaster.scad>
-
+include <../assemblies/Wheel.scad>
 
 // this one goes last!
 include <../assemblies/LogoBot.scad>

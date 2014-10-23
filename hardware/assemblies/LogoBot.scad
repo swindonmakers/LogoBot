@@ -36,11 +36,6 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 		translate([14, 25, 5])
 			rotate([0,0,90])
 			ArduinoPro();
-		
-		// Bolts
-		*translate([50,0,20])
-			rotate()
-			HexHeadScrew();
 	
 		// Bumper assemblies (x2)
 		for (x=[0,1], y=[0,1])
@@ -53,12 +48,9 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 		// Motor + Wheel assemblies (x2)
 		for (i=[0:1])
 			mirror([i,0,0])
-			translate([BaseDiameter/2 - 20, 0, 10])
+			translate([BaseDiameter/2 + MotorOffsetX, 0, MotorOffsetZ])
 			rotate([-90, 0, 90]) {
-				logo_motor();
-
-				translate([0,0, -3])
-					cylinder(r=30, h=3);
+				WheelAssembly();
 			}
 		
 		// Motor Drivers
@@ -67,9 +59,6 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 			ULN2003DriverBoard();
 	
 		// Battery assembly
-		*translate([-25, -25, 0])
-			battery_pack_linear(2,4);
-	
 		translate([-25, -45, 12])
 			rotate([90, 0, 90])
 			battery_pack_double(2, 4);

@@ -23,11 +23,19 @@ dw 				= DefaultWall;
 tw 				= ThickWall;
 
 
+// Global design parameters
+GroundClearance = 20;
+
+// Motor references
+MotorOffsetX = -16;
+MotorOffsetZ = 10;
+MotorShaftDiameter = 5;
+MotorShaftFlatThickness = 2;
 
 // Wheels
 //
 
-WheelDiameter 	= 80;
+WheelDiameter 	= 2*(GroundClearance + MotorOffsetZ);
 WheelRadius 	= WheelDiameter / 2;
 WheelThickness 	= dw;
 
