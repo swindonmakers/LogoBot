@@ -1,11 +1,5 @@
 ## LogoBot Assembly
 
-### Vitamins
-
- Qty | Vitamin | Image 
- --- | --- | ---
-  1  | [Breadboard_170](../vitamins/Breadboard.scad) | ![](../vitamins/views/Breadboard_170.png)
-
 ### Printed Parts
 
  Qty | STL Filename | Image
@@ -16,5 +10,6 @@
 
 Qty | Sub-Assembly Name
 --- | ---
+  1 | [Breadboard Assembly](#Breadboard Assembly)
   1 | [MarbleCaster Assembly](#MarbleCaster Assembly)
   2 | [Wheel Assembly](#Wheel Assembly)

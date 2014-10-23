@@ -41,7 +41,7 @@ def views(force_update):
     if not os.path.isdir(render_dir):
         os.makedirs(render_dir)
     
-    # List of individual part files
+    # List of "view" scad files
     #
     scads = [i for i in os.listdir(scad_dir) if i[-5:] == ".scad"]
 
@@ -51,12 +51,15 @@ def views(force_update):
 
         print "Checking: " + scad_name
 
+        view_count = 0
         for line in open(scad_name, "r").readlines():
             words = line.split()
             if len(words) > 10 and words[0] == "//":
                 
                 cmd = words[1]
                 if cmd == "view":
+                    view_count += 1
+                    
                     # Up-sample images
                     w = int(words[2]) * 2
                     h = int(words[3]) * 2
@@ -78,9 +81,13 @@ def views(force_update):
                                     "--camera=" + camera,
                                     "-o", png_name, 
                                     scad_name)
-                                    
+                        print                
                         polish(png_name, w/2, h/2)
-                    print
+                    else:
+                        print("  Up to date")
+                    
+        if view_count < 1:
+            print("  No views found - you need to define at least one view")
 
 if __name__ == '__main__':
     if len(sys.argv) == 2:
