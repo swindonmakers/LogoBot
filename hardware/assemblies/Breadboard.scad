@@ -29,8 +29,7 @@ module BreadboardAssembly( Explode=false ) {
 	Breadboard(Breadboard_170);
 	
     // Arduino
-    attach([[8.3, 23.8, 11], [0,0,1], -90,0,0], DefCon) {
-        frame();
+    attach([[8.3, 23.8, 11], [0,0,-1], 90,0,0], [[0,0,0],[0,0,-1],0,0,0], Explode=Explode) {
         ArduinoPro("micro");
     }
 			

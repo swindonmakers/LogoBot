@@ -98,7 +98,7 @@ module attach(a,b, Invert=false, Explode=false, ExplodeSpacing = 10)
     rotate(a=roll, v=v)  rotate(a=ang, v=raxis)
       //-- Attachable part to the origin
       translate(-pos2)
-        translate([0,0, Explode ? -ExplodeSpacing : 0]) {
+        translate([0,0, Explode ? -vref[2] * ExplodeSpacing : 0]) {
 		    children(i);
 		
 		    if (Explode) {

@@ -4,5 +4,5 @@ include <../config/config.scad>
 DebugCoordinateFrames = false;
 DebugConnectors = false;
 
-// view 400 300 24 17 7 46 0 31 318
+// view 400 300 21 17 9 62 0 218 316
 BreadboardAssembly(Explode = true);

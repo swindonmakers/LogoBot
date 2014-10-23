@@ -1,6 +1,4 @@
-2014-10-23 15:22:15.854 OpenSCAD[62363:707]   compiled module: 0x10442ef80
-2014-10-23 15:22:15.855 OpenSCAD[62363:707] ECHO: "Wheel/"
-2014-10-23 15:22:15.856 OpenSCAD[62363:707] ECHO: "Wheel.stl"
-2014-10-23 15:22:15.856 OpenSCAD[62363:707] ECHO: "/Wheel"
-2014-10-23 15:22:15.858 OpenSCAD[62363:707] Compiling design (CSG Products normalization)...
-2014-10-23 15:22:15.858 OpenSCAD[62363:707] Normalized CSG tree has 13 elements
+2014-10-23 17:36:19.225 OpenSCAD[67082:707]   compiled module: 0x10432f910
+2014-10-23 17:36:19.226 OpenSCAD[67082:707] ECHO: "Breadboard_170"
+2014-10-23 17:36:19.592 OpenSCAD[67082:707] Compiling design (CSG Products normalization)...
+2014-10-23 17:36:19.593 OpenSCAD[67082:707] Normalized CSG tree has 171 elements

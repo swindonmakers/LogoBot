@@ -1,2 +1,6 @@
 include <../config/config.scad>
-Breadboard_View();
+UseSTL=false;
+UseVitaminSTL=false;
+DebugConnectors=false;
+DebugCoordinateFrames=false;
+Breadboard(Breadboard_170); 

@@ -206,3 +206,7 @@ module Breadboard(BreadboardType = Breadboard_170, ShowPins=true, BoardColor = "
 			}
 		}	
 }
+
+module Breadboard_View() {
+    echo("300 200 21 17 9 62 0 218 316");
+}
