@@ -23,7 +23,8 @@ All the diagrams can be viewed in OpenSCAD allowing real time zooming, rotating 
 
 ## Bill of Materials
 
-Make sure you have all of the following parts before you begin.  The tables show the number of vitamins/parts required for each sub-assembly, as well as the total.
+Make sure you have all of the following parts before you begin.
+
 
 [BOM](bom/bom.md?include)
 

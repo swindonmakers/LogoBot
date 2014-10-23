@@ -1,4 +1,2 @@
-2014-10-23 17:36:19.225 OpenSCAD[67082:707]   compiled module: 0x10432f910
-2014-10-23 17:36:19.226 OpenSCAD[67082:707] ECHO: "Breadboard_170"
-2014-10-23 17:36:19.592 OpenSCAD[67082:707] Compiling design (CSG Products normalization)...
-2014-10-23 17:36:19.593 OpenSCAD[67082:707] Normalized CSG tree has 171 elements
+2014-10-23 17:38:15.210 OpenSCAD[67177:707]   compiled module: 0x104418730
+2014-10-23 17:38:15.211 OpenSCAD[67177:707] ECHO: "300 200 21 17 9 62 0 218 316"

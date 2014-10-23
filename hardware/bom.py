@@ -200,7 +200,7 @@ def boms(assembly = None):
     
     if assembly == "LogoBotAssembly":
         print("Writing summary BOM")
-        main.print_bom(True, open(bom_dir + "/bom.md","wt"))
+        main.print_bom(False, open(bom_dir + "/bom.md","wt"))
 
     for ass in sorted(main.assemblies):
         print("Writing BOM for sub-assembly: "+ass)
