@@ -58,7 +58,7 @@ module LogoBotAssembly ( PenLift=false, Explode=false ) {
 			mirror([x,0,0])
 			translate([(BaseDiameter/2-10) * cos(45), (BaseDiameter/2-10) * sin(45), -8 ])
 			rotate([0,0,-30])
-			microswitch();
+			MicroSwitch();
 	
 		// Motor + Wheel assemblies (x2)
 		for (i=[0:1])

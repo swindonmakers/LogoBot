@@ -8,4 +8,4 @@ include <../config/config.scad>
 
 include <../vitamins/MicroSwitch.scad>
 
-microswitch();
+MicroSwitch();
