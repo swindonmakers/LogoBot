@@ -4,11 +4,11 @@ body {
   color: #303030;
   position: relative;
   text-indent: 0;
-  font-size: 1em;
+  font-size: 0.9em;
   margin: 0px;
   padding: 0px;
 }
-body,p,td,div,li {
+p,td,div,li {
   word-wrap: break-word;
   font-size:1em;
 }
@@ -73,6 +73,7 @@ h6 {
 
 p {
 /*  font-size: 0.8em;*/
+   display:block;
 }
 
 /* Setup classes for image floats etc. */
@@ -129,8 +130,20 @@ blockquote p {
 /* tables */
 table {
     /* Indent tables */
-    margin-left: 2em; 
+    position:relative;
+    margin-left: 12em; 
+    clear:both;
+    margin-top: -2em;
+    width:70%;
 }
+@media screen and (max-width: 40em) {
+    table {
+        margin-top: 0;
+        margin-left: 0em;
+        width:100%;
+    }
+}
+
 th {
     font-weight: normal;
     padding: 0.3em 1em;
@@ -178,6 +191,7 @@ ol li {
     clear:both;
     position:relative;
     display:block;
+    page-break-inside: avoid;
 }
 
 ol li:before {
@@ -200,14 +214,22 @@ ol li:before {
     border-radius: 2em;
 }
 
+/* images in assembly steps */
 ol li img {
     position:relative;
-    float:left;
+    margin-top: -0.5em;
     clear:both;
     margin:0;
     padding:0;
     margin-bottom: 2em;
     margin-left: 3em;
+}
+
+@media screen and (max-width: 40em) {
+    ol li img {
+        margin-left: 0;
+        margin-bottom: 1em;
+    }
 }
 
 
@@ -245,6 +267,19 @@ ol li img {
     }
     stlViewer {
         display:none;
+    }
+    
+    ol li:before {
+        background: none;
+        color: #888;
+        font-size:2em;
+        top: -1.5em;
+        height:2em;
+        width:2em;
+        line-height:2em;
+        text-align: center;
+        font-weight: bold;
+        border:none;
     }
 }
 
