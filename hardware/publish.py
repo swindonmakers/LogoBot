@@ -20,13 +20,13 @@ def publish():
     call(['git','push','origin','master'])
     
     # switch to the gh-pages branch
-    call(['git','checkout','-b','gh-pages'])
+    call(['git','checkout','gh-pages'])
     
     # fun the fetch script
     call(['python','fetch.py'])
     
     # finally switch back to master
-    call(['git','checkout','-b','master'])
+    call(['git','checkout','master'])
     
 if __name__ == '__main__':
     publish()
