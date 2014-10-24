@@ -64,13 +64,16 @@ module LogoBotAssembly ( PenLift=false ) {
 			MicroSwitch();
 	
 		// Motor + Wheel assemblies (x2)
-		step(3, "Connect the two wheel assemblies", "400 300 -6 7 19 64 1 212 625")
-		for (i=[0:1])
-			mirror([i,0,0])
-			translate([BaseDiameter/2 + MotorOffsetX, 0, MotorOffsetZ])
-			rotate([-90, 0, 90]) {
-				WheelAssembly();
-			}
+		step(3, "Connect the two wheel assemblies", "400 300 -4 6 47 66 0 190 740")
+            for (i=[0:1])
+                mirror([i,0,0])
+                translate([BaseDiameter/2 + MotorOffsetX, 0, MotorOffsetZ])
+                translate([-15,0,0])
+                attach(DefConDown, DefConDown, ExplodeSpacing = 40)
+                translate([15,0,0])
+                rotate([-90, 0, 90]) {
+                    WheelAssembly();
+                }
 		
 		step(4, "Push the two motor drivers onto the mounting posts", "400 300 -6 7 19 64 1 212 625") {
 		    // Left Motor Driver
@@ -250,31 +253,10 @@ module LogoBotBase_STL() {
                     
                 // Now union on any other bits (i.e. sticky-up bits!)
                 
-                // mounting posts for motor drivers
-                // left driver example
-                // TODO: Replace this with a loop
-                // using a mirror because the layout is symmetrical
-                for (i=[0,1])
-                    mirror([i,0,0])
-                    attach(
-                        offsetConnector(invertConnector(LogoBot_Con_LeftMotorDriver), [0,0, -LogoBot_Con_LeftMotorDriver[0][2]]), 
-                        ULN2003DriverBoard_Con_UpperLeft) 
-                    {
-                        // Now we're inside the driver boards local coordinate system, which is relative to the LowerLeft mount point.
-                        // To position things relative to the local frame, we need to "reverse" attach them by swapping the order
-                        // of the connectors.
-                        attach(ULN2003DriverBoard_Con_UpperLeft, ULN2003DriverBoard_Con_LowerLeft)
-                            LogoBotBase_MountingPost(r1=(ULN2003Driver_HoleDia+2)/2, h1 = LogoBot_Con_LeftMotorDriver[0][2], r2=ULN2003Driver_HoleDia/2, h2=3);
-               
-                        attach(ULN2003DriverBoard_Con_UpperRight, ULN2003DriverBoard_Con_LowerLeft) 
-                             LogoBotBase_MountingPost(r1=(ULN2003Driver_HoleDia+2)/2, h1 = LogoBot_Con_LeftMotorDriver[0][2], r2=ULN2003Driver_HoleDia/2, h2=3);
-                        
-                        attach(ULN2003DriverBoard_Con_LowerRight, ULN2003DriverBoard_Con_LowerLeft) 
-                             LogoBotBase_MountingPost(r1=(ULN2003Driver_HoleDia+2)/2, h1 = LogoBot_Con_LeftMotorDriver[0][2], r2=ULN2003Driver_HoleDia/2, h2=3);
-                         
-                        // the lower left post doesn't need translating
-                        LogoBotBase_MountingPost(r1=(ULN2003Driver_HoleDia+2)/2, h1 = LogoBot_Con_LeftMotorDriver[0][2], r2=ULN2003Driver_HoleDia/2, h2=3);
-                    }
+                // clips for the motors
+                LogoBotBase_MotorClips();
+                
+                LogoBotBase_MotorDriverPosts();
                 
                     
             }
@@ -282,6 +264,72 @@ module LogoBotBase_STL() {
 }
 
 
+module LogoBotBase_MotorClips() {
+    // TODO: feed these local variables from the motor vitamin global vars
+    mbr = 28/2;  // motor body radius
+    mao = 8;     // motor axle offset from centre of motor body
+    mth = 7;     // motor tab height
+
+    // clips
+    for (i=[0:1], j=[0,1])
+        mirror([i,0,0])
+        translate([BaseDiameter/2 + MotorOffsetX - 6 - j*12, 0, MotorOffsetZ + mao])
+        rotate([-90, 0, 90])
+        rotate([0,0, 0])
+        linear_extrude(5) {
+            difference() {
+                union() {
+                
+                    difference() {    
+                        overhangFreeCircle(r=mbr + dw, ang=30);
+                        
+                        // trim the top off
+                        rotate([0,0,180 + 30])
+                            sector2D(r=mbr+30, a=120);
+                    }
+
+                    // welcoming hands
+                    for (k=[0,1])
+                        mirror([k,0,0])
+                        rotate([0,0,180+30])
+                        translate([mbr, -dw, 0])
+                        polygon([[1.5,0],[4,5],[3,5],[0,dw]],4);
+                }
+                
+                // hollow for the motor
+                circle(r=mbr);
+                
+            }
+        }
+}
+
+module LogoBotBase_MotorDriverPosts() {
+    // mounting posts for motor drivers
+    // left driver example
+    // TODO: Replace this with a loop
+    // using a mirror because the layout is symmetrical
+    for (i=[0,1])
+        mirror([i,0,0])
+        attach(
+            offsetConnector(invertConnector(LogoBot_Con_LeftMotorDriver), [0,0, -LogoBot_Con_LeftMotorDriver[0][2]]), 
+            ULN2003DriverBoard_Con_UpperLeft) 
+        {
+            // Now we're inside the driver boards local coordinate system, which is relative to the LowerLeft mount point.
+            // To position things relative to the local frame, we need to "reverse" attach them by swapping the order
+            // of the connectors.
+            attach(ULN2003DriverBoard_Con_UpperLeft, ULN2003DriverBoard_Con_LowerLeft)
+                LogoBotBase_MountingPost(r1=(ULN2003Driver_HoleDia+2)/2, h1 = LogoBot_Con_LeftMotorDriver[0][2], r2=ULN2003Driver_HoleDia/2, h2=3);
+   
+            attach(ULN2003DriverBoard_Con_UpperRight, ULN2003DriverBoard_Con_LowerLeft) 
+                 LogoBotBase_MountingPost(r1=(ULN2003Driver_HoleDia+2)/2, h1 = LogoBot_Con_LeftMotorDriver[0][2], r2=ULN2003Driver_HoleDia/2, h2=3);
+            
+            attach(ULN2003DriverBoard_Con_LowerRight, ULN2003DriverBoard_Con_LowerLeft) 
+                 LogoBotBase_MountingPost(r1=(ULN2003Driver_HoleDia+2)/2, h1 = LogoBot_Con_LeftMotorDriver[0][2], r2=ULN2003Driver_HoleDia/2, h2=3);
+             
+            // the lower left post doesn't need translating
+            LogoBotBase_MountingPost(r1=(ULN2003Driver_HoleDia+2)/2, h1 = LogoBot_Con_LeftMotorDriver[0][2], r2=ULN2003Driver_HoleDia/2, h2=3);
+        }
+}
 
 module LogoBotBase_MountingPost(r1=5/2, h1=3, r2=3/2, h2=3) {
     cylinder(r=r1, h=h1);
