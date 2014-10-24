@@ -23,7 +23,7 @@ def publish():
     call(['git','checkout','gh-pages'])
     
     # fun the fetch script
-    call(['python','fetch.py'])
+    call(['python','fetch.py','1'])
     
     # finally switch back to master
     call(['git','checkout','master'])
