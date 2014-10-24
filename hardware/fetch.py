@@ -33,6 +33,8 @@ def fetch(doCommit):
     # stl
     call(["git","checkout","master","stl/*.stl"]);
     
+    # vitamins views
+    call(["git","checkout","master","vitamins/views/*.png"]);
     
     
     # add anything else that's appeared
