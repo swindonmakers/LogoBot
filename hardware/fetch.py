@@ -28,7 +28,7 @@ def fetch(doCommit):
     # copyall('./',target_dir, include=shutil.ignore_patterns('*.md', '*.js','*.png','*.css','*.htm','*.stl'))
         
 if __name__ == '__main__':
-    if len(sys.argv) > 0:
-        fetch(sys.argv[1:])
+    if len(sys.argv) > 1:
+        fetch(sys.argv[1])
     else:
         fetch(0)
