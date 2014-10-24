@@ -12,7 +12,10 @@ def fetch():
     print("Fetch")
     print("-----")
     
-    # fetch a bunch of stuff
+    # checkout a bunch of stuff
+    call(["git","checkout","*.md"]);
+    call(["git","checkout","*.htm"]);
+    
     
     # add anything else that's appeared
     call(["git","add","-A"]);
@@ -20,6 +23,8 @@ def fetch():
     # Commit and push to origin
     call(['git','commit','-a','-m','"auto fetch and commit"']);
     call(['git','push','origin','gh-pages']);
+    
+    
     
     # copyall('./',target_dir, include=shutil.ignore_patterns('*.md', '*.js','*.png','*.css','*.htm','*.stl'))
         
