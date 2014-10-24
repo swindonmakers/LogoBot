@@ -12,6 +12,7 @@ Qty | Sub-Assembly Name
 --- | ---
   1 | [Breadboard Assembly](#Breadboard Assembly)
   1 | [MarbleCaster Assembly](#MarbleCaster Assembly)
+  1 | [Shell Assembly](#Shell Assembly)
   2 | [Wheel Assembly](#Wheel Assembly)
 
 ### Assembly Steps

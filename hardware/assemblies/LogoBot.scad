@@ -92,7 +92,7 @@ module LogoBotAssembly ( PenLift=false ) {
 	
 		// LED
 		step(6, "Clip the LED into place", "400 300 -6 7 19 64 1 212 625")
-		    translate([0, -10, BaseDiameter/2 - 4]) 
+		    translate([0, -10, BaseDiameter/2]) 
 			LED();
 		
 		// Piezo
@@ -124,18 +124,11 @@ module LogoBotAssembly ( PenLift=false ) {
 		
 		
 		// Shell + fixings
-		step(PenLift ? 10 : 9, "Push the shell down onto the base and twist to lock into place", "400 300 -6 7 19 64 1 212 625")
-	    color([0,0,0, 0.3])
-			render()
-			difference() {
-				hull() {
-					sphere(BaseDiameter/2);
-					
-				}
-				
-				translate([-BaseDiameter, -BaseDiameter, -BaseDiameter*2 + BaseThickness+eta])
-					cube([BaseDiameter*2, BaseDiameter*2, BaseDiameter*2]);
-			}
+		step(PenLift ? 10 : 9, 
+		    "Push the shell down onto the base and twist to lock into place", 
+		    "400 400 11 -23 65 66 0 217 1171")
+	        attach(DefConDown, DefConDown, ExplodeSpacing=BaseDiameter/2)
+	        ShellAssembly();
 	}
 	
 	End("LogoBot");
@@ -163,6 +156,9 @@ module LogoBotAssembly ( PenLift=false ) {
 module LogoBotBase_STL() {
 
     STL("LogoBotBase");
+    
+    // turn off explosions inside STL!!!
+    $Explode = false;
 	
 	// Color it as a printed plastic part
 	color(PlasticColor)
@@ -234,10 +230,14 @@ module LogoBotBase_STL() {
             
                         // A load of fixing holes around the edge...  just as an example of how to do it
                         // NB: This is one of the examples we discussed during the wk1 session
-                        for (i=[0:9])
+                        // TODO: Decide if we want these back...
+                        *for (i=[0:9])
                             rotate([0, 0, i * 360/10])
                             translate([BaseDiameter/2 - 5, 0, 0])
                             circle(r=4.3/2);  // M4 fixing holes
+                            
+                        // Remove shell fittings
+                        Shell_TwistLockCutouts();
                     }
                     
                 // Now union on any other bits (i.e. sticky-up bits!)

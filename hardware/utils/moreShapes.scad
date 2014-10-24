@@ -217,9 +217,13 @@ module fillet(r, h) {
         }
 }
 
+module right_triangle_2d(width,height,center=true) {
+    polygon(points = [[0,0], [width, 0], [0, height]]);
+}
+
 module right_triangle(width, height, h, center = true) {
     linear_extrude(height = h, center = center)
-        polygon(points = [[0,0], [width, 0], [0, height]]);
+        right_triangle_2d(width,height,center=center);
 }
 
 module roundedRightTriangle(width, height, h, r=[1,1,1], center = true, $fn=12) {
