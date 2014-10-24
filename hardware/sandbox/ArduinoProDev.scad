@@ -18,15 +18,15 @@ ArduinoPro_PCB_Clearance_Show = false;
 // ArduinoPro_PCB_Colour = [26/255, 90/255, 160/255];
 
 
-// Create an Arduino Pro Micro
-translate([ArduinoPro_PCB_Pitch, 0, 0])
-  ArduinoPro(ArduinoPro_Mini);
-
 // Create an Arduino Pro Mini
-translate([-ArduinoPro_PCB_Width, 0, 0])
-  ArduinoPro(ArduinoPro_Micro);
+translate([ArduinoPro_PCB_Inset - ArduinoPro_PCB_Width/2 - ArduinoPro_PCB_Width, 0, 0])
+  ArduinoPro(ArduinoPro_Mini, ArduinoPro_Pins_Normal, ArduinoPro_Pins_Normal);
+
+// Create an Arduino Pro Micro
+translate([ArduinoPro_PCB_Inset - ArduinoPro_PCB_Width/2 + ArduinoPro_PCB_Width, 0, 0])
+  ArduinoPro(ArduinoPro_Micro, ArduinoPro_Pins_Normal);
 
 // Create an Arduino Pro (headerless)
-translate([ArduinoPro_PCB_Width*2, 0, 0])
-  ArduinoPro(ArduinoPro_No_Port);
+translate([ArduinoPro_PCB_Inset - ArduinoPro_PCB_Width/2, +ArduinoPro_PCB_Length *1.5, 0])
+  ArduinoPro(ArduinoPro_No_Port, ArduinoPro_Pins_Opposite);
 
