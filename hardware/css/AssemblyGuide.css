@@ -112,8 +112,10 @@ a:hover {
   vertical-align: super
 }
 img {
-  max-width: 100%;
-  height: auto
+  max-width: 90%;
+  display:block;
+  height: auto;
+  margin: 0 auto;
 }
 
 
@@ -142,8 +144,8 @@ td {
 
 /* Thumbnail images in tables - e.g. Parts lists */
 td img {
-    width: 100px;
-    height:auto;
+    width: auto;
+    max-height:4em;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     -o-transition: all .2s ease-in-out;
@@ -186,7 +188,7 @@ ol li:before {
     margin: .5em 0;
     left: -0.5em;
     top: -1.3em;
-    background:  #d72;
+    background:  #f93;
     color:white;
     height:2em;
     width:2em;

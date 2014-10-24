@@ -109,7 +109,7 @@ module attach(a,b, Invert=false, ExplodeSpacing = 10)
                 
             if ($Explode) {
 		        // show attachment axis
-		        color([0,0,0, 0.5])
+		        color([1,0,0, 0.8])
 		            translate(-vref * ExplodeSpacing)
 		            vector(vref * ExplodeSpacing, l=abs(ExplodeSpacing), l_arrow=2, mark=false);
 		    }

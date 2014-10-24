@@ -12,6 +12,9 @@ include <config/config.scad>
 STLPath = "stl/";
 VitaminSTL = "vitamins/stl/";
 
+DebugCoordinateFrames = 0;
+DebugConnectors = false;
+
 // Master assembly
 //   Defined within: assemblies/LogoBot.scad
 LogoBotAssembly();
