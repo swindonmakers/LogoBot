@@ -141,3 +141,7 @@ module MarbleCaster_STL () {
             }		
         }
 }
+
+module MarbleCaster_STL_View() {
+    echo("300 200 1.4 .8 -5.6 63.4 0 114 172");
+}

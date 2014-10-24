@@ -8,6 +8,7 @@ import c14n_stl
 import re
 
 from bom import source_dir
+from views import render_view
 
 def bom_to_stls(assembly = None):
     #
@@ -27,6 +28,8 @@ def bom_to_stls(assembly = None):
 def stls(parts = None):
     print("STL")
     print("---")
+    
+    view_dir = 'images'
     
     #
     # Make the target directory
@@ -85,6 +88,9 @@ def stls(parts = None):
                         for line in open("openscad.log"):
                             if line[:7] == 'ECHO: "' and line[-6:] == '.stl"\n':
                                 used.append(line[7:-2])
+                                
+                        # Attempt to render a view of the STL
+                        render_view( module[:-4] + '_STL', '', target_dir, view_dir)
     #
     # List the ones we didn't find
     #

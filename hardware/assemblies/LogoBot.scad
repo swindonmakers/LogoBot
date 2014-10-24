@@ -263,6 +263,10 @@ module LogoBotBase_STL() {
         }
 }
 
+module LogoBotBase_STL_View() {
+    echo("400 300 0 0 0 58 0 225 681");
+}
+
 
 module LogoBotBase_MotorClips() {
     // TODO: feed these local variables from the motor vitamin global vars

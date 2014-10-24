@@ -47,3 +47,8 @@ module Wheel_STL() {
 	color(Level2PlasticColor)
 	    cylinder(r=WheelDiameter/2, h=WheelThickness, $fn=64);
 }
+
+
+module Wheel_STL_View() {
+    echo("400 300 0 -1 -1 49 0 25 336");
+}

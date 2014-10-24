@@ -59,6 +59,9 @@ module BasicShell_STL() {
 	
 }
 
+module BasicShell_STL_View() {
+    echo("400 300 -2 6 14 63 0 26 726");	
+}
 
 
 /*
