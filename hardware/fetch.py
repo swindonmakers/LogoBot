@@ -25,10 +25,10 @@ def fetch(doCommit):
     call(["git","checkout","master","images/*.png"]);
     
     # js
-    call(["git","checkout","master","js/*.js"]);
+    call(["git","checkout","master","js"]);
     
     # css
-    call(["git","checkout","master","css/*.css"]);
+    call(["git","checkout","master","css"]);
     
     # stl
     call(["git","checkout","master","stl/*.stl"]);
