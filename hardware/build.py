@@ -17,7 +17,7 @@ def build(force_update):
     stls()
     vitamins(force_update)
     views(force_update)
-    # publish()
+    publish()
 
 if __name__ == '__main__':
     if len(sys.argv) == 2:
