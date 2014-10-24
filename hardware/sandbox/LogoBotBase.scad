@@ -7,3 +7,5 @@ $Explode=true;
 $ShowStep = 3;
 
 LogoBotAssembly();
+
+*LogoBotBase_MotorClips();
