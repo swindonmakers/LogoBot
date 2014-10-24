@@ -13,8 +13,26 @@ def fetch(doCommit):
     print("-----")
     
     # checkout a bunch of stuff
+    
+    # the guide
     call(["git","checkout","master","*.md"]);
     call(["git","checkout","master","*.htm"]);
+    
+    # bom
+    call(["git","checkout","master","bom/*.md"]);
+    
+    # images
+    call(["git","checkout","master","images/*.png"]);
+    
+    # js
+    call(["git","checkout","master","js/*.js"]);
+    
+    # css
+    call(["git","checkout","master","css/*.css"]);
+    
+    # stl
+    call(["git","checkout","master","stl/*.stl"]);
+    
     
     
     # add anything else that's appeared
