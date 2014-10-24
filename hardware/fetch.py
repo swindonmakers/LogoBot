@@ -13,8 +13,8 @@ def fetch():
     print("-----")
     
     # checkout a bunch of stuff
-    call(["git","checkout","*.md"]);
-    call(["git","checkout","*.htm"]);
+    call(["git","checkout","master","*.md"]);
+    call(["git","checkout","master","*.htm"]);
     
     
     # add anything else that's appeared
