@@ -128,7 +128,7 @@ module LogoBotAssembly ( PenLift=false ) {
 		    "Push the shell down onto the base and twist to lock into place", 
 		    "400 400 11 -23 65 66 0 217 1171")
 	        attach(DefConDown, DefConDown, ExplodeSpacing=BaseDiameter/2)
-	        ShellAssembly();
+	        BasicShell_STL();
 	}
 	
 	End("LogoBot");

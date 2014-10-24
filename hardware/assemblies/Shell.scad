@@ -1,6 +1,7 @@
 /*
 	Assembly: ShellAssembly
 	Shell assembly - bit of a dummy assembly for the basic shell
+	Also somewhere to hold the STL
 	
 	Local Frame: 
 		Centred on the origin, same frame as the LogoBot base
