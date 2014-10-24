@@ -21,7 +21,7 @@ def fetch(doCommit):
     call(["git","add","-A"]);
         
     # Commit and push to origin
-    if doCommit:
+    if doCommit > 0:
         call(['git','commit','-a','-m','"auto fetch and commit"']);
         call(['git','push','origin','gh-pages']);
     
