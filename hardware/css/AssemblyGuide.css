@@ -42,7 +42,7 @@ h1 {
     text-align:center;
 }
 h2 {
-    margin-top: 3em;
+    margin-top: 2em;
     background-color: #d72;
     color: #fff;
     padding: 0.1em 2em;
@@ -170,6 +170,8 @@ ol:after {
     content:'';
     display:block;
     clear:both;
+    margin:0;
+    padding:0;
 }
 
 ol li {
@@ -186,7 +188,7 @@ ol li:before {
     float:left;
     padding: .4em .4em .4em 0.4em;
     margin: .5em 0;
-    left: -0.5em;
+    left: -1em;
     top: -1.3em;
     background:  #f93;
     color:white;
@@ -204,6 +206,8 @@ ol li img {
     clear:both;
     margin:0;
     padding:0;
+    margin-bottom: 2em;
+    margin-left: 3em;
 }
 
 
