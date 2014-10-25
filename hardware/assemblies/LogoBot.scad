@@ -151,7 +151,7 @@ module LogoBotAssembly ( PenLift=false ) {
 		if (PenLift) {
 			// TODO: wrap into a PenLift sub-assembly
 			step(10, "Fit the pen lift assembly", "400 300 -6 7 19 64 1 212 625")
-			    attach( LogoBot_Con_PenLift, MicroServo_Con_Horn, Explode=Explode )
+			    attach( LogoBot_Con_PenLift, MicroServo_Con_Horn)
 				MicroServo();
 		}
 		

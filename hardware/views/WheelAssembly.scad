@@ -4,4 +4,5 @@ DebugConnectors = false;
 DebugCoordinateFrames = false;
 
 // view 400 300 -0.4 0.2 0.7 349 125 180 415	
-WheelAssembly(Explode=true);
+$Explode=true;
+WheelAssembly();

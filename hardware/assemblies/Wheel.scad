@@ -15,7 +15,7 @@ Wheel_Con_Default				= [ [0,0,0], [0,0,1], 0, 0, 0];
 
 
 
-module WheelAssembly( Explode=false ) {
+module WheelAssembly( ) {
 
     Assembly("Wheel");
 

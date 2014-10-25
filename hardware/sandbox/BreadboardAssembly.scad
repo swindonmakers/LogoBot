@@ -4,6 +4,6 @@ include <../config/config.scad>
 DebugCoordinateFrames = true;
 DebugConnectors = true;
 
-Explode=true;
+$Explode=true;
 
 BreadboardAssembly();
