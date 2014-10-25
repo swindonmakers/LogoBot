@@ -1,2 +1,6 @@
 include <../config/config.scad>
-Wheel_STL_View();
+UseSTL=false;
+UseVitaminSTL=false;
+DebugConnectors=false;
+DebugCoordinateFrames=false;
+Wheel_STL(); 

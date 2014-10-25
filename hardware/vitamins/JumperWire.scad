@@ -111,7 +111,7 @@ module JumperWire(
             cableSpacing = 2.54,
             points= [
                 con1[0] - con1n * (14 + ($Explode ? ExplodeSpacing : 0)),
-                con1[0] - con1n * (length * 0.3 + ($Explode ? ExplodeSpacing + 20 : 0)),
+                con1[0] - con1n * (length * 0.3 + ($Explode ? ExplodeSpacing : 0)),
                 midPoint - mtv * length * 0.3,
                 midPoint
             ],
@@ -130,7 +130,7 @@ module JumperWire(
             points= [
                 midPoint,
                 midPoint + mtv * length * 0.3,
-                con2[0] - con2n * (length * 0.3 + ($Explode ? ExplodeSpacing + 20 : 0)),
+                con2[0] - con2n * (length * 0.3 + ($Explode ? ExplodeSpacing : 0)),
                 con2[0] - con2n * (14 + ($Explode ? ExplodeSpacing : 0))
             ],
             vectors = [
@@ -150,8 +150,8 @@ module JumperWire(
             cableSpacing = 2.54,
             points= [
                 con1[0] - con1n * (14 + ($Explode ? ExplodeSpacing : 0)),
-                con1[0] - con1n * (length * 0.6 + ($Explode ? ExplodeSpacing + 20 : 0)),
-                con2[0] - con2n * (length * 0.6 + ($Explode ? ExplodeSpacing + 20 : 0)),
+                con1[0] - con1n * (length * 0.6 + ($Explode ? ExplodeSpacing : 0)),
+                con2[0] - con2n * (length * 0.6 + ($Explode ? ExplodeSpacing : 0)),
                 con2[0] - con2n * (14 + ($Explode ? ExplodeSpacing : 0))
             ],
             vectors = [

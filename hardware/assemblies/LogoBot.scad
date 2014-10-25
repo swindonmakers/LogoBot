@@ -95,8 +95,8 @@ module LogoBotAssembly ( PenLift=false ) {
 		        JumperWire(
                     type = JumperWire_FM4,
                     con1 = [[34,43,10], [0,0,-1], 0,0,0],
-                    con2 = [[11.5,31.5,0], [0,0,-1], 0,0,0],
-                    length = 50,
+                    con2 = [[11.5,31.5, -8], [0,0,-1], 0,0,0],
+                    length = 70,
                     conVec1 = [1,0,0],
                     conVec2 = [0,-1,0],
                     midVec = [0.5,-1,0]
@@ -106,8 +106,8 @@ module LogoBotAssembly ( PenLift=false ) {
 		        JumperWire(
                     type = JumperWire_FM4,
                     con1 = [[-31.5,43,10], [0,0,-1], 0,0,0],
-                    con2 = [[-9,31.5,0], [0,0,-1], 0,0,0],
-                    length = 50,
+                    con2 = [[-9,31.5, -8], [0,0,-1], 0,0,0],
+                    length = 70,
                     conVec1 = [1,0,0],
                     conVec2 = [0,-1,0],
                     midVec = [0,0,-1]
