@@ -41,7 +41,7 @@ module PlaceLine(seg, radius=0.025)
 
 	translate(origin)
 	rotate(rot)
-	cylinder(r=radius, h=len, $fn=12);
+	cylinder(r=radius, h=len);
 }
 
 module DisplayQuadFrame(quad, radius=0.125) 
