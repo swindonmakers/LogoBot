@@ -2,7 +2,7 @@ include <maths.scad>
 include <Renderer.scad>
 
 
-module ribbonCable(cables=0, cableRadius = 0.5, points, vectors, colors, steps=20, debug=false) {
+module ribbonCable(cables=0, cableRadius = 0.5, cableSpacing=0, points, vectors, colors, steps=20, debug=false) {
 
     cps = points;
 
@@ -14,12 +14,13 @@ module ribbonCable(cables=0, cableRadius = 0.5, points, vectors, colors, steps=2
     // vectors to align the strips of the ribbon
     cv = vectors;
 
-    cableWidth = (cables - 1) * cableD;
-
+    cableWidth = (cables - 1) * (cableSpacing > 0 ? cableSpacing : cableD);
+    cableWidth2 = (cables - 1) * cableD;
+    
     cps2 = [
         cps[0] + VNORM(cv[0]) * cableWidth,
-        cps[1] + VNORM(cv[1]) * cableWidth,
-        cps[2] + VNORM(cv[2]) * cableWidth,
+        cps[1] + VNORM(cv[1]) * cableWidth2,
+        cps[2] + VNORM(cv[2]) * cableWidth2,
         cps[3] + VNORM(cv[3]) * cableWidth
     ];
     
