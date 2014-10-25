@@ -72,7 +72,8 @@ module LogoBotAssembly ( PenLift=false ) {
                 attach(DefConDown, DefConDown, ExplodeSpacing = 40)
                 translate([15,0,0])
                 rotate([-90, 0, 90]) {
-                    WheelAssembly();
+                    assign($rightSide= i == 0? 1 : 0)
+                        WheelAssembly();
                 }
 		
 		step(4, "Push the two motor drivers onto the mounting posts", "400 300 -6 7 19 64 1 212 625") {
@@ -165,7 +166,7 @@ module LogoBotBase_STL() {
 	
 	// Color it as a printed plastic part
 	color(PlasticColor)
-	    if (UseSTL && false) {
+	    if (UseSTL) {
 	        import(str(STLPath, "LogoBotBase.stl"));
 	    } else {
 	        union() {
