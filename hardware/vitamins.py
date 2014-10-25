@@ -102,7 +102,7 @@ def vitamins(force_update):
                     else:
                         print fn + " is up to date"
                         
-            render_view(t, t+'_'+targets[t], source_dir, view_dir)
+            render_view(t, t+'_'+targets[t], source_dir, view_dir, fn)
                     
 
 if __name__ == '__main__':

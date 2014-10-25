@@ -75,8 +75,9 @@ def stls(parts = None):
                         #
                         # Run openscad on the created file if timestamps have changed
                         #
+                        src_name = source_dir + "/" + filename
                         stl_name = target_dir + "/" + module[:-4] + ".stl"
-                        if (not os.path.isfile(stl_name) or os.path.getmtime(stl_name) < os.path.getmtime(source_dir + "/" + filename)):
+                        if (not os.path.isfile(stl_name) or os.path.getmtime(stl_name) < os.path.getmtime(src_name)):
                             openscad.run("-D$bom=1","-o", stl_name, stl_maker_name)
                             c14n_stl.canonicalise(stl_name)
                         else:
@@ -90,7 +91,7 @@ def stls(parts = None):
                                 used.append(line[7:-2])
                                 
                         # Attempt to render a view of the STL
-                        render_view( module[:-4] + '_STL', '', target_dir, view_dir)
+                        render_view( module[:-4] + '_STL', '', target_dir, view_dir, src_name)
     #
     # List the ones we didn't find
     #

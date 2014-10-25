@@ -6,6 +6,8 @@ DebugCoordinateFrames = 0;
 $Explode=true;
 $ShowStep = 3;
 
-LogoBotAssembly();
+UseSTL = true;
+
+LogoBotBase_STL();
 
 *LogoBotBase_MotorClips();

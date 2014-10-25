@@ -225,6 +225,10 @@ module LogoBotBase_STL() {
                                 translate([-1,0,0])
                                     roundedSquare([WheelThickness + tw, WheelDiameter + tw], (WheelThickness + tw)/2, center=true);
                             }
+                            
+                        // weight loss under battery pack
+                        translate([-57/2, -45])
+                            roundedSquare([57, 30], tw);
         
                         // Centre hole for pen
                         circle(r=PenHoleDiameter/2);
@@ -286,7 +290,14 @@ module LogoBotBase_MotorClips() {
                 union() {
                 
                     difference() {    
-                        overhangFreeCircle(r=mbr + dw, ang=30);
+                        hull() {
+                            // main circle
+                            circle(r=mbr + dw);
+                            
+                            // extension to correctly union to the base plate
+                            translate([-(mbr * 1.5)/2,  MotorOffsetZ + mao -1,0])
+                                square([mbr * 1.5, 1]);
+                        }
                         
                         // trim the top off
                         rotate([0,0,180 + 30])

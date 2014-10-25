@@ -61,7 +61,7 @@ def polish(filename, w, h):
     img.save(filename)
 
 
-def render_view(module_name, type_name, source_dir, view_dir):
+def render_view(module_name, type_name, source_dir, view_dir, src_name):
     # Generate view
     print("Checking for _View")
     #
@@ -82,53 +82,57 @@ def render_view(module_name, type_name, source_dir, view_dir):
         pos = line.find('ECHO: "')
         if pos > -1:
             s = line[pos + 7 : line.rfind('"')]
-            print("Generating view: "+s)
-            
-            s = s.split();
-            
-            # Up-sample images
-            w = int(s[0]) * 2
-            h = int(s[1]) * 2
-            
-            dx = float(s[2])
-            dy = float(s[3])
-            dz = float(s[4])
-            
-            rx = float(s[5])
-            ry = float(s[6])
-            rz = float(s[7])
-            
-            d = float(s[8])
-            camera = "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f" % (dx, dy, dz, rx, ry, rz, d)
-            
             if type_name != '':
                 png_name = view_dir + '/' + type_name + '.png'
             else:
                 png_name = view_dir + '/' + module_name + '.png'
+                
+            if (not os.path.isfile(png_name) or os.path.getmtime(png_name) < os.path.getmtime(src_name)):            
+                print("Generating view: "+s)
             
-            # make a file to use the module
-            #
-            view_maker_name = source_dir + "/temp.scad"
-            f = open(view_maker_name, "w")
-            f.write("include <../config/config.scad>\n")
-            f.write("UseSTL=false;\n");
-            f.write("UseVitaminSTL=false;\n");
-            f.write("DebugConnectors=false;\n");
-            f.write("DebugCoordinateFrames=false;\n");
-            if type_name != '':
-                f.write(module_name + "(" + type_name + "); \n");
-            else:
-                f.write(module_name + "(); \n");
-            f.close()
+                s = s.split();
+            
+                # Up-sample images
+                w = int(s[0]) * 2
+                h = int(s[1]) * 2
+            
+                dx = float(s[2])
+                dy = float(s[3])
+                dz = float(s[4])
+            
+                rx = float(s[5])
+                ry = float(s[6])
+                rz = float(s[7])
+            
+                d = float(s[8])
+                camera = "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f" % (dx, dy, dz, rx, ry, rz, d)
+            
+            
+                # make a file to use the module
+                #
+                view_maker_name = source_dir + "/temp.scad"
+                f = open(view_maker_name, "w")
+                f.write("include <../config/config.scad>\n")
+                f.write("UseSTL=false;\n");
+                f.write("UseVitaminSTL=false;\n");
+                f.write("DebugConnectors=false;\n");
+                f.write("DebugCoordinateFrames=false;\n");
+                if type_name != '':
+                    f.write(module_name + "(" + type_name + "); \n");
+                else:
+                    f.write(module_name + "(); \n");
+                f.close()
                                            
-            openscad.run("--projection=p",
-                        ("--imgsize=%d,%d" % (w, h)),
-                        "--camera=" + camera,
-                        "-o", png_name, 
-                        view_maker_name)
+                openscad.run("--projection=p",
+                            ("--imgsize=%d,%d" % (w, h)),
+                            "--camera=" + camera,
+                            "-o", png_name, 
+                            view_maker_name)
                         
-            polish(png_name, w/2, h/2)
-            print
+                polish(png_name, w/2, h/2)
+                print
+            else:
+                print("View up to date")
 
 
 def views(force_update):
