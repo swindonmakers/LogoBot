@@ -34,7 +34,7 @@ LogoBot_Con_PenLift = [ [-20, -5, 10], [0,1,0], 0, 0, 0];
 // Assembly
 // --------
 
-function LogoBotAssembly_NumSteps() = PenLift ? 10 : 9;
+function LogoBotAssembly_NumSteps() = 10 + (PenLift ? 1 : 0);
 
 module LogoBotAssembly ( PenLift=false ) {
 
@@ -85,9 +85,38 @@ module LogoBotAssembly ( PenLift=false ) {
 		    attach(LogoBot_Con_RightMotorDriver, invertConnector(ULN2003DriverBoard_Con_UpperRight), ExplodeSpacing=-20)
 			    ULN2003DriverBoard();
 		}
+		
+		// Connect jumper wires
+		step(5, 
+		    "Connect the jumper wires between the motor drivers and the Arduino", 
+		    "400 300 9 26 54 38 0 161 766")
+		    {
+		        // TODO: Insert appropriate connectors
+		        JumperWire(
+                    type = JumperWire_FM4,
+                    con1 = [[34,43,10], [0,0,-1], 0,0,0],
+                    con2 = [[11.5,31.5,0], [0,0,-1], 0,0,0],
+                    length = 50,
+                    conVec1 = [1,0,0],
+                    conVec2 = [0,-1,0],
+                    midVec = [0.5,-1,0]
+                );
+                
+                // TODO: Insert appropriate connectors
+		        JumperWire(
+                    type = JumperWire_FM4,
+                    con1 = [[-31.5,43,10], [0,0,-1], 0,0,0],
+                    con2 = [[-9,31.5,0], [0,0,-1], 0,0,0],
+                    length = 50,
+                    conVec1 = [1,0,0],
+                    conVec2 = [0,-1,0],
+                    midVec = [0,0,-1]
+                );
+		    
+		    }
 	
 		// Battery assembly
-		step(5, "Clip in the battery pack", "400 300 -6 7 19 64 1 212 625")
+		step(6, "Clip in the battery pack", "400 300 -6 7 19 64 1 212 625")
 		    translate([-25, -45, 12])
 			rotate([90, 0, 90])
 			battery_pack_double(2, 4);
@@ -95,12 +124,12 @@ module LogoBotAssembly ( PenLift=false ) {
 		// Power Switch
 	
 		// LED
-		step(6, "Clip the LED into place", "400 300 -6 7 19 64 1 212 625")
+		step(7, "Clip the LED into place", "400 300 -6 7 19 64 1 212 625")
 		    translate([0, -10, BaseDiameter/2]) 
 			LED();
 		
 		// Piezo
-		step(7, "Clip the piezo sounder into place", "400 300 -6 7 19 64 1 212 625")
+		step(8, "Clip the piezo sounder into place", "400 300 -6 7 19 64 1 212 625")
 		    translate([-37, -32, 10])
 			murata_7BB_12_9();
 	
@@ -108,7 +137,7 @@ module LogoBotAssembly ( PenLift=false ) {
 		// Caster
 		//   Example of using attach
 		// TODO: Correct ground clearance!
-		step(8, "Push the caster assembly into the base so that it snaps into place", 
+		step(9, "Push the caster assembly into the base so that it snaps into place", 
 		    "400 300 -6 7 19 115 1 26 625")
 		    attach(LogoBot_Con_Caster, MarbleCastor_Con_Default, Explode=Explode, ExplodeSpacing=15)
 			MarbleCasterAssembly();
@@ -128,7 +157,7 @@ module LogoBotAssembly ( PenLift=false ) {
 		
 		
 		// Shell + fixings
-		step(PenLift ? 10 : 9, 
+		step(PenLift ? 11 : 10, 
 		    "Push the shell down onto the base and twist to lock into place", 
 		    "400 400 11 -23 65 66 0 217 1171")
 	        attach(DefConDown, DefConDown, ExplodeSpacing=BaseDiameter/2)
