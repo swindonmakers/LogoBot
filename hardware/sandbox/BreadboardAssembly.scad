@@ -5,5 +5,6 @@ DebugCoordinateFrames = true;
 DebugConnectors = true;
 
 $Explode=true;
+$ShowStep = 1;
 
 BreadboardAssembly();

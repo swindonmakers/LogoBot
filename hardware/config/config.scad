@@ -48,6 +48,9 @@ STLPath = "../stl/";
 UseVitaminSTL = true;
 VitaminSTL = "../vitamins/stl/";
 
+$Explode  = false;
+$ShowStep = 100;
+
 // BOM
 
 BOMLevel = 2;
