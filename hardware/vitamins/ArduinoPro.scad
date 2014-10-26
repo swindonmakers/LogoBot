@@ -164,7 +164,7 @@ module ArduinoPro(type = ArduinoPro_Mini, headerpins = 0, serialpins = 0) {
   if (type == ArduinoPro_Micro) ArduinoPro_MicroUSB();
 
   // Indicate area for minimum board clearance
-  if (ArduinoPro_PCB_Clearance_Show) {
+  if (ArduinoPro_PCB_Clearance_Show && !headerpins) {
     color(ArduinoPro_PCB_Colour, 0.1)
     translate([-ArduinoPro_PCB_Inset, -ArduinoPro_PCB_Inset, 0.5])
     linear_extrude(height=ArduinoPro_PCB_Clearance)
