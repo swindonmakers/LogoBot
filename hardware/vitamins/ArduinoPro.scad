@@ -94,7 +94,13 @@ module ArduinoPro_Header_Pin() {
     // Pin Spacers
     color("black")
     linear_extrude(spacerheight)
-    square(spacerwidth, center = true);
+        square(spacerwidth, center = true);
+
+    // Break-Away Material
+    color("black")
+    translate([0, pcbholepitch/2, 0])
+    linear_extrude(spacerheight)
+        square([spacerwidth * 0.85, pcbholepitch - spacerwidth], center = true);
 }
 
 module ArduinoPro_Headers_Layout() {
