@@ -139,7 +139,7 @@ module LogoBotAssembly ( PenLift=false ) {
 		// TODO: Correct ground clearance!
 		step(9, "Push the caster assembly into the base so that it snaps into place", 
 		    "400 300 -6 7 19 115 1 26 625")
-		    attach(LogoBot_Con_Caster, MarbleCastor_Con_Default, Explode=Explode, ExplodeSpacing=15)
+		    attach(LogoBot_Con_Caster, MarbleCastor_Con_Default, ExplodeSpacing=15)
 			MarbleCasterAssembly();
 		
 			
