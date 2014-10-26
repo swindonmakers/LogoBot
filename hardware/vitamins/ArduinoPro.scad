@@ -75,7 +75,16 @@ module ArduinoPro_Header_Hole(d = 1.25) {
   circle(d = d);
 }
 
-module ArduinoPro_Headers(gauge = ArduinoPro_Pins_Gauge) {
+module ArduinoPro_Header_Pin() {
+    $fn=6;
+    color("black")
+        cylinder(r=pow(ArduinoPro_Pins_Spacer,2)/4, h=ArduinoPro_Pins_Spacer);
+     translate([0, 0, -ArduinoPro_Pins_Offset])
+        color("white")
+        cylinder(r=ArduinoPro_Pins_Gauge/2, h=ArduinoPro_Pins_Height);
+}
+
+module ArduinoPro_Headers_Layout() {
   // distance between the two header rows
   // FIXME: improve this to be a multiple of 0.1 inch
   rowpitch  = ArduinoPro_PCB_Width - ArduinoPro_PCB_Inset*2;
@@ -84,7 +93,7 @@ module ArduinoPro_Headers(gauge = ArduinoPro_Pins_Gauge) {
 
   // Add headers to either side (along y)
   for (x = [0, rowpitch], y = [0 : ArduinoPro_PCB_Pitch : rowlength]) {
-    translate([x, y, 0]) ArduinoPro_Header_Hole(gauge);
+    translate([x, y, 0]) children();
   }
 }
 
@@ -109,7 +118,8 @@ module ArduinoPro(type = ArduinoPro_Mini, headerpins = 0, serialpins = 0) {
     ArduinoPro_PCB();
 
     // Common Headers for Pro Mini/Micro
-    ArduinoPro_Headers();
+    ArduinoPro_Headers_Layout() 
+        ArduinoPro_Header_Hole(ArduinoPro_Pins_Gauge);
 
     // Pro Mini Serial Header
     if (type == ArduinoPro_Mini) ArduinoPro_Serial_Header();
@@ -137,19 +147,14 @@ module ArduinoPro(type = ArduinoPro_Mini, headerpins = 0, serialpins = 0) {
       ArduinoPro_Serial_Header(pow(ArduinoPro_Pins_Spacer,2)/2);
   }
 
-  // Common Header Pins
+  // Common Header Pins 
   headerontop = (headerpins == ArduinoPro_Pins_Opposite);
-  // Offset for board height located on top
-  translate([0, 0, headerontop ? ArduinoPro_PCB_Height : 0])
-  mirror([0, 0, headerontop ? 0 : 1 ])
   if (headerpins > 0) {
-    color("black")
-    linear_extrude(ArduinoPro_Pins_Spacer)
-      ArduinoPro_Headers(pow(ArduinoPro_Pins_Spacer,2)/2);
-    translate([0, 0, -ArduinoPro_Pins_Offset])
-    color("white")
-    linear_extrude(ArduinoPro_Pins_Height)
-      ArduinoPro_Headers();
+      // Offset for board height located on top
+      translate([0, 0, headerontop ? ArduinoPro_PCB_Height : 0])
+          mirror([0, 0, headerontop ? 0 : 1 ])
+          ArduinoPro_Headers_Layout()
+              ArduinoPro_Header_Pin();
   }
 
   // Pro Micro USB port
