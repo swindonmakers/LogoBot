@@ -20,17 +20,17 @@ ArduinoPro_PCB_Clearance_Show = true;
 
 // Create an Arduino Pro Mini with header pins
 translate([-ArduinoPro_PCB_Width, 0, 0])
-  ArduinoPro(ArduinoPro_Mini, ArduinoPro_Pins_Normal, ArduinoPro_Pins_Normal);
+    ArduinoPro(ArduinoPro_Mini, ArduinoPro_Pins_Normal, ArduinoPro_Pins_Normal);
 
 // Create an Arduino Pro Micro with header pins
 translate([ArduinoPro_PCB_Width, 0, 0])
-  ArduinoPro(ArduinoPro_Micro, ArduinoPro_Pins_Normal);
+    ArduinoPro(ArduinoPro_Micro, ArduinoPro_Pins_Normal);
 
 // Create an Arduino Pro Mini without any header pins
 translate([ArduinoPro_PCB_Width, -ArduinoPro_PCB_Length *1.5, 0])
-  ArduinoPro(ArduinoPro_Mini);
+    ArduinoPro(ArduinoPro_Mini);
 
 // Create an Arduino Pro (no programming header, pin mounting reversed)
 translate([-ArduinoPro_PCB_Width, -ArduinoPro_PCB_Length *1.5, 0])
-  ArduinoPro(ArduinoPro_No_Port, ArduinoPro_Pins_Opposite);
+    ArduinoPro(ArduinoPro_No_Port, ArduinoPro_Pins_Opposite);
 
