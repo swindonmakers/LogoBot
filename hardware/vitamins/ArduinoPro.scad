@@ -25,20 +25,20 @@ ArduinoPro_Mini             = 1;            // default
 ArduinoPro_Micro            = 2;
 
 // ArduinoPro Without Programming Port
-ArduinoPro_No_Port      = 0;
+ArduinoPro_No_Port          = 0;
 
 // Show Header Pins
-ArduinoPro_Pins_Normal      =    1;
-ArduinoPro_Pins_Opposite    =    2;
+ArduinoPro_Pins_Normal      = 1;
+ArduinoPro_Pins_Opposite    = 2;
 
 // ArduinoPro Without Header Pins
-ArduinoPro_No_Pins              = 0;        // default
+ArduinoPro_No_Pins          = 0;            // default
 
 // ArduinoPro PCB Variables
 ArduinoPro_PCB_Pitch    = 2.54;                         // spacing of the holes
 ArduinoPro_PCB_Inset    = ArduinoPro_PCB_Pitch /2;      // inset from board edge
 ArduinoPro_PCB_Type     = 0.047 * 25.4; // .047 .063    // standard PCB thickness
-ArduinoPro_PCB_Layers   = 2 * 0.035;                    // total copper layer thickness
+ArduinoPro_PCB_Layers   = 0.035 * 2;                    // total copper layer thickness
 ArduinoPro_PCB_Height   = ArduinoPro_PCB_Type +
                           ArduinoPro_PCB_Layers;        // height of the PCB (along z)
 ArduinoPro_PCB_Length   = 1.3 * 25.4;                   // length of the PCB (along y)
@@ -46,8 +46,8 @@ ArduinoPro_PCB_Width    = 0.7 * 25.4;                   //  width of the PCB (al
 ArduinoPro_PCB_Colour   = [26/255, 90/255, 160/255];    // colour of solder mask
 
 // Show board clearance area for components
-ArduinoPro_PCB_Clearance = 3;
-ArduinoPro_PCB_Clearance_Show    = true;
+ArduinoPro_PCB_Clearance      = 3;
+ArduinoPro_PCB_Clearance_Show = true;
 
 
 module ArduinoPro_MicroUSB() {
@@ -79,7 +79,7 @@ module ArduinoPro_Header_Pin() {
     // Standard PCB header pin
     pcbholepitch        = 2.54;         // spacing of PCB holes
     holediameter        = 1.25;         // diameter of PCB hole
-    pinheight           = 11;           // length of PCB pins
+    pinheight           =   11;         // length of PCB pins
     pinoffset           =    3;         // offset of PCB pins
     pinwidth            = 0.63;         // width/gauge of PCB pins
     spacerwidth         = 2.25;         // height of breakaway pin frame
@@ -106,7 +106,7 @@ module ArduinoPro_Header_Pin() {
 module ArduinoPro_Headers_Layout() {
     // distance between the two header rows
     // FIXME: improve this to be a multiple of 0.1 inch
-    rowpitch    = ArduinoPro_PCB_Width - ArduinoPro_PCB_Inset*2;
+    rowpitch  = ArduinoPro_PCB_Width - ArduinoPro_PCB_Inset*2;
     // length for holes, leaving room for end header and insets
     rowlength = ArduinoPro_PCB_Length - ArduinoPro_PCB_Pitch - ArduinoPro_PCB_Inset*2;
 
