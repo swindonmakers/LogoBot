@@ -141,7 +141,7 @@ module ArduinoPro(type = ArduinoPro_Mini, headerpins = 0, serialpins = 0) {
 
         // Pro Mini Serial Header
         if (type == ArduinoPro_Mini) {
-            ArduinoPro_Serial_Header_Layout();
+            ArduinoPro_Serial_Header_Layout()
                 ArduinoPro_Header_Hole();
         }
     }
