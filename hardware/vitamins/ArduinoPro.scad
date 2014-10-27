@@ -75,7 +75,7 @@ module ArduinoPro_Header_Hole() {
     circle(d = holediameter);
 }
 
-module ArduinoPro_Header_Pin() {
+module ArduinoPro_Header_Pin(rotation = 0) {
     // Standard PCB header pin
     pcbholepitch        = 2.54;         // spacing of PCB holes
     holediameter        = 1.25;         // diameter of PCB hole
@@ -98,6 +98,8 @@ module ArduinoPro_Header_Pin() {
 
     // Break-Away Material
     color("black")
+    // FIXME: material needs to be rotated based on vector argument
+    rotate(rotation, 0, 0)
     translate([0, pcbholepitch/2, 0])
     linear_extrude(spacerheight)
         square([spacerwidth * 0.85, pcbholepitch - spacerwidth], center = true);
@@ -190,7 +192,7 @@ module ArduinoPro(type = ArduinoPro_Mini, headerpins = 0, serialpins = 0) {
         translate([0, 0, serialontop ? ArduinoPro_PCB_Height : 0])
             mirror([0, 0, serialontop ? 0 : 1 ])
             ArduinoPro_Serial_Header_Layout()
-                ArduinoPro_Header_Pin();
+                ArduinoPro_Header_Pin(rotation = 90);
     }
 
     // Common Header Pins
