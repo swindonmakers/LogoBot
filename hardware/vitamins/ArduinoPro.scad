@@ -146,6 +146,43 @@ module ArduinoPro(type = ArduinoPro_Mini, headerpins = 0, serialpins = 0) {
         }
     }
 
+    // Distance to middle from origin
+    moveX = ArduinoPro_PCB_Width/2 - ArduinoPro_PCB_Inset;
+
+    // Controller IC
+    color(Grey20)
+    translate([moveX, 0.5*25.4, ArduinoPro_PCB_Height])
+    rotate([0,0,45])
+    linear_extrude(height=1)
+      square(2*sqrt(.4*25.4), center=true);
+
+    // Reset switch (or crystal for Pro Micro)
+    color("silver")
+    translate([moveX, 0.15*25.4, ArduinoPro_PCB_Height])
+    linear_extrude(height=1)
+        square([5, 3.5], center=true);
+
+    // Capacitors
+    moveY = (type == ArduinoPro_Mini ? 0.9 : 0.8) * 25.4;
+    color("silver")
+    translate([moveX/2, moveY, ArduinoPro_PCB_Height])
+    linear_extrude(height=2)
+    union() {
+        square([1.5, 3.5], center=true);
+        translate([7.5, 0, 0])
+          square([1.5, 3.5], center=true);
+    }
+
+    // Other components
+    color("silver")
+    translate([moveX, moveY, ArduinoPro_PCB_Height])
+    linear_extrude(height=1)
+    union() {
+        square([1, 2.5], center=true);
+        translate([0, 3, 0])
+            square([2.5, 1.5], center=true);
+    }
+
     // Pro Mini Serial Header Pins
     serialontop = (serialpins != ArduinoPro_Pins_Opposite);
     if (serialpins > 0 && type == ArduinoPro_Mini) {
