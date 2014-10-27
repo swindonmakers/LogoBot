@@ -218,5 +218,5 @@ module ArduinoPro(type = ArduinoPro_Mini, headerpins = 0, serialpins = 0) {
 
 
 // Example Usage
-// ArduinoPro(ArduinoPro_Mini, ArduinoPro_Serial_Pins);
-// ArduinoPro(ArduinoPro_Micro, ArduinoPro_Header_Pins);
+// ArduinoPro(ArduinoPro_Micro, ArduinoPro_Pins_Normal);
+// ArduinoPro(ArduinoPro_Mini,  ArduinoPro_Pins_Normal, ArduinoPro_Pins_Normal);
