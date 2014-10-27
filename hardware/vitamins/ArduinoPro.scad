@@ -3,7 +3,7 @@
     Model of an Arduino Pro Mini/Micro
 
     Derived from: https://github.com/sparkfun/Pro_Micro/
-                     and: https://github.com/sparkfun/Arduino_Pro_Mini_328/
+             and: https://github.com/sparkfun/Arduino_Pro_Mini_328/
 
     Authors:
         Jamie Osborne (@jmeosbn)
@@ -13,7 +13,7 @@
 
     Parameters:
         type: can be "mini", or "micro";
-                    otherwise returns a blank board with header pin holes
+              otherwise returns a blank board with header pin holes
 
     Returns:
         Model of an Arduino Pro Mini/Micro with header holes
