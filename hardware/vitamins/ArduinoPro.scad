@@ -3,7 +3,7 @@
     Model of an Arduino Pro Mini/Micro
 
     Derived from: https://github.com/sparkfun/Pro_Micro/
-                     and: https://github.com/sparkfun/Arduino_Pro_Mini_328/
+             and: https://github.com/sparkfun/Arduino_Pro_Mini_328/
 
     Authors:
         Jamie Osborne (@jmeosbn)
@@ -13,7 +13,7 @@
 
     Parameters:
         type: can be "mini", or "micro";
-                    otherwise returns a blank board with header pin holes
+              otherwise returns a blank board with header pin holes
 
     Returns:
         Model of an Arduino Pro Mini/Micro with header holes
@@ -75,7 +75,7 @@ module ArduinoPro_Header_Hole() {
     circle(d = holediameter);
 }
 
-module ArduinoPro_Header_Pin() {
+module ArduinoPro_Header_Pin(rotation = 0) {
     // Standard PCB header pin
     pcbholepitch        = 2.54;         // spacing of PCB holes
     holediameter        = 1.25;         // diameter of PCB hole
@@ -98,6 +98,8 @@ module ArduinoPro_Header_Pin() {
 
     // Break-Away Material
     color("black")
+    // FIXME: material needs to be rotated based on vector argument
+    rotate(rotation, 0, 0)
     translate([0, pcbholepitch/2, 0])
     linear_extrude(spacerheight)
         square([spacerwidth * 0.85, pcbholepitch - spacerwidth], center = true);
@@ -146,6 +148,43 @@ module ArduinoPro(type = ArduinoPro_Mini, headerpins = 0, serialpins = 0) {
         }
     }
 
+    // Distance to middle from origin
+    moveX = ArduinoPro_PCB_Width/2 - ArduinoPro_PCB_Inset;
+
+    // Controller IC
+    color(Grey20)
+    translate([moveX, 0.5*25.4, ArduinoPro_PCB_Height])
+    rotate([0,0,45])
+    linear_extrude(height=1)
+      square(2*sqrt(.4*25.4), center=true);
+
+    // Reset switch (or crystal for Pro Micro)
+    color("silver")
+    translate([moveX, 0.15*25.4, ArduinoPro_PCB_Height])
+    linear_extrude(height=1)
+        square([5, 3.5], center=true);
+
+    // Capacitors
+    moveY = (type == ArduinoPro_Mini ? 0.9 : 0.8) * 25.4;
+    color("silver")
+    translate([moveX/2, moveY, ArduinoPro_PCB_Height])
+    linear_extrude(height=2)
+    union() {
+        square([1.5, 3.5], center=true);
+        translate([7.5, 0, 0])
+          square([1.5, 3.5], center=true);
+    }
+
+    // Other components
+    color("silver")
+    translate([moveX, moveY, ArduinoPro_PCB_Height])
+    linear_extrude(height=1)
+    union() {
+        square([1, 2.5], center=true);
+        translate([0, 3, 0])
+            square([2.5, 1.5], center=true);
+    }
+
     // Pro Mini Serial Header Pins
     serialontop = (serialpins != ArduinoPro_Pins_Opposite);
     if (serialpins > 0 && type == ArduinoPro_Mini) {
@@ -153,7 +192,7 @@ module ArduinoPro(type = ArduinoPro_Mini, headerpins = 0, serialpins = 0) {
         translate([0, 0, serialontop ? ArduinoPro_PCB_Height : 0])
             mirror([0, 0, serialontop ? 0 : 1 ])
             ArduinoPro_Serial_Header_Layout()
-                ArduinoPro_Header_Pin();
+                ArduinoPro_Header_Pin(rotation = 90);
     }
 
     // Common Header Pins
@@ -181,5 +220,5 @@ module ArduinoPro(type = ArduinoPro_Mini, headerpins = 0, serialpins = 0) {
 
 
 // Example Usage
-// ArduinoPro(ArduinoPro_Mini, ArduinoPro_Serial_Pins);
-// ArduinoPro(ArduinoPro_Micro, ArduinoPro_Header_Pins);
+// ArduinoPro(ArduinoPro_Micro, ArduinoPro_Pins_Normal);
+// ArduinoPro(ArduinoPro_Mini,  ArduinoPro_Pins_Normal, ArduinoPro_Pins_Normal);
