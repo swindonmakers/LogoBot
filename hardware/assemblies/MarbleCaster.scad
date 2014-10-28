@@ -21,12 +21,12 @@ MarbleCaster_BallRadius = 16/2;
 // Connectors
 // ----------
 
-// Connector: MarbleCastor_Con_Default
+// Connector: MarbleCaster_Con_Default
 // Default connector for <MarbleCaster>
-MarbleCastor_Con_Default				= [ [0,0,0], [0,0,1], 0, BaseThickness, 10];
+MarbleCaster_Con_Default				= [ [0,0,0], [0,0,1], 0, BaseThickness, 10];
 
 
-function MarbleCastor_Con_Ball(GroundClearance) = [ 
+function MarbleCaster_Con_Ball(GroundClearance) = [ 
     [0,0, -GroundClearance + MarbleCaster_BallRadius], 
     [0,0,1], 
     0, BaseThickness, 10
@@ -46,7 +46,7 @@ module MarbleCasterAssembly () {
 	
 	// debug connectors?
 	if (DebugConnectors) {
-		connector(MarbleCastor_Con_Default);
+		connector(MarbleCaster_Con_Default);
 	}
 	
 	// STL
@@ -57,7 +57,7 @@ module MarbleCasterAssembly () {
 	step(1, 
             "Insert the marble into the printed housing", 
             "300 200 0.67 0 -15 108 0 91 261")
-	    attach(MarbleCastor_Con_Ball(GroundClearance), Marble_Con_Default, ExplodeSpacing = 16)
+	    attach(MarbleCaster_Con_Ball(GroundClearance), Marble_Con_Default, ExplodeSpacing = 16)
 		Marble(Marble_16mm);
 		
 	End("MarbleCaster");
@@ -65,11 +65,11 @@ module MarbleCasterAssembly () {
 
 
 module MarbleCaster_STL () {
-	od = connector_bore(MarbleCastor_Con_Default) - 0.5;  // include some tolerance!
+	od = connector_bore(MarbleCaster_Con_Default) - 0.5;  // include some tolerance!
 	fod = od + 3;
 	ballr = 16/2;
 	
-	plateThickness = connector_thickness(MarbleCastor_Con_Default);
+	plateThickness = connector_thickness(MarbleCaster_Con_Default);
 	
 	balltol = 0.5;
 	

@@ -6,25 +6,20 @@
 
 Section    | OK  | Note | Warning | Error
 ---------- |:---:|:----:|:-------:|:-----:
-[Assemblies](#assemblies) | 28  | 0    | 2       | 0    
+[Assemblies](#assemblies) | 29  | 0    | 1       | 0    
 [Vitamins  ](#vitamins  ) | 44  | 0    | 12      | 0    
-**Total**  | **72**  | **0**  | **14**  | **0** 
+**Total**  | **73**  | **0**  | **13**  | **0** 
 
 ## Assemblies
 
 File     | OK | Note | Warning | Error
 ------  | :---:  | :---:  | :---:  | :---: 
 [Wheel.scad](#wheelscad) | 6 | 0 | 0 | 0
-[MarbleCaster.scad](#marblecasterscad) | 5 | 0 | 1 | 0
+[MarbleCaster.scad](#marblecasterscad) | 6 | 0 | 0 | 0
 [Shell.scad](#shellscad) | 5 | 0 | 1 | 0
 [Breadboard.scad](#breadboardscad) | 6 | 0 | 0 | 0
 [LogoBot.scad](#logobotscad) | 6 | 0 | 0 | 0
-**Total**  | **28**  | **0**  | **2**  | **0** 
-
-### MarbleCaster.scad
-
-* **Warnings**
-  * 1 functions do not comply with naming convention (MarbleCastor_Con_Ball)
+**Total**  | **29**  | **0**  | **1**  | **0** 
 
 ### Shell.scad
 

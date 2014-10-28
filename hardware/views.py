@@ -191,7 +191,6 @@ def views(force_update):
                         print                
                         polish(png_name, w/2, h/2)
                         
-                        os.remove(scad_name)
                     else:
                         print("  Up to date")
                     
