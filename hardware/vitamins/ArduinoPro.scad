@@ -136,26 +136,39 @@ module ArduinoPro_SMT_Components(type = ArduinoPro_Mini)
 {
     // Distance from origin to middle along y
     moveX = ArduinoPro_PCB_Width/2 - ArduinoPro_PCB_Inset;
+    moveZ = ArduinoPro_PCB_Height;
 
     // Controller IC
     color(Grey20)
-    translate([moveX, 0.5 * 25.4, ArduinoPro_PCB_Height])
+    translate([moveX, 0.5 * 25.4, moveZ])
     rotate([0,0,45])
     linear_extrude(height=1)
       square(sqrt(pow(0.4 * 25.4, 2)/2), center=true);
 
-    // Parts for Pro Micro
+    // Parts for Pro Mini
     if (type == ArduinoPro_Mini) {
         // Reset switch
-        translate([moveX, 0.15 * 25.4, ArduinoPro_PCB_Height])
-        union() {
+        translate([moveX, 0.15 * 25.4, moveZ])
+        {
             color("silver")
             linear_extrude(height=1.7)
-                square([6, 3.5], center=true);
-            color("darkorange")
+                square([4.5, 4.5], center=true);
+            color("gold")
             translate([0, 0, 1.7])
             linear_extrude(height=1.0)
-                square([3, 2], center=true);
+                circle(d=2.5);
+        }
+
+        // RX and TX LEDs
+        color("white")
+        translate([0.5 * 25.4, 0.05 * 25.4, moveZ])
+        linear_extrude(height=1)
+        {
+            // Green - Status
+            square([0.7,1.2], center=true);
+            // Red - Power
+            translate([-0.2 * 25.4, 0.75 * 25.4, 0])
+                square([1.2,0.7], center=true);
         }
     }
 
@@ -163,17 +176,32 @@ module ArduinoPro_SMT_Components(type = ArduinoPro_Mini)
     if (type == ArduinoPro_Micro) {
         // Crystal
         color("silver")
-        translate([moveX, 0.15 * 25.4, ArduinoPro_PCB_Height])
+        translate([moveX, 0.15 * 25.4, moveZ])
         linear_extrude(height=1)
-            square([6, 3.5], center=true);
+            square([5, 3], center=true);
+
+        // RX and TX LEDs
+        color("white")
+        translate([moveX/2, 0.2 * 25.4, moveZ])
+        linear_extrude(height=1)
+        {
+            // RX - Yellow
+            square([0.7,1.2], center=true);
+            // Power - Red
+            translate([0, 0.75 * 25.4, 0])
+                square([1.2,0.7], center=true);
+            // TX - Green
+            translate([0.3 * 25.4, 0, 0])
+                square([0.7,1.2], center=true);
+        }
     }
 
     // Capacitors etc.
     moveY = (type == ArduinoPro_Mini ? 0.9 : 0.8) * 25.4;
     color("silver")
-    translate([moveX/2, moveY, ArduinoPro_PCB_Height])
+    translate([moveX/2, moveY, moveZ])
     linear_extrude(height=2)
-    union() {
+    {
         square([1.5, 3.5], center=true);
         translate([7.5, 0, 0])
           square([1.5, 3.5], center=true);
@@ -181,11 +209,11 @@ module ArduinoPro_SMT_Components(type = ArduinoPro_Mini)
 
     // Other components
     color("silver")
-    translate([moveX, moveY, ArduinoPro_PCB_Height])
+    translate([moveX, moveY, moveZ])
     linear_extrude(height=1)
-    union() {
+    {
         square([1, 2.5], center=true);
-        translate([0, 3, 0])
+        translate([0, 3.25, 0])
             square([2.5, 1.5], center=true);
     }
 }
