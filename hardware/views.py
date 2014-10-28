@@ -18,8 +18,7 @@ def polish(filename, w, h):
     pixdata = img.load()
 
     # Read top left pixel color - not robust to zoomed in images
-    tlc = pixdata[0,0]
-    print(tlc)
+    # tlc = pixdata[0,0]
 
     # init clipping bounds
     x1 = img.size[0]
@@ -49,8 +48,6 @@ def polish(filename, w, h):
             
     x2 += 2
     y2 += 2
-    
-    print(x1, y1, x2, y2)
                 
     # downsample (half the res)
     img = img.resize((w, h), Image.ANTIALIAS)
