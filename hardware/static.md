@@ -6,19 +6,19 @@
 
 Section    | OK  | Note | Warning | Error
 ---------- |:---:|:----:|:-------:|:-----:
-[Assemblies](#Assemblies) | 28  | 0    | 2       | 0    
-[Vitamins  ](#Vitamins) | 36  | 0    | 20      | 0    
+[Assemblies](#assemblies) | 28  | 0    | 2       | 0    
+[Vitamins  ](#vitamins  ) | 36  | 0    | 20      | 0    
 **Total**  | **64**  | **0**  | **22**  | **0** 
 
 ## Assemblies
 
 File     | OK | Note | Warning | Error
 ------  | :---:  | :---:  | :---:  | :---: 
-[Wheel.scad](#Wheel.scad) | 6 | 0 | 0 | 0
-[MarbleCaster.scad](#MarbleCaster.scad) | 5 | 0 | 1 | 0
-[Shell.scad](#Shell.scad) | 5 | 0 | 1 | 0
-[Breadboard.scad](#Breadboard.scad) | 6 | 0 | 0 | 0
-[LogoBot.scad](#LogoBot.scad) | 6 | 0 | 0 | 0
+[Wheel.scad](#wheelscad) | 6 | 0 | 0 | 0
+[MarbleCaster.scad](#marblecasterscad) | 5 | 0 | 1 | 0
+[Shell.scad](#shellscad) | 5 | 0 | 1 | 0
+[Breadboard.scad](#breadboardscad) | 6 | 0 | 0 | 0
+[LogoBot.scad](#logobotscad) | 6 | 0 | 0 | 0
 **Total**  | **28**  | **0**  | **2**  | **0** 
 
 ### MarbleCaster.scad
@@ -35,20 +35,20 @@ File     | OK | Note | Warning | Error
 
 File     | OK | Note | Warning | Error
 ------  | :---:  | :---:  | :---:  | :---: 
-[ULN2003DriverBoard.scad](#ULN2003DriverBoard.scad) | 3 | 0 | 1 | 0
-[Marble.scad](#Marble.scad) | 3 | 0 | 1 | 0
-[MicroUSB.scad](#MicroUSB.scad) | 3 | 0 | 1 | 0
-[LED.scad](#LED.scad) | 3 | 0 | 1 | 0
-[BatteryPack.scad](#BatteryPack.scad) | 2 | 0 | 2 | 0
-[motor.scad](#motor.scad) | 1 | 0 | 3 | 0
-[Bolt.scad](#Bolt.scad) | 2 | 0 | 2 | 0
-[MicroSwitch.scad](#MicroSwitch.scad) | 3 | 0 | 1 | 0
-[Breadboard.scad](#Breadboard.scad) | 3 | 0 | 1 | 0
-[MicroServo.scad](#MicroServo.scad) | 3 | 0 | 1 | 0
-[PlasticCaster.scad](#PlasticCaster.scad) | 3 | 0 | 1 | 0
-[JumperWire.scad](#JumperWire.scad) | 3 | 0 | 1 | 0
-[ArduinoPro.scad](#ArduinoPro.scad) | 3 | 0 | 1 | 0
-[murata-piezos.scad](#murata-piezos.scad) | 1 | 0 | 3 | 0
+[ULN2003DriverBoard.scad](#uln2003driverboardscad) | 3 | 0 | 1 | 0
+[Marble.scad](#marblescad) | 3 | 0 | 1 | 0
+[MicroUSB.scad](#microusbscad) | 3 | 0 | 1 | 0
+[LED.scad](#ledscad) | 3 | 0 | 1 | 0
+[BatteryPack.scad](#batterypackscad) | 2 | 0 | 2 | 0
+[motor.scad](#motorscad) | 1 | 0 | 3 | 0
+[Bolt.scad](#boltscad) | 2 | 0 | 2 | 0
+[MicroSwitch.scad](#microswitchscad) | 3 | 0 | 1 | 0
+[Breadboard.scad](#breadboardscad) | 3 | 0 | 1 | 0
+[MicroServo.scad](#microservoscad) | 3 | 0 | 1 | 0
+[PlasticCaster.scad](#plasticcasterscad) | 3 | 0 | 1 | 0
+[JumperWire.scad](#jumperwirescad) | 3 | 0 | 1 | 0
+[ArduinoPro.scad](#arduinoproscad) | 3 | 0 | 1 | 0
+[murata-piezos.scad](#murata-piezosscad) | 1 | 0 | 3 | 0
 **Total**  | **36**  | **0**  | **20**  | **0** 
 
 ### ULN2003DriverBoard.scad

@@ -240,6 +240,9 @@ def update_totals():
 
 # Saving
 
+def to_anchor_link(s):
+    return '['+s+'](#'+s.lower().replace('.','')+')'
+
 def writeln(f, s):
     f.write(s + '\n');
     
@@ -271,7 +274,7 @@ def write_summary(f):
     
     for sec in report['sections']:
         secn = sec.ljust(secchars)
-        secl = '['+secn+'](#'+sec+')'
+        secl = to_anchor_link(secn)
         for i in range(SEV_ERROR+1):
             s = ' | '+str(report['sections'][sec]['totals'][i]).ljust(3 if len(SEV_NAMES[i])<3 else len(SEV_NAMES[i]))
             secn += s
@@ -299,7 +302,7 @@ def write_section_summary(f, sec):
     writeln(f,underline)
     
     for file in report['sections'][sec]['files']:
-        f.write('['+file+'](#'+file+')')
+        f.write(to_anchor_link(file))
         for i in range(SEV_ERROR+1):
             f.write(' | '+str(report['sections'][sec]['files'][file]['totals'][i]))
         writeln(f,'')
