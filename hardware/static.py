@@ -65,7 +65,7 @@ re_uses = (r"\buse\s+[\<\"](", r")[\>\"]");
 re_upper_camel_case = "([A-Z][a-z0-9]+)+";
 re_upper_camel_case_with_abbr = "([A-Z]+[a-z0-9]*)+";
 
-re_supplementary_modules = "(_*[A-Z]+[a-z0-9]*)";
+re_supplementary_modules = "(_*[A-Z]+[a-z0-9]*)*";
 
 
 def extract_definitions(fpath, name_re=r"\w+", def_re=""):
