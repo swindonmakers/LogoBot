@@ -15,7 +15,7 @@ SEV_INFO = 1
 SEV_WARNING = 2
 SEV_ERROR = 3
 
-SEV_NAMES = ['OK', 'Info', 'Warning', 'Error'];
+SEV_NAMES = ['OK', 'Note', 'Warning', 'Error'];
 
 # Utility functions
 
@@ -47,6 +47,7 @@ _regexp_compile_cache = {}
 def recache(pattern):
     if pattern not in _regexp_compile_cache:
         _regexp_compile_cache[pattern] = re.compile(pattern)
+        # print('Caching: '+pattern)
     return _regexp_compile_cache[pattern]
 
 def match(pattern, s):
@@ -58,20 +59,30 @@ def match(pattern, s):
 # Reusable regex patterns
 re_modules = (r"\bmodule\s+(", r")\s*\(\s*");
 re_functions = (r"\bfunction\s+(", r")\s*\(");
+re_includes = (r"\binclude\s+[\<\"](", r")[\>\"]");
+re_uses = (r"\buse\s+[\<\"](", r")[\>\"]");
 
 re_upper_camel_case = "([A-Z][a-z0-9]+)+";
+re_upper_camel_case_with_abbr = "([A-Z]+[a-z0-9]*)+";
 
 
 def extract_definitions(fpath, name_re=r"\w+", def_re=""):
     pattern = name_re.join(def_re)
     matcher = recache(pattern)
-    return (m.group(1) for m in matcher.finditer(fpath.read()))
+    fpath.seek(0)
+    return [m.group(1) for m in matcher.finditer(fpath.read())]
 
 def extract_mod_names(fpath, name_re=r"\w+"):
     return extract_definitions(fpath, name_re=name_re, def_re=re_modules)
 
 def extract_func_names(fpath, name_re=r"\w+"):
     return extract_definitions(fpath, name_re=name_re, def_re=re_functions)
+    
+def extract_includes(fpath, name_re=r"[\w\.\\\/]+"):
+    return extract_definitions(fpath, name_re=name_re, def_re=re_includes)
+	
+def extract_uses(fpath, name_re=r"[\w\.\\\/]+"):
+    return extract_definitions(fpath, name_re=name_re, def_re=re_uses)
 	
 """
 Report structure
@@ -99,17 +110,22 @@ def rr(isok, sevbad, desc):
 	    }
 	
 def filename_format_ucc(fn):
-	return rr(match(re_upper_camel_case, fn[:-5]), SEV_WARNING, 'Filename is not in UpperCamelCase')
+	return rr(match(re_upper_camel_case_with_abbr, fn[:-5]), SEV_WARNING, 'Filename is not in UpperCamelCase')
 	
 def assembly_module_name_matches_filename(f):
     return rr(f['name'][:-5]+'Assembly' in f['modules'], SEV_ERROR, 'Assembly module name does not match filename')
     
 def vitamin_module_name_matches_filename(f):
-    return rr(f['name'][:-5] in f['modules'], SEV_ERROR, 'Vitamin module name does not match filename')
+    return rr(f['name'][:-5] in f['modules'], SEV_WARNING, 'Vitamin module name does not match filename')
+
+def no_includes(f):
+    return rr(len(f['includes'])==0, SEV_WARNING, 'Contains include statements - these should be in the relevant global config file')
+
+def no_uses(f):
+    return rr(len(f['uses'])==0, SEV_WARNING, 'Contains use statements')
 
 
 # * Assembly module contains step() calls
-# * File does not contain any include or use statements
 # * Any variables have correct naming convention
 # * Any supplementary modules have correct naming convention
 # * Any functions have correct naming convention
@@ -127,7 +143,13 @@ def vitamin_module_name_matches_filename(f):
 def add_result(f, res):
     f['totals'][res['sev']] += 1
     f['errors'][res['sev']].append(res['desc'])
-	
+    
+def extract_all(f, file):
+    f['modules'] = extract_mod_names(file)
+    f['functions'] = extract_func_names(file)
+    f['includes'] = extract_includes(file)
+    f['uses'] = extract_uses(file)
+    
 def proc_assemblies(f):
     fn = f['name']
     print("  Validating: "+fn)
@@ -135,11 +157,13 @@ def proc_assemblies(f):
     fpath = f['dir']+'/'+f['name']
     file = open(fpath, 'r')
     
-    f['modules'] = extract_mod_names(file)
+    extract_all(f, file)
     
     # Apply validation rules
     add_result(f, filename_format_ucc(fn))
     add_result(f, assembly_module_name_matches_filename(f))
+    add_result(f, no_includes(f))
+    add_result(f, no_uses(f))
     
 def proc_vitamins(f):
     fn = f['name']
@@ -148,7 +172,7 @@ def proc_vitamins(f):
     fpath = f['dir']+'/'+f['name']
     file = open(fpath, 'r')
     
-    f['modules'] = extract_mod_names(file)
+    extract_all(f, file)
     
     # Apply validation rules
     add_result(f, filename_format_ucc(fn))
@@ -200,20 +224,29 @@ def write_summary(f):
     
     writeln(f,'**Fit to Publish:** '+ ('Yes' if fit_to_publish() else 'No' ))
     writeln(f,'')
+    
+    # workout longest section name
+    secchars = 8;
+    for sec in report['sections']:
+        if len(sec) > secchars:
+            secchars = len(sec)
         
-    headings = 'Section '
-    underline = '------ '
+    headings = 'Section '.ljust(secchars)
+    underline = '------'.ljust(secchars,'-') + ' '
     for i in range(SEV_ERROR+1):
-        headings += ' | '+ SEV_NAMES[i]
-        underline += ' | :---: '
+        headings += ' | '+ SEV_NAMES[i].ljust(3)
+        underline += '|:'.ljust(len(SEV_NAMES[i])-1,'-') + '---:'
     writeln(f,headings)
     writeln(f,underline)
+    print(headings)
+    print(underline)
     
     for sec in report['sections']:
-        f.write(sec)
+        secn = sec.ljust(secchars)
         for i in range(SEV_ERROR+1):
-            f.write(' | '+str(report['sections'][sec]['totals'][i]))
-        writeln(f,'')
+            secn += ' | '+str(report['sections'][sec]['totals'][i]).ljust(3 if len(SEV_NAMES[i])<3 else len(SEV_NAMES[i]))
+        writeln(f,secn)
+        print(secn)
         
     f.write('**Total** ')
     for i in range(SEV_ERROR+1):
@@ -262,14 +295,15 @@ def write_file_summary(f, sec, file):
     
         for i in range(1,SEV_ERROR + 1):
             if fileo['totals'][i] > 0:
-                writeln(f, '**'+SEV_NAMES[i]+'**')
+                writeln(f, '* **'+SEV_NAMES[i]+'s**')
                 for d in fileo['errors'][i]:
-                    writeln(f, '* '+d)
+                    writeln(f, '  * '+d)
                 writeln(f,'')
     
 
 def save_report():
     print("Saving report...")
+    print("")
     f = open('static.md', "w")
     
     writeln(f,'# Static Analysis Report')

@@ -2,92 +2,75 @@
 
 ## Summary
 
-**Fit to Publish:** No
+**Fit to Publish:** Yes
 
-Section  | OK | Info | Warning | Error
-------  | :---:  | :---:  | :---:  | :---: 
-Assemblies | 10 | 0 | 0 | 0
-Vitamins | 19 | 0 | 5 | 6
-**Total**  | **29**  | **0**  | **5**  | **6** 
+Section    | OK  | Note | Warning | Error
+---------- |:---:|:----:|:-------:|:-----:
+Assemblies | 18  | 0    | 2       | 0    
+Vitamins   | 21  | 0    | 7       | 0    
+**Total**  | **39**  | **0**  | **9**  | **0** 
 
 ## Assemblies
 
-File     | OK | Info | Warning | Error
+File     | OK | Note | Warning | Error
 ------  | :---:  | :---:  | :---:  | :---: 
-Wheel.scad | 2 | 0 | 0 | 0
-MarbleCaster.scad | 2 | 0 | 0 | 0
-Shell.scad | 2 | 0 | 0 | 0
-Breadboard.scad | 2 | 0 | 0 | 0
-LogoBot.scad | 2 | 0 | 0 | 0
-**Total**  | **10**  | **0**  | **0**  | **0** 
+Wheel.scad | 4 | 0 | 0 | 0
+MarbleCaster.scad | 4 | 0 | 0 | 0
+Shell.scad | 4 | 0 | 0 | 0
+Breadboard.scad | 2 | 0 | 2 | 0
+LogoBot.scad | 4 | 0 | 0 | 0
+**Total**  | **18**  | **0**  | **2**  | **0** 
+
+### Breadboard.scad
+
+* **Warnings**
+  * Contains include statements - these should be in the relevant global config file
+  * Contains use statements
 
 ## Vitamins
 
-File     | OK | Info | Warning | Error
+File     | OK | Note | Warning | Error
 ------  | :---:  | :---:  | :---:  | :---: 
-ULN2003DriverBoard.scad | 1 | 0 | 1 | 0
+ULN2003DriverBoard.scad | 2 | 0 | 0 | 0
 Marble.scad | 2 | 0 | 0 | 0
-MicroUSB.scad | 1 | 0 | 0 | 1
-LED.scad | 1 | 0 | 1 | 0
-BatteryPack.scad | 1 | 0 | 0 | 1
-motor.scad | 0 | 0 | 1 | 1
-Bolt.scad | 1 | 0 | 0 | 1
+MicroUSB.scad | 1 | 0 | 1 | 0
+LED.scad | 2 | 0 | 0 | 0
+BatteryPack.scad | 1 | 0 | 1 | 0
+motor.scad | 0 | 0 | 2 | 0
+Bolt.scad | 1 | 0 | 1 | 0
 MicroSwitch.scad | 2 | 0 | 0 | 0
 Breadboard.scad | 2 | 0 | 0 | 0
 MicroServo.scad | 2 | 0 | 0 | 0
 PlasticCaster.scad | 2 | 0 | 0 | 0
 JumperWire.scad | 2 | 0 | 0 | 0
 ArduinoPro.scad | 2 | 0 | 0 | 0
-temp.scad | 0 | 0 | 1 | 1
-murata-piezos.scad | 0 | 0 | 1 | 1
-**Total**  | **19**  | **0**  | **5**  | **6** 
-
-### ULN2003DriverBoard.scad
-
-**Warning**
-* Filename is not in UpperCamelCase
+murata-piezos.scad | 0 | 0 | 2 | 0
+**Total**  | **21**  | **0**  | **7**  | **0** 
 
 ### MicroUSB.scad
 
-**Error**
-* Vitamin module name does not match filename
-
-### LED.scad
-
-**Warning**
-* Filename is not in UpperCamelCase
+* **Warnings**
+  * Vitamin module name does not match filename
 
 ### BatteryPack.scad
 
-**Error**
-* Vitamin module name does not match filename
+* **Warnings**
+  * Vitamin module name does not match filename
 
 ### motor.scad
 
-**Warning**
-* Filename is not in UpperCamelCase
-
-**Error**
-* Vitamin module name does not match filename
+* **Warnings**
+  * Filename is not in UpperCamelCase
+  * Vitamin module name does not match filename
 
 ### Bolt.scad
 
-**Error**
-* Vitamin module name does not match filename
-
-### temp.scad
-
-**Warning**
-* Filename is not in UpperCamelCase
-
-**Error**
-* Vitamin module name does not match filename
+* **Warnings**
+  * Vitamin module name does not match filename
 
 ### murata-piezos.scad
 
-**Warning**
-* Filename is not in UpperCamelCase
-
-**Error**
-* Vitamin module name does not match filename
+* **Warnings**
+  * Filename is not in UpperCamelCase
+  * Vitamin module name does not match filename
 

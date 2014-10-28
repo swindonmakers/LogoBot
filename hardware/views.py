@@ -76,6 +76,8 @@ def render_view(module_name, type_name, source_dir, view_dir, src_name):
     # Run openscad
     #
     openscad.run("-D","$bom=2","-o", "dummy.csg", temp_name)
+   
+    os.remove(temp_name)
 
     # Generate view
     for line in open("openscad.log"):
@@ -131,6 +133,8 @@ def render_view(module_name, type_name, source_dir, view_dir, src_name):
                         
                 polish(png_name, w/2, h/2)
                 print
+                
+                os.remove(view_maker_name)
             else:
                 print("View up to date")
 
@@ -187,6 +191,8 @@ def views(force_update):
                                     scad_name)
                         print                
                         polish(png_name, w/2, h/2)
+                        
+                        os.remove(scad_name)
                     else:
                         print("  Up to date")
                     
