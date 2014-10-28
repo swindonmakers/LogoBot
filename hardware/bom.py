@@ -199,6 +199,8 @@ class BOM:
                     polish(png_name, w/2, h/2)
                 else:
                     print("  Up to date")
+                    
+                os.remove(scad_name)
         
 
 def boms(assembly = None):
@@ -236,6 +238,7 @@ def boms(assembly = None):
     #
     print("Generating BOM for "+assembly+" ...")
     openscad.run("-D","$bom=2","-o", "dummy.csg", bom_maker_name)
+    os.remove(bom_maker_name)
     print("Parsing BOM ...")
 
     main = BOM()

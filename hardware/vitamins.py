@@ -72,6 +72,8 @@ def vitamins(force_update):
             # Run openscad
             #
             openscad.run("-D","$bom=2","-o", "dummy.csg", temp_name)
+            
+            os.remove(temp_name)
 
             # Generate part STLs
             for line in open("openscad.log"):
@@ -101,6 +103,8 @@ def vitamins(force_update):
                         c14n_stl.canonicalise(stl_name)
                     else:
                         print fn + " is up to date"
+                    
+                    os.remove(stl_maker_name)
                         
             render_view(t, t+'_'+targets[t], source_dir, view_dir, fn)
                     

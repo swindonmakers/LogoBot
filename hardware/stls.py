@@ -83,6 +83,9 @@ def stls(parts = None):
                         else:
                             print filename + " is up to date"
                         targets.remove(stl)
+                        
+                        os.remove(stl_maker_name)
+                        
                         #
                         # Add the files on the BOM to the used list for plates.py
                         #
