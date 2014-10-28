@@ -18,7 +18,8 @@ def polish(filename, w, h):
     pixdata = img.load()
 
     # Read top left pixel color - not robust to zoomed in images
-    # bkc = pixdata[0,0]
+    tlc = pixdata[0,0]
+    print(tlc)
 
     # init clipping bounds
     x1 = img.size[0]
@@ -49,7 +50,7 @@ def polish(filename, w, h):
     x2 += 2
     y2 += 2
     
-    print(x1, x1, x2, y2)
+    print(x1, y1, x2, y2)
                 
     # downsample (half the res)
     img = img.resize((w, h), Image.ANTIALIAS)
@@ -125,8 +126,9 @@ def render_view(module_name, type_name, source_dir, view_dir, src_name):
                     f.write(module_name + "(); \n");
                 f.close()
                                            
-                openscad.run("--projection=p",
-                            ("--imgsize=%d,%d" % (w, h)),
+                openscad.run(                            
+                            "--imgsize=%d,%d" % (w, h),
+                            "--projection=p",
                             "--camera=" + camera,
                             "-o", png_name, 
                             view_maker_name)

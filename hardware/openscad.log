@@ -1,1 +1,8 @@
-ECHO: "300 200 -1 0 -1 66 0 60 119"
+2014-10-28 16:35:37.782 OpenSCAD[20939:507]   compiled module: 0x10435c3a0
+2014-10-28 16:35:37.783 OpenSCAD[20939:507] ECHO: "Wheel/"
+2014-10-28 16:35:37.856 OpenSCAD[20939:507] ECHO: "Step_1: Push the wheel onto the motor shaft"
+2014-10-28 16:35:37.857 OpenSCAD[20939:507] ECHO: "View_1: 400 300 -0.4 0.2 0.7 349 125 180 415"
+2014-10-28 16:35:37.857 OpenSCAD[20939:507] ECHO: "Wheel.stl"
+2014-10-28 16:35:37.857 OpenSCAD[20939:507] ECHO: "/Wheel"
+2014-10-28 16:35:37.869 OpenSCAD[20939:507] Compiling design (CSG Products normalization)...
+2014-10-28 16:35:37.870 OpenSCAD[20939:507] Normalized CSG tree has 113 elements

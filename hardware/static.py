@@ -52,8 +52,8 @@ def recache(pattern):
 
 def match(pattern, s):
   """Matches the string with the pattern, caching the compiled regexp."""
-  re = recache(pattern)
-  return re.match(s) != None
+  p = recache(pattern)
+  return p.match(s) != None
 	
 
 # Reusable regex patterns

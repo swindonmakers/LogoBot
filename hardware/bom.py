@@ -160,8 +160,6 @@ class BOM:
                 # Now generate a matching view!
                 words = self.steps[step]['view'].split();
                 
-                print(words)
-                    
                 # Up-sample images
                 w = int(words[0]) * 2
                 h = int(words[1]) * 2
@@ -190,9 +188,10 @@ class BOM:
                 f.close()
                 
                 if (force_update) or (not os.path.isfile(png_name) or os.path.getmtime(png_name) < os.path.getmtime(src_name)):                    
-                    openscad.run("--projection=p",
-                                ("--imgsize=%d,%d" % (w, h)),
+                    openscad.run(
                                 "--camera=" + camera,
+                                "--imgsize=%d,%d" % (w, h),
+                                "--projection=p",
                                 "-o", png_name, 
                                 scad_name)
                     print                
