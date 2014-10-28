@@ -139,7 +139,7 @@ module LogoBotAssembly ( PenLift=false ) {
 		// TODO: Correct ground clearance!
 		step(9, "Push the caster assembly into the base so that it snaps into place", 
 		    "400 300 -6 7 19 115 1 26 625")
-		    attach(LogoBot_Con_Caster, MarbleCastor_Con_Default, ExplodeSpacing=15)
+		    attach(LogoBot_Con_Caster, MarbleCaster_Con_Default, ExplodeSpacing=15)
 			MarbleCasterAssembly();
 		
 			
@@ -268,8 +268,8 @@ module LogoBotBase_STL() {
                 
                         // Caster
                         //   Example of using attach to punch an appropriate fixing hole
-                        attach(LogoBot_Con_Caster, PlasticCastor_Con_Default)
-                            circle(r = connector_bore(PlasticCastor_Con_Default) / 2);
+                        attach(LogoBot_Con_Caster, MarbleCaster_Con_Default)
+                            circle(r = connector_bore(MarbleCaster_Con_Default) / 2);
     
             
             

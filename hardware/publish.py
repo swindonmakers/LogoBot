@@ -6,27 +6,37 @@
 import sys
 import os
 import shutil
-from subprocess import call
+from subprocess import call, check_output
+import re
 
 def publish():
     print("Publish")
     print("-------")
     
-    # first commit everything in master
-    call(['git','add','-A'])
-    call(['git','commit','-a','-m','"auto build"'])
+    # Check we're in the master branch, otherwise abort
+    p = re.compile("^\*\smaster", re.MULTILINE)
+    o = check_output(['git','branch'])
+    res = p.search(o)
     
-    # and push it up to origin
-    call(['git','push','origin','master'])
+    if res != None:
     
-    # switch to the gh-pages branch
-    call(['git','checkout','gh-pages'])
+        # first commit everything in master
+        call(['git','add','-A'])
+        call(['git','commit','-a','-m','"auto build"'])
     
-    # fun the fetch script
-    call(['python','fetch.py','1'])
+        # and push it up to origin
+        call(['git','push','origin','master'])
     
-    # finally switch back to master
-    call(['git','checkout','master'])
+        # switch to the gh-pages branch
+        call(['git','checkout','gh-pages'])
+    
+        # fun the fetch script
+        call(['python','fetch.py','1'])
+    
+        # finally switch back to master
+        call(['git','checkout','master'])
+    else:
+        print("Error - On the wrong branch!")
     
 if __name__ == '__main__':
     publish()

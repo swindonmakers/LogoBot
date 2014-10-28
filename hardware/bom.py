@@ -160,8 +160,6 @@ class BOM:
                 # Now generate a matching view!
                 words = self.steps[step]['view'].split();
                 
-                print(words)
-                    
                 # Up-sample images
                 w = int(words[0]) * 2
                 h = int(words[1]) * 2
@@ -178,21 +176,26 @@ class BOM:
                 camera = "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f" % (dx, dy, dz, rx, ry, rz, d)
                 
                 src_name = 'assemblies/' + self.name + '.scad'
-                scad_name = 'views/temp.scad'
+                scad_name = 'views/' + self.name +'Assembly_Step'+str(self.steps[step]['num'])+'.scad'
                 
-                f = open(scad_name, "w")
-                f.write("include <../config/config.scad>\n")
-                f.write("DebugConnectors = false;\n");
-                f.write("DebugCoordinateFrames = false;\n");
-                f.write("$Explode = true;\n");
-                f.write("$ShowStep = "+ str(step) +";\n");
-                f.write("%sAssembly();\n" % self.name);
-                f.close()
+                if (force_update) or (not os.path.isfile(png_name) or os.path.getmtime(png_name) < os.path.getmtime(src_name)):  
+					f = open(scad_name, "w")
+					f.write("include <../config/config.scad>\n")
+					f.write("DebugConnectors = false;\n");
+					f.write("DebugCoordinateFrames = false;\n");
+					f.write("$Explode = true;\n");
+					f.write("$ShowStep = "+ str(step) +";\n");
+					f.write("// view "+self.steps[step]['view']+" \n");    
+					# // view 1024 768 5 -11 34 78 0 215 74
+					f.write("%sAssembly();\n" % self.name);
+					f.close()
                 
+                """
                 if (force_update) or (not os.path.isfile(png_name) or os.path.getmtime(png_name) < os.path.getmtime(src_name)):                    
-                    openscad.run("--projection=p",
-                                ("--imgsize=%d,%d" % (w, h)),
+                    openscad.run(
                                 "--camera=" + camera,
+                                "--imgsize=%d,%d" % (w, h),
+                                "--projection=p",
                                 "-o", png_name, 
                                 scad_name)
                     print                
@@ -201,7 +204,7 @@ class BOM:
                     print("  Up to date")
                     
                 os.remove(scad_name)
-        
+        		"""
 
 def boms(assembly = None):
 
