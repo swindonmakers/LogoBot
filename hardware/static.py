@@ -271,9 +271,12 @@ def write_summary(f):
     
     for sec in report['sections']:
         secn = sec.ljust(secchars)
+        secl = '['+secn+'](#'+sec+')'
         for i in range(SEV_ERROR+1):
-            secn += ' | '+str(report['sections'][sec]['totals'][i]).ljust(3 if len(SEV_NAMES[i])<3 else len(SEV_NAMES[i]))
-        writeln(f,secn)
+            s = ' | '+str(report['sections'][sec]['totals'][i]).ljust(3 if len(SEV_NAMES[i])<3 else len(SEV_NAMES[i]))
+            secn += s
+            secl += s
+        writeln(f,secl)
         print(secn)
         
     f.write('**Total** ')
@@ -296,7 +299,7 @@ def write_section_summary(f, sec):
     writeln(f,underline)
     
     for file in report['sections'][sec]['files']:
-        f.write(file)
+        f.write('['+file+'](#'+file+')')
         for i in range(SEV_ERROR+1):
             f.write(' | '+str(report['sections'][sec]['files'][file]['totals'][i]))
         writeln(f,'')
