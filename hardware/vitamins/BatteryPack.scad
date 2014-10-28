@@ -30,15 +30,20 @@ module battery() {
   translate([0, 0, bottom_h+top_h])
     linear_extrude(height=button_h)
       circle(r=Battery_dia/4);
-  
-
 
 }
 
 module battery_pack_linear(battery_sep, battery_count) {
   for(i=[0:battery_count-1]) {
     translate([i*(Battery_dia+battery_sep), 0, 0])
-      battery();
+      if(i % 2 == 1) {
+        translate([0,0,Battery_len/2])
+          rotate([180, 0, 0])
+            translate([0,0,-Battery_len/2])
+              battery();
+      } else {
+        battery();
+      }
   }
 }
 
@@ -47,7 +52,10 @@ module battery_pack_double(battery_sep, battery_count) {
     translate([i*(Battery_dia+battery_sep), 0, 0])
       battery();
     translate([i*(Battery_dia+battery_sep), Battery_dia+battery_sep, 0])
-      battery();
+      translate([0,0,Battery_len/2])
+        rotate([180, 0, 0])
+          translate([0,0,-Battery_len/2])
+            battery();
   }
 }
 
