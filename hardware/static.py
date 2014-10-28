@@ -65,6 +65,8 @@ re_uses = (r"\buse\s+[\<\"](", r")[\>\"]");
 re_upper_camel_case = "([A-Z][a-z0-9]+)+";
 re_upper_camel_case_with_abbr = "([A-Z]+[a-z0-9]*)+";
 
+re_supplementary_modules = "(_*[A-Z]+[a-z0-9]*)";
+
 
 def extract_definitions(fpath, name_re=r"\w+", def_re=""):
     pattern = name_re.join(def_re)
@@ -124,17 +126,39 @@ def no_includes(f):
 def no_uses(f):
     return rr(len(f['uses'])==0, SEV_WARNING, 'Contains use statements')
 
+def supplementary_module_naming(f):
+    errors = 0
+    s = ''
+    prefix = f['name'][:-5]
+    for m in f['modules']:
+        if not match(prefix + re_supplementary_modules, m):
+            if s > '':
+                s += ', '
+            s += m
+            errors += 1
+    
+    return rr(errors == 0, SEV_WARNING, str(errors)+' supplementary modules do not comply with naming convention ('+s+')')
+    
+def function_naming(f):
+    errors = 0
+    s = ''
+    prefix = f['name'][:-5]
+    for m in f['functions']:
+        if not match(prefix + re_supplementary_modules, m):
+            if s > '':
+                s += ', '
+            s += m
+            errors += 1
+    
+    return rr(errors == 0, SEV_WARNING, str(errors)+' functions do not comply with naming convention ('+s+')')
+
 
 # * Assembly module contains step() calls
 # * Any variables have correct naming convention
-# * Any supplementary modules have correct naming convention
 # * Any functions have correct naming convention
 # * Any included _STL modules have associated _View modules
 # * _View modules contain an echo line with correct structure
 # * Exists in /config/assemblies.scad
-
-
-# parsers
 
 
 	
@@ -164,6 +188,8 @@ def proc_assemblies(f):
     add_result(f, assembly_module_name_matches_filename(f))
     add_result(f, no_includes(f))
     add_result(f, no_uses(f))
+    add_result(f, supplementary_module_naming(f))
+    add_result(f, function_naming(f))
     
 def proc_vitamins(f):
     fn = f['name']
@@ -177,6 +203,8 @@ def proc_vitamins(f):
     # Apply validation rules
     add_result(f, filename_format_ucc(fn))
     add_result(f, vitamin_module_name_matches_filename(f))
+    add_result(f, supplementary_module_naming(f))
+    add_result(f, function_naming(f))
 	
 	
 # stuff	
@@ -332,6 +360,8 @@ def static():
 	save_report()
 	
 	print()
+	
+	sys.exit(0 if fit_to_publish() else 1)
 	
 if __name__ == '__main__':
     static()

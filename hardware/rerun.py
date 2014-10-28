@@ -8,7 +8,8 @@ polling_interval = 1
 
 
 def run(fn):
-    subprocess.call([fn])
+    tmp = subprocess.call([fn])
+    print('Exit Code: '+str(tmp))
     
 def rerun(fn):
     while True:
