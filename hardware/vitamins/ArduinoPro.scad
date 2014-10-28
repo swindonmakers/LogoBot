@@ -92,12 +92,12 @@ module ArduinoPro_Header_Pin(rotation = 0)
         square(pinwidth, center = true);
 
     // Pin Spacers
-    color("black")
+    color(Grey20)
     linear_extrude(spacerheight)
         square(spacerwidth, center = true);
 
     // Break-Away Material
-    color("black")
+    color(Grey20)
     // FIXME: material needs to be rotated based on vector argument
     rotate(rotation, 0, 0)
     translate([0, pcbholepitch/2, 0])
@@ -153,7 +153,7 @@ module ArduinoPro_SMT_Components(type = ArduinoPro_Mini)
             color("silver")
             linear_extrude(1.2)
                 square([4.5, 4.5], center=true);
-            color("sandybrown")
+            color(ArduinoPro_PCB_Colour)
             translate([0, 0, 1.2])
             linear_extrude(0.5)
                 circle(d=2.5);
