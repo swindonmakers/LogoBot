@@ -45,10 +45,6 @@ ArduinoPro_PCB_Length   = 1.3 * 25.4;                   // length of the PCB (al
 ArduinoPro_PCB_Width    = 0.7 * 25.4;                   //  width of the PCB (along x)
 ArduinoPro_PCB_Colour   = [26/255, 90/255, 160/255];    // colour of solder mask
 
-// Show board clearance area for components
-ArduinoPro_PCB_Clearance      = 4 - ArduinoPro_PCB_Height;
-ArduinoPro_PCB_Clearance_Show = true;
-
 
 module ArduinoPro_MicroUSB()
 {
@@ -148,8 +144,9 @@ module ArduinoPro_SMT_Components(type = ArduinoPro_Mini)
     linear_extrude(height=1)
       square(sqrt(pow(0.4 * 25.4, 2)/2), center=true);
 
-    // Reset switch for Pro Mini
+    // Parts for Pro Micro
     if (type == ArduinoPro_Mini) {
+        // Reset switch
         translate([moveX, 0.15 * 25.4, ArduinoPro_PCB_Height])
         union() {
             color("silver")
@@ -162,8 +159,9 @@ module ArduinoPro_SMT_Components(type = ArduinoPro_Mini)
         }
     }
 
-    // Crystal for Pro Micro
+    // Parts for Pro Micro
     if (type == ArduinoPro_Micro) {
+        // Crystal
         color("silver")
         translate([moveX, 0.15 * 25.4, ArduinoPro_PCB_Height])
         linear_extrude(height=1)
@@ -236,14 +234,6 @@ module ArduinoPro(type = ArduinoPro_Mini, headerpins = 0, serialpins = 0)
 
     // Surface mount components
     ArduinoPro_SMT_Components(type);
-
-    // Indicate area for minimum board clearance
-    if (ArduinoPro_PCB_Clearance_Show && !headerpins) {
-        color(ArduinoPro_PCB_Colour, 0.1)
-        translate([-ArduinoPro_PCB_Inset, -ArduinoPro_PCB_Inset, ArduinoPro_PCB_Height])
-        linear_extrude(height=ArduinoPro_PCB_Clearance)
-            square(size = [ArduinoPro_PCB_Width, ArduinoPro_PCB_Length]);
-    }
 }
 
 

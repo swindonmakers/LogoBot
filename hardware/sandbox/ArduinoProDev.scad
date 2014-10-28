@@ -9,9 +9,6 @@ include <../config/config.scad>
 // include the ArduinoPro.scad library
 include <../vitamins/ArduinoPro.scad>
 
-// Hide clearance box for board components
-ArduinoPro_PCB_Clearance_Show = true;
-
 // Set custom board properties
 // ArduinoPro_PCB_Width  =  0.7 * 25.4;
 // ArduinoPro_PCB_Length =  1.3 * 25.4;
