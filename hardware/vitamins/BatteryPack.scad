@@ -4,16 +4,35 @@
 
 // Point of origin is the centre of the end of the end battery.
 
+include <../config/colors.scad>
+
 // AAs - http://en.wikipedia.org/wiki/AA_battery
 // len includes the positive-end button
 Battery_dia = 14.5;
 Battery_len = 50.5;
 
+// We have the total battery length, assume the positive terminal is 1/20th of the length
 module battery() {
+  button_h = (1/20)*Battery_len;
+  top_h = (1/3)*Battery_len;
+  bottom_h = Battery_len-(top_h+button_h);
 
-  linear_extrude(height=Battery_len) {
+  color("black")
+  linear_extrude(height=bottom_h)
     circle(r=Battery_dia/2);
-  }
+
+  color("red")
+  translate([0, 0, bottom_h])
+    linear_extrude(height=top_h)
+      circle(r=Battery_dia/2);
+
+  color(MetalColor)
+  translate([0, 0, bottom_h+top_h])
+    linear_extrude(height=button_h)
+      circle(r=Battery_dia/4);
+  
+
+
 }
 
 module battery_pack_linear(battery_sep, battery_count) {
