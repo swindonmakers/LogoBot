@@ -367,7 +367,7 @@ def static():
 	
 	print()
 	
-	sys.exit(0 if fit_to_publish() else 1)
+	return (0 if fit_to_publish() else 1)
 	
 if __name__ == '__main__':
-    static()
+    sys.exit(static())
