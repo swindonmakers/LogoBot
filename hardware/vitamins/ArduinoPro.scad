@@ -148,14 +148,14 @@ module ArduinoPro_SMT_Components(type = ArduinoPro_Mini)
     // Parts for Pro Mini
     if (type == ArduinoPro_Mini) {
         // Reset switch
-        translate([moveX, 0.15 * 25.4, moveZ])
+        translate([moveX, 0.05 * 25.4, moveZ])
         {
             color("silver")
-            linear_extrude(height=1.7)
+            linear_extrude(height=1.2)
                 square([4.5, 4.5], center=true);
             color("gold")
-            translate([0, 0, 1.7])
-            linear_extrude(height=1.0)
+            translate([0, 0, 1.2])
+            linear_extrude(height=0.5)
                 circle(d=2.5);
         }
 
