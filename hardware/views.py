@@ -153,7 +153,7 @@ def views(force_update):
         scad_name = scad_dir + os.sep + scad
         png_name = render_dir + os.sep + scad[:-4] + "png"
 
-        print "Checking: " + scad_name
+        print("Checking: " + scad_name)
 
         view_count = 0
         for line in open(scad_name, "r").readlines():
