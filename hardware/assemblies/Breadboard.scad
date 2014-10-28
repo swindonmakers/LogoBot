@@ -7,9 +7,6 @@
 
 */
 
-use "test.scad"
-include <another/test.scad>
-
 // Connectors
 // ----------
 
