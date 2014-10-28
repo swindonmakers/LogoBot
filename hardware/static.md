@@ -1,50 +1,93 @@
-# Pretend static analysis report
+# Static Analysis Report
 
 ## Summary
 
-report ->
-	count by severity
-	section ->
-		count by severity
-		file ->
-			count by severity
-			list by severity
+**Fit to Publish:** No
 
-Section | Ok | Info | Warning | Errors
-------- | ---- | --- | --- | ---
-Assemblies | 34 | 1 | 3 | 0
-Vitamins | 12 | 0 | 0 | 0
-Total    | 46 | 1 | 3 | 0
+Section  | OK | Info | Warning | Error
+------  | :---:  | :---:  | :---:  | :---: 
+Assemblies | 10 | 0 | 0 | 0
+Vitamins | 19 | 0 | 5 | 6
+**Total**  | **29**  | **0**  | **5**  | **6** 
 
 ## Assemblies
 
-Filename | Ok | Info | Warning | Errors
-------- | ---- | --- | --- | ---
-file1.scad | 34 | 1 | 3 | 0
-file2.scad | 12 | 0 | 0 | 0
-Total    | 46 | 1 | 3 | 0
-
-### file1.scad
-
-Info
-* asdadasdasdsad
-
-Warning
-* asdasdsad
-* asdasdsad
-* asdasdsada
-
-### file2.scad
-
-All OK
-
-
+File     | OK | Info | Warning | Error
+------  | :---:  | :---:  | :---:  | :---: 
+Wheel.scad | 2 | 0 | 0 | 0
+MarbleCaster.scad | 2 | 0 | 0 | 0
+Shell.scad | 2 | 0 | 0 | 0
+Breadboard.scad | 2 | 0 | 0 | 0
+LogoBot.scad | 2 | 0 | 0 | 0
+**Total**  | **10**  | **0**  | **0**  | **0** 
 
 ## Vitamins
 
-Filename | Ok | Info | Warning | Errors
-------- | ---- | --- | --- | ---
-file1.scad | 34 | 1 | 3 | 0
-file2.scad | 12 | 0 | 0 | 0
-Total    | 46 | 1 | 3 | 0
+File     | OK | Info | Warning | Error
+------  | :---:  | :---:  | :---:  | :---: 
+ULN2003DriverBoard.scad | 1 | 0 | 1 | 0
+Marble.scad | 2 | 0 | 0 | 0
+MicroUSB.scad | 1 | 0 | 0 | 1
+LED.scad | 1 | 0 | 1 | 0
+BatteryPack.scad | 1 | 0 | 0 | 1
+motor.scad | 0 | 0 | 1 | 1
+Bolt.scad | 1 | 0 | 0 | 1
+MicroSwitch.scad | 2 | 0 | 0 | 0
+Breadboard.scad | 2 | 0 | 0 | 0
+MicroServo.scad | 2 | 0 | 0 | 0
+PlasticCaster.scad | 2 | 0 | 0 | 0
+JumperWire.scad | 2 | 0 | 0 | 0
+ArduinoPro.scad | 2 | 0 | 0 | 0
+temp.scad | 0 | 0 | 1 | 1
+murata-piezos.scad | 0 | 0 | 1 | 1
+**Total**  | **19**  | **0**  | **5**  | **6** 
+
+### ULN2003DriverBoard.scad
+
+**Warning**
+* Filename is not in UpperCamelCase
+
+### MicroUSB.scad
+
+**Error**
+* Vitamin module name does not match filename
+
+### LED.scad
+
+**Warning**
+* Filename is not in UpperCamelCase
+
+### BatteryPack.scad
+
+**Error**
+* Vitamin module name does not match filename
+
+### motor.scad
+
+**Warning**
+* Filename is not in UpperCamelCase
+
+**Error**
+* Vitamin module name does not match filename
+
+### Bolt.scad
+
+**Error**
+* Vitamin module name does not match filename
+
+### temp.scad
+
+**Warning**
+* Filename is not in UpperCamelCase
+
+**Error**
+* Vitamin module name does not match filename
+
+### murata-piezos.scad
+
+**Warning**
+* Filename is not in UpperCamelCase
+
+**Error**
+* Vitamin module name does not match filename
 
