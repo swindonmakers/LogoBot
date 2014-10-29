@@ -69,6 +69,7 @@ module BatteryPack(battery_count) {
   battery_depth_offset = Battery_dia/2 - 1;
 
   render()
+  translate([-Battery_dia/2, -Battery_dia/2,0])
   difference() {
    linear_extrude(height=BatteryPack_height)
      hull() {

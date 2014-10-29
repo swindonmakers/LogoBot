@@ -119,7 +119,8 @@ module LogoBotAssembly ( PenLift=false ) {
 		step(6, "Clip in the battery pack", "400 300 -6 7 19 64 1 212 625")
 		    translate([-25, -45, 12])
 			rotate([90, 0, 90])
-			battery_pack_double(2, 4);
+            BatteryPack();
+			//battery_pack_double(2, 4);
 	
 		// Power Switch
 	
