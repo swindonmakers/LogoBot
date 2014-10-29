@@ -7,15 +7,25 @@
 include <../config/colors.scad>
 
 // AAs - http://en.wikipedia.org/wiki/AA_battery
-// len includes the positive-end button
-Battery_dia = 14.5;
-Battery_len = 50.5;
-BatteryPack_width = 31.4;
-BatteryPack_depth = 27.5;
-BatteryPack_height = 57.4;
+
+//                    Battery len, Battery dia, Pack width, Pack depth, Pack height, Linear?, Name 
+BatteryPack_AA = [ 50.5,       14.5,        31.4,       27.5,       57.4,        0,       "AA" ];
+
+// Constants for access:
+BatteryPack_Const_BLen = 0;
+BatteryPack_Const_BDia = 1;
+BatteryPack_Const_PWidth = 2;
+BatteryPack_Const_PDepth = 3;
+BatteryPack_Const_PHeight = 4;
+BatteryPack_Const_Linear = 5;
+BatteryPack_Const_Name = 6;
 
 // We have the total battery length, assume the positive terminal is 1/20th of the length
-module battery() {
+module battery(BP) {
+
+  Battery_len = BP[BatteryPack_Const_BLen];
+  Battery_dia = BP[BatteryPack_Const_BDia];
+
   button_h = (1/20)*Battery_len;
   top_h = (1/3)*Battery_len;
   bottom_h = Battery_len-(top_h+button_h);
@@ -36,21 +46,30 @@ module battery() {
 
 }
 
-module battery_pack_linear(battery_sep, battery_count) {
+module battery_pack_linear(BP, battery_sep, battery_count) {
+
+  Battery_len = BP[BatteryPack_Const_BLen];
+  Battery_dia = BP[BatteryPack_Const_BDia];
+
   for(i=[0:battery_count-1]) {
     translate([i*(Battery_dia+battery_sep), 0, 0])
       if(i % 2 == 1) {
         translate([0,0,Battery_len/2])
           rotate([180, 0, 0])
             translate([0,0,-Battery_len/2])
-              battery();
+              battery(BP);
       } else {
-        battery();
+        battery(BP);
       }
   }
 }
 
-module battery_pack_double(battery_sep, battery_count) {
+module battery_pack_double(BP, battery_sep, battery_count) {
+
+  Battery_len = BP[BatteryPack_Const_BLen];
+  Battery_dia = BP[BatteryPack_Const_BDia];
+
+
   for(i=[0:(battery_count/2)-1]) {
     translate([i*(Battery_dia+battery_sep), 0, 0])
       battery();
@@ -62,7 +81,15 @@ module battery_pack_double(battery_sep, battery_count) {
   }
 }
 
-module BatteryPack(battery_count) {
+// NB, This completely ignores battery count/linear setting! 2x2 is what you get!
+module BatteryPack(BP) {
+
+  Battery_len = BP[BatteryPack_Const_BLen];
+  Battery_dia = BP[BatteryPack_Const_BDia];
+  BatteryPack_height = BP[BatteryPack_Const_PHeight];
+  BatteryPack_width = BP[BatteryPack_Const_BWidth];
+  BatteryPack_depth = BP[BatteryPack_Const_BDepth];
+
   // Actually measured, it overhangs by 2mm, 1 because this is actually
   // a radius -- how far is the center-line of the battery offset from the edge
   // of the case (in the y direction).
@@ -105,5 +132,5 @@ module BatteryPack(battery_count) {
  }
 }
 
-*battery_pack_linear(2,4);
-*battery_pack_double(2, 4);
+*battery_pack_linear(BatteryPack_AA, 2,4);
+*battery_pack_double(BatteryPack_AA, 2, 4);
