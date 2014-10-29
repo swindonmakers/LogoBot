@@ -28,7 +28,7 @@ module MicroUSB_Receptacle() {
     flange = 7.8;                 // width of front flange
     offset  = 2.15 + 0.6 - 1.45;  // distance to overhang board edge
 
-    color(Grey90, 0.3)
+    color(Grey90)
     linear_extrude(height) {
         translate([0, offset - depth/2, 0])
             square(size=[flange, depth], center=true);
