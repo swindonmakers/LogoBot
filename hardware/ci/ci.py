@@ -26,14 +26,16 @@ def poll(un, pw, proxies):
         
         json = r.json()
         
+        print("Found: "+len(json)+" pull requsts...")
+        
         for p in json:
-            print(p['number'])
-            print(p['title'])
+            print(p['number'] + ': '+ p['title'])
+            """
             print(p['body'])
             print(p['state'])
             print(p['merged_at'])
             print(p['updated_at'])
-            
+            """
             # Refresh the repo in staging (master branch)
             
             o = check_output(['git','pull','origin','master'])
