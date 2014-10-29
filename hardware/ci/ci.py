@@ -7,6 +7,7 @@ import os
 import sys
 import requests
 from time import sleep, gmtime, strftime
+from subprocess import call, check_output
 
 repo_owner = 'snhack'
 repo_name = 'LogoBot'
@@ -26,10 +27,10 @@ def poll(un, pw, proxies):
         
         json = r.json()
         
-        print("Found: "+len(json)+" pull requsts...")
+        print("Found: "+str(len(json))+" pull requsts...")
         
         for p in json:
-            print(p['number'] + ': '+ p['title'])
+            print(str(p['number']) + ": "+ p['title'])
             """
             print(p['body'])
             print(p['state'])
@@ -37,9 +38,14 @@ def poll(un, pw, proxies):
             print(p['updated_at'])
             """
             # Refresh the repo in staging (master branch)
-            
+            o = check_output(['git','reset','--hard','HEAD'])
+            o = check_output(['git','clean','-f','-d'])
             o = check_output(['git','pull','origin','master'])
             print(o)
+            
+            o = check_output(['git','status'])
+            print(o)
+            
             
         
         sleep(60)
