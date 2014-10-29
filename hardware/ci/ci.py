@@ -7,7 +7,7 @@ import os
 import sys
 import requests
 from time import sleep, gmtime, strftime
-from subprocess import call, check_output
+from subprocess import call, check_output, CalledProcessError
 
 repo_owner = 'snhack'
 repo_name = 'LogoBot'
@@ -16,8 +16,33 @@ repos_rel_dir = '../../../'
 primary_repo_dir = 'LogoBot'
 staging_repo_dir = primary_repo_dir + 'Staging'
 
+ci_log_name = 'ci.log'
+prhist = []
+
+def dict_in_array(dict, key, value):
+    res = False
+    for item in dict:
+        if item[key] == value:
+            res = True
+            exit
+    return res
+
 def poll(un, pw, proxies):
+    
+    cilog = open(ci_log_name, 'a+')
+    cilog.seek(0)
+    
+    # load cilog into prhist
+    lines = cilog.readlines()
+    for line in lines:
+        line = line.split('_')
+        num = int(line[0])
+        dt = line[1]
+        if not dict_in_array(prhist, 'number', num):
+            prhist.append({'number':num, 'updated_at':dt})
+
     print("Polling for pull requests for commits...")
+    print("")
     
     while True:
         print(strftime("%H:%M:%S", gmtime()))
@@ -27,28 +52,67 @@ def poll(un, pw, proxies):
         
         json = r.json()
         
-        print("Found: "+str(len(json))+" pull requsts...")
+        print("  Found: "+str(len(json))+" pull request(s)")
         
         for p in json:
-            print(str(p['number']) + ": "+ p['title'])
+            print("Checking: #"+str(p['number']) + " - "+ p['title'] + " by "+p['user']['login'])
             """
             print(p['body'])
             print(p['state'])
             print(p['merged_at'])
             print(p['updated_at'])
             """
-            # Refresh the repo in staging (master branch)
-            o = check_output(['git','reset','--hard','HEAD'])
-            o = check_output(['git','clean','-f','-d'])
-            o = check_output(['git','pull','origin','master'])
-            print(o)
             
-            o = check_output(['git','status'])
-            print(o)
+            # check if the pull request is ready to be merged
+            if p['state'] == 'open' and p['merged_at']== None:
             
+                # check if we've done it before?
+                if not dict_in_array(prhist, 'number', p['number']):            
+                    try:
+                        # Refresh the repo in staging (master branch)
+                        print("  Reset staging")
+                        o = check_output(['git','reset','--hard','HEAD'])
+                        print("  Clean")
+                        o = check_output(['git','clean','-f','-d'])
+                        print("  Pull master")
+                        o = check_output(['git','pull','origin','master'])
+                        # print(o)
             
-        
+                        # Checkout the pull request branch
+                        branch = p['head']['ref']
+                        print("  Checkout pull request from: "+branch)
+                        o = check_output(['git','checkout','-B',branch,'origin/'+branch])
+                        # print(o)
+            
+                        # merge the pull request into master
+                        print("  Merge into master")
+                        o = check_output(['git','merge','master'])
+                        # print(o)
+            
+                        # Now run the validation tests    
+                        print("  Start validation")
+                        
+                
+                        # Log this request so we don't process it again
+                        hist = {'number':p['number'], 'updated_at':p['updated_at']}
+                        prhist.append(hist)
+                        cilog.write(str(p['number']) + '_' + p['updated_at'] + '\n')
+                        cilog.flush()
+                
+                
+                    except CalledProcessError as e:
+                        print("Error: "+ str(e.returncode))
+                else:
+                    print("  Skipping")
+                    
+            else:
+                print("  Error: Pull request not open or already merged")
+            
+        print("")
         sleep(60)
+        call(['clear'])
+        
+    cilog.close()
     
 
 def ci(un, pw, http_proxy="", https_proxy=""):
