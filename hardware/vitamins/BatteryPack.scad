@@ -8,8 +8,11 @@ include <../config/colors.scad>
 
 // AAs - http://en.wikipedia.org/wiki/AA_battery
 
-//                    Battery len, Battery dia, Pack width, Pack depth, Pack height, Linear?, Name 
-BatteryPack_AA = [ 50.5,       14.5,        31.4,       27.5,       57.4,        0,       "AA" ];
+//                    Battery len, Battery dia, Pack width, Pack depth, Pack height, Linear?, Batteries, Name 
+BatteryPack_AA_4_SQ = [ 50.5,       14.5,        31.4,       27.5,       57.4,        0,      , 4,       "AA" ];
+
+// Default:
+BatteryPack_AA = BatteryPack_AA_4_SQ;
 
 // Constants for access:
 BatteryPack_Const_BLen = 0;
@@ -18,7 +21,19 @@ BatteryPack_Const_PWidth = 2;
 BatteryPack_Const_PDepth = 3;
 BatteryPack_Const_PHeight = 4;
 BatteryPack_Const_Linear = 5;
-BatteryPack_Const_Name = 6;
+BatteryPack_Const_Count = 6;
+BatteryPack_Const_Name = 7;
+
+// Connectors:
+function BatteryPack_Con_Centre(BP) = [
+  [
+    BP[BatteryPack_Const_PWidth]/2 + BP[BatteryPack_Const_BDia]/2,
+    BP[BatteryPack_Const_PDepth]/2 + BP[BatteryPack_Const_BDia]/2,
+    BP[BatteryPack_Const_PHeight]/2,    
+  ],
+  [ 0,0,0 ],
+  0, 0, 0
+];
 
 // We have the total battery length, assume the positive terminal is 1/20th of the length
 module battery(BP) {
