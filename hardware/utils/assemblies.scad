@@ -17,7 +17,7 @@ module attrArray(name, close=true) {
 	if ($children > 0) {
 		children();
 		if (close)
-		    echo(str(" {} ], "));
+		    echo(str(" ], "));
 	} else {
 	    if (close)
 	        echo(str(" ], "));
@@ -37,15 +37,13 @@ module object(close=true) {
     echo(str(" { "));
 	if ($children > 0) {
 		children();
-		if (close)
-		    echo(str(" {} "));
 	}
 	if (close)
 	    echo(str(" }, "));
 }
 
 module end() {
-	echo(str(" {} ] }, "));
+	echo(str(" ] }, "));
 }
 
 // Specific modules
