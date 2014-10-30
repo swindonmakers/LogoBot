@@ -151,72 +151,73 @@ module Breadboard(BreadboardType = Breadboard_170, ShowPins=true, BoardColor = "
 	// power pin offset, for uneven numbers of power pins
 	prpo = (pinsWide - prp) * ps / 2;
 	
-	Vitamin("Breadboard",tn);
+	vitamin("vitamins/Breadboard.scad", str("Breadboard ",tn), str("Breadboard(Breadboard_",tn,")")) {
 	
-	if (DebugCoordinateFrames) frame();
-	
-	if (DebugConnectors) {
-		if (mp > 0) {
-			connector(Breadboard_Con_BottomLeft(BreadboardType));
-			connector(Breadboard_Con_BottomRight(BreadboardType));
-		}
-		if (mp > 2) {
-			connector(Breadboard_Con_TopLeft(BreadboardType));
-			connector(Breadboard_Con_TopRight(BreadboardType));
-		}
+        if (DebugCoordinateFrames) frame();
+    
+        if (DebugConnectors) {
+            if (mp > 0) {
+                connector(Breadboard_Con_BottomLeft(BreadboardType));
+                connector(Breadboard_Con_BottomRight(BreadboardType));
+            }
+            if (mp > 2) {
+                connector(Breadboard_Con_TopLeft(BreadboardType));
+                connector(Breadboard_Con_TopRight(BreadboardType));
+            }
+        }
+    
+        // Base
+        color(BoardColor)
+            render()
+            difference() {
+                // Starting cuboid
+                cube([w, d, h]);
+            
+                // mounting holes + countersinks
+                if (mp > 0) {
+                    for (x=[-1,1])
+                        translate([w/2 + x * (w/2 - mix), d/2, -1])
+                        if (mp == 2) {
+                            cylinder(r=4/2, h=h+2, $fn=16);
+                        } else {
+                            for (y=[-1,1])
+                                translate([0, y * (d/2 - miy), 0]) {
+                                    // bore
+                                    cylinder(r=4/2, h=h+2, $fn=12);
+                        
+                                    // CS
+                                    translate([0,0, h/2])
+                                        cylinder(r=6/2, h=h+2, $fn=16);
+                                }
+                        }
+                }
+                
+                // central gutter
+                translate([w/2, d/2, 2 + h/2])
+                    cube([gw, 4, h], center=true);
+            }
+        
+        // Pins
+        // - Cheap hack to draw quickly by drawing pins as individual 2D squares
+        if (ShowPins)
+            color("black")
+            translate([0, 0, h-0.3])
+            {
+                // inner pins
+                for (x=[0:pinsWide-1], y=[0:4], m=[-1,1])
+                    translate([pox + x * ps, d/2 + m * ( (3*2.54/2) + y * ps )])
+                    square([pw,pw], center=true);
+                
+                // power rails
+                if (pr > 0) {
+                    for (g=[0:prgs-1])
+                        translate([pox + prpo + g * ((prg+1) * ps), 0, 0])
+                        for (x=[0:prg-1], y=[0:pr-1], m=[-1,1])
+                        translate([x * ps, d/2 + m * ( (3*2.54/2 + 5*2.54 + 2.54) + y * ps )])
+                        square([pw,pw], center=true);
+                }
+            }	
 	}
-	
-	// Base
-	color(BoardColor)
-		render()
-		difference() {
-			// Starting cuboid
-			cube([w, d, h]);
-			
-			// mounting holes + countersinks
-			if (mp > 0) {
-				for (x=[-1,1])
-					translate([w/2 + x * (w/2 - mix), d/2, -1])
-					if (mp == 2) {
-						cylinder(r=4/2, h=h+2, $fn=16);
-					} else {
-						for (y=[-1,1])
-							translate([0, y * (d/2 - miy), 0]) {
-								// bore
-								cylinder(r=4/2, h=h+2, $fn=12);
-						
-								// CS
-								translate([0,0, h/2])
-									cylinder(r=6/2, h=h+2, $fn=16);
-							}
-					}
-			}
-				
-			// central gutter
-			translate([w/2, d/2, 2 + h/2])
-				cube([gw, 4, h], center=true);
-		}
-		
-	// Pins
-	// - Cheap hack to draw quickly by drawing pins as individual 2D squares
-	if (ShowPins)
-		color("black")
-		translate([0, 0, h-0.3])
-		{
-			// inner pins
-			for (x=[0:pinsWide-1], y=[0:4], m=[-1,1])
-				translate([pox + x * ps, d/2 + m * ( (3*2.54/2) + y * ps )])
-				square([pw,pw], center=true);
-				
-			// power rails
-			if (pr > 0) {
-				for (g=[0:prgs-1])
-					translate([pox + prpo + g * ((prg+1) * ps), 0, 0])
-					for (x=[0:prg-1], y=[0:pr-1], m=[-1,1])
-					translate([x * ps, d/2 + m * ( (3*2.54/2 + 5*2.54 + 2.54) + y * ps )])
-					square([pw,pw], center=true);
-			}
-		}	
 }
 
 module Breadboard_View() {

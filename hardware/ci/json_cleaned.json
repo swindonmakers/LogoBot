@@ -1,9 +1,8 @@
 [
  { 
  "type":"machine", 
- "file":"sandbox/damian_playground2.scad", 
- "title":"LogoBot Basic Robot", 
- "z":"z", 
+ "file":"assemblies/LogoBot.scad", 
+ "title":"LogoBot", 
  "children": [
  { 
  "type":"assembly", 
@@ -12,15 +11,18 @@
  "call":"LogoBotAssembly(PenLift=false)", 
  "children": [
  { 
- "type":"assembly", 
- "file":"Wheel", 
- "title":"Left Wheel", 
- "call":"Wheel()", 
+ "type":"printed", 
+ "file":"assemblies/LogoBot.scad", 
+ "title":"Base", 
+ "call":"LogoBotBase_STL()", 
  "children": [
+  ] 
+  
+ }, 
  { 
  "type":"step", 
  "num":1, 
- "desc":"Fit the wheel", 
+ "desc":"Connect the breadboard assembly to the underside of the base", 
  "children": [
  { 
  "type":"view", 
@@ -34,64 +36,549 @@
  "translate": [
 0
 ,
-0
+17
 ,
-0
+12
 ], 
  "rotate": [
-55
+112
 ,
 0
 ,
-25
+222
 ], 
- "dist":500
- 
+ "dist":513 
+  
  }, 
- { 
- "type":"vitamin", 
- "file":"Wheel", 
- "title":"Wheel", 
- "call":"Wheel_STL()", 
- "author":"damo", 
- "src":"http://ebay.com", 
- "cost":"0.89", 
- "authors": [
- { 
- "author":"damo"
- 
- }, 
- { 
- "author":"fred"
- 
- }, 
- { 
- "author":"bob"
- 
- }
- ]
- 
- }, 
- { 
- "type":"vitamin", 
- "file":"Motor", 
- "title":"Motor", 
- "call":"Motor()", 
- "author":"damo", 
- "src":"http://ebay.com", 
- "cost":"0.89"
- 
- }
- ] }
- ] }, 
  { 
  "type":"assembly", 
- "file":"Wheel", 
- "title":"Right Wheel", 
- "call":"Wheel()", 
+ "file":"assemblies/Breadboard.scad", 
+ "title":"Brain", 
+ "call":"BreadboardAssembly()", 
  "children": [
- 
- ] }
- ] }
- ] }
+ { 
+ "type":"assembly", 
+ "file":"vitamins/Breadboard.scad", 
+ "title":"Breadboard 170", 
+ "call":"Breadboard(Breadboard_170)", 
+ "children": [
+  ] 
+  
+ }, 
+ { 
+ "type":"step", 
+ "num":1, 
+ "desc":"Push the Arduino onto the breadboard - make sure you position it correctly,                  as it's a tight fit with the Robot base!", 
+ "children": [
+ { 
+ "type":"view", 
+ "name":"view", 
+ "caption":"view", 
+ "size": [
+400
+,
+300
+], 
+ "translate": [
+21
+,
+17
+,
+9
+], 
+ "rotate": [
+62
+,
+0
+,
+218
+], 
+ "dist":316 
+  
+ } 
+  ] } 
+  ] 
+  
+ } 
+  ] }, 
+ { 
+ "type":"step", 
+ "num":2, 
+ "desc":"Connect the two bumper assemblies", 
+ "children": [
+ { 
+ "type":"view", 
+ "name":"view", 
+ "caption":"view", 
+ "size": [
+400
+,
+300
+], 
+ "translate": [
+-6
+,
+7
+,
+19
+], 
+ "rotate": [
+64
+,
+1
+,
+212
+], 
+ "dist":625 
+  
+ } 
+  ] }, 
+ { 
+ "type":"step", 
+ "num":3, 
+ "desc":"Push the two motor drivers onto the mounting posts", 
+ "children": [
+ { 
+ "type":"view", 
+ "name":"view", 
+ "caption":"view", 
+ "size": [
+400
+,
+300
+], 
+ "translate": [
+-6
+,
+7
+,
+19
+], 
+ "rotate": [
+64
+,
+1
+,
+212
+], 
+ "dist":625 
+  
+ } 
+  ] }, 
+ { 
+ "type":"step", 
+ "num":4, 
+ "desc":"Clip the two wheels assemblies onto the base and                     connect the motor leads to the the motor drivers", 
+ "children": [
+ { 
+ "type":"view", 
+ "name":"view", 
+ "caption":"view", 
+ "size": [
+400
+,
+300
+], 
+ "translate": [
+-4
+,
+6
+,
+47
+], 
+ "rotate": [
+66
+,
+0
+,
+190
+], 
+ "dist":740 
+  
+ }, 
+ { 
+ "type":"assembly", 
+ "file":"assemblies/Wheel.scad", 
+ "title":"Wheels", 
+ "call":"WheelAssembly()", 
+ "children": [
+ { 
+ "type":"step", 
+ "num":1, 
+ "desc":"Push the wheel onto the motor shaft", 
+ "children": [
+ { 
+ "type":"view", 
+ "name":"view", 
+ "caption":"view", 
+ "size": [
+400
+,
+300
+], 
+ "translate": [
+-0.4
+,
+0.2
+,
+0.7
+], 
+ "rotate": [
+349
+,
+125
+,
+180
+], 
+ "dist":415 
+  
+ }, 
+ { 
+ "type":"printed", 
+ "file":"assemblies/Wheel.scad", 
+ "title":"Wheel", 
+ "call":"Wheel_STL()", 
+ "children": [
+  ] 
+  
+ } 
+  ] } 
+  ] 
+  
+ }, 
+ { 
+ "type":"assembly", 
+ "file":"assemblies/Wheel.scad", 
+ "title":"Wheels", 
+ "call":"WheelAssembly()", 
+ "children": [
+ { 
+ "type":"step", 
+ "num":1, 
+ "desc":"Push the wheel onto the motor shaft", 
+ "children": [
+ { 
+ "type":"view", 
+ "name":"view", 
+ "caption":"view", 
+ "size": [
+400
+,
+300
+], 
+ "translate": [
+-0.4
+,
+0.2
+,
+0.7
+], 
+ "rotate": [
+349
+,
+125
+,
+180
+], 
+ "dist":415 
+  
+ }, 
+ { 
+ "type":"printed", 
+ "file":"assemblies/Wheel.scad", 
+ "title":"Wheel", 
+ "call":"Wheel_STL()", 
+ "children": [
+  ] 
+  
+ } 
+  ] } 
+  ] 
+  
+ } 
+  ] }, 
+ { 
+ "type":"step", 
+ "num":5, 
+ "desc":"Connect the jumper wires between the motor drivers and the Arduino", 
+ "children": [
+ { 
+ "type":"view", 
+ "name":"view", 
+ "caption":"view", 
+ "size": [
+400
+,
+300
+], 
+ "translate": [
+9
+,
+26
+,
+54
+], 
+ "rotate": [
+38
+,
+0
+,
+161
+], 
+ "dist":766 
+  
+ }, 
+ { 
+ "type":"assembly", 
+ "file":"vitamins/JumperWire.scad", 
+ "title":"JumperWire Female to Male 4pin 70mm", 
+ "call":"JumperWire(type=JumperWire_FM4, length=70)", 
+ "children": [
+  ] 
+  
+ }, 
+ { 
+ "type":"assembly", 
+ "file":"vitamins/JumperWire.scad", 
+ "title":"JumperWire Female to Male 4pin 70mm", 
+ "call":"JumperWire(type=JumperWire_FM4, length=70)", 
+ "children": [
+  ] 
+  
+ } 
+  ] }, 
+ { 
+ "type":"step", 
+ "num":6, 
+ "desc":"Clip in the battery pack", 
+ "children": [
+ { 
+ "type":"view", 
+ "name":"view", 
+ "caption":"view", 
+ "size": [
+400
+,
+300
+], 
+ "translate": [
+-6
+,
+7
+,
+19
+], 
+ "rotate": [
+64
+,
+1
+,
+212
+], 
+ "dist":625 
+  
+ } 
+  ] }, 
+ { 
+ "type":"step", 
+ "num":7, 
+ "desc":"Clip the LED into place", 
+ "children": [
+ { 
+ "type":"view", 
+ "name":"view", 
+ "caption":"view", 
+ "size": [
+400
+,
+300
+], 
+ "translate": [
+-6
+,
+7
+,
+19
+], 
+ "rotate": [
+64
+,
+1
+,
+212
+], 
+ "dist":625 
+  
+ } 
+  ] }, 
+ { 
+ "type":"step", 
+ "num":8, 
+ "desc":"Clip the piezo sounder into place", 
+ "children": [
+ { 
+ "type":"view", 
+ "name":"view", 
+ "caption":"view", 
+ "size": [
+400
+,
+300
+], 
+ "translate": [
+-6
+,
+7
+,
+19
+], 
+ "rotate": [
+64
+,
+1
+,
+212
+], 
+ "dist":625 
+  
+ } 
+  ] }, 
+ { 
+ "type":"step", 
+ "num":9, 
+ "desc":"Push the caster assembly into the base so that it snaps into place", 
+ "children": [
+ { 
+ "type":"view", 
+ "name":"view", 
+ "caption":"view", 
+ "size": [
+400
+,
+300
+], 
+ "translate": [
+-6
+,
+7
+,
+19
+], 
+ "rotate": [
+115
+,
+1
+,
+26
+], 
+ "dist":625 
+  
+ }, 
+ { 
+ "type":"assembly", 
+ "file":"assemblies/MarbleCaster.scad", 
+ "title":"Rear Caster", 
+ "call":"MarbleCasterAssembly()", 
+ "children": [
+ { 
+ "type":"printed", 
+ "file":"assemblies/MarbleCaster.scad", 
+ "title":"Caster Housing", 
+ "call":"MarbleCaster_STL()", 
+ "children": [
+  ] 
+  
+ }, 
+ { 
+ "type":"step", 
+ "num":1, 
+ "desc":"Insert the marble into the printed housing", 
+ "children": [
+ { 
+ "type":"view", 
+ "name":"view", 
+ "caption":"view", 
+ "size": [
+400
+,
+300
+], 
+ "translate": [
+0.67
+,
+0
+,
+-15
+], 
+ "rotate": [
+108
+,
+0
+,
+91
+], 
+ "dist":261 
+  
+ }, 
+ { 
+ "type":"assembly", 
+ "file":"vitamins/Marble.scad", 
+ "title":"16mm Marble", 
+ "call":"Marble(Marble_16mm)", 
+ "children": [
+  ] 
+  
+ } 
+  ] } 
+  ] 
+  
+ } 
+  ] }, 
+ { 
+ "type":"step", 
+ "num":10, 
+ "desc":"Push the shell down onto the base and twist to lock into place", 
+ "children": [
+ { 
+ "type":"view", 
+ "name":"view", 
+ "caption":"view", 
+ "size": [
+400
+,
+300
+], 
+ "translate": [
+11
+,
+-23
+,
+65
+], 
+ "rotate": [
+66
+,
+0
+,
+217
+], 
+ "dist":1171 
+  
+ }, 
+ { 
+ "type":"printed", 
+ "file":"assemblies/Shell.scad", 
+ "title":"Basic Shell", 
+ "call":"BasicShell_STL()", 
+ "children": [
+  ] 
+  
+ } 
+  ] } 
+  ] 
+  
+ } 
+  ] 
+  
+ } 
  ]

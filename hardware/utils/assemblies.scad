@@ -1,4 +1,8 @@
 // Utility functions for machine design
+// Output is json fragments that can be parsed by the ci toolset
+
+// Generic modules
+// ---------------
 
 module attr(name, value, raw=false) {
     if (raw) {
@@ -44,35 +48,71 @@ module end() {
 	echo(str(" {} ] }, "));
 }
 
-module assembly(file, title, call) {
-	object(false) {
+// Specific modules
+// ----------------
+
+module assembly(file, title, call, customAttrs=false) {
+	object(true) {
         attr("type","assembly");
         attr("file",file);
         attr("title",title);
         attr("call",call);
-        children();
-        attrArray("children", false);
+        if (customAttrs) {
+            children();
+        } else {
+            attrArray("children", true) 
+                children();
+        }
     }
 }
 
-module vitamin(file, title, call) {
+module printedPart(file, title, call, customAttrs=false) {
 	object(true) {
-        attr("type","vitamin");
+        attr("type","printed");
         attr("file",file);
         attr("title",title);
         attr("call",call);
-        children();
+        if (customAttrs) {
+            children();
+        } else {
+            attrArray("children", true) 
+                children();
+        }
     }
 }
 
-module machine(file, title) {
-    object(false) {
+module vitamin(file, title, call, customAttrs=false) {
+	object(true) {
+        attr("type","assembly");
+        attr("file",file);
+        attr("title",title);
+        attr("call",call);
+        if (customAttrs) {
+            children();
+        } else {
+            attrArray("children", true) 
+                children();
+        }
+    }
+}
+
+module machine(file, title, customAttrs=false) {
+    object(true) {
         attr("type","machine");
         attr("file",file);
         attr("title",title);
-        children();
-        attrArray("children", false);
+        if (customAttrs) {
+            children();
+        } else {
+            attrArray("children", true) 
+                children();
+        }
     }
+}
+
+module contains() {
+    attrArray("children")
+        children();    
 }
 
 // Control visibility and explosion of assembly steps

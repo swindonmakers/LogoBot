@@ -1,48 +1,53 @@
 include <../config/config.scad>
 
 
-machine("sandbox/damian_playground2.scad","LogoBot Basic Robot")
+machine("sandbox/damian_playground2.scad","LogoBot Basic Robot", customAttrs=true) {
     attr("z","z");
-
-    assembly("assemblies/LogoBot.scad", "Final Assembly", "LogoBotAssembly(PenLift=false)")
-        attr("note","this is a little note\n\n");
-
-        assembly("Wheel", "Left Wheel", "Wheel()");
     
-            step(1, "Fit the wheel") {
+    contains() {
+        assembly("assemblies/LogoBot.scad", "Final Assembly", "LogoBotAssembly(PenLift=false)", customAttrs=true) {
+            attr("note","this is a little note\n\n");
+
+            contains() {
+                assembly("Wheel", "Left Wheel", "Wheel()") {
+    
+                    step(1, "Fit the wheel") {
             
-                view();
+                        view();
             
-                vitamin("Wheel", "Wheel", "Wheel_STL()") { 
-                    attr("author","damo");
-                    attr("src","http://ebay.com");
-                    attr("cost","0.89");
-            
-                    attrArray("authors") {
-                        object()
+                        vitamin("Wheel", "Wheel", "Wheel_STL()", customAttrs=true) { 
                             attr("author","damo");
-                        object()
-                            attr("author","fred");
-                        object()
-                            attr("author","bob");
-                    }
-                }
+                            attr("src","http://ebay.com");
+                            attr("cost","0.89");
+            
+                            attrArray("authors") {
+                                object()
+                                    attr("author","damo");
+                                object()
+                                    attr("author","fred");
+                                object()
+                                    attr("author","bob");
+                            }
+                        }
                 
-                vitamin("Motor", "Motor", "Motor()") { 
-                    attr("author","damo");
-                    attr("src","http://ebay.com");
-                    attr("cost","0.89");
+                        vitamin("Motor", "Motor", "Motor()", customAttrs=true) { 
+                            attr("author","damo");
+                            attr("src","http://ebay.com");
+                            attr("cost","0.89");
+                        }
+            
+                    }
+        
+
+                }
+
+                assembly("Wheel", "Right Wheel", "Wheel()") {
+                    cube([10,10,10]);
                 }
             
             }
-        
-
-        end();
-
-        assembly("Wheel", "Right Wheel", "Wheel()");
-
-        end();
     
-    end();
+        }    
+    }
     
-end();
+}

@@ -34,33 +34,35 @@ function MarbleCaster_Con_Ball(GroundClearance) = [
 
 
 module MarbleCasterAssembly () {
+    
+    ballr = MarbleCaster_BallRadius;
 
-    Assembly("MarbleCaster");
-
-	ballr = MarbleCaster_BallRadius;
-	
-	// debug coordinate frame?
-	if (DebugCoordinateFrames) {
-		frame();
+    assembly("assemblies/MarbleCaster.scad", "Rear Caster", str("MarbleCasterAssembly()")) {
+    
+        // debug coordinate frame?
+        if (DebugCoordinateFrames) {
+            frame();
+        }
+    
+        // debug connectors?
+        if (DebugConnectors) {
+            connector(MarbleCaster_Con_Default);
+        }
+    
+        // STL
+        MarbleCaster_STL();
+    
+    
+        // caster ball
+        step(1, 
+                "Insert the marble into the printed housing") {
+            view(t=[0.67,0,-15], r=[108,0,91], d=261);
+         
+            attach(MarbleCaster_Con_Ball(GroundClearance), Marble_Con_Default, ExplodeSpacing = 16)
+                Marble(Marble_16mm);
+        }
+        
 	}
-	
-	// debug connectors?
-	if (DebugConnectors) {
-		connector(MarbleCaster_Con_Default);
-	}
-	
-	// STL
-	MarbleCaster_STL();
-	
- 	
-	// caster ball
-	step(1, 
-            "Insert the marble into the printed housing", 
-            "300 200 0.67 0 -15 108 0 91 261")
-	    attach(MarbleCaster_Con_Ball(GroundClearance), Marble_Con_Default, ExplodeSpacing = 16)
-		Marble(Marble_16mm);
-		
-	End("MarbleCaster");
 }
 
 
@@ -75,71 +77,72 @@ module MarbleCaster_STL () {
 	
 	$fn=64;
 	
-	STL("MarbleCaster");
+	printedPart("assemblies/MarbleCaster.scad", "Caster Housing", "MarbleCaster_STL()") {
 	
-	color(Level2PlasticColor)
-	    if (UseSTL) {
-	        import(str(STLPath, "MarbleCaster.stl"));
-	    } else {
-            //render() // pre-render for speed
-            difference() {
-                union()  {
-                    // push fitting core
-                    cylinder(r=od/2, h=plateThickness+eta);
+        color(Level2PlasticColor)
+            if (UseSTL) {
+                import(str(STLPath, "MarbleCaster.stl"));
+            } else {
+                //render() // pre-render for speed
+                difference() {
+                    union()  {
+                        // push fitting core
+                        cylinder(r=od/2, h=plateThickness+eta);
             
-                    // push fitting upper taper
-                    translate([0, 0, plateThickness + 1])
-                        cylinder(r1=od/2 + 0.5, r2=od/2 - 1, h= dw + 1);
+                        // push fitting upper taper
+                        translate([0, 0, plateThickness + 1])
+                            cylinder(r1=od/2 + 0.5, r2=od/2 - 1, h= dw + 1);
                 
-                    // push fitting lower taper
-                    translate([0, 0, plateThickness])
-                        cylinder(r1=od/2, r2=od/2 + 0.5, h=1 + eta);
+                        // push fitting lower taper
+                        translate([0, 0, plateThickness])
+                            cylinder(r1=od/2, r2=od/2 + 0.5, h=1 + eta);
             
             
-                    //flange
-                    translate([0, 0, -2])
-                        cylinder(r=fod/2, h=2 + eta);
+                        //flange
+                        translate([0, 0, -2])
+                            cylinder(r=fod/2, h=2 + eta);
             
-                    // tapered joint between ball casing and flange
+                        // tapered joint between ball casing and flange
+                        translate([0, 0, -GroundClearance + ballr])
+                            cylinder(r1=ballr + dw, r2=fod/2, h=GroundClearance - ballr + eta);
+            
+                        // ball casing
+                        translate([0, 0, -GroundClearance + ballr])
+                            sphere(r=ballr + dw);
+            
+                    }
+            
+                    // slit the push fitting
+                    for (i=[0,1])
+                        rotate([0,0, i*90])
+                        translate([-ballr, -1, eta])
+                        cube([2*ballr, 2, 100]);
+            
+                    // chop the bottom off
+                    translate([-50, -50, -100 - GroundClearance + ballr/2])
+                        cube([100, 100, 100]);
+            
+                    // hollow the casing for the ball - allow some tolerance
+                    translate([0,0, -GroundClearance + ballr])
+                        sphere(ballr + balltol);
+                
+                    // taper the interior to allow for easier printing
                     translate([0, 0, -GroundClearance + ballr])
-                        cylinder(r1=ballr + dw, r2=fod/2, h=GroundClearance - ballr + eta);
+                            cylinder(r1=ballr, r2=1, h= GroundClearance - ballr + plateThickness + dw + 2, $fn=32);
             
-                    // ball casing
-                    translate([0, 0, -GroundClearance + ballr])
-                        sphere(r=ballr + dw);
-            
-                }
-            
-                // slit the push fitting
-                for (i=[0,1])
-                    rotate([0,0, i*90])
-                    translate([-ballr, -1, eta])
-                    cube([2*ballr, 2, 100]);
-            
-                // chop the bottom off
-                translate([-50, -50, -100 - GroundClearance + ballr/2])
-                    cube([100, 100, 100]);
-            
-                // hollow the casing for the ball - allow some tolerance
-                translate([0,0, -GroundClearance + ballr])
-                    sphere(ballr + balltol);
+                    // cut a curve into the ball casing to allow flex for the marble to be inserted
+                    // and so it looks pretty :)
+                    translate([0, 0, -GroundClearance + ballr/2])
+                        rotate([0, 90, 0])
+                        scale([1, 0.5, 1])
+                        cylinder(r=ballr, h=100, center=true, $fn=16);
                 
-                // taper the interior to allow for easier printing
-                translate([0, 0, -GroundClearance + ballr])
-                        cylinder(r1=ballr, r2=1, h= GroundClearance - ballr + plateThickness + dw + 2, $fn=32);
-            
-                // cut a curve into the ball casing to allow flex for the marble to be inserted
-                // and so it looks pretty :)
-                translate([0, 0, -GroundClearance + ballr/2])
-                    rotate([0, 90, 0])
-                    scale([1, 0.5, 1])
-                    cylinder(r=ballr, h=100, center=true, $fn=16);
-                
-                // chop it in half for debugging
-                *translate([0, -50, -50])
-                    cube([100,100,100]);
-            }		
-        }
+                    // chop it in half for debugging
+                    *translate([0, -50, -50])
+                        cube([100,100,100]);
+                }		
+            }
+    }
 }
 
 module MarbleCaster_STL_View() {
