@@ -201,28 +201,8 @@ def add_steps_for(jso, o):
         if type(c) is DictType and c['type'] == 'step':
             add_step(c, o)            
 
-            
-            
-def add_assembly(jso, al):
-    print("  Assembly: "+jso['title'])
-    
-    afound = None
-    for a in al:
-        if a['title'] == jso['title']:
-            afound = a
-            continue
-    
-    if afound:
-        afound['qty'] += 1
-    else:
-        afound = { 'title':jso['title'], 'call':jso['call'], 'file':jso['file'], 'qty':1, 'views':[], 'steps':[] }
-        al.append(afound)
-        
-    add_views_for(jso, afound) 
-    add_steps_for(jso, afound)   
-            
 
-def add_vitamin(jso, vl):
+def add_vitamin(jso, vl, addViews=True):
     print("  Vitamin: "+jso['title'])
     
     vfound = None
@@ -237,10 +217,11 @@ def add_vitamin(jso, vl):
         vfound = { 'title':jso['title'], 'call':jso['call'], 'file':jso['file'], 'qty':1, 'views':[] }
         vl.append(vfound)
         
-    add_views_for(jso, vfound)
+    if addViews:
+        add_views_for(jso, vfound)
     
     
-def add_printed(jso, pl):
+def add_printed(jso, pl, addViews=True):
     print("  Printed Part: "+jso['title'])
     
     pfound = None
@@ -255,7 +236,56 @@ def add_printed(jso, pl):
         pfound = { 'title':jso['title'], 'call':jso['call'], 'file':jso['file'], 'qty':1, 'views':[] }
         pl.append(pfound)
         
-    add_views_for(jso, pfound)   
+    if addViews:
+        add_views_for(jso, pfound)   
+    
+    
+def add_assembly(jso, al, addSteps=True, addViews=True, addChildren=True):
+    print("  Assembly: "+jso['title'])
+    
+    afound = None
+    for a in al:
+        if a['title'] == jso['title']:
+            afound = a
+            continue
+    
+    if afound:
+        afound['qty'] += 1
+    else:
+        afound = { 
+            'title':jso['title'], 'call':jso['call'], 'file':jso['file'], 
+            'qty':1, 'views':[], 'steps':[], 'assemblies':[], 'vitamins':[], 'printed':[]
+            }
+        al.append(afound)
+        
+    if addViews:
+        add_views_for(jso, afound) 
+    if addSteps:
+        add_steps_for(jso, afound)     
+    
+    vl = afound['vitamins'];
+    al = afound['assemblies'];
+    pl = afound['printed'];
+    
+    # Collate immediate children, and sub-assemblies nested in steps!
+    if addChildren and 'children' in jso:
+        for c in jso['children']:
+            if type(c) is DictType:
+                tn = c['type']
+        
+                if tn == 'vitamin':
+                    add_vitamin(c, vl, addViews=False)
+        
+                if tn == 'assembly':
+                    add_assembly(c, al, addSteps=False, addViews=False)    
+        
+                if tn == 'printed':
+                    add_printed(c, pl, addViews=False) 
+                    
+                if tn == 'step':
+                    for sc in c['children']:
+                        if type(sc) is DictType and sc['type'] == 'assembly':
+                            add_assembly(sc, al, addSteps=False, addViews=False, addChildren=False) 
     
 
 def summarise_parts_for(jso, al, pl, vl):

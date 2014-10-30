@@ -17,7 +17,7 @@ Wheel_Con_Default				= [ [0,0,0], [0,0,1], 0, 0, 0];
 
 module WheelAssembly( ) {
 
-    assembly("assemblies/Wheel.scad", "Wheels", str("WheelAssembly()")) {
+    assembly("assemblies/Wheel.scad", "Drive Wheel", str("WheelAssembly()")) {
     
         if (DebugCoordinateFrames) frame();
     
