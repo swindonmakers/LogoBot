@@ -1,0 +1,89 @@
+[
+    {
+        "z": "z",
+        "type": "machine",
+        "children": [
+            {
+                "call": "LogoBotAssembly(PenLift=false)",
+                "type": "assembly",
+                "children": [
+                    {
+                        "call": "Wheel()",
+                        "type": "assembly",
+                        "children": [
+                            {
+                                "num": 1,
+                                "type": "step",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            55,
+                                            0,
+                                            25
+                                        ],
+                                        "dist": 500,
+                                        "name": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    },
+                                    {
+                                        "src": "http://ebay.com",
+                                        "author": "damo",
+                                        "title": "Wheel",
+                                        "cost": "0.89",
+                                        "call": "Wheel_STL()",
+                                        "file": "Wheel",
+                                        "authors": [
+                                            {
+                                                "author": "damo"
+                                            },
+                                            {
+                                                "author": "fred"
+                                            },
+                                            {
+                                                "author": "bob"
+                                            }
+                                        ],
+                                        "type": "vitamin"
+                                    },
+                                    {
+                                        "src": "http://ebay.com",
+                                        "author": "damo",
+                                        "title": "Motor",
+                                        "cost": "0.89",
+                                        "call": "Motor()",
+                                        "file": "Motor",
+                                        "type": "vitamin"
+                                    }
+                                ],
+                                "desc": "Fit the wheel"
+                            }
+                        ],
+                        "file": "Wheel",
+                        "title": "Left Wheel"
+                    },
+                    {
+                        "call": "Wheel()",
+                        "type": "assembly",
+                        "children": [],
+                        "file": "Wheel",
+                        "title": "Right Wheel"
+                    }
+                ],
+                "file": "assemblies/LogoBot.scad",
+                "title": "Final Assembly"
+            }
+        ],
+        "file": "sandbox/damian_playground2.scad",
+        "title": "LogoBot Basic Robot"
+    }
+]

@@ -5,8 +5,12 @@ import shutil
 import sys
 import re
 import json
+import openscad
 
-logfile = 'test.log'
+inputfile = '../sandbox/damian_playground2.scad'
+logfile = 'openscad.log'
+
+openscad.run('-o','dummy.csg',inputfile);
 
 js = '[\n'
 
@@ -20,10 +24,16 @@ for line in open(logfile, "rt").readlines():
 
 js += '{} ]\n';
 
-# get rid of empty objects
-js = re.sub(r"\,\s*\{\}","", js, re.M)
+outfile = open('json_empties.json','w')
+outfile.write(js)		
+outfile.close()
 
-outfile = open('json.json','w')
+# get rid of empty objects
+js = re.sub(r"\,\s*\{\}","\n", js, re.M)
+js = re.sub(r"\,\s*\{\}","\n", js, re.M)
+js = re.sub(r"\{\}","\n", js, re.M)
+
+outfile = open('json_cleaned.json','w')
 outfile.write(js)		
 outfile.close()
 		
@@ -31,7 +41,7 @@ outfile.close()
 jso = json.loads(js)
 
 # prettify
-js = json.dumps(jso, sort_keys=True, indent=4, separators=(',', ': '))
+js = json.dumps(jso, sort_keys=False, indent=4, separators=(',', ': '))
 
 
 print(js)

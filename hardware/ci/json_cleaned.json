@@ -1,0 +1,97 @@
+[
+ { 
+ "type":"machine", 
+ "file":"sandbox/damian_playground2.scad", 
+ "title":"LogoBot Basic Robot", 
+ "z":"z", 
+ "children": [
+ { 
+ "type":"assembly", 
+ "file":"assemblies/LogoBot.scad", 
+ "title":"Final Assembly", 
+ "call":"LogoBotAssembly(PenLift=false)", 
+ "children": [
+ { 
+ "type":"assembly", 
+ "file":"Wheel", 
+ "title":"Left Wheel", 
+ "call":"Wheel()", 
+ "children": [
+ { 
+ "type":"step", 
+ "num":1, 
+ "desc":"Fit the wheel", 
+ "children": [
+ { 
+ "type":"view", 
+ "name":"view", 
+ "caption":"view", 
+ "size": [
+400
+,
+300
+], 
+ "translate": [
+0
+,
+0
+,
+0
+], 
+ "rotate": [
+55
+,
+0
+,
+25
+], 
+ "dist":500
+ 
+ }, 
+ { 
+ "type":"vitamin", 
+ "file":"Wheel", 
+ "title":"Wheel", 
+ "call":"Wheel_STL()", 
+ "author":"damo", 
+ "src":"http://ebay.com", 
+ "cost":"0.89", 
+ "authors": [
+ { 
+ "author":"damo"
+ 
+ }, 
+ { 
+ "author":"fred"
+ 
+ }, 
+ { 
+ "author":"bob"
+ 
+ }
+ ]
+ 
+ }, 
+ { 
+ "type":"vitamin", 
+ "file":"Motor", 
+ "title":"Motor", 
+ "call":"Motor()", 
+ "author":"damo", 
+ "src":"http://ebay.com", 
+ "cost":"0.89"
+ 
+ }
+ ] }
+ ] }, 
+ { 
+ "type":"assembly", 
+ "file":"Wheel", 
+ "title":"Right Wheel", 
+ "call":"Wheel()", 
+ "children": [
+ 
+ ] }
+ ] }
+ ] }
+ ]
