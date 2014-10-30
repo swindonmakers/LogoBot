@@ -152,6 +152,7 @@ module Breadboard(BreadboardType = Breadboard_170, ShowPins=true, BoardColor = "
 	prpo = (pinsWide - prp) * ps / 2;
 	
 	vitamin("vitamins/Breadboard.scad", str("Breadboard ",tn), str("Breadboard(Breadboard_",tn,")")) {
+	    view(t=[21,17,9], r=[62,0,218], d=316);
 	
         if (DebugCoordinateFrames) frame();
     
@@ -218,8 +219,4 @@ module Breadboard(BreadboardType = Breadboard_170, ShowPins=true, BoardColor = "
                 }
             }	
 	}
-}
-
-module Breadboard_View() {
-    echo("300 200 21 17 9 62 0 218 316");
 }

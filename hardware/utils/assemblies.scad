@@ -11,7 +11,7 @@ module attr(name, value, raw=false) {
 	    echo(str(" '",name,"':'",value,"', "));
 	}
 }
-
+asad
 module attrArray(name, close=true) {
     echo(str(" '",name,"': ["));
 	if ($children > 0) {
@@ -81,7 +81,7 @@ module printedPart(file, title, call, customAttrs=false) {
 
 module vitamin(file, title, call, customAttrs=false) {
 	object(true) {
-        attr("type","assembly");
+        attr("type","vitamin");
         attr("file",file);
         attr("title",title);
         attr("call",call);
@@ -130,10 +130,10 @@ module step(num=1, desc="") {
 }
 
 
-module view(name="view", caption="view", size=$DefaultViewSize, t=[0, 0, 0], r=[55, 0, 25], d=500) {
+module view(title="view", caption="view", size=$DefaultViewSize, t=[0, 0, 0], r=[55, 0, 25], d=500) {
     object(true) {
         attr("type","view");
-        attr("name",name);
+        attr("title",title);
         attr("caption",caption);
         attrNumArray("size",size);
         attrNumArray("translate", t);

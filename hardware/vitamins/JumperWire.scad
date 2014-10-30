@@ -94,6 +94,8 @@ module JumperWire(
     vitamin("vitamins/JumperWire.scad", 
             str("JumperWire ",JumperWire_PinType1(type)," to ",JumperWire_PinType2(type)," ",JumperWire_NumPins(type),"pin ",length,"mm"), 
             str("JumperWire(type=JumperWire_",tn,", length=",length,")")) {
+            
+        view(t=[51,5,2], r=[41,0,29], d=438);
 
         if (DebugCoordinateFrames) frame();
 
@@ -169,7 +171,3 @@ module JumperWire(
         }
     }
 } 
-
-module JumperWire_View(type) {
-    echo("400 300 51 5 2 41 0 29 438");    
-}

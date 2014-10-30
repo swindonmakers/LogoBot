@@ -20,6 +20,7 @@ Marble_Con_Default = DefCon;
 module Marble(type=Marble_16mm, color=[0.7,0.7,0.7]) {
 
     vitamin("vitamins/Marble.scad", "16mm Marble", "Marble(Marble_16mm)") {
+        view(t=[-1,0,-1], r=[66,0,60], d=119);
 
         if (DebugCoordinateFrames) {
             frame();
@@ -34,8 +35,4 @@ module Marble(type=Marble_16mm, color=[0.7,0.7,0.7]) {
         
 	}
     
-}
-
-module Marble_View() {
-    echo("300 200 -1 0 -1 66 0 60 119");
 }
