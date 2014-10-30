@@ -484,7 +484,7 @@
                 "title": "Final Assembly"
             }
         ],
-        "file": "assemblies/LogoBot.scad",
+        "file": "LogoBot.scad",
         "title": "LogoBot"
     }
 ]

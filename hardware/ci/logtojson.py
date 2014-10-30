@@ -16,13 +16,15 @@ openscad.run('-o','dummy.csg',inputfile);
 js = '[\n'
 
 for line in open(logfile, "rt").readlines():
-	r = re.search(r'^ECHO\:\s\"(.*)\"', line, re.I)
+	r = re.search(r'^.*ECHO\:\s\"(.*)\"$', line, re.I)
+	print(r)
 	if r:
-		# rewrite single quotes to double quotes
 		s = r.group(1)
-		# s = s.replace("'", '"')
-		s = re.sub(r"([^\\])\'","\g<1>\"", s)
-		s = s.replace(r"\'", "'")
+		# rewrite single quotes to double quotes, except for where they are used in words, e.g. isn't
+		s = re.sub(r"((\w)['](\W|$))","\g<2>\"\g<3>", s)
+		s = re.sub(r"((\W|^)['](\w))","\g<2>\"\g<3>", s)
+		s = re.sub(r"((\W)['](\W))","\g<2>\"\g<3>", s)
+		
 		js += s + '\n'
 
 js += ' ]\n';
@@ -34,10 +36,17 @@ js = js.replace("{}","")
 js = re.sub(r",(\s*(\}|\]))","\g<1>", js)
 
 # parse
-jso = json.loads(js)
+try:
+    jso = json.loads(js)
+    
+    # prettify
+    js = json.dumps(jso, sort_keys=False, indent=4, separators=(',', ': '))
+    
+    print(js)
+except Exception as e:
+    print(e)
+    
 
-# prettify
-js = json.dumps(jso, sort_keys=False, indent=4, separators=(',', ': '))
 		
 outfile = open(outfile,'w')
 outfile.write(js)		

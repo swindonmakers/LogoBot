@@ -15,7 +15,7 @@ VitaminSTL = "vitamins/stl/";
 DebugCoordinateFrames = 0;
 DebugConnectors = false;
 
-machine("assemblies/LogoBot.scad","LogoBot") {
+machine("LogoBot.scad","LogoBot") {
     
     LogoBotAssembly();
     
