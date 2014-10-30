@@ -12,7 +12,7 @@ from subprocess import call, check_output, CalledProcessError
 repo_owner = 'snhack'
 repo_name = 'LogoBot'
 
-repos_rel_dir = '../../../'
+repos_rel_dir = '../../'
 primary_repo_dir = 'LogoBot'
 staging_repo_dir = primary_repo_dir + 'Staging'
 
