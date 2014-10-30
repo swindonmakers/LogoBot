@@ -35,7 +35,7 @@ ArduinoPro_Pins_Opposite    = 2;
 ArduinoPro_No_Pins          = 0;            // default
 
 // ArduinoPro PCB Variables
-ArduinoPro_PCB_Pitch    = 2.54;                         // spacing of the holes
+ArduinoPro_PCB_Pitch    = 0.1 * 25.4;                   // spacing of the holes
 ArduinoPro_PCB_Inset    = ArduinoPro_PCB_Pitch /2;      // inset from board edge
 ArduinoPro_PCB_Type     = 0.047 * 25.4; // .047 .063    // standard PCB thickness
 ArduinoPro_PCB_Layers   = 0.035 * 2;                    // total copper layer thickness
@@ -45,12 +45,9 @@ ArduinoPro_PCB_Length   = 1.3 * 25.4;                   // length of the PCB (al
 ArduinoPro_PCB_Width    = 0.7 * 25.4;                   //  width of the PCB (along x)
 ArduinoPro_PCB_Colour   = [26/255, 90/255, 160/255];    // colour of solder mask
 
-// Show board clearance area for components
-ArduinoPro_PCB_Clearance      = 3;
-ArduinoPro_PCB_Clearance_Show = true;
 
-
-module ArduinoPro_MicroUSB() {
+module ArduinoPro_MicroUSB()
+{
     include <MicroUSB.scad>
     // Subtracting `ArduinoPro_PCB_Inset` compansates for board origin
     //-: Not sure if board origin would be better set after creation
@@ -63,19 +60,22 @@ module ArduinoPro_MicroUSB() {
         MicroUSB_Receptacle();
 }
 
-module ArduinoPro_PCB() {
+module ArduinoPro_PCB()
+{
     // Bare PCB, origin through location for bottom left hole
     translate([-ArduinoPro_PCB_Inset, -ArduinoPro_PCB_Inset, 0])
         square(size = [ArduinoPro_PCB_Width, ArduinoPro_PCB_Length]);
 }
 
-module ArduinoPro_Header_Hole() {
+module ArduinoPro_Header_Hole()
+{
     // Standard PCB hole
     holediameter        = 1.25;         // diameter of PCB hole
     circle(d = holediameter);
 }
 
-module ArduinoPro_Header_Pin(rotation = 0) {
+module ArduinoPro_Header_Pin(rotation = 0)
+{
     // Standard PCB header pin
     pcbholepitch        = 2.54;         // spacing of PCB holes
     holediameter        = 1.25;         // diameter of PCB hole
@@ -83,7 +83,7 @@ module ArduinoPro_Header_Pin(rotation = 0) {
     pinoffset           =    3;         // offset of PCB pins
     pinwidth            = 0.63;         // width/gauge of PCB pins
     spacerwidth         = 2.25;         // height of breakaway pin frame
-    spacerheight        = 2.54;         // height of breakaway pin frame
+    spacerheight        = 2.25;         // height of breakaway pin frame
 
     // Header Pins
     color("white")
@@ -92,12 +92,12 @@ module ArduinoPro_Header_Pin(rotation = 0) {
         square(pinwidth, center = true);
 
     // Pin Spacers
-    color("black")
+    color(Grey20)
     linear_extrude(spacerheight)
         square(spacerwidth, center = true);
 
     // Break-Away Material
-    color("black")
+    color(Grey20)
     // FIXME: material needs to be rotated based on vector argument
     rotate(rotation, 0, 0)
     translate([0, pcbholepitch/2, 0])
@@ -105,7 +105,8 @@ module ArduinoPro_Header_Pin(rotation = 0) {
         square([spacerwidth * 0.85, pcbholepitch - spacerwidth], center = true);
 }
 
-module ArduinoPro_Headers_Layout() {
+module ArduinoPro_Headers_Layout()
+{
     // distance between the two header rows
     // FIXME: improve this to be a multiple of 0.1 inch
     rowpitch  = ArduinoPro_PCB_Width - ArduinoPro_PCB_Inset*2;
@@ -118,7 +119,8 @@ module ArduinoPro_Headers_Layout() {
     }
 }
 
-module ArduinoPro_Serial_Header_Layout() {
+module ArduinoPro_Serial_Header_Layout()
+{
     // y position for header
     header_y = ArduinoPro_PCB_Length - ArduinoPro_PCB_Inset*2;
     // width for holes, leaving room for insets
@@ -130,9 +132,100 @@ module ArduinoPro_Serial_Header_Layout() {
     }
 }
 
-module ArduinoPro(type = ArduinoPro_Mini, headerpins = 0, serialpins = 0) {
+module ArduinoPro_SMT_Components(type = ArduinoPro_Mini)
+{
+    // Distance from origin to middle along y
+    datumX = ArduinoPro_PCB_Width/2 - ArduinoPro_PCB_Inset;
+    datumZ = ArduinoPro_PCB_Height;
+
+    // Controller IC
+    color(Grey20)
+    translate([datumX, 0.5 * 25.4, datumZ])
+    rotate([0,0,45])
+    linear_extrude(1)
+      square(sqrt(pow(0.4 * 25.4, 2)/2), center=true);
+
+    // Parts for Pro Mini
+    if (type == ArduinoPro_Mini) {
+        // Reset switch
+        translate([datumX, 0.05 * 25.4, datumZ])
+        {
+            color("silver")
+            linear_extrude(1.2)
+                square([4.5, 4.5], center=true);
+            color(ArduinoPro_PCB_Colour)
+            translate([0, 0, 1.2])
+            linear_extrude(0.5)
+                circle(d=2.5);
+        }
+
+        // RX and TX LEDs
+        color("white")
+        translate([datumX, 0.05 * 25.4, datumZ])
+        linear_extrude(1)
+        {
+            // Red - Power
+            translate([0, 0.75 * 25.4, 0])
+                square([1.2,0.7], center=true);
+            // Green - Status
+            translate([0.2 * 25.4, 0, 0])
+                square([0.7,1.2], center=true);
+        }
+
+    }
+
+    // Parts for Pro Micro
+    if (type == ArduinoPro_Micro) {
+        // Crystal
+        color("silver")
+        translate([datumX, 0.15 * 25.4, datumZ])
+        linear_extrude(1)
+            square([5, 3], center=true);
+
+        // RX and TX LEDs
+        color("white")
+        translate([datumX, 0.2 * 25.4, datumZ])
+        linear_extrude(1)
+        {
+            // RX - Yellow
+            translate([-0.3 * 25.4/2, 0, 0])
+                square([0.7,1.2], center=true);
+            // Power - Red
+            translate([-0.15 * 25.4, 0.75 * 25.4, 0])
+                square([1.2,0.7], center=true);
+            // TX - Green
+            translate([0.3 * 25.4/2, 0, 0])
+                square([0.7,1.2], center=true);
+        }
+    }
+
+    // Capacitors
+    moveY = (type == ArduinoPro_Mini ? 0.9 : 0.8) * 25.4;
+    color("silver")
+    translate([datumX, moveY, datumZ])
+    linear_extrude(2)
+    {
+        translate([-7.5/2, 0, 0])
+            square([1.5, 3.5], center=true);
+        translate([7.5/2, 0, 0])
+          square([1.5, 3.5], center=true);
+    }
+
+    // Other components
+    color("silver")
+    translate([datumX, moveY, datumZ])
+    linear_extrude(1)
+    {
+        square([1, 2.5], center=true);
+        translate([0, 3.25, 0])
+            square([2.5, 1.5], center=true);
+    }
+}
+
+module ArduinoPro(type = ArduinoPro_Mini, headerpins = 0, serialpins = 0)
+{
     color(ArduinoPro_PCB_Colour)
-    linear_extrude(height=ArduinoPro_PCB_Height)
+    linear_extrude(ArduinoPro_PCB_Height)
     difference() {
         // Base PCB
         ArduinoPro_PCB();
@@ -146,43 +239,6 @@ module ArduinoPro(type = ArduinoPro_Mini, headerpins = 0, serialpins = 0) {
             ArduinoPro_Serial_Header_Layout()
                 ArduinoPro_Header_Hole();
         }
-    }
-
-    // Distance to middle from origin
-    moveX = ArduinoPro_PCB_Width/2 - ArduinoPro_PCB_Inset;
-
-    // Controller IC
-    color(Grey20)
-    translate([moveX, 0.5*25.4, ArduinoPro_PCB_Height])
-    rotate([0,0,45])
-    linear_extrude(height=1)
-      square(2*sqrt(.4*25.4), center=true);
-
-    // Reset switch (or crystal for Pro Micro)
-    color("silver")
-    translate([moveX, 0.15*25.4, ArduinoPro_PCB_Height])
-    linear_extrude(height=1)
-        square([5, 3.5], center=true);
-
-    // Capacitors
-    moveY = (type == ArduinoPro_Mini ? 0.9 : 0.8) * 25.4;
-    color("silver")
-    translate([moveX/2, moveY, ArduinoPro_PCB_Height])
-    linear_extrude(height=2)
-    union() {
-        square([1.5, 3.5], center=true);
-        translate([7.5, 0, 0])
-          square([1.5, 3.5], center=true);
-    }
-
-    // Other components
-    color("silver")
-    translate([moveX, moveY, ArduinoPro_PCB_Height])
-    linear_extrude(height=1)
-    union() {
-        square([1, 2.5], center=true);
-        translate([0, 3, 0])
-            square([2.5, 1.5], center=true);
     }
 
     // Pro Mini Serial Header Pins
@@ -208,13 +264,8 @@ module ArduinoPro(type = ArduinoPro_Mini, headerpins = 0, serialpins = 0) {
     // Pro Micro USB port
     if (type == ArduinoPro_Micro) ArduinoPro_MicroUSB();
 
-    // Indicate area for minimum board clearance
-    if (ArduinoPro_PCB_Clearance_Show && !headerpins) {
-        color(ArduinoPro_PCB_Colour, 0.1)
-        translate([-ArduinoPro_PCB_Inset, -ArduinoPro_PCB_Inset, 0.5])
-        linear_extrude(height=ArduinoPro_PCB_Clearance)
-            square(size = [ArduinoPro_PCB_Width, ArduinoPro_PCB_Length]);
-    }
+    // Surface mount components
+    ArduinoPro_SMT_Components(type);
 }
 
 

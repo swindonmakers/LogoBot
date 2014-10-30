@@ -4,6 +4,6 @@ DebugConnectors = 0;
 DebugCoordinateFrames = 0;
 
 $Explode=true;
-$ShowStep = 5;
+$ShowStep = 11;
 
-LogoBotAssembly();
+LogoBotAssembly(PenLift = true);
