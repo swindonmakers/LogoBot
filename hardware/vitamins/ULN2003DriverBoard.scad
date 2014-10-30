@@ -85,17 +85,14 @@ module ULN2003DriverBoard() {
 				cube([3, 10, 15]);
 	
 			// LEDS
-			color("red")
-			{
-				translate([6, 29, ULN2003Driver_PCBThickness - eta])
-					LED();
-				translate([10, 29, ULN2003Driver_PCBThickness - eta])
-					LED();
-				translate([14.5, 29, ULN2003Driver_PCBThickness - eta])
-					LED();
-				translate([19, 29, ULN2003Driver_PCBThickness - eta])
-					LED();
-			}
+			translate([6, 29, ULN2003Driver_PCBThickness - eta])
+				LED_3mm();
+			translate([10, 29, ULN2003Driver_PCBThickness - eta])
+				LED_3mm();
+			translate([14.5, 29, ULN2003Driver_PCBThickness - eta])
+				LED_3mm();
+			translate([19, 29, ULN2003Driver_PCBThickness - eta])
+				LED_3mm();
 		}
 	}
 }
