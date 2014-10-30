@@ -2,6 +2,8 @@
     {
         "vitamins": [
             {
+                "hash": "5d668002f01458c72e2ca78d461765fc",
+                "title": "Breadboard 170",
                 "views": [
                     {
                         "rotate": [
@@ -26,10 +28,11 @@
                 ],
                 "qty": 1,
                 "call": "Breadboard(Breadboard_170)",
-                "file": "vitamins/Breadboard.scad",
-                "title": "Breadboard 170"
+                "file": "vitamins/Breadboard.scad"
             },
             {
+                "hash": "4e8362ce9e92f96398701f9b2aaed394",
+                "title": "JumperWire Female to Male 4pin 70mm",
                 "views": [
                     {
                         "rotate": [
@@ -54,10 +57,11 @@
                 ],
                 "qty": 2,
                 "call": "JumperWire(type=JumperWire_FM4, length=70)",
-                "file": "vitamins/JumperWire.scad",
-                "title": "JumperWire Female to Male 4pin 70mm"
+                "file": "vitamins/JumperWire.scad"
             },
             {
+                "hash": "c2711e6058dabe4640ada1499ad30716",
+                "title": "16mm Marble",
                 "views": [
                     {
                         "rotate": [
@@ -82,28 +86,55 @@
                 ],
                 "qty": 1,
                 "call": "Marble(Marble_16mm)",
-                "file": "vitamins/Marble.scad",
-                "title": "16mm Marble"
+                "file": "vitamins/Marble.scad"
             }
         ],
         "title": "LogoBot",
         "assemblies": [
             {
-                "call": "LogoBotAssembly(PenLift=false)",
                 "vitamins": [],
-                "file": "assemblies/LogoBot.scad",
                 "title": "Final Assembly",
-                "printed": [
+                "assemblies": [
                     {
+                        "vitamins": [],
+                        "title": "Brain",
+                        "assemblies": [],
                         "views": [],
                         "qty": 1,
-                        "call": "LogoBotBase_STL()",
-                        "file": "assemblies/LogoBot.scad",
-                        "title": "Base"
+                        "steps": [],
+                        "printed": [],
+                        "file": "assemblies/Breadboard.scad",
+                        "call": "BreadboardAssembly()"
+                    },
+                    {
+                        "vitamins": [],
+                        "title": "Drive Wheel",
+                        "assemblies": [],
+                        "views": [],
+                        "qty": 2,
+                        "steps": [],
+                        "printed": [],
+                        "file": "assemblies/Wheel.scad",
+                        "call": "WheelAssembly()"
+                    },
+                    {
+                        "vitamins": [],
+                        "title": "Rear Caster",
+                        "assemblies": [],
+                        "views": [],
+                        "qty": 1,
+                        "steps": [],
+                        "printed": [],
+                        "file": "assemblies/MarbleCaster.scad",
+                        "call": "MarbleCasterAssembly()"
                     }
                 ],
+                "views": [],
+                "qty": 1,
                 "steps": [
                     {
+                        "desc": "Connect the breadboard assembly to the underside of the base",
+                        "num": 1,
                         "views": [
                             {
                                 "rotate": [
@@ -125,37 +156,11 @@
                                     300
                                 ]
                             }
-                        ],
-                        "num": 1,
-                        "desc": "Connect the breadboard assembly to the underside of the base"
+                        ]
                     },
                     {
-                        "views": [
-                            {
-                                "rotate": [
-                                    64,
-                                    1,
-                                    212
-                                ],
-                                "dist": 625,
-                                "title": "view",
-                                "caption": "view",
-                                "translate": [
-                                    -6,
-                                    7,
-                                    19
-                                ],
-                                "type": "view",
-                                "size": [
-                                    400,
-                                    300
-                                ]
-                            }
-                        ],
+                        "desc": "Connect the two bumper assemblies",
                         "num": 2,
-                        "desc": "Connect the two bumper assemblies"
-                    },
-                    {
                         "views": [
                             {
                                 "rotate": [
@@ -177,11 +182,37 @@
                                     300
                                 ]
                             }
-                        ],
-                        "num": 3,
-                        "desc": "Push the two motor drivers onto the mounting posts"
+                        ]
                     },
                     {
+                        "desc": "Push the two motor drivers onto the mounting posts",
+                        "num": 3,
+                        "views": [
+                            {
+                                "rotate": [
+                                    64,
+                                    1,
+                                    212
+                                ],
+                                "dist": 625,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -6,
+                                    7,
+                                    19
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Clip the two wheels assemblies onto the base and                     connect the motor leads to the the motor drivers",
+                        "num": 4,
                         "views": [
                             {
                                 "rotate": [
@@ -203,11 +234,11 @@
                                     300
                                 ]
                             }
-                        ],
-                        "num": 4,
-                        "desc": "Clip the two wheels assemblies onto the base and                     connect the motor leads to the the motor drivers"
+                        ]
                     },
                     {
+                        "desc": "Connect the jumper wires between the motor drivers and the Arduino",
+                        "num": 5,
                         "views": [
                             {
                                 "rotate": [
@@ -229,37 +260,11 @@
                                     300
                                 ]
                             }
-                        ],
-                        "num": 5,
-                        "desc": "Connect the jumper wires between the motor drivers and the Arduino"
+                        ]
                     },
                     {
-                        "views": [
-                            {
-                                "rotate": [
-                                    64,
-                                    1,
-                                    212
-                                ],
-                                "dist": 625,
-                                "title": "view",
-                                "caption": "view",
-                                "translate": [
-                                    -6,
-                                    7,
-                                    19
-                                ],
-                                "type": "view",
-                                "size": [
-                                    400,
-                                    300
-                                ]
-                            }
-                        ],
+                        "desc": "Clip in the battery pack",
                         "num": 6,
-                        "desc": "Clip in the battery pack"
-                    },
-                    {
                         "views": [
                             {
                                 "rotate": [
@@ -281,11 +286,11 @@
                                     300
                                 ]
                             }
-                        ],
+                        ]
+                    },
+                    {
+                        "desc": "Clip the LED into place",
                         "num": 7,
-                        "desc": "Clip the LED into place"
-                    },
-                    {
                         "views": [
                             {
                                 "rotate": [
@@ -307,11 +312,37 @@
                                     300
                                 ]
                             }
-                        ],
-                        "num": 8,
-                        "desc": "Clip the piezo sounder into place"
+                        ]
                     },
                     {
+                        "desc": "Clip the piezo sounder into place",
+                        "num": 8,
+                        "views": [
+                            {
+                                "rotate": [
+                                    64,
+                                    1,
+                                    212
+                                ],
+                                "dist": 625,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -6,
+                                    7,
+                                    19
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Push the caster assembly into the base so that it snaps into place",
+                        "num": 9,
                         "views": [
                             {
                                 "rotate": [
@@ -333,11 +364,11 @@
                                     300
                                 ]
                             }
-                        ],
-                        "num": 9,
-                        "desc": "Push the caster assembly into the base so that it snaps into place"
+                        ]
                     },
                     {
+                        "desc": "Push the shell down onto the base and twist to lock into place",
+                        "num": 10,
                         "views": [
                             {
                                 "rotate": [
@@ -359,65 +390,39 @@
                                     300
                                 ]
                             }
-                        ],
-                        "num": 10,
-                        "desc": "Push the shell down onto the base and twist to lock into place"
+                        ]
                     }
                 ],
-                "assemblies": [
+                "printed": [
                     {
-                        "call": "BreadboardAssembly()",
-                        "vitamins": [],
-                        "file": "assemblies/Breadboard.scad",
-                        "title": "Brain",
-                        "printed": [],
-                        "steps": [],
-                        "assemblies": [],
-                        "views": [],
-                        "qty": 1
-                    },
-                    {
-                        "call": "WheelAssembly()",
-                        "vitamins": [],
-                        "file": "assemblies/Wheel.scad",
-                        "title": "Drive Wheel",
-                        "printed": [],
-                        "steps": [],
-                        "assemblies": [],
-                        "views": [],
-                        "qty": 2
-                    },
-                    {
-                        "call": "MarbleCasterAssembly()",
-                        "vitamins": [],
-                        "file": "assemblies/MarbleCaster.scad",
-                        "title": "Rear Caster",
-                        "printed": [],
-                        "steps": [],
-                        "assemblies": [],
-                        "views": [],
-                        "qty": 1
+                        "title": "Base",
+                        "qty": 1,
+                        "call": "LogoBotBase_STL()",
+                        "file": "assemblies/LogoBot.scad",
+                        "views": []
                     }
                 ],
-                "views": [],
-                "qty": 1
+                "file": "assemblies/LogoBot.scad",
+                "call": "LogoBotAssembly(PenLift=false)"
             },
             {
-                "call": "BreadboardAssembly()",
                 "vitamins": [
                     {
-                        "views": [],
+                        "title": "Breadboard 170",
                         "qty": 1,
                         "call": "Breadboard(Breadboard_170)",
                         "file": "vitamins/Breadboard.scad",
-                        "title": "Breadboard 170"
+                        "views": []
                     }
                 ],
-                "file": "assemblies/Breadboard.scad",
                 "title": "Brain",
-                "printed": [],
+                "assemblies": [],
+                "views": [],
+                "qty": 1,
                 "steps": [
                     {
+                        "desc": "Push the Arduino onto the breadboard - make sure you position it correctly,                  as it's a tight fit with the Robot base!",
+                        "num": 1,
                         "views": [
                             {
                                 "rotate": [
@@ -439,23 +444,23 @@
                                     300
                                 ]
                             }
-                        ],
-                        "num": 1,
-                        "desc": "Push the Arduino onto the breadboard - make sure you position it correctly,                  as it's a tight fit with the Robot base!"
+                        ]
                     }
                 ],
-                "assemblies": [],
-                "views": [],
-                "qty": 1
+                "printed": [],
+                "file": "assemblies/Breadboard.scad",
+                "call": "BreadboardAssembly()"
             },
             {
-                "call": "WheelAssembly()",
                 "vitamins": [],
-                "file": "assemblies/Wheel.scad",
                 "title": "Drive Wheel",
-                "printed": [],
+                "assemblies": [],
+                "views": [],
+                "qty": 2,
                 "steps": [
                     {
+                        "desc": "Push the wheel onto the motor shaft",
+                        "num": 1,
                         "views": [
                             {
                                 "rotate": [
@@ -477,31 +482,23 @@
                                     300
                                 ]
                             }
-                        ],
-                        "num": 1,
-                        "desc": "Push the wheel onto the motor shaft"
+                        ]
                     }
                 ],
-                "assemblies": [],
-                "views": [],
-                "qty": 2
+                "printed": [],
+                "file": "assemblies/Wheel.scad",
+                "call": "WheelAssembly()"
             },
             {
-                "call": "MarbleCasterAssembly()",
                 "vitamins": [],
-                "file": "assemblies/MarbleCaster.scad",
                 "title": "Rear Caster",
-                "printed": [
-                    {
-                        "views": [],
-                        "qty": 1,
-                        "call": "MarbleCaster_STL()",
-                        "file": "assemblies/MarbleCaster.scad",
-                        "title": "Caster Housing"
-                    }
-                ],
+                "assemblies": [],
+                "views": [],
+                "qty": 1,
                 "steps": [
                     {
+                        "desc": "Insert the marble into the printed housing",
+                        "num": 1,
                         "views": [
                             {
                                 "rotate": [
@@ -523,56 +520,62 @@
                                     300
                                 ]
                             }
-                        ],
-                        "num": 1,
-                        "desc": "Insert the marble into the printed housing"
+                        ]
                     }
                 ],
-                "assemblies": [],
-                "views": [],
-                "qty": 1
+                "printed": [
+                    {
+                        "title": "Caster Housing",
+                        "qty": 1,
+                        "call": "MarbleCaster_STL()",
+                        "file": "assemblies/MarbleCaster.scad",
+                        "views": []
+                    }
+                ],
+                "file": "assemblies/MarbleCaster.scad",
+                "call": "MarbleCasterAssembly()"
             }
         ],
         "printed": [
             {
-                "views": [],
+                "title": "Base",
                 "qty": 1,
                 "call": "LogoBotBase_STL()",
                 "file": "assemblies/LogoBot.scad",
-                "title": "Base"
+                "views": []
             },
             {
-                "views": [],
+                "title": "Wheel",
                 "qty": 2,
                 "call": "Wheel_STL()",
                 "file": "assemblies/Wheel.scad",
-                "title": "Wheel"
+                "views": []
             },
             {
-                "views": [],
+                "title": "Caster Housing",
                 "qty": 1,
                 "call": "MarbleCaster_STL()",
                 "file": "assemblies/MarbleCaster.scad",
-                "title": "Caster Housing"
+                "views": []
             },
             {
-                "views": [],
+                "title": "Basic Shell",
                 "qty": 1,
                 "call": "BasicShell_STL()",
                 "file": "assemblies/Shell.scad",
-                "title": "Basic Shell"
+                "views": []
             }
         ],
         "file": "LogoBot.scad",
         "type": "machine",
         "children": [
             {
-                "type": "assembly",
                 "call": "LogoBotAssembly(PenLift=false)",
+                "type": "assembly",
                 "children": [
                     {
-                        "type": "printed",
                         "call": "LogoBotBase_STL()",
+                        "type": "printed",
                         "children": [],
                         "file": "assemblies/LogoBot.scad",
                         "title": "Base"
@@ -602,12 +605,12 @@
                                 ]
                             },
                             {
-                                "type": "assembly",
                                 "call": "BreadboardAssembly()",
+                                "type": "assembly",
                                 "children": [
                                     {
-                                        "type": "vitamin",
                                         "call": "Breadboard(Breadboard_170)",
+                                        "type": "vitamin",
                                         "children": [
                                             {
                                                 "rotate": [
@@ -746,8 +749,8 @@
                                 ]
                             },
                             {
-                                "type": "assembly",
                                 "call": "WheelAssembly()",
+                                "type": "assembly",
                                 "children": [
                                     {
                                         "num": 1,
@@ -774,8 +777,8 @@
                                                 ]
                                             },
                                             {
-                                                "type": "printed",
                                                 "call": "Wheel_STL()",
+                                                "type": "printed",
                                                 "children": [],
                                                 "file": "assemblies/Wheel.scad",
                                                 "title": "Wheel"
@@ -788,8 +791,8 @@
                                 "title": "Drive Wheel"
                             },
                             {
-                                "type": "assembly",
                                 "call": "WheelAssembly()",
+                                "type": "assembly",
                                 "children": [
                                     {
                                         "num": 1,
@@ -816,8 +819,8 @@
                                                 ]
                                             },
                                             {
-                                                "type": "printed",
                                                 "call": "Wheel_STL()",
+                                                "type": "printed",
                                                 "children": [],
                                                 "file": "assemblies/Wheel.scad",
                                                 "title": "Wheel"
@@ -857,8 +860,8 @@
                                 ]
                             },
                             {
-                                "type": "vitamin",
                                 "call": "JumperWire(type=JumperWire_FM4, length=70)",
+                                "type": "vitamin",
                                 "children": [
                                     {
                                         "rotate": [
@@ -885,8 +888,8 @@
                                 "title": "JumperWire Female to Male 4pin 70mm"
                             },
                             {
-                                "type": "vitamin",
                                 "call": "JumperWire(type=JumperWire_FM4, length=70)",
+                                "type": "vitamin",
                                 "children": [
                                     {
                                         "rotate": [
@@ -1021,12 +1024,12 @@
                                 ]
                             },
                             {
-                                "type": "assembly",
                                 "call": "MarbleCasterAssembly()",
+                                "type": "assembly",
                                 "children": [
                                     {
-                                        "type": "printed",
                                         "call": "MarbleCaster_STL()",
+                                        "type": "printed",
                                         "children": [],
                                         "file": "assemblies/MarbleCaster.scad",
                                         "title": "Caster Housing"
@@ -1056,8 +1059,8 @@
                                                 ]
                                             },
                                             {
-                                                "type": "vitamin",
                                                 "call": "Marble(Marble_16mm)",
+                                                "type": "vitamin",
                                                 "children": [
                                                     {
                                                         "rotate": [
@@ -1118,8 +1121,8 @@
                                 ]
                             },
                             {
-                                "type": "printed",
                                 "call": "BasicShell_STL()",
+                                "type": "printed",
                                 "children": [],
                                 "file": "assemblies/Shell.scad",
                                 "title": "Basic Shell"

@@ -1,8 +1,18 @@
 from __future__ import print_function
 
 import subprocess
+import hashlib
+ 
 
-# openscad_path = "/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD"
+def get_csg_hash(scadname):    
+    run("-o", "dummy.csg", scadname)
+
+    hasher = hashlib.md5()
+    with open('dummy.csg', 'rb') as afile:
+        buf = afile.read()
+        hasher.update(buf)
+    return hasher.hexdigest()
+
 
 def which(program):
     import os

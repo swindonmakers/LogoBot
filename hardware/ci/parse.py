@@ -323,7 +323,7 @@ def summarise_parts(jso):
             print("    "+str(len(al))+" assemblies")
             print("    "+str(len(pl))+" printed parts")
             print("    "+str(len(vl))+" vitamins")
-
+            
 
 
 if __name__ == '__main__':
