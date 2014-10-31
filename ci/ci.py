@@ -93,7 +93,13 @@ def poll(un, pw, proxies):
                         # Now run the build process    
                         print("  Building")
                         
+                        os.chdir('hardware/ci')
+                        try:
+                            o = check_output(['./build.py'])
+                        except:
+                            print("  Error!")
                         
+                        os.chdir('../../')
                 
                         # Log this request so we don't process it again
                         hist = {'number':p['number'], 'updated_at':p['updated_at']}

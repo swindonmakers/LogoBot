@@ -145,7 +145,7 @@
             {
                 "hash": "ed66dc8d2a8078644023bbdcb88ec946",
                 "vitamins": [],
-                "views": [],
+                "title": "Final Assembly",
                 "assemblies": [
                     {
                         "vitamins": [],
@@ -184,8 +184,19 @@
                         "level": 1
                     }
                 ],
-                "title": "Final Assembly",
+                "views": [],
                 "qty": 1,
+                "call": "LogoBotAssembly(PenLift=true)",
+                "printed": [
+                    {
+                        "views": [],
+                        "qty": 1,
+                        "call": "LogoBotBase_STL()",
+                        "file": "assemblies/LogoBot.scad",
+                        "title": "Base"
+                    }
+                ],
+                "file": "assemblies/LogoBot.scad",
                 "steps": [
                     {
                         "views": [
@@ -485,17 +496,6 @@
                         "desc": "Push the shell down onto the base and twist to lock into place"
                     }
                 ],
-                "printed": [
-                    {
-                        "views": [],
-                        "qty": 1,
-                        "call": "LogoBotBase_STL()",
-                        "file": "assemblies/LogoBot.scad",
-                        "title": "Base"
-                    }
-                ],
-                "file": "assemblies/LogoBot.scad",
-                "call": "LogoBotAssembly(PenLift=true)",
                 "level": 0
             },
             {
@@ -510,10 +510,13 @@
                         "file": "vitamins/Breadboard.scad"
                     }
                 ],
-                "views": [],
-                "assemblies": [],
                 "title": "Brain",
+                "assemblies": [],
+                "views": [],
                 "qty": 1,
+                "call": "BreadboardAssembly()",
+                "printed": [],
+                "file": "assemblies/Breadboard.scad",
                 "steps": [
                     {
                         "views": [
@@ -543,18 +546,18 @@
                         "desc": "Push the Arduino onto the breadboard - make sure you position it correctly,                  as it's a tight fit with the Robot base!"
                     }
                 ],
-                "printed": [],
-                "file": "assemblies/Breadboard.scad",
-                "call": "BreadboardAssembly()",
                 "level": 2
             },
             {
                 "hash": "289710c1574287b2bc60d4b3774e584d",
                 "vitamins": [],
-                "views": [],
-                "assemblies": [],
                 "title": "Drive Wheel",
+                "assemblies": [],
+                "views": [],
                 "qty": 2,
+                "call": "WheelAssembly()",
+                "printed": [],
+                "file": "assemblies/Wheel.scad",
                 "steps": [
                     {
                         "views": [
@@ -584,18 +587,26 @@
                         "desc": "Push the wheel onto the motor shaft"
                     }
                 ],
-                "printed": [],
-                "file": "assemblies/Wheel.scad",
-                "call": "WheelAssembly()",
                 "level": 2
             },
             {
                 "hash": "f95c135f4a3e8651c2ca30f0a8d9f698",
                 "vitamins": [],
-                "views": [],
-                "assemblies": [],
                 "title": "Rear Caster",
+                "assemblies": [],
+                "views": [],
                 "qty": 1,
+                "call": "MarbleCasterAssembly()",
+                "printed": [
+                    {
+                        "views": [],
+                        "qty": 1,
+                        "call": "MarbleCaster_STL()",
+                        "file": "assemblies/MarbleCaster.scad",
+                        "title": "Caster Housing"
+                    }
+                ],
+                "file": "assemblies/MarbleCaster.scad",
                 "steps": [
                     {
                         "views": [
@@ -625,17 +636,6 @@
                         "desc": "Insert the marble into the printed housing"
                     }
                 ],
-                "printed": [
-                    {
-                        "views": [],
-                        "qty": 1,
-                        "call": "MarbleCaster_STL()",
-                        "file": "assemblies/MarbleCaster.scad",
-                        "title": "Caster Housing"
-                    }
-                ],
-                "file": "assemblies/MarbleCaster.scad",
-                "call": "MarbleCasterAssembly()",
                 "level": 2
             }
         ],

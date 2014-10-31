@@ -39,5 +39,7 @@ def build():
     if errorlevel == 0:
         os.remove(oldfile)
 
+    return errorlevel
+
 if __name__ == '__main__':
-    build()
+    sys.exit(build())
