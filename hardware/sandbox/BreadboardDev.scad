@@ -2,8 +2,6 @@
 
 include <../config/config.scad>
 
-include <../vitamins/Bolt.scad>
-include <../vitamins/Breadboard.scad>
 
 
 DebugCoordinateFrame = true;
@@ -24,10 +22,10 @@ attach(
     
     // put the screws in
     attach(Breadboard_Con_BottomLeft(Breadboard_170), ScrewCon)
-        HexHeadScrew();
+        Bolt(M3Cap);
 
     attach(Breadboard_Con_BottomRight(Breadboard_170), ScrewCon)
-        HexHeadScrew();
+        Bolt(M3Cap);
 }
 
 // Breadboard270
@@ -37,7 +35,7 @@ translate([Breadboard_Width(Breadboard_170) + 10, 0, 0]) {
 	// put the screws in
 	for (i=[0:Breadboard_MountPoints(Breadboard_270)-1])
 	    attach(Breadboard_Cons(Breadboard_270)[i], ScrewCon)
-	    HexHeadScrew();
+			Bolt(M3Cap);
 }
 	
 translate([0, Breadboard_Depth(Breadboard_270) + 10, 0])
