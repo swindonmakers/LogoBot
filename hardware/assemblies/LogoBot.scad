@@ -219,11 +219,13 @@ module LogoBotBase_STL() {
     $Explode = false;
     
     printedPart("assemblies/LogoBot.scad", "Base", "LogoBotBase_STL()") {
+    
+        view(t=[0,0,0], r=[58,0,225], d=681);
     	
         // Color it as a printed plastic part
         color(PlasticColor)
             if (UseSTL) {
-                import(str(STLPath, "LogoBotBase.stl"));
+                import(str(STLPath, "Base.stl"));
             } else {
                 union() {
                     // Start with an extruded base plate, with all the relevant holes punched in it
@@ -323,10 +325,6 @@ module LogoBotBase_STL() {
                 }
             }
     }
-}
-
-module LogoBotBase_STL_View() {
-    echo("400 300 0 0 0 58 0 225 681");
 }
 
 

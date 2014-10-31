@@ -79,9 +79,11 @@ module MarbleCaster_STL () {
 	
 	printedPart("assemblies/MarbleCaster.scad", "Caster Housing", "MarbleCaster_STL()") {
 	
+	    view(t=[1.4, 0.8, -5.6], r=[63, 0, 114], d=172);
+	
         color(Level2PlasticColor)
             if (UseSTL) {
-                import(str(STLPath, "MarbleCaster.stl"));
+                import(str(STLPath, "CasterHousing.stl"));
             } else {
                 //render() // pre-render for speed
                 difference() {
@@ -143,8 +145,4 @@ module MarbleCaster_STL () {
                 }		
             }
     }
-}
-
-module MarbleCaster_STL_View() {
-    echo("300 200 1.4 .8 -5.6 63.4 0 114 172");
 }

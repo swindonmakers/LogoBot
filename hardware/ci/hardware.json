@@ -1,8 +1,9 @@
 [
     {
+        "hash": "0d766b9a81812150d5bdbbde5ee28ea4",
         "vitamins": [
             {
-                "hash": "5d668002f01458c72e2ca78d461765fc",
+                "hash": "dfa6c6f544c665523ffc730fd294f604",
                 "title": "Breadboard 170",
                 "views": [
                     {
@@ -27,11 +28,12 @@
                     }
                 ],
                 "qty": 1,
+                "parts": [],
                 "call": "Breadboard(Breadboard_170)",
                 "file": "vitamins/Breadboard.scad"
             },
             {
-                "hash": "4e8362ce9e92f96398701f9b2aaed394",
+                "hash": "7bac2404db030f43264934cd34c47ea8",
                 "title": "JumperWire Female to Male 4pin 70mm",
                 "views": [
                     {
@@ -56,11 +58,12 @@
                     }
                 ],
                 "qty": 2,
+                "parts": [],
                 "call": "JumperWire(type=JumperWire_FM4, length=70)",
                 "file": "vitamins/JumperWire.scad"
             },
             {
-                "hash": "c2711e6058dabe4640ada1499ad30716",
+                "hash": "ff9426d7c2278d247881ec5a677b5816",
                 "title": "16mm Marble",
                 "views": [
                     {
@@ -85,8 +88,52 @@
                     }
                 ],
                 "qty": 1,
+                "parts": [],
                 "call": "Marble(Marble_16mm)",
                 "file": "vitamins/Marble.scad"
+            },
+            {
+                "hash": "ea5b75e1bdde55290f364ccbf01d177e",
+                "title": "9g Micro Servo",
+                "views": [
+                    {
+                        "rotate": [
+                            72,
+                            0,
+                            33
+                        ],
+                        "dist": 280,
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            6.9,
+                            13.6,
+                            10.3
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "parts": [
+                    {
+                        "call": "MicroServo_Body()",
+                        "type": "part",
+                        "children": [],
+                        "title": "MicroServo_Body"
+                    },
+                    {
+                        "call": "MicroServo_Spline()",
+                        "type": "part",
+                        "children": [],
+                        "title": "MicroServo_Spline"
+                    }
+                ],
+                "call": "MicroServo()",
+                "file": "vitamins/MicroServo.scad"
             }
         ],
         "title": "LogoBot",
@@ -367,8 +414,34 @@
                         ]
                     },
                     {
-                        "desc": "Push the shell down onto the base and twist to lock into place",
+                        "desc": "Fit the pen lift assembly",
                         "num": 10,
+                        "views": [
+                            {
+                                "rotate": [
+                                    64,
+                                    1,
+                                    212
+                                ],
+                                "dist": 625,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -6,
+                                    7,
+                                    19
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Push the shell down onto the base and twist to lock into place",
+                        "num": 11,
                         "views": [
                             {
                                 "rotate": [
@@ -403,16 +476,17 @@
                     }
                 ],
                 "file": "assemblies/LogoBot.scad",
-                "call": "LogoBotAssembly(PenLift=false)"
+                "call": "LogoBotAssembly(PenLift=true)"
             },
             {
                 "vitamins": [
                     {
                         "title": "Breadboard 170",
+                        "views": [],
                         "qty": 1,
+                        "parts": [],
                         "call": "Breadboard(Breadboard_170)",
-                        "file": "vitamins/Breadboard.scad",
-                        "views": []
+                        "file": "vitamins/Breadboard.scad"
                     }
                 ],
                 "title": "Brain",
@@ -538,45 +612,230 @@
         ],
         "printed": [
             {
+                "hash": "d53d0377160f822ee6691f28a65cc16f",
                 "title": "Base",
+                "aabb": [
+                    [
+                        -69.921,
+                        -70.0,
+                        0.0
+                    ],
+                    [
+                        69.921,
+                        70.0,
+                        29.598
+                    ]
+                ],
+                "views": [
+                    {
+                        "rotate": [
+                            58,
+                            0,
+                            225
+                        ],
+                        "dist": 681,
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
                 "qty": 1,
+                "volume": 23419.601628019973,
+                "area": 26092.35756851982,
                 "call": "LogoBotBase_STL()",
-                "file": "assemblies/LogoBot.scad",
-                "views": []
+                "file": "assemblies/LogoBot.scad"
             },
             {
+                "hash": "0b2a7b5574859d6764393d37ffcf83b3",
                 "title": "Wheel",
+                "aabb": [
+                    [
+                        -30.0,
+                        -30.0,
+                        0.0
+                    ],
+                    [
+                        30.0,
+                        30.0,
+                        2.0
+                    ]
+                ],
+                "views": [
+                    {
+                        "rotate": [
+                            49,
+                            0,
+                            25
+                        ],
+                        "dist": 336,
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            -1,
+                            -1
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
                 "qty": 2,
+                "volume": 5645.785413720005,
+                "area": 6022.625090213241,
                 "call": "Wheel_STL()",
-                "file": "assemblies/Wheel.scad",
-                "views": []
+                "file": "assemblies/Wheel.scad"
             },
             {
+                "hash": "2d71051333df8472818f1e9c111df5e7",
                 "title": "Caster Housing",
+                "aabb": [
+                    [
+                        -9.45856,
+                        -10.0,
+                        -16.0
+                    ],
+                    [
+                        9.45856,
+                        10.0,
+                        6.0
+                    ]
+                ],
+                "views": [
+                    {
+                        "rotate": [
+                            63,
+                            0,
+                            114
+                        ],
+                        "dist": 172,
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            1.4,
+                            0.8,
+                            -5.6
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
                 "qty": 1,
+                "volume": 1495.875294889954,
+                "area": 1928.188472642046,
                 "call": "MarbleCaster_STL()",
-                "file": "assemblies/MarbleCaster.scad",
-                "views": []
+                "file": "assemblies/MarbleCaster.scad"
             },
             {
+                "hash": "72d5cbc13b2fe696f7336cde7a58a4b0",
                 "title": "Basic Shell",
+                "aabb": [
+                    [
+                        -73.0,
+                        -73.0,
+                        -2.0
+                    ],
+                    [
+                        73.0,
+                        73.0,
+                        72.738
+                    ]
+                ],
+                "views": [
+                    {
+                        "rotate": [
+                            63,
+                            0,
+                            26
+                        ],
+                        "dist": 726,
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            -2,
+                            6,
+                            14
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
                 "qty": 1,
+                "volume": 68643.51858940443,
+                "area": 69292.84531217143,
                 "call": "BasicShell_STL()",
-                "file": "assemblies/Shell.scad",
-                "views": []
+                "file": "assemblies/Shell.scad"
             }
         ],
         "file": "LogoBot.scad",
         "type": "machine",
         "children": [
             {
-                "call": "LogoBotAssembly(PenLift=false)",
+                "rotate": [
+                    78,
+                    0,
+                    215
+                ],
+                "dist": 749,
+                "title": "view",
+                "caption": "view",
+                "translate": [
+                    5,
+                    -1,
+                    34
+                ],
+                "type": "view",
+                "size": [
+                    1024,
+                    768
+                ]
+            },
+            {
+                "call": "LogoBotAssembly(PenLift=true)",
                 "type": "assembly",
                 "children": [
                     {
                         "call": "LogoBotBase_STL()",
                         "type": "printed",
-                        "children": [],
+                        "children": [
+                            {
+                                "rotate": [
+                                    58,
+                                    0,
+                                    225
+                                ],
+                                "dist": 681,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
                         "file": "assemblies/LogoBot.scad",
                         "title": "Base"
                     },
@@ -779,7 +1038,28 @@
                                             {
                                                 "call": "Wheel_STL()",
                                                 "type": "printed",
-                                                "children": [],
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            49,
+                                                            0,
+                                                            25
+                                                        ],
+                                                        "dist": 336,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            -1,
+                                                            -1
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
                                                 "file": "assemblies/Wheel.scad",
                                                 "title": "Wheel"
                                             }
@@ -821,7 +1101,28 @@
                                             {
                                                 "call": "Wheel_STL()",
                                                 "type": "printed",
-                                                "children": [],
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            49,
+                                                            0,
+                                                            25
+                                                        ],
+                                                        "dist": 336,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            -1,
+                                                            -1
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
                                                 "file": "assemblies/Wheel.scad",
                                                 "title": "Wheel"
                                             }
@@ -1030,7 +1331,28 @@
                                     {
                                         "call": "MarbleCaster_STL()",
                                         "type": "printed",
-                                        "children": [],
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    63,
+                                                    0,
+                                                    114
+                                                ],
+                                                "dist": 172,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    1.4,
+                                                    0.8,
+                                                    -5.6
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
                                         "file": "assemblies/MarbleCaster.scad",
                                         "title": "Caster Housing"
                                     },
@@ -1102,6 +1424,73 @@
                         "children": [
                             {
                                 "rotate": [
+                                    64,
+                                    1,
+                                    212
+                                ],
+                                "dist": 625,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -6,
+                                    7,
+                                    19
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "call": "MicroServo()",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            72,
+                                            0,
+                                            33
+                                        ],
+                                        "dist": 280,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            6.9,
+                                            13.6,
+                                            10.3
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    },
+                                    {
+                                        "call": "MicroServo_Body()",
+                                        "type": "part",
+                                        "children": [],
+                                        "title": "MicroServo_Body"
+                                    },
+                                    {
+                                        "call": "MicroServo_Spline()",
+                                        "type": "part",
+                                        "children": [],
+                                        "title": "MicroServo_Spline"
+                                    }
+                                ],
+                                "file": "vitamins/MicroServo.scad",
+                                "title": "9g Micro Servo"
+                            }
+                        ],
+                        "desc": "Fit the pen lift assembly"
+                    },
+                    {
+                        "num": 11,
+                        "type": "step",
+                        "children": [
+                            {
+                                "rotate": [
                                     66,
                                     0,
                                     217
@@ -1123,7 +1512,28 @@
                             {
                                 "call": "BasicShell_STL()",
                                 "type": "printed",
-                                "children": [],
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            63,
+                                            0,
+                                            26
+                                        ],
+                                        "dist": 726,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            -2,
+                                            6,
+                                            14
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
                                 "file": "assemblies/Shell.scad",
                                 "title": "Basic Shell"
                             }
@@ -1169,6 +1579,10 @@
             {
                 "type": "file",
                 "file": "vitamins/Marble.scad"
+            },
+            {
+                "type": "file",
+                "file": "vitamins/MicroServo.scad"
             },
             {
                 "type": "file",

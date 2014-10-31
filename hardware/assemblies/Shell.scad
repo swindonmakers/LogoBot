@@ -26,6 +26,8 @@ module ShellAssembly() {
 module BasicShell_STL() {
 
 	printedPart("assemblies/Shell.scad", "Basic Shell", "BasicShell_STL()") {
+	    
+	    view(t=[-2, 6, 14], r=[63, 0, 26], d=726);
 	
         color([Level2PlasticColor[0], Level2PlasticColor[1], Level2PlasticColor[2], 0.5])
              if (UseSTL) {
@@ -58,10 +60,6 @@ module BasicShell_STL() {
             }
     }
 	
-}
-
-module BasicShell_STL_View() {
-    echo("400 300 -2 6 14 63 0 26 726");	
 }
 
 

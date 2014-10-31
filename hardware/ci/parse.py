@@ -7,6 +7,7 @@ import shutil
 import sys
 import re
 import json
+import jsontools
 import openscad
 from types import *
 
@@ -194,6 +195,22 @@ def add_views_for(jso, o):
     for c in jso['children']:
         if type(c) is DictType and c['type'] == 'view':
             add_view(c, o)
+        
+def add_part(jso, o):
+    vfound = None
+    for v in o['parts']:
+        if v['title'] == jso['title']:
+            vfound = v
+            continue
+    
+    if vfound == None:
+        vfound = o['parts'].append(jso)       
+            
+def add_parts_for(jso, o):
+    # check for parts in children
+    for c in jso['children']:
+        if type(c) is DictType and c['type'] == 'part':
+            add_part(c, o)
             
             
 def add_step(jso, o):
@@ -217,7 +234,7 @@ def add_steps_for(jso, o):
             add_step(c, o)            
 
 
-def add_vitamin(jso, vl, addViews=True):
+def add_vitamin(jso, vl, addViews=True, addParts=True):
     print("  Vitamin: "+jso['title'])
     
     vfound = None
@@ -229,11 +246,13 @@ def add_vitamin(jso, vl, addViews=True):
     if vfound:
         vfound['qty'] += 1
     else:
-        vfound = { 'title':jso['title'], 'call':jso['call'], 'file':jso['file'], 'qty':1, 'views':[] }
+        vfound = { 'title':jso['title'], 'call':jso['call'], 'file':jso['file'], 'qty':1, 'views':[], 'parts':[] }
         vl.append(vfound)
         
     if addViews:
         add_views_for(jso, vfound)
+    if addParts:
+        add_parts_for(jso, vfound)
     
     
 def add_printed(jso, pl, addViews=True):
@@ -360,10 +379,8 @@ def update_cache_info_for(vl, ovl):
                     continue
             
             if oldv:
-                # copy cache info
-                if 'hash' in oldv:
-                    print("        updated")
-                    v['hash'] = oldv['hash']
+                # merge json info
+                jsontools.json_merge(v, oldv)
     
 
 def update_cache_info(jso, oldjso):
@@ -385,6 +402,9 @@ def update_cache_info(jso, oldjso):
             
             if oldm != None:
                 print("    Found match in cache")
+                
+                if 'hash' in oldm:
+                    m['hash'] = oldm['hash']
                 
                 if 'vitamins' in oldm:
                     print("    Updating vitamins...")

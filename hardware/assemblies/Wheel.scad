@@ -101,13 +101,10 @@ module Wheel_STL() {
 
 	printedPart("assemblies/Wheel.scad", "Wheel", "Wheel_STL()") {
 	
+	    view(t=[0, -1, -1], r=[49, 0, 25], d=336);
+	
 	    color(Level2PlasticColor)
 	        cylinder(r=WheelDiameter/2, h=WheelThickness, $fn=64);
 	    
 	}
-}
-
-
-module Wheel_STL_View() {
-    echo("400 300 0 -1 -1 49 0 25 336");
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Renders views and STL cache for vitamins
+# Renders views and STL cache for printed parts
 
 import os
 import openscad
@@ -9,26 +9,27 @@ import sys
 import c14n_stl
 import re
 import json
+import jsontools
 from types import *
 
 from views import polish;
 from views import render_view;
     
-    
-def vitamins():
-    print("Vitamins")
-    print("--------")
+
+def printed():
+    print("Printed Parts")
+    print("-------------")
 
     temp_name =  "temp.scad"
 
     #
     # Make the target directories
     #
-    target_dir = "../vitamins/stl"
+    target_dir = "../printedparts/stl"
     if not os.path.isdir(target_dir):
         os.makedirs(target_dir)
 
-    view_dir = "../vitamins/images"
+    view_dir = "../printedparts/images"
     if not os.path.isdir(view_dir):
         os.makedirs(view_dir)
 
@@ -42,43 +43,44 @@ def vitamins():
         if type(m) is DictType and m['type'] == 'machine':
             print(m['title'])
             
-            vl = m['vitamins']
+            pl = m['printed']
             
-            for v in vl:
-                print("  "+v['title'])
-                fn = '../' + v['file']
+            for p in pl:
+                print("  "+p['title'])
+                fn = '../' + p['file']
                 if (os.path.isfile(fn)):
                 
                     print("    Checking csg hash")
-                    h = openscad.get_csg_hash(temp_name, v['call']);
+                    # Get csg hash
+                    h = openscad.get_csg_hash(temp_name, p['call']);
                     os.remove(temp_name);
                     
-                    hashchanged = ('hash' in v and h != v['hash']) or (not 'hash' in v)
+                    hashchanged = ('hash' in p and h != p['hash']) or (not 'hash' in p)
                     
                     # update hash in json
-                    v['hash'] = h
+                    p['hash'] = h
                         
                     # STL
-                    print("    STL Parts")
-                    if 'parts' in v:
-                        for part in v['parts']:
-                            stlpath = target_dir + '/' + openscad.stl_filename(part['title'])
-                            if hashchanged or (not os.path.isfile(stlpath)):
-                                print("      Rendering STL...")
-                                openscad.render_stl(temp_name, stlpath, part['call'])
-                            else:
-                                print("      STL up to date")
+                    print("    STL")
+                    stlpath = target_dir + '/' + openscad.stl_filename(p['title'])
+                    if hashchanged or (not os.path.isfile(stlpath)):
+                        print("      Rendering STL...")
+                        info = openscad.render_stl(temp_name, stlpath, p['call'])
+                        
+                        jsontools.json_merge(p, info) 
+                        
+                    else:
+                        print("      STL up to date")
                     
+                    print("    views")
                     # Views
-                    print("    Views")
-                    for view in v['views']:
+                    for view in p['views']:
                         print("      "+view['title'])
                         
-                        render_view(v['title'], v['call'], view_dir, view, hashchanged)
-                        
+                        render_view(p['title'], p['call'], view_dir, view, hashchanged)
                         
                 else:
-                    print("    Error: scad file not found: "+v['file'])
+                    print("    Error: scad file not found: "+p['file'])
                         
             
     # Save changes to json
@@ -87,4 +89,4 @@ def vitamins():
                     
 
 if __name__ == '__main__':
-    vitamins()
+    printed()

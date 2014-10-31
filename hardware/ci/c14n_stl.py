@@ -9,12 +9,20 @@
 from __future__ import print_function
 
 import sys
+import math
 
+def sqr(x):
+    return x * x
 
 class Vertex:
     def __init__(self, x, y, z):
         self.x, self.y, self.z = x, y, z
         self.key = (float(x), float(y), float(z))
+        
+    def to_floats(self):
+        self.x = float(self.x)
+        self.y = float(self.y)
+        self.z = float(self.z)
 
 class Normal:
     def __init__(self, dx, dy, dz):
@@ -74,10 +82,83 @@ class STL:
             print('  endfacet', file=f)
         print('endsolid OpenSCAD_Model', file=f)
         f.close()
+        
+    def AABB(self):
+        if len(self.facets) > 0:
+            v = self.facets[0].vertices[0]
+            bl = Vertex(v.x, v.y, v.z)
+            tr = Vertex(v.x, v.y, v.z)
+        else:
+            bl = Vertex(0,0,0)
+            tr = Vertex(0,0,0)    
+        
+        bl.to_floats()
+        tr.to_floats()
+            
+        for facet in self.facets:
+            for vertex in facet.vertices:
+                vertex.to_floats()
+                
+                bl.x = min((bl.x), vertex.x)
+                bl.y = min((bl.y), vertex.y)
+                bl.z = min((bl.z), vertex.z)
+                
+                tr.x = max((tr.x), vertex.x)
+                tr.y = max((tr.y), vertex.y)
+                tr.z = max((tr.z), vertex.z)
+            
+        return [[bl.x, bl.y, bl.z], [tr.x, tr.y, tr.z]]
+        
+    def area(self):
+        ar = 0;
+        
+        for facet in self.facets:
+            for vertex in facet.vertices:
+                vertex.to_floats()
+            
+            a2 = (   sqr(facet.vertices[1].x - facet.vertices[0].x) + 
+                        sqr(facet.vertices[1].y - facet.vertices[0].y) + 
+                        sqr(facet.vertices[1].z - facet.vertices[0].z) );
+            b2 = (   sqr(facet.vertices[2].x - facet.vertices[1].x) + 
+                        sqr(facet.vertices[2].y - facet.vertices[1].y) + 
+                        sqr(facet.vertices[2].z - facet.vertices[1].z) );
+            c2 = (   sqr(facet.vertices[0].x - facet.vertices[2].x) + 
+                        sqr(facet.vertices[0].y - facet.vertices[2].y) + 
+                        sqr(facet.vertices[0].z - facet.vertices[2].z) );
+            
+            ar += 0.25 * math.sqrt( math.fabs(4*a2*b2 - sqr(a2 + b2 - c2)))
+            
+        return ar;
+     
+    def volume(self):
+        vol = 0;
+        
+        for facet in self.facets:
+            for vertex in facet.vertices:
+                vertex.to_floats()
+            
+            v321 = facet.vertices[2].x * facet.vertices[1].y * facet.vertices[0].z;
+            v231 = facet.vertices[1].x * facet.vertices[2].y * facet.vertices[0].z;
+            v312 = facet.vertices[2].x * facet.vertices[0].y * facet.vertices[1].z;
+            v132 = facet.vertices[0].x * facet.vertices[2].y * facet.vertices[1].z;
+            v213 = facet.vertices[1].x * facet.vertices[0].y * facet.vertices[2].z;
+            v123 = facet.vertices[0].x * facet.vertices[1].y * facet.vertices[2].z;
+            vol +=  (1.0/6.0)*(-v321 + v231 + v312 - v132 - v213 + v123);
+            
+        return vol;   
+    
+        
+    def info(self):
+        # Return aabb, area, volume
+        
+        return {'aabb': self.AABB(), 'area': self.area(), 'volume': self.volume()}
 
 def canonicalise(fname):
     stl = STL(fname)
     stl.write(fname)
+    
+    # Return aabb, area, volume
+    return stl.info()
 
 if __name__ == '__main__':
     if len(sys.argv) == 2:
