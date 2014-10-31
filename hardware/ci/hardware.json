@@ -1,6 +1,6 @@
 [
     {
-        "hash": "9e6f2fc9799979e76d4ce8aaa685692b",
+        "hash": "4f76b6ad8cf119fe41a694c2de26f38f",
         "vitamins": [
             {
                 "hash": "dfa6c6f544c665523ffc730fd294f604",
@@ -12,8 +12,8 @@
                             218
                         ],
                         "dist": 316,
-                        "title": "view",
                         "filepath": "../vitamins/images/Breadboard170_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             21,
@@ -43,8 +43,8 @@
                             29
                         ],
                         "dist": 438,
-                        "title": "view",
                         "filepath": "../vitamins/images/JumperWireFemaletoMale4pin70mm_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             51,
@@ -74,8 +74,8 @@
                             60
                         ],
                         "dist": 119,
-                        "title": "view",
                         "filepath": "../vitamins/images/16mmMarble_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             -1,
@@ -105,8 +105,8 @@
                             33
                         ],
                         "dist": 280,
-                        "title": "view",
                         "filepath": "../vitamins/images/9gMicroServo_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             6.9,
@@ -143,8 +143,9 @@
         "title": "LogoBot",
         "assemblies": [
             {
+                "hash": "ed66dc8d2a8078644023bbdcb88ec946",
                 "vitamins": [],
-                "views": [],
+                "title": "Final Assembly",
                 "assemblies": [
                     {
                         "vitamins": [],
@@ -155,7 +156,8 @@
                         "steps": [],
                         "printed": [],
                         "file": "assemblies/Breadboard.scad",
-                        "call": "BreadboardAssembly()"
+                        "call": "BreadboardAssembly()",
+                        "level": 1
                     },
                     {
                         "vitamins": [],
@@ -166,7 +168,8 @@
                         "steps": [],
                         "printed": [],
                         "file": "assemblies/Wheel.scad",
-                        "call": "WheelAssembly()"
+                        "call": "WheelAssembly()",
+                        "level": 1
                     },
                     {
                         "vitamins": [],
@@ -177,11 +180,23 @@
                         "steps": [],
                         "printed": [],
                         "file": "assemblies/MarbleCaster.scad",
-                        "call": "MarbleCasterAssembly()"
+                        "call": "MarbleCasterAssembly()",
+                        "level": 1
                     }
                 ],
-                "title": "Final Assembly",
+                "views": [],
                 "qty": 1,
+                "call": "LogoBotAssembly(PenLift=true)",
+                "printed": [
+                    {
+                        "views": [],
+                        "qty": 1,
+                        "call": "LogoBotBase_STL()",
+                        "file": "assemblies/LogoBot.scad",
+                        "title": "Base"
+                    }
+                ],
+                "file": "assemblies/LogoBot.scad",
                 "steps": [
                     {
                         "views": [
@@ -192,6 +207,7 @@
                                     222
                                 ],
                                 "dist": 513,
+                                "filepath": "../assemblies/images/FinalAssembly_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -218,6 +234,7 @@
                                     212
                                 ],
                                 "dist": 625,
+                                "filepath": "../assemblies/images/FinalAssembly_step2_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -244,6 +261,7 @@
                                     212
                                 ],
                                 "dist": 625,
+                                "filepath": "../assemblies/images/FinalAssembly_step3_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -270,6 +288,7 @@
                                     190
                                 ],
                                 "dist": 740,
+                                "filepath": "../assemblies/images/FinalAssembly_step4_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -296,6 +315,7 @@
                                     161
                                 ],
                                 "dist": 766,
+                                "filepath": "../assemblies/images/FinalAssembly_step5_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -322,6 +342,7 @@
                                     212
                                 ],
                                 "dist": 625,
+                                "filepath": "../assemblies/images/FinalAssembly_step6_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -348,6 +369,7 @@
                                     212
                                 ],
                                 "dist": 625,
+                                "filepath": "../assemblies/images/FinalAssembly_step7_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -374,6 +396,7 @@
                                     212
                                 ],
                                 "dist": 625,
+                                "filepath": "../assemblies/images/FinalAssembly_step8_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -400,6 +423,7 @@
                                     26
                                 ],
                                 "dist": 625,
+                                "filepath": "../assemblies/images/FinalAssembly_step9_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -426,6 +450,7 @@
                                     212
                                 ],
                                 "dist": 625,
+                                "filepath": "../assemblies/images/FinalAssembly_step10_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -452,6 +477,7 @@
                                     217
                                 ],
                                 "dist": 1171,
+                                "filepath": "../assemblies/images/FinalAssembly_step11_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -470,19 +496,10 @@
                         "desc": "Push the shell down onto the base and twist to lock into place"
                     }
                 ],
-                "printed": [
-                    {
-                        "views": [],
-                        "qty": 1,
-                        "call": "LogoBotBase_STL()",
-                        "file": "assemblies/LogoBot.scad",
-                        "title": "Base"
-                    }
-                ],
-                "file": "assemblies/LogoBot.scad",
-                "call": "LogoBotAssembly(PenLift=true)"
+                "level": 0
             },
             {
+                "hash": "d129c2f46cf90835fdebe1e858c4322d",
                 "vitamins": [
                     {
                         "views": [],
@@ -493,10 +510,13 @@
                         "file": "vitamins/Breadboard.scad"
                     }
                 ],
-                "views": [],
-                "assemblies": [],
                 "title": "Brain",
+                "assemblies": [],
+                "views": [],
                 "qty": 1,
+                "call": "BreadboardAssembly()",
+                "printed": [],
+                "file": "assemblies/Breadboard.scad",
                 "steps": [
                     {
                         "views": [
@@ -507,6 +527,7 @@
                                     218
                                 ],
                                 "dist": 316,
+                                "filepath": "../assemblies/images/Brain_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -525,16 +546,18 @@
                         "desc": "Push the Arduino onto the breadboard - make sure you position it correctly,                  as it's a tight fit with the Robot base!"
                     }
                 ],
-                "printed": [],
-                "file": "assemblies/Breadboard.scad",
-                "call": "BreadboardAssembly()"
+                "level": 2
             },
             {
+                "hash": "289710c1574287b2bc60d4b3774e584d",
                 "vitamins": [],
-                "views": [],
-                "assemblies": [],
                 "title": "Drive Wheel",
+                "assemblies": [],
+                "views": [],
                 "qty": 2,
+                "call": "WheelAssembly()",
+                "printed": [],
+                "file": "assemblies/Wheel.scad",
                 "steps": [
                     {
                         "views": [
@@ -545,6 +568,7 @@
                                     180
                                 ],
                                 "dist": 415,
+                                "filepath": "../assemblies/images/DriveWheel_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -563,16 +587,26 @@
                         "desc": "Push the wheel onto the motor shaft"
                     }
                 ],
-                "printed": [],
-                "file": "assemblies/Wheel.scad",
-                "call": "WheelAssembly()"
+                "level": 2
             },
             {
+                "hash": "f95c135f4a3e8651c2ca30f0a8d9f698",
                 "vitamins": [],
-                "views": [],
-                "assemblies": [],
                 "title": "Rear Caster",
+                "assemblies": [],
+                "views": [],
                 "qty": 1,
+                "call": "MarbleCasterAssembly()",
+                "printed": [
+                    {
+                        "views": [],
+                        "qty": 1,
+                        "call": "MarbleCaster_STL()",
+                        "file": "assemblies/MarbleCaster.scad",
+                        "title": "Caster Housing"
+                    }
+                ],
+                "file": "assemblies/MarbleCaster.scad",
                 "steps": [
                     {
                         "views": [
@@ -583,6 +617,7 @@
                                     91
                                 ],
                                 "dist": 261,
+                                "filepath": "../assemblies/images/RearCaster_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -601,17 +636,7 @@
                         "desc": "Insert the marble into the printed housing"
                     }
                 ],
-                "printed": [
-                    {
-                        "views": [],
-                        "qty": 1,
-                        "call": "MarbleCaster_STL()",
-                        "file": "assemblies/MarbleCaster.scad",
-                        "title": "Caster Housing"
-                    }
-                ],
-                "file": "assemblies/MarbleCaster.scad",
-                "call": "MarbleCasterAssembly()"
+                "level": 2
             }
         ],
         "printed": [
@@ -625,8 +650,8 @@
                             225
                         ],
                         "dist": 681,
-                        "filepath": "../printedparts/images/Base_view.png",
                         "title": "view",
+                        "filepath": "../printedparts/images/Base_view.png",
                         "caption": "view",
                         "translate": [
                             0,
@@ -669,8 +694,8 @@
                             25
                         ],
                         "dist": 336,
-                        "filepath": "../printedparts/images/Wheel_view.png",
                         "title": "view",
+                        "filepath": "../printedparts/images/Wheel_view.png",
                         "caption": "view",
                         "translate": [
                             0,
@@ -713,8 +738,8 @@
                             114
                         ],
                         "dist": 172,
-                        "filepath": "../printedparts/images/CasterHousing_view.png",
                         "title": "view",
+                        "filepath": "../printedparts/images/CasterHousing_view.png",
                         "caption": "view",
                         "translate": [
                             1.4,
@@ -757,8 +782,8 @@
                             26
                         ],
                         "dist": 726,
-                        "filepath": "../printedparts/images/BasicShell_view.png",
                         "title": "view",
+                        "filepath": "../printedparts/images/BasicShell_view.png",
                         "caption": "view",
                         "translate": [
                             -2,
@@ -802,8 +827,8 @@
                     215
                 ],
                 "dist": 749,
-                "filepath": "../images/LogoBot_view.png",
                 "title": "view",
+                "filepath": "../images/LogoBot_view.png",
                 "caption": "view",
                 "translate": [
                     5,

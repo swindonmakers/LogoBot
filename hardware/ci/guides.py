@@ -112,6 +112,9 @@ def gen_assembly(a):
     return md
 
 
+def assembly_level(a):
+    return a['level']
+
 def guides():
     print("Guides")
     print("------")
@@ -152,6 +155,8 @@ def guides():
             md += gen_bom(m)
             
             # Assemblies
+            # sort by level desc
+            m['assemblies'].sort(key=assembly_level, reverse=True)
             for a in m['assemblies']:
                 md += gen_assembly(a)
             

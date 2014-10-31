@@ -274,8 +274,9 @@ def add_printed(jso, pl, addViews=True):
         add_views_for(jso, pfound)   
     
     
-def add_assembly(jso, al, addSteps=True, addViews=True, addChildren=True):
+def add_assembly(jso, al, pl, vl, addSteps=True, addViews=True, addChildren=True, level=0):
     print("  Assembly: "+jso['title'])
+    print("    Level: "+str(level))
     
     afound = None
     for a in al:
@@ -284,10 +285,11 @@ def add_assembly(jso, al, addSteps=True, addViews=True, addChildren=True):
             continue
     
     if afound:
+        afound['level'] = max(afound['level'], level)
         afound['qty'] += 1
     else:
         afound = { 
-            'title':jso['title'], 'call':jso['call'], 'file':jso['file'], 
+            'title':jso['title'], 'call':jso['call'], 'file':jso['file'], 'level':level,
             'qty':1, 'views':[], 'steps':[], 'assemblies':[], 'vitamins':[], 'printed':[]
             }
         al.append(afound)
@@ -297,32 +299,34 @@ def add_assembly(jso, al, addSteps=True, addViews=True, addChildren=True):
     if addSteps:
         add_steps_for(jso, afound)     
     
-    vl = afound['vitamins'];
-    al = afound['assemblies'];
-    pl = afound['printed'];
+    nvl = afound['vitamins'];
+    nal = afound['assemblies'];
+    npl = afound['printed'];
     
     # Collate immediate children, and sub-assemblies nested in steps!
+    nextlevel = level + 1
     if addChildren and 'children' in jso:
         for c in jso['children']:
             if type(c) is DictType:
                 tn = c['type']
         
                 if tn == 'vitamin':
-                    add_vitamin(c, vl, addViews=False)
+                    add_vitamin(c, nvl, addViews=False)
         
                 if tn == 'assembly':
-                    add_assembly(c, al, addSteps=False, addViews=False)    
+                    add_assembly(c, nal, addSteps=False, addViews=False, level=nextlevel)    
         
                 if tn == 'printed':
-                    add_printed(c, pl, addViews=False) 
+                    add_printed(c, npl, addViews=False) 
                     
                 if tn == 'step':
                     for sc in c['children']:
                         if type(sc) is DictType and sc['type'] == 'assembly':
-                            add_assembly(sc, al, addSteps=False, addViews=False, addChildren=False) 
+                            add_assembly(sc, nal, npl, nvl, addSteps=False, addViews=False, addChildren=False, level=nextlevel) 
     
 
-def summarise_parts_for(jso, al, pl, vl):
+def summarise_parts_for(jso, al, pl, vl, level=0):
+    # print("sum_parts_for "+str(level))
     if type(jso) is DictType:
         tn = jso['type']
         
@@ -330,14 +334,14 @@ def summarise_parts_for(jso, al, pl, vl):
             add_vitamin(jso, vl)
         
         if tn == 'assembly':
-            add_assembly(jso, al)    
+            add_assembly(jso, al, pl, vl, level=level)    
         
         if tn == 'printed':
             add_printed(jso, pl) 
         
         if 'children' in jso:
             for c in jso['children']:
-                summarise_parts_for(c, al, pl, vl)
+                summarise_parts_for(c, al, pl, vl, level+1)
 
 def summarise_parts(jso, oldjso):
     print("Summarising parts for each machine...")
@@ -351,7 +355,7 @@ def summarise_parts(jso, oldjso):
             vl = m['vitamins'] = []
             
             for c in m['children']:
-                summarise_parts_for(c, al, pl, vl)
+                summarise_parts_for(c, al, pl, vl, 0)
                 
             print("  Found:")
             print("    "+str(len(al))+" assemblies")
@@ -380,7 +384,7 @@ def update_cache_info_for(vl, ovl):
             
             if oldv:
                 # merge json info
-                jsontools.json_merge(v, oldv)
+                jsontools.json_merge_missing_keys(v, oldv)
     
 
 def update_cache_info(jso, oldjso):
@@ -403,8 +407,7 @@ def update_cache_info(jso, oldjso):
             if oldm != None:
                 print("    Found match in cache")
                 
-                if 'hash' in oldm:
-                    m['hash'] = oldm['hash']
+                jsontools.json_merge_missing_keys(m, oldm)
                 
                 if 'vitamins' in oldm:
                     print("    Updating vitamins...")
@@ -414,6 +417,13 @@ def update_cache_info(jso, oldjso):
                     print("    Updating printed parts...")
                     update_cache_info_for(m['printed'], oldm['printed'])
             
+                if 'assemblies' in oldm:
+                    print("    Updating assemblies parts...")
+                    update_cache_info_for(m['assemblies'], oldm['assemblies'])
+                    
+                if 'views' in oldm:
+                    print("    Updating views...")
+                    update_cache_info_for(m['views'], oldm['views'])
 
 
 if __name__ == '__main__':

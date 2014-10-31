@@ -5,6 +5,7 @@
 import sys
 from parse import parse_machines
 from machines import machines
+from assemblies import assemblies
 from vitamins import vitamins
 from printed import printed
 from guides import guides
@@ -15,9 +16,10 @@ def build():
     
     parse_machines()
     
-    machines()
     vitamins()
     printed()
+    assemblies()
+    machines()
     
     guides()
 

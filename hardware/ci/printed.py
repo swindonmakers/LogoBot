@@ -67,7 +67,7 @@ def printed():
                         print("      Rendering STL...")
                         info = openscad.render_stl(temp_name, stlpath, p['call'])
                         
-                        jsontools.json_merge(p, info) 
+                        jsontools.json_merge_missing_keys(p, info) 
                         
                     else:
                         print("      STL up to date")

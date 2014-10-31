@@ -89,7 +89,7 @@ module MicroServo_Spline() {
 
     color(White, 0.8) 
         if (UseVitaminSTL) {
-            import(str(VitaminSTL,"MicroServo_Spline_9g.stl"));
+            import(str(VitaminSTL,"MicroServo_Spline.stl"));
         } 
         else 
         {

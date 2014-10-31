@@ -39,6 +39,42 @@ Qty | Part Name | Image
 1 | [Basic Shell](../printedparts/stl/BasicShell.stl) | ![](../printedparts/images/BasicShell_view.png) | 
 
 
+## Brain
+
+### Vitamins
+
+Qty | Vitamin | Image
+--- | --- | ---
+1 | [Breadboard 170]() | ![](../vitamins/images/Breadboard170_view.png) | 
+
+### Assembly Steps
+
+1. Push the Arduino onto the breadboard - make sure you position it correctly,                  as it's a tight fit with the Robot base!
+![](../assemblies/images/Brain_step1_view.png)
+
+
+## Drive Wheel
+
+### Assembly Steps
+
+1. Push the wheel onto the motor shaft
+![](../assemblies/images/DriveWheel_step1_view.png)
+
+
+## Rear Caster
+
+### Printed Parts
+
+Qty | Part Name | Image
+--- | --- | ---
+1 | [Caster Housing](../printedparts/stl/CasterHousing.stl) | ![](../printedparts/images/CasterHousing_view.png) | 
+
+### Assembly Steps
+
+1. Insert the marble into the printed housing
+![](../assemblies/images/RearCaster_step1_view.png)
+
+
 ## Final Assembly
 
 ### Printed Parts
@@ -79,41 +115,5 @@ Qty | Name
 ![](../assemblies/images/FinalAssembly_step10_view.png)
 11. Push the shell down onto the base and twist to lock into place
 ![](../assemblies/images/FinalAssembly_step11_view.png)
-
-
-## Brain
-
-### Vitamins
-
-Qty | Vitamin | Image
---- | --- | ---
-1 | [Breadboard 170]() | ![](../vitamins/images/Breadboard170_view.png) | 
-
-### Assembly Steps
-
-1. Push the Arduino onto the breadboard - make sure you position it correctly,                  as it's a tight fit with the Robot base!
-![](../assemblies/images/Brain_step1_view.png)
-
-
-## Drive Wheel
-
-### Assembly Steps
-
-1. Push the wheel onto the motor shaft
-![](../assemblies/images/DriveWheel_step1_view.png)
-
-
-## Rear Caster
-
-### Printed Parts
-
-Qty | Part Name | Image
---- | --- | ---
-1 | [Caster Housing](../printedparts/stl/CasterHousing.stl) | ![](../printedparts/images/CasterHousing_view.png) | 
-
-### Assembly Steps
-
-1. Insert the marble into the printed housing
-![](../assemblies/images/RearCaster_step1_view.png)
 
 
