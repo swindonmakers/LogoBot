@@ -98,6 +98,14 @@ def gen_assembly(a):
             md += v['title']
             md += '\n'
         md += '\n'
+        
+    # assembly steps
+    if len(a['steps']) > 0:
+        md += '### Assembly Steps\n\n'
+        for v in a['steps']:
+            md += str(v['num']) + '. '+v['desc'] + '\n'
+            md += '![](../assemblies/images/'+views.view_filename(a['title']+'_step'+str(v['num'])+'_view')+')\n'
+        md += '\n'
     
     md += '\n'
     
