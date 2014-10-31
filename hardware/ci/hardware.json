@@ -1,6 +1,6 @@
 [
     {
-        "hash": "0d766b9a81812150d5bdbbde5ee28ea4",
+        "hash": "9e6f2fc9799979e76d4ce8aaa685692b",
         "vitamins": [
             {
                 "hash": "dfa6c6f544c665523ffc730fd294f604",
@@ -13,6 +13,7 @@
                             218
                         ],
                         "dist": 316,
+                        "filepath": "../vitamins/images/Breadboard170_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
@@ -43,6 +44,7 @@
                             29
                         ],
                         "dist": 438,
+                        "filepath": "../vitamins/images/JumperWireFemaletoMale4pin70mm_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
@@ -73,6 +75,7 @@
                             60
                         ],
                         "dist": 119,
+                        "filepath": "../vitamins/images/16mmMarble_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
@@ -103,6 +106,7 @@
                             33
                         ],
                         "dist": 280,
+                        "filepath": "../vitamins/images/9gMicroServo_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
@@ -635,6 +639,7 @@
                         ],
                         "dist": 681,
                         "title": "view",
+                        "filepath": "../printedparts/images/Base_view.png",
                         "caption": "view",
                         "translate": [
                             0,
@@ -678,6 +683,7 @@
                         ],
                         "dist": 336,
                         "title": "view",
+                        "filepath": "../printedparts/images/Wheel_view.png",
                         "caption": "view",
                         "translate": [
                             0,
@@ -721,6 +727,7 @@
                         ],
                         "dist": 172,
                         "title": "view",
+                        "filepath": "../printedparts/images/CasterHousing_view.png",
                         "caption": "view",
                         "translate": [
                             1.4,
@@ -764,6 +771,7 @@
                         ],
                         "dist": 726,
                         "title": "view",
+                        "filepath": "../printedparts/images/BasicShell_view.png",
                         "caption": "view",
                         "translate": [
                             -2,
@@ -795,6 +803,7 @@
                 ],
                 "dist": 749,
                 "title": "view",
+                "filepath": "../images/LogoBot_view.png",
                 "caption": "view",
                 "translate": [
                     5,
@@ -806,6 +815,11 @@
                     1024,
                     768
                 ]
+            },
+            {
+                "section": "introduction",
+                "markdown": "## Introduction\n\nThe LogoBot build is broken down into sub-assemblies that can be worked on sequentially by one person, or in parallel if there is more than one person building.\n\nAll the diagrams can be viewed in OpenSCAD allowing real time zooming, rotating and panning to get the best view.\n\n### General Build Tips\n\n* X if left/right, Y is backwards/forwards, Z is up.down\n\n### Tools Required\n\n* Screwdriver ?",
+                "type": "markdown"
             },
             {
                 "call": "LogoBotAssembly(PenLift=true)",

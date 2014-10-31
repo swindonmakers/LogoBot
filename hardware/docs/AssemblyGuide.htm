@@ -88,7 +88,7 @@
          });
     
       
-        $.get("AssemblyGuide.md",function(data,status){
+        $.get("LogoBotAssemblyGuide.md",function(data,status){
                 
               $('#mdcontent').html(markdown.toHTML(data, markdown.Markdown.dialects.Maruku));
               $('#mdcontent').append('<div style="clear:both;"></div>');

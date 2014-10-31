@@ -15,7 +15,7 @@ bkc = (255,255,229,255)
 
 def view_filename(s):
     s = s.replace(" ","")
-    return re.sub(r"\W+|\s+", "", s, re.I)
+    return re.sub(r"\W+|\s+", "", s, re.I) + '.png'
 
 
 def polish(filename, w, h):
@@ -67,7 +67,9 @@ def polish(filename, w, h):
     
     
 def render_view_using_file(obj_title, scadfile, dir, view, hashchanged):
-    png_name = dir + '/' + view_filename(obj_title + '_'+view['title']) + '.png'
+    png_name = dir + '/' + view_filename(obj_title + '_'+view['title'])
+    
+    view['filepath'] = png_name
     
     temp_name = 'temp.scad'
                         
@@ -104,7 +106,9 @@ def render_view_using_file(obj_title, scadfile, dir, view, hashchanged):
 
 
 def render_view(obj_title, obj_call, dir, view, hashchanged):
-    png_name = dir + '/' + view_filename(obj_title + '_'+view['title']) + '.png'
+    png_name = dir + '/' + view_filename(obj_title + '_'+view['title'])
+    
+    view['filepath'] = png_name
     
     temp_name = 'temp.scad'
                         

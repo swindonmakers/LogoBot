@@ -157,3 +157,12 @@ module view(title="view", caption="view", size=$DefaultViewSize, t=[0, 0, 0], r=
         children();
     }
 }
+
+
+module markdown(section="introduction", markdown="") {
+    object(true) {
+        attr("type","markdown");
+        attr("section",section);
+        attr("markdown",markdown);
+    }
+}
