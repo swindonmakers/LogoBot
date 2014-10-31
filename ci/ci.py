@@ -99,15 +99,18 @@ def poll(un, pw, proxies):
                         print(o)
                         
                         print("  Merge branch: "+branch)
-                        o = check_output(['git','merge',branch])
-                        print(o)
+                        try:
+                            o = check_output(['git','merge',branch])
+                            print(o)
+                        except CalledProcessError as e:
+                            print("  Error: "+ str(e.returncode))
                         
                         # Now run the build process    
                         print("  Building")
                         
                         os.chdir('hardware/ci')
                         try:
-                            o = check_output(['./build.py'])
+                            o = call(['./build.py'])
                         except:
                             print("  Error!")
                         
@@ -118,6 +121,8 @@ def poll(un, pw, proxies):
                         prhist.append(hist)
                         cilog.write(str(p['number']) + '_' + p['updated_at'] + '\n')
                         cilog.flush()
+                        
+                        print("  Done")
                 
                 
                     except CalledProcessError as e:
