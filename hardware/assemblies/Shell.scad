@@ -11,56 +11,55 @@
 
 module ShellAssembly() {
 
-    Assembly("Shell");
-
-	if (DebugCoordinateFrames) frame();
-	
-	// STL
-	BasicShell_STL();
-	
-		
-	End("Shell");
+    assembly("assemblies/Shell.scad", "Shell", str("ShellAssembly()")) {
+    
+        if (DebugCoordinateFrames) frame();
+    
+        // STL
+        BasicShell_STL();
+    
+        
+	}
 }
 
 
 module BasicShell_STL() {
 
-	STL("BasicShell");
+	printedPart("assemblies/Shell.scad", "Basic Shell", "BasicShell_STL()") {
+	    
+	    view(t=[-2, 6, 14], r=[63, 0, 26], d=726);
 	
-	color([Level2PlasticColor[0], Level2PlasticColor[1], Level2PlasticColor[2], 0.5])
-         if (UseSTL) {
-	        import(str(STLPath, "BasicShell.stl"));
-	    } else {
-            union() {
-                Shell_TwistLock();
+        color([Level2PlasticColor[0], Level2PlasticColor[1], Level2PlasticColor[2], 0.5])
+             if (UseSTL) {
+                import(str(STLPath, "BasicShell.stl"));
+            } else {
+                union() {
+                    Shell_TwistLock();
             
-                // shell with hole for LED
-                difference() {
-                    // curved shell with centre hole for pen
-                    rotate_extrude()
-                        difference() {
-                            // outer shell
-                            donutSector2D(
-                                or=BaseDiameter/2 + Shell_NotchTol + dw, 
-                                ir=BaseDiameter/2 + Shell_NotchTol,
-                                a=90
-                            );
+                    // shell with hole for LED
+                    difference() {
+                        // curved shell with centre hole for pen
+                        rotate_extrude()
+                            difference() {
+                                // outer shell
+                                donutSector2D(
+                                    or=BaseDiameter/2 + Shell_NotchTol + dw, 
+                                    ir=BaseDiameter/2 + Shell_NotchTol,
+                                    a=90
+                                );
                     
-                            // clearance for pen
-                            square([PenHoleDiameter/2, BaseDiameter]);
+                                // clearance for pen
+                                square([PenHoleDiameter/2, BaseDiameter]);
                 
-                        }
+                            }
                 
-                    // hole for LED??
-                    // TODO: Hole for LED
+                        // hole for LED??
+                        // TODO: Hole for LED
+                    }
                 }
             }
-        }
+    }
 	
-}
-
-module BasicShell_STL_View() {
-    echo("400 300 -2 6 14 63 0 26 726");	
 }
 
 

@@ -1,47 +1,53 @@
+include <../config/config.scad>
 
 
-module Assembly(name, title, call) {
-	echo(str(" { 'type':'assembly', 'name':'",name,"', 'title':'",title,"', 'call':'",call,"', "));
-	if ($children > 0) {
-		children();
-	}
-	echo(str(" 'contains': [ "));
+machine("sandbox/damian_playground2.scad","LogoBot Basic Robot", customAttrs=true) {
+    attr("z","z");
+    
+    contains() {
+        assembly("assemblies/LogoBot.scad", "Final Assembly", "LogoBotAssembly(PenLift=false)", customAttrs=true) {
+            attr("note","this is a little note\n\n");
+
+            contains() {
+                assembly("Wheel", "Left Wheel", "Wheel()") {
+    
+                    step(1, "Fit the wheel") {
+            
+                        view();
+            
+                        vitamin("Wheel", "Wheel", "Wheel_STL()", customAttrs=true) { 
+                            attr("author","damo");
+                            attr("src","http://ebay.com");
+                            attr("cost","0.89");
+            
+                            attrArray("authors") {
+                                object()
+                                    attr("author","damo");
+                                object()
+                                    attr("author","fred");
+                                object()
+                                    attr("author","bob");
+                            }
+                        }
+                
+                        vitamin("Motor", "Motor", "Motor()", customAttrs=true) { 
+                            attr("author","damo");
+                            attr("src","http://ebay.com");
+                            attr("cost","0.89");
+                        }
+            
+                    }
+        
+
+                }
+
+                assembly("Wheel", "Right Wheel", "Wheel()") {
+                    cube([10,10,10]);
+                }
+            
+            }
+    
+        }    
+    }
+    
 }
-
-module Vitamin(name, title, call) {
-	echo(str(" { 'type':'vitamin', 'name':'",name,"', 'title':'",title,"', 'call':'",call,"', "));
-	if ($children > 0) {
-		children();
-	}
-	echo(str(" 'contains': [ "));
-}
-
-module Attr(name,value) {
-	echo(str(" '",name,"':'",value,"' , "));
-}
-
-module End() {
-	echo(str(" {} ] }, "));
-}
-
-
-Assembly("LogoBot", "LogoBot Basic Robot", "LogoBotAssembly(PenLift=false)")
-	Attr("note","this is a little note\n\n");
-
-	Assembly("Wheel", "Left Wheel", "Wheel()");
-	
-		Vitamin("Wheel", "Wheel", "Wheel_STL()") { 
-			Attr("author","damo");
-			Attr("src","http://ebay.com");
-			Attr("cost","0.89");
-		}
-		
-		End();
-
-	End();
-
-	Assembly("Wheel", "Right Wheel", "Wheel()");
-
-	End();
-	
-End();
