@@ -3,29 +3,15 @@
 # Run the various build scripts
 
 import sys
-from static import static
-from bom import boms
-from stls import stls
-from views import views
+from parse import parse_machines
 from vitamins import vitamins
-from publish import publish
 
-def build(force_update):
+def build():
     print("Build")
-    print("---")
+    print("-----")
     
-    if static() == 0:
-        boms()
-        stls()
-        vitamins(force_update)
-        views(force_update)
-        publish()
-    else:
-        print("Build Aborted - Static analysis found errors!")
+    parse_machines()
+    vitamins()
 
 if __name__ == '__main__':
-    if len(sys.argv) == 2:
-        build(sys.argv[1])
-    else:
-        build(0)
-    
+    build()

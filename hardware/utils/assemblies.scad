@@ -94,6 +94,21 @@ module vitamin(file, title, call, customAttrs=false) {
     }
 }
 
+// use for sub-parts of a vitamin, triggers STL generation
+module part(title, call, customAttrs=false) {
+	object(true) {
+        attr("type","part");
+        attr("title",title);
+        attr("call",call);
+        if (customAttrs) {
+            children();
+        } else {
+            attrArray("children", true) 
+                children();
+        }
+    }
+}
+
 module machine(file, title, customAttrs=false) {
     object(true) {
         attr("type","machine");

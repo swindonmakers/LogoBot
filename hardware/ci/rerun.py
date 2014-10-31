@@ -6,7 +6,6 @@ from time import sleep, gmtime, strftime
 
 polling_interval = 1
 
-
 def run(fn):
     tmp = subprocess.call([fn])
     print('Exit Code: '+str(tmp))

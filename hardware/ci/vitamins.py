@@ -13,11 +13,6 @@ from types import *
 
 from views import polish;
 from views import render_view;
-
-
-def view_filename(s):
-    s = s.replace(" ","")
-    return re.sub(r"\W+|\s+", "", s, re.I)
     
 
 def vitamins():
@@ -75,52 +70,8 @@ def vitamins():
                     for view in v['views']:
                         print("      "+view['title'])
                         
-                        png_name = view_dir + '/' + view_filename(v['title'] + '_'+view['title']) + '.png'
+                        render_view(v['title'], v['call'], view_dir, view, hashchanged)
                         
-                        if (not os.path.isfile(png_name) or (hashchanged)):            
-                            print("        Updating: "+png_name)
-            
-                            # Up-sample images
-                            w = view['size'][0] * 2
-                            h = view['size'][1] * 2
-            
-                            dx = float(view['translate'][0])
-                            dy = float(view['translate'][1])
-                            dz = float(view['translate'][2])
-            
-                            rx = float(view['rotate'][0])
-                            ry = float(view['rotate'][1])
-                            rz = float(view['rotate'][2])
-            
-                            d = float(view['dist'])
-                            camera = "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f" % (dx, dy, dz, rx, ry, rz, d)
-            
-            
-                            # make a file to use the module
-                            #
-                            f = open(temp_name, "w")
-                            f.write("include <../config/config.scad>\n")
-                            f.write("UseSTL=false;\n");
-                            f.write("UseVitaminSTL=false;\n");
-                            f.write("DebugConnectors=false;\n");
-                            f.write("DebugCoordinateFrames=false;\n");
-                            f.write(v['call'] + ";\n");
-                            f.close()
-                                           
-                            openscad.run(                            
-                                        "--imgsize=%d,%d" % (w, h),
-                                        "--projection=p",
-                                        "--camera=" + camera,
-                                        "-o", png_name, 
-                                        temp_name)
-                        
-                            polish(png_name, w/2, h/2)
-                            print
-                
-                            os.remove(temp_name)
-                        else:
-                            print("        View up to date")
-                            
                         
                         
                     

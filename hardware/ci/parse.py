@@ -14,10 +14,22 @@ def parse_machines():
     src_dir = '../'
     logfile = 'openscad.log'
     outfile = 'hardware.json'
+    oldfile = 'backup.json'
     errorfile = 'invalid.json'
     
     print("Parse")
     print("-----")
+    
+    print("Backup current json...")
+    oldjso = None
+    if os.path.isfile(outfile) and not os.path.isfile(oldfile):
+        os.rename(outfile, oldfile) 
+        
+    if os.path.isfile(oldfile):
+        jf = open(oldfile,"r")
+        oldjso = json.load(jf)
+        jf.close()
+        
     
     print("Looking for machine files...")
     
@@ -54,14 +66,17 @@ def parse_machines():
 
         print("  Parsed "+str(files)+" machine files")
     
-        summarise_files(jso)
+        summarise_files(jso, oldjso)
         
-        summarise_parts(jso)
+        summarise_parts(jso, oldjso)
         
+        update_cache_info(jso, oldjso)
         
         # prettify
         js = json.dumps(jso, sort_keys=False, indent=4, separators=(',', ': '))
-    
+        
+        # delete backup - no longer required
+        os.remove(oldfile)
         
     except Exception as e:
         print(e)
@@ -146,7 +161,7 @@ def add_file_for(jso, fs):
             for c in jso['children']:
                 add_file_for(c, fs)
         
-def summarise_files(jso):
+def summarise_files(jso, oldjso):
     print("Summarising files for all machines...")
     
     fl = { 'type':'filelist', 'files':[] }
@@ -305,8 +320,8 @@ def summarise_parts_for(jso, al, pl, vl):
             for c in jso['children']:
                 summarise_parts_for(c, al, pl, vl)
 
-def summarise_parts(jso):
-    print("Summarising parts for all machines...")
+def summarise_parts(jso, oldjso):
+    print("Summarising parts for each machine...")
     
     for m in jso:
         if type(m) is DictType and m['type'] == 'machine':
@@ -323,6 +338,61 @@ def summarise_parts(jso):
             print("    "+str(len(al))+" assemblies")
             print("    "+str(len(pl))+" printed parts")
             print("    "+str(len(vl))+" vitamins")
+            
+
+# Update Cache
+# ------------
+
+def update_cache_info_for(vl, ovl):
+    
+    if vl == None or ovl == None: 
+        return
+    
+    for v in vl:
+        if type(v) is DictType and 'title' in v:
+            print("      "+v['title'])
+            
+            # find match in ovl
+            oldv = None
+            for ov in ovl:
+                if type(ov) is DictType and 'title' in ov and ov['title'] == v['title']:
+                    oldv = ov
+                    continue
+            
+            if oldv:
+                # copy cache info
+                if 'hash' in oldv:
+                    print("        updated")
+                    v['hash'] = oldv['hash']
+    
+
+def update_cache_info(jso, oldjso):
+    print("Updating cache info...")
+    
+    if jso == None or oldjso == None:
+        return
+    
+    for m in jso:
+        if type(m) is DictType and m['type'] == 'machine':
+            print("  "+m['title']+"...")
+            
+            # find matching machine in oldjso
+            oldm = None
+            for om in oldjso:
+                if type(om) is DictType and om['type'] == 'machine' and 'title' in om and om['title'] == m['title']:
+                    oldm = om
+                    continue
+            
+            if oldm != None:
+                print("    Found match in cache")
+                
+                if 'vitamins' in oldm:
+                    print("    Updating vitamins...")
+                    update_cache_info_for(m['vitamins'], oldm['vitamins'])
+                    
+                if 'printed' in oldm:
+                    print("    Updating printed parts...")
+                    update_cache_info_for(m['printed'], oldm['printed'])
             
 
 

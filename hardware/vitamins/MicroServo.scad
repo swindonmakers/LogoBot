@@ -17,11 +17,6 @@
 		A Micro Servo model, colored
 */
 
-// Types
-
-// dummy type to support part STL generation
-MicroServo_9g = "9g";
-
 
 // Connectors
 
@@ -41,27 +36,31 @@ MicroServo_Con_Fixing2			= [ [32.8-2.65 - 4.65, 6.3, 16.3 + 2], [0,0,-1], 0, 2, 
 
 module MicroServo() {
 
-    Vitamin("MicroServo","9g");
+    vitamin("vitamins/MicroServo.scad", "9g Micro Servo", "MicroServo()") {
+        view(t=[6.9, 13.6, 10.3], r=[72,0,33], d=280);
 
-	if (DebugCoordinateFrames) {
-		frame();
+        if (DebugCoordinateFrames) {
+            frame();
+        }
+
+        if (DebugConnectors) {
+            connector(MicroServo_Con_Horn);
+            connector(MicroServo_Con_Fixing1);
+            connector(MicroServo_Con_Fixing2);
+        }
+        
+        // parts
+        MicroServo_Body();
+        MicroServo_Spline();
 	}
-
-	if (DebugConnectors) {
-		connector(MicroServo_Con_Horn);
-		connector(MicroServo_Con_Fixing1);
-		connector(MicroServo_Con_Fixing2);
-	}
-
-	MicroServo_Body();
-	
-	MicroServo_Spline();
 }
 
 module MicroServo_Body() {
+    part("MicroServo_Body", "MicroServo_Body()");
+
     color(Blue, 0.8) 
         if (UseVitaminSTL) {
-            import(str(VitaminSTL,"MicroServo_Body_9g.stl"));
+            import(str(VitaminSTL,"MicroServo_Body.stl"));
         } 
         else 
         {
@@ -86,6 +85,8 @@ module MicroServo_Body() {
 }
 
 module MicroServo_Spline() {
+    part("MicroServo_Spline", "MicroServo_Spline()");
+
     color(White, 0.8) 
         if (UseVitaminSTL) {
             import(str(VitaminSTL,"MicroServo_Spline_9g.stl"));
@@ -94,13 +95,4 @@ module MicroServo_Spline() {
         {
             translate([6.3,6.3,26.5]) cylinder(r=2.25,h=2.8,$fn=45);
         }
-}
-
-module MicroServo_Parts() {
-    echo("_Body");
-    echo("_Spline");
-}
-
-module MicroServo_View() {
-    echo("300 200 6.9 13.6 10.3 72 0 33 280");
 }
