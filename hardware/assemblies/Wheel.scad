@@ -11,7 +11,7 @@
 // Connectors
 // ----------
 
-Wheel_Con_Default				= [ [0,0,0], [0,0,1], 0, 0, 0];
+Wheel_Con_Default				= [ [0, 0 ,0], [0, 0, -1], 90, 0, 0 ];
 
 
 
@@ -88,6 +88,7 @@ module WheelAssembly( ) {
 	step(1, 
             "Push the wheel onto the motor shaft", 
             "400 300 -0.4 0.2 0.7 349 125 180 415")
+	attach([[0,0,2],[0,0,1],0,0,0], Wheel_Con_Default)
 	    Wheel_STL();
 	
 		
@@ -98,9 +99,28 @@ module WheelAssembly( ) {
 module Wheel_STL() {
 
 	STL("Wheel");
+
+	if (DebugConnectors) connector(Wheel_Con_Default);
 	
-	color(Level2PlasticColor)
-	    cylinder(r=WheelDiameter/2, h=WheelThickness, $fn=64);
+	color(Level2PlasticColor) {
+
+		// Main wheel
+		rotate_extrude($fn=100)
+		translate ([MotorShaftDiameter / 2, 0, 0])
+		difference()
+		{
+			square([(WheelDiameter - MotorShaftDiameter) / 2, WheelThickness]);
+
+			translate([(WheelDiameter - MotorShaftDiameter) / 2 , WheelThickness / 2])
+				circle(r = WheelThickness / 4);
+		}
+		
+		// Flats in center
+		for(i = [0:1])
+			mirror([i, 0, 0])		
+				translate([MotorShaftFlatThickness / 2, -MotorShaftDiameter / 2, 0])
+					cube([MotorShaftDiameter / 2, MotorShaftDiameter, WheelThickness]);
+	}
 }
 
 
