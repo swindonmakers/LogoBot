@@ -17,7 +17,6 @@ BoltLibrary_HeadThicknessRatio = 1.3;
 
 BoltLibrary_HexHeadScrew_Con	= [ [0, 0, 0], [0, 0, 1], 0, 0, 0];
 BoltLibrary_HexHeadBolt_Con		= [ [0, 0, 0], [0, 0, 1], 0, 0, 0];
-BoltLibrary_Nut_Con				= [ [0, 0, 0], [0, 0, 1], 0, 0, 0];
 
 module HexHeadScrew(dia = 3, length = 20)
 {
@@ -64,27 +63,6 @@ module HexHeadBolt(dia = 3, length = 20)
 		// Head
 		difference() {
 			cylinder(r = (dia * BoltLibrary_HeadDiaRatio) / 2, h=dia * BoltLibrary_HeadThicknessRatio, $fn=6);
-		}
-	}
-}
-
-module Nut(dia = 3)
-{
-	if (DebugCoordinateFrames) {
-		frame();
-	}
-
-	if (DebugConnectors) {
-		connector(BoltLibrary_Nut_Con);
-	} 
-
-	color(MetalColor) {
-
-		translate([0, 0, -dia * BoltLibrary_HeadThicknessRatio])
-		linear_extrude(dia * BoltLibrary_HeadThicknessRatio)
-		difference() {
-			circle(r = (dia * BoltLibrary_HeadDiaRatio) / 2, $fn=6);
-			circle(r = dia / 2, $fn=6);
 		}
 	}
 }
