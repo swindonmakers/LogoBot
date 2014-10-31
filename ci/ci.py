@@ -77,10 +77,13 @@ def poll(un, pw, proxies):
                         o = check_output(['git','clean','-f','-d'])
                         print("  Pull master")
                         o = check_output(['git','pull','origin','master'])
-                        # print(o)
+                        print(o)
             
-                        # Checkout the pull request branch
                         branch = p['head']['ref']
+                        
+                        """
+                        # Checkout the pull request branch
+                        
                         print("  Checkout pull request from: "+branch)
                         o = check_output(['git','checkout','-B',branch,'origin/'+branch])
                         # print(o)
@@ -89,7 +92,16 @@ def poll(un, pw, proxies):
                         print("  Merge into master")
                         o = check_output(['git','merge','master'])
                         # print(o)
-            
+                        """
+                        
+                        print("  Checkout master")
+                        o = check_output(['git','checkout','master'])
+                        print(o)
+                        
+                        print("  Merge branch: "+branch)
+                        o = check_output(['git','merge',branch])
+                        print(o)
+                        
                         # Now run the build process    
                         print("  Building")
                         
