@@ -27,12 +27,17 @@ def build():
     
     errorlevel += parse_machines()
     
-    errorlevel += vitamins()
-    errorlevel += printed()
-    errorlevel += assemblies()
-    errorlevel += machines()
-    
-    errorlevel += guides()
+    if errorlevel == 0:
+        errorlevel += vitamins()
+    if errorlevel == 0:
+        errorlevel += printed()
+    if errorlevel == 0:
+        errorlevel += assemblies()
+    if errorlevel == 0:
+        errorlevel += machines()
+
+    if errorlevel == 0:
+        errorlevel += guides()
     
     
     # if everything is ok then delete backup - no longer required
