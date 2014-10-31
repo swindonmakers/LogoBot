@@ -18,20 +18,17 @@ def parse_machines():
     oldfile = 'backup.json'
     errorfile = 'invalid.json'
     
+    errorlevel = 0
+    
     print("Parse")
     print("-----")
-    
-    print("Backup current json...")
-    oldjso = None
-    if os.path.isfile(outfile) and not os.path.isfile(oldfile):
-        os.rename(outfile, oldfile) 
         
+    # load backup.json - to read cache values
     if os.path.isfile(oldfile):
         jf = open(oldfile,"r")
         oldjso = json.load(jf)
         jf.close()
         
-    
     print("Looking for machine files...")
     
     # reset error file
@@ -50,7 +47,11 @@ def parse_machines():
             if (files > 0):
                 js += ', '
             
-            s = parse_machine(scadfile, logfile, errorfile)
+            s = ''
+            try:
+                s = parse_machine(scadfile, logfile, errorfile)
+            except:
+                errorlevel = 1
             
             if (s > ''):
                 js += s
@@ -62,30 +63,31 @@ def parse_machines():
     js = re.sub(r",(\s*(\}|\]))","\g<1>", js, re.M)
     
     # parse
-    try:
-        jso = json.loads(js)
+    if errorlevel == 0:
+        try:
+            jso = json.loads(js)
 
-        print("  Parsed "+str(files)+" machine files")
+            print("  Parsed "+str(files)+" machine files")
     
-        summarise_files(jso, oldjso)
+            summarise_files(jso, oldjso)
         
-        summarise_parts(jso, oldjso)
+            summarise_parts(jso, oldjso)
         
-        update_cache_info(jso, oldjso)
+            update_cache_info(jso, oldjso)
         
-        # prettify
-        js = json.dumps(jso, sort_keys=False, indent=4, separators=(',', ': '))
+            # prettify
+            js = json.dumps(jso, sort_keys=False, indent=4, separators=(',', ': '))
         
-        # delete backup - no longer required
-        os.remove(oldfile)
+        except Exception as e:
+            print(e)
+            errorlevel = 1
         
-    except Exception as e:
-        print(e)
-        
-    with open(outfile, 'w') as f:
-        f.write(js)
+        with open(outfile, 'w') as f:
+            f.write(js)
         
     print("")
+    
+    return errorlevel
         
 
 def parse_machine(scadfile, logfile, errorfile):
@@ -93,7 +95,7 @@ def parse_machine(scadfile, logfile, errorfile):
     
     js = ''
     
-    syntaxError = False
+    errorlevel = 0
 
     for line in open(logfile, "rt").readlines():
         # errors
@@ -101,7 +103,7 @@ def parse_machine(scadfile, logfile, errorfile):
         if r:
             print("  Syntax error!")
             print(line)
-            syntaxError = True
+            errorlevel = 2
             continue
     
         # echo lines
@@ -115,7 +117,7 @@ def parse_machine(scadfile, logfile, errorfile):
         
             js += s + '\n'
 
-    if not syntaxError:
+    if errorlevel == 0:
         # Get rid of any empty objects
         js = js.replace("{}","")
 
@@ -136,6 +138,9 @@ def parse_machine(scadfile, logfile, errorfile):
                 f.write(js)
             # Stop malformed machine json screwing up everything else!
             js = ''
+            
+    else:
+        raise Exception("Syntax error")
     
     return js
     

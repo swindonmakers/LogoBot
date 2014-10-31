@@ -165,6 +165,8 @@ def guides():
             mdfile = target_dir + '/' +md_filename(m['title'] +'AssemblyGuide')
             with open(mdfile,'w') as f:
                 f.write(md)
+                
+    return 0
             
 
 if __name__ == '__main__':

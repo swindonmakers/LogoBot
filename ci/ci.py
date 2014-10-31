@@ -72,6 +72,7 @@ def poll(un, pw, proxies):
                         # Refresh the repo in staging (master branch)
                         print("  Reset staging")
                         o = check_output(['git','reset','--hard','HEAD'])
+                            
                         print("  Clean")
                         o = check_output(['git','clean','-f','-d'])
                         print("  Pull master")
@@ -89,8 +90,9 @@ def poll(un, pw, proxies):
                         o = check_output(['git','merge','master'])
                         # print(o)
             
-                        # Now run the validation tests    
-                        print("  Start validation")
+                        # Now run the build process    
+                        print("  Building")
+                        
                         
                 
                         # Log this request so we don't process it again
@@ -144,6 +146,11 @@ def ci(un, pw, http_proxy="", https_proxy=""):
             # Could check for empty dir here and if so, do a git clone?
             # git clone git@github.com:snhack/LogoBot .
             
+            contents = os.listdir('.')
+            if len(contents) == 0:
+                print("  Staging empty - cloning repo")
+                o = check_output(['git','clone','git@github.com:'+repo_owner+'/'+repo_name,'.'])
+            
             poll(un, pw, proxies)
         
         else:
@@ -160,7 +167,9 @@ def ci(un, pw, http_proxy="", https_proxy=""):
     # o = check_output(['git','branch'])
 
 if __name__ == '__main__':
-    if len(sys.argv) >= 3:
+    if len(sys.argv) == 3:
+        ci(sys.argv[1], sys.argv[2], "", "")
+    elif len(sys.argv) > 3:
         ci(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
     else:
         print("Usage: ci <git-username> <git-password> <http_proxy> <https_proxy>")

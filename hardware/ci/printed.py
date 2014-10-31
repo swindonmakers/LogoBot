@@ -86,6 +86,8 @@ def printed():
     # Save changes to json
     with open('hardware.json', 'w') as f:
         f.write(json.dumps(jso, sort_keys=False, indent=4, separators=(',', ': ')))
+        
+    return 0
                     
 
 if __name__ == '__main__':
