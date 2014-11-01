@@ -72,6 +72,8 @@ def poll(un, pw, proxies):
                     try:
                         errorlevel = 0
                         
+                        oplog = ''
+                        
                         comments_url = p['_links']['comments']['href']
                         
                         # comment
@@ -79,81 +81,86 @@ def poll(un, pw, proxies):
                             'body':'CI: Starting build process...'
                         }
                         r = requests.post(comments_url, auth=(un, pw), proxies=proxies, data=json.dumps(payload))
-                        print(r.text)
                     
                         # Discard any local changes
                         print("  Clean working tree")
                         o = check_output(['git','checkout','--','.'])
                         print(o)
-                    
-                        # Refresh the repo in staging (master branch)
-                        #print("  Reset staging")
-                        #o = check_output(['git','reset','--hard','origin/master'])
-                        #print(o)
+                        oplog += "\nClean working tree\n"
+                        oplog += o
                             
                         print("  Pull master")
                         o = check_output(['git','pull','origin','master'])
                         print(o)
+                        oplog += "\nPull master\n"
+                        oplog += o
             
                         branch = p['head']['ref']
                         
                         print("  Checkout master")
                         o = check_output(['git','checkout','master'])
                         print(o)
+                        oplog += "\nCheckout master\n"
+                        oplog += o
                         
                         print("  Merge branch: "+branch)
+                        o = ''
                         try:
                             o = check_output(['git','merge','origin/'+branch])
                             print(o)
                         except CalledProcessError as e:
                             print("  Error: "+ str(e.returncode))
                             errorlevel = e.returncode
+                            
+                        oplog += "\nMerge branch: origin/"+branch+"\n"
+                        oplog += o
                         
                         if errorlevel == 0:                        
                             # Now run the build process    
                             print("  Building")
                         
                             os.chdir('hardware/ci')
+                            o = ''
                             try:
                                 o = check_output(['./build.py'])
+                                print(o)
                             except CalledProcessError as e:
                                 print("  Error: "+ str(e.returncode))
                                 errorlevel = 1
                         
                             os.chdir('../../')
+                            
+                            oplog += "\nBuilding\n"
+                            oplog += o
+                
                 
                         if errorlevel == 0:
                             print("  Passed, auto-merging into master...")
                             
                             # comment
                             payload = {
-                                'body':'CI: Build process successful - auto-merging into master'
+                                'body':'CI: Build process successful - auto-merging into master\n\nLog\n' + oplog
                             }
                             r = requests.post(comments_url, auth=(un, pw), proxies=proxies, data=json.dumps(payload))
-                            print(r.text)
                             
                             # merge
                             payload = {
-                                'base':'master',
-                                'head':p['merge_commit_sha'],
                                 'commit_message':p['title']
                             }
-                            r = requests.post('https://api.github.com/repos/'+repo_owner+'/'+repo_name+'/merges', 
+                            r = requests.post(p['_links']['self']['href'] + '/merge', 
                                               auth=(un, pw), proxies=proxies, data=json.dumps(payload))
-                            print(r.text)
+                            print(r)
                         
                         else:
                             print("  Errors, adding to pull request comments...")
                             
                             # log the error
                             payload = {
-                                'body':'CI: Unable to auto-merge, build process encountered errors'
+                                'body':'CI: Unable to auto-merge, build process encountered errors\n\nLog\n' + oplog
                             }
                             r = requests.post(comments_url, auth=(un, pw), proxies=proxies, data=json.dumps(payload))
-                            print(r.text)
                             
                         
-                            
                 
                         # Log this request so we don't process it again
                         hist = {'number':p['number'], 'updated_at':p['updated_at']}
