@@ -81,12 +81,16 @@ def poll(un, pw, proxies):
                         r = requests.post(comments_url, auth=(un, pw), proxies=proxies, data=json.dumps(payload))
                         print(r.text)
                     
+                        # Discard any local changes
+                        print("  Clean working tree")
+                        o = check_output(['git','checkout','--','.'])
+                        print(o)
+                    
                         # Refresh the repo in staging (master branch)
-                        print("  Reset staging")
-                        o = check_output(['git','reset','--hard','HEAD'])
+                        #print("  Reset staging")
+                        #o = check_output(['git','reset','--hard','origin/master'])
+                        #print(o)
                             
-                        print("  Clean")
-                        o = check_output(['git','clean','-f','-d'])
                         print("  Pull master")
                         o = check_output(['git','pull','origin','master'])
                         print(o)
@@ -99,22 +103,24 @@ def poll(un, pw, proxies):
                         
                         print("  Merge branch: "+branch)
                         try:
-                            o = check_output(['git','merge',branch])
+                            o = check_output(['git','merge','origin/'+branch])
                             print(o)
                         except CalledProcessError as e:
                             print("  Error: "+ str(e.returncode))
+                            errorlevel = e.returncode
                         
-                        # Now run the build process    
-                        print("  Building")
+                        if errorlevel == 0:                        
+                            # Now run the build process    
+                            print("  Building")
                         
-                        os.chdir('hardware/ci')
-                        try:
-                            o = check_output(['./build.py'])
-                        except CalledProcessError as e:
-                            print("  Error: "+ str(e.returncode))
-                            errorlevel = 1
+                            os.chdir('hardware/ci')
+                            try:
+                                o = check_output(['./build.py'])
+                            except CalledProcessError as e:
+                                print("  Error: "+ str(e.returncode))
+                                errorlevel = 1
                         
-                        os.chdir('../../')
+                            os.chdir('../../')
                 
                         if errorlevel == 0:
                             print("  Passed, auto-merging into master...")
