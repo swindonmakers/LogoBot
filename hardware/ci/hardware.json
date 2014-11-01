@@ -1,6 +1,6 @@
 [
     {
-        "hash": "2e90a226c71d51044e592680f1c1206e",
+        "hash": "ade4500309c28385256573c25420bbc3",
         "vitamins": [
             {
                 "hash": "dfa6c6f544c665523ffc730fd294f604",
@@ -99,7 +99,7 @@
         "title": "LogoBot",
         "assemblies": [
             {
-                "hash": "0c6b1800c9c793206d914a908e497bd5",
+                "hash": "ed0b8a568c9a2f2aa31a9dce0e14a2d2",
                 "vitamins": [],
                 "title": "Final Assembly",
                 "assemblies": [
@@ -493,17 +493,17 @@
                             {
                                 "rotate": [
                                     349,
-                                    125,
-                                    180
+                                    102,
+                                    178
                                 ],
-                                "dist": 415,
+                                "dist": 500,
                                 "filepath": "../assemblies/images/DriveWheel_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    -0.4,
-                                    0.2,
-                                    0.7
+                                    0,
+                                    -3,
+                                    5
                                 ],
                                 "type": "view",
                                 "size": [
@@ -986,16 +986,16 @@
                                             {
                                                 "rotate": [
                                                     349,
-                                                    125,
-                                                    180
+                                                    102,
+                                                    178
                                                 ],
-                                                "dist": 415,
+                                                "dist": 500,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    -0.4,
-                                                    0.2,
-                                                    0.7
+                                                    0,
+                                                    -3,
+                                                    5
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -1049,16 +1049,16 @@
                                             {
                                                 "rotate": [
                                                     349,
-                                                    125,
-                                                    180
+                                                    102,
+                                                    178
                                                 ],
-                                                "dist": 415,
+                                                "dist": 500,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    -0.4,
-                                                    0.2,
-                                                    0.7
+                                                    0,
+                                                    -3,
+                                                    5
                                                 ],
                                                 "type": "view",
                                                 "size": [
