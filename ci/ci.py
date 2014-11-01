@@ -72,7 +72,7 @@ def poll(un, pw, proxies):
                     try:
                         errorlevel = 0
                         
-                        oplog = ''
+                        oplog = 'Build Log\n---\n'
                         
                         comments_url = p['_links']['comments']['href']
                         
@@ -130,7 +130,7 @@ def poll(un, pw, proxies):
                         
                             os.chdir('../../')
                             
-                            oplog += "\nBuilding\n"
+                            oplog += "\n\nBuilding\n--------\n"
                             oplog += o
                 
                 
@@ -139,7 +139,7 @@ def poll(un, pw, proxies):
                             
                             # comment
                             payload = {
-                                'body':'CI: Build process successful - auto-merging into master\n\nLog\n' + oplog
+                                'body':'CI: Build process successful - auto-merging into master\n\n' + oplog
                             }
                             r = requests.post(comments_url, auth=(un, pw), proxies=proxies, data=json.dumps(payload))
                             
@@ -156,7 +156,7 @@ def poll(un, pw, proxies):
                             
                             # log the error
                             payload = {
-                                'body':'CI: Unable to auto-merge, build process encountered errors\n\nLog\n' + oplog
+                                'body':'CI: Unable to auto-merge, build process encountered errors\n\n' + oplog
                             }
                             r = requests.post(comments_url, auth=(un, pw), proxies=proxies, data=json.dumps(payload))
                             
