@@ -1,6 +1,6 @@
 [
     {
-        "hash": "fcf517421c4c3bd96e980e7d315d37bc",
+        "hash": "2a3cb8ecdd3186a235ba3f8d273d5ef5",
         "vitamins": [
             {
                 "hash": "dfa6c6f544c665523ffc730fd294f604",
@@ -143,7 +143,7 @@
         "title": "LogoBot",
         "assemblies": [
             {
-                "hash": "ed66dc8d2a8078644023bbdcb88ec946",
+                "hash": "31085aeabbdc5b23365e74ebd50491d0",
                 "vitamins": [],
                 "title": "Final Assembly",
                 "assemblies": [
@@ -549,7 +549,7 @@
                 "level": 2
             },
             {
-                "hash": "289710c1574287b2bc60d4b3774e584d",
+                "hash": "fe3831665602222a14033cb159877ea1",
                 "vitamins": [],
                 "title": "Drive Wheel",
                 "assemblies": [],
@@ -685,7 +685,7 @@
                 "file": "assemblies/LogoBot.scad"
             },
             {
-                "hash": "0b2a7b5574859d6764393d37ffcf83b3",
+                "hash": "045fafe6175300810f9c00e71304d686",
                 "views": [
                     {
                         "rotate": [
