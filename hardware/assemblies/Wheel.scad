@@ -103,8 +103,25 @@ module Wheel_STL() {
 	
 	    view(t=[0, -1, -1], r=[49, 0, 25], d=336);
 	
-	    color(Level2PlasticColor)
-	        cylinder(r=WheelDiameter/2, h=WheelThickness, $fn=64);
+	    color(Level2PlasticColor) {
+
+            // Main wheel
+            rotate_extrude($fn=100)
+            translate ([MotorShaftDiameter / 2, 0, 0])
+            difference()
+            {
+                square([(WheelDiameter - MotorShaftDiameter) / 2, WheelThickness]);
+
+                translate([(WheelDiameter - MotorShaftDiameter) / 2 , WheelThickness / 2])
+                    circle(r = WheelThickness / 4);
+            }
+        
+            // Flats in center
+            for(i = [0:1])
+                mirror([i, 0, 0])		
+                    translate([MotorShaftFlatThickness / 2, -MotorShaftDiameter / 2, 0])
+                        cube([MotorShaftDiameter / 2, MotorShaftDiameter, WheelThickness]);
+        }
 	    
 	}
 }
