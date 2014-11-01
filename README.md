@@ -7,7 +7,7 @@ Developed by the Swindon Hackspace - see [LogoBot wiki page](https://github.com/
 
 See the [Assembly Guide](http://swindon.hackspace.org.uk/LogoBot/hardware/AssemblyGuide.htm) for easy to follow build instructions.
 
-![](hardware/images/LogoBot.png)
+![](hardware/images/LogoBot_view.png)
 
 
 File Structure
