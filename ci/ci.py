@@ -72,12 +72,13 @@ def poll(un, pw, proxies):
                     try:
                         errorlevel = 0
                         
+                        comments_url = p['_links']['comments']['href']
+                        
                         # comment
                         payload = {
                             'body':'CI: Starting build process...'
                         }
-                        r = requests.post('https://api.github.com/repos/'+repo_owner+'/'+repo_name+'/pulls/'+str(p['number'])+'/comments', 
-                                          auth=(un, pw), proxies=proxies, data=json.dumps(payload))
+                        r = requests.post(comments_url, auth=(un, pw), proxies=proxies, data=json.dumps(payload))
                         print(r.text)
                     
                         # Refresh the repo in staging (master branch)
@@ -122,8 +123,7 @@ def poll(un, pw, proxies):
                             payload = {
                                 'body':'CI: Build process successful - auto-merging into master'
                             }
-                            r = requests.post('https://api.github.com/repos/'+repo_owner+'/'+repo_name+'/pulls/'+str(p['number'])+'/comments', 
-                                              auth=(un, pw), proxies=proxies, data=json.dumps(payload))
+                            r = requests.post(comments_url, auth=(un, pw), proxies=proxies, data=json.dumps(payload))
                             print(r.text)
                             
                             # merge
@@ -143,8 +143,7 @@ def poll(un, pw, proxies):
                             payload = {
                                 'body':'CI: Unable to auto-merge, build process encountered errors'
                             }
-                            r = requests.post('https://api.github.com/repos/'+repo_owner+'/'+repo_name+'/pulls/'+str(p['number'])+'/comments', 
-                                              auth=(un, pw), proxies=proxies, data=json.dumps(payload))
+                            r = requests.post(comments_url, auth=(un, pw), proxies=proxies, data=json.dumps(payload))
                             print(r.text)
                             
                         
