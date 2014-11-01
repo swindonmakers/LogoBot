@@ -52,7 +52,13 @@ Qty | Vitamin | Image
 ![](../assemblies/images/Brain_step1_view.png)
 
 
-## Drive Wheel
+## Drive Wheel (x2)
+
+### Printed Parts
+
+Qty | Part Name | Image
+--- | --- | ---
+2 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
 
 ### Assembly Steps
 
@@ -62,6 +68,12 @@ Qty | Vitamin | Image
 
 
 ## Rear Caster
+
+### Vitamins
+
+Qty | Vitamin | Image
+--- | --- | ---
+1 | [16mm Marble]() | ![](../vitamins/images/16mmMarble_view.png) | 
 
 ### Printed Parts
 
@@ -77,11 +89,18 @@ Qty | Part Name | Image
 
 ## Final Assembly
 
+### Vitamins
+
+Qty | Vitamin | Image
+--- | --- | ---
+2 | [JumperWire Female to Male 4pin 70mm]() | ![](../vitamins/images/JumperWireFemaletoMale4pin70mm_view.png) | 
+
 ### Printed Parts
 
 Qty | Part Name | Image
 --- | --- | ---
 1 | [Base](../printedparts/stl/Base.stl) | ![](../printedparts/images/Base_view.png) | 
+1 | [Basic Shell](../printedparts/stl/BasicShell.stl) | ![](../printedparts/images/BasicShell_view.png) | 
 
 ### Sub-Assemblies
 
