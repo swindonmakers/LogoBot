@@ -147,7 +147,7 @@ def poll(un, pw, proxies):
                             payload = {
                                 'commit_message':p['title']
                             }
-                            r = requests.post(p['_links']['self']['href'] + '/merge', 
+                            r = requests.put(p['_links']['self']['href'] + '/merge', 
                                               auth=(un, pw), proxies=proxies, data=json.dumps(payload))
                             print(r)
                         
