@@ -1,9 +1,7 @@
 [
     {
-        "hash": "2a3cb8ecdd3186a235ba3f8d273d5ef5",
         "vitamins": [
             {
-                "hash": "dfa6c6f544c665523ffc730fd294f604",
                 "views": [
                     {
                         "rotate": [
@@ -12,7 +10,6 @@
                             218
                         ],
                         "dist": 316,
-                        "filepath": "../vitamins/images/Breadboard170_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
@@ -34,7 +31,6 @@
                 "file": "vitamins/Breadboard.scad"
             },
             {
-                "hash": "7bac2404db030f43264934cd34c47ea8",
                 "views": [
                     {
                         "rotate": [
@@ -43,7 +39,6 @@
                             29
                         ],
                         "dist": 438,
-                        "filepath": "../vitamins/images/JumperWireFemaletoMale4pin70mm_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
@@ -65,7 +60,6 @@
                 "file": "vitamins/JumperWire.scad"
             },
             {
-                "hash": "ff9426d7c2278d247881ec5a677b5816",
                 "views": [
                     {
                         "rotate": [
@@ -74,7 +68,6 @@
                             60
                         ],
                         "dist": 119,
-                        "filepath": "../vitamins/images/16mmMarble_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
@@ -94,99 +87,24 @@
                 "parts": [],
                 "call": "Marble(Marble_16mm)",
                 "file": "vitamins/Marble.scad"
-            },
-            {
-                "hash": "ea5b75e1bdde55290f364ccbf01d177e",
-                "views": [
-                    {
-                        "rotate": [
-                            72,
-                            0,
-                            33
-                        ],
-                        "dist": 280,
-                        "filepath": "../vitamins/images/9gMicroServo_view.png",
-                        "title": "view",
-                        "caption": "view",
-                        "translate": [
-                            6.9,
-                            13.6,
-                            10.3
-                        ],
-                        "type": "view",
-                        "size": [
-                            400,
-                            300
-                        ]
-                    }
-                ],
-                "title": "9g Micro Servo",
-                "qty": 1,
-                "parts": [
-                    {
-                        "type": "part",
-                        "call": "MicroServo_Body()",
-                        "children": [],
-                        "title": "MicroServo_Body"
-                    },
-                    {
-                        "type": "part",
-                        "call": "MicroServo_Spline()",
-                        "children": [],
-                        "title": "MicroServo_Spline"
-                    }
-                ],
-                "call": "MicroServo()",
-                "file": "vitamins/MicroServo.scad"
             }
         ],
         "title": "LogoBot",
         "assemblies": [
             {
-                "hash": "31085aeabbdc5b23365e74ebd50491d0",
-                "vitamins": [],
-                "title": "Final Assembly",
-                "assemblies": [
+                "call": "LogoBotAssembly(PenLift=false)",
+                "vitamins": [
                     {
-                        "vitamins": [],
                         "views": [],
-                        "assemblies": [],
-                        "title": "Brain",
-                        "qty": 1,
-                        "steps": [],
-                        "printed": [],
-                        "file": "assemblies/Breadboard.scad",
-                        "call": "BreadboardAssembly()",
-                        "level": 1
-                    },
-                    {
-                        "vitamins": [],
-                        "views": [],
-                        "assemblies": [],
-                        "title": "Drive Wheel",
+                        "title": "JumperWire Female to Male 4pin 70mm",
                         "qty": 2,
-                        "steps": [],
-                        "printed": [],
-                        "file": "assemblies/Wheel.scad",
-                        "call": "WheelAssembly()",
-                        "level": 1
-                    },
-                    {
-                        "vitamins": [],
-                        "views": [],
-                        "assemblies": [],
-                        "title": "Rear Caster",
-                        "qty": 1,
-                        "steps": [],
-                        "printed": [],
-                        "file": "assemblies/MarbleCaster.scad",
-                        "call": "MarbleCasterAssembly()",
-                        "level": 1
+                        "parts": [],
+                        "call": "JumperWire(type=JumperWire_FM4, length=70)",
+                        "file": "vitamins/JumperWire.scad"
                     }
                 ],
-                "views": [],
-                "qty": 1,
-                "call": "LogoBotAssembly(PenLift=true)",
+                "file": "assemblies/LogoBot.scad",
+                "title": "Final Assembly",
                 "printed": [
                     {
                         "views": [],
@@ -194,9 +112,15 @@
                         "call": "LogoBotBase_STL()",
                         "file": "assemblies/LogoBot.scad",
                         "title": "Base"
+                    },
+                    {
+                        "views": [],
+                        "qty": 1,
+                        "call": "BasicShell_STL()",
+                        "file": "assemblies/Shell.scad",
+                        "title": "Basic Shell"
                     }
                 ],
-                "file": "assemblies/LogoBot.scad",
                 "steps": [
                     {
                         "views": [
@@ -207,7 +131,6 @@
                                     222
                                 ],
                                 "dist": 513,
-                                "filepath": "../assemblies/images/FinalAssembly_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -234,7 +157,6 @@
                                     212
                                 ],
                                 "dist": 625,
-                                "filepath": "../assemblies/images/FinalAssembly_step2_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -261,7 +183,6 @@
                                     212
                                 ],
                                 "dist": 625,
-                                "filepath": "../assemblies/images/FinalAssembly_step3_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -288,7 +209,6 @@
                                     190
                                 ],
                                 "dist": 740,
-                                "filepath": "../assemblies/images/FinalAssembly_step4_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -315,7 +235,6 @@
                                     161
                                 ],
                                 "dist": 766,
-                                "filepath": "../assemblies/images/FinalAssembly_step5_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -342,7 +261,6 @@
                                     212
                                 ],
                                 "dist": 625,
-                                "filepath": "../assemblies/images/FinalAssembly_step6_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -369,7 +287,6 @@
                                     212
                                 ],
                                 "dist": 625,
-                                "filepath": "../assemblies/images/FinalAssembly_step7_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -396,7 +313,6 @@
                                     212
                                 ],
                                 "dist": 625,
-                                "filepath": "../assemblies/images/FinalAssembly_step8_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -423,7 +339,6 @@
                                     26
                                 ],
                                 "dist": 625,
-                                "filepath": "../assemblies/images/FinalAssembly_step9_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -445,39 +360,11 @@
                         "views": [
                             {
                                 "rotate": [
-                                    64,
-                                    1,
-                                    212
-                                ],
-                                "dist": 625,
-                                "filepath": "../assemblies/images/FinalAssembly_step10_view.png",
-                                "title": "view",
-                                "caption": "view",
-                                "translate": [
-                                    -6,
-                                    7,
-                                    19
-                                ],
-                                "type": "view",
-                                "size": [
-                                    400,
-                                    300
-                                ]
-                            }
-                        ],
-                        "num": 10,
-                        "desc": "Fit the pen lift assembly"
-                    },
-                    {
-                        "views": [
-                            {
-                                "rotate": [
                                     66,
                                     0,
                                     217
                                 ],
                                 "dist": 1171,
-                                "filepath": "../assemblies/images/FinalAssembly_step11_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -492,14 +379,54 @@
                                 ]
                             }
                         ],
-                        "num": 11,
+                        "num": 10,
                         "desc": "Push the shell down onto the base and twist to lock into place"
                     }
                 ],
-                "level": 0
+                "views": [],
+                "level": 0,
+                "assemblies": [
+                    {
+                        "call": "BreadboardAssembly()",
+                        "vitamins": [],
+                        "file": "assemblies/Breadboard.scad",
+                        "title": "Brain",
+                        "printed": [],
+                        "steps": [],
+                        "views": [],
+                        "level": 1,
+                        "assemblies": [],
+                        "qty": 1
+                    },
+                    {
+                        "call": "WheelAssembly()",
+                        "vitamins": [],
+                        "file": "assemblies/Wheel.scad",
+                        "title": "Drive Wheel",
+                        "printed": [],
+                        "steps": [],
+                        "views": [],
+                        "level": 1,
+                        "assemblies": [],
+                        "qty": 2
+                    },
+                    {
+                        "call": "MarbleCasterAssembly()",
+                        "vitamins": [],
+                        "file": "assemblies/MarbleCaster.scad",
+                        "title": "Rear Caster",
+                        "printed": [],
+                        "steps": [],
+                        "views": [],
+                        "level": 1,
+                        "assemblies": [],
+                        "qty": 1
+                    }
+                ],
+                "qty": 1
             },
             {
-                "hash": "d129c2f46cf90835fdebe1e858c4322d",
+                "call": "BreadboardAssembly()",
                 "vitamins": [
                     {
                         "views": [],
@@ -510,13 +437,9 @@
                         "file": "vitamins/Breadboard.scad"
                     }
                 ],
-                "title": "Brain",
-                "assemblies": [],
-                "views": [],
-                "qty": 1,
-                "call": "BreadboardAssembly()",
-                "printed": [],
                 "file": "assemblies/Breadboard.scad",
+                "title": "Brain",
+                "printed": [],
                 "steps": [
                     {
                         "views": [
@@ -527,7 +450,6 @@
                                     218
                                 ],
                                 "dist": 316,
-                                "filepath": "../assemblies/images/Brain_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -546,35 +468,41 @@
                         "desc": "Push the Arduino onto the breadboard - make sure you position it correctly,                  as it's a tight fit with the Robot base!"
                     }
                 ],
-                "level": 2
+                "views": [],
+                "level": 2,
+                "assemblies": [],
+                "qty": 1
             },
             {
-                "hash": "fe3831665602222a14033cb159877ea1",
-                "vitamins": [],
-                "title": "Drive Wheel",
-                "assemblies": [],
-                "views": [],
-                "qty": 2,
                 "call": "WheelAssembly()",
-                "printed": [],
+                "vitamins": [],
                 "file": "assemblies/Wheel.scad",
+                "title": "Drive Wheel",
+                "printed": [
+                    {
+                        "views": [],
+                        "qty": 2,
+                        "call": "Wheel_STL()",
+                        "file": "assemblies/Wheel.scad",
+                        "title": "Wheel"
+                    }
+                ],
                 "steps": [
                     {
                         "views": [
                             {
                                 "rotate": [
                                     349,
-                                    125,
-                                    180
+                                    102,
+                                    178
                                 ],
-                                "dist": 415,
-                                "filepath": "../assemblies/images/DriveWheel_step1_view.png",
+                                "dist": 500,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    -0.4,
-                                    0.2,
-                                    0.7
+                                    0,
+                                    -3,
+                                    5
                                 ],
                                 "type": "view",
                                 "size": [
@@ -584,19 +512,28 @@
                             }
                         ],
                         "num": 1,
-                        "desc": "Push the wheel onto the motor shaft"
+                        "desc": "Push the wheel onto the motor shaft \n**Optional:** add a rubber band to wheel for extra grip."
                     }
                 ],
-                "level": 2
+                "views": [],
+                "level": 2,
+                "assemblies": [],
+                "qty": 2
             },
             {
-                "hash": "f95c135f4a3e8651c2ca30f0a8d9f698",
-                "vitamins": [],
-                "title": "Rear Caster",
-                "assemblies": [],
-                "views": [],
-                "qty": 1,
                 "call": "MarbleCasterAssembly()",
+                "vitamins": [
+                    {
+                        "views": [],
+                        "title": "16mm Marble",
+                        "qty": 1,
+                        "parts": [],
+                        "call": "Marble(Marble_16mm)",
+                        "file": "vitamins/Marble.scad"
+                    }
+                ],
+                "file": "assemblies/MarbleCaster.scad",
+                "title": "Rear Caster",
                 "printed": [
                     {
                         "views": [],
@@ -606,7 +543,6 @@
                         "title": "Caster Housing"
                     }
                 ],
-                "file": "assemblies/MarbleCaster.scad",
                 "steps": [
                     {
                         "views": [
@@ -617,7 +553,6 @@
                                     91
                                 ],
                                 "dist": 261,
-                                "filepath": "../assemblies/images/RearCaster_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -636,12 +571,14 @@
                         "desc": "Insert the marble into the printed housing"
                     }
                 ],
-                "level": 2
+                "views": [],
+                "level": 2,
+                "assemblies": [],
+                "qty": 1
             }
         ],
         "printed": [
             {
-                "hash": "d53d0377160f822ee6691f28a65cc16f",
                 "views": [
                     {
                         "rotate": [
@@ -651,7 +588,6 @@
                         ],
                         "dist": 681,
                         "title": "view",
-                        "filepath": "../printedparts/images/Base_view.png",
                         "caption": "view",
                         "translate": [
                             0,
@@ -665,27 +601,12 @@
                         ]
                     }
                 ],
-                "aabb": [
-                    [
-                        -69.921,
-                        -70.0,
-                        0.0
-                    ],
-                    [
-                        69.921,
-                        70.0,
-                        29.598
-                    ]
-                ],
-                "title": "Base",
                 "qty": 1,
-                "volume": 23419.601628019973,
-                "area": 26092.35756851982,
                 "call": "LogoBotBase_STL()",
-                "file": "assemblies/LogoBot.scad"
+                "file": "assemblies/LogoBot.scad",
+                "title": "Base"
             },
             {
-                "hash": "045fafe6175300810f9c00e71304d686",
                 "views": [
                     {
                         "rotate": [
@@ -695,7 +616,6 @@
                         ],
                         "dist": 336,
                         "title": "view",
-                        "filepath": "../printedparts/images/Wheel_view.png",
                         "caption": "view",
                         "translate": [
                             0,
@@ -709,27 +629,12 @@
                         ]
                     }
                 ],
-                "aabb": [
-                    [
-                        -30.0,
-                        -30.0,
-                        0.0
-                    ],
-                    [
-                        30.0,
-                        30.0,
-                        2.0
-                    ]
-                ],
-                "title": "Wheel",
                 "qty": 2,
-                "volume": 5645.785413720005,
-                "area": 6022.625090213241,
                 "call": "Wheel_STL()",
-                "file": "assemblies/Wheel.scad"
+                "file": "assemblies/Wheel.scad",
+                "title": "Wheel"
             },
             {
-                "hash": "2d71051333df8472818f1e9c111df5e7",
                 "views": [
                     {
                         "rotate": [
@@ -739,7 +644,6 @@
                         ],
                         "dist": 172,
                         "title": "view",
-                        "filepath": "../printedparts/images/CasterHousing_view.png",
                         "caption": "view",
                         "translate": [
                             1.4,
@@ -753,27 +657,12 @@
                         ]
                     }
                 ],
-                "aabb": [
-                    [
-                        -9.45856,
-                        -10.0,
-                        -16.0
-                    ],
-                    [
-                        9.45856,
-                        10.0,
-                        6.0
-                    ]
-                ],
-                "title": "Caster Housing",
                 "qty": 1,
-                "volume": 1495.875294889954,
-                "area": 1928.188472642046,
                 "call": "MarbleCaster_STL()",
-                "file": "assemblies/MarbleCaster.scad"
+                "file": "assemblies/MarbleCaster.scad",
+                "title": "Caster Housing"
             },
             {
-                "hash": "72d5cbc13b2fe696f7336cde7a58a4b0",
                 "views": [
                     {
                         "rotate": [
@@ -783,7 +672,6 @@
                         ],
                         "dist": 726,
                         "title": "view",
-                        "filepath": "../printedparts/images/BasicShell_view.png",
                         "caption": "view",
                         "translate": [
                             -2,
@@ -797,24 +685,10 @@
                         ]
                     }
                 ],
-                "aabb": [
-                    [
-                        -73.0,
-                        -73.0,
-                        -2.0
-                    ],
-                    [
-                        73.0,
-                        73.0,
-                        72.738
-                    ]
-                ],
-                "title": "Basic Shell",
                 "qty": 1,
-                "volume": 68643.51858940443,
-                "area": 69292.84531217143,
                 "call": "BasicShell_STL()",
-                "file": "assemblies/Shell.scad"
+                "file": "assemblies/Shell.scad",
+                "title": "Basic Shell"
             }
         ],
         "file": "LogoBot.scad",
@@ -828,7 +702,6 @@
                 ],
                 "dist": 749,
                 "title": "view",
-                "filepath": "../images/LogoBot_view.png",
                 "caption": "view",
                 "translate": [
                     5,
@@ -848,7 +721,7 @@
             },
             {
                 "type": "assembly",
-                "call": "LogoBotAssembly(PenLift=true)",
+                "call": "LogoBotAssembly(PenLift=false)",
                 "children": [
                     {
                         "type": "printed",
@@ -1057,16 +930,16 @@
                                             {
                                                 "rotate": [
                                                     349,
-                                                    125,
-                                                    180
+                                                    102,
+                                                    178
                                                 ],
-                                                "dist": 415,
+                                                "dist": 500,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    -0.4,
-                                                    0.2,
-                                                    0.7
+                                                    0,
+                                                    -3,
+                                                    5
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -1103,7 +976,7 @@
                                                 "title": "Wheel"
                                             }
                                         ],
-                                        "desc": "Push the wheel onto the motor shaft"
+                                        "desc": "Push the wheel onto the motor shaft \n**Optional:** add a rubber band to wheel for extra grip."
                                     }
                                 ],
                                 "file": "assemblies/Wheel.scad",
@@ -1120,16 +993,16 @@
                                             {
                                                 "rotate": [
                                                     349,
-                                                    125,
-                                                    180
+                                                    102,
+                                                    178
                                                 ],
-                                                "dist": 415,
+                                                "dist": 500,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    -0.4,
-                                                    0.2,
-                                                    0.7
+                                                    0,
+                                                    -3,
+                                                    5
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -1166,7 +1039,7 @@
                                                 "title": "Wheel"
                                             }
                                         ],
-                                        "desc": "Push the wheel onto the motor shaft"
+                                        "desc": "Push the wheel onto the motor shaft \n**Optional:** add a rubber band to wheel for extra grip."
                                     }
                                 ],
                                 "file": "assemblies/Wheel.scad",
@@ -1463,73 +1336,6 @@
                         "children": [
                             {
                                 "rotate": [
-                                    64,
-                                    1,
-                                    212
-                                ],
-                                "dist": 625,
-                                "title": "view",
-                                "caption": "view",
-                                "translate": [
-                                    -6,
-                                    7,
-                                    19
-                                ],
-                                "type": "view",
-                                "size": [
-                                    400,
-                                    300
-                                ]
-                            },
-                            {
-                                "type": "vitamin",
-                                "call": "MicroServo()",
-                                "children": [
-                                    {
-                                        "rotate": [
-                                            72,
-                                            0,
-                                            33
-                                        ],
-                                        "dist": 280,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            6.9,
-                                            13.6,
-                                            10.3
-                                        ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
-                                    },
-                                    {
-                                        "type": "part",
-                                        "call": "MicroServo_Body()",
-                                        "children": [],
-                                        "title": "MicroServo_Body"
-                                    },
-                                    {
-                                        "type": "part",
-                                        "call": "MicroServo_Spline()",
-                                        "children": [],
-                                        "title": "MicroServo_Spline"
-                                    }
-                                ],
-                                "file": "vitamins/MicroServo.scad",
-                                "title": "9g Micro Servo"
-                            }
-                        ],
-                        "desc": "Fit the pen lift assembly"
-                    },
-                    {
-                        "num": 11,
-                        "type": "step",
-                        "children": [
-                            {
-                                "rotate": [
                                     66,
                                     0,
                                     217
@@ -1618,10 +1424,6 @@
             {
                 "type": "file",
                 "file": "vitamins/Marble.scad"
-            },
-            {
-                "type": "file",
-                "file": "vitamins/MicroServo.scad"
             },
             {
                 "type": "file",
