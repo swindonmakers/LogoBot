@@ -82,9 +82,13 @@ def poll(un, pw, proxies):
                         }
                         r = requests.post(comments_url, auth=(un, pw), proxies=proxies, data=json.dumps(payload))
                     
+                        
+                    
                         # Discard any local changes
                         print("  Clean working tree")
-                        o = check_output(['git','checkout','--','.'])
+                        o = check_output(['git','reset'])
+                        o += check_output(['git','checkout','--','.'])
+                        o += check_output(['git','clean','-f'])
                         print(o)
                         oplog += "\nClean working tree\n"
                         oplog += o
@@ -113,7 +117,7 @@ def poll(un, pw, proxies):
                         print("  Merge branch: "+branch)
                         o = ''
                         try:
-                            o = check_output(['git','merge','origin/'+branch,'-m','"CI auto-merge"'])
+                            o = check_output(['git','merge','--strategy-option','theirs','--no-commit','origin/'+branch])
                             print(o)
                         except CalledProcessError as e:
                             print("  Error: "+ str(e.returncode))
