@@ -10,6 +10,7 @@ from assemblies import assemblies
 from vitamins import vitamins
 from printed import printed
 from guides import guides
+from publish import publish
 
 def build():
     print("Build")
@@ -38,6 +39,9 @@ def build():
 
     if errorlevel == 0:
         errorlevel += guides()
+        
+    if errorlevel == 0:
+        publish()
     
     
     # if everything is ok then delete backup - no longer required
