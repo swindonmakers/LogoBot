@@ -12,6 +12,8 @@ def fetch(doCommit):
     print("Fetch")
     print("-----")
     
+    os.chdir('..')
+    
     # checkout a bunch of stuff
     
     # the guide
@@ -33,6 +35,8 @@ def fetch(doCommit):
     if doCommit > 0:
         call(['git','commit','-a','-m','"auto fetch and commit"']);
         call(['git','push','origin','gh-pages']);
+        
+    os.chdir('ci')
         
 if __name__ == '__main__':
     if len(sys.argv) > 1:
