@@ -102,7 +102,7 @@ module LogoBotAssembly ( PenLift=false ) {
                 // TODO: Insert appropriate connectors
                 JumperWire(
                     type = JumperWire_FM4,
-                    con1 = [[34,43,10], [0,0,-1], 0,0,0],
+                    con1 = [[34,43,10], [0,0,-1], 0,0,0], // TODO: use ULN2003DriverBoard_Con_Arduino
                     con2 = [[11.5,31.5, -6], [0,0,-1], 0,0,0],
                     length = 70,
                     conVec1 = [1,0,0],
@@ -113,7 +113,7 @@ module LogoBotAssembly ( PenLift=false ) {
                 // TODO: Insert appropriate connectors
                 JumperWire(
                     type = JumperWire_FM4,
-                    con1 = [[-31.5,43,10], [0,0,-1], 0,0,0],
+                    con1 = [[-31.5,43,10], [0,0,-1], 0,0,0], // TODO: use ULN2003DriverBoard_Con_Arduino
                     con2 = [[-9,31.5, -6], [0,0,-1], 0,0,0],
                     length = 70,
                     conVec1 = [1,0,0],
