@@ -71,6 +71,15 @@ def poll(un, pw, proxies):
                 if not dict_in_array(prhist, 'number', p['number']):            
                     try:
                         errorlevel = 0
+                        
+                        comments_url = p['_links']['comments']['href']
+                        
+                        # comment
+                        payload = {
+                            'body':'CI: Starting build process...'
+                        }
+                        r = requests.post(comments_url, auth=(un, pw), proxies=proxies, data=json.dumps(payload))
+                        print(r.text)
                     
                         # Refresh the repo in staging (master branch)
                         print("  Reset staging")
@@ -100,7 +109,7 @@ def poll(un, pw, proxies):
                         
                         os.chdir('hardware/ci')
                         try:
-                            o = call(['./build.py'])
+                            o = check_output(['./build.py'])
                         except CalledProcessError as e:
                             print("  Error: "+ str(e.returncode))
                             errorlevel = 1
@@ -114,8 +123,7 @@ def poll(un, pw, proxies):
                             payload = {
                                 'body':'CI: Build process successful - auto-merging into master'
                             }
-                            r = requests.post('https://api.github.com/repos/'+repo_owner+'/'+repo_name+'/issues/'+str(p['number'])+'/comments', 
-                                              auth=(un, pw), proxies=proxies, data=json.dumps(payload))
+                            r = requests.post(comments_url, auth=(un, pw), proxies=proxies, data=json.dumps(payload))
                             print(r.text)
                             
                             # merge
@@ -135,8 +143,7 @@ def poll(un, pw, proxies):
                             payload = {
                                 'body':'CI: Unable to auto-merge, build process encountered errors'
                             }
-                            r = requests.post('https://api.github.com/repos/'+repo_owner+'/'+repo_name+'/issues/'+str(p['number'])+'/comments', 
-                                              auth=(un, pw), proxies=proxies, data=json.dumps(payload))
+                            r = requests.post(comments_url, auth=(un, pw), proxies=proxies, data=json.dumps(payload))
                             print(r.text)
                             
                         
