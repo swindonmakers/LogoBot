@@ -12,7 +12,7 @@ from printed import printed
 from guides import guides
 from publish import publish
 
-def build():
+def build(do_publish=0):
     print("Build")
     print("-----")
     
@@ -40,7 +40,7 @@ def build():
     if errorlevel == 0:
         errorlevel += guides()
         
-    if errorlevel == 0:
+    if errorlevel == 0 and do_publish > 0:
         publish()
     
     
@@ -51,4 +51,7 @@ def build():
     return errorlevel
 
 if __name__ == '__main__':
-    sys.exit(build())
+    if len(sys.argv) == 2:
+        sys.exit(build(sys.argv[1]))
+    else:
+        sys.exit(build(0))

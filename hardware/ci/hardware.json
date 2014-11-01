@@ -1,6 +1,6 @@
 [
     {
-        "hash": "2f2949363226e425e7ae414b5252ce1a",
+        "hash": "72ecc879fa08c41c7816f4d9740b1296",
         "vitamins": [
             {
                 "hash": "dfa6c6f544c665523ffc730fd294f604",
@@ -34,7 +34,7 @@
                 "file": "vitamins/Breadboard.scad"
             },
             {
-                "hash": "7bac2404db030f43264934cd34c47ea8",
+                "hash": "fd3764af0f3b95f97c57f7c836a4ef51",
                 "views": [
                     {
                         "rotate": [
@@ -43,7 +43,7 @@
                             29
                         ],
                         "dist": 438,
-                        "filepath": "../vitamins/images/JumperWireFemaletoMale4pin70mm_view.png",
+                        "filepath": "../vitamins/images/JumperWireFemaletoMale4pin100mm_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
@@ -58,10 +58,10 @@
                         ]
                     }
                 ],
-                "title": "JumperWire Female to Male 4pin 70mm",
+                "title": "JumperWire Female to Male 4pin 100mm",
                 "qty": 2,
                 "parts": [],
-                "call": "JumperWire(type=JumperWire_FM4, length=70)",
+                "call": "JumperWire(type=JumperWire_FM4, length=100)",
                 "file": "vitamins/JumperWire.scad"
             },
             {
@@ -99,18 +99,18 @@
         "title": "LogoBot",
         "assemblies": [
             {
-                "hash": "ed0b8a568c9a2f2aa31a9dce0e14a2d2",
+                "hash": "01008c1db3d7fda9cd57ae1d390dc7d0",
                 "vitamins": [
                     {
                         "views": [],
-                        "title": "JumperWire Female to Male 4pin 70mm",
+                        "title": "JumperWire Female to Male 4pin 100mm",
                         "qty": 2,
                         "parts": [],
-                        "call": "JumperWire(type=JumperWire_FM4, length=70)",
+                        "call": "JumperWire(type=JumperWire_FM4, length=100)",
                         "file": "vitamins/JumperWire.scad"
                     }
                 ],
-                "views": [],
+                "title": "Final Assembly",
                 "assemblies": [
                     {
                         "vitamins": [],
@@ -149,8 +149,26 @@
                         "level": 1
                     }
                 ],
-                "title": "Final Assembly",
+                "views": [],
                 "qty": 1,
+                "call": "LogoBotAssembly(PenLift=false)",
+                "printed": [
+                    {
+                        "views": [],
+                        "qty": 1,
+                        "call": "LogoBotBase_STL()",
+                        "file": "assemblies/LogoBot.scad",
+                        "title": "Base"
+                    },
+                    {
+                        "views": [],
+                        "qty": 1,
+                        "call": "BasicShell_STL()",
+                        "file": "assemblies/Shell.scad",
+                        "title": "Basic Shell"
+                    }
+                ],
+                "file": "assemblies/LogoBot.scad",
                 "steps": [
                     {
                         "views": [
@@ -276,6 +294,27 @@
                                     9,
                                     26,
                                     54
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "rotate": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "dist": 337,
+                                "filepath": "../assemblies/images/FinalAssembly_step5_plan.png",
+                                "title": "plan",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    32,
+                                    16
                                 ],
                                 "type": "view",
                                 "size": [
@@ -423,24 +462,6 @@
                         "desc": "Push the shell down onto the base and twist to lock into place"
                     }
                 ],
-                "printed": [
-                    {
-                        "views": [],
-                        "qty": 1,
-                        "call": "LogoBotBase_STL()",
-                        "file": "assemblies/LogoBot.scad",
-                        "title": "Base"
-                    },
-                    {
-                        "views": [],
-                        "qty": 1,
-                        "call": "BasicShell_STL()",
-                        "file": "assemblies/Shell.scad",
-                        "title": "Basic Shell"
-                    }
-                ],
-                "file": "assemblies/LogoBot.scad",
-                "call": "LogoBotAssembly(PenLift=false)",
                 "level": 0
             },
             {
@@ -455,10 +476,13 @@
                         "file": "vitamins/Breadboard.scad"
                     }
                 ],
-                "views": [],
-                "assemblies": [],
                 "title": "Brain",
+                "assemblies": [],
+                "views": [],
                 "qty": 1,
+                "call": "BreadboardAssembly()",
+                "printed": [],
+                "file": "assemblies/Breadboard.scad",
                 "steps": [
                     {
                         "views": [
@@ -488,18 +512,26 @@
                         "desc": "Push the Arduino onto the breadboard - make sure you position it correctly,                  as it's a tight fit with the Robot base!"
                     }
                 ],
-                "printed": [],
-                "file": "assemblies/Breadboard.scad",
-                "call": "BreadboardAssembly()",
                 "level": 2
             },
             {
-                "hash": "9b2de7767da593ed78225337a2f5884a",
+                "hash": "7f3c6a3edb3e55ffc39cf517ca781a8c",
                 "vitamins": [],
-                "views": [],
-                "assemblies": [],
                 "title": "Drive Wheel",
+                "assemblies": [],
+                "views": [],
                 "qty": 2,
+                "call": "WheelAssembly()",
+                "printed": [
+                    {
+                        "views": [],
+                        "qty": 2,
+                        "call": "Wheel_STL()",
+                        "file": "assemblies/Wheel.scad",
+                        "title": "Wheel"
+                    }
+                ],
+                "file": "assemblies/Wheel.scad",
                 "steps": [
                     {
                         "views": [
@@ -529,17 +561,6 @@
                         "desc": "Push the wheel onto the motor shaft \n**Optional:** add a rubber band to wheel for extra grip."
                     }
                 ],
-                "printed": [
-                    {
-                        "views": [],
-                        "qty": 2,
-                        "call": "Wheel_STL()",
-                        "file": "assemblies/Wheel.scad",
-                        "title": "Wheel"
-                    }
-                ],
-                "file": "assemblies/Wheel.scad",
-                "call": "WheelAssembly()",
                 "level": 2
             },
             {
@@ -554,10 +575,21 @@
                         "file": "vitamins/Marble.scad"
                     }
                 ],
-                "views": [],
-                "assemblies": [],
                 "title": "Rear Caster",
+                "assemblies": [],
+                "views": [],
                 "qty": 1,
+                "call": "MarbleCasterAssembly()",
+                "printed": [
+                    {
+                        "views": [],
+                        "qty": 1,
+                        "call": "MarbleCaster_STL()",
+                        "file": "assemblies/MarbleCaster.scad",
+                        "title": "Caster Housing"
+                    }
+                ],
+                "file": "assemblies/MarbleCaster.scad",
                 "steps": [
                     {
                         "views": [
@@ -587,17 +619,6 @@
                         "desc": "Insert the marble into the printed housing"
                     }
                 ],
-                "printed": [
-                    {
-                        "views": [],
-                        "qty": 1,
-                        "call": "MarbleCaster_STL()",
-                        "file": "assemblies/MarbleCaster.scad",
-                        "title": "Caster Housing"
-                    }
-                ],
-                "file": "assemblies/MarbleCaster.scad",
-                "call": "MarbleCasterAssembly()",
                 "level": 2
             }
         ],
@@ -647,7 +668,7 @@
                 "file": "assemblies/LogoBot.scad"
             },
             {
-                "hash": "c354ad5e69a5e3721e8107c51ca2f9ac",
+                "hash": "0e2e95675b84149b8876da9510ef962d",
                 "views": [
                     {
                         "rotate": [
@@ -1162,36 +1183,28 @@
                                 ]
                             },
                             {
-                                "type": "vitamin",
-                                "call": "JumperWire(type=JumperWire_FM4, length=70)",
-                                "children": [
-                                    {
-                                        "rotate": [
-                                            41,
-                                            0,
-                                            29
-                                        ],
-                                        "dist": 438,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            51,
-                                            5,
-                                            2
-                                        ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
-                                    }
+                                "rotate": [
+                                    0,
+                                    0,
+                                    0
                                 ],
-                                "file": "vitamins/JumperWire.scad",
-                                "title": "JumperWire Female to Male 4pin 70mm"
+                                "dist": 337,
+                                "title": "plan",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    32,
+                                    16
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
                             },
                             {
                                 "type": "vitamin",
-                                "call": "JumperWire(type=JumperWire_FM4, length=70)",
+                                "call": "JumperWire(type=JumperWire_FM4, length=100)",
                                 "children": [
                                     {
                                         "rotate": [
@@ -1215,7 +1228,35 @@
                                     }
                                 ],
                                 "file": "vitamins/JumperWire.scad",
-                                "title": "JumperWire Female to Male 4pin 70mm"
+                                "title": "JumperWire Female to Male 4pin 100mm"
+                            },
+                            {
+                                "type": "vitamin",
+                                "call": "JumperWire(type=JumperWire_FM4, length=100)",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to Male 4pin 100mm"
                             }
                         ],
                         "desc": "Connect the jumper wires between the motor drivers and the Arduino"
