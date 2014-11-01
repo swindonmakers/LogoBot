@@ -113,7 +113,7 @@ def poll(un, pw, proxies):
                         print("  Merge branch: "+branch)
                         o = ''
                         try:
-                            o = check_output(['git','merge','origin/'+branch],'-m','"CI auto-merge"')
+                            o = check_output(['git','merge','origin/'+branch,'-m','"CI auto-merge"'])
                             print(o)
                         except CalledProcessError as e:
                             print("  Error: "+ str(e.returncode))
