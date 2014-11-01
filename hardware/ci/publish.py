@@ -30,6 +30,9 @@ def publish():
         # switch to the gh-pages branch
         call(['git','checkout','gh-pages'])
         
+        # pull any remote changes
+        call(['git','pull','origin'])
+        
         # update the fetch script!
         call(["git","checkout","master","fetch.py"]);
     
