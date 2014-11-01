@@ -6,6 +6,7 @@
 import os
 import sys
 import requests
+import json
 from time import sleep, gmtime, strftime
 from subprocess import call, check_output, CalledProcessError
 
@@ -50,11 +51,11 @@ def poll(un, pw, proxies):
         
         r = requests.get('https://api.github.com/repos/'+repo_owner+'/'+repo_name+'/pulls', auth=(un, pw), proxies=proxies)
         
-        json = r.json()
+        jso = r.json()
         
-        print("  Found: "+str(len(json))+" pull request(s)")
+        print("  Found: "+str(len(jso))+" pull request(s)")
         
-        for p in json:
+        for p in jso:
             print("Checking: #"+str(p['number']) + " - "+ p['title'] + " by "+p['user']['login'])
             """
             print(p['body'])
@@ -109,6 +110,14 @@ def poll(un, pw, proxies):
                         if errorlevel == 0:
                             print("  Passed, auto-merging into master...")
                             
+                            # comment
+                            payload = {
+                                'body':'CI: Build process successful - auto-merging into master'
+                            }
+                            r = requests.post('https://api.github.com/repos/'+repo_owner+'/'+repo_name+'/issues/'+str(p['number'])+'/comments', 
+                                              auth=(un, pw), proxies=proxies, data=json.dumps(payload))
+                            print(r.text)
+                            
                             # merge
                             payload = {
                                 'base':'master',
@@ -124,7 +133,7 @@ def poll(un, pw, proxies):
                             
                             # log the error
                             payload = {
-                                'body':'Unable to auto-merge, build process encountered errors'
+                                'body':'CI: Unable to auto-merge, build process encountered errors'
                             }
                             r = requests.post('https://api.github.com/repos/'+repo_owner+'/'+repo_name+'/issues/'+str(p['number'])+'/comments', 
                                               auth=(un, pw), proxies=proxies, data=json.dumps(payload))

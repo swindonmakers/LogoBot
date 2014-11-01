@@ -12,30 +12,21 @@ def fetch(doCommit):
     print("Fetch")
     print("-----")
     
+    os.chdir('..')
+    
     # checkout a bunch of stuff
     
     # the guide
-    call(["git","checkout","master","*.md"]);
-    call(["git","checkout","master","*.htm"]);
-    
-    # bom
-    call(["git","checkout","master","bom/*.md"]);
+    call(["git","checkout","master","docs"]);
     
     # images
-    call(["git","checkout","master","images/*.png"]);
-    
-    # js
-    call(["git","checkout","master","js"]);
-    
-    # css
-    call(["git","checkout","master","css"]);
+    call(["git","checkout","master","images"]);
+    call(["git","checkout","master","assemblies/images"]);
+    call(["git","checkout","master","vitamins/images"]);
+    call(["git","checkout","master","printedparts/images"]);
     
     # stl
-    call(["git","checkout","master","stl/*.stl"]);
-    
-    # vitamins views
-    call(["git","checkout","master","vitamins/views/*.png"]);
-    
+    call(["git","checkout","master","printedparts/stl"]);
     
     # add anything else that's appeared
     call(["git","add","-A"]);
@@ -44,8 +35,8 @@ def fetch(doCommit):
     if doCommit > 0:
         call(['git','commit','-a','-m','"auto fetch and commit"']);
         call(['git','push','origin','gh-pages']);
-    
-    # copyall('./',target_dir, include=shutil.ignore_patterns('*.md', '*.js','*.png','*.css','*.htm','*.stl'))
+        
+    os.chdir('ci')
         
 if __name__ == '__main__':
     if len(sys.argv) > 1:

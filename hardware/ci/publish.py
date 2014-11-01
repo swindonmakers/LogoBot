@@ -29,6 +29,9 @@ def publish():
     
         # switch to the gh-pages branch
         call(['git','checkout','gh-pages'])
+        
+        # update the fetch script!
+        call(["git","checkout","master","fetch.py"]);
     
         # fun the fetch script
         call(['python','fetch.py','1'])
