@@ -27,7 +27,6 @@ Qty | Vitamin | Image
 1 | [Breadboard 170]() | ![](../vitamins/images/Breadboard170_view.png) | 
 2 | [JumperWire Female to Male 4pin 70mm]() | ![](../vitamins/images/JumperWireFemaletoMale4pin70mm_view.png) | 
 1 | [16mm Marble]() | ![](../vitamins/images/16mmMarble_view.png) | 
-1 | [9g Micro Servo]() | ![](../vitamins/images/9gMicroServo_view.png) | 
 
 ### Printed Parts
 
@@ -57,7 +56,8 @@ Qty | Vitamin | Image
 
 ### Assembly Steps
 
-1. Push the wheel onto the motor shaft
+1. Push the wheel onto the motor shaft 
+**Optional:** add a rubber band to wheel for extra grip.
 ![](../assemblies/images/DriveWheel_step1_view.png)
 
 
@@ -111,9 +111,7 @@ Qty | Name
 ![](../assemblies/images/FinalAssembly_step8_view.png)
 9. Push the caster assembly into the base so that it snaps into place
 ![](../assemblies/images/FinalAssembly_step9_view.png)
-10. Fit the pen lift assembly
+10. Push the shell down onto the base and twist to lock into place
 ![](../assemblies/images/FinalAssembly_step10_view.png)
-11. Push the shell down onto the base and twist to lock into place
-![](../assemblies/images/FinalAssembly_step11_view.png)
 
 
