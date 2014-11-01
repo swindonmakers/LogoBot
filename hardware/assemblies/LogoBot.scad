@@ -98,13 +98,14 @@ module LogoBotAssembly ( PenLift=false ) {
             step(5, 
                 "Connect the jumper wires between the motor drivers and the Arduino") {
                 view(t=[9,26,54], r=[38,0,161], d=766);
+                view(title="plan", t=[0,32,16], r=[0,0,0], d=337);
                 
                 // TODO: Insert appropriate connectors
                 JumperWire(
                     type = JumperWire_FM4,
                     con1 = [[34,43,7], [0,0,-1], 0,0,0], // TODO: use ULN2003DriverBoard_Con_Arduino
-                    con2 = [[11.5,31.5, -6], [0,0,-1], 0,0,0],
-                    length = 70,
+                    con2 = [[-9,24, -6], [0,0,-1], 0,0,0],
+                    length = 100,
                     conVec1 = [1,0,0],
                     conVec2 = [0,-1,0],
                     midVec = [0.5,-1,0]
@@ -114,11 +115,11 @@ module LogoBotAssembly ( PenLift=false ) {
                 JumperWire(
                     type = JumperWire_FM4,
                     con1 = [[-31.5,43,7], [0,0,-1], 0,0,0], // TODO: use ULN2003DriverBoard_Con_Arduino
-                    con2 = [[-9,31.5, -6], [0,0,-1], 0,0,0],
-                    length = 70,
+                    con2 = [[-9,34, -6], [0,0,-1], 0,0,0],
+                    length = 100,
                     conVec1 = [1,0,0],
                     conVec2 = [0,-1,0],
-                    midVec = [0,0,-1]
+                    midVec = [0,-1,-1]
                 );
             
             }

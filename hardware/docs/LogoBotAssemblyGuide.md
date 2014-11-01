@@ -25,7 +25,7 @@ Make sure you have all of the following parts before you begin.
 Qty | Vitamin | Image
 --- | --- | ---
 1 | [Breadboard 170]() | ![](../vitamins/images/Breadboard170_view.png) | 
-2 | [JumperWire Female to Male 4pin 70mm]() | ![](../vitamins/images/JumperWireFemaletoMale4pin70mm_view.png) | 
+2 | [JumperWire Female to Male 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoMale4pin100mm_view.png) | 
 1 | [16mm Marble]() | ![](../vitamins/images/16mmMarble_view.png) | 
 
 ### Printed Parts
@@ -93,7 +93,7 @@ Qty | Part Name | Image
 
 Qty | Vitamin | Image
 --- | --- | ---
-2 | [JumperWire Female to Male 4pin 70mm]() | ![](../vitamins/images/JumperWireFemaletoMale4pin70mm_view.png) | 
+2 | [JumperWire Female to Male 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoMale4pin100mm_view.png) | 
 
 ### Printed Parts
 
@@ -122,6 +122,7 @@ Qty | Name
 ![](../assemblies/images/FinalAssembly_step4_view.png)
 5. Connect the jumper wires between the motor drivers and the Arduino
 ![](../assemblies/images/FinalAssembly_step5_view.png)
+![](../assemblies/images/FinalAssembly_step5_plan.png)
 6. Clip in the battery pack
 ![](../assemblies/images/FinalAssembly_step6_view.png)
 7. Clip the LED into place
