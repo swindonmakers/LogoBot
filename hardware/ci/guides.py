@@ -62,7 +62,10 @@ def gen_bom(m):
 
 
 def gen_assembly(a):
-    md = '## '+a['title']+'\n\n'
+    md = '## '+a['title']
+    if a['qty'] > 1:
+        md += ' ('+str(a['qty'])+')'
+    md += '\n\n'
     
     # vitamins
     if len(a['vitamins']) > 0:

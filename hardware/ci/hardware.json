@@ -1,6 +1,6 @@
 [
     {
-        "hash": "90929f5fe3f0072e28445b8a4128c263",
+        "hash": "e6f2557bbb8683c50645389e21e7ac60",
         "vitamins": [
             {
                 "hash": "dfa6c6f544c665523ffc730fd294f604",
@@ -104,7 +104,16 @@
                 "title": "Final Assembly",
                 "assemblies": [
                     {
-                        "vitamins": [],
+                        "vitamins": [
+                            {
+                                "views": [],
+                                "title": "Breadboard 170",
+                                "qty": 1,
+                                "parts": [],
+                                "call": "Breadboard(Breadboard_170)",
+                                "file": "vitamins/Breadboard.scad"
+                            }
+                        ],
                         "views": [],
                         "assemblies": [],
                         "title": "Brain",
@@ -134,7 +143,15 @@
                         "title": "Rear Caster",
                         "qty": 1,
                         "steps": [],
-                        "printed": [],
+                        "printed": [
+                            {
+                                "views": [],
+                                "qty": 1,
+                                "call": "MarbleCaster_STL()",
+                                "file": "assemblies/MarbleCaster.scad",
+                                "title": "Caster Housing"
+                            }
+                        ],
                         "file": "assemblies/MarbleCaster.scad",
                         "call": "MarbleCasterAssembly()",
                         "level": 1

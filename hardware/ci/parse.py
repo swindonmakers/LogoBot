@@ -327,7 +327,7 @@ def add_assembly(jso, al, pl, vl, addSteps=True, addViews=True, addChildren=True
                 if tn == 'step':
                     for sc in c['children']:
                         if type(sc) is DictType and sc['type'] == 'assembly':
-                            add_assembly(sc, nal, npl, nvl, addSteps=False, addViews=False, addChildren=False, level=nextlevel) 
+                            add_assembly(sc, nal, npl, nvl, addSteps=False, addViews=False, addChildren=True, level=nextlevel) 
     
 
 def summarise_parts_for(jso, al, pl, vl, level=0):
