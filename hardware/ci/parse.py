@@ -24,6 +24,7 @@ def parse_machines():
     print("-----")
         
     # load backup.json - to read cache values
+    oldjso = None
     if os.path.isfile(oldfile):
         jf = open(oldfile,"r")
         oldjso = json.load(jf)
@@ -319,15 +320,26 @@ def add_assembly(jso, al, pl, vl, addSteps=True, addViews=True, addChildren=True
                     add_vitamin(c, nvl, addViews=False)
         
                 if tn == 'assembly':
-                    add_assembly(c, nal, addSteps=False, addViews=False, level=nextlevel)    
+                    add_assembly(c, nal, npl, nvl, addSteps=False, addViews=False, addChildren=False, level=nextlevel)    
         
                 if tn == 'printed':
                     add_printed(c, npl, addViews=False) 
                     
                 if tn == 'step':
                     for sc in c['children']:
-                        if type(sc) is DictType and sc['type'] == 'assembly':
-                            add_assembly(sc, nal, npl, nvl, addSteps=False, addViews=False, addChildren=False, level=nextlevel) 
+                        if type(sc) is DictType:
+                            tn2 = sc['type']
+        
+                            if tn2 == 'vitamin':
+                                add_vitamin(sc, nvl, addViews=False)
+        
+                            if tn2 == 'assembly':
+                                add_assembly(sc, nal, npl, nvl, addSteps=False, addViews=False, addChildren=False, level=nextlevel)   
+        
+                            if tn2 == 'printed':
+                                add_printed(sc, npl, addViews=False)
+                        
+                            
     
 
 def summarise_parts_for(jso, al, pl, vl, level=0):

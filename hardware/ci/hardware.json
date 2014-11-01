@@ -1,6 +1,6 @@
 [
     {
-        "hash": "2e90a226c71d51044e592680f1c1206e",
+        "hash": "2f2949363226e425e7ae414b5252ce1a",
         "vitamins": [
             {
                 "hash": "dfa6c6f544c665523ffc730fd294f604",
@@ -99,9 +99,18 @@
         "title": "LogoBot",
         "assemblies": [
             {
-                "hash": "0c6b1800c9c793206d914a908e497bd5",
-                "vitamins": [],
-                "title": "Final Assembly",
+                "hash": "ed0b8a568c9a2f2aa31a9dce0e14a2d2",
+                "vitamins": [
+                    {
+                        "views": [],
+                        "title": "JumperWire Female to Male 4pin 70mm",
+                        "qty": 2,
+                        "parts": [],
+                        "call": "JumperWire(type=JumperWire_FM4, length=70)",
+                        "file": "vitamins/JumperWire.scad"
+                    }
+                ],
+                "views": [],
                 "assemblies": [
                     {
                         "vitamins": [],
@@ -140,19 +149,8 @@
                         "level": 1
                     }
                 ],
-                "views": [],
+                "title": "Final Assembly",
                 "qty": 1,
-                "call": "LogoBotAssembly(PenLift=false)",
-                "printed": [
-                    {
-                        "views": [],
-                        "qty": 1,
-                        "call": "LogoBotBase_STL()",
-                        "file": "assemblies/LogoBot.scad",
-                        "title": "Base"
-                    }
-                ],
-                "file": "assemblies/LogoBot.scad",
                 "steps": [
                     {
                         "views": [
@@ -425,6 +423,24 @@
                         "desc": "Push the shell down onto the base and twist to lock into place"
                     }
                 ],
+                "printed": [
+                    {
+                        "views": [],
+                        "qty": 1,
+                        "call": "LogoBotBase_STL()",
+                        "file": "assemblies/LogoBot.scad",
+                        "title": "Base"
+                    },
+                    {
+                        "views": [],
+                        "qty": 1,
+                        "call": "BasicShell_STL()",
+                        "file": "assemblies/Shell.scad",
+                        "title": "Basic Shell"
+                    }
+                ],
+                "file": "assemblies/LogoBot.scad",
+                "call": "LogoBotAssembly(PenLift=false)",
                 "level": 0
             },
             {
@@ -439,13 +455,10 @@
                         "file": "vitamins/Breadboard.scad"
                     }
                 ],
-                "title": "Brain",
-                "assemblies": [],
                 "views": [],
+                "assemblies": [],
+                "title": "Brain",
                 "qty": 1,
-                "call": "BreadboardAssembly()",
-                "printed": [],
-                "file": "assemblies/Breadboard.scad",
                 "steps": [
                     {
                         "views": [
@@ -475,35 +488,35 @@
                         "desc": "Push the Arduino onto the breadboard - make sure you position it correctly,                  as it's a tight fit with the Robot base!"
                     }
                 ],
+                "printed": [],
+                "file": "assemblies/Breadboard.scad",
+                "call": "BreadboardAssembly()",
                 "level": 2
             },
             {
                 "hash": "9b2de7767da593ed78225337a2f5884a",
                 "vitamins": [],
-                "title": "Drive Wheel",
-                "assemblies": [],
                 "views": [],
+                "assemblies": [],
+                "title": "Drive Wheel",
                 "qty": 2,
-                "call": "WheelAssembly()",
-                "printed": [],
-                "file": "assemblies/Wheel.scad",
                 "steps": [
                     {
                         "views": [
                             {
                                 "rotate": [
                                     349,
-                                    125,
-                                    180
+                                    102,
+                                    178
                                 ],
-                                "dist": 415,
+                                "dist": 500,
                                 "filepath": "../assemblies/images/DriveWheel_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    -0.4,
-                                    0.2,
-                                    0.7
+                                    0,
+                                    -3,
+                                    5
                                 ],
                                 "type": "view",
                                 "size": [
@@ -516,26 +529,35 @@
                         "desc": "Push the wheel onto the motor shaft \n**Optional:** add a rubber band to wheel for extra grip."
                     }
                 ],
+                "printed": [
+                    {
+                        "views": [],
+                        "qty": 2,
+                        "call": "Wheel_STL()",
+                        "file": "assemblies/Wheel.scad",
+                        "title": "Wheel"
+                    }
+                ],
+                "file": "assemblies/Wheel.scad",
+                "call": "WheelAssembly()",
                 "level": 2
             },
             {
                 "hash": "f95c135f4a3e8651c2ca30f0a8d9f698",
-                "vitamins": [],
-                "title": "Rear Caster",
-                "assemblies": [],
-                "views": [],
-                "qty": 1,
-                "call": "MarbleCasterAssembly()",
-                "printed": [
+                "vitamins": [
                     {
                         "views": [],
+                        "title": "16mm Marble",
                         "qty": 1,
-                        "call": "MarbleCaster_STL()",
-                        "file": "assemblies/MarbleCaster.scad",
-                        "title": "Caster Housing"
+                        "parts": [],
+                        "call": "Marble(Marble_16mm)",
+                        "file": "vitamins/Marble.scad"
                     }
                 ],
-                "file": "assemblies/MarbleCaster.scad",
+                "views": [],
+                "assemblies": [],
+                "title": "Rear Caster",
+                "qty": 1,
                 "steps": [
                     {
                         "views": [
@@ -565,6 +587,17 @@
                         "desc": "Insert the marble into the printed housing"
                     }
                 ],
+                "printed": [
+                    {
+                        "views": [],
+                        "qty": 1,
+                        "call": "MarbleCaster_STL()",
+                        "file": "assemblies/MarbleCaster.scad",
+                        "title": "Caster Housing"
+                    }
+                ],
+                "file": "assemblies/MarbleCaster.scad",
+                "call": "MarbleCasterAssembly()",
                 "level": 2
             }
         ],
@@ -652,8 +685,8 @@
                 ],
                 "title": "Wheel",
                 "qty": 2,
-                "volume": 5645.785413720005,
-                "area": 6022.625090213241,
+                "volume": 5558.306987991505,
+                "area": 6139.501338479956,
                 "call": "Wheel_STL()",
                 "file": "assemblies/Wheel.scad"
             },
@@ -986,16 +1019,16 @@
                                             {
                                                 "rotate": [
                                                     349,
-                                                    125,
-                                                    180
+                                                    102,
+                                                    178
                                                 ],
-                                                "dist": 415,
+                                                "dist": 500,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    -0.4,
-                                                    0.2,
-                                                    0.7
+                                                    0,
+                                                    -3,
+                                                    5
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -1049,16 +1082,16 @@
                                             {
                                                 "rotate": [
                                                     349,
-                                                    125,
-                                                    180
+                                                    102,
+                                                    178
                                                 ],
-                                                "dist": 415,
+                                                "dist": 500,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    -0.4,
-                                                    0.2,
-                                                    0.7
+                                                    0,
+                                                    -3,
+                                                    5
                                                 ],
                                                 "type": "view",
                                                 "size": [

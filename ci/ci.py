@@ -89,10 +89,17 @@ def poll(un, pw, proxies):
                         oplog += "\nClean working tree\n"
                         oplog += o
                             
-                        print("  Pull master")
-                        o = check_output(['git','pull','origin','master'])
+                        print("  Remote update")
+                        o = check_output(['git','remote','update','-p'])
                         print(o)
-                        oplog += "\nPull master\n"
+                        oplog += "\nRemote Update\n"
+                        oplog += o
+                        
+                        # rebase to master
+                        print("  Merge fast-forward master")
+                        o = check_output(['git','merge','--ff-only','master'])
+                        print(o)
+                        oplog += "\nMerge fast-forward\n"
                         oplog += o
             
                         branch = p['head']['ref']
@@ -106,7 +113,7 @@ def poll(un, pw, proxies):
                         print("  Merge branch: "+branch)
                         o = ''
                         try:
-                            o = check_output(['git','merge','origin/'+branch])
+                            o = check_output(['git','merge','origin/'+branch,'-m','"CI auto-merge"'])
                             print(o)
                         except CalledProcessError as e:
                             print("  Error: "+ str(e.returncode))
