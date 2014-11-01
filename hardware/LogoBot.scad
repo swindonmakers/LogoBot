@@ -36,7 +36,7 @@ machine("LogoBot.scad","LogoBot") {
 
 ");
     
-    LogoBotAssembly(PenLift=true);
+    LogoBotAssembly(PenLift=false);
     
 }
 

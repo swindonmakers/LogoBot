@@ -85,11 +85,11 @@ module WheelAssembly( ) {
         }
     
         // STL
-        step(1, 
-                "Push the wheel onto the motor shaft") {
-            view(t=[-0.4, 0.2, 0.7], r=[349,125,180], d=415);
+        step(1,  "Push the wheel onto the motor shaft \n**Optional:** add a rubber band to wheel for extra grip.") {
+            view(t=[0, -3, 5], r=[349,102,178], d=500);
         
-            Wheel_STL();
+            attach([[0,0,0],[0,0,1],90,0,0], DefConUp, ExplodeSpacing=20)
+                Wheel_STL();
         }
     
 		
@@ -103,8 +103,28 @@ module Wheel_STL() {
 	
 	    view(t=[0, -1, -1], r=[49, 0, 25], d=336);
 	
-	    color(Level2PlasticColor)
-	        cylinder(r=WheelDiameter/2, h=WheelThickness, $fn=64);
+	    color(Level2PlasticColor) {
+            if (UseSTL) {
+                import(str(STLPath, "Wheel.stl"));
+            } else {
+                // Main wheel
+                rotate_extrude($fn=100)
+                translate ([MotorShaftDiameter / 2, 0, 0])
+                difference()
+                {
+                    square([(WheelDiameter - MotorShaftDiameter) / 2, WheelThickness]);
+
+                    translate([(WheelDiameter - MotorShaftDiameter) / 2 , WheelThickness / 2])
+                        circle(r = WheelThickness / 4);
+                }
+        
+                // Flats in center
+                for(i = [0:1])
+                    mirror([i, 0, 0])		
+                        translate([MotorShaftFlatThickness / 2, -MotorShaftDiameter / 2, 0])
+                            cube([MotorShaftDiameter / 2, MotorShaftDiameter, WheelThickness]);
+            }
+        }
 	    
 	}
 }

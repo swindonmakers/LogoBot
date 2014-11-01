@@ -6,6 +6,7 @@
 import os
 import sys
 import requests
+import json
 from time import sleep, gmtime, strftime
 from subprocess import call, check_output, CalledProcessError
 
@@ -50,11 +51,11 @@ def poll(un, pw, proxies):
         
         r = requests.get('https://api.github.com/repos/'+repo_owner+'/'+repo_name+'/pulls', auth=(un, pw), proxies=proxies)
         
-        json = r.json()
+        jso = r.json()
         
-        print("  Found: "+str(len(json))+" pull request(s)")
+        print("  Found: "+str(len(jso))+" pull request(s)")
         
-        for p in json:
+        for p in jso:
             print("Checking: #"+str(p['number']) + " - "+ p['title'] + " by "+p['user']['login'])
             """
             print(p['body'])
@@ -69,6 +70,8 @@ def poll(un, pw, proxies):
                 # check if we've done it before?
                 if not dict_in_array(prhist, 'number', p['number']):            
                     try:
+                        errorlevel = 0
+                    
                         # Refresh the repo in staging (master branch)
                         print("  Reset staging")
                         o = check_output(['git','reset','--hard','HEAD'])
@@ -77,35 +80,75 @@ def poll(un, pw, proxies):
                         o = check_output(['git','clean','-f','-d'])
                         print("  Pull master")
                         o = check_output(['git','pull','origin','master'])
-                        # print(o)
+                        print(o)
             
-                        # Checkout the pull request branch
                         branch = p['head']['ref']
-                        print("  Checkout pull request from: "+branch)
-                        o = check_output(['git','checkout','-B',branch,'origin/'+branch])
-                        # print(o)
-            
-                        # merge the pull request into master
-                        print("  Merge into master")
-                        o = check_output(['git','merge','master'])
-                        # print(o)
-            
+                        
+                        print("  Checkout master")
+                        o = check_output(['git','checkout','master'])
+                        print(o)
+                        
+                        print("  Merge branch: "+branch)
+                        try:
+                            o = check_output(['git','merge',branch])
+                            print(o)
+                        except CalledProcessError as e:
+                            print("  Error: "+ str(e.returncode))
+                        
                         # Now run the build process    
                         print("  Building")
                         
                         os.chdir('hardware/ci')
                         try:
-                            o = check_output(['./build.py'])
-                        except:
-                            print("  Error!")
+                            o = call(['./build.py'])
+                        except CalledProcessError as e:
+                            print("  Error: "+ str(e.returncode))
+                            errorlevel = 1
                         
                         os.chdir('../../')
+                
+                        if errorlevel == 0:
+                            print("  Passed, auto-merging into master...")
+                            
+                            # comment
+                            payload = {
+                                'body':'CI: Build process successful - auto-merging into master'
+                            }
+                            r = requests.post('https://api.github.com/repos/'+repo_owner+'/'+repo_name+'/issues/'+str(p['number'])+'/comments', 
+                                              auth=(un, pw), proxies=proxies, data=json.dumps(payload))
+                            print(r.text)
+                            
+                            # merge
+                            payload = {
+                                'base':'master',
+                                'head':p['merge_commit_sha'],
+                                'commit_message':p['title']
+                            }
+                            r = requests.post('https://api.github.com/repos/'+repo_owner+'/'+repo_name+'/merges', 
+                                              auth=(un, pw), proxies=proxies, data=json.dumps(payload))
+                            print(r.text)
+                        
+                        else:
+                            print("  Errors, adding to pull request comments...")
+                            
+                            # log the error
+                            payload = {
+                                'body':'CI: Unable to auto-merge, build process encountered errors'
+                            }
+                            r = requests.post('https://api.github.com/repos/'+repo_owner+'/'+repo_name+'/issues/'+str(p['number'])+'/comments', 
+                                              auth=(un, pw), proxies=proxies, data=json.dumps(payload))
+                            print(r.text)
+                            
+                        
+                            
                 
                         # Log this request so we don't process it again
                         hist = {'number':p['number'], 'updated_at':p['updated_at']}
                         prhist.append(hist)
-                        cilog.write(str(p['number']) + '_' + p['updated_at'] + '\n')
+                        cilog.write(str(p['number']) + '_' + p['updated_at'] + '_' + str(errorlevel)+'\n')
                         cilog.flush()
+                        
+                        print("  Done")
                 
                 
                     except CalledProcessError as e:
