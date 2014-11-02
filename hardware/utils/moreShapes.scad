@@ -14,13 +14,11 @@ module line(start, end, r) {
 	}
 }
 
-module roundedRect(size, radius, center=false, shell=0) {
-	x = size[0];
+module roundedSquare(size, radius, center=false, shell=0) {
+    x = size[0];
 	y = size[1];
-	z = size[2];
 	
-	translate([center?-x/2:0, center?-y/2:0, center?-z/2:0])
-	linear_extrude(height=z) 
+	translate([center?-x/2:0, center?-y/2:0, 0])
 	difference() {
 		hull() {
 			translate([radius, radius, 0])
@@ -52,6 +50,15 @@ module roundedRect(size, radius, center=false, shell=0) {
 		}
 		}
 	}
+}
+
+module roundedRect(size, radius, center=false, shell=0) {
+	z = size[2];
+	
+	translate([0, 0, center?-z/2:0])
+	    linear_extrude(height=z) 
+	    roundedSquare(size, radius, center, shell);
+	
 }
 
 module roundedRectX(size, radius, center=false, shell=0) {
@@ -217,9 +224,13 @@ module fillet(r, h) {
         }
 }
 
+module right_triangle_2d(width,height,center=true) {
+    polygon(points = [[0,0], [width, 0], [0, height]]);
+}
+
 module right_triangle(width, height, h, center = true) {
     linear_extrude(height = h, center = center)
-        polygon(points = [[0,0], [width, 0], [0, height]]);
+        right_triangle_2d(width,height,center=center);
 }
 
 module roundedRightTriangle(width, height, h, r=[1,1,1], center = true, $fn=12) {

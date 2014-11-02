@@ -3,17 +3,8 @@
 	Model of a stepper driver board.
 	Based on http://42bots.com/tutorials/28byj-48-stepper-motor-with-uln2003-driver-and-arduino-uno/
 	
-	Authors:
-		Robert Longbottom
-	
 	Local Frame: 
 		Centred on the bottom left mounting hole
-	
-	Parameters:
-		None
-		
-	Returns:
-		A Stepper Driver Board, rendered and colored
 */
 
 ULN2003Driver_BoardHeight = 35;
@@ -23,23 +14,32 @@ ULN2003Driver_HoleDia = 3;
 ULN2003Driver_HoleInset = 2.5;
 
 // Connectors
-ULN2003DriverBoard_Con_LowerLeft	= [ [0, 0, 0], [0, 0, 1], 0, ULN2003Driver_PCBThickness, ULN2003Driver_HoleDia];
-ULN2003DriverBoard_Con_LowerRight	= [ [ULN2003Driver_BoardWidth - 2 * ULN2003Driver_HoleInset, 0, 0], [0, 0, 1], 0, ULN2003Driver_PCBThickness, ULN2003Driver_HoleDia];
-ULN2003DriverBoard_Con_UpperLeft	= [ [0, ULN2003Driver_BoardHeight - 2 * ULN2003Driver_HoleInset, 0], [0, 0, 1], 0, ULN2003Driver_PCBThickness, ULN2003Driver_HoleDia];
-ULN2003DriverBoard_Con_UpperRight	= [ [ULN2003Driver_BoardWidth - 2 * ULN2003Driver_HoleInset, ULN2003Driver_BoardHeight - 2 * ULN2003Driver_HoleInset, 0], [0, 0, 1], 0, ULN2003Driver_PCBThickness, ULN2003Driver_HoleDia];
+ULN2003DriverBoard_Con_LowerLeft	= [ [0, 0, 0], [0, 0, -1], 0, ULN2003Driver_PCBThickness, ULN2003Driver_HoleDia];
+ULN2003DriverBoard_Con_LowerRight	= [ [ULN2003Driver_BoardWidth - 2 * ULN2003Driver_HoleInset, 0, 0], [0, 0, -1], 0, ULN2003Driver_PCBThickness, ULN2003Driver_HoleDia];
+ULN2003DriverBoard_Con_UpperLeft	= [ [0, ULN2003Driver_BoardHeight - 2 * ULN2003Driver_HoleInset, 0], [0, 0, -1], 0, ULN2003Driver_PCBThickness, ULN2003Driver_HoleDia];
+ULN2003DriverBoard_Con_UpperRight	= [ [ULN2003Driver_BoardWidth - 2 * ULN2003Driver_HoleInset, ULN2003Driver_BoardHeight - 2 * ULN2003Driver_HoleInset, 0], [0, 0, -1], 0, ULN2003Driver_PCBThickness, ULN2003Driver_HoleDia];
+
+ULN2003DriverBoard_Con_Stepper		= [ [4 - ULN2003Driver_HoleInset, 22 - ULN2003Driver_HoleInset, ULN2003Driver_PCBThickness + 2.25], [0, 0, 1], 0, 0 ];
+ULN2003DriverBoard_Con_Arduino		= [ [6 - ULN2003Driver_HoleInset, 6 - ULN2003Driver_HoleInset, ULN2003Driver_PCBThickness + 2.25], [0, 0, 1], 0, 0 ];
+ULN2003DriverBoard_Con_Power		= [ [24.5 - ULN2003Driver_HoleInset, 9 - ULN2003Driver_HoleInset, ULN2003Driver_PCBThickness + 2.25], [0, 0, 1], 90, 0 ];
+
+ULN2003DriverBoard_Cons = [
+	ULN2003DriverBoard_Con_LowerLeft, 
+	ULN2003DriverBoard_Con_LowerRight, 
+	ULN2003DriverBoard_Con_UpperLeft,
+	ULN2003DriverBoard_Con_UpperRight,
+	ULN2003DriverBoard_Con_Stepper,
+	ULN2003DriverBoard_Con_Arduino,
+	ULN2003DriverBoard_Con_Power
+];
 
 module ULN2003DriverBoard() {
 
-	if (DebugCoordinateFrames) {
-		frame();
-	}
+	if (DebugCoordinateFrames) frame();
 	
-	if (DebugConnectors) {
-		connector(ULN2003DriverBoard_Con_LowerLeft);
-		connector(ULN2003DriverBoard_Con_LowerRight);
-		connector(ULN2003DriverBoard_Con_UpperLeft);
-		connector(ULN2003DriverBoard_Con_UpperRight);
-	} 
+	if (DebugConnectors)
+		for (c = ULN2003DriverBoard_Cons)
+			connector(c);
 
 	// offset origin to bottom left
 	translate([(ULN2003Driver_BoardWidth / 2) - ULN2003Driver_HoleInset, (ULN2003Driver_BoardHeight / 2) - ULN2003Driver_HoleInset, 0])
@@ -66,9 +66,8 @@ module ULN2003DriverBoard() {
 				cube([20, 10, 8]);
 	
 			// Arduino header
-			color("darkgrey")
-			translate([5, 4.5, ULN2003Driver_PCBThickness - eta])
-				cube([10, 3, 15]);
+			translate([6, 6, ULN2003Driver_PCBThickness - eta])
+				PcbPinStrip(4);
 	
 			// Stepper Connection
 			color("white")
@@ -78,23 +77,57 @@ module ULN2003DriverBoard() {
 					translate([1, 1, 1])
 						cube([13.5, 4, 8]);
 				}
+			translate([4, 22, ULN2003Driver_PCBThickness - eta])
+				PcbPinStrip(5, 0, false);
 	
 			// Power & On/Off Jumper
-			color("darkgrey")
-			translate([23, 8, ULN2003Driver_PCBThickness - eta])
-				cube([3, 10, 15]);
+			translate([24.5, 9, ULN2003Driver_PCBThickness - eta])
+				PcbPinStrip(4, 90);
 	
 			// LEDS
-			color("red")
-			{
-				translate([6, 29, ULN2003Driver_PCBThickness - eta])
-					LED();
-				translate([10, 29, ULN2003Driver_PCBThickness - eta])
-					LED();
-				translate([14.5, 29, ULN2003Driver_PCBThickness - eta])
-					LED();
-				translate([19, 29, ULN2003Driver_PCBThickness - eta])
-					LED();
+			translate([6, 29, ULN2003Driver_PCBThickness - eta])
+				LED_3mm();
+			translate([10, 29, ULN2003Driver_PCBThickness - eta])
+				LED_3mm();
+			translate([14.5, 29, ULN2003Driver_PCBThickness - eta])
+				LED_3mm();
+			translate([19, 29, ULN2003Driver_PCBThickness - eta])
+				LED_3mm();
+		}
+	}
+}
+
+module PcbPinStrip(numPins = 4, a = 0, spacers = true)
+{
+    // Standard PCB header pin
+    pcbholepitch        = 2.54;         // spacing of PCB holes
+    holediameter        = 1.25;         // diameter of PCB hole
+    pinheight           =   11;         // length of PCB pins
+    pinoffset           =    3;         // offset of PCB pins
+    pinwidth            = 0.63;         // width/gauge of PCB pins
+    spacerwidth         = 2.25;         // height of breakaway pin frame
+    spacerheight        = 2.25;         // height of breakaway pin frame
+
+	rotate(a = a)
+	for (i = [0 : numPins - 1]) {
+		translate([i * pcbholepitch, 0, 0]) {
+			// Header Pins
+			color("white")
+			translate([0, 0, -pinoffset])
+			linear_extrude(pinheight)
+				square(pinwidth, center = true);
+
+			if (spacers) {
+				// Pin Spacers
+				color(Grey20)
+				linear_extrude(spacerheight)
+					square(spacerwidth, center = true);
+
+				// Break-Away Material
+				color(Grey20)
+				translate([pcbholepitch/2, 0, 0])
+				linear_extrude(spacerheight)
+					square([pcbholepitch - spacerwidth, spacerwidth * 0.85], center = true);
 			}
 		}
 	}

@@ -12,6 +12,8 @@
 include <../assemblies/Breadboard.scad>
 include <../assemblies/MarbleCaster.scad>
 include <../assemblies/Wheel.scad>
+include <../assemblies/Shell.scad>
 
 // this one goes last!
 include <../assemblies/LogoBot.scad>
+

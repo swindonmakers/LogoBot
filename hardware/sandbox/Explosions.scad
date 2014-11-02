@@ -2,9 +2,6 @@
 
 include <../config/config.scad>
 
-include <../vitamins/Bolt.scad>
-include <../vitamins/Breadboard.scad>
-
 
 DebugCoordinateFrame = false;
 DebugConnectors = false;
@@ -20,8 +17,8 @@ attach(
     
     // put the screws in
     attach(Breadboard_Con_BottomLeft(Breadboard_170), ScrewCon)
-        HexHeadScrew();
+        Bolt(M3Cap);
 
     attach(Breadboard_Con_BottomRight(Breadboard_170), ScrewCon)
-        HexHeadScrew();
+        Bolt(M3Cap);
 }

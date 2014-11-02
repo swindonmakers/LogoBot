@@ -62,6 +62,10 @@ module connector(c,clr="Gray")
     color(clr) vector(unitv(v)*6, l_arrow=2, mark=true);
 }
 
+function invertVector(v) = v * -1;
+
+function invertConnector(a) = [a[0], invertVector(a[1]), a[2], a[3], a[4]];
+function offsetConnector(a, o) = [[a[0][0]+o[0], a[0][1]+o[1], a[0][2]+o[2]], a[1], a[2], a[3], a[4]];
 
 //-------------------------------------------------------------------------
 //--  ATTACH OPERATOR
@@ -76,7 +80,7 @@ module attach(a,b, Invert=false, ExplodeSpacing = 10)
 {
   //-- Get the data from the connectors
   pos1 = a[0];  //-- Attachment point. Main part
-  v    = Invert ? [-a[1][0], -a[1][1], -a[1][2]] : a[1];  //-- Attachment axis. Main part
+  v    = Invert ? invertVector(a[1]) : a[1];  //-- Attachment axis. Main part
   roll = a[2];  //-- Rolling angle
   
   pos2 = b[0];  //-- Attachment point. Attachable part
@@ -109,7 +113,7 @@ module attach(a,b, Invert=false, ExplodeSpacing = 10)
                 
             if ($Explode) {
 		        // show attachment axis
-		        color([0,0,0, 0.5])
+		        color([1,0,0, 0.8])
 		            translate(-vref * ExplodeSpacing)
 		            vector(vref * ExplodeSpacing, l=abs(ExplodeSpacing), l_arrow=2, mark=false);
 		    }
@@ -118,20 +122,8 @@ module attach(a,b, Invert=false, ExplodeSpacing = 10)
 
 
 module attachWithOffset(a,b,o, Invert=false, ExplodeSpacing = 10) {
-	// offsets attachment point on a by o
-	
-	newa = [
-		[
-			a[0][0] + o[0],
-			a[0][1] + o[1],
-			a[0][2] + o[2]
-		],
-		a[1],
-		a[2]
-	];
-	
 	for (i=[0:$children-1])
-		attach(newa,b, Invert, ExplodeSpacing) children(i);
+		attach(offsetConnector(a,o), b, Invert=Invert, ExplodeSpacing=ExplodeSpacing) children(i);
 }
   
 
