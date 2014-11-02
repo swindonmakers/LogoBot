@@ -1,11 +1,13 @@
-# LogoBot
+# LogoBot Scribbler
 # Assembly Guide
 
-![view](../images/LogoBot_view.png)
+![view](../images/LogoBotScribbler_view.png)
 
 ## Introduction
 
-The LogoBot build is broken down into sub-assemblies that can be worked on sequentially by one person, or in parallel if there is more than one person building.
+The LogoBot Scribbler build is broken down into sub-assemblies that can be worked on sequentially by one person, or in parallel if there is more than one person building.
+
+You'll also need a laptop with the right software to control the finished robot
 
 ### General Build Tips
 
@@ -26,6 +28,7 @@ Qty | Vitamin | Image
 1 | [Breadboard 170]() | ![](../vitamins/images/Breadboard170_view.png) | 
 2 | [JumperWire Female to Male 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoMale4pin100mm_view.png) | 
 1 | [16mm Marble]() | ![](../vitamins/images/16mmMarble_view.png) | 
+1 | [9g Micro Servo]() | ![](../vitamins/images/9gMicroServo_view.png) | 
 
 ### Printed Parts
 
@@ -93,6 +96,7 @@ Qty | Part Name | Image
 Qty | Vitamin | Image
 --- | --- | ---
 2 | [JumperWire Female to Male 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoMale4pin100mm_view.png) | 
+1 | [9g Micro Servo]() | ![](../vitamins/images/9gMicroServo_view.png) | 
 
 ### Printed Parts
 
@@ -130,7 +134,9 @@ Qty | Name
 ![](../assemblies/images/FinalAssembly_step8_view.png)
 9. Push the caster assembly into the base so that it snaps into place
 ![](../assemblies/images/FinalAssembly_step9_view.png)
-10. Push the shell down onto the base and twist to lock into place
+10. Fit the pen lift assembly
 ![](../assemblies/images/FinalAssembly_step10_view.png)
+11. Push the shell down onto the base and twist to lock into place
+![](../assemblies/images/FinalAssembly_step11_view.png)
 
 
