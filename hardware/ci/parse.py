@@ -9,6 +9,7 @@ import re
 import json
 import jsontools
 import openscad
+import syntax
 from types import *
 
 def parse_machines():
@@ -49,10 +50,15 @@ def parse_machines():
                 js += ', '
             
             s = ''
-            try:
-                s = parse_machine(scadfile, logfile, errorfile)
-            except:
-                errorlevel = 1
+            
+            syn = syntax.check_syntax(scadfile,0)
+            if syn['errorLevel'] > 0:
+                errorlevel = syn['errorLevel']
+            else:
+                try:
+                    s = parse_machine(scadfile, logfile, errorfile)
+                except:
+                    errorlevel = 1
             
             if (s > ''):
                 js += s
@@ -92,7 +98,7 @@ def parse_machines():
         
 
 def parse_machine(scadfile, logfile, errorfile):
-    openscad.run('-o','dummy.csg',scadfile);
+    openscad.run('-D','$ShowBOM=true','-o','dummy.csg',scadfile);
     
     js = ''
     
@@ -241,7 +247,7 @@ def add_steps_for(jso, o):
 
 
 def add_vitamin(jso, vl, addViews=True, addParts=True):
-    print("  Vitamin: "+jso['title'])
+    #print("  Vitamin: "+jso['title'])
     
     vfound = None
     for v in vl:
@@ -262,7 +268,7 @@ def add_vitamin(jso, vl, addViews=True, addParts=True):
     
     
 def add_printed(jso, pl, addViews=True):
-    print("  Printed Part: "+jso['title'])
+    #print("  Printed Part: "+jso['title'])
     
     pfound = None
     for p in pl:
@@ -281,8 +287,8 @@ def add_printed(jso, pl, addViews=True):
     
     
 def add_assembly(jso, al, pl, vl, addSteps=True, addViews=True, addChildren=True, level=0):
-    print("  Assembly: "+jso['title'])
-    print("    Level: "+str(level))
+    #print("  Assembly: "+jso['title'])
+    #print("    Level: "+str(level))
     
     afound = None
     for a in al:

@@ -106,55 +106,22 @@ def render_view_using_file(obj_title, scadfile, dir, view, hashchanged):
 
 
 def render_view(obj_title, obj_call, dir, view, hashchanged):
-    png_name = dir + '/' + view_filename(obj_title + '_'+view['title'])
-    
-    view['filepath'] = png_name
-    
     temp_name = 'temp.scad'
-                        
-    if (not os.path.isfile(png_name) or (hashchanged)):            
-        print("        Updating: "+png_name)
-
-        # Up-sample images
-        w = view['size'][0] * 2
-        h = view['size'][1] * 2
-
-        dx = float(view['translate'][0])
-        dy = float(view['translate'][1])
-        dz = float(view['translate'][2])
-
-        rx = float(view['rotate'][0])
-        ry = float(view['rotate'][1])
-        rz = float(view['rotate'][2])
-
-        d = float(view['dist'])
-        camera = "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f" % (dx, dy, dz, rx, ry, rz, d)
-
-
-        # make a file to use the module
-        #
-        f = open(temp_name, "w")
-        f.write("include <../config/config.scad>\n")
-        f.write("UseSTL=true;\n");
-        f.write("UseVitaminSTL=true;\n");
-        f.write("DebugConnectors=false;\n");
-        f.write("DebugCoordinateFrames=false;\n");
-        f.write(obj_call + ";\n");
-        f.close()
-                       
-        openscad.run(                            
-                    "--imgsize=%d,%d" % (w, h),
-                    "--projection=p",
-                    "--camera=" + camera,
-                    "-o", png_name, 
-                    temp_name)
     
-        polish(png_name, w/2, h/2)
-        print
-
-        os.remove(temp_name)
-    else:
-        print("        View up to date")
+    # make a file to use the module
+    #
+    f = open(temp_name, "w")
+    f.write("include <../config/config.scad>\n")
+    f.write("UseSTL=true;\n");
+    f.write("UseVitaminSTL=true;\n");
+    f.write("DebugConnectors=false;\n");
+    f.write("DebugCoordinateFrames=false;\n");
+    f.write(obj_call + ";\n");
+    f.close()
+    
+    render_view_using_file(obj_title, temp_name, dir, view, hashchanged)
+    
+    os.remove(temp_name)
 
 
 def views(force_update):

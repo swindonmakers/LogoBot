@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+</head>
+  <body>
+    
+    <div id="mdcontent">
+        <h1>LogoBot Documentation</h1>
+    
+        <h2>Assembly Guides</h2>
+        <p>Guides for each of the LogoBot variants:</p>
+        <ul>
+        {{#guides}}
+            <li><a href="{{htmfilename}}">{{title}}</a></li>
+        {{/guides}}
+        </ul>
+    </div>
+    
+  </body>
+</html>

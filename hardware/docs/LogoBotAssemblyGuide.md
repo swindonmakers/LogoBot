@@ -1,4 +1,5 @@
-# LogoBot Assembly Guide
+# LogoBot
+# Assembly Guide
 
 ![view](../images/LogoBot_view.png)
 
@@ -6,15 +7,13 @@
 
 The LogoBot build is broken down into sub-assemblies that can be worked on sequentially by one person, or in parallel if there is more than one person building.
 
-All the diagrams can be viewed in OpenSCAD allowing real time zooming, rotating and panning to get the best view.
-
 ### General Build Tips
 
-* X if left/right, Y is backwards/forwards, Z is up.down
+* X if left/right, Y is forwards/backwards, Z is up.down
 
 ### Tools Required
 
-* Screwdriver ?
+* None so far!
 
 ## Bill of Materials
 
