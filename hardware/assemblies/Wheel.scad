@@ -153,8 +153,8 @@ module WheelModel()
 		MotorShaftSlot();
 	}
 
+	render()
 	difference() {
-		render()
 		linear_extrude(6) // = motor_shaft_h - a bit?
 		difference() {
 			// Center Hub
