@@ -5,6 +5,7 @@
 //-- This is a component of the obiscad opescad tools by Obijuan
 //-- (C) Juan Gonzalez-Gomez (Obijuan)
 //-- Sep-2012
+//-- Extended by Damian Axford
 //---------------------------------------------------------------
 //-- Released under the GPL license
 //---------------------------------------------------------------
@@ -125,7 +126,83 @@ module attachWithOffset(a,b,o, Invert=false, ExplodeSpacing = 10) {
 	for (i=[0:$children-1])
 		attach(offsetConnector(a,o), b, Invert=Invert, ExplodeSpacing=ExplodeSpacing) children(i);
 }
-  
+
+
+
+// --------------------------------------
+// Matrix equivalent of the attach module
+// --------------------------------------
+
+function attachV(a,b, Invert=false) = 
+    Invert ? invertVector(a[1]) : a[1];
+
+function attachRAxis(a,b,Invert=false) =
+    attachV(a,b,Invert)[0]==b[1][0] && attachV(a,b,Invert)[1]==b[1][1] ? [0,1,0] : cross(b[1],attachV(a,b,Invert));
+
+function attachMatrix(a,b, Invert=false, ExplodeSpacing=10) = 
+    translate(a[0]) *
+    rotate(
+        a=a[2], 
+        v=attachV(a,b,Invert), 
+        normV=false
+    ) *
+    rotate(
+        a=anglev(b[1], attachV(a,b,Invert)), 
+        v=attachRAxis(a,b,Invert), 
+        normV=false
+    ) *
+    translate(-b[0]) *
+    translate([0,0, $Explode ? -b[1][2] * ExplodeSpacing : 0])
+    ;
+
+// --------------------------------------
+// Functions to calc chained connectors
+// --------------------------------------
+
+function V3to4(v) = [v[0], v[1], v[2], 1];
+function V4to3(v) = [v[0], v[1], v[2]];
+
+
+function MatrixRotOnly(m) = [
+    [m[0][0], m[0][1], m[0][2], 0],
+    [m[1][0], m[1][1], m[1][2], 0],
+    [m[2][0], m[2][1], m[2][2], 0],
+    [0, 0, 0, 1]
+];
+
+// c1 = parent connector used in attach
+// c2 = child connector used in attach
+// c3 = target connector (in child coord frame)
+function attachedConnector(c1, c2, c3) = 
+    [
+        attachedTranslation(c1,c2,c3),
+        attachedDirection(c1,c2,c3),
+        0,
+        c3[3],
+        c3[4]
+    ]
+;
+
+// c1 = parent connector used in attach
+// c2 = child connector used in attach
+// c3 = target connector (in child coord frame)
+function attachedTranslation(c1, c2, c3, v=[0,0,0]) = 
+    V4to3(attachMatrix(c1,c2, $Explode=false) * V3to4(c3[0]))
+;
+
+// c1 = parent connector used in attach
+// c2 = child connector used in attach
+// c3 = target connector (in child coord frame)
+function attachedDirection(c1, c2, c3, v=[0,0,-1]) = 
+    V4to3(MatrixRotOnly(attachMatrix(c1,c2, $Explode=false)) * V3to4(c3[1]))
+;
+
+
+// --------------------------------------
+// Utilities
+// --------------------------------------
+
+
 
 // threads along neg z axis, starting at z=0 with first part
 // up to 12 children

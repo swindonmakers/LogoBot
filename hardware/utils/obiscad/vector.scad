@@ -3,6 +3,7 @@
 //-- This is a component of the obiscad opescad tools by Obijuan
 //-- (C) Juan Gonzalez-Gomez (Obijuan)
 //-- Sep-2012
+//-- Extended by Damian Axford
 //---------------------------------------------------------------
 //-- Released under the GPL license
 //---------------------------------------------------------------

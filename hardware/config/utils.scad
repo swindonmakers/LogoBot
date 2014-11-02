@@ -7,6 +7,8 @@
 
 // Dependent libraries
 
+include <../utils/surfacesolids/maths.scad>
+include <../utils/transformationMatrices.scad>
 include <../utils/assemblies.scad>
 include <../utils/obiscad/vector.scad>
 include <../utils/obiscad/attach.scad>

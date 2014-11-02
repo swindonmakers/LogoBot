@@ -23,8 +23,8 @@
 
 LogoBot_Con_Breadboard          = [[0, 12, 0],[0,0,-1], -90,0,0];
 
-LogoBot_Con_LeftMotorDriver     = [[-20, 16, 3],[0,0,1],180,0,0];
-LogoBot_Con_RightMotorDriver    = [[20, 16, 3],[0,0,1],180,0,0];
+LogoBot_Con_LeftMotorDriver     = [[-20, 16, 3],[0,0,-1],180,0,0];
+LogoBot_Con_RightMotorDriver    = [[20, 16, 3],[0,0,-1],180,0,0];
 
 LogoBot_Con_Caster = [ [0, -BaseDiameter/2 + 10, 0], [0,0,1], 0, 0, 0];
 
@@ -69,11 +69,11 @@ module LogoBotAssembly ( PenLift=false ) {
             step(3, "Push the two motor drivers onto the mounting posts") {
                 view(t=[-6,7,19], r=[64,1,212], d=625);
                 // Left Motor Driver
-                attach(LogoBot_Con_LeftMotorDriver, invertConnector(ULN2003DriverBoard_Con_UpperLeft), ExplodeSpacing=-20)
+                attach(LogoBot_Con_LeftMotorDriver, ULN2003DriverBoard_Con_UpperLeft, ExplodeSpacing=-20)
                     ULN2003DriverBoard();
         
                 // Right Motor Driver
-                attach(LogoBot_Con_RightMotorDriver, invertConnector(ULN2003DriverBoard_Con_UpperRight), ExplodeSpacing=-20)
+                attach(LogoBot_Con_RightMotorDriver, ULN2003DriverBoard_Con_UpperRight, ExplodeSpacing=-20)
                     ULN2003DriverBoard();
             }
     
@@ -100,26 +100,52 @@ module LogoBotAssembly ( PenLift=false ) {
                 view(t=[9,26,54], r=[38,0,161], d=766);
                 view(title="plan", t=[0,32,16], r=[0,0,0], d=337);
                 
-                // TODO: Insert appropriate connectors
+                // Left
                 JumperWire(
                     type = JumperWire_FM4,
-                    con1 = [[34,43,7], [0,0,-1], 0,0,0], // TODO: use ULN2003DriverBoard_Con_Arduino
-                    con2 = [[-9,24, -6], [0,0,-1], 0,0,0],
+                    con1 = attachedConnector(
+                        LogoBot_Con_LeftMotorDriver, 
+                        ULN2003DriverBoard_Con_UpperLeft,
+                        ULN2003DriverBoard_Con_Arduino,
+                        $Explode=false
+                    ), 
+                    con2 = attachedConnector(
+                        LogoBot_Con_Breadboard, 
+                        Breadboard_Con_BottomLeft(Breadboard_170),
+                        Breadboard_Con_Pin(Breadboard_170, along=6, across=8),
+                        $Explode=false
+                    ),
                     length = 100,
-                    conVec1 = [1,0,0],
+                    conVec1 = attachedDirection(
+                        LogoBot_Con_LeftMotorDriver, 
+                        ULN2003DriverBoard_Con_UpperLeft, 
+                        [0,[1,0,0]]),
                     conVec2 = [0,-1,0],
                     midVec = [0.5,-1,0]
                 );
-            
-                // TODO: Insert appropriate connectors
+                  
+                // Right
                 JumperWire(
                     type = JumperWire_FM4,
-                    con1 = [[-31.5,43,7], [0,0,-1], 0,0,0], // TODO: use ULN2003DriverBoard_Con_Arduino
-                    con2 = [[-9,34, -6], [0,0,-1], 0,0,0],
+                    con1 = attachedConnector(
+                        LogoBot_Con_RightMotorDriver, 
+                        ULN2003DriverBoard_Con_UpperRight,
+                        ULN2003DriverBoard_Con_Arduino,
+                        $Explode=false
+                    ), 
+                    con2 = attachedConnector(
+                        LogoBot_Con_Breadboard, 
+                        Breadboard_Con_BottomLeft(Breadboard_170),
+                        Breadboard_Con_Pin(Breadboard_170, along=10, across=8),
+                        $Explode=false
+                    ),
                     length = 100,
-                    conVec1 = [1,0,0],
+                    conVec1 = attachedDirection(
+                        LogoBot_Con_RightMotorDriver, 
+                        ULN2003DriverBoard_Con_UpperRight, 
+                        [0,[1,0,0]]),
                     conVec2 = [0,-1,0],
-                    midVec = [0,-1,-1]
+                    midVec = [0.5,-1,0]
                 );
             
             }
