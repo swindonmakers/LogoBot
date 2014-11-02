@@ -1,6 +1,6 @@
 [
     {
-        "hash": "a7b870b07d38c5c2775177da3b234bab",
+        "hash": "1ea09751d071b51e214423e4e8cc69bb",
         "vitamins": [
             {
                 "hash": "1afaad8c0f0ef21d25c20a77b073fe41",
@@ -99,7 +99,7 @@
         "title": "LogoBot",
         "assemblies": [
             {
-                "hash": "479e33901251a3f3ddf19ffb0cb0b3e7",
+                "hash": "b20156e5be2098209d91ad487fdb9bec",
                 "vitamins": [
                     {
                         "views": [],
@@ -515,7 +515,7 @@
                 "level": 2
             },
             {
-                "hash": "9c0e9fa1df81df75832c323c2cec1ce4",
+                "hash": "ae92d7e4be944e30b4ee3723903ad389",
                 "vitamins": [],
                 "title": "Drive Wheel",
                 "assemblies": [],
@@ -668,7 +668,7 @@
                 "file": "assemblies/LogoBot.scad"
             },
             {
-                "hash": "dc48fd5c86aa408d5f2029adc4019eeb",
+                "hash": "d46d8290f1cb73d615b076976d3cc96a",
                 "views": [
                     {
                         "rotate": [
@@ -1522,7 +1522,7 @@
         ]
     },
     {
-        "hash": "47e582a5cbd7e1b953af474c271aa01e",
+        "hash": "0763818ff9cc151c2b21056cc6e20026",
         "vitamins": [
             {
                 "hash": "1afaad8c0f0ef21d25c20a77b073fe41",
@@ -1665,7 +1665,7 @@
         "title": "LogoBot Scribbler",
         "assemblies": [
             {
-                "hash": "aae7300b5d72a819b00694738eb14051",
+                "hash": "4fb011edc93373626ce33e1e95c1e474",
                 "vitamins": [
                     {
                         "views": [],
@@ -2129,7 +2129,7 @@
                 "level": 2
             },
             {
-                "hash": "9c0e9fa1df81df75832c323c2cec1ce4",
+                "hash": "ae92d7e4be944e30b4ee3723903ad389",
                 "vitamins": [],
                 "title": "Drive Wheel",
                 "assemblies": [],
@@ -2282,7 +2282,7 @@
                 "file": "assemblies/LogoBot.scad"
             },
             {
-                "hash": "dc48fd5c86aa408d5f2029adc4019eeb",
+                "hash": "d46d8290f1cb73d615b076976d3cc96a",
                 "views": [
                     {
                         "rotate": [
