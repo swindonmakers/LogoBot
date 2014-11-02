@@ -18,12 +18,13 @@ def publish():
     o = check_output(['git','branch'])
     res = p.search(o)
     
-    # also check we're fully up to date!
-    p2 = re.compile(r"nothing to commit", re.MULTILINE)
-    res2 = p2.search(o)
-    print(res2)
-    
-    if res != None and res2 != None:
+    if res != None:
+        # first commit everything in master
+        call(['git','add','-A'])
+        call(['git','commit','-a','-m','auto build'])
+
+        # and push it up to origin
+        call(['git','push','origin','master'])
     
         # switch to the gh-pages branch
         call(['git','checkout','gh-pages'])
@@ -40,7 +41,7 @@ def publish():
         # finally switch back to master
         call(['git','checkout','master'])
     else:
-        print("Error - On the wrong branch or working directory not clean!")
+        print("Error - On the wrong branch!")
     
 if __name__ == '__main__':
     publish()
