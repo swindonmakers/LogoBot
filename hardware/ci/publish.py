@@ -18,6 +18,9 @@ def publish():
     o = check_output(['git','branch'])
     res = p.search(o)
     
+    # also check we're fully up to date!
+    
+    
     if res != None:
     
         # first commit everything in master
