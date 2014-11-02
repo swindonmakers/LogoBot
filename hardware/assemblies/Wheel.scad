@@ -83,12 +83,10 @@ module WheelAssembly( ) {
         // STL
         step(1,  "Push the wheel onto the motor shaft \n**Optional:** add a rubber band to wheel for extra grip.") {
             view(t=[0, -3, 5], r=[349,102,178], d=500);
-        
-            attach([[0,0,0],[0,0,1],90,0,0], DefConUp, ExplodeSpacing=20)
+
+            attach(Wheel_Con_Default, [[0,0,2],[0,0,-1],0,0,0], ExplodeSpacing=20)
                 Wheel_STL();
         }
-    
-		
 	}
 }
 
@@ -152,14 +150,51 @@ module WheelModel()
 					square([(WheelDiameter / 2) - (hubDiameter / 2 - 1) - (rimThickness - 1), spokeThickness]);
 		}
 
-		// Motor shaft slot
-		difference() {
-			circle(r = 5/2); // = motor_shaft_r / 2
+		MotorShaftSlot();
+	}
 
-			for(i = [0:1])
-				mirror([i, 0, 0])		
-				translate([MotorShaftFlatThickness / 2, -MotorShaftDiameter / 2, 0])
-					square([MotorShaftDiameter / 2, MotorShaftDiameter]);
+	render()
+	difference() {
+		linear_extrude(6) // = motor_shaft_h - a bit?
+		difference() {
+			// Center Hub
+			circle(r=hubDiameter / 2);
+
+			MotorShaftSlot();
 		}
+
+		// Grub screw hole
+		// TOOD: this works fine in OpenCSG render, but breaks quick rendering horribly
+		translate([0, 0, 3.5])
+		rotate(a=90, v=[0, 1, 0])
+			cylinder(r=1.5, h=hubDiameter/2 + eta);
+
+	}
+}
+
+module MotorShaftSlot()
+{
+	difference() {
+		circle(r = 5/2); // = motor_shaft_r / 2
+
+		for(i = [0:1])
+			mirror([i, 0, 0])		
+			translate([MotorShaftFlatThickness / 2, -MotorShaftDiameter / 2, 0])
+				square([MotorShaftDiameter / 2, MotorShaftDiameter]);
+	}
+}
+
+module Tyre_STL()
+{
+	tyreThickness = 1.5;
+	stretchAmount = 2; // Make tyre dia this much less than wheel so it is stretch to fit
+
+	color(Grey80)
+	rotate_extrude($fn=100)
+	translate ([(WheelDiameter - stretchAmount) / 2, 0, 0]) {
+        square([tyreThickness, WheelThickness]);
+
+        translate([0 , WheelThickness / 2])
+            circle(r = WheelThickness / 4);
 	}
 }
