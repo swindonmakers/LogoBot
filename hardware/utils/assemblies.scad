@@ -1,49 +1,56 @@
 // Utility functions for machine design
 // Output is json fragments that can be parsed by the ci toolset
 
+// Global var to show BOM echo's - overridden where relevant by build scripts
+$ShowBOM = false;
+
 // Generic modules
 // ---------------
 
 module attr(name, value, raw=false) {
-    if (raw) {
-        echo(str(" '",name,"':",value,", "));
-    } else {
-	    echo(str(" '",name,"':'",value,"', "));
+    if ($ShowBOM) {
+        if (raw) {
+            echo(str(" '",name,"':",value,", "));
+        } else {
+            echo(str(" '",name,"':'",value,"', "));
+        }
 	}
 }
 
 module attrArray(name, close=true) {
-    echo(str(" '",name,"': ["));
+    if ($ShowBOM) echo(str(" '",name,"': ["));
 	if ($children > 0) {
 		children();
-		if (close)
+		if (close && $ShowBOM)
 		    echo(str(" ], "));
 	} else {
-	    if (close)
+	    if (close && $ShowBOM)
 	        echo(str(" ], "));
 	}
 }
 
 module attrNumArray(name, a) {
-    echo(str(" '",name,"': ["));
-    for (i=[0:len(a)-1]) {
-       if (i > 0) echo(",");
-       echo(str(a[i])); 
+    if ($ShowBOM) {
+        echo(str(" '",name,"': ["));
+        for (i=[0:len(a)-1]) {
+           if (i > 0) echo(",");
+           echo(str(a[i])); 
+        }
+        echo(str("], "));
     }
-    echo(str("], "));
 }
 
 module object(close=true) {
-    echo(str(" { "));
+    if ($ShowBOM) echo(str(" { "));
 	if ($children > 0) {
 		children();
 	}
-	if (close)
+	if (close && $ShowBOM)
 	    echo(str(" }, "));
 }
 
 module end() {
-	echo(str(" ] }, "));
+	if ($ShowBOM) echo(str(" ] }, "));
 }
 
 // Specific modules

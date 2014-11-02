@@ -98,7 +98,7 @@ def parse_machines():
         
 
 def parse_machine(scadfile, logfile, errorfile):
-    openscad.run('-o','dummy.csg',scadfile);
+    openscad.run('-D','$ShowBOM=true','-o','dummy.csg',scadfile);
     
     js = ''
     

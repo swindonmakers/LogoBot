@@ -17,7 +17,7 @@ VitaminSTL = "vitamins/stl/";
 DebugCoordinateFrames = 0;
 DebugConnectors = false;
 
-machine("LogoBotScribbler.scad","LogoBotScribbler") {
+machine("LogoBotScribbler.scad","LogoBot Scribbler") {
     
     view(size=[1024,768], t=[5, -1, 34], r=[78, 0, 215], d=749);
     
