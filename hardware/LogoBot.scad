@@ -35,8 +35,8 @@ machine("LogoBot.scad","LogoBot") {
 \n* Screwdriver ?
 
 ");
-    
-    LogoBotAssembly(PenLift=false);
+    FakeGroundShadow()
+        LogoBotAssembly(PenLift=false);
     
 }
 

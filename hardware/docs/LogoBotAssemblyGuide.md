@@ -24,27 +24,27 @@ Make sure you have all of the following parts before you begin.
 
 Qty | Vitamin | Image
 --- | --- | ---
-1 | [Breadboard 170]() | ![](../vitamins/images/Breadboard170_view.png) | 
-2 | [JumperWire Female to Male 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoMale4pin100mm_view.png) | 
-1 | [16mm Marble]() | ![](../vitamins/images/16mmMarble_view.png) | 
+7 | [Breadboard 170]() | ![](../vitamins/images/Breadboard170_view.png) | 
+14 | [JumperWire Female to Male 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoMale4pin100mm_view.png) | 
+7 | [16mm Marble]() | ![](../vitamins/images/16mmMarble_view.png) | 
 
 ### Printed Parts
 
 Qty | Part Name | Image
 --- | --- | ---
-1 | [Base](../printedparts/stl/Base.stl) | ![](../printedparts/images/Base_view.png) | 
-2 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
-1 | [Caster Housing](../printedparts/stl/CasterHousing.stl) | ![](../printedparts/images/CasterHousing_view.png) | 
-1 | [Basic Shell](../printedparts/stl/BasicShell.stl) | ![](../printedparts/images/BasicShell_view.png) | 
+7 | [Base](../printedparts/stl/Base.stl) | ![](../printedparts/images/Base_view.png) | 
+14 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
+7 | [Caster Housing](../printedparts/stl/CasterHousing.stl) | ![](../printedparts/images/CasterHousing_view.png) | 
+7 | [Basic Shell](../printedparts/stl/BasicShell.stl) | ![](../printedparts/images/BasicShell_view.png) | 
 
 
-## Brain
+## Brain (x7)
 
 ### Vitamins
 
 Qty | Vitamin | Image
 --- | --- | ---
-1 | [Breadboard 170]() | ![](../vitamins/images/Breadboard170_view.png) | 
+7 | [Breadboard 170]() | ![](../vitamins/images/Breadboard170_view.png) | 
 
 ### Assembly Steps
 
@@ -52,13 +52,13 @@ Qty | Vitamin | Image
 ![](../assemblies/images/Brain_step1_view.png)
 
 
-## Drive Wheel (x2)
+## Drive Wheel (x14)
 
 ### Printed Parts
 
 Qty | Part Name | Image
 --- | --- | ---
-2 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
+14 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
 
 ### Assembly Steps
 
@@ -67,19 +67,19 @@ Qty | Part Name | Image
 ![](../assemblies/images/DriveWheel_step1_view.png)
 
 
-## Rear Caster
+## Rear Caster (x7)
 
 ### Vitamins
 
 Qty | Vitamin | Image
 --- | --- | ---
-1 | [16mm Marble]() | ![](../vitamins/images/16mmMarble_view.png) | 
+7 | [16mm Marble]() | ![](../vitamins/images/16mmMarble_view.png) | 
 
 ### Printed Parts
 
 Qty | Part Name | Image
 --- | --- | ---
-1 | [Caster Housing](../printedparts/stl/CasterHousing.stl) | ![](../printedparts/images/CasterHousing_view.png) | 
+7 | [Caster Housing](../printedparts/stl/CasterHousing.stl) | ![](../printedparts/images/CasterHousing_view.png) | 
 
 ### Assembly Steps
 
@@ -87,28 +87,28 @@ Qty | Part Name | Image
 ![](../assemblies/images/RearCaster_step1_view.png)
 
 
-## Final Assembly
+## Final Assembly (x7)
 
 ### Vitamins
 
 Qty | Vitamin | Image
 --- | --- | ---
-2 | [JumperWire Female to Male 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoMale4pin100mm_view.png) | 
+14 | [JumperWire Female to Male 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoMale4pin100mm_view.png) | 
 
 ### Printed Parts
 
 Qty | Part Name | Image
 --- | --- | ---
-1 | [Base](../printedparts/stl/Base.stl) | ![](../printedparts/images/Base_view.png) | 
-1 | [Basic Shell](../printedparts/stl/BasicShell.stl) | ![](../printedparts/images/BasicShell_view.png) | 
+7 | [Base](../printedparts/stl/Base.stl) | ![](../printedparts/images/Base_view.png) | 
+7 | [Basic Shell](../printedparts/stl/BasicShell.stl) | ![](../printedparts/images/BasicShell_view.png) | 
 
 ### Sub-Assemblies
 
 Qty | Name 
 --- | --- 
-1 | Brain
-2 | Drive Wheel
-1 | Rear Caster
+7 | Brain
+14 | Drive Wheel
+7 | Rear Caster
 
 ### Assembly Steps
 
