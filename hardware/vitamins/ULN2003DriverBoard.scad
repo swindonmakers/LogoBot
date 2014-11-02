@@ -19,9 +19,9 @@ ULN2003DriverBoard_Con_LowerRight	= [ [ULN2003Driver_BoardWidth - 2 * ULN2003Dri
 ULN2003DriverBoard_Con_UpperLeft	= [ [0, ULN2003Driver_BoardHeight - 2 * ULN2003Driver_HoleInset, 0], [0, 0, -1], 0, ULN2003Driver_PCBThickness, ULN2003Driver_HoleDia];
 ULN2003DriverBoard_Con_UpperRight	= [ [ULN2003Driver_BoardWidth - 2 * ULN2003Driver_HoleInset, ULN2003Driver_BoardHeight - 2 * ULN2003Driver_HoleInset, 0], [0, 0, -1], 0, ULN2003Driver_PCBThickness, ULN2003Driver_HoleDia];
 
-ULN2003DriverBoard_Con_Stepper		= [ [4 - ULN2003Driver_HoleInset, 22 - ULN2003Driver_HoleInset, ULN2003Driver_PCBThickness + 2.25], [0, 0, 1], 0, 0 ];
-ULN2003DriverBoard_Con_Arduino		= [ [6 - ULN2003Driver_HoleInset, 6 - ULN2003Driver_HoleInset, ULN2003Driver_PCBThickness + 2.25], [0, 0, 1], 0, 0 ];
-ULN2003DriverBoard_Con_Power		= [ [24.5 - ULN2003Driver_HoleInset, 9 - ULN2003Driver_HoleInset, ULN2003Driver_PCBThickness + 2.25], [0, 0, 1], 90, 0 ];
+ULN2003DriverBoard_Con_Stepper		= [ [4 - ULN2003Driver_HoleInset, 22 - ULN2003Driver_HoleInset, ULN2003Driver_PCBThickness + 2.25], [0, 0, -1], 0, 0 ];
+ULN2003DriverBoard_Con_Arduino		= [ [6 - ULN2003Driver_HoleInset, 6 - ULN2003Driver_HoleInset, ULN2003Driver_PCBThickness + 2.25], [0, 0, -1], 180, 0 ];
+ULN2003DriverBoard_Con_Power		= [ [24.5 - ULN2003Driver_HoleInset, 9 - ULN2003Driver_HoleInset, ULN2003Driver_PCBThickness + 2.25], [0, 0, -1], 90, 0 ];
 
 ULN2003DriverBoard_Cons = [
 	ULN2003DriverBoard_Con_LowerLeft, 

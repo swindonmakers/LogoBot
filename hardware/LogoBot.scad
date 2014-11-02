@@ -33,7 +33,7 @@ machine("LogoBot.scad","LogoBot") {
 \n* None so far!
 
 ");
-    FakeGroundShadow()
+    //FakeGroundShadow()
         LogoBotAssembly(PenLift=false);
     
 }
