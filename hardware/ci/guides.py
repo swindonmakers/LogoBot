@@ -17,6 +17,9 @@ def md_filename(s):
     s = s.replace(" ","")
     return re.sub(r"\W+|\s+", "", s, re.I) + '.md'
     
+def htm_filename(s):
+    s = s.replace(" ","")
+    return re.sub(r"\W+|\s+", "", s, re.I) + '.htm'
     
 def gen_intro(m):
     md = ''
@@ -124,6 +127,7 @@ def guides():
     print("------")
 
     temp_name =  "temp.scad"
+    htm_template = "../docs/templates/AssemblyGuide.htm"
 
     #
     # Make the target directories
@@ -166,9 +170,21 @@ def guides():
             
             
             print("  Saving markdown")
-            mdfile = target_dir + '/' +md_filename(m['title'] +'AssemblyGuide')
+            mdfilename = md_filename(m['title'] +'AssemblyGuide')
+            mdfile = target_dir + '/' +mdfilename
             with open(mdfile,'w') as f:
                 f.write(md)
+                
+                
+            print("  Generating htm")
+            htm_guide = target_dir + '/' + htm_filename(m['title'] +'AssemblyGuide')
+            with open(htm_guide, 'w') as f:
+                for line in open(htm_template, "r").readlines():
+                    line = line.replace("{{mdfilename}}", mdfilename)
+                    f.write(line)
+                    
+                
+                
                 
     return 0
             
