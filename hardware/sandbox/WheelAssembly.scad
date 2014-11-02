@@ -12,3 +12,4 @@ $ShowStep = 1;
 WheelAssembly();
 
 //Wheel_STL();
+//Tyre_STL();

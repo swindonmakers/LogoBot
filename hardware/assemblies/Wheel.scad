@@ -183,3 +183,18 @@ module MotorShaftSlot()
 				square([MotorShaftDiameter / 2, MotorShaftDiameter]);
 	}
 }
+
+module Tyre_STL()
+{
+	tyreThickness = 1.5;
+	stretchAmount = 2; // Make tyre dia this much less than wheel so it is stretch to fit
+
+	color(Grey80)
+	rotate_extrude($fn=100)
+	translate ([(WheelDiameter - stretchAmount) / 2, 0, 0]) {
+        square([tyreThickness, WheelThickness]);
+
+        translate([0 , WheelThickness / 2])
+            circle(r = WheelThickness / 4);
+	}
+}
