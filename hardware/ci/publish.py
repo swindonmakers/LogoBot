@@ -19,7 +19,7 @@ def publish():
     res = p.search(o)
     
     # also check we're fully up to date!
-    p2 = re.compile(r"nothing\sto\scommit", re.MULTILINE)
+    p2 = re.compile(r"nothing to commit", re.MULTILINE)
     res2 = p2.search(o)
     print(res2)
     
