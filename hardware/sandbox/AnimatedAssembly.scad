@@ -9,8 +9,17 @@ DebugConnectors = false;
 
 
 $AnimateExplode = true;
-$ShowStep = floor(map($t, [0,1], [1,11]));
-$AnimateExplodeT = map($t, [0,1], [1,11]) - $ShowStep;
+$ShowStep = floor(map($t, [0,1], [1,13]));
+$AnimateExplodeT = map($t, [0,1], [1,13]) - $ShowStep;
 
-LogoBotAssembly();
+function lerp(u, v1, v2) = v1 + (v2-v1) * u;
+
+r1 = [0,0,0];
+r2 = [2,-10, -90];
+
+// Basic rotation linear tweening
+r = [lerp($t, r1[0], r2[0]), lerp($t, r1[1], r2[1]), lerp($t, r1[2], r2[2])];
+
+rotate(r)
+    LogoBotAssembly();
 

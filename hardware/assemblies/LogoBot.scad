@@ -60,7 +60,8 @@ module LogoBotAssembly ( PenLift=false ) {
             // Bumper assemblies (x2)
             step(2, "Connect the two bumper assemblies" ) {
                 view(t=[-6,7,19], r=[64,1,212], d=625);
-                for (x=[0,1], y=[0,1])
+                attach(DefConUp, DefConUp, ExplodeSpacing=20)
+                    for (x=[0,1], y=[0,1])
                     mirror([0,y,0])
                     mirror([x,0,0])
                     translate([(BaseDiameter/2-10) * cos(45), (BaseDiameter/2-10) * sin(45), -8 ])
@@ -156,11 +157,12 @@ module LogoBotAssembly ( PenLift=false ) {
             step(6, "Clip in the battery pack") {
                 view(t=[-6,7,19], r=[64,1,212], d=625);
                 
-                translate([-25, -45, 12])
-                    rotate([90, 0, 90]) {
-                        BatteryPack();
-                        battery_pack_double(2, 4);
-                    }
+                attach(DefConDown, DefConDown, ExplodeSpacing=20)
+                    translate([-25, -45, 12])
+                        rotate([90, 0, 90]) {
+                            BatteryPack();
+                            battery_pack_double(2, 4);
+                        }
             }
     
             // Power Switch
@@ -176,7 +178,8 @@ module LogoBotAssembly ( PenLift=false ) {
             step(8, "Clip the LED into place") {
                 view(t=[-6,7,19], r=[64,1,212], d=625);
                 
-                translate([0, -10, BaseDiameter/2]) 
+                attach(DefConDown, DefConDown, ExplodeSpacing=20)
+                    translate([0, -10, BaseDiameter/2]) 
                     LED();
             }
         
@@ -184,7 +187,8 @@ module LogoBotAssembly ( PenLift=false ) {
             step(9, "Clip the piezo sounder into place") {
                 view(t=[-6,7,19], r=[64,1,212], d=625);
                 
-                translate([-37, -32, 10])
+                attach(DefConDown, DefConDown, ExplodeSpacing=20)
+                    translate([-37, -32, 10])
                     murata_7BB_12_9();
             }
     
