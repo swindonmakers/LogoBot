@@ -21,7 +21,7 @@ def fetch(doCommit):
     
     # images
     call(["git","checkout","master","images"]);
-    call(["git","checkout","master","assemblies/images"]);
+    call(["git","checkout","master","assemblies"]);
     call(["git","checkout","master","vitamins/images"]);
     call(["git","checkout","master","printedparts/images"]);
     
