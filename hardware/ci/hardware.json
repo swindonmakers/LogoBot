@@ -1,9 +1,9 @@
 [
     {
-        "hash": "0b7536cf13839783041515de8ed89304",
+        "hash": "894100d118c2f4ecdb715a61716c3c62",
         "vitamins": [
             {
-                "hash": "1afaad8c0f0ef21d25c20a77b073fe41",
+                "hash": "f9f7b8c7c104f20278aa66ad4cb62196",
                 "views": [
                     {
                         "rotate": [
@@ -34,7 +34,7 @@
                 "file": "vitamins/Breadboard.scad"
             },
             {
-                "hash": "cf0579bfa30ec7c2cd3fad0df48718fe",
+                "hash": "f491a11d6c2955f6c7cb5ab42f273055",
                 "views": [
                     {
                         "rotate": [
@@ -99,7 +99,7 @@
         "title": "LogoBot",
         "assemblies": [
             {
-                "hash": "6a4ac5ba827e635fa7be59e1bc0354c0",
+                "hash": "d3adf28681f50715af04264224e4b4e9",
                 "vitamins": [
                     {
                         "views": [],
@@ -378,7 +378,7 @@
                             }
                         ],
                         "num": 7,
-                        "desc": "Clip the LED into place"
+                        "desc": "Clip the power switch into place"
                     },
                     {
                         "views": [
@@ -405,15 +405,15 @@
                             }
                         ],
                         "num": 8,
-                        "desc": "Clip the piezo sounder into place"
+                        "desc": "Clip the LED into place"
                     },
                     {
                         "views": [
                             {
                                 "rotate": [
-                                    115,
+                                    64,
                                     1,
-                                    26
+                                    212
                                 ],
                                 "dist": 625,
                                 "filepath": "../assemblies/LogoBot/FinalAssembly_step9_view.png",
@@ -432,6 +432,33 @@
                             }
                         ],
                         "num": 9,
+                        "desc": "Clip the piezo sounder into place"
+                    },
+                    {
+                        "views": [
+                            {
+                                "rotate": [
+                                    115,
+                                    1,
+                                    26
+                                ],
+                                "dist": 625,
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step10_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -6,
+                                    7,
+                                    19
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "num": 10,
                         "desc": "Push the caster assembly into the base so that it snaps into place"
                     },
                     {
@@ -443,7 +470,7 @@
                                     217
                                 ],
                                 "dist": 1171,
-                                "filepath": "../assemblies/LogoBot/FinalAssembly_step10_view.png",
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step11_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -458,14 +485,14 @@
                                 ]
                             }
                         ],
-                        "num": 10,
+                        "num": 11,
                         "desc": "Push the shell down onto the base and twist to lock into place"
                     }
                 ],
                 "level": 0
             },
             {
-                "hash": "d7eb779eac4307321fda17c23c2c7266",
+                "hash": "fe171518aad644c77098222d3df20851",
                 "vitamins": [
                     {
                         "views": [],
@@ -624,7 +651,7 @@
         ],
         "printed": [
             {
-                "hash": "a48f874c30c75f6b20917e9d324c0889",
+                "hash": "a5befa4149adf3f2e26a1ad53cd7b32d",
                 "views": [
                     {
                         "rotate": [
@@ -1313,7 +1340,7 @@
                                 ]
                             }
                         ],
-                        "desc": "Clip the LED into place"
+                        "desc": "Clip the power switch into place"
                     },
                     {
                         "num": 8,
@@ -1340,10 +1367,37 @@
                                 ]
                             }
                         ],
-                        "desc": "Clip the piezo sounder into place"
+                        "desc": "Clip the LED into place"
                     },
                     {
                         "num": 9,
+                        "type": "step",
+                        "children": [
+                            {
+                                "rotate": [
+                                    64,
+                                    1,
+                                    212
+                                ],
+                                "dist": 625,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -6,
+                                    7,
+                                    19
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "desc": "Clip the piezo sounder into place"
+                    },
+                    {
+                        "num": 10,
                         "type": "step",
                         "children": [
                             {
@@ -1461,7 +1515,7 @@
                         "desc": "Push the caster assembly into the base so that it snaps into place"
                     },
                     {
-                        "num": 10,
+                        "num": 11,
                         "type": "step",
                         "children": [
                             {
@@ -1522,10 +1576,10 @@
         ]
     },
     {
-        "hash": "e5e2a0e01916070c3aaf28ea0e068010",
+        "hash": "98e982b52a0b7b3ad132696de4c9bdad",
         "vitamins": [
             {
-                "hash": "1afaad8c0f0ef21d25c20a77b073fe41",
+                "hash": "f9f7b8c7c104f20278aa66ad4cb62196",
                 "views": [
                     {
                         "rotate": [
@@ -1556,7 +1610,7 @@
                 "file": "vitamins/Breadboard.scad"
             },
             {
-                "hash": "cf0579bfa30ec7c2cd3fad0df48718fe",
+                "hash": "f491a11d6c2955f6c7cb5ab42f273055",
                 "views": [
                     {
                         "rotate": [
@@ -1665,7 +1719,7 @@
         "title": "LogoBot Scribbler",
         "assemblies": [
             {
-                "hash": "886f6d0604ae08aa3e9c9580273b169c",
+                "hash": "7fad1c1ddc1a25dba668198434847625",
                 "vitamins": [
                     {
                         "views": [],
@@ -1965,7 +2019,7 @@
                             }
                         ],
                         "num": 7,
-                        "desc": "Clip the LED into place"
+                        "desc": "Clip the power switch into place"
                     },
                     {
                         "views": [
@@ -1992,15 +2046,15 @@
                             }
                         ],
                         "num": 8,
-                        "desc": "Clip the piezo sounder into place"
+                        "desc": "Clip the LED into place"
                     },
                     {
                         "views": [
                             {
                                 "rotate": [
-                                    115,
+                                    64,
                                     1,
-                                    26
+                                    212
                                 ],
                                 "dist": 625,
                                 "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step9_view.png",
@@ -2019,15 +2073,15 @@
                             }
                         ],
                         "num": 9,
-                        "desc": "Push the caster assembly into the base so that it snaps into place"
+                        "desc": "Clip the piezo sounder into place"
                     },
                     {
                         "views": [
                             {
                                 "rotate": [
-                                    64,
+                                    115,
                                     1,
-                                    212
+                                    26
                                 ],
                                 "dist": 625,
                                 "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step10_view.png",
@@ -2046,6 +2100,33 @@
                             }
                         ],
                         "num": 10,
+                        "desc": "Push the caster assembly into the base so that it snaps into place"
+                    },
+                    {
+                        "views": [
+                            {
+                                "rotate": [
+                                    64,
+                                    1,
+                                    212
+                                ],
+                                "dist": 625,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step11_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -6,
+                                    7,
+                                    19
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "num": 11,
                         "desc": "Fit the pen lift assembly"
                     },
                     {
@@ -2057,7 +2138,7 @@
                                     217
                                 ],
                                 "dist": 1171,
-                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step11_view.png",
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step12_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -2072,14 +2153,14 @@
                                 ]
                             }
                         ],
-                        "num": 11,
+                        "num": 12,
                         "desc": "Push the shell down onto the base and twist to lock into place"
                     }
                 ],
                 "level": 0
             },
             {
-                "hash": "d7eb779eac4307321fda17c23c2c7266",
+                "hash": "fe171518aad644c77098222d3df20851",
                 "vitamins": [
                     {
                         "views": [],
@@ -2238,7 +2319,7 @@
         ],
         "printed": [
             {
-                "hash": "a48f874c30c75f6b20917e9d324c0889",
+                "hash": "a5befa4149adf3f2e26a1ad53cd7b32d",
                 "views": [
                     {
                         "rotate": [
@@ -2927,7 +3008,7 @@
                                 ]
                             }
                         ],
-                        "desc": "Clip the LED into place"
+                        "desc": "Clip the power switch into place"
                     },
                     {
                         "num": 8,
@@ -2954,10 +3035,37 @@
                                 ]
                             }
                         ],
-                        "desc": "Clip the piezo sounder into place"
+                        "desc": "Clip the LED into place"
                     },
                     {
                         "num": 9,
+                        "type": "step",
+                        "children": [
+                            {
+                                "rotate": [
+                                    64,
+                                    1,
+                                    212
+                                ],
+                                "dist": 625,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -6,
+                                    7,
+                                    19
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "desc": "Clip the piezo sounder into place"
+                    },
+                    {
+                        "num": 10,
                         "type": "step",
                         "children": [
                             {
@@ -3075,7 +3183,7 @@
                         "desc": "Push the caster assembly into the base so that it snaps into place"
                     },
                     {
-                        "num": 10,
+                        "num": 11,
                         "type": "step",
                         "children": [
                             {
@@ -3142,7 +3250,7 @@
                         "desc": "Fit the pen lift assembly"
                     },
                     {
-                        "num": 11,
+                        "num": 12,
                         "type": "step",
                         "children": [
                             {

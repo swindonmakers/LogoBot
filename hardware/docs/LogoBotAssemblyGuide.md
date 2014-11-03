@@ -124,13 +124,15 @@ Qty | Name
 ![](../assemblies/LogoBot/FinalAssembly_step5_plan.png)
 6. Clip in the battery pack
 ![](../assemblies/LogoBot/FinalAssembly_step6_view.png)
-7. Clip the LED into place
+7. Clip the power switch into place
 ![](../assemblies/LogoBot/FinalAssembly_step7_view.png)
-8. Clip the piezo sounder into place
+8. Clip the LED into place
 ![](../assemblies/LogoBot/FinalAssembly_step8_view.png)
-9. Push the caster assembly into the base so that it snaps into place
+9. Clip the piezo sounder into place
 ![](../assemblies/LogoBot/FinalAssembly_step9_view.png)
-10. Push the shell down onto the base and twist to lock into place
+10. Push the caster assembly into the base so that it snaps into place
 ![](../assemblies/LogoBot/FinalAssembly_step10_view.png)
+11. Push the shell down onto the base and twist to lock into place
+![](../assemblies/LogoBot/FinalAssembly_step11_view.png)
 
 
