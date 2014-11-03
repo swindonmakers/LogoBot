@@ -53,7 +53,7 @@ function JumperWire_Colors(t)       = t[4];
 module JumperWire_Pin(type, con, ExplodeSpacing=20) {
     w = 2.54;
     h = 14;
-    attach(con, DefConDown, ExplodeSpacing=ExplodeSpacing)
+    attach(con, DefConDown, $Explode=false, ExplodeSpacing=ExplodeSpacing)
         
         if (type == Pin_Male) {
             color("gold")
@@ -81,7 +81,13 @@ module JumperWire(
     midTanVec = [0,1,0],
     ExplodeSpacing = 20
 ) {
-    cons = [con1, con2];
+    // vert offset of connector?
+    pinvo = [ 
+        JumperWire_PinType1(type) == Pin_Male ? -7 : 0,
+        JumperWire_PinType2(type) == Pin_Male ? -7 : 0,
+    ];
+
+    cons = [offsetConnector(con1, [0,0,pinvo[0]]), offsetConnector(con2, [0,0,pinvo[1]])];
     con1n = VNORM(con1[1]);
     con2n = VNORM(con2[1]);
     conVecs = [VNORM(conVec1), VNORM(conVec2)];
@@ -90,6 +96,8 @@ module JumperWire(
     mtv = VNORM(midTanVec);
     
     tn = JumperWire_TypeName(type);
+    
+    au = $AnimateExplode ? (1-$AnimateExplodeT) : 1;
     
     vitamin("vitamins/JumperWire.scad", 
             str("JumperWire ",JumperWire_PinType1(type)," to ",JumperWire_PinType2(type)," ",JumperWire_NumPins(type),"pin ",length,"mm"), 
@@ -100,14 +108,23 @@ module JumperWire(
         if (DebugCoordinateFrames) frame();
 
         if (DebugConnectors) {
-            connector(con1);
-            connector(con2);
+            connector(cons[0]);
+            connector(cons[1]);
         }
 
         // pins
         for (i=[0,1])
             for (p=[0:numPins-1])
                 JumperWire_Pin(type[1+i], offsetConnector(cons[i], conVecs[i] * p * 2.54), ExplodeSpacing=ExplodeSpacing);
+
+        // assembly vector
+        if ($Explode) {
+            for (i=[0,1])
+                color([1,0,0, au * 0.8])
+                attach(cons[i], DefConUp, $Explode=false)
+                //translate(cons[i][1] * ExplodeSpacing * au)
+                vectorz(cons[i][1], l=abs(ExplodeSpacing * au), l_arrow=2, mark=false);
+        }
 
         // cable
         if (complex) {
@@ -116,8 +133,8 @@ module JumperWire(
                 cableRadius = 0.6,
                 cableSpacing = 2.54,
                 points= [
-                    con1[0] - con1n * (14 + ($Explode ? ExplodeSpacing : 0)),
-                    con1[0] - con1n * (length * 0.3 + ($Explode ? ExplodeSpacing : 0)),
+                    cons[0][0] - con1n * (14),
+                    cons[0][0] - con1n * (length * 0.3),
                     midPoint - mtv * length * 0.3,
                     midPoint
                 ],
@@ -136,8 +153,8 @@ module JumperWire(
                 points= [
                     midPoint,
                     midPoint + mtv * length * 0.3,
-                    con2[0] - con2n * (length * 0.3 + ($Explode ? ExplodeSpacing : 0)),
-                    con2[0] - con2n * (14 + ($Explode ? ExplodeSpacing : 0))
+                    cons[1][0] - con2n * (length * 0.3 ),
+                    cons[1][0] - con2n * (14 )
                 ],
                 vectors = [
                     midVec,
@@ -155,10 +172,10 @@ module JumperWire(
                 cableRadius = 0.6,
                 cableSpacing = 2.54,
                 points= [
-                    con1[0] - con1n * (14 + ($Explode ? ExplodeSpacing : 0)),
-                    con1[0] - con1n * (length * 0.6 + ($Explode ? ExplodeSpacing : 0)),
-                    con2[0] - con2n * (length * 0.6 + ($Explode ? ExplodeSpacing : 0)),
-                    con2[0] - con2n * (14 + ($Explode ? ExplodeSpacing : 0))
+                    cons[0][0] - con1n * (14 ),
+                    cons[0][0] - con1n * (length * 0.6 ),
+                    cons[1][0] - con2n * (length * 0.6 ),
+                    cons[1][0] - con2n * (14 )
                 ],
                 vectors = [
                     conVecs[0],
