@@ -30,6 +30,8 @@ LogoBot_Con_Caster = [ [0, -BaseDiameter/2 + 10, 0], [0,0,1], 0, 0, 0];
 
 LogoBot_Con_PenLift = [ [-20, -5, 10], [0,1,0], 0, 0, 0];
 
+LogoBot_Con_SlideSwitch = [[-25, 0, 0], [0,0,-1], 90, 0,0];
+
 
 // Assembly
 // --------
@@ -69,11 +71,11 @@ module LogoBotAssembly ( PenLift=false ) {
             step(3, "Push the two motor drivers onto the mounting posts") {
                 view(t=[-6,7,19], r=[64,1,212], d=625);
                 // Left Motor Driver
-                attach(LogoBot_Con_LeftMotorDriver, ULN2003DriverBoard_Con_UpperLeft, ExplodeSpacing=-20)
+                attach(LogoBot_Con_LeftMotorDriver, ULN2003DriverBoard_Con_UpperLeft, ExplodeSpacing=20)
                     ULN2003DriverBoard();
         
                 // Right Motor Driver
-                attach(LogoBot_Con_RightMotorDriver, ULN2003DriverBoard_Con_UpperRight, ExplodeSpacing=-20)
+                attach(LogoBot_Con_RightMotorDriver, ULN2003DriverBoard_Con_UpperRight, ExplodeSpacing=20)
                     ULN2003DriverBoard();
             }
     
@@ -162,10 +164,16 @@ module LogoBotAssembly ( PenLift=false ) {
             }
     
             // Power Switch
+            step(7, "Clip the power switch into place") {
+                view(t=[-6,7,19], r=[64,1,212], d=625);
+            
+                attach(LogoBot_Con_SlideSwitch, DefConUp)
+                    SlideSwitch();
+            }
             
     
             // LED
-            step(7, "Clip the LED into place") {
+            step(8, "Clip the LED into place") {
                 view(t=[-6,7,19], r=[64,1,212], d=625);
                 
                 translate([0, -10, BaseDiameter/2]) 
@@ -173,7 +181,7 @@ module LogoBotAssembly ( PenLift=false ) {
             }
         
             // Piezo
-            step(8, "Clip the piezo sounder into place") {
+            step(9, "Clip the piezo sounder into place") {
                 view(t=[-6,7,19], r=[64,1,212], d=625);
                 
                 translate([-37, -32, 10])
@@ -184,7 +192,7 @@ module LogoBotAssembly ( PenLift=false ) {
             // Caster
             //   Example of using attach
             // TODO: Correct ground clearance!
-            step(9, "Push the caster assembly into the base so that it snaps into place") { 
+            step(10, "Push the caster assembly into the base so that it snaps into place") { 
                 view(t=[-6,7,19], r=[115,1,26], d=625);
                 
                 attach(LogoBot_Con_Caster, MarbleCaster_Con_Default, ExplodeSpacing=15)
@@ -199,7 +207,7 @@ module LogoBotAssembly ( PenLift=false ) {
             //   Placeholder of a micro servo to illustrate having conditional design elements
             if (PenLift) {
                 // TODO: wrap into a PenLift sub-assembly
-                step(10, "Fit the pen lift assembly") {
+                step(11, "Fit the pen lift assembly") {
                     view(t=[-6,7,19], r=[64,1,212], d=625);
                     
                     attach( LogoBot_Con_PenLift, MicroServo_Con_Horn)
@@ -209,7 +217,7 @@ module LogoBotAssembly ( PenLift=false ) {
         
         
             // Shell + fixings
-            step(PenLift ? 11 : 10, 
+            step(PenLift ? 12 : 11, 
                 "Push the shell down onto the base and twist to lock into place") { 
                 view(t=[11,-23,65], r=[66,0,217], d=1171);
                 
