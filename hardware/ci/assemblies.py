@@ -17,18 +17,16 @@ from views import render_view;
 from views import render_view_using_file;
     
     
+def machine_dir(s):
+    s = s.replace(" ","")
+    return re.sub(r"\W+|\s+", "", s, re.I)
+    
+    
 def assemblies():
     print("Assemblies")
     print("----------")
 
     temp_name =  "temp.scad"
-
-    #
-    # Make the target directories
-    #
-    view_dir = "../assemblies/images"
-    if not os.path.isdir(view_dir):
-        os.makedirs(view_dir)
 
     # load hardware.json
     jf = open("hardware.json","r")
@@ -41,6 +39,11 @@ def assemblies():
             print(m['title'])
             
             al = m['assemblies']
+            
+            # make target directory
+            view_dir = "../assemblies/"+machine_dir(m['title'])
+            if not os.path.isdir(view_dir):
+                os.makedirs(view_dir)
             
             for a in al:
                 print("  "+a['title'])

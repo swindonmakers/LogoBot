@@ -1,11 +1,11 @@
 include <../config/config.scad>
 
-DebugConnectors = 0;
-DebugCoordinateFrames = 0;
+DebugConnectors = true;
+DebugCoordinateFrames = true;
 
-$Explode=true;
-$ShowStep = 11;
+$Explode=false;
+$ShowStep = 8;
 
 UseSTL=false;
 
-LogoBotAssembly(PenLift = true);
+LogoBotAssembly(PenLift = false);
