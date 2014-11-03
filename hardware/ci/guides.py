@@ -13,6 +13,7 @@ import jsontools
 import views
 import pystache
 from types import *
+from assemblies import machine_dir
 
 def md_filename(s):
     s = s.replace(" ","")
@@ -65,7 +66,7 @@ def gen_bom(m):
     return md
 
 
-def gen_assembly(a):
+def gen_assembly(m, a):
     md = '## '+a['title']
     if a['qty'] > 1:
         md += ' (x'+str(a['qty'])+')'
@@ -112,7 +113,7 @@ def gen_assembly(a):
         for step in a['steps']:
             md += str(step['num']) + '. '+step['desc'] + '\n'
             for view in step['views']:
-                md += '![](../assemblies/images/'+views.view_filename(a['title']+'_step'+str(step['num'])+'_'+view['title'])+')\n'
+                md += '![](../assemblies/'+machine_dir(m['title'])+'/'+views.view_filename(a['title']+'_step'+str(step['num'])+'_'+view['title'])+')\n'
         md += '\n'
     
     md += '\n'
@@ -175,7 +176,7 @@ def guides():
             # sort by level desc
             m['assemblies'].sort(key=assembly_level, reverse=True)
             for a in m['assemblies']:
-                md += gen_assembly(a)
+                md += gen_assembly(m,a)
             
             
             print("  Saving markdown")

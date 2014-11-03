@@ -48,7 +48,7 @@ Qty | Vitamin | Image
 ### Assembly Steps
 
 1. Push the Arduino onto the breadboard - make sure you position it correctly,                  as it's a tight fit with the Robot base!
-![](../assemblies/images/Brain_step1_view.png)
+![](../assemblies/LogoBot/Brain_step1_view.png)
 
 
 ## Drive Wheel (x2)
@@ -63,7 +63,7 @@ Qty | Part Name | Image
 
 1. Push the wheel onto the motor shaft 
 **Optional:** add a rubber band to wheel for extra grip.
-![](../assemblies/images/DriveWheel_step1_view.png)
+![](../assemblies/LogoBot/DriveWheel_step1_view.png)
 
 
 ## Rear Caster
@@ -83,7 +83,7 @@ Qty | Part Name | Image
 ### Assembly Steps
 
 1. Insert the marble into the printed housing
-![](../assemblies/images/RearCaster_step1_view.png)
+![](../assemblies/LogoBot/RearCaster_step1_view.png)
 
 
 ## Final Assembly
@@ -112,25 +112,25 @@ Qty | Name
 ### Assembly Steps
 
 1. Connect the breadboard assembly to the underside of the base
-![](../assemblies/images/FinalAssembly_step1_view.png)
+![](../assemblies/LogoBot/FinalAssembly_step1_view.png)
 2. Connect the two bumper assemblies
-![](../assemblies/images/FinalAssembly_step2_view.png)
+![](../assemblies/LogoBot/FinalAssembly_step2_view.png)
 3. Push the two motor drivers onto the mounting posts
-![](../assemblies/images/FinalAssembly_step3_view.png)
+![](../assemblies/LogoBot/FinalAssembly_step3_view.png)
 4. Clip the two wheels assemblies onto the base and                     connect the motor leads to the the motor drivers
-![](../assemblies/images/FinalAssembly_step4_view.png)
+![](../assemblies/LogoBot/FinalAssembly_step4_view.png)
 5. Connect the jumper wires between the motor drivers and the Arduino
-![](../assemblies/images/FinalAssembly_step5_view.png)
-![](../assemblies/images/FinalAssembly_step5_plan.png)
+![](../assemblies/LogoBot/FinalAssembly_step5_view.png)
+![](../assemblies/LogoBot/FinalAssembly_step5_plan.png)
 6. Clip in the battery pack
-![](../assemblies/images/FinalAssembly_step6_view.png)
+![](../assemblies/LogoBot/FinalAssembly_step6_view.png)
 7. Clip the LED into place
-![](../assemblies/images/FinalAssembly_step7_view.png)
+![](../assemblies/LogoBot/FinalAssembly_step7_view.png)
 8. Clip the piezo sounder into place
-![](../assemblies/images/FinalAssembly_step8_view.png)
+![](../assemblies/LogoBot/FinalAssembly_step8_view.png)
 9. Push the caster assembly into the base so that it snaps into place
-![](../assemblies/images/FinalAssembly_step9_view.png)
+![](../assemblies/LogoBot/FinalAssembly_step9_view.png)
 10. Push the shell down onto the base and twist to lock into place
-![](../assemblies/images/FinalAssembly_step10_view.png)
+![](../assemblies/LogoBot/FinalAssembly_step10_view.png)
 
 
