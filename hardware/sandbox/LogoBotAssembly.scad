@@ -4,7 +4,7 @@ DebugConnectors = true;
 DebugCoordinateFrames = true;
 
 $Explode=false;
-$ShowStep = 5;
+$ShowStep = 20;
 
 UseSTL=true;
 

@@ -17,6 +17,12 @@ Marble_16mm = "16mm";
 Marble_Con_Default = DefCon;
 
 
+// Global variables
+
+Marble_Diameter = 16;
+Marble_Radius = Marble_Diameter / 2;
+
+
 module Marble(type=Marble_16mm, color=[0.7,0.7,0.7]) {
 
     vitamin("vitamins/Marble.scad", "16mm Marble", "Marble(Marble_16mm)") {
