@@ -74,7 +74,7 @@ def assemblies():
                         # Views
                         print("      Step "+str(step['num']))
                         for view in step['views']:
-                            render_view_using_file(a['title']+'_step'+str(step['num']), temp_name, view_dir, view, hashchanged)
+                            render_view_using_file(a['title']+'_step'+str(step['num']), temp_name, view_dir, view, hashchanged, h)
                         
                         
                 else:

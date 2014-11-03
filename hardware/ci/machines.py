@@ -58,7 +58,7 @@ def machines():
                         view = c
                         print("    "+view['title'])
                     
-                        render_view_using_file(m['title'], fn, view_dir, view, hashchanged)
+                        render_view_using_file(m['title'], fn, view_dir, view, hashchanged, h)
                     
                     
             else:

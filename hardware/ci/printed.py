@@ -77,7 +77,7 @@ def printed():
                     for view in p['views']:
                         print("      "+view['title'])
                         
-                        render_view(p['title'], p['call'], view_dir, view, hashchanged)
+                        render_view(p['title'], p['call'], view_dir, view, hashchanged, h)
                         
                 else:
                     print("    Error: scad file not found: "+p['file'])

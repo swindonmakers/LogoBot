@@ -3,11 +3,12 @@
 # Renders pre-defined views into the images directory
 
 import os
-from PIL import Image
+from PIL import Image, PngImagePlugin
 import sys
 import shutil
 import openscad
 import re
+import hashlib
 
 # OpenSCAD default background colour
 bkc = (255,255,229,255)
@@ -18,7 +19,22 @@ def view_filename(s):
     return re.sub(r"\W+|\s+", "", s, re.I) + '.png'
 
 
-def polish(filename, w, h):
+def read_hashes_from_png(filename):
+    res = {"csghash":"", "viewhash":""}
+    
+    if os.path.isfile(filename):
+        # re-open and read meta data
+        img = Image.open(filename)
+    
+        if "csghash" in img.info:
+            res['csghash'] = img.info['csghash']
+        if "viewhash" in img.info:
+            res['viewhash'] = img.info['viewhash']
+        
+    return res
+
+
+def polish(filename, w, h, hash="", viewhash=""):
     img = Image.open(filename)
     img = img.convert("RGBA")
 
@@ -32,7 +48,6 @@ def polish(filename, w, h):
     x2 = 0
     y1 = img.size[1]
     y2 = 0
-    
     
     # Set background to white and transparent
     for y in xrange(img.size[1]):
@@ -62,18 +77,34 @@ def polish(filename, w, h):
     # crop
     img = img.crop((x1/2,y1/2,x2/2,y2/2))
                 
+    # add hash to meta data
+    meta = PngImagePlugin.PngInfo()
+
+    # copy metadata into new object
+    #for k,v in im.info.iteritems():
+    #    if k in reserved: continue
+    meta.add_text("csghash", hash, 0)
+    meta.add_text("viewhash", viewhash, 0)
+
     # Save it
-    img.save(filename)
+    img.save(filename, "PNG", pnginfo=meta)
+    img.close()
     
     
-def render_view_using_file(obj_title, scadfile, dir, view, hashchanged):
+    
+def render_view_using_file(obj_title, scadfile, dir, view, hashchanged, hash=""):
     png_name = dir + '/' + view_filename(obj_title + '_'+view['title'])
     
     view['filepath'] = png_name
     
     temp_name = 'temp.scad'
                         
-    if (not os.path.isfile(png_name) or (hashchanged)):            
+    oldhashes = read_hashes_from_png(png_name)
+    
+    viewstr = str(view['size']) + str(view['translate']) + str(view['rotate']) + str(view['dist'])
+    viewhash = hashlib.md5(viewstr).hexdigest();
+                        
+    if (not os.path.isfile(png_name) or (hash != oldhashes['csghash']) or (viewhash != oldhashes['viewhash'])):            
         print("        Updating: "+png_name)
 
         # Up-sample images
@@ -98,14 +129,15 @@ def render_view_using_file(obj_title, scadfile, dir, view, hashchanged):
                     "-o", png_name, 
                     scadfile)
     
-        polish(png_name, w/2, h/2)
+        polish(png_name, w/2, h/2, hash, viewhash)
+        
         print
 
     else:
         print("        View up to date")
 
 
-def render_view(obj_title, obj_call, dir, view, hashchanged):
+def render_view(obj_title, obj_call, dir, view, hashchanged, hash=""):
     temp_name = 'temp.scad'
     
     # make a file to use the module
@@ -119,7 +151,7 @@ def render_view(obj_title, obj_call, dir, view, hashchanged):
     f.write(obj_call + ";\n");
     f.close()
     
-    render_view_using_file(obj_title, temp_name, dir, view, hashchanged)
+    render_view_using_file(obj_title, temp_name, dir, view, hashchanged, hash)
     
     os.remove(temp_name)
 

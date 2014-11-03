@@ -74,7 +74,7 @@ def vitamins():
                     for view in v['views']:
                         print("      "+view['title'])
                         
-                        render_view(v['title'], v['call'], view_dir, view, hashchanged)
+                        render_view(v['title'], v['call'], view_dir, view, hashchanged, h)
                         
                         
                 else:
