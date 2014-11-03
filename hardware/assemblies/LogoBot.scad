@@ -109,13 +109,13 @@ module LogoBotAssembly ( PenLift=false ) {
                         LogoBot_Con_LeftMotorDriver, 
                         ULN2003DriverBoard_Con_UpperLeft,
                         ULN2003DriverBoard_Con_Arduino,
-                        $Explode=false
+                        ExplodeSpacing=20
                     ), 
                     con2 = attachedConnector(
                         LogoBot_Con_Breadboard, 
                         Breadboard_Con_BottomLeft(Breadboard_170),
                         Breadboard_Con_Pin(Breadboard_170, along=6, across=8),
-                        $Explode=false
+                        ExplodeSpacing=20
                     ),
                     length = 100,
                     conVec1 = attachedDirection(
@@ -133,13 +133,13 @@ module LogoBotAssembly ( PenLift=false ) {
                         LogoBot_Con_RightMotorDriver, 
                         ULN2003DriverBoard_Con_UpperRight,
                         ULN2003DriverBoard_Con_Arduino,
-                        $Explode=false
+                        ExplodeSpacing=20
                     ), 
                     con2 = attachedConnector(
                         LogoBot_Con_Breadboard, 
                         Breadboard_Con_BottomLeft(Breadboard_170),
                         Breadboard_Con_Pin(Breadboard_170, along=10, across=8),
-                        $Explode=false
+                        ExplodeSpacing=20
                     ),
                     length = 100,
                     conVec1 = attachedDirection(
