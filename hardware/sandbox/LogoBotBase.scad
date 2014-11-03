@@ -6,7 +6,7 @@ DebugCoordinateFrames = 0;
 $Explode=true;
 $ShowStep = 3;
 
-UseSTL = true;
+UseSTL = false;
 
 LogoBotBase_STL();
 
