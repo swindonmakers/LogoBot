@@ -27,12 +27,12 @@ Breadboard_PinWidth   = 1;
 
 // Breadboard Types
 
-//                Width, Depth, Thickness, PinsWide, PowerRails, PowerRailGrouping, GutterWidth, MountPoints, MountInsetX, MountInsetY, TypeName
-Breadboard_170 = [ 47,    35,    8.5,       17,       0,          0,                 32,          2,           4,           0,           "170" ];
+//                Width, Depth, Thickness, PinsWide, PowerRails, PowerRailGrouping, GutterWidth, MountPoints, MountInsetX, MountInsetY, MountBore, TypeName
+Breadboard_170 = [ 47,    35,    8.5,       17,       0,          0,                 31,          2,           5,           0,          3.5,       "170" ];
 
-Breadboard_270 = [ 85.4,  45,    8.3,       23,       1,          5,                 58,          4,           5,           6,           "270"  ];
+Breadboard_270 = [ 85.4,  45,    8.3,       23,       1,          5,                 58,          4,           5,           6,          4.5,       "270"  ];
 
-Breadboard_400 = [ 85,   55,    9.7,        30,       2,          5,                 83,          0,           5,           6,           "400"  ];
+Breadboard_400 = [ 85,   55,    9.7,        30,       2,          5,                 83,          0,           5,           6,          4.5,       "400"  ];
 
 
 // Breadboard Type Getters
@@ -47,7 +47,8 @@ function Breadboard_GutterWidth(BreadboardType) = BreadboardType[6];
 function Breadboard_MountPoints(BreadboardType) = BreadboardType[7];
 function Breadboard_MountInsetX(BreadboardType) = BreadboardType[8];
 function Breadboard_MountInsetY(BreadboardType) = BreadboardType[9];
-function Breadboard_TypeName(BreadboardType) = BreadboardType[10];
+function Breadboard_MountBore(BreadboardType) = BreadboardType[10];
+function Breadboard_TypeName(BreadboardType) = BreadboardType[11];
 
 // Breadboard Utility Getters
 
@@ -135,6 +136,7 @@ module Breadboard(BreadboardType = Breadboard_170, ShowPins=true, BoardColor = "
 	mp =  Breadboard_MountPoints(BreadboardType);
 	mix = Breadboard_MountInsetX(BreadboardType);
 	miy = Breadboard_MountInsetY(BreadboardType);
+	mb = Breadboard_MountBore(BreadboardType);
 	tn = Breadboard_TypeName(BreadboardType);
 	
 	// calculations
@@ -184,11 +186,11 @@ module Breadboard(BreadboardType = Breadboard_170, ShowPins=true, BoardColor = "
                             for (y=[-1,1])
                                 translate([0, y * (d/2 - miy), 0]) {
                                     // bore
-                                    cylinder(r=4/2, h=h+2, $fn=12);
+                                    cylinder(r=mb/2*0.8, h=h+2, $fn=12);
                         
                                     // CS
                                     translate([0,0, h/2])
-                                        cylinder(r=6/2, h=h+2, $fn=16);
+                                        cylinder(r=mb/2, h=h+2, $fn=16);
                                 }
                         }
                 }
