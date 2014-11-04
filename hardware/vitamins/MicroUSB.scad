@@ -19,7 +19,13 @@
         Model of a Micro USB receptacle (SMT)
 */
 
-module MicroUSB_Receptacle() {
+// MicroUSB Variants
+MicroUSB_Receptacle             = 0;            // default
+// MicroUSB_Plug                = 1;            // not implemented
+
+
+module MicroUSB_Receptacle()
+{
     // dimensions for micro usb header
     // http://www.farnell.com/datasheets/1693470.pdf
     depth  = 5.3;
@@ -28,9 +34,16 @@ module MicroUSB_Receptacle() {
     flange = 7.8;                 // width of front flange
     offset  = 2.15 + 0.6 - 1.45;  // distance to overhang board edge
 
-    color(Grey90)
     linear_extrude(height) {
         translate([0, offset - depth/2, 0])
             square(size=[flange, depth], center=true);
+    }
+}
+
+module MicroUSB(type = MicroUSB_Receptacle)
+{
+    color(Grey90) {
+        /* TODO: Add various MicroUSB types */
+        MicroUSB_Receptacle();
     }
 }
