@@ -53,7 +53,7 @@ module SlideSwitch()
         {
             // mounting plate
             // TODO: Show rounded corners?
-            square(size=[plate_w, plate_l], center=true);
+            roundedSquare(size=[plate_w, plate_l], radius=2, center=true);
 
             // mounting holes (M3 tapped)
             translate([0, centres/2, 0])
