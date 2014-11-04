@@ -14,7 +14,7 @@ module line(start, end, r) {
 	}
 }
 
-module roundedSquare2(size, radius, center=false, shell=0) {
+module roundedSquare(size, radius, center=false, shell=0) {
     x = size[0];
 	y = size[1];
     
@@ -57,7 +57,7 @@ module roundedRect(size, radius, center=false, shell=0) {
 	
 	translate([0, 0, center?-z/2:0])
 	    linear_extrude(height=z) 
-	    roundedSquare2(size=size, radius=radius, center=center, shell=shell);
+	    roundedSquare(size=size, radius=radius, center=center, shell=shell);
 }
 
 module roundedRectX(size, radius, center=false, shell=0) {
