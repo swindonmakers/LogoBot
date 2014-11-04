@@ -39,6 +39,7 @@ def gen_bom(m):
      
     # vitamins
     if len(m['vitamins']) > 0:
+        m['vitamins'].sort(key=vitamin_call, reverse=False)
         md += '### Vitamins\n\n'
         md += 'Qty | Vitamin | Image\n'
         md += '--- | --- | ---\n'
@@ -51,6 +52,7 @@ def gen_bom(m):
                 
     # printed parts
     if len(m['printed']) > 0:
+        m['printed'].sort(key=printed_call, reverse=False)
         md += '### Printed Parts\n\n'
         md += 'Qty | Part Name | Image\n'
         md += '--- | --- | ---\n'
@@ -66,6 +68,12 @@ def gen_bom(m):
     return md
 
 
+def vitamin_call(v):
+    return v['call']
+
+def printed_call(p):
+    return p['call']
+
 def gen_assembly(m, a):
     md = '## '+a['title']
     if a['qty'] > 1:
@@ -74,6 +82,7 @@ def gen_assembly(m, a):
     
     # vitamins
     if len(a['vitamins']) > 0:
+        a['vitamins'].sort(key=vitamin_call, reverse=False)
         md += '### Vitamins\n\n'
         md += 'Qty | Vitamin | Image\n'
         md += '--- | --- | ---\n'
@@ -86,6 +95,7 @@ def gen_assembly(m, a):
                 
     # printed parts
     if len(a['printed']) > 0:
+        a['printed'].sort(key=printed_call, reverse=False)
         md += '### Printed Parts\n\n'
         md += 'Qty | Part Name | Image\n'
         md += '--- | --- | ---\n'
@@ -161,7 +171,7 @@ def guides():
             
             # machine views
             for c in m['children']:
-                if type(c) is DictType and c['type'] == 'view':
+                if type(c) is DictType and c['type'] == 'view' and 'filepath' in c:
                     view = c
                     md += '!['+view['caption']+']('+ view['filepath'] +')\n\n'
             

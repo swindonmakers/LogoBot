@@ -24,17 +24,22 @@ def read_hashes_from_png(filename):
     
     if os.path.isfile(filename):
         # re-open and read meta data
-        img = Image.open(filename)
-    
-        if "csghash" in img.info:
-            res['csghash'] = img.info['csghash']
-        if "viewhash" in img.info:
-            res['viewhash'] = img.info['viewhash']
+        try:
+            img = Image.open(filename)
+
+            if "csghash" in img.info:
+                res['csghash'] = img.info['csghash']
+            if "viewhash" in img.info:
+                res['viewhash'] = img.info['viewhash']
+        except:
+            print("Error reading image file")
         
     return res
 
 
 def polish(filename, w, h, hash="", viewhash=""):
+    print("  Polishing...")
+    
     img = Image.open(filename)
     img = img.convert("RGBA")
 

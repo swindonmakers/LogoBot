@@ -49,20 +49,32 @@ def printed():
                 print("  "+p['title'])
                 fn = '../' + p['file']
                 if (os.path.isfile(fn)):
+                    
+                    stlpath = target_dir + '/' + openscad.stl_filename(p['title'])
+                    md5path = target_dir + '/' + openscad.stl_filename(p['title']) + '.md5'
                 
                     print("    Checking csg hash")
                     # Get csg hash
                     h = openscad.get_csg_hash(temp_name, p['call']);
                     os.remove(temp_name);
                     
-                    hashchanged = ('hash' in p and h != p['hash']) or (not 'hash' in p)
+                    # Get old csg hash
+                    oldh = ""
+                    if os.path.isfile(md5path):
+                        with open(md5path,'r') as f:
+                            oldh = f.read()
+                    
+                    hashchanged = h != oldh
                     
                     # update hash in json
                     p['hash'] = h
+                    
+                    # save new hash
+                    with open(md5path,'w') as f:
+                        f.write(h)
                         
                     # STL
                     print("    STL")
-                    stlpath = target_dir + '/' + openscad.stl_filename(p['title'])
                     if hashchanged or (not os.path.isfile(stlpath)):
                         print("      Rendering STL...")
                         info = openscad.render_stl(temp_name, stlpath, p['call'])

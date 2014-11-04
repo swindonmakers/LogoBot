@@ -53,9 +53,6 @@ $ShowStep = 100;
 
 $DefaultViewSize = [400, 300];
 
-// BOM
-
-BOMLevel = 2;
 
 // Include all other configuration files
 
