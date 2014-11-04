@@ -2,7 +2,8 @@
     Vitamin: SlideSwitch
     Model of various Slide Switches
 
-    Derived from: http://www.maplin.co.uk/p/double-pole-miniature-fh36p
+    Derived from: http://www.maplin.co.uk/p/double-pole-sub-miniature-fh35q
+        see also: http://www.edutronic.co.uk/examples/catalog.htm
 
     Authors:
         Jamie Osborne (@jmeosbn)
@@ -20,28 +21,30 @@
 module SlideSwitch()
 {
 
-    plate_w = 12.5;
-    plate_l = 35.0;
+    plate_w =  7.0;
+    plate_l = 23.0;
     plate_h =  1.0;         // FIXME: ASSUMED VALUE
-    centres = 28.0;         // distance between mounting holes
+    plate_r =  1.0;         // FIXME: ASSUMED VALUE
+    centres = 19.0;         // distance between mounting holes
+    holedia =  2.5;         // clearance for M2
 
-    tang_w  =  5.0;         // FIXME: ASSUMED VALUE
-    tang_d  =  5.0;         // FIXME: ASSUMED VALUE
-    tang_h  = 10.0;
-    tthrow  =  5.5;         // amount tang moves to actuate switch
+    tang_w  =  4.0;         // FIXME: ASSUMED VALUE
+    tang_d  =  4.0;         // FIXME: ASSUMED VALUE
+    tang_h  =  7.5;
+    tthrow  =  3.5;         // amount tang moves to actuate switch
 
-    body_w  = 24.0;         // FIXME: ASSUMED VALUE
-    body_d  = 12.5;         // FIXME: ASSUMED VALUE
-    body_h  =  8.0;         // FIXME: ASSUMED VALUE
+    body_w  = 15.0;
+    body_d  =  7.0;
+    body_h  =  7.5;
 
-    tags_w  =  2.5;
-    tags_h  =  5.0;
+    tags_w  =  1.5;
+    tags_h  =  3.0;
     tags_d  =  1.0;         // FIXME: ASSUMED VALUE
-    tags_x  =  8.0;         // FIXME: ASSUMED VALUE
-    tags_y  =  8.0;         // FIXME: ASSUMED VALUE
+    tags_x  =  4.0;         // FIXME: ASSUMED VALUE
+    tags_y  =  4.0;         // FIXME: ASSUMED VALUE
 
-    tags_a  =    2;         // switch poles
-    tags_b  =    3;         // switch throw
+    tags_a  =    2;         // amount of tags across
+    tags_b  =    3;         // amount of tags down
 
     // Mounting Plate
 
@@ -53,13 +56,13 @@ module SlideSwitch()
         {
             // mounting plate
             // TODO: Show rounded corners?
-            roundedSquare(size=[plate_w, plate_l], radius=2, center=true);
+            roundedSquare(size=[plate_w, plate_l], radius=plate_r, center=true);
 
-            // mounting holes (M3 tapped)
+            // mounting holes
             translate([0, centres/2, 0])
-                circle(d=3);
+                circle(d=holedia);
             translate([0, -centres/2, 0])
-                circle(d=3);
+                circle(d=holedia);
 
             // tang hole
             square(size=[tang_w, tang_d + tthrow], center=true);
