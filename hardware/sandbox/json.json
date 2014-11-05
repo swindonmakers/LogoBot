@@ -1,0 +1,40 @@
+[
+    {
+        "call": "LogoBotAssembly(PenLift=false)",
+        "contains": [
+            {
+                "call": "Wheel()",
+                "contains": [
+                    {
+                        "author": "damo",
+                        "call": "Wheel_STL()",
+                        "contains": [
+                            {}
+                        ],
+                        "cost": "0.89",
+                        "name": "Wheel",
+                        "src": "http://ebay.com",
+                        "title": "Wheel",
+                        "type": "vitamin"
+                    }
+                ],
+                "name": "Wheel",
+                "title": "Left Wheel",
+                "type": "assembly"
+            },
+            {
+                "call": "Wheel()",
+                "contains": [
+                    {}
+                ],
+                "name": "Wheel",
+                "title": "Right Wheel",
+                "type": "assembly"
+            }
+        ],
+        "name": "LogoBot",
+        "note": "this is a little note\n\n",
+        "title": "LogoBot Basic Robot",
+        "type": "assembly"
+    }
+]

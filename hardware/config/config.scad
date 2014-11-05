@@ -44,16 +44,15 @@ DebugCoordinateFrames = 1; 		// set to 1 to debug, set to 0 for production
 
 // set to true to use STL for printed parts rather than rendering on the fly
 UseSTL = true;
-STLPath = "../stl/";
+STLPath = "../printedparts/stl/";
 UseVitaminSTL = true;
 VitaminSTL = "../vitamins/stl/";
 
 $Explode  = false;
 $ShowStep = 100;
 
-// BOM
+$DefaultViewSize = [400, 300];
 
-BOMLevel = 2;
 
 // Include all other configuration files
 
@@ -61,4 +60,5 @@ include <colors.scad>
 include <utils.scad>
 include <vitamins.scad>
 include <machine.scad>
+include <printedparts.scad>
 include <assemblies.scad>

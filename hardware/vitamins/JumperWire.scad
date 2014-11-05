@@ -23,8 +23,8 @@ JumperWire_DefaultConnector2 = [[100,0,0], [1,0,0], 0,0,0];
 
 //Pin Types
 
-Pin_Male = "M";
-Pin_Female = "F";
+Pin_Male = "Male";
+Pin_Female = "Female";
 
 // JumperWire Types
 // -----
@@ -53,7 +53,7 @@ function JumperWire_Colors(t)       = t[4];
 module JumperWire_Pin(type, con, ExplodeSpacing=20) {
     w = 2.54;
     h = 14;
-    attach(con, DefConDown, ExplodeSpacing=ExplodeSpacing)
+    attach(con, DefConDown, $Explode=false, ExplodeSpacing=ExplodeSpacing)
         
         if (type == Pin_Male) {
             color("gold")
@@ -81,90 +81,110 @@ module JumperWire(
     midTanVec = [0,1,0],
     ExplodeSpacing = 20
 ) {
-    Vitamin("JumperWire", JumperWire_TypeName(type));
+    // vert offset of connector?
+    pinvo = [ 
+        JumperWire_PinType1(type) == Pin_Male ? -7 : 0,
+        JumperWire_PinType2(type) == Pin_Male ? -7 : 0,
+    ];
 
-    cons = [con1, con2];
+    cons = [offsetConnector(con1, [0,0,pinvo[0]]), offsetConnector(con2, [0,0,pinvo[1]])];
     con1n = VNORM(con1[1]);
     con2n = VNORM(con2[1]);
     conVecs = [VNORM(conVec1), VNORM(conVec2)];
     numPins = JumperWire_NumPins(type);
-
-    if (DebugCoordinateFrames) frame();
-
-    if (DebugConnectors) {
-        connector(con1);
-        connector(con2);
-    }
-
-    // pins
-    for (i=[0,1])
-        for (p=[0:numPins-1])
-            JumperWire_Pin(type[1+i], offsetConnector(cons[i], conVecs[i] * p * 2.54), ExplodeSpacing=ExplodeSpacing);
-
+    
     mtv = VNORM(midTanVec);
+    
+    tn = JumperWire_TypeName(type);
+    
+    au = $AnimateExplode ? (1-$AnimateExplodeT) : 1;
+    
+    vitamin("vitamins/JumperWire.scad", 
+            str("JumperWire ",JumperWire_PinType1(type)," to ",JumperWire_PinType2(type)," ",JumperWire_NumPins(type),"pin ",length,"mm"), 
+            str("JumperWire(type=JumperWire_",tn,", length=",length,")")) {
+            
+        view(t=[51,5,2], r=[41,0,29], d=438);
 
-    // cable
-    if (complex) {
-        ribbonCable(
-            cables=numPins,
-            cableRadius = 0.6,
-            cableSpacing = 2.54,
-            points= [
-                con1[0] - con1n * (14 + ($Explode ? ExplodeSpacing : 0)),
-                con1[0] - con1n * (length * 0.3 + ($Explode ? ExplodeSpacing : 0)),
-                midPoint - mtv * length * 0.3,
-                midPoint
-            ],
-            vectors = [
-                conVecs[0],
-                conVecs[0],
-                midVec,
-                midVec
-            ],
-            colors = JumperWire_Colors(type)
-        );
-        ribbonCable(
-            cables=numPins,
-            cableRadius = 0.6,
-            cableSpacing = 2.54,
-            points= [
-                midPoint,
-                midPoint + mtv * length * 0.3,
-                con2[0] - con2n * (length * 0.3 + ($Explode ? ExplodeSpacing : 0)),
-                con2[0] - con2n * (14 + ($Explode ? ExplodeSpacing : 0))
-            ],
-            vectors = [
-                midVec,
-                midVec,
-                conVecs[1],
-                conVecs[1]
-            ],
-            colors = JumperWire_Colors(type)
-        );
+        if (DebugCoordinateFrames) frame();
+
+        if (DebugConnectors) {
+            connector(cons[0]);
+            connector(cons[1]);
+        }
+
+        // pins
+        for (i=[0,1])
+            for (p=[0:numPins-1])
+                JumperWire_Pin(type[1+i], offsetConnector(cons[i], conVecs[i] * p * 2.54), ExplodeSpacing=ExplodeSpacing);
+
+        // assembly vector
+        if ($Explode) {
+            for (i=[0,1])
+                color([1,0,0, au * 0.8])
+                attach(cons[i], DefConUp, $Explode=false)
+                //translate(cons[i][1] * ExplodeSpacing * au)
+                vectorz(cons[i][1], l=abs(ExplodeSpacing * au), l_arrow=2, mark=false);
+        }
+
+        // cable
+        if (complex) {
+            ribbonCable(
+                cables=numPins,
+                cableRadius = 0.6,
+                cableSpacing = 2.54,
+                points= [
+                    cons[0][0] - con1n * (14),
+                    cons[0][0] - con1n * (length * 0.3),
+                    midPoint - mtv * length * 0.3,
+                    midPoint
+                ],
+                vectors = [
+                    conVecs[0],
+                    conVecs[0],
+                    midVec,
+                    midVec
+                ],
+                colors = JumperWire_Colors(type)
+            );
+            ribbonCable(
+                cables=numPins,
+                cableRadius = 0.6,
+                cableSpacing = 2.54,
+                points= [
+                    midPoint,
+                    midPoint + mtv * length * 0.3,
+                    cons[1][0] - con2n * (length * 0.3 ),
+                    cons[1][0] - con2n * (14 )
+                ],
+                vectors = [
+                    midVec,
+                    midVec,
+                    conVecs[1],
+                    conVecs[1]
+                ],
+                colors = JumperWire_Colors(type)
+            );
 
     
-    } else {
-        ribbonCable(
-            cables=numPins,
-            cableRadius = 0.6,
-            cableSpacing = 2.54,
-            points= [
-                con1[0] - con1n * (14 + ($Explode ? ExplodeSpacing : 0)),
-                con1[0] - con1n * (length * 0.6 + ($Explode ? ExplodeSpacing : 0)),
-                con2[0] - con2n * (length * 0.6 + ($Explode ? ExplodeSpacing : 0)),
-                con2[0] - con2n * (14 + ($Explode ? ExplodeSpacing : 0))
-            ],
-            vectors = [
-                conVecs[0],
-                midVec,
-                midVec,
-                conVecs[1]
-            ],
-            colors = JumperWire_Colors(type)
-        );
+        } else {
+            ribbonCable(
+                cables=numPins,
+                cableRadius = 0.6,
+                cableSpacing = 2.54,
+                points= [
+                    cons[0][0] - con1n * (14 ),
+                    cons[0][0] - con1n * (length * 0.6 ),
+                    cons[1][0] - con2n * (length * 0.6 ),
+                    cons[1][0] - con2n * (14 )
+                ],
+                vectors = [
+                    conVecs[0],
+                    midVec,
+                    midVec,
+                    conVecs[1]
+                ],
+                colors = JumperWire_Colors(type)
+            );
+        }
     }
 } 
-
-module JumperWire_View(type) {
-    echo("400 300 51 5 2 41 0 29 438");    
-}

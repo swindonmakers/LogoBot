@@ -1,0 +1,165 @@
+group() {
+	group() {
+		group() {
+			group() {
+				group();
+				group() {
+					group() {
+						group() {
+							group();
+						}
+						group() {
+							group();
+						}
+						group() {
+							group();
+						}
+						group() {
+							group();
+						}
+						group() {
+							group() {
+								group();
+								group() {
+									group() {
+										group() {
+											group() {
+												group() {
+													group();
+													group() {
+														group() {
+															group() {
+																group();
+															}
+															group() {
+																group();
+															}
+															group() {
+																group();
+															}
+															group() {
+																group();
+															}
+															group() {
+																group();
+															}
+															group() {
+																group();
+															}
+															group() {
+																group();
+															}
+															group();
+														}
+													}
+													group();
+												}
+											}
+											group();
+											group();
+											group() {
+												group() {
+													group() {
+														group();
+														group() {
+															group() {
+																group() {
+																	group();
+																}
+																group() {
+																	group();
+																}
+																group() {
+																	group();
+																}
+																group() {
+																	group() {
+																		group();
+																		group() {
+																			group() {
+																				group();
+																			}
+																			group();
+																		}
+																	}
+																}
+															}
+														}
+														group();
+													}
+												}
+												color([0, 0, 1, 0.8]) {
+													group() {
+														cube(size = [23.5, 12.6, 16.4], center = false);
+														multmatrix([[1, 0, 0, -4.65], [0, 1, 0, 0], [0, 0, 1, 16.3], [0, 0, 0, 1]]) {
+															difference() {
+																cube(size = [32.8, 12.6, 2], center = false);
+																multmatrix([[1, 0, 0, 2.65], [0, 1, 0, 6.3], [0, 0, 1, -0.1], [0, 0, 0, 1]]) {
+																	cylinder($fn = 45, $fa = 5, $fs = 0.1, h = 3, r1 = 1, r2 = 1, center = false);
+																}
+																multmatrix([[1, 0, 0, 30.15], [0, 1, 0, 6.3], [0, 0, 1, -0.1], [0, 0, 0, 1]]) {
+																	cylinder($fn = 45, $fa = 5, $fs = 0.1, h = 3, r1 = 1, r2 = 1, center = false);
+																}
+															}
+														}
+														multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 18.2], [0, 0, 0, 1]]) {
+															cube(size = [23.5, 12.6, 4.4], center = false);
+														}
+														multmatrix([[1, 0, 0, 6.3], [0, 1, 0, 6.3], [0, 0, 1, 22.5], [0, 0, 0, 1]]) {
+															cylinder($fn = 45, $fa = 5, $fs = 0.1, h = 4.1, r1 = 6.3, r2 = 6.3, center = false);
+														}
+													}
+												}
+											}
+											group() {
+												group() {
+													group() {
+														group();
+														group() {
+															group() {
+																group() {
+																	group();
+																}
+																group() {
+																	group();
+																}
+																group() {
+																	group();
+																}
+																group() {
+																	group() {
+																		group();
+																		group() {
+																			group() {
+																				group();
+																			}
+																			group();
+																		}
+																	}
+																}
+															}
+														}
+														group();
+													}
+												}
+												color([1, 1, 1, 0.8]) {
+													group() {
+														multmatrix([[1, 0, 0, 6.3], [0, 1, 0, 6.3], [0, 0, 1, 26.5], [0, 0, 0, 1]]) {
+															cylinder($fn = 45, $fa = 5, $fs = 0.1, h = 2.8, r1 = 2.25, r2 = 2.25, center = false);
+														}
+													}
+												}
+											}
+										}
+									}
+									group();
+								}
+							}
+						}
+					}
+				}
+				group();
+			}
+		}
+	}
+}

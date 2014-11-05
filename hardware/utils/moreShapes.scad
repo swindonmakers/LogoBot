@@ -17,7 +17,7 @@ module line(start, end, r) {
 module roundedSquare(size, radius, center=false, shell=0) {
     x = size[0];
 	y = size[1];
-	
+    
 	translate([center?-x/2:0, center?-y/2:0, 0])
 	difference() {
 		hull() {
@@ -57,8 +57,7 @@ module roundedRect(size, radius, center=false, shell=0) {
 	
 	translate([0, 0, center?-z/2:0])
 	    linear_extrude(height=z) 
-	    roundedSquare(size, radius, center, shell);
-	
+	    roundedSquare(size=size, radius=radius, center=center, shell=shell);
 }
 
 module roundedRectX(size, radius, center=false, shell=0) {
@@ -182,7 +181,7 @@ module arrangeShapesOnAxis(axis=[1,0,0], spacing=50) {
 	for (i=[0:$children-1]) {
 		translate([spacing * axis[0] *i,
 					spacing * axis[1]*i,
-					spacing * axis[2]*i]) child(i);
+					spacing * axis[2]*i]) children(i);
 	}
 }
 
@@ -190,7 +189,7 @@ module arrangeShapesOnGrid(xSpacing=50, ySpacing=50, cols=3, showLocalAxes=false
 	// layout is cols, rows
 	for (i=[0:$children-1]) {
 		translate([(i - floor(i / cols)*cols) * xSpacing, floor(i / cols) * ySpacing, 0]) {
-			child(i);
+			children(i);
 
 			if (showLocalAxes) {
 				color("red") line([0,0,0], [xSpacing/2,0,0], 0.2);

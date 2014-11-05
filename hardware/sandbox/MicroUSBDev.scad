@@ -10,5 +10,5 @@ include <../config/config.scad>
 include <../vitamins/MicroUSB.scad>
 
 // Create a Micro USB Receptacle
-MicroUSB_Receptacle();
+MicroUSB(MicroUSB_Receptacle);
 
