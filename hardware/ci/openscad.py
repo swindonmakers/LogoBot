@@ -67,7 +67,11 @@ def which(program):
 
 def run_silent(*args):
     log = open("openscad.log", "w")
-    prog = which('OpenSCAD')
+    programs = ['OpenSCAD', 'openscad']
+    for locate_prog in programs:
+        prog = which(locate_prog)
+        if prog != None:
+            break
     if prog == None:
         print("Unable to locate OpenSCAD executable... check your PATH")
     else:
