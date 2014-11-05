@@ -150,7 +150,7 @@ module LogoBotAssembly ( PenLift=false ) {
                     conVec2 = [0,-1,0],
                     midVec = [0.5,-1,0]
                 );
-
+            }
             // Battery assembly
             step(6, "Clip in the battery pack") {
                 view(t=[-6,7,19], r=[64,1,212], d=625);
