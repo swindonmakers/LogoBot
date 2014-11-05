@@ -31,10 +31,10 @@ Qty | Vitamin | Image
 
 Qty | Part Name | Image
 --- | --- | ---
-1 | [Base](../printedparts/stl/Base.stl) | ![](../printedparts/images/Base_view.png) | 
-2 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
-1 | [Caster Housing](../printedparts/stl/CasterHousing.stl) | ![](../printedparts/images/CasterHousing_view.png) | 
 1 | [Basic Shell](../printedparts/stl/BasicShell.stl) | ![](../printedparts/images/BasicShell_view.png) | 
+1 | [Base](../printedparts/stl/Base.stl) | ![](../printedparts/images/Base_view.png) | 
+1 | [Caster Housing](../printedparts/stl/CasterHousing.stl) | ![](../printedparts/images/CasterHousing_view.png) | 
+2 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
 
 
 ## Brain
@@ -98,8 +98,8 @@ Qty | Vitamin | Image
 
 Qty | Part Name | Image
 --- | --- | ---
-1 | [Base](../printedparts/stl/Base.stl) | ![](../printedparts/images/Base_view.png) | 
 1 | [Basic Shell](../printedparts/stl/BasicShell.stl) | ![](../printedparts/images/BasicShell_view.png) | 
+1 | [Base](../printedparts/stl/Base.stl) | ![](../printedparts/images/Base_view.png) | 
 
 ### Sub-Assemblies
 
