@@ -57,7 +57,7 @@ module ArduinoPro_MicroUSB()
 
     // Add USB header and move to top of board (along x)
     translate([move_x, move_y, move_z])
-        MicroUSB_Receptacle();
+        MicroUSB(MicroUSB_Receptacle);
 }
 
 module ArduinoPro_PCB()
