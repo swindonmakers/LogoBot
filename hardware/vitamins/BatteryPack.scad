@@ -6,6 +6,8 @@
 
 include <../config/colors.scad>
 
+eta = 0.01;
+
 // AAs - http://en.wikipedia.org/wiki/AA_battery
 
 //                    Battery len, Battery dia, Pack width, Pack depth, Pack height, Linear?, Batteries, Name 
@@ -87,12 +89,12 @@ module battery_pack_double(BP, battery_sep, battery_count) {
 
   for(i=[0:(battery_count/2)-1]) {
     translate([i*(Battery_dia+battery_sep), 0, 0])
-      battery();
+      battery(BP);
     translate([i*(Battery_dia+battery_sep), Battery_dia+battery_sep, 0])
       translate([0,0,Battery_len/2])
         rotate([180, 0, 0])
           translate([0,0,-Battery_len/2])
-            battery();
+            battery(BP);
   }
 }
 
@@ -102,8 +104,8 @@ module BatteryPack(BP) {
   Battery_len = BP[BatteryPack_Const_BLen];
   Battery_dia = BP[BatteryPack_Const_BDia];
   BatteryPack_height = BP[BatteryPack_Const_PHeight];
-  BatteryPack_width = BP[BatteryPack_Const_BWidth];
-  BatteryPack_depth = BP[BatteryPack_Const_BDepth];
+  BatteryPack_width = BP[BatteryPack_Const_PWidth];
+  BatteryPack_depth = BP[BatteryPack_Const_PDepth];
 
   // Actually measured, it overhangs by 2mm, 1 because this is actually
   // a radius -- how far is the center-line of the battery offset from the edge
@@ -147,5 +149,9 @@ module BatteryPack(BP) {
  }
 }
 
+
 *battery_pack_linear(BatteryPack_AA, 2,4);
 *battery_pack_double(BatteryPack_AA, 2, 4);
+*battery(BatteryPack_AA);
+BatteryPack(BatteryPack_AA);
+
