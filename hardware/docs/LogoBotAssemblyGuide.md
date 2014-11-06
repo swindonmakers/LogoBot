@@ -115,7 +115,7 @@ Qty | Name
 ![](../assemblies/LogoBot/FinalAssembly_step2_view.png)
 3. Push the two motor drivers onto the mounting posts
 ![](../assemblies/LogoBot/FinalAssembly_step3_view.png)
-4. Clip the two wheels assemblies onto the base and                     connect the motor leads to the the motor drivers
+4. Clip the two wheels assemblies onto the base and                    connect the motor leads to the the motor drivers
 ![](../assemblies/LogoBot/FinalAssembly_step4_view.png)
 5. Connect the jumper wires between the motor drivers and the Arduino
 ![](../assemblies/LogoBot/FinalAssembly_step5_view.png)
@@ -130,7 +130,7 @@ Qty | Name
 ![](../assemblies/LogoBot/FinalAssembly_step9_view.png)
 10. Push the caster assembly into the base so that it snaps into place
 ![](../assemblies/LogoBot/FinalAssembly_step10_view.png)
-11. Push the shell down onto the base and twist to lock into place
-![](../assemblies/LogoBot/FinalAssembly_step11_view.png)
+13. Push the shell down onto the base and twist to lock into place
+![](../assemblies/LogoBot/FinalAssembly_step13_view.png)
 
 

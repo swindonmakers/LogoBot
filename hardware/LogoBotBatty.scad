@@ -38,6 +38,6 @@ machine("LogoBotBatty.scad","LogoBot Batty") {
 
 ");
     FakeGroundShadow()
-        LogoBotAssembly(PenLift=false, Ultrasonics=true);
+        LogoBotAssembly(PenLift=false, Ultrasonics=true, Shell=false);
 
 }
