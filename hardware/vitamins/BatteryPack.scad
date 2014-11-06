@@ -10,7 +10,7 @@ eta = 0.01;
 
 // AAs - http://en.wikipedia.org/wiki/AA_battery
 
-//                    Battery len, Battery dia, Pack width, Pack depth, Pack height, Linear?, Batteries, Name 
+//                    Battery len, Battery dia, Pack width, Pack depth, Pack height, Linear?, Batteries, Name
 BatteryPack_AA_4_SQ = [ 50.5,       14.5,        31.4,       27.5,       57.4,        0,      , 4,       "AA" ];
 
 // Default:
@@ -31,7 +31,7 @@ function BatteryPack_Con_Centre(BP) = [
   [
     BP[BatteryPack_Const_PWidth]/2 + BP[BatteryPack_Const_BDia]/2,
     BP[BatteryPack_Const_PDepth]/2 + BP[BatteryPack_Const_BDia]/2,
-    BP[BatteryPack_Const_PHeight]/2,    
+    BP[BatteryPack_Const_PHeight]/2,
   ],
   [ 0,0,0 ],
   0, 0, 0
@@ -131,7 +131,7 @@ module BatteryPack(BP) {
    // Subtract battery shapes
    translate([Battery_dia/2-eta, battery_depth_offset-eta, (BatteryPack_height-Battery_len)/2])
      cylinder(h=Battery_len, r=Battery_dia/2);
-    
+
 
    translate([BatteryPack_width-Battery_dia/2+eta, battery_depth_offset-eta, (BatteryPack_height-Battery_len)/2])
     cylinder(h=Battery_len, r=Battery_dia/2);
@@ -153,5 +153,4 @@ module BatteryPack(BP) {
 *battery_pack_linear(BatteryPack_AA, 2,4);
 *battery_pack_double(BatteryPack_AA, 2, 4);
 *battery(BatteryPack_AA);
-BatteryPack(BatteryPack_AA);
-
+*BatteryPack(BatteryPack_AA);

@@ -17,34 +17,34 @@ module line(start, end, r) {
 module roundedSquare(size, radius, center=false, shell=0) {
     x = size[0];
 	y = size[1];
-    
+
 	translate([center?-x/2:0, center?-y/2:0, 0])
 	difference() {
 		hull() {
 			translate([radius, radius, 0])
 			circle(r=radius);
-		
+
 			translate([x - radius, radius, 0])
 			circle(r=radius);
-		
+
 			translate([x - radius, y - radius, 0])
 			circle(r=radius);
-		
+
 			translate([radius, y - radius, 0])
 			circle(r=radius);
 		}
-		
+
 		if (shell > 0) {
 			hull() {
 			translate([radius + shell, radius + shell, 0])
 			circle(r=radius);
-		
+
 			translate([x - radius - shell, radius + shell, 0])
 			circle(r=radius);
-		
+
 			translate([x - radius - shell, y - radius - shell, 0])
 			circle(r=radius);
-		
+
 			translate([radius + shell, y - radius - shell, 0])
 			circle(r=radius);
 		}
@@ -54,9 +54,9 @@ module roundedSquare(size, radius, center=false, shell=0) {
 
 module roundedRect(size, radius, center=false, shell=0) {
 	z = size[2];
-	
+
 	translate([0, 0, center?-z/2:0])
-	    linear_extrude(height=z) 
+	    linear_extrude(height=z)
 	    roundedSquare(size=size, radius=radius, center=center, shell=shell);
 }
 
@@ -81,14 +81,20 @@ module allRoundedRect(size, radius, center=false) {
 	}
 }
 
-module chamferedRect(size, chamfer, center=false) {
+module chamferedSquare(size, chamfer, center=false) {
 	hull() {
 		translate([0,center?0:chamfer,0])
 			square([size[0],size[1]-2*chamfer],center);
-			
+
 		translate([center?0:chamfer,0,0])
 			square([size[0]-2*chamfer,size[1]],center);
 	}
+}
+
+module chamferedCube(size, chamfer, center=false) {
+	translate([0,0, center ? -size[2]/2 : 0])
+		linear_extrude(size[2])
+		chamferedSquare(size, chamfer, center=center);
 }
 
 // Extended rotational extrude, allows control of start/end angle
@@ -150,8 +156,8 @@ module torusSlice(r1, r2, start_angle, end_angle, convexity=10, r3=0, $fn=64) {
 }
 
 module torus(r1, r2, $fn=64) {
-	rotate_extrude() 
-		translate([r1,0,0]) 
+	rotate_extrude()
+		translate([r1,0,0])
 		circle(r2, $fn=$fn/4);
 }
 
@@ -159,17 +165,17 @@ module torus(r1, r2, $fn=64) {
 module trapezoid(a,b,h,aOffset=0,center=false) {
 	// lies in x/y plane
 	// edges a,b are parallel to x axis
-	// h is in direction of y axis	
+	// h is in direction of y axis
 	// b is anchored at origin, extends along positive x axis
 	// a is offset along y by h, extends along positive x axis
 	// a if offset along x axis, from y axis, by aOffset
 	// centering is relative to edge b
 
-	translate([center?-b/2:0, center?-h/2:0, 0]) 
+	translate([center?-b/2:0, center?-h/2:0, 0])
 	polygon(points=[	[0,0],
 					[aOffset,h],
 					[aOffset + a, h],
-					[b,0]]); 
+					[b,0]]);
 }
 
 module trapezoidPrism(a,b,h,aOffset,height,center=false) {
@@ -185,7 +191,7 @@ module arrangeShapesOnAxis(axis=[1,0,0], spacing=50) {
 	}
 }
 
-module arrangeShapesOnGrid(xSpacing=50, ySpacing=50, cols=3, showLocalAxes=false) {	
+module arrangeShapesOnGrid(xSpacing=50, ySpacing=50, cols=3, showLocalAxes=false) {
 	// layout is cols, rows
 	for (i=[0:$children-1]) {
 		translate([(i - floor(i / cols)*cols) * xSpacing, floor(i / cols) * ySpacing, 0]) {
@@ -272,7 +278,7 @@ module rounded_cylinder(r, h, r2, roundBothEnds=false)
 				translate([r - r2, r2])
                 circle(r = r2);
 			}
-			
+
         }
 }
 
@@ -299,7 +305,7 @@ module sector2D(r, a, center = true) {
 module donutSector2D(or,ir,a, center=true) {
 	difference() {
 		sector2D(or,a,center);
-		
+
 		circle(ir);
 	}
 
@@ -317,7 +323,7 @@ module tube(or, ir, h, center = true) {
 module conicalTube(or1,ir1,or2,ir2,h) {
 	difference() {
 		cylinder(r1=or1, r2=or2, h=h);
-		
+
 		translate([0,0,-eta])
 			cylinder(r1=ir1, r2=ir2, h=h+2*eta);
 	}
@@ -353,7 +359,7 @@ module moreShapesExamples() {
 		rounded_square(w=30, h=20, r=5);
 		rounded_cylinder(r=10, h=50, r2=5, roundBothEnds=false);
 		rounded_cylinder(r=10, h=50, r2=5, roundBothEnds=true);
-		
+
 		// same as extruded pieSlice
 		sector(r=10, a=70, h=20, center = false);
 
@@ -391,10 +397,10 @@ module overhangFreeCircle(r, ang) {
 module minSupportBeam(size=[0,0,0], bridge=5, air=0, center=false) {
 	w = size[0] > bridge ? (size[0] - bridge)/2 : 0;
 	h = w > air ? air : w;
-	
+
 	union() {
 		cube(size, center=center);
-	
+
 		// triangular supports
 		for (i=[0,1])
 			translate([i*size[0],0,eta])
@@ -402,10 +408,10 @@ module minSupportBeam(size=[0,0,0], bridge=5, air=0, center=false) {
 				translate([w-h, 0, 0])
 					rotate([-90,0,0])
 					right_triangle(h, h, size[1], center=false);
-					
+
 				translate([0, 0, -h])
 					cube([w-h+eta, size[1], h+eta]);
-			
+
 			}
 	}
 }
@@ -415,4 +421,3 @@ module minSupportBeamY(size=[0,0,0], bridge=5, air=0, center=false) {
 		rotate([0,0,90])
 		minSupportBeam([size[1], size[0], size[2]], bridge, air, center=center);
 }
-

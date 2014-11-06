@@ -12,6 +12,7 @@ include <../vitamins/Breadboard.scad>
 include <../vitamins/LED.scad>
 include <../vitamins/Bolt.scad>
 include <../vitamins/FTDIBreakout.scad>
+include <../vitamins/HCSR04UltrasonicSensor.scad>
 include <../vitamins/JumperWire.scad>
 include <../vitamins/Marble.scad>
 include <../vitamins/MicroServo.scad>

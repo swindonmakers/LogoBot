@@ -1,8 +1,6 @@
 # LogoBot Scribbler
 # Assembly Guide
 
-![view](../images/LogoBotScribbler_view.png)
-
 ## Introduction
 
 The LogoBot Scribbler build is broken down into sub-assemblies that can be worked on sequentially by one person, or in parallel if there is more than one person building.
