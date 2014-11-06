@@ -97,6 +97,21 @@ module chamferedCube(size, chamfer, center=false) {
 		chamferedSquare(size, chamfer, center=center);
 }
 
+// show cross section along axis (x)
+module section()
+{
+    // TODO: optionally pass in vector and size
+    size=1000;
+    difference() {
+        children();
+
+        color("white")
+        translate([0, -size/2, 0])
+            cube(size, center=true);
+    }
+}
+
+
 // Extended rotational extrude, allows control of start/end angle
 
 // Child 2D shape is used for the rotational extrusion
