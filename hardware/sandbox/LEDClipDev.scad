@@ -1,6 +1,6 @@
 /*
 
-	Playground for developing the vitamins/LEDClip.scad library
+    Playground for developing the vitamins/LEDClip.scad library
 
 */
 
@@ -21,14 +21,16 @@ module LEDClip_Layout_Sandbox()
         LED(LED_5mm);
 
     // closed (with diffuser) for 5mm LED
-    color("white", 0.6) {
+    color("white") {
         translate([12, 0, 0])
             LEDClip(LEDClip_Closed);
     }
     // show with LED
     translate([12, 0, 2 - 8.6])
         LED(LED_5mm);
-
 }
 
-LEDClip_Layout_Sandbox();
+// show cross section of LED Clips
+section() {
+    LEDClip_Layout_Sandbox();
+}
