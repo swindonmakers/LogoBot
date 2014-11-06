@@ -18,7 +18,7 @@ module LEDClip_Layout_Sandbox()
     LEDClip();
     // show with LED
     translate([0, 0, 3 - 8.6])
-        LED(LED_5mm);
+        %LED(LED_5mm);
 
     // closed (with diffuser) for 5mm LED
     color("white") {
@@ -27,7 +27,7 @@ module LEDClip_Layout_Sandbox()
     }
     // show with LED
     translate([12, 0, 2 - 8.6])
-        LED(LED_5mm);
+        %LED(LED_5mm);
 }
 
 // show cross section of LED Clips
