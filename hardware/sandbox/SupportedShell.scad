@@ -40,7 +40,11 @@ module domeSupportSegment(radius=100, inset=0, thickness=1, supportAngle=45) {
 	insetAng = asin(inset/radius);	
 	theta = 180 - 2*supportAngle - 2*insetAng;
 
-	rotate([0,0,90 - theta - insetAng])
+	sh = segmentHeight(radius,theta);
+	
+	if (sh > 2)
+		rotate([0,0,90 - theta - insetAng])
+		translate([0,0,-thickness/2])
 		linear_extrude(thickness)
 		circularSegment(radius,theta);
 }
@@ -48,11 +52,17 @@ module domeSupportSegment(radius=100, inset=0, thickness=1, supportAngle=45) {
 
 module shell() {
 
+	or = BaseDiameter/2 + Shell_NotchTol + sw;
+	
+	sr = or - sw + eta;
+	
 	supportAngle = 50;
 	bridgeDist = 6;
 
-	numRibs = round(circumference(BaseDiameter/2 * cos(90-supportAngle)) / bridgeDist);
-	echo(numRibs);
+	numRibs1 = round(circumference(sr * cos(supportAngle)) / bridgeDist);
+	numRibs = 4 * (floor(numRibs1 / 4) + 1);
+	
+	$fn=64;
 	
 	// shell with hole for LED
 	//render()
@@ -63,7 +73,7 @@ module shell() {
 					difference() {
 						// outer shell
 						donutSector2D(
-							or=BaseDiameter/2 + Shell_NotchTol + sw, 
+							or=or, 
 							ir=BaseDiameter/2 + Shell_NotchTol,
 							a=90
 						);
@@ -77,24 +87,20 @@ module shell() {
 				for (i=[0:numRibs/4])
 					rotate([0,0,i*360/(numRibs/4)])
 					rotate([90,0,0])
-					domeSupportSegment(BaseDiameter/2, PenHoleDiameter/2, perim, supportAngle);
+					domeSupportSegment(sr, PenHoleDiameter/2, perim, supportAngle);
 					
 				// medium support ribs
 				for (i=[0:numRibs/4])
 					rotate([0,0,i*360/(numRibs/4) + 360/(numRibs/2)])
 					rotate([90,0,0])
-					domeSupportSegment(BaseDiameter/2, PenHoleDiameter/2 + 10, perim, supportAngle);
+					domeSupportSegment(sr, PenHoleDiameter/2 + 2*bridgeDist, perim, supportAngle);
 					
 				// small support ribs
 				for (i=[0:numRibs/2])
 					rotate([0,0,i*360/(numRibs/2) + 360/(numRibs)])
 					rotate([90,0,0])
-					domeSupportSegment(BaseDiameter/2, PenHoleDiameter/2 + 20, perim, supportAngle);
+					domeSupportSegment(sr, PenHoleDiameter/2 + 4*bridgeDist, perim, supportAngle);
 			}
-		
-			// section
-			*translate([-100,-200,-100])
-				cube([200,200,200]);
 		}
 }
 
