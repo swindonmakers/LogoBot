@@ -20,7 +20,6 @@ function segmentDistance(radius,theta) = radius - segmentHeight(radius,theta);
 // extends towards y+
 // theta should be <= 180 degrees
 module circularSegment(radius, theta) {
-	echo(segmentHeight(radius,theta));
 	intersection() {
 		circle(radius);
 		
@@ -48,6 +47,13 @@ module domeSupportSegment(radius=100, inset=0, thickness=1, supportAngle=45) {
 
 
 module shell() {
+
+	supportAngle = 50;
+	bridgeDist = 6;
+
+	numRibs = round(circumference(BaseDiameter/2 * cos(90-supportAngle)) / bridgeDist);
+	echo(numRibs);
+	
 	// shell with hole for LED
 	//render()
 		difference() {
@@ -68,16 +74,22 @@ module shell() {
 					}
 					
 				// large support ribs
-				for (i=[0:9])
-					rotate([0,0,i*360/10])
+				for (i=[0:numRibs/4])
+					rotate([0,0,i*360/(numRibs/4)])
 					rotate([90,0,0])
-					domeSupportSegment(BaseDiameter/2, PenHoleDiameter/2, perim, 50);
+					domeSupportSegment(BaseDiameter/2, PenHoleDiameter/2, perim, supportAngle);
+					
+				// medium support ribs
+				for (i=[0:numRibs/4])
+					rotate([0,0,i*360/(numRibs/4) + 360/(numRibs/2)])
+					rotate([90,0,0])
+					domeSupportSegment(BaseDiameter/2, PenHoleDiameter/2 + 10, perim, supportAngle);
 					
 				// small support ribs
-				for (i=[0:9])
-					rotate([0,0,i*360/10 + 360/20])
+				for (i=[0:numRibs/2])
+					rotate([0,0,i*360/(numRibs/2) + 360/(numRibs)])
 					rotate([90,0,0])
-					domeSupportSegment(BaseDiameter/2, PenHoleDiameter/2 + 10, perim, 50);
+					domeSupportSegment(BaseDiameter/2, PenHoleDiameter/2 + 20, perim, supportAngle);
 			}
 		
 			// section
