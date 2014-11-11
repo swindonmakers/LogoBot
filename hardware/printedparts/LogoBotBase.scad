@@ -95,7 +95,7 @@ module LogoBotBase_STL() {
     
                             // Chevron at the front so we're clear where the front is!
                             translate([0, BaseDiameter/2 - 10, 0])
-                                Chevron(width=10, height=6, thickness=3);
+                                chevron(width=10, height=6, thickness=3);
                 
                             // Caster
                             //   Example of using attach to punch an appropriate fixing hole
@@ -158,7 +158,7 @@ module LogoBotBase_MotorClips() {
                         
                         // trim the top off
                         rotate([0,0,180 + 30])
-                            sector2D(r=mbr+30, a=120);
+                            sector(r=mbr+30, a=120);
                     }
 
                     // welcoming hands

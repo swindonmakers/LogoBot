@@ -1,47 +1,47 @@
 module BasicShell_STL() {
 
 	printedPart("printedparts/BasicShell.scad", "Basic Shell", "BasicShell_STL()") {
-	    
+
 	    view(t=[-2, 6, 14], r=[63, 0, 26], d=726);
-	
+
         color([Level2PlasticColor[0], Level2PlasticColor[1], Level2PlasticColor[2], 0.5])
              if (UseSTL) {
                 import(str(STLPath, "BasicShell.stl"));
             } else {
                 union() {
                     Shell_TwistLock();
-            
+
                     // shell with hole for LED
                     difference() {
                         // curved shell with centre hole for pen
                         rotate_extrude()
                             difference() {
                                 // outer shell
-                                donutSector2D(
-                                    or=BaseDiameter/2 + Shell_NotchTol + dw, 
+                                donutSector(
+                                    or=BaseDiameter/2 + Shell_NotchTol + dw,
                                     ir=BaseDiameter/2 + Shell_NotchTol,
                                     a=90
                                 );
-                    
+
                                 // clearance for pen
                                 square([PenHoleDiameter/2, BaseDiameter]);
-                
+
                             }
-                
+
                         // hole for LED??
                         // TODO: Hole for LED
                     }
                 }
             }
     }
-	
+
 }
 
 
 /*
 
     Shell API Functions
-    
+
     To help build loads of funky shells...  with twist-lock fitting
 
 */
@@ -74,7 +74,7 @@ module Shell_TwistLock() {
     b = Shell_NotchInnerWidth;
     h = Shell_NotchDepth;
     aOffset = Shell_NotchSlope;
-    
+
     union() {
         // Locking tabs
         for (i=[0,1])
@@ -88,16 +88,16 @@ module Shell_TwistLock() {
                             translate([BaseDiameter/2 - h/2 + eta, 0, 0])
                             rotate([0,0, 90])
                             trapezoid(b, a, h, aOffset, center=true);
-                    
+
                         // linking piece to connect locking tab to outer ring
                         translate([0,0,0])
                             rotate([0,0, i*180 - Shell_NotchRotation])
-                            donutSector2D(or=BaseDiameter/2 + Shell_NotchTol + dw, 
+                            donutSector(or=BaseDiameter/2 + Shell_NotchTol + dw,
                                 ir=BaseDiameter/2,
                                 a=Shell_NotchRotation
                             );
                     }
-                    
+
                 // now chop out a slight slope to allow for a tight friction fit
                 rotate([0,0, i*180 - Shell_NotchRotation/2])
                     translate([BaseDiameter/2 - h - 3, 0, dw * 0.8])
@@ -105,8 +105,8 @@ module Shell_TwistLock() {
                     translate([0,-a/2-1,0])
                     cube([10, a + 2,10]);
             }
-            
-        
+
+
         // notch stops
         for (i=[0,1])
             rotate([0,0, i*180 - Shell_NotchRotation/2 + 0.3])
@@ -114,21 +114,21 @@ module Shell_TwistLock() {
             rotate([0,0, 90])
             linear_extrude(dw*2)
             trapezoid(Shell_NotchStop-aOffset+0.7, Shell_NotchStop+1.3, h+2, 0, center=true);
-            
+
         // outer ring
         translate([0,0,-dw])
             rotate_extrude()
             translate([BaseDiameter/2 + Shell_NotchTol, 0])
             union() {
                 square([dw, 3*dw]);
-                
+
                 translate([eta, 3*dw - Shell_NotchTol, 0])
                     mirror([1,1,0])
                     right_triangle_2d(dw, dw, center = true);
-                    
+
                 translate([-dw+eta, 3*dw - Shell_NotchTol - eta,0])
                     square([dw, Shell_NotchTol+eta]);
             }
-    
+
     }
 }
