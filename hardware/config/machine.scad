@@ -4,7 +4,7 @@
 
 // Coding-style
 // ------------
-// 
+//
 // Global variables are written in UpperCamelCase.
 // A logical hierarchy should be indicated using underscores, for example:
 //     StepperMotor_Connections_Axle
@@ -50,4 +50,4 @@ BaseThickness 	= dw;
 // Pen
 //
 
-PenHoleDiameter = 12;
+PenHoleDiameter = 25;

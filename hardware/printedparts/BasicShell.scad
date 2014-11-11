@@ -124,7 +124,7 @@ module Shell_TwistLock() {
 
                 translate([eta, 3*dw - Shell_NotchTol, 0])
                     mirror([1,1,0])
-                    right_triangle_2d(dw, dw, center = true);
+                    rightTriangle(dw, dw, center = true);
 
                 translate([-dw+eta, 3*dw - Shell_NotchTol - eta,0])
                     square([dw, Shell_NotchTol+eta]);

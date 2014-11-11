@@ -412,7 +412,8 @@ module minSupportBeamY(size=[0,0,0], bridge=5, air=0, center=false) {
 
 **************************** */
 
-// show cross section along axis (x)
+// Show cross section along axis (x)
+// con defines the section plane
 module section(con=[[0,0,0],[0,1,0],0,0,0], size=1000, planeColor=[1,1,1])
 {
     difference() {

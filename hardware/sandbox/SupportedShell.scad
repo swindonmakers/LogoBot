@@ -23,12 +23,12 @@ module domeSupportSegment(radius=100, inset=0, thickness=1, supportAngle=45) {
 
 module shell() {
 
-	or = BaseDiameter/2 + Shell_NotchTol + sw;
+	or = BaseDiameter/2 + Shell_NotchTol + dw;
 
 	sr = or - sw + eta;
 
 	supportAngle = 50;
-	bridgeDist = 6;
+	bridgeDist = 5;
 
 	numRibs1 = round(circumference(sr * cos(supportAngle)) / bridgeDist);
 	numRibs = 4 * (floor(numRibs1 / 4) + 1);
@@ -73,6 +73,9 @@ module shell() {
 					rotate([0,0,i*360/(numRibs/2) + 360/(numRibs)])
 					rotate([90,0,0])
 					domeSupportSegment(sr, PenHoleDiameter/2 + 4*bridgeDist, ribThickness, supportAngle);
+
+				// twist lock
+				Shell_TwistLock();
 			}
 		}
 }
