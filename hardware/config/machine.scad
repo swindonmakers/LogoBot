@@ -30,7 +30,7 @@ GroundClearance = 20;
 MotorOffsetX = -16;
 MotorOffsetZ = 10;
 MotorShaftDiameter = 5;
-MotorShaftFlatThickness = 2;
+MotorShaftFlatThickness = 3;
 
 // Wheels
 //
