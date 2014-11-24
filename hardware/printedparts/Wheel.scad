@@ -31,7 +31,7 @@ module WheelModel()
     {
         square([rimThickness, WheelThickness]);
 
-        translate([rimThickness , WheelThickness / 2])
+        translate([rimThickness + 0.5 , WheelThickness / 2])
             circle(r = WheelThickness / 4);
     }
 	
