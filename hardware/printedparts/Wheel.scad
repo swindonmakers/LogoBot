@@ -35,12 +35,10 @@ module WheelModel()
             circle(r = WheelThickness / 4);
     }
 	
+	// Spokes
 	linear_extrude(WheelThickness)
 	difference() {
 		union() {
-			// Center Hub
-			circle(r=hubDiameter / 2);
-
 			// Cool, curvey spokes
 			for (i = [0, 120, 240])
 				rotate(i)
@@ -57,9 +55,12 @@ module WheelModel()
 					square([(WheelDiameter / 2) - (hubDiameter / 2 - 1) - (rimThickness - 1), spokeThickness]);
 		}
 
-		MotorShaftSlot();
+		// Chop out center where hub will go
+		translate([0,0,-eta])
+			circle(r=hubDiameter/2 - eta);
 	}
 
+	// Hub
 	render()
 	difference() {
 		linear_extrude(6) // = motor_shaft_h - a bit?
@@ -71,7 +72,6 @@ module WheelModel()
 		}
 
 		// Grub screw hole
-		// TOOD: this works fine in OpenCSG render, but breaks quick rendering horribly
 		translate([0, 0, 3.5])
 		rotate(a=90, v=[0, 1, 0])
 			cylinder(r=1.5, h=hubDiameter/2 + eta);

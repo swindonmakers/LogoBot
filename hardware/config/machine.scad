@@ -37,7 +37,7 @@ MotorShaftFlatThickness = 3;
 
 WheelDiameter 	= 2*(GroundClearance + MotorOffsetZ);
 WheelRadius 	= WheelDiameter / 2;
-WheelThickness 	= dw;   // used to determine the size of slot in the base, clearance factor is added later
+WheelThickness 	= 4;   // used to determine the size of slot in the base, clearance factor is added later
 
 
 // Base
