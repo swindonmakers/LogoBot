@@ -23,7 +23,7 @@ module WheelAssembly( ) {
         }
 
         // Vitamins
-        logo_motor();
+        StepperMotor28YBJ48();
 
         // ribbon Cable :)
         if ($rightSide) {
