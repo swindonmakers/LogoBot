@@ -31,9 +31,9 @@
 // tab_holedia    = Diameter of terminal tab hole.
 //
 
-module MicroSwitch(length = 19.8, width = 10.2, height = 6.4, datxoffset = -14.6, datyoffset = -2.5, orientation = 0, holedia = 2.35, xholepitch = 9.5, yholepitch = 0, hole_slot_length = 0.15, lever_length = 14.5, lever_width = 3.6, lever_thickness = 0.3, lever_height = 8.8, tab_length = 6.4, tab_width = 3.2, tab_thickness = 0.3, tab_holedia = 1.6){
+module MicroSwitch(length = 12.9, width = 6.6, height = 5.8, datxoffset = -9.6, datyoffset = -1.25, orientation = 0, holedia = 2, xholepitch = 6.2, yholepitch = 0, hole_slot_length = 0, lever_length = 12, lever_width = 4, lever_thickness = 0.3, lever_height = 6.6, tab_length = 4.5, tab_width = 0.5, tab_thickness = 0.5, tab_holedia = 0){
 
-	cutout_offset = 0.7;
+	cutout_offset = 0;
 	foot_offset = datyoffset - 0.4;
 
 	mirror ([orientation, 0, 0]){
@@ -80,7 +80,7 @@ module MicroSwitch(length = 19.8, width = 10.2, height = 6.4, datxoffset = -14.6
 			linear_extrude(lever_width, center=true){
 				// Lever
 				//
-				translate([2.5 ,+ lever_height - datyoffset,0]) // Move lever to position
+				translate([1 ,+ lever_height - datyoffset,0]) // Move lever to position
 				mirror([0, 1, 0]) // Mirror lever to invert shape
 				union (){
 					//Add all Additive profiles together, place any extras here.
@@ -89,7 +89,7 @@ module MicroSwitch(length = 19.8, width = 10.2, height = 6.4, datxoffset = -14.6
 					square ([lever_thickness,width / 2]);
 				}
 			}
-			for ( x = [1.6, 10.4, 17.7]){
+			for ( x = [1.6, 6.3, 11.4]){
 				color ("Silver")
 				translate ([x, -tab_length - datyoffset, 0])
 				terminal(tab_length, tab_width, tab_thickness, tab_holedia);
