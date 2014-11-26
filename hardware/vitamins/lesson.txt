@@ -1,0 +1,300 @@
+error: wrong number of arguments
+usage: git config [options]
+
+Config file location
+    --global              use global config file
+    --system              use system config file
+    --local               use repository config file
+    -f, --file <file>     use given config file
+    --blob <blob-id>      read config from given blob object
+
+Action
+    --get                 get value: name [value-regex]
+    --get-all             get all values: key [value-regex]
+    --get-regexp          get values for regexp: name-regex [value-regex]
+    --get-urlmatch        get value specific for the URL: section[.var] URL
+    --replace-all         replace all matching variables: name value [value_rege
+x]
+    --add                 add a new variable: name value
+    --unset               remove a variable: name [value-regex]
+    --unset-all           remove all matches: name [value-regex]
+    --rename-section      rename section: old-name new-name
+    --remove-section      remove a section: name
+    -l, --list            list all
+    -e, --edit            open an editor
+    --get-color <slot>    find the color configured: [default]
+    --get-colorbool <slot>
+                          find the color setting: [stdout-is-tty]
+
+Type
+    --bool                value is "true" or "false"
+    --int                 value is decimal number
+    --bool-or-int         value is --bool or --int
+    --path                value is a path (file or directory name)
+
+Other
+    -z, --null            terminate values with NUL byte
+    --includes            respect include directives on lookup
+
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ git config --global -l
+user.email=malxpett@users.noreply.github.com
+user.name=mal p
+core.editor=notepad.exe
+credential.helper=wincred
+push.default=simple
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ explorer.exe
+
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+(reverse-i-search)`co': git config --global -l
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+(reverse-i-search)`not': notepad.exe ~/.gitconfig
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ notepad.exe
+
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ git diff
+diff --git a/hardware/vitamins/motor.scad b/hardware/vitamins/motor.scad
+index 92de7d6..2bc7b09 100644
+--- a/hardware/vitamins/motor.scad
++++ b/hardware/vitamins/motor.scad
+@@ -2,7 +2,8 @@ module logo_motor(motor_rotation_x, motor_rotation_y, motor_rota
+ motor_shaft_r=5;
+ motor_shaft_h=8.27;
+ motor_flange_h = 1;
+-motor_flange_r = 9.20;
++motor_flange_r = 15.20;
++//motor_flange_r = 9.20;
+ Motor_body_r = 28.09;
+ Motor_body_h = 19.24;
+
+@@ -67,5 +68,8 @@ Motor_body_h = 19.24;
+
+                        }
+ }
+-logo_motor(90,0,0);
++
++
++// Usage
++// logo_motor(90,0,0);
+
+\ No newline at end of file
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ git add -p
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ git add -p motor.scad
+diff --git a/hardware/vitamins/motor.scad b/hardware/vitamins/motor.scad
+index 92de7d6..2bc7b09 100644
+--- a/hardware/vitamins/motor.scad
++++ b/hardware/vitamins/motor.scad
+@@ -2,7 +2,8 @@ module logo_motor(motor_rotation_x, motor_rotation_y, motor_rota
+tion_z){
+ motor_shaft_r=5;
+ motor_shaft_h=8.27;
+ motor_flange_h = 1;
+-motor_flange_r = 9.20;
++motor_flange_r = 15.20;
++//motor_flange_r = 9.20;
+ Motor_body_r = 28.09;
+ Motor_body_h = 19.24;
+
+Stage this hunk [y,n,q,a,d,/,j,J,g,e,?]? n
+@@ -67,5 +68,8 @@ Motor_body_h = 19.24;
+
+                        }
+ }
+-logo_motor(90,0,0);
++
++
++// Usage
++// logo_motor(90,0,0);
+
+\ No newline at end of file
+Stage this hunk [y,n,q,a,d,/,K,g,s,e,?]? y
+
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ git diff
+diff --git a/hardware/vitamins/motor.scad b/hardware/vitamins/motor.scad
+index dae415b..2bc7b09 100644
+--- a/hardware/vitamins/motor.scad
++++ b/hardware/vitamins/motor.scad
+@@ -2,7 +2,8 @@ module logo_motor(motor_rotation_x, motor_rotation_y, motor_rota
+ motor_shaft_r=5;
+ motor_shaft_h=8.27;
+ motor_flange_h = 1;
+-motor_flange_r = 9.20;
++motor_flange_r = 15.20;
++//motor_flange_r = 9.20;
+ Motor_body_r = 28.09;
+ Motor_body_h = 19.24;
+
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   motor.scad
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   motor.scad
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        ../sandbox/motorDev.scad
+
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ git add ../
+sandbox/  vitamins/
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ git add ../sandbox/motorDev.scad
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   ../sandbox/motorDev.scad
+        modified:   motor.scad
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   motor.scad
+
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ git commit
+Added motor to the sandbox
+ 2 files changed, 16 insertions(+), 1 deletion(-)
+ create mode 100644 hardware/sandbox/motorDev.scad
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ git push
+Counting objects: 21, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 686 bytes | 0 bytes/s, done.
+Total 7 (delta 5), reused 0 (delta 0)
+To https://github.com/snhack/LogoBot.git
+   9c57caf..d03c166  master -> master
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ git fetch
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ git diff
+diff --git a/hardware/vitamins/motor.scad b/hardware/vitamins/motor.scad
+index dae415b..2bc7b09 100644
+--- a/hardware/vitamins/motor.scad
++++ b/hardware/vitamins/motor.scad
+@@ -2,7 +2,8 @@ module logo_motor(motor_rotation_x, motor_rotation_y, motor_rota
+ motor_shaft_r=5;
+ motor_shaft_h=8.27;
+ motor_flange_h = 1;
+-motor_flange_r = 9.20;
++motor_flange_r = 15.20;
++//motor_flange_r = 9.20;
+ Motor_body_r = 28.09;
+ Motor_body_h = 19.24;
+
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ git checkout
+M       hardware/vitamins/motor.scad
+Your branch is up-to-date with 'origin/master'.
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ git checkout motor.scad
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ git diff
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+nothing to commit, working directory clean
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ git branch
+* master
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ git branch motor
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (master)
+$ git checkout motor
+Switched to branch 'motor'
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (motor)
+$ git add
+Nothing specified, nothing added.
+Maybe you wanted to say 'git add .'?
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (motor)
+$ git add .
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (motor)
+$ git status
+On branch motor
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   motor.scad
+
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (motor)
+$ git diff head
+diff --git a/hardware/vitamins/motor.scad b/hardware/vitamins/motor.scad
+index dae415b..d1de846 100644
+--- a/hardware/vitamins/motor.scad
++++ b/hardware/vitamins/motor.scad
+@@ -70,5 +70,6 @@ Motor_body_h = 19.24;
+
+
+ // Usage
++// logo_motor(x,y,z);
+ // logo_motor(90,0,0);
+
+\ No newline at end of file
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (motor)
+$ git commit -m "Added x y z"
+[motor 27d6cca] Added x y z
+ 1 file changed, 1 insertion(+)
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (motor)
+$ git status
+On branch motor
+nothing to commit, working directory clean
+
+Malcolm@MALCOLM-PC ~/LogoBot/hardware/vitamins (motor)
+$

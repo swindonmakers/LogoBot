@@ -36,7 +36,7 @@ module WheelModel()
     }
 	
 	// Spokes
-	linear_extrude(WheelThickness)
+	linear_extrude(2)
 	difference() {
 		union() {
 			// Cool, curvey spokes
@@ -82,11 +82,11 @@ module WheelModel()
 module MotorShaftSlot()
 {
 	difference() {
-		circle(r = 5/2); // = motor_shaft_r / 2
+		circle(r = 5/2 + 0.2); // = motor_shaft_r / 2
 
 		for(i = [0:1])
 			mirror([i, 0, 0])		
-			translate([MotorShaftFlatThickness / 2, -MotorShaftDiameter / 2, 0])
+			translate([MotorShaftFlatThickness / 2 + 0.1, -MotorShaftDiameter / 2, 0])
 				square([MotorShaftDiameter / 2, MotorShaftDiameter]);
 	}
 }
