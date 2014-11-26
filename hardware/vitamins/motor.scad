@@ -7,9 +7,9 @@ Created for the LogoBot project
 
 */
 
-StepperMotor28YBJ48_Con_Axle =[[0,0,0], [0,0,-1],0,0,0];
-StepperMotor28YBJ48_Con_FlangeLeft =[[17,-5,4.27],[0,0,1],0,0,0];
-StepperMotor28YBJ48_Con_FlangeRight =[[-17,-5,4.27],[0,0,1],0,0,0];
+StepperMotor28YBJ48_Con_Axle =[[0,0,0], [0,0,-5],0,0,0];
+StepperMotor28YBJ48_Con_FlangeLeft =[[17.5,-8,4.27],[0,0,1],0,0,0];
+StepperMotor28YBJ48_Con_FlangeRight =[[-17.5,-8,4.27],[0,0,1],0,0,0];
 
 module StepperMotor28YBJ48() {
 	motor_shaft_r=5/2;
