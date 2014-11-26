@@ -25,6 +25,7 @@ tw 				= ThickWall;
 
 // Global design parameters
 GroundClearance = 20;
+PinDiameter = 7;
 
 // Motor references
 MotorOffsetX = -16;
