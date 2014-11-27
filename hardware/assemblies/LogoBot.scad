@@ -38,7 +38,7 @@ LogoBot_Con_SlideSwitch = [[-25, 0, 0], [0,0,-1], 90, 0,0];
 
 function LogoBotAssembly_NumSteps() = 10 + (PenLift ? 1 : 0);
 
-module LogoBotAssembly ( PenLift=false ) {
+module LogoBotAssembly ( PenLift=false, Shell=true ) {
 
     assembly("assemblies/LogoBot.scad", "Final Assembly", str("LogoBotAssembly(PenLift=",PenLift,")")) {
 
@@ -219,12 +219,14 @@ module LogoBotAssembly ( PenLift=false ) {
 
 
             // Shell + fixings
-            step(PenLift ? 12 : 11,
-                "Push the shell down onto the base and twist to lock into place") {
-                view(t=[11,-23,65], r=[66,0,217], d=1171);
+			if (Shell) {
+				step(PenLift ? 12 : 11,
+					"Push the shell down onto the base and twist to lock into place") {
+					view(t=[11,-23,65], r=[66,0,217], d=1171);
 
-                attach(DefConDown, DefConDown, ExplodeSpacing=BaseDiameter/2)
-                    BasicShell_STL();
+					attach(DefConDown, DefConDown, ExplodeSpacing=BaseDiameter/2)
+						BasicShell_STL();
+				}
             }
         }
 
