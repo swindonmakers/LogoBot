@@ -85,8 +85,9 @@ module battery_pack_double(BP, battery_sep, battery_count) {
 
   Battery_len = BP[BatteryPack_Const_BLen];
   Battery_dia = BP[BatteryPack_Const_BDia];
+  BatteryPack_height = BP[BatteryPack_Const_PHeight];
 
-
+  translate([0,0,(BatteryPack_height-Battery_len)/2])
   for(i=[0:(battery_count/2)-1]) {
     translate([i*(Battery_dia+battery_sep), 0, 0])
       battery(BP);
