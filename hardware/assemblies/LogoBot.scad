@@ -192,8 +192,6 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 
 
             // Caster
-            //   Example of using attach
-            // TODO: Correct ground clearance!
             step(10, "Push the caster assembly into the base so that it snaps into place") {
                 view(t=[-6,7,19], r=[115,1,26], d=625);
 
