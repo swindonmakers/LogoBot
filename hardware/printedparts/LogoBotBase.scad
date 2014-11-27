@@ -83,7 +83,6 @@ module LogoBotBase_STL() {
 							for (i=[0:1])
 								mirror([i,0,0])
 								translate([BaseDiameter/2 + MotorOffsetX, 0, MotorOffsetZ])
-								translate([-1,0,0])
 								roundedSquare([WheelThickness + tw, WheelDiameter + tw], (WheelThickness + tw)/2, center=true);
 
 
