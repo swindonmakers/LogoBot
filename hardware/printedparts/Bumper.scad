@@ -21,11 +21,13 @@ module BumperModel()
 {
 	thickness = 2;
 	height = 15;
-	offset = 5;			// distance from base to inside of bumper
-	wrapAngle = 135;	// angle that bumper wraps around
+	offset = 5;				// distance from base to inside of bumper
+	wrapAngle = 115;		// angle that bumper wraps around
+	microSwitchAngle = 45;	// angle that microswitches are placed at
 
 	outr = BaseDiameter/2 + offset + thickness; // outr is the outside radius or the bumper
 
+	// Bumper arc
 	linear_extrude(height)
 	difference() {
 		circle(r = outr);
@@ -44,6 +46,15 @@ module BumperModel()
 		// Trim right side of arc
 		rotate(a=-wrapAngle/2, v=[0,0,1])
 			square([outr, outr * 2]);
+	}
+
+	for(i=[0,1])
+	mirror([i, 0, 0])
+	rotate(a=microSwitchAngle, v=[0, 0, 1]) {
+		translate([-2.5, BaseDiameter/2 - 20, 0])
+			cube([5, 20 + eta, 3]);
+		translate([-2.5, BaseDiameter/2, 0])
+			cube([5, offset + eta, 6]);
 	}
 }
 
