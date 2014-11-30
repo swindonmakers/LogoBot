@@ -19,3 +19,4 @@ include <../utils/moreShapes.scad>
 // Order alphabetically
 include <../utils/fakeGroundShadow.scad>
 include <../utils/surfacesolids/ribbonCable.scad>
+include <../utils/pins.scad>
