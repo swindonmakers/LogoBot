@@ -48,18 +48,13 @@ module BumperModel()
 			square([outr, outr * 2]);
 	}
 
+	// Guide pins
 	for(i=[0,1])
 	mirror([i, 0, 0])
 	rotate(a=microSwitchAngle, v=[0, 0, 1]) {
-		translate([-2.5, BaseDiameter/2 - 20, 0])
-			cube([5, 20 + eta, 3]);
-		translate([-2.5, BaseDiameter/2, 0])
-			cube([5, offset + eta, 6]);
+		translate([-1.5, BaseDiameter/2 - 25, 0])
+			cube([3, 25 + eta, 3]);
+		translate([-1.5, BaseDiameter/2, 0])
+			cube([3, offset + eta, 6]);
 	}
 }
-
-/*
-s = o / h
-c = a / h
-toa
-*/

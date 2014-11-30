@@ -4,20 +4,28 @@ DebugCoordinateFrames = true;
 DebugConnectors = true;
 UseSTL = false;
 
-restOfModel = true;
+showOtherParts = true;
 
-if (restOfModel) {
+if (showOtherParts) {
 LogoBotBase_STL();
 BasicShell_STL();
+}
 
 attach(DefConUp, DefConUp, ExplodeSpacing=20)
     for (x=[0,1], y=[0,1])
         mirror([0,y,0])
         mirror([x,0,0])
-        translate([(BaseDiameter/2-10) * cos(45), (BaseDiameter/2-10) * sin(45), -8 ])
+        translate([(BaseDiameter/2-10) * cos(45), (BaseDiameter/2-10) * sin(45), -17 ])
         rotate([0,0,-45])
-            MicroSwitch();
-}
+        translate([9,8,5]) {
+			rotate(a=180, v=[0,0,1]) {
+            MicroSwitchHolder_STL();
+
+			translate([12.7, 5.3, 3 + 3])
+			mirror([0,1,0])
+				MicroSwitch();
+				}
+		}
 
 for (i=[0,1])
 mirror([0,i,0])
