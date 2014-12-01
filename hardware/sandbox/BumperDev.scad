@@ -31,7 +31,7 @@ attach(DefConUp, DefConUp, ExplodeSpacing=20)
                     MicroSwitch();
             }
         }
-echo(-datxoffset + dw + (Bumper_Pin_Width + 1));
+
 for (i=[0,1])
 mirror([0,i,0])
 translate([0,0,-7])
