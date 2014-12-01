@@ -17,12 +17,15 @@ module Bumper_STL()
 	}
 }
 
+Bumper_Pin_Width = 3;
+Bumper_Pin_Length = 18;
+
 module BumperModel()
 {
 	thickness = 2;
 	height = 15;
 	offset = 5;				// distance from base to inside of bumper
-	wrapAngle = 115;		// angle that bumper wraps around
+	wrapAngle = 170;		// angle that bumper wraps around
 	microSwitchAngle = 45;	// angle that microswitches are placed at
 
 	outr = BaseDiameter/2 + offset + thickness; // outr is the outside radius or the bumper
@@ -52,9 +55,12 @@ module BumperModel()
 	for(i=[0,1])
 	mirror([i, 0, 0])
 	rotate(a=microSwitchAngle, v=[0, 0, 1]) {
-		translate([-1.5, BaseDiameter/2 - 25, 0])
-			cube([3, 25 + eta, 3]);
-		translate([-1.5, BaseDiameter/2, 0])
-			cube([3, offset + eta, 6]);
+		for(i = [0,1])
+		mirror([i, 0, 0,]) {
+			translate([-1.5 - 8.6, BaseDiameter/2 - Bumper_Pin_Length, 0])
+				cube([Bumper_Pin_Width, Bumper_Pin_Length + eta, 5]);
+			translate([-1.5 - 8.6, BaseDiameter/2, 0])
+				cube([Bumper_Pin_Width + 8.5, offset + eta, 5]);
+		}
 	}
 }

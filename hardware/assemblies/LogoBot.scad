@@ -66,11 +66,11 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 						mirror([x,0,0])
 						translate([(BaseDiameter/2-10) * cos(45), (BaseDiameter/2-10) * sin(45), -17 ])
 						rotate([0,0,-45])
-						translate([9,8,5]) {
+						translate([12.7,8,8]) {
 							rotate(a=180, v=[0,0,1]) {
 							MicroSwitchHolder_STL();
 
-							translate([12.7, 5.3, 3 + 3])
+							translate([15.6, 6.6, dw])
 							mirror([0,1,0])
 								MicroSwitch();
 								}
@@ -78,7 +78,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 
 				for (i=[0,1])
 				mirror([0,i,0])
-				translate([0,0,-10])
+				translate([0,0,-7])
 					Bumper_STL();
             }
 

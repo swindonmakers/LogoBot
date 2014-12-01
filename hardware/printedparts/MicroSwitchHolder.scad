@@ -17,25 +17,44 @@ module MicroSwitchHolder_STL()
 	}
 }
 
+// TODO: import from Microswitch model?
+// + 0.6 tolerances
+ms_length = 12.9 + 0.6;
+ms_width = 6.6 + 0.6;
+ms_height = 5.8 + 0.6;
+ms_datxoffset = -9.6;
+ms_datyoffset = -1.25;
+ms_holedia = 2;
+ms_xholepitch = 6.2;
+
 module MircoSwitchHolderModel()
 {
-	cube([13 + 6, 20, 2]);
+	depth = 16;
+	// TODO: Bumper pin width is defined in Bumper.scad, which conveniently is included before this file.
+	//       I don't like such a "convenience" 
+	width = ms_length + 2*dw + 2*(Bumper_Pin_Width + 1); 
 
-	translate([0,0,2-eta])
-		cube([6, 20, 3+eta]);
-	translate([13,0,2-eta])
-		cube([6, 20, 3+eta]);
+	// Base
+	linear_extrude(dw)
+	difference() {
+		square([width, depth]);
 
-	translate([0,0,5-eta])
-		cube([3, 6.6, 7+eta]);
-	translate([16,0,5-eta])
-		cube([3, 6.6, 7+eta]);
+		translate([(Bumper_Pin_Width + 1) + dw, 0, 0]) {
+			// Microswitch mount holes
+			translate([-ms_datxoffset, ms_datyoffset + ms_height])
+				circle(d=ms_holedia);
+			translate([-ms_datxoffset - ms_xholepitch, ms_datyoffset + ms_height])
+				circle(d=ms_holedia);
+		}
+	}
 
-	translate([0,6.6,5-eta])
-		cube([4, 3, 7+eta]);
-	translate([15,6.6,5-eta])
-		cube([4, 3, 7+eta]);
-    
-	translate([0, 15, 5-eta])
-		cube([13 + 6, 5, 3+eta]);
+	// Guide rails
+	cube([dw, depth, dw + ms_height]);
+	translate([width - dw, 0, 0])
+		cube([dw, depth, dw + ms_height]);
+
+	translate([dw + (Bumper_Pin_Width + 1), depth - 5, 0])
+		cube([dw, 5, dw + ms_height]);
+	translate([width - 2 * dw - (Bumper_Pin_Width + 1), depth - 5, 0])
+		cube([dw, 5, dw + ms_height]);
 }
