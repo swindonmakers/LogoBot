@@ -7,9 +7,9 @@
 // Parameters :
 //
 // h = Length or height of pin/hole.
-// r = radius of pin body.
+// r = radius of pin body (Default = PinDiameter/2).
 // lh = Height of lip.
-// lt = Thickness of lip.
+// lt = Thickness of lip (Also adjusts slot width to allow legs to close).
 // t = Pin tolerance.
 // bh = Base Height (pintack only).
 // br = Base Radius (pintack only).
@@ -17,7 +17,7 @@
 // fixed = Hole Twist, set to true so pins can't spin (pinhole only)
 //	Side = Orientates pins on their side for printing : true/false (not pinhole).
 
-module pinhole(h=10, r=4, lh=3, lt=1, t=0.3, tight=true, fixed=false) {
+module pinhole(h=10, r=PinDiameter/2, lh=3, lt=1, t=0.3, tight=true, fixed=false) {
   
 	intersection(){
 	  union() {
@@ -37,7 +37,7 @@ module pinhole(h=10, r=4, lh=3, lt=1, t=0.3, tight=true, fixed=false) {
 	  }
 	}
 }
-module pin(h=10, r=4, lh=3, lt=1, t=0.2, side=false) {
+module pin(h=10, r=PinDiameter/2, lh=3, lt=1, t=0.2, side=false) {
   // h = shaft height
   // r = shaft radius
   // lh = lip height
@@ -51,7 +51,7 @@ module pin(h=10, r=4, lh=3, lt=1, t=0.2, side=false) {
   }
 }
 
-module pintack(h=10, r=4, lh=3, lt=1, t=0.2, bh=3, br=6, side=false) {
+module pintack(h=10, r=PinDiameter/2, lh=3, lt=1, t=0.2, bh=3, br=6, side=false) {
   // bh = base_height
   // br = base_radius
   
@@ -68,7 +68,7 @@ rotate ([flip*90,0,0])
   }
 }
 
-module pinpeg(h=20, r=4, lh=3, lt=1, t=0.2, side=false) {
+module pinpeg(h=20, r=PinDiameter/2, lh=3, lt=1, t=0.2, side=false) {
 	flipy=(side==false) ? 1 : 0;
 	flipz=(side==true) ? 1 : 0;
   union() {

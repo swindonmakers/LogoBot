@@ -6,9 +6,9 @@ include <../config/config.scad>
 // Parameters :
 //
 // h = Length or height of pin/hole.
-// r = radius of pin body.
+// r = radius of pin body (Default = PinDiameter/2).
 // lh = Height of lip.
-// lt = Thickness of lip.
+// lt = Thickness of lip (Also adjusts slot width to allow legs to close).
 // t = Pin tolerance.
 // bh = Base Height (pintack only).
 // br = Base Radius (pintack only).
