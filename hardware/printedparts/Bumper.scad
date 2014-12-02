@@ -1,12 +1,12 @@
 module Bumper_STL()
 {
 	printedPart("printedparts/Bumper.scad", "Bumper", "Bumper_STL()") {
-	
+
 	    //view(t=[0, -1, -1], r=[49, 0, 25], d=336);
 
 		if (DebugCoordinateFrames) frame();
 		if (DebugConnectors) connector(Wheel_Con_Default);
-	
+
 	    color(Level2PlasticColor) {
             if (UseSTL) {
                 import(str(STLPath, "Bumper.stl"));
@@ -63,4 +63,14 @@ module BumperModel()
 				cube([Bumper_Pin_Width + 8.5, offset + eta, 5]);
 		}
 	}
+
+	// Springy bits - to illustrate the idea
+	// would also get rid of the need for the guide pins
+	for(i=[0,1])
+		mirror([i, 0, 0])
+		translate([30, outr - 19, 0])
+		rotate([0,0,90])
+		linear_extrude(5)
+		donutSector(12,11,180, center=true);
+
 }
