@@ -62,19 +62,12 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
                 view(t=[-6,7,19], r=[64,1,212], d=625);
 				attach(DefConUp, DefConUp, ExplodeSpacing=20)
 					for (x=[0,1], y=[0,1])
-						mirror([0,y,0])
-						mirror([x,0,0])
-						translate([(BaseDiameter/2-10) * cos(45), (BaseDiameter/2-10) * sin(45), -17 ])
-						rotate([0,0,-45])
-						translate([12.7,8,8]) {
-							rotate(a=180, v=[0,0,1]) {
-							MicroSwitchHolder_STL();
-
-							translate([15.6, 6.6, dw])
-							mirror([0,1,0])
-								MicroSwitch();
-								}
-						}
+						mirror([0, y, 0])
+						mirror([x, 0, 0])
+						translate([3,0,0]) // center on axis
+						rotate([0, 0, 45])
+						translate([0, BaseDiameter/2 - 5, -7+dw])
+							MicroSwitch();
 
 				for (i=[0,1])
 				mirror([0,i,0])

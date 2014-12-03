@@ -51,26 +51,36 @@ module BumperModel()
 			square([outr, outr * 2]);
 	}
 
-	// Guide pins
-	for(i=[0,1])
-	mirror([i, 0, 0])
-	rotate(a=microSwitchAngle, v=[0, 0, 1]) {
-		for(i = [0,1])
-		mirror([i, 0, 0,]) {
-			translate([-1.5 - 8.6, BaseDiameter/2 - Bumper_Pin_Length, 0])
-				cube([Bumper_Pin_Width, Bumper_Pin_Length + eta, 5]);
-			translate([-1.5 - 8.6, BaseDiameter/2, 0])
-				cube([Bumper_Pin_Width + 8.5, offset + eta, 5]);
-		}
-	}
-
 	// Springy bits - to illustrate the idea
 	// would also get rid of the need for the guide pins
 	for(i=[0,1])
 		mirror([i, 0, 0])
-		translate([30, outr - 19, 0])
+		translate([32, outr - 19, 0])
 		rotate([0,0,90])
 		linear_extrude(5)
-		donutSector(12,11,180, center=true);
+			donutSector(12, 12 - 2*perim, 230, center=true);
 
+	// Flanges to hit microwitch
+	for(i=[0,1])
+	mirror([i, 0, 0])
+	rotate(a=microSwitchAngle, v=[0, 0, 1]) {
+		translate([0, BaseDiameter/2, 0])
+			cube([8, offset + eta, 10]);
+	}
+
+	// Microswitch plates
+	for(i=[0,1])
+	mirror([i, 0, 0])
+	rotate([0, 0, microSwitchAngle])
+	translate([-8, BaseDiameter/2 - 9.5, 0])
+	linear_extrude(dw)
+	difference() {
+		square([15.5, 8]);
+	
+		// Microswitch mount holes
+		translate([-ms_datxoffset, ms_datyoffset + ms_height/2])
+			circle(d=ms_holedia);
+		translate([-ms_datxoffset - ms_xholepitch, ms_datyoffset + ms_height/2])
+			circle(d=ms_holedia);
+	}
 }
