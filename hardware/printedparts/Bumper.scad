@@ -26,9 +26,11 @@ module BumperModel()
 	height = 15;
 	offset = 5;				// distance from base to inside of bumper
 	wrapAngle = 170;		// angle that bumper wraps around
-	microSwitchAngle = 45;	// angle that microswitches are placed at
+	microSwitchAngle = 43.5;	// angle that microswitches are placed at
 
 	outr = BaseDiameter/2 + offset + thickness; // outr is the outside radius or the bumper
+
+
 
 	// Bumper arc
 	linear_extrude(height)
@@ -64,23 +66,53 @@ module BumperModel()
 	for(i=[0,1])
 	mirror([i, 0, 0])
 	rotate(a=microSwitchAngle, v=[0, 0, 1]) {
-		translate([0, BaseDiameter/2, 0])
-			cube([8, offset + eta, 10]);
+		translate([0, BaseDiameter/2+2, 0])
+			cube([8, offset-2 + eta, 6]);
 	}
 
 	// Microswitch plates
 	for(i=[0,1])
 	mirror([i, 0, 0])
 	rotate([0, 0, microSwitchAngle])
-	translate([-8, BaseDiameter/2 - 9.5, 0])
-	linear_extrude(dw)
-	difference() {
-		square([15.5, 8]);
+	translate([-10, BaseDiameter/2 - 16, 0])
+		MicroSwitchPlate();
 	
-		// Microswitch mount holes
-		translate([-ms_datxoffset, ms_datyoffset + ms_height/2])
-			circle(d=ms_holedia);
-		translate([-ms_datxoffset - ms_xholepitch, ms_datyoffset + ms_height/2])
-			circle(d=ms_holedia);
+}
+
+
+module MicroSwitchPlate()
+{
+	ms_length=12.9;
+	ms_width=6.6;
+	ms_height=5.8;
+
+	base_length = ms_length + 2 * dw + 0.5;
+	base_width = ms_width + 10;
+
+	// Base
+	translate([0, 4, 0])
+		cube([base_length, base_width - 4, dw]);
+
+	// Microswitch surround
+	translate([0, 4, 0])
+		cube([dw, base_width - 4, dw + 3]);
+	translate([base_length - dw, 4, 0])
+		cube([dw, base_width - 4, dw + 3]);
+	translate([0, 10-dw-.5, 0])
+		cube([base_length, dw, dw + 2]);
+
+	// Pin section
+	linear_extrude(dw + ms_height)
+	hull() {
+		translate([0, 5])
+			circle(r=eta);
+		translate([base_length, 5])
+			circle(r=eta);
+		translate([2.5, 2.5])
+			circle(r=2.5);
+		translate([base_length - 2.5, 2.5])
+			circle(r=2.5);
 	}
+	translate([base_length/2, 2.5, dw + ms_height - eta])
+		pin(h=BaseThickness + 3, lh=3);
 }
