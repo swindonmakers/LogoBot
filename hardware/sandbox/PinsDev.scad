@@ -24,7 +24,7 @@ translate([0,-20,0])
 	pintack();
 
 translate([25,0,0])
-	pinpeg(l=10);
+	pinpeg(h=20);
 
 translate([-40,0,0])
 	pin(side=true);
@@ -33,7 +33,7 @@ translate([0,-40,0])
 	pintack(side=true);
 
 translate([40,0,0])
-	pinpeg(l=10, side=true);
+	pinpeg(h=20, side=true);
 
 
 translate([0,20,0])
