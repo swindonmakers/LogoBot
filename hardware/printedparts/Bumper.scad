@@ -22,7 +22,7 @@ Bumper_Pin_Length = 18;
 
 module BumperModel()
 {
-	thickness = 2;
+	thickness = dw;
 	height = 15;
 	offset = 5;				// distance from base to inside of bumper
 	wrapAngle = 170;		// angle that bumper wraps around
