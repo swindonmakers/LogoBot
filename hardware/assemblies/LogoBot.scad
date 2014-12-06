@@ -69,8 +69,8 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 						for(i=[0,1])
 						mirror([i, 0, 0])
 						rotate([0, 0, 43.5])
-						translate([-10, BaseDiameter/2 - 16, 0])
-						translate([dw + .5/2, 10, 0])
+						translate([-10, BaseDiameter/2 - 21, 0])
+						translate([dw + .5/2, 11.5, 0])
 						translate([9.6, 1.25, 2])
 							MicroSwitch();
 					}
