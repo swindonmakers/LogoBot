@@ -4,12 +4,12 @@ DebugCoordinateFrames = true;
 DebugConnectors = true;
 UseSTL = false;
 
-showOtherParts = true;
+showOtherParts = false;
 
 if (showOtherParts) {
     translate([0,0,8]){ 
         LogoBotBase_STL();
-        //BasicShell_STL();
+        BasicShell_STL();
     }
 }
 
@@ -22,8 +22,8 @@ mirror([0,i,0])
     for(i=[0,1])
     mirror([i, 0, 0])
     rotate([0, 0, 43.5])
-    translate([-10, BaseDiameter/2 - 16, 0])
-    translate([dw + .5/2, 10, 0])
+    translate([-10, BaseDiameter/2 - 21, 0])
+    translate([dw + .5/2, 11.5, 0])
         MicroSwitchAtOrigin();
 }
 

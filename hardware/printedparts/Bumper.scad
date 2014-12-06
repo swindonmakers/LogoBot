@@ -53,28 +53,27 @@ module BumperModel()
 			square([outr, outr * 2]);
 	}
 
-	// Springy bits - to illustrate the idea
-	// would also get rid of the need for the guide pins
+	// Springy bits
 	for(i=[0,1])
 		mirror([i, 0, 0])
-		translate([32, outr - 19, 0])
+		translate([30, outr - 24, 0])
 		rotate([0,0,90])
 		linear_extrude(5)
-			donutSector(12, 12 - 2*perim, 230, center=true);
+			donutSector(17, 17 - 2*perim, 175, center=true);
 
 	// Flanges to hit microwitch
 	for(i=[0,1])
 	mirror([i, 0, 0])
 	rotate(a=microSwitchAngle, v=[0, 0, 1]) {
-		translate([0, BaseDiameter/2+2, 0])
-			cube([8, offset-2 + eta, 6]);
+		translate([0, BaseDiameter/2 - 1 , 0])
+			cube([8, offset + 1 + eta, 5]);
 	}
 
 	// Microswitch plates
 	for(i=[0,1])
 	mirror([i, 0, 0])
 	rotate([0, 0, microSwitchAngle])
-	translate([-10, BaseDiameter/2 - 16, 0])
+	translate([-10, BaseDiameter/2 - 23, 0])
 		MicroSwitchPlate();
 	
 }
@@ -87,32 +86,37 @@ module MicroSwitchPlate()
 	ms_height=5.8;
 
 	base_length = ms_length + 2 * dw + 0.5;
-	base_width = ms_width + 10;
+	base_width = ms_width + 13.5;
 
 	// Base
-	translate([0, 4, 0])
-		cube([base_length, base_width - 4, dw]);
+	translate([0, 6.5, 0])
+		cube([base_length, base_width - 6.5, dw]);
 
 	// Microswitch surround
-	translate([0, 4, 0])
-		cube([dw, base_width - 4, dw + 3]);
-	translate([base_length - dw, 4, 0])
-		cube([dw, base_width - 4, dw + 3]);
-	translate([0, 10-dw-.5, 0])
+	translate([0, 7, 0])
+		cube([dw, base_width - 7, dw + 3]);
+	translate([base_length - dw, 7, 0])
+		cube([dw, base_width - 7, dw + 3]);
+	translate([0, 13-dw, 0])
 		cube([base_length, dw, dw + 2]);
 
 	// Pin section
-	linear_extrude(dw + ms_height)
-	hull() {
-		translate([0, 5])
-			circle(r=eta);
-		translate([base_length, 5])
-			circle(r=eta);
-		translate([2.5, 2.5])
-			circle(r=2.5);
-		translate([base_length - 2.5, 2.5])
-			circle(r=2.5);
+	difference() {
+		linear_extrude(dw + ms_height)
+		hull() {
+			translate([2.5, 7])
+				circle(r=2.5);
+			translate([base_length, 9.5])
+				circle(r=eta);
+			translate([13, 1])
+				circle(r=2.5);
+			translate([20, 1])
+				circle(r=2.5);
+		}
+
+		translate([base_length/2 + 7, 2.65, dw + ms_height - eta])
+		translate([0,0,dw])
+		mirror([0,0,1])
+			pinhole(fixed=true);
 	}
-	translate([base_length/2, 2.5, dw + ms_height - eta])
-		pin(h=BaseThickness + 3, lh=3);
 }
