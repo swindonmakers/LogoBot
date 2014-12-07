@@ -1,3 +1,9 @@
+/* Pins required - 
+
+pintack(side=true, h=7.8+2+2.5, bh=2);
+
+*/
+
 module Bumper_STL()
 {
 	printedPart("printedparts/Bumper.scad", "Bumper", "Bumper_STL()") {
