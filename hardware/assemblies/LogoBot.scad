@@ -62,7 +62,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
                 view(t=[-6,7,19], r=[64,1,212], d=625);
 					for (i=[0,1])
 					translate([0, 0, -8])
-					mirror([0,i,0])
+					rotate([0, 0, i*180])
 					{
 						Bumper_STL();
 	

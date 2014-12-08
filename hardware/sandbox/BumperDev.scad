@@ -15,7 +15,7 @@ if (showOtherParts) {
 
 
 for (i=[0,1])
-mirror([0,i,0])
+rotate([0, 0, i*180])
 {
     Bumper_STL();
 	
