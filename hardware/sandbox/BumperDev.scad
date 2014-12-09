@@ -22,8 +22,8 @@ rotate([0, 0, i*180])
     for(i=[0,1])
     mirror([i, 0, 0])
     rotate([0, 0, 43.5])
-    translate([-10, BaseDiameter/2 - 21, 0])
-    translate([dw + .5/2, 11.5, 0])
+    translate([-10, BaseDiameter/2 - 23, 0])
+    translate([dw + .5/2, 13.5, 0])
         MicroSwitchAtOrigin();
 }
 
@@ -31,8 +31,10 @@ rotate([0, 0, i*180])
 
 
 *MicroSwitchPlate();
-*translate([dw + .5/2, 10, 0])
+*translate([dw + .5/2, 6.5, 0])
     MicroSwitchAtOrigin();
+
+
 
 
 module MicroSwitchAtOrigin()

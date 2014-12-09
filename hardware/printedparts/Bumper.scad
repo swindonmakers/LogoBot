@@ -59,7 +59,7 @@ module BumperModel()
 			cube([bumpstopWidth, offset + 1 , bumpstopHeight]);
 
 		// Microswitch plates
-		translate([-10, BaseDiameter/2 - 23, 0])
+		translate([-10, BaseDiameter/2 - 16, 0])
 			MicroSwitchPlate();
 	}
 }
@@ -71,24 +71,25 @@ module MicroSwitchPlate()
 	ms_width=6.6;
 	ms_height=5.8;
 
-	base_length = ms_length + 2 * dw + 0.5;
-	base_width = ms_width + 13.5;
+	base_length = ms_length + 0.5 + 2*dw;
+	base_width = ms_width + 6.5;
 
 	// Base
-	translate([0, 6.5, 0])
-		cube([base_length, base_width - 6.5, dw]);
-
+	cube([base_length, base_width, dw]);
 	// Microswitch surround
-	translate([0, 7, 0])
-		cube([dw, base_width - 7, dw + 3]);
-	translate([base_length - dw, 7, 0])
-		cube([dw, base_width - 7, dw + 3]);
-	translate([0, 13-dw, 0])
+	cube([dw, base_width, dw + 3]);
+	translate([base_length - dw, 0, 0])
+		cube([dw, base_width, dw + 3]);
+	translate([0, 4, 0])
 		cube([base_length, dw, dw + 2]);
+	
 
 	// Rear support lozenge with pin hole
+	lozenge_height = dw + ms_height;
+
+	translate([0, -7, 0])
 	difference() {
-		linear_extrude(dw + ms_height)
+		linear_extrude(lozenge_height)
 		hull() {
 			translate([2.5, 7])
 				circle(r=2.5);
@@ -101,8 +102,7 @@ module MicroSwitchPlate()
 		}
 
 		// Actual hole
-		translate([base_length/2 + 7, 2.65, dw + ms_height - eta])
-		translate([0, 0, dw])
+		translate([15.7, 2.65, lozenge_height + dw])
 		mirror([0, 0, 1])
 			pinhole(fixed=true);
 	}
