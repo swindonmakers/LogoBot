@@ -40,24 +40,8 @@ module BumperModel()
 
 	// Bumper arc
 	linear_extrude(height)
-	difference() {
-		circle(r = outr);
-
-		circle(r = outr - thickness);
-
-		// Chop off below X-axis
-		translate([-outr, -outr])
-			square([outr*2, outr]);
-
-		// Trim left side of arc
-		rotate([0, 0, wrapAngle/2])
-		translate([-outr, 0])
-			square([outr, outr * 2]);
-
-		// Trim right side of arc
-		rotate([0, 0, -wrapAngle/2])
-			square([outr, outr * 2]);
-	}
+	rotate([0, 0, (180 - wrapAngle) / 2])
+		donutSector(outr, outr - thickness, wrapAngle);
 
 	// Connectors
 	for(i=[0, 1])
