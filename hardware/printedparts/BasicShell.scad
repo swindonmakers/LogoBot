@@ -13,7 +13,7 @@ module BasicShell_STL() {
 
                     // shell with hole for LED
                     difference() {
-                        // curved shell with centre hole for pen
+                        // curved shell with centre opening for lid
                         rotate_extrude()
                             difference() {
                                 // outer shell
@@ -23,9 +23,16 @@ module BasicShell_STL() {
                                     a=90
                                 );
 
-                                // clearance for pen
-                                square([PenHoleDiameter/2, BaseDiameter]);
+                                // opening for lid, as a 45 degree chamfer starting at ShellOpeningDiameter and sloping inwards
+                                //square([ShellOpeningDiameter/2, BaseDiameter]);
 
+								polygon(
+									[
+										[0, ShellOpeningHeight + 1000], 
+										[ShellOpeningDiameter/2 + 1000, ShellOpeningHeight + 1000], 
+										[ShellOpeningDiameter/2 - dw - 1, ShellOpeningHeight - dw - 1],
+										[0, ShellOpeningHeight - dw - 1]
+									]);
                             }
 
                         // hole for LED??

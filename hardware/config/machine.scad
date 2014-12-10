@@ -47,6 +47,14 @@ WheelThickness 	= 4;   // used to determine the size of slot in the base, cleara
 BaseDiameter 	= 140;
 BaseThickness 	= dw;
 
+// Shell
+//
+// Opening is calculated based on a maximal overhang of 60 degrees
+// cos(60) is 0.5, so this is simply half the BaseDiameter
+ShellOpeningDiameter = BaseDiameter * cos(60);  
+
+// height above the datum
+ShellOpeningHeight = BaseDiameter * sin(60)/2;  
 
 // Pen
 //
