@@ -4,6 +4,35 @@ pintack(side=true, h=7.8+2+2.5, bh=2);
 
 */
 
+
+// TODO: The locations of these connectors are just horrible and too "magic"
+// Translation, Axis, Angle, blah, blah
+Bumper_Con_LeftMicroSwitch = 
+[
+	zr3Vect(   [(-10 + dw + 9.6 +.25), (BaseDiameter/2 - 16 + 4 + dw + 1.25 + .5), dw], 43.5    ), 
+	[0, 0, 1], 
+	43.5, 
+	0, 
+	0];
+
+Bumper_Con_RightMicroSwitch = 
+[
+	[ -zr3Vect([(-10 + dw + 9.6 +.25), (BaseDiameter/2 - 16 + 4 + dw + 1.25 + .5), dw], 43.5)[0],
+	  zr3Vect([(-10 + dw + 9.6 +.25), (BaseDiameter/2 - 16 + 4 + dw + 1.25 + .5), dw], 43.5)[1],
+	  zr3Vect([(-10 + dw + 9.6 +.25), (BaseDiameter/2 - 16 + 4 + dw + 1.25 + .5), dw], 43.5)[2] ], 
+	[0, 0, 1], 
+	-43.5, 
+	0, 
+	0];
+
+// Rotate a 3vector v = [x,y,z] about the origin by ang degrees
+function zr3Vect(v, ang) =
+[
+	v[0] * cos(ang) - v[1] * sin(ang),
+	v[0] * sin(ang) + v[1] * cos(ang),
+	v[2]
+];
+
 module Bumper_STL()
 {
 	printedPart("printedparts/Bumper.scad", "Bumper", "Bumper_STL()") {
@@ -11,7 +40,10 @@ module Bumper_STL()
 	    //view(t=[0, -1, -1], r=[49, 0, 25], d=336);
 
 		if (DebugCoordinateFrames) frame();
-		if (DebugConnectors) connector(Wheel_Con_Default);
+		if (DebugConnectors) {
+			connector(Bumper_Con_LeftMicroSwitch);
+			connector(Bumper_Con_RightMicroSwitch);
+		}
 
 		color(Level2PlasticColor) {
 			if (UseSTL) {
@@ -46,7 +78,8 @@ module BumperModel()
 	// Connectors
 	for(i=[0, 1])
 	mirror([i, 0, 0]) 
-	rotate([0, 0, microSwitchAngle]) {
+	rotate([0, 0, microSwitchAngle])
+	 {
 
 		// Springy bits
 		translate([15, BaseDiameter/2 - 11, 0])
