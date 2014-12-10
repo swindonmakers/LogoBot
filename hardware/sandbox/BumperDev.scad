@@ -18,19 +18,11 @@ for (i=[0,1])
 rotate([0, 0, i*180])
 {
     Bumper_STL();
-	
-    *for(i=[0,1])
-    mirror([i, 0, 0])
-    rotate([0, 0, 43.5])
-    translate([-10, BaseDiameter/2 - 23, 0])
-    translate([dw + .5/2, 13.5, 0])
-        MicroSwitchAtOrigin();
     
     attach(Bumper_Con_LeftMicroSwitch, DefConUp)
         MicroSwitch();
-    attach(Bumper_Con_RightMicroSwitch, DefConDown)
-        translate([0,0,-5.8]) // TODO: so close
-            MicroSwitch();
+    attachWithOffset(Bumper_Con_RightMicroSwitch, DefConDown, [0, 0, 5.8])
+        MicroSwitch();
 }
 
 
@@ -38,13 +30,5 @@ rotate([0, 0, i*180])
 
 *MicroSwitchPlate();
 *translate([dw + .5/2, 6.5, 0])
-    MicroSwitchAtOrigin();
-
-
-
-
-module MicroSwitchAtOrigin()
-{
     translate([9.6, 1.25, 2])
         MicroSwitch();
-}

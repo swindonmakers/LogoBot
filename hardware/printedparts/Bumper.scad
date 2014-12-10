@@ -6,7 +6,6 @@ pintack(side=true, h=7.8+2+2.5, bh=2);
 
 
 // TODO: The locations of these connectors are just horrible and too "magic"
-// Translation, Axis, Angle, blah, blah
 Bumper_Con_LeftMicroSwitch = 
 [
 	zr3Vect(   [(-10 + dw + 9.6 +.25), (BaseDiameter/2 - 16 + 4 + dw + 1.25 + .5), dw], 43.5    ), 
@@ -24,14 +23,6 @@ Bumper_Con_RightMicroSwitch =
 	-43.5, 
 	0, 
 	0];
-
-// Rotate a 3vector v = [x,y,z] about the origin by ang degrees
-function zr3Vect(v, ang) =
-[
-	v[0] * cos(ang) - v[1] * sin(ang),
-	v[0] * sin(ang) + v[1] * cos(ang),
-	v[2]
-];
 
 module Bumper_STL()
 {
@@ -140,3 +131,11 @@ module MicroSwitchPlate()
 			pinhole(fixed=true);
 	}
 }
+
+// Rotate a 3vector v = [x,y,z] about the origin by ang degrees
+function zr3Vect(v, ang) =
+[
+	v[0] * cos(ang) - v[1] * sin(ang),
+	v[0] * sin(ang) + v[1] * cos(ang),
+	v[2]
+];

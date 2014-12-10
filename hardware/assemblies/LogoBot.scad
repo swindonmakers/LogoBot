@@ -65,13 +65,10 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 					rotate([0, 0, i*180])
 					{
 						Bumper_STL();
-	
-						for(i=[0,1])
-						mirror([i, 0, 0])
-						rotate([0, 0, 43.5])
-						translate([-10, BaseDiameter/2 - 21, 0])
-						translate([dw + .5/2, 11.5, 0])
-						translate([9.6, 1.25, 2])
+    
+						attach(Bumper_Con_LeftMicroSwitch, DefConUp)
+							MicroSwitch();
+						attachWithOffset(Bumper_Con_RightMicroSwitch, DefConDown, [0, 0, 5.8])
 							MicroSwitch();
 					}
             }
