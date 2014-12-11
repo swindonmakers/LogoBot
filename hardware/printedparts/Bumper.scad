@@ -4,7 +4,6 @@ pintack(side=true, h=7.8+2+2.5, bh=2);
 
 */
 
-
 // TODO: The locations of these connectors are just horrible and too "magic"
 Bumper_Con_LeftMicroSwitch = 
 [
@@ -24,6 +23,24 @@ Bumper_Con_RightMicroSwitch =
 	0, 
 	0];
 
+Bumper_Con_LeftPin = 
+[
+	zr3Vect(   [(-10 + 15.7 ), (BaseDiameter/2 - 16 + -7 + 2.65 ), dw + 5.8 + dw], 43.5    ), 
+	[0, 0, 1], 
+	43.5, 
+	0, 
+	0];
+
+Bumper_Con_RightPin = 
+[
+	[ -zr3Vect(   [(-10 + 15.7 ), (BaseDiameter/2 - 16 + -7 + 2.65 ), dw + 5.8 + dw], 43.5    )[0],
+	  zr3Vect(   [(-10 + 15.7 ), (BaseDiameter/2 - 16 + -7 + 2.65 ), dw + 5.8 + dw], 43.5    )[1],
+	  zr3Vect(   [(-10 + 15.7 ), (BaseDiameter/2 - 16 + -7 + 2.65 ), dw + 5.8 + dw], 43.5    )[2] ],
+	[0, 0, 1], 
+	-43.5, 
+	0, 
+	0];
+
 module Bumper_STL()
 {
 	printedPart("printedparts/Bumper.scad", "Bumper", "Bumper_STL()") {
@@ -34,6 +51,8 @@ module Bumper_STL()
 		if (DebugConnectors) {
 			connector(Bumper_Con_LeftMicroSwitch);
 			connector(Bumper_Con_RightMicroSwitch);
+			connector(Bumper_Con_LeftPin);
+			connector(Bumper_Con_RightPin);
 		}
 
 		color(Level2PlasticColor) {
