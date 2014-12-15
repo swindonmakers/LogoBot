@@ -1,18 +1,6 @@
 # LogoBot
 # Assembly Guide
 
-## Introduction
-
-The LogoBot build is broken down into sub-assemblies that can be worked on sequentially by one person, or in parallel if there is more than one person building.
-
-### General Build Tips
-
-* X if left/right, Y is forwards/backwards, Z is up.down
-
-### Tools Required
-
-* None so far!
-
 ## Bill of Materials
 
 Make sure you have all of the following parts before you begin.
@@ -56,12 +44,6 @@ Qty | Vitamin | Image
 Qty | Part Name | Image
 --- | --- | ---
 2 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
-
-### Assembly Steps
-
-1. Push the wheel onto the motor shaft 
-**Optional:** add a rubber band to wheel for extra grip.
-![](../assemblies/LogoBot/DriveWheel_step1_view.png)
 
 
 ## Rear Caster
@@ -115,7 +97,7 @@ Qty | Name
 ![](../assemblies/LogoBot/FinalAssembly_step2_view.png)
 3. Push the two motor drivers onto the mounting posts
 ![](../assemblies/LogoBot/FinalAssembly_step3_view.png)
-4. Clip the two wheels assemblies onto the base and                     connect the motor leads to the the motor drivers
+4. Clip the two wheels assemblies onto the base and                    connect the motor leads to the the motor drivers
 ![](../assemblies/LogoBot/FinalAssembly_step4_view.png)
 5. Connect the jumper wires between the motor drivers and the Arduino
 ![](../assemblies/LogoBot/FinalAssembly_step5_view.png)
