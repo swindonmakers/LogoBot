@@ -81,7 +81,7 @@ module WheelAssembly( ) {
         }
 
         // STL
-        step(1,  "Push the wheel onto the motor shaft \n**Optional:** add a rubber band to the wheel for extra grip.") {
+        step(1,  "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip.") {
             view(t=[0, -3, 5], r=[349,102,178], d=500);
 
             attach(Wheel_Con_Default, [[0,0,2],[0,0,-1],0,0,0], ExplodeSpacing=20)

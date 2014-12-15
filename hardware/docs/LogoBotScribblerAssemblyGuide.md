@@ -46,6 +46,11 @@ Qty | Part Name | Image
 --- | --- | ---
 2 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
 
+### Assembly Steps
+
+1. Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip.
+![](../assemblies/LogoBotScribbler/DriveWheel_step1_view.png)
+
 
 ## Rear Caster
 

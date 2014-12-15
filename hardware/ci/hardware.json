@@ -525,7 +525,34 @@
                 "assemblies": [],
                 "views": [],
                 "qty": 2,
-                "steps": [],
+                "steps": [
+                    {
+                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip.",
+                        "num": 1,
+                        "views": [
+                            {
+                                "rotate": [
+                                    349,
+                                    102,
+                                    178
+                                ],
+                                "dist": 500,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    -3,
+                                    5
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    }
+                ],
                 "printed": [
                     {
                         "title": "Wheel",
@@ -600,18 +627,6 @@
             {
                 "hash": "f4898cae5d28c2a63ec170d02ccfe03f",
                 "title": "Base",
-                "aabb": [
-                    [
-                        -69.9213,
-                        -70.0,
-                        0.0
-                    ],
-                    [
-                        69.9213,
-                        70.0,
-                        2.0
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -636,26 +651,12 @@
                     }
                 ],
                 "qty": 1,
-                "volume": 19753.21366980835,
-                "area": 25747.40742227899,
                 "call": "LogoBotBase_STL()",
                 "file": "printedparts/LogoBotBase.scad"
             },
             {
                 "hash": "b0cca0bd80b315d1fcbe77c5318e005a",
                 "title": "Wheel",
-                "aabb": [
-                    [
-                        -30.0,
-                        -30.0,
-                        0.0
-                    ],
-                    [
-                        30.0,
-                        30.0,
-                        6.0
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -680,26 +681,12 @@
                     }
                 ],
                 "qty": 2,
-                "volume": 3925.092719512744,
-                "area": 4696.480473853677,
                 "call": "Wheel_STL()",
                 "file": "printedparts/Wheel.scad"
             },
             {
                 "hash": "bab7ae0be6c416889121894e1870512a",
                 "title": "Caster Housing",
-                "aabb": [
-                    [
-                        -9.45856,
-                        -10.0,
-                        -16.0
-                    ],
-                    [
-                        9.45856,
-                        10.0,
-                        6.0
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -724,26 +711,12 @@
                     }
                 ],
                 "qty": 1,
-                "volume": 1495.8756084122099,
-                "area": 1928.1884802875356,
                 "call": "MarbleCaster_STL()",
                 "file": "printedparts/MarbleCaster.scad"
             },
             {
                 "hash": "3cf3bfbc730bcb9aeb71ce4b9248392c",
                 "title": "Basic Shell",
-                "aabb": [
-                    [
-                        -73.0,
-                        -73.0,
-                        -2.0
-                    ],
-                    [
-                        73.0,
-                        73.0,
-                        62.7925
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -768,8 +741,6 @@
                     }
                 ],
                 "qty": 1,
-                "volume": 59930.75305444819,
-                "area": 60957.57949481753,
                 "call": "BasicShell_STL()",
                 "file": "printedparts/BasicShell.scad"
             }
@@ -1057,7 +1028,8 @@
                                                 "file": "printedparts/Wheel.scad",
                                                 "title": "Wheel"
                                             }
-                                        ]
+                                        ],
+                                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip."
                                     }
                                 ],
                                 "file": "assemblies/Wheel.scad",
@@ -1119,7 +1091,8 @@
                                                 "file": "printedparts/Wheel.scad",
                                                 "title": "Wheel"
                                             }
-                                        ]
+                                        ],
+                                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip."
                                     }
                                 ],
                                 "file": "assemblies/Wheel.scad",
@@ -2044,7 +2017,34 @@
                 "assemblies": [],
                 "views": [],
                 "qty": 2,
-                "steps": [],
+                "steps": [
+                    {
+                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip.",
+                        "num": 1,
+                        "views": [
+                            {
+                                "rotate": [
+                                    349,
+                                    102,
+                                    178
+                                ],
+                                "dist": 500,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    -3,
+                                    5
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    }
+                ],
                 "printed": [
                     {
                         "title": "Wheel",
@@ -2520,7 +2520,8 @@
                                                 "file": "printedparts/Wheel.scad",
                                                 "title": "Wheel"
                                             }
-                                        ]
+                                        ],
+                                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip."
                                     }
                                 ],
                                 "file": "assemblies/Wheel.scad",
@@ -2582,7 +2583,8 @@
                                                 "file": "printedparts/Wheel.scad",
                                                 "title": "Wheel"
                                             }
-                                        ]
+                                        ],
+                                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip."
                                     }
                                 ],
                                 "file": "assemblies/Wheel.scad",
@@ -3596,7 +3598,34 @@
                 "assemblies": [],
                 "views": [],
                 "qty": 2,
-                "steps": [],
+                "steps": [
+                    {
+                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip.",
+                        "num": 1,
+                        "views": [
+                            {
+                                "rotate": [
+                                    349,
+                                    102,
+                                    178
+                                ],
+                                "dist": 500,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    -3,
+                                    5
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    }
+                ],
                 "printed": [
                     {
                         "title": "Wheel",
@@ -4072,7 +4101,8 @@
                                                 "file": "printedparts/Wheel.scad",
                                                 "title": "Wheel"
                                             }
-                                        ]
+                                        ],
+                                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip."
                                     }
                                 ],
                                 "file": "assemblies/Wheel.scad",
@@ -4134,7 +4164,8 @@
                                                 "file": "printedparts/Wheel.scad",
                                                 "title": "Wheel"
                                             }
-                                        ]
+                                        ],
+                                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip."
                                     }
                                 ],
                                 "file": "assemblies/Wheel.scad",
