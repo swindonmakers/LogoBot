@@ -10,6 +10,7 @@
 
 
 include <../assemblies/Breadboard.scad>
+include <../assemblies/Bumper.scad>
 include <../assemblies/MarbleCaster.scad>
 include <../assemblies/Wheel.scad>
 include <../assemblies/Shell.scad>

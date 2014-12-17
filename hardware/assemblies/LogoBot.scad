@@ -58,15 +58,20 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 
 
             // Bumper assemblies (x2)
-            step(2, "Connect the two bumper assemblies" ) {
-                view(t=[-6,7,19], r=[64,1,212], d=625);
-                attach(DefConUp, DefConUp, ExplodeSpacing=20)
-                    for (x=[0,1], y=[0,1])
-                    mirror([0,y,0])
-                    mirror([x,0,0])
-                    translate([(BaseDiameter/2-10) * cos(45), (BaseDiameter/2-10) * sin(45), -8 ])
-                    rotate([0,0,-30])
-                    MicroSwitch();
+            step(2, "Connect the two bumper assemblies using four of the push pins with flat heads" ) {
+                view(t=[0,0,0], r=[63,0,146], d=300);
+					for (i=[0,1])
+					translate([0, 0, -8])
+					rotate([0, 0, i*180]) {
+						attach([Bumper_Con_LeftPin[0], Bumper_Con_LeftPin[1], 0, 0, 0], Bumper_Con_LeftPin, ExplodeSpacing=20)
+							BumperAssembly();
+
+						attach(Bumper_Con_LeftPin, DefConDown, ExplodeSpacing=-20, offset=[0,0,20])
+							pintack(side=false, h=7.8+2+2.5, bh=2);
+
+						attach(Bumper_Con_RightPin, DefConDown, ExplodeSpacing=-20)
+							pintack(side=false, h=7.8+2+2.5, bh=2);
+					}
             }
 
             step(3, "Push the two motor drivers onto the mounting posts") {
