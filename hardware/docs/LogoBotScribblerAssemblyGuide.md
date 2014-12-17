@@ -19,6 +19,7 @@ Qty | Vitamin | Image
 Qty | Part Name | Image
 --- | --- | ---
 1 | [Basic Shell](../printedparts/stl/BasicShell.stl) | ![](../printedparts/images/BasicShell_view.png) | 
+2 | [Bumper](../printedparts/stl/Bumper.stl) | ![](../printedparts/images/Bumper_view.png) | 
 1 | [Base](../printedparts/stl/Base.stl) | ![](../printedparts/images/Base_view.png) | 
 1 | [Caster Housing](../printedparts/stl/CasterHousing.stl) | ![](../printedparts/images/CasterHousing_view.png) | 
 2 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
@@ -36,6 +37,15 @@ Qty | Vitamin | Image
 
 1. Push the Arduino onto the breadboard - make sure you position it correctly,                  as it's a tight fit with the Robot base!
 ![](../assemblies/LogoBotScribbler/Brain_step1_view.png)
+
+
+## Bumpers (x2)
+
+### Printed Parts
+
+Qty | Part Name | Image
+--- | --- | ---
+2 | [Bumper](../printedparts/stl/Bumper.stl) | ![](../printedparts/images/Bumper_view.png) | 
 
 
 ## Drive Wheel (x2)
@@ -93,6 +103,7 @@ Qty | Part Name | Image
 Qty | Name 
 --- | --- 
 1 | Brain
+2 | Bumpers
 2 | Drive Wheel
 1 | Rear Caster
 
@@ -100,7 +111,7 @@ Qty | Name
 
 1. Connect the breadboard assembly to the underside of the base
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step1_view.png)
-2. Connect the two bumper assemblies
+2. Connect the two bumper assemblies using four of the push pins with flat heads
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step2_view.png)
 3. Push the two motor drivers onto the mounting posts
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step3_view.png)

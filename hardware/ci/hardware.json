@@ -118,6 +118,18 @@
                     },
                     {
                         "vitamins": [],
+                        "title": "Bumpers",
+                        "assemblies": [],
+                        "views": [],
+                        "qty": 2,
+                        "steps": [],
+                        "printed": [],
+                        "file": "assemblies/Bumper.scad",
+                        "call": "BumperAssembly()",
+                        "level": 1
+                    },
+                    {
+                        "vitamins": [],
                         "title": "Drive Wheel",
                         "assemblies": [],
                         "views": [],
@@ -171,22 +183,22 @@
                         ]
                     },
                     {
-                        "desc": "Connect the two bumper assemblies",
+                        "desc": "Connect the two bumper assemblies using four of the push pins with flat heads",
                         "num": 2,
                         "views": [
                             {
                                 "rotate": [
-                                    64,
-                                    1,
-                                    212
+                                    63,
+                                    0,
+                                    146
                                 ],
-                                "dist": 625,
+                                "dist": 300,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    -6,
-                                    7,
-                                    19
+                                    0,
+                                    0,
+                                    0
                                 ],
                                 "type": "view",
                                 "size": [
@@ -521,6 +533,26 @@
             },
             {
                 "vitamins": [],
+                "title": "Bumpers",
+                "assemblies": [],
+                "views": [],
+                "qty": 2,
+                "steps": [],
+                "printed": [
+                    {
+                        "title": "Bumper",
+                        "qty": 2,
+                        "call": "Bumper_STL()",
+                        "file": "printedparts/Bumper.scad",
+                        "views": []
+                    }
+                ],
+                "file": "assemblies/Bumper.scad",
+                "call": "BumperAssembly()",
+                "level": 2
+            },
+            {
+                "vitamins": [],
                 "title": "Drive Wheel",
                 "assemblies": [],
                 "views": [],
@@ -653,6 +685,50 @@
                 "qty": 1,
                 "call": "LogoBotBase_STL()",
                 "file": "printedparts/LogoBotBase.scad"
+            },
+            {
+                "hash": "b6658d1995faa72fd9c7fbf627045b18",
+                "title": "Bumper",
+                "aabb": [
+                    [
+                        -76.707,
+                        6.53667,
+                        0.0
+                    ],
+                    [
+                        76.707,
+                        77.0,
+                        15.0
+                    ]
+                ],
+                "views": [
+                    {
+                        "rotate": [
+                            52,
+                            0,
+                            23
+                        ],
+                        "dist": 184,
+                        "title": "view",
+                        "filepath": "../printedparts/images/Bumper_view.png",
+                        "caption": "view",
+                        "translate": [
+                            1,
+                            -8,
+                            -11
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 2,
+                "volume": 11107.209704950026,
+                "area": 12119.611139523004,
+                "call": "Bumper_STL()",
+                "file": "printedparts/Bumper.scad"
             },
             {
                 "hash": "b0cca0bd80b315d1fcbe77c5318e005a",
@@ -900,26 +976,150 @@
                         "children": [
                             {
                                 "rotate": [
-                                    64,
-                                    1,
-                                    212
+                                    63,
+                                    0,
+                                    146
                                 ],
-                                "dist": 625,
+                                "dist": 300,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    -6,
-                                    7,
-                                    19
+                                    0,
+                                    0,
+                                    0
                                 ],
                                 "type": "view",
                                 "size": [
                                     400,
                                     300
                                 ]
+                            },
+                            {
+                                "call": "BumperAssembly()",
+                                "type": "assembly",
+                                "children": [
+                                    {
+                                        "call": "Bumper_STL()",
+                                        "type": "printed",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    52,
+                                                    0,
+                                                    23
+                                                ],
+                                                "dist": 184,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    1,
+                                                    -8,
+                                                    -11
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "printedparts/Bumper.scad",
+                                        "title": "Bumper"
+                                    },
+                                    {
+                                        "num": 1,
+                                        "type": "step",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    43.8,
+                                                    0,
+                                                    319.9
+                                                ],
+                                                "dist": 192,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -7.85,
+                                                    24.1,
+                                                    5.63
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "file": "assemblies/Bumper.scad",
+                                "title": "Bumpers"
+                            },
+                            {
+                                "call": "BumperAssembly()",
+                                "type": "assembly",
+                                "children": [
+                                    {
+                                        "call": "Bumper_STL()",
+                                        "type": "printed",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    52,
+                                                    0,
+                                                    23
+                                                ],
+                                                "dist": 184,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    1,
+                                                    -8,
+                                                    -11
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "printedparts/Bumper.scad",
+                                        "title": "Bumper"
+                                    },
+                                    {
+                                        "num": 1,
+                                        "type": "step",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    43.8,
+                                                    0,
+                                                    319.9
+                                                ],
+                                                "dist": 192,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -7.85,
+                                                    24.1,
+                                                    5.63
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "file": "assemblies/Bumper.scad",
+                                "title": "Bumpers"
                             }
                         ],
-                        "desc": "Connect the two bumper assemblies"
+                        "desc": "Connect the two bumper assemblies using four of the push pins with flat heads"
                     },
                     {
                         "num": 3,
@@ -1610,6 +1810,18 @@
                     },
                     {
                         "vitamins": [],
+                        "title": "Bumpers",
+                        "assemblies": [],
+                        "views": [],
+                        "qty": 2,
+                        "steps": [],
+                        "printed": [],
+                        "file": "assemblies/Bumper.scad",
+                        "call": "BumperAssembly()",
+                        "level": 1
+                    },
+                    {
+                        "vitamins": [],
                         "title": "Drive Wheel",
                         "assemblies": [],
                         "views": [],
@@ -1663,22 +1875,22 @@
                         ]
                     },
                     {
-                        "desc": "Connect the two bumper assemblies",
+                        "desc": "Connect the two bumper assemblies using four of the push pins with flat heads",
                         "num": 2,
                         "views": [
                             {
                                 "rotate": [
-                                    64,
-                                    1,
-                                    212
+                                    63,
+                                    0,
+                                    146
                                 ],
-                                "dist": 625,
+                                "dist": 300,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    -6,
-                                    7,
-                                    19
+                                    0,
+                                    0,
+                                    0
                                 ],
                                 "type": "view",
                                 "size": [
@@ -2013,6 +2225,26 @@
             },
             {
                 "vitamins": [],
+                "title": "Bumpers",
+                "assemblies": [],
+                "views": [],
+                "qty": 2,
+                "steps": [],
+                "printed": [
+                    {
+                        "title": "Bumper",
+                        "qty": 2,
+                        "call": "Bumper_STL()",
+                        "file": "printedparts/Bumper.scad",
+                        "views": []
+                    }
+                ],
+                "file": "assemblies/Bumper.scad",
+                "call": "BumperAssembly()",
+                "level": 2
+            },
+            {
+                "vitamins": [],
                 "title": "Drive Wheel",
                 "assemblies": [],
                 "views": [],
@@ -2145,6 +2377,36 @@
                 "qty": 1,
                 "call": "LogoBotBase_STL()",
                 "file": "printedparts/LogoBotBase.scad"
+            },
+            {
+                "hash": "b6658d1995faa72fd9c7fbf627045b18",
+                "title": "Bumper",
+                "views": [
+                    {
+                        "rotate": [
+                            52,
+                            0,
+                            23
+                        ],
+                        "dist": 184,
+                        "title": "view",
+                        "filepath": "../printedparts/images/Bumper_view.png",
+                        "caption": "view",
+                        "translate": [
+                            1,
+                            -8,
+                            -11
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 2,
+                "call": "Bumper_STL()",
+                "file": "printedparts/Bumper.scad"
             },
             {
                 "hash": "b0cca0bd80b315d1fcbe77c5318e005a",
@@ -2392,26 +2654,150 @@
                         "children": [
                             {
                                 "rotate": [
-                                    64,
-                                    1,
-                                    212
+                                    63,
+                                    0,
+                                    146
                                 ],
-                                "dist": 625,
+                                "dist": 300,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    -6,
-                                    7,
-                                    19
+                                    0,
+                                    0,
+                                    0
                                 ],
                                 "type": "view",
                                 "size": [
                                     400,
                                     300
                                 ]
+                            },
+                            {
+                                "call": "BumperAssembly()",
+                                "type": "assembly",
+                                "children": [
+                                    {
+                                        "call": "Bumper_STL()",
+                                        "type": "printed",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    52,
+                                                    0,
+                                                    23
+                                                ],
+                                                "dist": 184,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    1,
+                                                    -8,
+                                                    -11
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "printedparts/Bumper.scad",
+                                        "title": "Bumper"
+                                    },
+                                    {
+                                        "num": 1,
+                                        "type": "step",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    43.8,
+                                                    0,
+                                                    319.9
+                                                ],
+                                                "dist": 192,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -7.85,
+                                                    24.1,
+                                                    5.63
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "file": "assemblies/Bumper.scad",
+                                "title": "Bumpers"
+                            },
+                            {
+                                "call": "BumperAssembly()",
+                                "type": "assembly",
+                                "children": [
+                                    {
+                                        "call": "Bumper_STL()",
+                                        "type": "printed",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    52,
+                                                    0,
+                                                    23
+                                                ],
+                                                "dist": 184,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    1,
+                                                    -8,
+                                                    -11
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "printedparts/Bumper.scad",
+                                        "title": "Bumper"
+                                    },
+                                    {
+                                        "num": 1,
+                                        "type": "step",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    43.8,
+                                                    0,
+                                                    319.9
+                                                ],
+                                                "dist": 192,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -7.85,
+                                                    24.1,
+                                                    5.63
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "file": "assemblies/Bumper.scad",
+                                "title": "Bumpers"
                             }
                         ],
-                        "desc": "Connect the two bumper assemblies"
+                        "desc": "Connect the two bumper assemblies using four of the push pins with flat heads"
                     },
                     {
                         "num": 3,
@@ -3165,6 +3551,18 @@
                     },
                     {
                         "vitamins": [],
+                        "title": "Bumpers",
+                        "assemblies": [],
+                        "views": [],
+                        "qty": 2,
+                        "steps": [],
+                        "printed": [],
+                        "file": "assemblies/Bumper.scad",
+                        "call": "BumperAssembly()",
+                        "level": 1
+                    },
+                    {
+                        "vitamins": [],
                         "title": "Drive Wheel",
                         "assemblies": [],
                         "views": [],
@@ -3218,22 +3616,22 @@
                         ]
                     },
                     {
-                        "desc": "Connect the two bumper assemblies",
+                        "desc": "Connect the two bumper assemblies using four of the push pins with flat heads",
                         "num": 2,
                         "views": [
                             {
                                 "rotate": [
-                                    64,
-                                    1,
-                                    212
+                                    63,
+                                    0,
+                                    146
                                 ],
-                                "dist": 625,
+                                "dist": 300,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    -6,
-                                    7,
-                                    19
+                                    0,
+                                    0,
+                                    0
                                 ],
                                 "type": "view",
                                 "size": [
@@ -3594,6 +3992,26 @@
             },
             {
                 "vitamins": [],
+                "title": "Bumpers",
+                "assemblies": [],
+                "views": [],
+                "qty": 2,
+                "steps": [],
+                "printed": [
+                    {
+                        "title": "Bumper",
+                        "qty": 2,
+                        "call": "Bumper_STL()",
+                        "file": "printedparts/Bumper.scad",
+                        "views": []
+                    }
+                ],
+                "file": "assemblies/Bumper.scad",
+                "call": "BumperAssembly()",
+                "level": 2
+            },
+            {
+                "vitamins": [],
                 "title": "Drive Wheel",
                 "assemblies": [],
                 "views": [],
@@ -3726,6 +4144,36 @@
                 "qty": 1,
                 "call": "LogoBotBase_STL()",
                 "file": "printedparts/LogoBotBase.scad"
+            },
+            {
+                "hash": "b6658d1995faa72fd9c7fbf627045b18",
+                "title": "Bumper",
+                "views": [
+                    {
+                        "rotate": [
+                            52,
+                            0,
+                            23
+                        ],
+                        "dist": 184,
+                        "title": "view",
+                        "filepath": "../printedparts/images/Bumper_view.png",
+                        "caption": "view",
+                        "translate": [
+                            1,
+                            -8,
+                            -11
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 2,
+                "call": "Bumper_STL()",
+                "file": "printedparts/Bumper.scad"
             },
             {
                 "hash": "b0cca0bd80b315d1fcbe77c5318e005a",
@@ -3973,26 +4421,150 @@
                         "children": [
                             {
                                 "rotate": [
-                                    64,
-                                    1,
-                                    212
+                                    63,
+                                    0,
+                                    146
                                 ],
-                                "dist": 625,
+                                "dist": 300,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    -6,
-                                    7,
-                                    19
+                                    0,
+                                    0,
+                                    0
                                 ],
                                 "type": "view",
                                 "size": [
                                     400,
                                     300
                                 ]
+                            },
+                            {
+                                "call": "BumperAssembly()",
+                                "type": "assembly",
+                                "children": [
+                                    {
+                                        "call": "Bumper_STL()",
+                                        "type": "printed",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    52,
+                                                    0,
+                                                    23
+                                                ],
+                                                "dist": 184,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    1,
+                                                    -8,
+                                                    -11
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "printedparts/Bumper.scad",
+                                        "title": "Bumper"
+                                    },
+                                    {
+                                        "num": 1,
+                                        "type": "step",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    43.8,
+                                                    0,
+                                                    319.9
+                                                ],
+                                                "dist": 192,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -7.85,
+                                                    24.1,
+                                                    5.63
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "file": "assemblies/Bumper.scad",
+                                "title": "Bumpers"
+                            },
+                            {
+                                "call": "BumperAssembly()",
+                                "type": "assembly",
+                                "children": [
+                                    {
+                                        "call": "Bumper_STL()",
+                                        "type": "printed",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    52,
+                                                    0,
+                                                    23
+                                                ],
+                                                "dist": 184,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    1,
+                                                    -8,
+                                                    -11
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "printedparts/Bumper.scad",
+                                        "title": "Bumper"
+                                    },
+                                    {
+                                        "num": 1,
+                                        "type": "step",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    43.8,
+                                                    0,
+                                                    319.9
+                                                ],
+                                                "dist": 192,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -7.85,
+                                                    24.1,
+                                                    5.63
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "file": "assemblies/Bumper.scad",
+                                "title": "Bumpers"
                             }
                         ],
-                        "desc": "Connect the two bumper assemblies"
+                        "desc": "Connect the two bumper assemblies using four of the push pins with flat heads"
                     },
                     {
                         "num": 3,
@@ -4652,6 +5224,14 @@
             {
                 "type": "file",
                 "file": "vitamins/Breadboard.scad"
+            },
+            {
+                "type": "file",
+                "file": "assemblies/Bumper.scad"
+            },
+            {
+                "type": "file",
+                "file": "printedparts/Bumper.scad"
             },
             {
                 "type": "file",

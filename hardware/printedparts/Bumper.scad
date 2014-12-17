@@ -1,51 +1,51 @@
-/* Pins required - 
+/* Pins required -
 
 pintack(side=true, h=7.8+2+2.5, bh=2);
 
 */
 
 // TODO: The locations of these connectors are just horrible and too "magic"
-Bumper_Con_LeftMicroSwitch = 
+Bumper_Con_LeftMicroSwitch =
 [
-	zr3Vect(   [(-10 + dw + 9.6 +.25), (BaseDiameter/2 - 16 + 4 + dw + 1.25 + .5), dw], 43.5    ), 
-	[0, 0, 1], 
-	43.5, 
-	0, 
+	zr3Vect(   [(-10 + dw + 9.6 +.25), (BaseDiameter/2 - 16 + 4 + dw + 1.25 + .5), dw], 43.5    ),
+	[0, 0, 1],
+	43.5,
+	0,
 	0];
 
-Bumper_Con_RightMicroSwitch = 
+Bumper_Con_RightMicroSwitch =
 [
 	[ -zr3Vect([(-10 + dw + 9.6 +.25), (BaseDiameter/2 - 16 + 4 + dw + 1.25 + .5), dw], 43.5)[0],
 	  zr3Vect([(-10 + dw + 9.6 +.25), (BaseDiameter/2 - 16 + 4 + dw + 1.25 + .5), dw], 43.5)[1],
-	  zr3Vect([(-10 + dw + 9.6 +.25), (BaseDiameter/2 - 16 + 4 + dw + 1.25 + .5), dw], 43.5)[2] ], 
-	[0, 0, 1], 
-	-43.5, 
-	0, 
+	  zr3Vect([(-10 + dw + 9.6 +.25), (BaseDiameter/2 - 16 + 4 + dw + 1.25 + .5), dw], 43.5)[2] ],
+	[0, 0, 1],
+	-43.5,
+	0,
 	0];
 
-Bumper_Con_LeftPin = 
+Bumper_Con_LeftPin =
 [
-	zr3Vect(   [(-10 + 15.7 ), (BaseDiameter/2 - 16 + -7 + 2.65 ), dw + 5.8 + dw], 43.5    ), 
-	[0, 0, 1], 
-	43.5, 
-	0, 
+	zr3Vect(   [(-10 + 15.7 ), (BaseDiameter/2 - 16 + -7 + 2.65 ), dw + 5.8 + dw], 43.5    ),
+	[0, 0, 1],
+	43.5,
+	0,
 	0];
 
-Bumper_Con_RightPin = 
+Bumper_Con_RightPin =
 [
 	[ -zr3Vect(   [(-10 + 15.7 ), (BaseDiameter/2 - 16 + -7 + 2.65 ), dw + 5.8 + dw], 43.5    )[0],
 	  zr3Vect(   [(-10 + 15.7 ), (BaseDiameter/2 - 16 + -7 + 2.65 ), dw + 5.8 + dw], 43.5    )[1],
 	  zr3Vect(   [(-10 + 15.7 ), (BaseDiameter/2 - 16 + -7 + 2.65 ), dw + 5.8 + dw], 43.5    )[2] ],
-	[0, 0, 1], 
-	-43.5, 
-	0, 
+	[0, 0, 1],
+	-43.5,
+	0,
 	0];
 
 module Bumper_STL()
 {
 	printedPart("printedparts/Bumper.scad", "Bumper", "Bumper_STL()") {
 
-	    //view(t=[0, -1, -1], r=[49, 0, 25], d=336);
+	    view(t=[1, -8, -11], r=[52, 0, 23], d=184);
 
 		if (DebugCoordinateFrames) frame();
 		if (DebugConnectors) {
@@ -87,7 +87,7 @@ module BumperModel()
 
 	// Connectors
 	for(i=[0, 1])
-	mirror([i, 0, 0]) 
+	mirror([i, 0, 0])
 	rotate([0, 0, microSwitchAngle])
 	 {
 
@@ -125,7 +125,7 @@ module MicroSwitchPlate()
 		cube([dw, base_width, dw + 3]);
 	translate([0, 4, 0])
 		cube([base_length, dw, dw + 2]);
-	
+
 
 	// Rear support lozenge with pin hole
 	lozenge_height = dw + ms_height;
