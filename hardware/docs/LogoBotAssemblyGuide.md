@@ -1,6 +1,8 @@
 # LogoBot
 # Assembly Guide
 
+![view](../images/LogoBot_view.png)
+
 ## Bill of Materials
 
 Make sure you have all of the following parts before you begin.
@@ -45,6 +47,11 @@ Qty | Vitamin | Image
 Qty | Part Name | Image
 --- | --- | ---
 2 | [Bumper](../printedparts/stl/Bumper.stl) | ![](../printedparts/images/Bumper_view.png) | 
+
+### Assembly Steps
+
+1. Place the Microswitches into the holders.  Make sure to get them the right way round so the bumper hits the metal lever.  Repeat for the second bumper.
+![](../assemblies/LogoBot/Bumpers_step1_view.png)
 
 
 ## Drive Wheel (x2)
