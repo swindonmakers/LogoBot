@@ -1,8 +1,6 @@
 # LogoBot Batty
 # Assembly Guide
 
-![view](../images/LogoBotBatty_view.png)
-
 ## Bill of Materials
 
 Make sure you have all of the following parts before you begin.

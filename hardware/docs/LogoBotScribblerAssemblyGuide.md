@@ -1,8 +1,6 @@
 # LogoBot Scribbler
 # Assembly Guide
 
-![view](../images/LogoBotScribbler_view.png)
-
 ## Bill of Materials
 
 Make sure you have all of the following parts before you begin.

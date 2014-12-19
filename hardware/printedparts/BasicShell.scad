@@ -8,40 +8,60 @@ module BasicShell_STL() {
              if (UseSTL) {
                 import(str(STLPath, "BasicShell.stl"));
             } else {
-                union() {
-                    Shell_TwistLock();
-
-                    // shell with hole for LED
-                    difference() {
-                        // curved shell with centre opening for lid
-                        rotate_extrude()
-                            difference() {
-                                // outer shell
-                                donutSector(
-                                    or=BaseDiameter/2 + Shell_NotchTol + dw,
-                                    ir=BaseDiameter/2 + Shell_NotchTol,
-                                    a=90
-                                );
-
-                                // opening for lid, as a 45 degree chamfer starting at ShellOpeningDiameter and sloping inwards
-                                //square([ShellOpeningDiameter/2, BaseDiameter]);
-
-								polygon(
-									[
-										[0, ShellOpeningHeight + 1000], 
-										[ShellOpeningDiameter/2 + 1000, ShellOpeningHeight + 1000], 
-										[ShellOpeningDiameter/2 - dw - 1, ShellOpeningHeight - dw - 1],
-										[0, ShellOpeningHeight - dw - 1]
-									]);
-                            }
-
-                        // hole for LED??
-                        // TODO: Hole for LED
-                    }
-                }
+				BasicShell_Model();
             }
     }
 
+}
+
+
+module BasicShell_Model() {
+
+	sw = 2 * perim;
+
+	or = BaseDiameter/2 + Shell_NotchTol + dw;
+
+	sr = or - sw + eta;
+
+	supportAngle = 50;
+	bridgeDist = 5;
+
+	numRibs1 = round(circumference(sr * cos(supportAngle)) / bridgeDist);
+	numRibs = 4 * (floor(numRibs1 / 4) + 1);
+
+	ribThickness = 0.7;
+
+	$fn=64;
+
+	// shell with hole for LED
+	//render()
+		difference() {
+			union() {
+				// curved shell with centre hole for pen
+				rotate_extrude()
+					difference() {
+						// outer shell
+						donutSector(
+							or=or,
+							ir=BaseDiameter/2 + Shell_NotchTol,
+							a=90
+						);
+
+						polygon(
+							[
+								[0, ShellOpeningHeight + 1000],
+								[ShellOpeningDiameter/2 + 1000, ShellOpeningHeight + 1000],
+								[ShellOpeningDiameter/2 - dw - 1, ShellOpeningHeight - dw - 1],
+								[0, ShellOpeningHeight - dw - 1]
+							]);
+
+					}
+
+
+				// twist lock
+				Shell_TwistLock();
+			}
+		}
 }
 
 
