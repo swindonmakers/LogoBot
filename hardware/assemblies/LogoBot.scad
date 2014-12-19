@@ -228,7 +228,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 					view(t=[11,-23,65], r=[66,0,217], d=1171);
 
 					attach(DefConDown, DefConDown, ExplodeSpacing=BaseDiameter/2)
-						BasicShell_STL();
+						ShellAssembly();
 				}
             }
         }

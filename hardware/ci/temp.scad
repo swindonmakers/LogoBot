@@ -3,4 +3,4 @@ DebugConnectors = false;
 DebugCoordinateFrames = false;
 $Explode = true;
 $ShowStep = 1;
-MarbleCasterAssembly();
+ShellAssembly();

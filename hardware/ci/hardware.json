@@ -1,6 +1,6 @@
 [
     {
-        "hash": "b85d8f5218b3f43688f2b70ed1800eb8",
+        "hash": "2faa3808d64d2befa0fe843538a739f7",
         "vitamins": [
             {
                 "hash": "f9f7b8c7c104f20278aa66ad4cb62196",
@@ -99,7 +99,7 @@
         "title": "LogoBot",
         "assemblies": [
             {
-                "hash": "e7d50af5cadef0394dce5907d83a32ea",
+                "hash": "3452b8090ed0e9fbf9ac22b4ba39825a",
                 "vitamins": [
                     {
                         "views": [],
@@ -158,6 +158,18 @@
                         "printed": [],
                         "file": "assemblies/MarbleCaster.scad",
                         "call": "MarbleCasterAssembly()",
+                        "level": 1
+                    },
+                    {
+                        "vitamins": [],
+                        "views": [],
+                        "assemblies": [],
+                        "title": "Shell",
+                        "qty": 1,
+                        "steps": [],
+                        "printed": [],
+                        "file": "assemblies/Shell.scad",
+                        "call": "ShellAssembly()",
                         "level": 1
                     }
                 ],
@@ -490,13 +502,6 @@
                         "call": "LogoBotBase_STL()",
                         "file": "printedparts/LogoBotBase.scad",
                         "title": "Base"
-                    },
-                    {
-                        "views": [],
-                        "qty": 1,
-                        "call": "BasicShell_STL()",
-                        "file": "printedparts/BasicShell.scad",
-                        "title": "Basic Shell"
                     }
                 ],
                 "file": "assemblies/LogoBot.scad",
@@ -708,6 +713,62 @@
                 "file": "assemblies/MarbleCaster.scad",
                 "call": "MarbleCasterAssembly()",
                 "level": 2
+            },
+            {
+                "hash": "cc315cdf734d77e9b77d61ba17764c15",
+                "vitamins": [],
+                "views": [],
+                "assemblies": [],
+                "title": "Shell",
+                "qty": 1,
+                "steps": [
+                    {
+                        "views": [
+                            {
+                                "rotate": [
+                                    68,
+                                    0,
+                                    27
+                                ],
+                                "dist": 291,
+                                "filepath": "../assemblies/LogoBot/Shell_step1_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -29,
+                                    70,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "num": 1,
+                        "desc": "Clip the lid onto the top of the shell"
+                    }
+                ],
+                "printed": [
+                    {
+                        "views": [],
+                        "qty": 1,
+                        "call": "BasicShell_STL()",
+                        "file": "printedparts/BasicShell.scad",
+                        "title": "Basic Shell"
+                    },
+                    {
+                        "views": [],
+                        "qty": 1,
+                        "call": "Lid_STL()",
+                        "file": "printedparts/Lid.scad",
+                        "title": "Lid"
+                    }
+                ],
+                "file": "assemblies/Shell.scad",
+                "call": "ShellAssembly()",
+                "level": 2
             }
         ],
         "printed": [
@@ -766,22 +827,8 @@
                         ]
                     }
                 ],
-                "aabb": [
-                    [
-                        -76.707,
-                        6.53667,
-                        0.0
-                    ],
-                    [
-                        76.707,
-                        77.0,
-                        15.0
-                    ]
-                ],
                 "title": "Bumper",
                 "qty": 2,
-                "volume": 11107.209704950026,
-                "area": 12119.611139523004,
                 "call": "Bumper_STL()",
                 "file": "printedparts/Bumper.scad"
             },
@@ -846,7 +893,7 @@
                 "file": "printedparts/MarbleCaster.scad"
             },
             {
-                "hash": "3cf3bfbc730bcb9aeb71ce4b9248392c",
+                "hash": "f99bc521a54872f72c91939e66889eb6",
                 "views": [
                     {
                         "rotate": [
@@ -874,6 +921,50 @@
                 "qty": 1,
                 "call": "BasicShell_STL()",
                 "file": "printedparts/BasicShell.scad"
+            },
+            {
+                "hash": "f1e794f20082e73e4824b4203ac9ba90",
+                "views": [
+                    {
+                        "rotate": [
+                            72,
+                            0,
+                            130
+                        ],
+                        "dist": 96,
+                        "title": "view",
+                        "filepath": "../printedparts/images/Lid_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "aabb": [
+                    [
+                        -37.1296,
+                        -37.1296,
+                        -2.0
+                    ],
+                    [
+                        37.1296,
+                        37.1296,
+                        12.3782
+                    ]
+                ],
+                "title": "Lid",
+                "qty": 1,
+                "volume": 13711.410783636009,
+                "area": 20820.847215933103,
+                "call": "Lid_STL()",
+                "file": "printedparts/Lid.scad"
             }
         ],
         "file": "LogoBot.scad",
@@ -1713,32 +1804,95 @@
                                 ]
                             },
                             {
-                                "type": "printed",
-                                "call": "BasicShell_STL()",
+                                "type": "assembly",
+                                "call": "ShellAssembly()",
                                 "children": [
                                     {
-                                        "rotate": [
-                                            63,
-                                            0,
-                                            26
+                                        "type": "printed",
+                                        "call": "BasicShell_STL()",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    63,
+                                                    0,
+                                                    26
+                                                ],
+                                                "dist": 726,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -2,
+                                                    6,
+                                                    14
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
                                         ],
-                                        "dist": 726,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            -2,
-                                            6,
-                                            14
+                                        "file": "printedparts/BasicShell.scad",
+                                        "title": "Basic Shell"
+                                    },
+                                    {
+                                        "num": 1,
+                                        "type": "step",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    68,
+                                                    0,
+                                                    27
+                                                ],
+                                                "dist": 291,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -29,
+                                                    70,
+                                                    0
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            },
+                                            {
+                                                "type": "printed",
+                                                "call": "Lid_STL()",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            72,
+                                                            0,
+                                                            130
+                                                        ],
+                                                        "dist": 96,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "printedparts/Lid.scad",
+                                                "title": "Lid"
+                                            }
                                         ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
+                                        "desc": "Clip the lid onto the top of the shell"
                                     }
                                 ],
-                                "file": "printedparts/BasicShell.scad",
-                                "title": "Basic Shell"
+                                "file": "assemblies/Shell.scad",
+                                "title": "Shell"
                             }
                         ],
                         "desc": "Push the shell down onto the base and twist to lock into place"
@@ -1750,7 +1904,7 @@
         ]
     },
     {
-        "hash": "1c69f3363ebb7fee08f38be85c35796f",
+        "hash": "10653f676b30a3ad9b13dea796504952",
         "vitamins": [
             {
                 "hash": "f9f7b8c7c104f20278aa66ad4cb62196",
@@ -1849,7 +2003,7 @@
         "title": "LogoBot Batty",
         "assemblies": [
             {
-                "hash": "e7d50af5cadef0394dce5907d83a32ea",
+                "hash": "3452b8090ed0e9fbf9ac22b4ba39825a",
                 "vitamins": [
                     {
                         "views": [],
@@ -1908,6 +2062,18 @@
                         "printed": [],
                         "file": "assemblies/MarbleCaster.scad",
                         "call": "MarbleCasterAssembly()",
+                        "level": 1
+                    },
+                    {
+                        "vitamins": [],
+                        "views": [],
+                        "assemblies": [],
+                        "title": "Shell",
+                        "qty": 1,
+                        "steps": [],
+                        "printed": [],
+                        "file": "assemblies/Shell.scad",
+                        "call": "ShellAssembly()",
                         "level": 1
                     }
                 ],
@@ -2240,13 +2406,6 @@
                         "call": "LogoBotBase_STL()",
                         "file": "printedparts/LogoBotBase.scad",
                         "title": "Base"
-                    },
-                    {
-                        "views": [],
-                        "qty": 1,
-                        "call": "BasicShell_STL()",
-                        "file": "printedparts/BasicShell.scad",
-                        "title": "Basic Shell"
                     }
                 ],
                 "file": "assemblies/LogoBot.scad",
@@ -2458,6 +2617,62 @@
                 "file": "assemblies/MarbleCaster.scad",
                 "call": "MarbleCasterAssembly()",
                 "level": 2
+            },
+            {
+                "hash": "cc315cdf734d77e9b77d61ba17764c15",
+                "vitamins": [],
+                "views": [],
+                "assemblies": [],
+                "title": "Shell",
+                "qty": 1,
+                "steps": [
+                    {
+                        "views": [
+                            {
+                                "rotate": [
+                                    68,
+                                    0,
+                                    27
+                                ],
+                                "dist": 291,
+                                "filepath": "../assemblies/LogoBotBatty/Shell_step1_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -29,
+                                    70,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "num": 1,
+                        "desc": "Clip the lid onto the top of the shell"
+                    }
+                ],
+                "printed": [
+                    {
+                        "views": [],
+                        "qty": 1,
+                        "call": "BasicShell_STL()",
+                        "file": "printedparts/BasicShell.scad",
+                        "title": "Basic Shell"
+                    },
+                    {
+                        "views": [],
+                        "qty": 1,
+                        "call": "Lid_STL()",
+                        "file": "printedparts/Lid.scad",
+                        "title": "Lid"
+                    }
+                ],
+                "file": "assemblies/Shell.scad",
+                "call": "ShellAssembly()",
+                "level": 2
             }
         ],
         "printed": [
@@ -2582,7 +2797,7 @@
                 "file": "printedparts/MarbleCaster.scad"
             },
             {
-                "hash": "3cf3bfbc730bcb9aeb71ce4b9248392c",
+                "hash": "f99bc521a54872f72c91939e66889eb6",
                 "views": [
                     {
                         "rotate": [
@@ -2610,6 +2825,36 @@
                 "qty": 1,
                 "call": "BasicShell_STL()",
                 "file": "printedparts/BasicShell.scad"
+            },
+            {
+                "hash": "f1e794f20082e73e4824b4203ac9ba90",
+                "views": [
+                    {
+                        "rotate": [
+                            72,
+                            0,
+                            130
+                        ],
+                        "dist": 96,
+                        "title": "view",
+                        "filepath": "../printedparts/images/Lid_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "title": "Lid",
+                "qty": 1,
+                "call": "Lid_STL()",
+                "file": "printedparts/Lid.scad"
             }
         ],
         "file": "LogoBotBatty.scad",
@@ -3449,32 +3694,95 @@
                                 ]
                             },
                             {
-                                "type": "printed",
-                                "call": "BasicShell_STL()",
+                                "type": "assembly",
+                                "call": "ShellAssembly()",
                                 "children": [
                                     {
-                                        "rotate": [
-                                            63,
-                                            0,
-                                            26
+                                        "type": "printed",
+                                        "call": "BasicShell_STL()",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    63,
+                                                    0,
+                                                    26
+                                                ],
+                                                "dist": 726,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -2,
+                                                    6,
+                                                    14
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
                                         ],
-                                        "dist": 726,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            -2,
-                                            6,
-                                            14
+                                        "file": "printedparts/BasicShell.scad",
+                                        "title": "Basic Shell"
+                                    },
+                                    {
+                                        "num": 1,
+                                        "type": "step",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    68,
+                                                    0,
+                                                    27
+                                                ],
+                                                "dist": 291,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -29,
+                                                    70,
+                                                    0
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            },
+                                            {
+                                                "type": "printed",
+                                                "call": "Lid_STL()",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            72,
+                                                            0,
+                                                            130
+                                                        ],
+                                                        "dist": 96,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "printedparts/Lid.scad",
+                                                "title": "Lid"
+                                            }
                                         ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
+                                        "desc": "Clip the lid onto the top of the shell"
                                     }
                                 ],
-                                "file": "printedparts/BasicShell.scad",
-                                "title": "Basic Shell"
+                                "file": "assemblies/Shell.scad",
+                                "title": "Shell"
                             }
                         ],
                         "desc": "Push the shell down onto the base and twist to lock into place"
@@ -3486,7 +3794,7 @@
         ]
     },
     {
-        "hash": "1a2fafbaf1141196d8d953d9cc2da43b",
+        "hash": "ddbb59a020f4a44b5a756944069cdddc",
         "vitamins": [
             {
                 "hash": "f9f7b8c7c104f20278aa66ad4cb62196",
@@ -3629,7 +3937,7 @@
         "title": "LogoBot Scribbler",
         "assemblies": [
             {
-                "hash": "352a97f8e7ab8d06ae6fd715d39592ae",
+                "hash": "2ae7be7c13779c9a137a1ad6b02c58f7",
                 "vitamins": [
                     {
                         "views": [],
@@ -3709,6 +4017,18 @@
                         "printed": [],
                         "file": "assemblies/MarbleCaster.scad",
                         "call": "MarbleCasterAssembly()",
+                        "level": 1
+                    },
+                    {
+                        "vitamins": [],
+                        "views": [],
+                        "assemblies": [],
+                        "title": "Shell",
+                        "qty": 1,
+                        "steps": [],
+                        "printed": [],
+                        "file": "assemblies/Shell.scad",
+                        "call": "ShellAssembly()",
                         "level": 1
                     }
                 ],
@@ -4068,13 +4388,6 @@
                         "call": "LogoBotBase_STL()",
                         "file": "printedparts/LogoBotBase.scad",
                         "title": "Base"
-                    },
-                    {
-                        "views": [],
-                        "qty": 1,
-                        "call": "BasicShell_STL()",
-                        "file": "printedparts/BasicShell.scad",
-                        "title": "Basic Shell"
                     }
                 ],
                 "file": "assemblies/LogoBot.scad",
@@ -4286,6 +4599,62 @@
                 "file": "assemblies/MarbleCaster.scad",
                 "call": "MarbleCasterAssembly()",
                 "level": 2
+            },
+            {
+                "hash": "cc315cdf734d77e9b77d61ba17764c15",
+                "vitamins": [],
+                "views": [],
+                "assemblies": [],
+                "title": "Shell",
+                "qty": 1,
+                "steps": [
+                    {
+                        "views": [
+                            {
+                                "rotate": [
+                                    68,
+                                    0,
+                                    27
+                                ],
+                                "dist": 291,
+                                "filepath": "../assemblies/LogoBotScribbler/Shell_step1_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -29,
+                                    70,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "num": 1,
+                        "desc": "Clip the lid onto the top of the shell"
+                    }
+                ],
+                "printed": [
+                    {
+                        "views": [],
+                        "qty": 1,
+                        "call": "BasicShell_STL()",
+                        "file": "printedparts/BasicShell.scad",
+                        "title": "Basic Shell"
+                    },
+                    {
+                        "views": [],
+                        "qty": 1,
+                        "call": "Lid_STL()",
+                        "file": "printedparts/Lid.scad",
+                        "title": "Lid"
+                    }
+                ],
+                "file": "assemblies/Shell.scad",
+                "call": "ShellAssembly()",
+                "level": 2
             }
         ],
         "printed": [
@@ -4410,7 +4779,7 @@
                 "file": "printedparts/MarbleCaster.scad"
             },
             {
-                "hash": "3cf3bfbc730bcb9aeb71ce4b9248392c",
+                "hash": "f99bc521a54872f72c91939e66889eb6",
                 "views": [
                     {
                         "rotate": [
@@ -4438,6 +4807,36 @@
                 "qty": 1,
                 "call": "BasicShell_STL()",
                 "file": "printedparts/BasicShell.scad"
+            },
+            {
+                "hash": "f1e794f20082e73e4824b4203ac9ba90",
+                "views": [
+                    {
+                        "rotate": [
+                            72,
+                            0,
+                            130
+                        ],
+                        "dist": 96,
+                        "title": "view",
+                        "filepath": "../printedparts/images/Lid_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "title": "Lid",
+                "qty": 1,
+                "call": "Lid_STL()",
+                "file": "printedparts/Lid.scad"
             }
         ],
         "file": "LogoBotScribbler.scad",
@@ -5344,32 +5743,95 @@
                                 ]
                             },
                             {
-                                "type": "printed",
-                                "call": "BasicShell_STL()",
+                                "type": "assembly",
+                                "call": "ShellAssembly()",
                                 "children": [
                                     {
-                                        "rotate": [
-                                            63,
-                                            0,
-                                            26
+                                        "type": "printed",
+                                        "call": "BasicShell_STL()",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    63,
+                                                    0,
+                                                    26
+                                                ],
+                                                "dist": 726,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -2,
+                                                    6,
+                                                    14
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
                                         ],
-                                        "dist": 726,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            -2,
-                                            6,
-                                            14
+                                        "file": "printedparts/BasicShell.scad",
+                                        "title": "Basic Shell"
+                                    },
+                                    {
+                                        "num": 1,
+                                        "type": "step",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    68,
+                                                    0,
+                                                    27
+                                                ],
+                                                "dist": 291,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -29,
+                                                    70,
+                                                    0
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            },
+                                            {
+                                                "type": "printed",
+                                                "call": "Lid_STL()",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            72,
+                                                            0,
+                                                            130
+                                                        ],
+                                                        "dist": 96,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "printedparts/Lid.scad",
+                                                "title": "Lid"
+                                            }
                                         ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
+                                        "desc": "Clip the lid onto the top of the shell"
                                     }
                                 ],
-                                "file": "printedparts/BasicShell.scad",
-                                "title": "Basic Shell"
+                                "file": "assemblies/Shell.scad",
+                                "title": "Shell"
                             }
                         ],
                         "desc": "Push the shell down onto the base and twist to lock into place"
@@ -5436,7 +5898,15 @@
             },
             {
                 "type": "file",
+                "file": "assemblies/Shell.scad"
+            },
+            {
+                "type": "file",
                 "file": "printedparts/BasicShell.scad"
+            },
+            {
+                "type": "file",
+                "file": "printedparts/Lid.scad"
             },
             {
                 "type": "file",
