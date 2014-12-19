@@ -1,6 +1,8 @@
 # LogoBot Batty
 # Assembly Guide
 
+![view](../images/LogoBotBatty_view.png)
+
 ## Bill of Materials
 
 Make sure you have all of the following parts before you begin.
@@ -19,6 +21,7 @@ Qty | Part Name | Image
 --- | --- | ---
 1 | [Basic Shell](../printedparts/stl/BasicShell.stl) | ![](../printedparts/images/BasicShell_view.png) | 
 2 | [Bumper](../printedparts/stl/Bumper.stl) | ![](../printedparts/images/Bumper_view.png) | 
+1 | [Lid](../printedparts/stl/Lid.stl) | ![](../printedparts/images/Lid_view.png) | 
 1 | [Base](../printedparts/stl/Base.stl) | ![](../printedparts/images/Base_view.png) | 
 1 | [Caster Housing](../printedparts/stl/CasterHousing.stl) | ![](../printedparts/images/CasterHousing_view.png) | 
 2 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
@@ -86,6 +89,21 @@ Qty | Part Name | Image
 ![](../assemblies/LogoBotBatty/RearCaster_step1_view.png)
 
 
+## Shell
+
+### Printed Parts
+
+Qty | Part Name | Image
+--- | --- | ---
+1 | [Basic Shell](../printedparts/stl/BasicShell.stl) | ![](../printedparts/images/BasicShell_view.png) | 
+1 | [Lid](../printedparts/stl/Lid.stl) | ![](../printedparts/images/Lid_view.png) | 
+
+### Assembly Steps
+
+1. Clip the lid onto the top of the shell
+![](../assemblies/LogoBotBatty/Shell_step1_view.png)
+
+
 ## Final Assembly
 
 ### Vitamins
@@ -98,7 +116,6 @@ Qty | Vitamin | Image
 
 Qty | Part Name | Image
 --- | --- | ---
-1 | [Basic Shell](../printedparts/stl/BasicShell.stl) | ![](../printedparts/images/BasicShell_view.png) | 
 1 | [Base](../printedparts/stl/Base.stl) | ![](../printedparts/images/Base_view.png) | 
 
 ### Sub-Assemblies
@@ -109,6 +126,7 @@ Qty | Name
 2 | Bumpers
 2 | Drive Wheel
 1 | Rear Caster
+1 | Shell
 
 ### Assembly Steps
 

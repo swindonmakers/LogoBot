@@ -2,7 +2,7 @@ module Lid_STL() {
 
     printedPart("printedparts/Lid.scad", "Lid", "Lid_STL()") {
 
-        view(t=[0, 0, 0], r=[52, 0, 25], d=336);
+        view(t=[0,0,0],r=[72,0,130],d=96);
 
         if (DebugCoordinateFrames) frame();
         if (DebugConnectors) connector(Wheel_Con_Default);

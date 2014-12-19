@@ -21,7 +21,7 @@ module ShellAssembly() {
         BasicShell_STL();
 
 		step(1, "Clip the lid onto the top of the shell") {
-			view();
+			view(t=[-29,70,0],r=[68,0,27],d=291);
 
 			attach(Shell_Con_Lid, DefConDown)
 				Lid_STL();
