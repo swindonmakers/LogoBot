@@ -78,7 +78,19 @@ module BumperModel()
 	bumpstopHeight = 5;			// height of little block that sticks out to hit the microswitch
 
 	// Calculated parameters
-	outr = BaseDiameter/2 + offset + thickness;		// outside radius or the bumper
+	outr = BaseDiameter/2 + offset + thickness;		// outside radius of the bumper
+
+    // Bumper flange
+	rotate([0, 0, (180 - wrapAngle) / 2])
+    difference() {
+        linear_extrude(thickness*2)
+            donutSector(outr, outr-thickness*2, wrapAngle);
+
+        translate([0,0,thickness*2])
+            rotate_extrude(convexity = 10)
+                translate([outr-thickness*2,0,0])
+                     circle(r=thickness);
+    }
 
 	// Bumper arc
 	linear_extrude(height)
