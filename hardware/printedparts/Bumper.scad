@@ -84,18 +84,18 @@ module BumperModel()
 	rotate([0, 0, (180 - wrapAngle) / 2])
     difference() {
         linear_extrude(thickness*2)
-            donutSector(outr, outr-thickness*2, wrapAngle);
+            donutSector(outr, outr-thickness*2, wrapAngle, $fn=128);
 
         translate([0,0,thickness*2])
-            rotate_extrude(convexity = 10)
+            rotate_extrude(convexity = 10, $fn=128)
                 translate([outr-thickness*2,0,0])
-                     circle(r=thickness);
+                     circle(r=thickness, $fn=24);
     }
 
 	// Bumper arc
 	linear_extrude(height)
 	rotate([0, 0, (180 - wrapAngle) / 2])
-		donutSector(outr, outr - thickness, wrapAngle);
+		donutSector(outr, outr - thickness, wrapAngle, $fn=128);
 
 	// Connectors
 	for(i=[0, 1])
@@ -104,10 +104,14 @@ module BumperModel()
 	 {
 
 		// Springy bits
-		translate([15, BaseDiameter/2 - 11, 0])
+		MicroSwitchSpring();
+
+		// old Springy bits
+		*translate([15, BaseDiameter/2 - 11, 0])
 		rotate([0, 0, -130])
 		linear_extrude(5)
 			donutSector(17, 17 - 2*perim, 175);
+
 
 		// Bumpstops to hit microwitch arm
 		translate([0, BaseDiameter/2 - 1 , 0])
@@ -118,6 +122,48 @@ module BumperModel()
 			MicroSwitchPlate();
 	}
 }
+
+
+module MicroSwitchSpring() {
+	// generate a spring along a bezier curve :)
+
+	// number of steps in curve
+	steps = 50;
+
+	// control points
+	cp1 = [7, BaseDiameter/2];  // start
+	cp4 = [3,  BaseDiameter/2 - 24];  // end
+	cp2 = [ cp1[0] + 40,  cp1[1]-5 ];  // handle 1
+	cp3 = [ cp4[0] + 20,  cp4[1]-10 ];  // handle 2
+
+	// debug control points
+	*color("red") {
+		translate(cp1) cylinder(r=0.2, h=30);
+		translate(cp2) cylinder(r=0.2, h=30);
+		translate(cp3) cylinder(r=0.2, h=30);
+		translate(cp4) cylinder(r=0.2, h=30);
+	}
+
+	// generate the actual curve
+	linear_extrude(5)
+		union() // union lots of little "pill" shapes for each segment of the curve
+		for (i=[0:steps-2]) {
+			// curve time parameters for this step and next
+			u1 = i / (steps-1);
+			u2 = (i+1) / (steps-1);
+
+			// 2D points for this step and next
+			p1 = PtOnBez2D(cp1, cp2, cp3, cp4, u1);
+			p2 = PtOnBez2D(cp1, cp2, cp3, cp4, u2);
+
+			// hull together circles at this the position of this step and next
+			hull($fn=8) {
+				translate(p1) circle(perim);
+				translate(p2) circle(perim);
+			}
+		}
+}
+
 
 module MicroSwitchPlate()
 {
