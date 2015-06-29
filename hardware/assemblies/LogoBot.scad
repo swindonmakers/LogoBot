@@ -197,11 +197,17 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 
 
             // Caster
-            step(10, "Push the caster assembly into the base so that it snaps into place") {
+            step(10, "Align the caster assembly with the base") {
                 view(t=[-6,7,19], r=[115,1,26], d=625);
 
                 attach(LogoBot_Con_Caster, MarbleCaster_Con_Default, ExplodeSpacing=15)
                     MarbleCasterAssembly();
+            }
+
+            step(11, "Insert a short pin to lock the caster assembly to the base") {
+
+                attach(offsetConnector(invertConnector(LogoBot_Con_Caster), [0,0,dw]), MarbleCaster_Con_Default, ExplodeSpacing=15)
+                    pintack(side=false, h=dw+0.6+2+1.5, lh=2, bh=2);
             }
 
 
@@ -212,7 +218,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
             //   Placeholder of a micro servo to illustrate having conditional design elements
             if (PenLift) {
                 // TODO: wrap into a PenLift sub-assembly
-                step(11, "Fit the pen lift assembly") {
+                step(12, "Fit the pen lift assembly") {
                     view(t=[-6,7,19], r=[64,1,212], d=625);
 
                     attach( LogoBot_Con_PenLift, MicroServo_Con_Horn)
@@ -223,7 +229,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 
             // Shell + fixings
 			if (Shell) {
-				step(PenLift ? 12 : 11,
+				step(PenLift ? 13 : 12,
 					"Push the shell down onto the base and twist to lock into place") {
 					view(t=[11,-23,65], r=[66,0,217], d=1171);
 
