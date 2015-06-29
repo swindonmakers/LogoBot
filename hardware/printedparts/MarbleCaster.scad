@@ -77,7 +77,7 @@ module MarbleCaster_STL () {
                         cylinder(r=ballr, h=100, center=true, $fn=32);
 
                     // chop it in half for debugging
-                    translate([0, -50, -50])
+                    *translate([0, -50, -50])
                         cube([100,100,100]);
                 }
             }
