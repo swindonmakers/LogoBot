@@ -66,11 +66,14 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 						attach([Bumper_Con_LeftPin[0], Bumper_Con_LeftPin[1], 0, 0, 0], Bumper_Con_LeftPin, ExplodeSpacing=20)
 							BumperAssembly();
 
+						attachWithOffset(DefCon, DefCon, [0, 0, -6*layers])
+							BumperStabiliserModel();
+
 						attach(Bumper_Con_LeftPin, DefConDown, ExplodeSpacing=-20, offset=[0,0,20])
-							pintack(side=false, h=7.8+2+2.5, bh=2);
+							pintack(side=false, h=7.8+2+2.5+6*layers, bh=2);
 
 						attach(Bumper_Con_RightPin, DefConDown, ExplodeSpacing=-20)
-							pintack(side=false, h=7.8+2+2.5, bh=2);
+							pintack(side=false, h=7.8+2+2.5+6*layers, bh=2);
 					}
             }
 
