@@ -37,7 +37,7 @@ machine("LogoBotScribbler.scad","LogoBot Scribbler") {
 \n* None so far!
 
 ");
-    FakeGroundShadow()
+    //FakeGroundShadow()
         LogoBotAssembly(PenLift=true);
     
 }

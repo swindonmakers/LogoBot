@@ -28,7 +28,9 @@ LogoBot_Con_RightMotorDriver    = [[45, 16, 8],[0,-1,0],0,0,0];
 
 LogoBot_Con_Caster = [ [0, -BaseDiameter/2 + 10, 0], [0,0,1], 0, 0, 0];
 
-LogoBot_Con_PenLift = [ [-20, -5, 10], [0,1,0], 0, 0, 0];
+LogoBot_Con_PenLift_Front = [ [0, -20, 2], [0,0,1], 0, 0, 0];
+LogoBot_Con_PenLift_Rear = [ [0, 20, 2], [0,0,1], 0, 0, 0];
+LogoBot_Con_PenLiftServo = [[-12, -6, -6], [1, 0, 0], 90, 0, 0];
 
 LogoBot_Con_SlideSwitch = [[-25, 0, 0], [0,0,-1], 90, 0,0];
 
@@ -220,12 +222,22 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
             // PenLift
             //   Placeholder of a micro servo to illustrate having conditional design elements
             if (PenLift) {
-                // TODO: wrap into a PenLift sub-assembly
-                step(12, "Fit the pen lift assembly") {
+                step(12, "Fit the pen lift assembly using two of the pins and zip tie the servo under the base.") {
                     view(t=[-6,7,19], r=[64,1,212], d=625);
 
-                    attach( LogoBot_Con_PenLift, MicroServo_Con_Horn)
-                        MicroServo();
+					attach(LogoBot_Con_PenLift_Front, PenLiftSlider_Con_BaseFront)
+						PenLiftAssembly();
+
+					attach(LogoBot_Con_PenLift_Front, offsetConnector(DefConDown, [0, 0, 2 + 2.5]))
+						pintack(side=false, h=2.5+4+2.5, bh=2);
+					attach(LogoBot_Con_PenLift_Rear, offsetConnector(DefConDown, [0, 0, 2 + 2.5]))
+						pintack(side=false, h=2.5+4+2.5, bh=2);
+
+                    attach(LogoBot_Con_PenLiftServo, MicroServo_Con_Horn) {
+						MicroServo();
+						attach(MicroServo_Con_Horn, ServoHorn_Con_Default)
+							ServoHorn();
+					}
                 }
             }
 
@@ -237,7 +249,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 					view(t=[11,-23,65], r=[66,0,217], d=1171);
 
 					attach(DefConDown, DefConDown, ExplodeSpacing=BaseDiameter/2)
-						ShellAssembly();
+						ShellAssembly(PenLift? false : true);
 				}
             }
         }

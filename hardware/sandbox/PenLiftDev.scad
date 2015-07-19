@@ -5,6 +5,8 @@ include <../config/config.scad>
 penUp=0;
 penUpHeight = penUp == 0 ? 0 : penUp > 25 ? 11.5 * ((penUp-25) / 90) : 0;
 
+//PenLiftAssembly();
+
 // Main printed pen lift parts
 translate([-10, 0, 2]) {
 	PenLiftSlider_STL();

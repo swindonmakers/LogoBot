@@ -13,6 +13,7 @@ include <../assemblies/Breadboard.scad>
 include <../assemblies/Bumper.scad>
 include <../assemblies/MarbleCaster.scad>
 include <../assemblies/Wheel.scad>
+include <../assemblies/PenLift.scad>
 include <../assemblies/Shell.scad>
 
 // this one goes last!
