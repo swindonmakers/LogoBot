@@ -20,6 +20,7 @@ include <../vitamins/MicroSwitch.scad>
 include <../vitamins/motor.scad>
 include <../vitamins/murata-piezos.scad>
 include <../vitamins/Nut.scad>
+include <../vitamins/Pen.scad>
 include <../vitamins/PlasticCaster.scad>
 include <../vitamins/SlideSwitch.scad>
 include <../vitamins/ULN2003DriverBoard.scad>
