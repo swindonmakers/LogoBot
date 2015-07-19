@@ -58,5 +58,11 @@ ShellOpeningHeight = BaseDiameter * sin(60)/2;
 
 // Pen
 //
-
 PenHoleDiameter = 25;
+
+// Pen Lift
+//
+PenLiftPlateLength = 29;
+PenLiftPlateHeight = 30;
+PenLiftPenOffset = 5;
+PenLiftHolderTolerance = .5;
