@@ -10,14 +10,45 @@ const char page[] PROGMEM = R"~(
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <html>
-<head><title>Logobot Blue</title></head>
-<body style="font-size: 24px;">
+<head>
+<title>Logobot Blue</title>
+<style>
+body, button,input {font-family:sans-serif; font-size: 22px;}
+body {
+    padding: 5% 5%;
+}
+a, button {
+    display:inline-block;
+    width:45%;
+    background-color:#337ab7;
+    text-align:center;
+    border:1px solid #2e6da4;
+    border-radius:4px;
+    text-decoration:none;
+    color:#fff;
+    vertical-align:middle;
+    padding: 12px 0;
+}
+a+a, button+button {
+    margin-left:5%;
+}
+a:hover, button:hover {
+    background-color:#23527c;
+}
+input {
+    display:inline-block;
+    width: 40%;
+    margin-bottom:12px;
+}
+</style>
+</head>
+<body>
 Distance: <input type="text" id="dist" value="1000" /><br />
-<a href="#" onclick="l('BK', elv('dist'));">Backward</a> :
+<a href="#" onclick="l('BK', elv('dist'));">Backward</a>
 <a href="#" onclick="l('FD', elv('dist'));">Forward</a><br/>
 <hr/>
 Angle: <input type="text" id="angle" value="90" /><br />
-<a href="#" onclick="l('LT', elv('angle'));">Left</a> :
+<a href="#" onclick="l('LT', elv('angle'));">Left</a>
 <a href="#" onclick="l('RT', elv('angle'));">Right</a><br/>
 <hr />
 
@@ -49,6 +80,7 @@ Angle: <input type="text" id="angle" value="90" /><br />
 </script>
 </body>
 </html>
+
 )~";
 
 void handleRoot() {
