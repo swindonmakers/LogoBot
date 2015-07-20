@@ -7,38 +7,34 @@ ESP8266WebServer server(80);
 const int led = 2;
 
 const char page[] PROGMEM = R"~(
-
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <html>
 <head><title>Logobot Blue</title></head>
 <body style="font-size: 24px;">
-  
 Distance: <input type="text" id="dist" value="1000" /><br />
-<a href="#" onclick="l('BK', document.getElementById('dist').value);">Backward</a> : 
-<a href="#" onclick="l('FD', document.getElementById('dist').value);">Forward</a><br/>
-
+<a href="#" onclick="l('BK', elv('dist'));">Backward</a> :
+<a href="#" onclick="l('FD', elv('dist'));">Forward</a><br/>
 <hr/>
-
 Angle: <input type="text" id="angle" value="90" /><br />
-<a href="#" onclick="l('LT', document.getElementById('angle').value);">Left</a> : 
-<a href="#" onclick="l('RT', document.getElementById('angle').value);">Right</a><br/>
-
+<a href="#" onclick="l('LT', elv('angle'));">Left</a> :
+<a href="#" onclick="l('RT', elv('angle'));">Right</a><br/>
 <hr />
-  
+
 <button onclick="l('PU', null);">Pen Up</button>
 <button onclick="l('PD', null);">Pen Down</button>
-
 <hr />
-  
+
 <button onclick="l('ST', null);">Stop</button>
 <button onclick="l('BZ', 500);">Horn</button>
-  
+
 <hr/>
-  
+
 <div><span id="lastCmd"></span>:<span id="lastResp"</span></div>
-  
+
 <script type="text/javascript">
+    function el(id) { return document.getElementById(id); }
+    function elv(id) { return el(id).value; }
     function l(cmd, dist) {
         var xhReq = new XMLHttpRequest();
         var uri = '/cmd?action=' + cmd;
@@ -46,15 +42,13 @@ Angle: <input type="text" id="angle" value="90" /><br />
         xhReq.open('GET', uri, true);
         xhReq.send();
         xhReq.onload = function () {
-          document.getElementById('lastCmd').innerText = cmd + ' ' + dist;
-          document.getElementById('lastResp').innerText = this.responseText;
+          el('lastCmd').innerText = cmd + ' ' + dist;
+          el('lastResp').innerText = this.responseText;
         }
     };
 </script>
-
 </body>
 </html>
-
 )~";
 
 void handleRoot() {
