@@ -73,6 +73,25 @@ COMMAND cmdQ[QUEUE_LENGTH];
 int qHead = 0;
 int qSize = 0;
 
+// char buffer for converting floats to strings
+static char outstr[15];
+
+boolean insertCmd(String s) {
+  // inserts s at head of queue
+  // return true if inserted ok, false if buffer full
+  
+  if (!isQFull()) {
+    qHead--;
+    if (qHead < 0) qHead += QUEUE_LENGTH;
+    
+    cmdQ[qHead].cmd = String(s);
+    
+    qSize++;
+    
+    return true;
+  } else 
+    return false;
+}
 
 boolean pushCmd(String s) {
   // push s onto tail of queue
@@ -163,11 +182,9 @@ void loop()
     char c = Serial.read();
     if (c == '\r' || c == '\n') {
       if (cmd != "") {
-        if (pushCmd(cmd))
-          Serial.println("OK:" + cmd);
-        else
-          Serial.println("BUSY");
-          
+        Serial.println("OK:" + cmd);
+        //doLogoCommand(cmd);
+        pushCmd(cmd);
         cmd = "";
       }
     } else {
@@ -228,9 +245,9 @@ void doLogoCommand(String c)
   /* Official Logo Commands
        Implemented
          -FD, BK, LT, RT
+       Todo
          -PU - Pen Up
          -PD - Pen Down
-       Todo
          -ARC 
    */  
   /* Unofficial extensions
@@ -274,6 +291,15 @@ void doLogoCommand(String c)
   }
 }
 
+void pushTo(float x, float y) {
+  dtostrf(x,5,1,outstr);
+  String s = "TO ";
+  s.concat(outstr);
+  dtostrf(y,5,1,outstr);
+  s.concat(" ");
+  s.concat(outstr);
+  pushCmd(s);
+}
 
 void driveTo(float x, float y) {
   // calc angle
@@ -284,7 +310,10 @@ void driveTo(float x, float y) {
   
   // and distance
   float dist = sqrt(sqr(y-position.y) + sqr(x-position.x));
-  drive(dist);
+  dtostrf(dist,5,1,outstr);
+  String s = "FD ";
+  s.concat(outstr);
+  insertCmd(s);
 }
 
 void drive(float distance)
@@ -353,17 +382,6 @@ void writeText(String s) {
 
 
 // Alphabet
-
-static char outstr[15];
-void pushTo(float x, float y) {
-  dtostrf(x,5,1,outstr);
-  String s = "TO ";
-  s.concat(outstr);
-  dtostrf(y,5,1,outstr);
-  s.concat(" ");
-  s.concat(outstr);
-  pushCmd(s);
-}
 
 void writeL() {
   float x = position.x;
