@@ -1,5 +1,6 @@
 #include <AccelStepper.h>
 #include <Servo.h>
+#include<stdlib.h>
 
 // Pin definitions
 
@@ -33,8 +34,6 @@
 // Servo for Pen Lift (Note same as LED for now)
 #define SERVO       11
 
-#define dlcs doLogoCommandSync
-
 // Initialize with pin sequence IN1-IN3-IN2-IN4 for using the AccelStepper with 28BYJ-48
 AccelStepper stepperL(AccelStepper::HALF4WIRE, motorLPin1, motorLPin3, motorLPin2, motorLPin4);
 AccelStepper stepperR(AccelStepper::HALF4WIRE, motorRPin1, motorRPin3, motorRPin2, motorRPin4);
@@ -47,9 +46,9 @@ AccelStepper stepperR(AccelStepper::HALF4WIRE, motorRPin1, motorRPin3, motorRPin
 
 // position state info
 struct POSITION {
-  long x;
-  long y;
-  long ang;
+  float x;
+  float y;
+  float ang;
 };
 POSITION position;
 
@@ -59,6 +58,9 @@ long buzzEnd = 0;
 
 // buffered text to "write" using the pen
 String text = "";
+float fontSize = 20;  // =em, equal to line spacing (between baselines), text sizes derived from this
+float capHeight = fontSize * 0.7;
+float letterSpacing = fontSize * 0.1;
 
 // cmd received over serial - builds up char at a time
 String cmd;
@@ -221,8 +223,6 @@ void loop()
 
 void doLogoCommand(String c)
 {
-  
-  Serial.println(c);
   /* Official Logo Commands
        Implemented
          -FD, BK, LT, RT
@@ -235,25 +235,26 @@ void doLogoCommand(String c)
       BZ n - sound buzzer for n milliseconds
       ST - stop
       SIG - sign Logobots name
+      TO x y
     */  
   
   if (c.startsWith("TO")) {
     // split out x and y co-ordinates
     int sp = c.indexOf(" ",3);
-    int x = c.substring(3,sp).toInt();
-    int y = c.substring(sp+1).toInt();
+    float x = c.substring(3,sp).toFloat();
+    float y = c.substring(sp+1).toFloat();
     driveTo(x,y);
   } else if (c.startsWith("FD")) {
-    int dist = c.substring(3).toInt();
+    float dist = c.substring(3).toFloat();
     drive(dist);
   } else if (c.startsWith("BK")) {
-    int dist = c.substring(3).toInt();
+    float dist = c.substring(3).toFloat();
     drive(-dist);
   } else if (c.startsWith("RT")) {
-    int angle = c.substring(3).toInt();
+    float angle = c.substring(3).toFloat();
     turn(-angle);
   } else if (c.startsWith("LT")) {
-    int angle = c.substring(3).toInt();
+    float angle = c.substring(3).toFloat();
     turn(angle);
   } else if (c.startsWith("ST")) {
     stepperL.stop();
@@ -265,48 +266,38 @@ void doLogoCommand(String c)
   } else if (c.startsWith("PD")) {
     penDown();
   } else if (c.startsWith("SIG")) {
-    writeLogobot();
+    writeText("LOGOBOT");
   } else if (c.startsWith("WT")) {
     writeText(c.substring(3));
   }
 }
 
-void doLogoCommandSync(String cmd)
-{
-  doLogoCommand(cmd);
- 
-  // Nasty, really needs to run the main loop.
-  while (stepperL.distanceToGo() != 0 || stepperR.distanceToGo() != 0) {
-    stepperL.run();
-    stepperR.run();
-  }
-}
 
-void driveTo(long x, long y) {
+void driveTo(float x, float y) {
   // calc angle
-  long ang = atan2(y-position.y, x-position.x) * 180 / PI;
+  float ang = atan2(y-position.y, x-position.x) * 180 / PI;
   // now angle delta
   ang = ang - position.ang;
   turn(ang);
   
   // and distance
-  long dist = sqrt(sqr(y-position.y) + sqr(x-position.x));
+  float dist = sqrt(sqr(y-position.y) + sqr(x-position.x));
   drive(dist);
 }
 
-void drive(long distance)
+void drive(float distance)
 { 
   // update state
   position.x += distance * cos(position.ang * PI / 180);
   position.y += distance * sin(position.ang * PI / 180);
   
   // prime the move
-  distance *= STEPS_PER_MM;
-  stepperL.move(distance);
-  stepperR.move(distance);
+  int steps = distance * STEPS_PER_MM;
+  stepperL.move(steps);
+  stepperR.move(steps);
 }
 
-void turn(long ang)
+void turn(float ang)
 { 
   // update state
   position.ang += ang;
@@ -316,9 +307,9 @@ void turn(long ang)
   if (position.ang < -360) position.ang += 360;
   
   // prime the move
-  ang *= STEPS_PER_DEG;
-  stepperR.move(ang);
-  stepperL.move(-ang);
+  int steps = ang * STEPS_PER_DEG;
+  stepperR.move(steps);
+  stepperL.move(-steps);
 }
 
 void buzz(int len)
@@ -337,16 +328,10 @@ void penDown()
 }
 
 void writeChar(char c) {
+    
     switch(c) {
         case 'L':
-          pushCmd("FD 100");
-          pushCmd("PD");
-          pushCmd("BK 100");
-          pushCmd("RT 90");
-          pushCmd("FD 80");
-          pushCmd("PU");
-          
-          pushCmd("FD 50");
+          writeL();
           break;
         
         default:
@@ -357,121 +342,40 @@ void writeChar(char c) {
 
 void writeText(String s) {
   // overwrite write text
-  text = s; 
+  text = s;
+  text.toUpperCase(); 
   
   // reset current state
   resetPosition();
 }
 
-void writeLogobot()
-{
-  // L
-  dlcs("FD 100");
-  dlcs("PD");
-  dlcs("BK 100");
-  dlcs("RT 90");
-  dlcs("FD 80");
-  dlcs("PU");
-  
-  dlcs("FD 50");
-  
-  // O
-  dlcs("PD");
-  dlcs("FD 80");
-  dlcs("LT 90");
-  dlcs("FD 100");
-  dlcs("LT 90");
-  dlcs("FD 80");
-  dlcs("LT 90");
-  dlcs("FD 100");
-  dlcs("PU");
-  
-  dlcs("LT 90");
-  dlcs("FD 130");
-  
-  // G
-  dlcs("FD 80");
-  dlcs("LT 90");
-  dlcs("FD 100");
-  dlcs("LT 90");
-  dlcs("PD");
-  dlcs("FD 80");
-  dlcs("LT 90");
-  dlcs("FD 100");
-  dlcs("LT 90");
-  dlcs("FD 80");
-  dlcs("LT 90");
-  dlcs("FD 60");
-  dlcs("PU");
-  
-  dlcs("BK 60");
-  dlcs("RT 90");
-  dlcs("FD 50");
-  
-  // O
-  dlcs("PD");
-  dlcs("FD 80");
-  dlcs("LT 90");
-  dlcs("FD 100");
-  dlcs("LT 90");
-  dlcs("FD 80");
-  dlcs("LT 90");
-  dlcs("FD 100");
-  dlcs("PU");
-  
-  dlcs("LT 90");
-  dlcs("FD 130");
 
-  // B
-  dlcs("PD");
-  dlcs("FD 80");
-  dlcs("LT 90");
-  dlcs("FD 40");
-  dlcs("LT 50");
-  dlcs("FD 40");
-  dlcs("RT 100");
-  dlcs("FD 40");
-  dlcs("LT 50");
-  dlcs("FD 40");
-  dlcs("LT 90");
-  dlcs("FD 80");
-  dlcs("LT 90");
-  dlcs("FD 100");
-  dlcs("PU");
-  
-  dlcs("LT 90");
-  dlcs("FD 130");
+// Alphabet
 
-  // O
-  dlcs("PD");
-  dlcs("FD 80");
-  dlcs("LT 90");
-  dlcs("FD 100");
-  dlcs("LT 90");
-  dlcs("FD 80");
-  dlcs("LT 90");
-  dlcs("FD 100");
-  dlcs("PU");
-  
-  dlcs("LT 90");
-  dlcs("FD 170");
-
-  // T
-  dlcs("LT 90");
-  dlcs("PD");
-  dlcs("FD 150");
-  dlcs("LT 90");
-  dlcs("PU");
-  dlcs("BK 40");
-  dlcs("PD");
-  dlcs("FD 400");
-  dlcs("PU");
-  
-  // Get out of the way
-  dlcs("RT 45");
-  dlcs("FD 2000");
-  
+static char outstr[15];
+void pushTo(float x, float y) {
+  dtostrf(x,5,1,outstr);
+  String s = "TO ";
+  s.concat(outstr);
+  dtostrf(y,5,1,outstr);
+  s.concat(" ");
+  s.concat(outstr);
+  pushCmd(s);
 }
+
+void writeL() {
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+  pushCmd("PD");
+  pushTo(x, y + capHeight);
+  pushTo(x,y);
+  pushTo(x + w, y);
+  pushCmd("PU");
+  pushTo(x + w + letterSpacing, y);
+}
+
+
 
 long sqr(long v) {
   return v*v;
