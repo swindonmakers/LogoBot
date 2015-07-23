@@ -39,9 +39,84 @@
 AccelStepper stepperL(AccelStepper::HALF4WIRE, motorLPin1, motorLPin3, motorLPin2, motorLPin4);
 AccelStepper stepperR(AccelStepper::HALF4WIRE, motorRPin1, motorRPin3, motorRPin2, motorRPin4);
 
+#define STEPS_PER_MM 5000/232;
+#define STEPS_PER_DEG 3760.0 / 180.0;
+
+#define MAX_CMD_LENGTH 10
+#define QUEUE_LENGTH 20
+
+// position state info
+struct POSITION {
+  long x;
+  long y;
+  long ang;
+};
+POSITION position;
+
 Servo penliftServo;
 
 long buzzEnd = 0;
+
+// buffered text to "write" using the pen
+String text = "";
+
+// cmd received over serial - builds up char at a time
+String cmd;
+
+struct COMMAND {
+  String cmd;
+};
+
+COMMAND cmdQ[QUEUE_LENGTH];
+int qHead = 0;
+int qSize = 0;
+
+
+boolean pushCmd(String s) {
+  // push s onto tail of queue
+  // return true if pushed ok, false if buffer full
+  
+  if (!isQFull()) {
+    int next = qHead + qSize;
+    if (next >= QUEUE_LENGTH) next -= QUEUE_LENGTH;
+    
+    cmdQ[next].cmd = String(s);
+    
+    qSize++;
+    
+    return true;
+  } else 
+    return false;
+}
+
+
+String popCmd() {
+  // pops head of queue
+  if (qSize > 0) {
+    String s = cmdQ[qHead].cmd;
+    qSize--;
+    qHead++;
+    if (qHead >= QUEUE_LENGTH) qHead -= QUEUE_LENGTH;
+    return s;
+  } else 
+    return "";
+}
+
+boolean isQFull() {
+  // returns true if full
+  return qSize == QUEUE_LENGTH;
+}
+
+boolean isQEmpty() {
+  return qSize == 0;
+}
+
+// position calcs
+void resetPosition() {
+  position.x = 0;
+  position.y = 0;
+  position.ang = 0; 
+}
 
 
 void setup()
@@ -49,12 +124,12 @@ void setup()
   Serial.begin(9600);
   Serial.println("Logobot");
   stepperL.setMaxSpeed(1000);
-  stepperL.setAcceleration(500);
+  stepperL.setAcceleration(2000);
   //stepperL.moveTo(5000);
   stepperL.setPinsInverted(true, true, false, false, false);
 
   stepperR.setMaxSpeed(1000);
-  stepperR.setAcceleration(500);
+  stepperR.setAcceleration(2000);
   //stepperR.moveTo(5000);
   
   pinMode(switchFL, INPUT_PULLUP);
@@ -72,33 +147,35 @@ void setup()
   pinMode(buzzer, OUTPUT);
   
   buzz(250);
+  
+  resetPosition();
 }
 
 int progStep = 0;
 
-String cmd;
 
 void loop()
 {
-  // Process Logo commands from Serial
+  // Parse Logo commands from Serial, add to cmdQ
   if (Serial.available()) {
     char c = Serial.read();
     if (c == '\r' || c == '\n') {
       if (cmd != "") {
         Serial.println("OK:" + cmd);
-        doLogoCommand(cmd);
+        //doLogoCommand(cmd);
+        pushCmd(cmd);
         cmd = "";
       }
     } else {
       cmd += c;
     }
   }
-
+  
   // Check bump switches
   if (!digitalRead(switchFL) || !digitalRead(switchFR)) {
     buzz(250);
-    stepperL.stop();
-    stepperR.stop();
+    stepperL.setCurrentPosition(stepperL.currentPosition());
+    stepperR.setCurrentPosition(stepperR.currentPosition());
   }
     
   // Do buzzer
@@ -115,26 +192,44 @@ void loop()
   // Note that AccelStepper.disableOutputs doesn't seem to work
   // correctly when pins are inverted and leaves some outputs on.
   if (stepperL.distanceToGo() == 0 && stepperR.distanceToGo() == 0) {
-      digitalWrite(motorLPin1, LOW);
-      digitalWrite(motorLPin2, LOW);
-      digitalWrite(motorLPin3, LOW);
-      digitalWrite(motorLPin4, LOW);
-      digitalWrite(motorRPin1, LOW);
-      digitalWrite(motorRPin2, LOW);
-      digitalWrite(motorRPin3, LOW);
-      digitalWrite(motorRPin4, LOW);
+    
+    if (isQEmpty()) {
+      
+      // check the text writing buffer
+      if (text.length() > 0) {
+        char c = text[0];
+        text = text.substring(1);  // lose the first character 
+        writeChar(c);
+        
+      } else {
+        // take a breather
+        digitalWrite(motorLPin1, LOW);
+        digitalWrite(motorLPin2, LOW);
+        digitalWrite(motorLPin3, LOW);
+        digitalWrite(motorLPin4, LOW);
+        digitalWrite(motorRPin1, LOW);
+        digitalWrite(motorRPin2, LOW);
+        digitalWrite(motorRPin3, LOW);
+        digitalWrite(motorRPin4, LOW);
+      }
+    } else {
+      // pop and process next command from queue
+      doLogoCommand(popCmd());
+    }
   }
 }
 
-void doLogoCommand(String cmd)
+void doLogoCommand(String c)
 {
+  
+  Serial.println(c);
   /* Official Logo Commands
        Implemented
          -FD, BK, LT, RT
        Todo
          -PU - Pen Up
          -PD - Pen Down
-         -ARC
+         -ARC 
    */  
   /* Unofficial extensions
       BZ n - sound buzzer for n milliseconds
@@ -142,29 +237,37 @@ void doLogoCommand(String cmd)
       SIG - sign Logobots name
     */  
   
-  if (cmd.startsWith("FD")) {
-    int dist = cmd.substring(3).toInt();
-    driveForward(dist);
-  } else if (cmd.startsWith("BK")) {
-    int dist = cmd.substring(3).toInt();
-    driveBackward(dist);
-  } else if (cmd.startsWith("RT")) {
-    int angle = cmd.substring(3).toInt();
-    rightTurn(angle * 3760.0 / 180.0);
-  } else if (cmd.startsWith("LT")) {
-    int angle = cmd.substring(3).toInt();
-    leftTurn(angle * 3760.0 / 180.0);
-  } else if (cmd.startsWith("ST")) {
+  if (c.startsWith("TO")) {
+    // split out x and y co-ordinates
+    int sp = c.indexOf(" ",3);
+    int x = c.substring(3,sp).toInt();
+    int y = c.substring(sp+1).toInt();
+    driveTo(x,y);
+  } else if (c.startsWith("FD")) {
+    int dist = c.substring(3).toInt();
+    drive(dist);
+  } else if (c.startsWith("BK")) {
+    int dist = c.substring(3).toInt();
+    drive(-dist);
+  } else if (c.startsWith("RT")) {
+    int angle = c.substring(3).toInt();
+    turn(-angle);
+  } else if (c.startsWith("LT")) {
+    int angle = c.substring(3).toInt();
+    turn(angle);
+  } else if (c.startsWith("ST")) {
     stepperL.stop();
     stepperR.stop();
-  } else if (cmd.startsWith("BZ")) {
-    buzz(cmd.substring(3).toInt());
-  } else if (cmd.startsWith("PU")) {
+  } else if (c.startsWith("BZ")) {
+    buzz(c.substring(3).toInt());
+  } else if (c.startsWith("PU")) {
     penUp();
-  } else if (cmd.startsWith("PD")) {
+  } else if (c.startsWith("PD")) {
     penDown();
-  } else if (cmd.startsWith("SIG")) {
-    sign();
+  } else if (c.startsWith("SIG")) {
+    writeLogobot();
+  } else if (c.startsWith("WT")) {
+    writeText(c.substring(3));
   }
 }
 
@@ -179,28 +282,57 @@ void doLogoCommandSync(String cmd)
   }
 }
 
-void driveForward(long distance)
-{
+void driveTo(long x, long y) {
+  Serial.print(x);
+  Serial.print(",");
+  Serial.println(y); 
+  
+  // calc angle
+  long ang = atan2(y-position.y, x-position.x) * 180 / PI;
+  // now angle delta
+  ang = ang - position.ang;
+  if (ang > 0) 
+    pushCmd("LT " + String(ang));
+  else 
+    pushCmd("RT " + String(-ang));
+  
+  // and distance
+  long dist = sqrt(sqr(y-position.y) + sqr(x-position.x));
+  pushCmd("FD "+String(dist));
+}
+
+void drive(long distance)
+{ 
+  // update state
+  position.x += distance * cos(position.ang * PI / 180);
+  position.y += distance * sin(position.ang * PI / 180);
+  
+  Serial.print("Pos: ");
+  Serial.print(position.x);
+  Serial.print(",");
+  Serial.println(position.y);
+  
+  distance *= STEPS_PER_MM;
   stepperL.move(distance);
   stepperR.move(distance);
 }
 
-void driveBackward(long distance)
-{
-  stepperL.move(-distance);
-  stepperR.move(-distance);
-}
-
-void leftTurn(long distance)
-{
-  stepperR.move(distance);
-  stepperL.move(-distance);
-}
-
-void rightTurn(long distance)
-{
-  stepperR.move(-distance);
-  stepperL.move(distance);
+void turn(long ang)
+{ 
+  // update state
+  position.ang += ang;
+  
+  ang *= STEPS_PER_DEG;
+  stepperR.move(ang);
+  stepperL.move(-ang);
+ 
+  
+  // correct wrap around
+  if (position.ang > 360) position.ang -= 360;
+  if (position.ang < -360) position.ang += 360;
+  
+  Serial.print("Angle: ");
+  Serial.println(position.ang);
 }
 
 void buzz(int len)
@@ -218,7 +350,34 @@ void penDown()
   penliftServo.write(90);
 }
 
-void sign()
+void writeChar(char c) {
+    switch(c) {
+        case 'L':
+          pushCmd("FD 100");
+          pushCmd("PD");
+          pushCmd("BK 100");
+          pushCmd("RT 90");
+          pushCmd("FD 80");
+          pushCmd("PU");
+          
+          pushCmd("FD 50");
+          break;
+        
+        default:
+          pushCmd("BZ 500");
+          break;
+    }
+}
+
+void writeText(String s) {
+  // overwrite write text
+  text = s; 
+  
+  // reset current state
+  resetPosition();
+}
+
+void writeLogobot()
 {
   // L
   dlcs("FD 100");
@@ -326,4 +485,8 @@ void sign()
   dlcs("RT 45");
   dlcs("FD 2000");
   
+}
+
+long sqr(long v) {
+  return v*v;
 }
