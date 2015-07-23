@@ -163,9 +163,11 @@ void loop()
     char c = Serial.read();
     if (c == '\r' || c == '\n') {
       if (cmd != "") {
-        Serial.println("OK:" + cmd);
-        //doLogoCommand(cmd);
-        pushCmd(cmd);
+        if (pushCmd(cmd))
+          Serial.println("OK:" + cmd);
+        else
+          Serial.println("BUSY");
+          
         cmd = "";
       }
     } else {
@@ -226,9 +228,9 @@ void doLogoCommand(String c)
   /* Official Logo Commands
        Implemented
          -FD, BK, LT, RT
-       Todo
          -PU - Pen Up
          -PD - Pen Down
+       Todo
          -ARC 
    */  
   /* Unofficial extensions
