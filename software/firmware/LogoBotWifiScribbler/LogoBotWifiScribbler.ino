@@ -1,6 +1,5 @@
 #include <AccelStepper.h>
 #include <Servo.h>
-#include<stdlib.h>
 
 // Pin definitions
 
@@ -73,12 +72,11 @@ COMMAND cmdQ[QUEUE_LENGTH];
 int qHead = 0;
 int qSize = 0;
 
-// char buffer for converting floats to strings
-static char outstr[15];
-
 boolean insertCmd(String s) {
   // inserts s at head of queue
   // return true if inserted ok, false if buffer full
+  
+  Serial.println("insertCmd: " + s);
   
   if (!isQFull()) {
     qHead--;
@@ -111,6 +109,7 @@ boolean pushCmd(String s) {
 }
 
 
+
 String popCmd() {
   // pops head of queue
   if (qSize > 0) {
@@ -130,6 +129,22 @@ boolean isQFull() {
 
 boolean isQEmpty() {
   return qSize == 0;
+}
+
+void printCommandQ()
+{
+  Serial.print("cmdQ:");
+  Serial.print(qHead);
+  Serial.print(":");
+  Serial.println(qSize);
+  
+  for (int i=0; i<qSize; i++) {
+    Serial.print(i);
+    Serial.print(":");
+    int j = qHead + i;
+    if (j > QUEUE_LENGTH) j-= QUEUE_LENGTH;
+    Serial.println(cmdQ[j].cmd);
+  }
 }
 
 // position calcs
@@ -236,7 +251,9 @@ void loop()
       }
     } else {
       // pop and process next command from queue
-      doLogoCommand(popCmd());
+      String nextCmd = popCmd();
+      Serial.println("Process Next Command: " + nextCmd);
+      doLogoCommand(nextCmd);
     }
   }
 }
@@ -292,13 +309,12 @@ void doLogoCommand(String c)
   }
 }
 
-void pushTo(float x, float y) {
-  dtostrf(x,5,1,outstr);
+void pushTo(float x, float y)
+{
   String s = "TO ";
-  s.concat(outstr);
-  dtostrf(y,5,1,outstr);
-  s.concat(" ");
-  s.concat(outstr);
+  s += x;
+  s += " ";
+  s += y;
   pushCmd(s);
 }
 
@@ -311,14 +327,15 @@ void driveTo(float x, float y) {
   
   // and distance
   float dist = sqrt(sqr(y-position.y) + sqr(x-position.x));
-  dtostrf(dist,5,1,outstr);
   String s = "FD ";
-  s.concat(outstr);
+  s += dist;
   insertCmd(s);
 }
 
 void drive(float distance)
 { 
+  Serial.print("Drive:");
+  Serial.println(distance);
   // update state
   position.x += distance * cos(position.ang * PI / 180);
   position.y += distance * sin(position.ang * PI / 180);
@@ -331,6 +348,8 @@ void drive(float distance)
 
 void turn(float ang)
 { 
+  Serial.print("Turn:");
+  Serial.println(ang);
   // update state
   position.ang += ang;
   
@@ -394,6 +413,7 @@ void writeL() {
   pushTo(x + w, y);
   pushCmd("PU");
   pushTo(x + w + letterSpacing, y);
+  
 }
 
 
