@@ -76,8 +76,6 @@ boolean insertCmd(String s) {
   // inserts s at head of queue
   // return true if inserted ok, false if buffer full
   
-  Serial.println("insertCmd: " + s);
-  
   if (!isQFull()) {
     qHead--;
     if (qHead < 0) qHead += QUEUE_LENGTH;
@@ -251,9 +249,7 @@ void loop()
       }
     } else {
       // pop and process next command from queue
-      String nextCmd = popCmd();
-      Serial.println("Process Next Command: " + nextCmd);
-      doLogoCommand(nextCmd);
+      doLogoCommand(popCmd());
     }
   }
 }
@@ -334,8 +330,6 @@ void driveTo(float x, float y) {
 
 void drive(float distance)
 { 
-  Serial.print("Drive:");
-  Serial.println(distance);
   // update state
   position.x += distance * cos(position.ang * PI / 180);
   position.y += distance * sin(position.ang * PI / 180);
@@ -348,8 +342,6 @@ void drive(float distance)
 
 void turn(float ang)
 { 
-  Serial.print("Turn:");
-  Serial.println(ang);
   // update state
   position.ang += ang;
   
@@ -413,7 +405,6 @@ void writeL() {
   pushTo(x + w, y);
   pushCmd("PU");
   pushTo(x + w + letterSpacing, y);
-  
 }
 
 
