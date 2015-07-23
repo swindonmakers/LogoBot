@@ -50,7 +50,7 @@ input {
     padding: 5px;
 }
 .content {
-    padding-top: 10px;
+    padding-top: 15px;
     text-align: center;
 }
 .button30 {
@@ -65,7 +65,8 @@ input {
 
 <button onclick="l('BK', elv('dist'));">Backward</button>
 <button onclick="l('FD', elv('dist'));">Forward</button><br />
-Dist: <input type="number" id="dist" value="20" /> Ang: <input type="number" id="angle" value="90" /><br />
+Dist: <input type="number" id="dist" value="20" /> <br />
+Ang: <input type="number" id="angle" value="90" /><br />
 <button onclick="l('LT', elv('angle'));">Left</button>
 <button onclick="l('RT', elv('angle'));">Right</button><br />
 <hr />
@@ -79,9 +80,10 @@ Dist: <input type="number" id="dist" value="20" /> Ang: <input type="number" id=
 <button class="button30" onclick="l('SE');">E-Stop!</button>
 <hr/>
 
-<button onclick="l('TO', elv('x'), elv('y'));">Move To</button>
 X:<input style="width: 40px" type="number" id="x" value="0"/>
 Y:<input style="width: 40px" type="number" id="y" value="0"/>
+<br />
+<button onclick="l('TO', elv('x'), elv('y'));">Move To</button>
 <hr />
 
 
@@ -102,7 +104,7 @@ Y:<input style="width: 40px" type="number" id="y" value="0"/>
   try {
           xhReq.send();
           xhReq.onload = function () {
-            el('state').innerText = cmd + ': ' + this.responseText;
+            el('state').innerText = this.responseText;
           }
   } catch(ex) {
     el('state').innerText = 'send error';
