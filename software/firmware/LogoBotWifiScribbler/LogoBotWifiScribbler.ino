@@ -373,13 +373,25 @@ void penDown()
 void writeChar(char c) {
     
     switch(c) {
-        case 'L':
-          writeL();
-          break;
+      case 'B':
+        writeB();
+        break;
+      case 'G':
+        writeG();
+        break;
+      case 'L':
+        writeL();
+        break;
+      case 'O':
+        writeO();
+        break;
+      case 'T':
+        writeT();
+        break;
         
-        default:
-          pushCmd("BZ 500");
-          break;
+      default:
+        pushCmd("BZ 500");
+        break;
     }
 }
 
@@ -395,7 +407,44 @@ void writeText(String s) {
 
 // Alphabet
 
-void writeL() {
+#define NEXTLETTER pushTo(x + w + letterSpacing, y);
+
+void writeB()
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+  
+  pushCmd("PD");
+  pushTo(x + 2 * w / 3, y);
+  pushTo(x + w, y + capHeight / 4);
+  pushTo(x + 2 * w / 3, y + capHeight / 2);
+  pushTo(x + w, y + 3 * capHeight / 4);
+  pushTo(x + 2 * w / 3, y + capHeight);
+  pushTo(x, y + capHeight);
+  pushTo(x, y);
+  pushCmd("PU");
+  NEXTLETTER
+}
+
+void writeG()
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+  pushTo(x + w, y + capHeight);
+  pushCmd("PD");
+  pushTo(x, y + capHeight);
+  pushTo(x, y);
+  pushTo(x + w, y);
+  pushTo(x + w, y + capHeight/3);
+  pushTo(x + w/3, y + capHeight/3);
+  pushCmd("PU");
+  NEXTLETTER
+}
+
+void writeL() 
+{
   float x = position.x;
   float y = position.y;
   float w = fontSize * 0.5;
@@ -404,7 +453,35 @@ void writeL() {
   pushTo(x,y);
   pushTo(x + w, y);
   pushCmd("PU");
-  pushTo(x + w + letterSpacing, y);
+  NEXTLETTER
+}
+
+void writeO() 
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+  pushCmd("PD");
+  pushTo(x + w, y);
+  pushTo(x + w, y + capHeight);
+  pushTo(x, y + capHeight);
+  pushTo(x, y);
+  pushCmd("PU");
+  NEXTLETTER  
+}
+
+void writeT()
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+  pushTo(x + w/2, y);
+  pushCmd("PD");
+  pushTo(x + w/2, y + capHeight);
+  pushTo(x, y + capHeight);
+  pushTo(x + w, y + capHeight);
+  pushCmd("PU");
+  NEXTLETTER  
 }
 
 
