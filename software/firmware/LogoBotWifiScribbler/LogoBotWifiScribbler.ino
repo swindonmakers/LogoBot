@@ -283,22 +283,15 @@ void doLogoCommandSync(String cmd)
 }
 
 void driveTo(long x, long y) {
-  Serial.print(x);
-  Serial.print(",");
-  Serial.println(y); 
-  
   // calc angle
   long ang = atan2(y-position.y, x-position.x) * 180 / PI;
   // now angle delta
   ang = ang - position.ang;
-  if (ang > 0) 
-    pushCmd("LT " + String(ang));
-  else 
-    pushCmd("RT " + String(-ang));
+  turn(ang);
   
   // and distance
   long dist = sqrt(sqr(y-position.y) + sqr(x-position.x));
-  pushCmd("FD "+String(dist));
+  drive(dist);
 }
 
 void drive(long distance)
@@ -307,11 +300,7 @@ void drive(long distance)
   position.x += distance * cos(position.ang * PI / 180);
   position.y += distance * sin(position.ang * PI / 180);
   
-  Serial.print("Pos: ");
-  Serial.print(position.x);
-  Serial.print(",");
-  Serial.println(position.y);
-  
+  // prime the move
   distance *= STEPS_PER_MM;
   stepperL.move(distance);
   stepperR.move(distance);
@@ -322,17 +311,14 @@ void turn(long ang)
   // update state
   position.ang += ang;
   
-  ang *= STEPS_PER_DEG;
-  stepperR.move(ang);
-  stepperL.move(-ang);
- 
-  
   // correct wrap around
   if (position.ang > 360) position.ang -= 360;
   if (position.ang < -360) position.ang += 360;
   
-  Serial.print("Angle: ");
-  Serial.println(position.ang);
+  // prime the move
+  ang *= STEPS_PER_DEG;
+  stepperR.move(ang);
+  stepperL.move(-ang);
 }
 
 void buzz(int len)
