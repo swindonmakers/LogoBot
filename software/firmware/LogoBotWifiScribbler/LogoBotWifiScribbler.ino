@@ -37,8 +37,11 @@
 AccelStepper stepperL(AccelStepper::HALF4WIRE, motorLPin1, motorLPin3, motorLPin2, motorLPin4);
 AccelStepper stepperR(AccelStepper::HALF4WIRE, motorRPin1, motorRPin3, motorRPin2, motorRPin4);
 
-#define STEPS_PER_MM 5000/232;
-#define STEPS_PER_DEG 3760.0 / 180.0;
+#define STEPS_PER_MM 5000/232
+#define STEPS_PER_DEG 3760.0 / 180.0
+
+// equivalent to 1.8 * STEPS_PER_MM
+#define STEPS_OF_BACKLASH   39
 
 #define MAX_CMD_LENGTH 10
 #define QUEUE_LENGTH 20
@@ -160,12 +163,12 @@ void setup()
   Serial.println("Logobot");
   stepperL.setMaxSpeed(1000);
   stepperL.setAcceleration(2000);
-  //stepperL.moveTo(5000);
+  stepperL.setBacklash(STEPS_OF_BACKLASH);
   stepperL.setPinsInverted(true, true, false, false, false);
 
   stepperR.setMaxSpeed(1000);
   stepperR.setAcceleration(2000);
-  //stepperR.moveTo(5000);
+  stepperR.setBacklash(STEPS_OF_BACKLASH);
 
   pinMode(switchFL, INPUT_PULLUP);
   pinMode(switchFR, INPUT_PULLUP);
@@ -929,3 +932,4 @@ static void writeZ()
 long sqr(long v) {
   return v*v;
 }
+
