@@ -76,34 +76,34 @@ int qSize = 0;
 boolean insertCmd(String s) {
   // inserts s at head of queue
   // return true if inserted ok, false if buffer full
-  
+
   if (!isQFull()) {
     qHead--;
     if (qHead < 0) qHead += QUEUE_LENGTH;
-    
+
     cmdQ[qHead].cmd = String(s);
-    
+
     qSize++;
-    
+
     return true;
-  } else 
+  } else
     return false;
 }
 
 boolean pushCmd(String s) {
   // push s onto tail of queue
   // return true if pushed ok, false if buffer full
-  
+
   if (!isQFull()) {
     int next = qHead + qSize;
     if (next >= QUEUE_LENGTH) next -= QUEUE_LENGTH;
-    
+
     cmdQ[next].cmd = String(s);
-    
+
     qSize++;
-    
+
     return true;
-  } else 
+  } else
     return false;
 }
 
@@ -115,7 +115,7 @@ String popCmd() {
     qHead++;
     if (qHead >= QUEUE_LENGTH) qHead -= QUEUE_LENGTH;
     return s;
-  } else 
+  } else
     return "";
 }
 
@@ -136,7 +136,7 @@ void printCommandQ()
   Serial.print(qHead);
   Serial.print(":");
   Serial.println(qSize);
-  
+
   for (int i=0; i<qSize; i++) {
     Serial.print(i);
     Serial.print(":");
@@ -150,12 +150,12 @@ void printCommandQ()
 void resetPosition() {
   state.x = 0;
   state.y = 0;
-  state.ang = 0; 
+  state.ang = 0;
 }
 
 
 void setup()
-{  
+{
   Serial.begin(9600);
   Serial.println("Logobot");
   stepperL.setMaxSpeed(1000);
@@ -166,28 +166,28 @@ void setup()
   stepperR.setMaxSpeed(1000);
   stepperR.setAcceleration(2000);
   //stepperR.moveTo(5000);
-  
+
   pinMode(switchFL, INPUT_PULLUP);
   pinMode(switchFR, INPUT_PULLUP);
-  
+
   pinMode(InternalLED, OUTPUT);
-  
+
   //pinMode(LEDRED, OUTPUT);
   //pinMode(LEDGREEN, OUTPUT);
   //pinMode(LEDBLUE, OUTPUT);
-  
+
   penliftServo.attach(11);
   penUp();
-  
+
   pinMode(buzzer, OUTPUT);
-  
+
   for (int i = 0; i < 3; i++) {
     digitalWrite(buzzer, HIGH);
     delay(100);
     digitalWrite(buzzer, LOW);
     delay(25);
   }
-  
+
   resetPosition();
 }
 
@@ -201,19 +201,27 @@ void loop()
     char c = Serial.read();
     if (c == '\r' || c == '\n') {
       if (cmd != "") {
-        if (pushCmd(cmd))
-          Serial.println("OK:" + cmd);
-        else
-          Serial.println("BUSY");
+        if (isQFull()) {
+            Serial.println("BUSY");
+        } else {
+            if (cmd[0] == '!') {
+                emergencyStop();
+                insertCmd(cmd);
+            } else {
+                pushCmd(cmd);
+            }
+            Serial.println("OK:" + cmd);
+        }
+
         cmd = "";
       }
     } else {
       cmd += c;
     }
   }
-  
+
   handleCollisions();
-    
+
   // Do buzzer
   if (millis() < buzzEnd)
     digitalWrite(buzzer, HIGH);
@@ -228,15 +236,15 @@ void loop()
   // Note that AccelStepper.disableOutputs doesn't seem to work
   // correctly when pins are inverted and leaves some outputs on.
   if (stepperL.distanceToGo() == 0 && stepperR.distanceToGo() == 0) {
-    
+
     if (isQEmpty()) {
-      
+
       // check the text writing buffer
       if (text.length() > 0) {
         char c = text[0];
-        text = text.substring(1);  // lose the first character 
+        text = text.substring(1);  // lose the first character
         writeChar(c);
-        
+
       } else {
         // take a breather
         digitalWrite(motorLPin1, LOW);
@@ -260,32 +268,32 @@ static void handleCollisions() {
   byte nowColliding = 0;
   if (!digitalRead(switchFL)) nowColliding = 1;
   if (!digitalRead(switchFR)) nowColliding += 2;
-  
+
   if (nowColliding != state.colliding) {
     // collision state has changed, do something sensible
-    
+
     if (nowColliding != 0) {
       // Just hit something, so stop and buzz
       emergencyStop();
       buzz(500);
     }
-    
+
     // Insert some recovery based on which bumper was hit
     // Note since we are inserting at the head of the command queue, the first
     // command we insert will be run second.
     if (nowColliding == 1) {
-      insertCmd("RT 45"); 
-      insertCmd("BK 20"); 
+      insertCmd("RT 45");
+      insertCmd("BK 20");
     } else if (nowColliding == 2) {
-      insertCmd("LT 45"); 
-      insertCmd("BK 20"); 
+      insertCmd("LT 45");
+      insertCmd("BK 20");
     } else if (nowColliding == 3) {
-      insertCmd("RT 120"); 
-      insertCmd("BK 20"); 
+      insertCmd("RT 120");
+      insertCmd("BK 20");
     }
-    
-    state.colliding = nowColliding; 
-  } 
+
+    state.colliding = nowColliding;
+  }
 }
 
 
@@ -297,16 +305,16 @@ static void doLogoCommand(String c)
        Todo
          -PU - Pen Up
          -PD - Pen Down
-         -ARC 
-   */  
+         -ARC
+   */
   /* Unofficial extensions
       BZ n - sound buzzer for n milliseconds
       ST - stop
       SE - emergency stop
       SIG - sign Logobots name
       TO x y
-    */  
-  
+    */
+
   if (c.startsWith("TO")) {
     // split out x and y co-ordinates
     int sp = c.indexOf(" ",3);
@@ -349,7 +357,7 @@ void stop() {
 
 void emergencyStop() {
   stepperL.setCurrentPosition(stepperL.currentPosition());
-  stepperR.setCurrentPosition(stepperR.currentPosition()); 
+  stepperR.setCurrentPosition(stepperR.currentPosition());
 }
 
 void pushTo(float x, float y)
@@ -372,7 +380,7 @@ static void driveTo(float x, float y) {
     ang = 360 + ang;
 
   turn(ang);
-  
+
   // and distance
   float dist = sqrt(sqr(y-state.y) + sqr(x-state.x));
   String s = "FD ";
@@ -381,11 +389,11 @@ static void driveTo(float x, float y) {
 }
 
 void drive(float distance)
-{ 
+{
   // update state
   state.x += distance * cos(state.ang * PI / 180);
   state.y += distance * sin(state.ang * PI / 180);
-  
+
   // prime the move
   int steps = distance * STEPS_PER_MM;
   stepperL.move(steps);
@@ -393,14 +401,14 @@ void drive(float distance)
 }
 
 void turn(float ang)
-{ 
+{
   // update state
   state.ang += ang;
-  
+
   // correct wrap around
   if (state.ang > 360) state.ang -= 360;
   if (state.ang < -360) state.ang += 360;
-  
+
   // prime the move
   int steps = ang * STEPS_PER_DEG;
   stepperR.move(steps);
@@ -423,7 +431,7 @@ void penDown()
 }
 
 static void writeChar(char c) {
-    
+
     switch(c) {
       case 'A':
         writeA();
@@ -503,7 +511,7 @@ static void writeChar(char c) {
       case 'Z':
         writeZ();
         break;
-        
+
       default:
         pushCmd("BZ 500");
         break;
@@ -513,8 +521,8 @@ static void writeChar(char c) {
 static void writeText(String s) {
   // overwrite write text
   text = s;
-  text.toUpperCase(); 
-  
+  text.toUpperCase();
+
   // reset current state
   resetPosition();
 }
@@ -535,7 +543,7 @@ static void writeA()
   float x = state.x;
   float y = state.y;
   float w = fontSize * 0.5;
-  
+
   pushCmd("PD");
   pushTo(x + w/2, y + capHeight);
   pushTo(x + w, y);
@@ -551,7 +559,7 @@ static void writeB()
   float x = state.x;
   float y = state.y;
   float w = fontSize * 0.5;
-  
+
   pushCmd("PD");
   pushTo(x + 2 * w / 3, y);
   pushTo(x + w, y + capHeight / 4);
@@ -632,7 +640,7 @@ static void writeG()
   float x = state.x;
   float y = state.y;
   float w = fontSize * 0.5;
-  
+
   pushTo(x + w, y + capHeight);
   pushCmd("PD");
   pushTo(x, y + capHeight);
@@ -700,7 +708,7 @@ static void writeK()
   NEXTLETTER
 }
 
-static void writeL() 
+static void writeL()
 {
   float x = state.x;
   float y = state.y;
@@ -713,7 +721,7 @@ static void writeL()
   NEXTLETTER
 }
 
-static void writeM() 
+static void writeM()
 {
   float x = state.x;
   float y = state.y;
@@ -727,7 +735,7 @@ static void writeM()
   NEXTLETTER
 }
 
-static void writeN() 
+static void writeN()
 {
   float x = state.x;
   float y = state.y;
@@ -740,7 +748,7 @@ static void writeN()
   NEXTLETTER
 }
 
-static void writeO() 
+static void writeO()
 {
   float x = state.x;
   float y = state.y;
@@ -751,29 +759,29 @@ static void writeO()
   pushTo(x + w, y + capHeight);
   pushTo(x, y + capHeight);
   pushTo(x, y);
-  NEXTLETTER  
+  NEXTLETTER
 }
 
-static void writeP() 
+static void writeP()
 {
   float x = state.x;
   float y = state.y;
   float w = fontSize * 0.5;
-  
+
   pushCmd("PD");
   pushTo(x, y + capHeight);
   pushTo(x + w, y + capHeight);
   pushTo(x + w, y + capHeight / 2);
   pushTo(x, y + capHeight / 2);
-  NEXTLETTER  
+  NEXTLETTER
 }
 
-static void writeQ() 
+static void writeQ()
 {
   float x = state.x;
   float y = state.y;
   float w = fontSize * 0.5;
-  
+
   pushCmd("PD");
   pushTo(x + w / 2, y);
   pushTo(x + w, y + capHeight / 2);
@@ -784,37 +792,37 @@ static void writeQ()
   pushTo(x + w / 2, y + capHeight / 2);
   pushCmd("PD");
   pushTo(x + w, y);
-  NEXTLETTER  
+  NEXTLETTER
 }
 
-static void writeR() 
+static void writeR()
 {
   float x = state.x;
   float y = state.y;
   float w = fontSize * 0.5;
-  
+
   pushCmd("PD");
   pushTo(x, y + capHeight);
   pushTo(x + w, y + capHeight);
   pushTo(x + w, y + capHeight / 2);
   pushTo(x, y + capHeight / 2);
   pushTo(x + w, y);
-  NEXTLETTER  
+  NEXTLETTER
 }
 
-static void writeS() 
+static void writeS()
 {
   float x = state.x;
   float y = state.y;
   float w = fontSize * 0.5;
-  
+
   pushCmd("PD");
   pushTo(x + w, y);
   pushTo(x + w, y + capHeight / 2);
   pushTo(x, y + capHeight / 2);
   pushTo(x, y + capHeight);
   pushTo(x + w, y + capHeight);
-  NEXTLETTER  
+  NEXTLETTER
 }
 
 static void writeT()
@@ -835,7 +843,7 @@ static void writeU()
   float x = state.x;
   float y = state.y;
   float w = fontSize * 0.5;
-  
+
   pushTo(x, y + capHeight);
   pushCmd("PD");
   pushTo(x, y);
@@ -849,7 +857,7 @@ static void writeV()
   float x = state.x;
   float y = state.y;
   float w = fontSize * 0.5;
-  
+
   pushTo(x, y + capHeight);
   pushCmd("PD");
   pushTo(x + w / 2, y);
@@ -862,7 +870,7 @@ static void writeW()
   float x = state.x;
   float y = state.y;
   float w = fontSize * 0.5;
-  
+
   pushTo(x, y + capHeight);
   pushCmd("PD");
   pushTo(x + w / 4, y);
@@ -877,7 +885,7 @@ static void writeX()
   float x = state.x;
   float y = state.y;
   float w = fontSize * 0.5;
-  
+
   pushCmd("PD");
   pushTo(x + w, y + capHeight);
   pushCmd("PU");
@@ -892,7 +900,7 @@ static void writeY()
   float x = state.x;
   float y = state.y;
   float w = fontSize * 0.5;
-  
+
   pushCmd("PD");
   pushTo(x + w, y + capHeight);
   pushCmd("PU");
