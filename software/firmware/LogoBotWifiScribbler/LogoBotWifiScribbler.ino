@@ -181,7 +181,12 @@ void setup()
   
   pinMode(buzzer, OUTPUT);
   
-  buzz(250);
+  for (int i = 0; i < 3; i++) {
+    digitalWrite(buzzer, HIGH);
+    delay(100);
+    digitalWrite(buzzer, LOW);
+    delay(25);
+  }
   
   resetPosition();
 }
