@@ -206,7 +206,7 @@ void loop()
         } else {
             if (cmd[0] == '!') {
                 emergencyStop();
-                insertCmd(cmd);
+                insertCmd(cmd.substring(1));
             } else {
                 pushCmd(cmd);
             }

@@ -75,9 +75,9 @@ Ang: <input type="number" id="angle" value="90" /><br />
 <button onclick="l('PD');">Pen Down</button>
 <hr />
 
-<button class="button30" onclick="l('ST');">Stop</button>
+<button class="button30" onclick="l('!ST');">Stop</button>
 <button class="button30" onclick="l('BZ', 500);">Horn</button>
-<button class="button30" onclick="l('SE');">E-Stop!</button>
+<button class="button30" onclick="l('!SE');">E-Stop!</button>
 <hr/>
 
 X:<input style="width: 40px" type="number" id="x" value="0"/>
