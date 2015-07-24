@@ -1,0 +1,472 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Logobot Simulator</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+
+		<script src="vendor/three.js/three.min.js"></script>
+		<script src="vendor/OrbitControls.js"></script>
+
+		<script src="vendor/three.js/Detector.js"></script>
+		<!-- https://github.com/mrdoob/stats.js -->
+		<script src="vendor/three.js/Stats.js"></script>
+
+		<!--
+		<script src="vendor/threex/THREEx.screenshot.js"></script>
+		<script src="vendor/threex/THREEx.FullScreen.js"></script>-->
+		<script src="vendor/threex/THREEx.WindowResize.js"></script>
+
+		<script src="vendor/jquery.min.js"></script>
+
+		<script src="js/stl-parser.js"></script>
+
+		<script src="js/bootstrap.min.js"></script>
+
+		<script src="js/logobot.js"></script>
+
+
+		<link  href="css/bootstrap.min.css" rel="stylesheet"/>
+		<link  href="css/bootstrap-theme.min.css" rel="stylesheet"/>
+		<link  href="css/main.css" rel="stylesheet"/>
+
+	</head>
+<body>
+	<!-- three.js container -->
+    <div id="container"></div>
+
+	<!-- info on screen display -->
+	<div id="info">
+		<div class="top">
+			<h3>Logobot Simulator</h3>
+			<div id="debug"></div>
+		</div>
+		<div class="controls" >
+			<input id="runCheck" type="checkbox" checked>Run</input>
+			<br/>
+			<button id="FDBut" class="btn btn-primary">FD</button>
+			<button id="BKBut" class="btn btn-primary">BK</button>
+
+			<button id="LTBut" class="btn btn-primary">LT</button>
+			<button id="RTBut" class="btn btn-primary">RT</button>
+
+			<button id="WaddleBut" class="btn btn-primary">Waddle</button>
+
+			<br>
+			<button id="PUBut" class="btn btn-primary">PU</button>
+			<button id="PDBut" class="btn btn-primary">PD</button>
+
+
+		</div>
+	</div>
+
+	<!-- code!! -->
+	<script type="text/javascript">
+		var stats, scene, renderer, composer;
+		var light1, light2;
+		var groundPlane;
+		var camera, cameraControl;
+
+		var mouse = new THREE.Vector2();
+
+
+		var logobot = new Logobot();
+
+		function updatePenLine() {
+			if (logobot.state.penPos == 0) {
+				plotOnTexture(logobot.state.x, logobot.state.y, 0);
+			}
+		}
+
+		function updateLogobot() {
+
+			logobot.update();
+
+			// sync 3D environment to logobot state
+			logobot.botGroup.position.set(logobot.state.x, logobot.state.y, 0);
+			logobot.botGroup.rotation.z = degToRad(logobot.state.angle);
+			logobot.parts.leftWheel.rotation.x = -degToRad(logobot.state.leftWheelAngle);
+			logobot.parts.rightWheel.rotation.x = -degToRad(logobot.state.rightWheelAngle);
+			logobot.parts.pen.position.z = 80/2 + logobot.state.penPos;
+
+			updatePenLine();
+
+			// update debug info
+			var s = '['+
+				logobot.state.x.toFixed(1) + ', '+
+				logobot.state.y.toFixed(1) + '] '+
+				logobot.state.angle.toFixed(1) + '&deg;'+
+				'<br>';
+
+			logobot.cmdQ.map(function(c) {
+				s += c + '<br>';
+			});
+
+			$('#debug').html(s);
+		}
+
+
+		function loadSTL(url, mesh, cb) {
+			$.get(url, function(data) {
+			  	var geo = parseStl(data);
+				if (geo) {
+					mesh.geometry.dispose();
+					mesh.geometry = geo;
+
+					if (cb) cb(mesh);
+				}
+			});
+		}
+
+
+		function makeLogobot() {
+			var g = new THREE.Group();
+
+			// base plate
+			var geometry	= new THREE.CylinderGeometry( logobot.baseDiameter/2, logobot.baseDiameter/2, logobot.baseThickness, 32, 1, false );
+			var material	= new THREE.MeshLambertMaterial({color: 0xffa500});
+			var mesh	= new THREE.Mesh( geometry, material );
+			mesh.castShadow = true;
+			mesh.receiveShadow =true;
+			mesh.rotation.x = Math.PI/2;
+			mesh.position.z = logobot.groundClearance + logobot.baseThickness/2;
+			g.add( mesh );
+
+			// trigger loading proper stl model for the base plate
+			loadSTL('../../hardware/printedparts/stl/Base.stl', mesh, function(m) {
+				m.rotation.x = 0;
+			});
+
+			// left wheel
+			var geometry	= new THREE.CylinderGeometry( logobot.wheelRadius, logobot.wheelRadius, logobot.wheelThickness, 32, 1, false );
+			//var material	= new THREE.MeshBasicMaterial({color: 0xffa500});
+			var mesh	= new THREE.Mesh( geometry, material );
+			mesh.castShadow = true;
+			mesh.receiveShadow =true;
+			mesh.rotation.z = Math.PI/2;
+			mesh.position.z = logobot.wheelRadius;
+			mesh.position.x = -logobot.wheelSpacing/2;
+			logobot.parts.leftWheel = mesh;
+			g.add( mesh );
+
+			loadSTL('../../hardware/printedparts/stl/Wheel.stl', mesh, function(m) {
+				m.rotation.z = 0;
+				m.rotation.y = Math.PI/2;
+			});
+
+			// right wheel
+			var mesh	= new THREE.Mesh( geometry, material );
+			mesh.castShadow = true;
+			mesh.receiveShadow =true;
+			mesh.rotation.z = Math.PI/2;
+			mesh.position.z = logobot.wheelRadius;
+			mesh.position.x = logobot.wheelSpacing/2;
+			logobot.parts.rightWheel = mesh;
+			g.add( mesh );
+
+			loadSTL('../../hardware/printedparts/stl/Wheel.stl', mesh, function(m) {
+				m.rotation.z = 0;
+				m.rotation.y = -Math.PI/2;
+			});
+
+
+			// pen
+			var geometry	= new THREE.CylinderGeometry( 5, 1, 80, 16, 1, false );
+			var material	= new THREE.MeshBasicMaterial({color: 0x808080});
+			var mesh	= new THREE.Mesh( geometry, material );
+			mesh.castShadow = true;
+			mesh.receiveShadow =true;
+			mesh.rotation.x = Math.PI/2;
+			mesh.position.z = 80/2 + 15;
+			logobot.parts.pen = mesh;
+			g.add( mesh );
+
+			return g;
+		}
+
+
+		function buildAxes( ) {
+			var axes = new THREE.Object3D();
+
+			axes.add( buildAxis( new THREE.Vector3( 0, 0, 0 ), new THREE.Vector3( 100, 0, 0 ), 0xFF0000, false ) ); // +X
+			axes.add( buildAxis( new THREE.Vector3( 0, 0, 0 ), new THREE.Vector3( -100, 0, 0 ), 0xFF0000, true) ); // -X
+			axes.add( buildAxis( new THREE.Vector3( 0, 0, 0 ), new THREE.Vector3( 0, 100, 0 ), 0x9ffb00, false ) ); // +Y
+			axes.add( buildAxis( new THREE.Vector3( 0, 0, 0 ), new THREE.Vector3( 0, -100, 0 ), 0x8feb00, true ) ); // -Y
+			axes.add( buildAxis( new THREE.Vector3( 0, 0, 0 ), new THREE.Vector3( 0, 0, 25 ), 0x0000FF, false ) ); // +Z
+
+			return axes;
+
+		}
+
+		function buildAxis( src, dst, colorHex, dashed ) {
+			var geom = new THREE.Geometry(),
+				mat;
+
+			if(dashed) {
+				mat = new THREE.LineDashedMaterial({ linewidth: 1, color: colorHex, dashSize: 3, gapSize: 3, transparent:true, opacity:0.5 });
+			} else {
+				mat = new THREE.LineBasicMaterial({ linewidth: 1, color: colorHex, transparent:true, opacity:0.7 });
+			}
+
+			geom.vertices.push( src.clone() );
+			geom.vertices.push( dst.clone() );
+			geom.computeLineDistances(); // This one is SUPER important, otherwise dashed lines will appear as simple plain lines
+
+			var axis = new THREE.Line( geom, mat, THREE.LinePieces );
+
+			return axis;
+
+		}
+
+
+		function makeLight(x,y,z) {
+			var light = new THREE.DirectionalLight( 0xffffff );
+			light.castShadow =true;
+			light.shadowDarkness = 0.2;
+			light.shadowBias = -0.000;
+			light.shadowWidth = 1024;
+			light.shadowHeight= 1024;
+			var d = 260;
+			light.shadowCameraLeft = -d;
+			light.shadowCameraRight = d;
+			light.shadowCameraTop = d;
+			light.shadowCameraBottom = -d;
+			light.shadowCameraNear = 400;
+			light.shadowCameraFar = 1000;
+			light.position.set( x, y, z );
+			light.target.position.set(logobot.botGroup.position);
+			scene.add( light );
+			return light;
+		}
+
+		function makeDataTexture(x,y) {
+			var size = x * y * 4;
+			var a = new Uint8Array(size);
+
+			for(var i=0; i< x*y; i++){
+				// RGB
+				a[4*i] = a[4*i + 1] = a[4*i + 2] = 255;
+
+				// OPACITY
+				a[4*i + 3] = 255;
+			}
+
+			dataTex = new THREE.DataTexture( a, x, y, THREE.RGBAFormat );
+			dataTex.needsUpdate = true;
+			dataTex.minFilter = THREE.LinearFilter;
+			return dataTex;
+		}
+
+		function plotOnTexture(x,y,c) {
+			// accepts greyscale values
+			x = clamp(x + 250,0,500) * 2;
+			y = clamp(250 - y,0,500) * 2;
+
+			x = Math.round(x);
+			y = Math.round(y);
+
+			var coord = ((y * 1000) + x) * 4;
+
+			groundPlane.material.map.image.data[coord] = c;
+			groundPlane.material.map.image.data[coord+1] = c;
+			groundPlane.material.map.image.data[coord+2] = c;
+			groundPlane.material.map.needsUpdate=true;
+		}
+
+		// init the scene
+		function init(){
+
+			if( Detector.webgl ){
+				renderer = new THREE.WebGLRenderer({
+					antialias		: true,	// to get smoother output
+					preserveDrawingBuffer	: true	// to allow screenshot
+				});
+				renderer.setClearColor( 0xffffff, 1 );
+				renderer.shadowMapEnabled = true;
+				renderer.shadowMapSoft = true;
+			}else{
+				Detector.addGetWebGLMessage();
+				return true;
+			}
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.getElementById('container').appendChild(renderer.domElement);
+
+			// add Stats.js - https://github.com/mrdoob/stats.js
+			stats = new Stats();
+			stats.domElement.style.position	= 'absolute';
+			stats.domElement.style.bottom	= '0px';
+			document.body.appendChild( stats.domElement );
+
+			scene = new THREE.Scene();
+
+			camera	= new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 1, 10000 );
+			// set Z to be up to match natural coordinate frame of OpenSCAD, etc
+			camera.up.set( 0, 0, 1 );
+			camera.position.set(170, -120, 180);
+			scene.add(camera);
+
+			// camera contol
+			cameraControls	= new THREE.OrbitControls( camera, renderer.domElement );
+			cameraControls.damping = 0.2;
+			cameraControls.target = new THREE.Vector3(0,0,0);
+			//cameraControls.addEventListener( 'change', render );
+
+			// transparently support window resize
+			THREEx.WindowResize.bind(renderer, camera);
+
+			// setup logobot
+			logobot.botGroup = makeLogobot();
+			scene.add(logobot.botGroup);
+
+			// lighting
+			var light	= new THREE.AmbientLight( 0x303030 );
+			scene.add( light );
+
+			light1 = makeLight(50,0,500);
+			scene.add(light1);
+
+			//light2 = makeLight(0,0,500);
+			//scene.add(light2);
+
+			// groundplane
+			var geometry	= new THREE.PlaneBufferGeometry( 500, 500, 1, 1 );
+			var material	= new THREE.MeshBasicMaterial({
+				color: 0xffffff,
+				map: makeDataTexture(1000,1000)
+			});
+			groundPlane	= new THREE.Mesh( geometry, material );
+			groundPlane.receiveShadow = true;
+			scene.add( groundPlane );
+
+			// under plane
+			var geometry	= new THREE.PlaneBufferGeometry( 520, 520, 1, 1 );
+			var material	= new THREE.MeshBasicMaterial({
+				color: 0xe0e0e0
+			});
+			mesh	= new THREE.Mesh( geometry, material );
+			mesh.position.z = -1;
+			scene.add( mesh );
+
+			// axes
+			scene.add(buildAxes());
+
+			// event handlers
+			renderer.domElement.addEventListener( 'mousedown', onDocumentMouseDown, false );
+			renderer.domElement.addEventListener( 'mouseup', onDocumentMouseUp, false );
+		}
+
+		function onDocumentMouseDown( event ) {
+		    event.preventDefault();
+
+			mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+    		mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+		}
+
+		function onDocumentMouseUp( event ) {
+			event.preventDefault();
+
+			var nm = new THREE.Vector2(
+				( event.clientX / window.innerWidth ) * 2 - 1,
+				- ( event.clientY / window.innerHeight ) * 2 + 1
+			);
+
+			if (mouse.distanceTo(nm) < 0.01) {
+				if (event.button && event.button > 1) return;
+
+				var vector = new THREE.Vector3( mouse.x, mouse.y, 0.5 ).unproject( camera );
+				var raycaster = new THREE.Raycaster(
+					camera.position, vector.sub( camera.position ).normalize()
+				);
+
+				var intersects = raycaster.intersectObject( groundPlane );
+
+				if ( intersects.length > 0 ) {
+					logobot.pushCmd('TO '+intersects[0].point.x.toFixed(1) + ' '+ intersects[0].point.y.toFixed(1));
+				}
+			} else {
+				mouse.copy(nm);
+			}
+		}
+
+
+		function updateLights() {
+			light1.target.position.set(logobot.botGroup.position);
+			light1.target.position.set(logobot.botGroup.position);
+		}
+
+		function animate() {
+			requestAnimationFrame( animate );
+			if ($('#runCheck').prop('checked')) {
+				render();
+				stats.update();
+			}
+		}
+
+		function render() {
+			var PIseconds	= Date.now() * Math.PI;
+			cameraControls.update();
+			updateLogobot();
+			updateLights();
+			renderer.render( scene, camera );
+		}
+
+		$(document).ready(function(){
+			init();
+			animate();
+
+			// ui handlers
+			$('#FDBut').click(function() {
+				logobot.pushCmd("FD 20");
+			});
+
+			$('#BKBut').click(function() {
+				logobot.pushCmd("BK 20");
+			});
+
+			$('#LTBut').click(function() {
+				logobot.pushCmd('LT 30')
+			});
+
+			$('#RTBut').click(function() {
+				logobot.pushCmd('RT 30')
+			});
+
+			$('#WaddleBut').click(function() {
+				logobot.pushCmd('WADDLE')
+			});
+
+			$('#PUBut').click(function() {
+				logobot.pushCmd('PU')
+			});
+
+			$('#PDBut').click(function() {
+				logobot.pushCmd('PD')
+			});
+		});
+
+
+		function sqr(a) {
+			return a*a;
+		}
+
+		function clamp(val, min, max){
+			return Math.max(min, Math.min(max, val));
+		}
+
+		// a is start value, b is end, p ranges 0-1
+		function lerp(a,b,p) {
+			return a + (b-a)*p;
+		}
+
+		function degToRad(a) {
+			return Math.PI * a / 180;
+		}
+
+		function radToDeg(a) {
+			return 180 * a / Math.PI;
+		}
+
+	</script>
+</body>
+</html>
