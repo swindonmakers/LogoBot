@@ -266,7 +266,7 @@ static void handleCollisions() {
     
     if (nowColliding == 1) {
       // abort current command
-      abort();
+      emergencyStop();
       buzz(500);
       
       // insert some recovery steps
@@ -274,7 +274,7 @@ static void handleCollisions() {
       insertCmd("BK 20"); 
     } else if (nowColliding == 2) {
       // abort current command
-      abort();
+      emergencyStop();
       buzz(500);
       
       // insert some recovery steps
@@ -282,7 +282,7 @@ static void handleCollisions() {
       insertCmd("BK 20"); 
     } else if (nowColliding == 3) {
       // abort current command
-      abort();
+      emergencyStop();
       buzz(500);
       
       // insert some recovery steps
@@ -346,7 +346,7 @@ static void doLogoCommand(String c)
   }
 }
 
-void abort() {
+void emergencyStop() {
     stepperL.setCurrentPosition(stepperL.currentPosition());
     stepperR.setCurrentPosition(stepperR.currentPosition()); 
 }
