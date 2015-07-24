@@ -373,20 +373,83 @@ void penDown()
 void writeChar(char c) {
     
     switch(c) {
+      case 'A':
+        writeA();
+        break;
       case 'B':
         writeB();
+        break;
+      case 'C':
+        writeC();
+        break;
+      case 'D':
+        writeD();
+        break;
+      case 'E':
+        writeE();
+        break;
+      case 'F':
+        writeF();
         break;
       case 'G':
         writeG();
         break;
+      case 'H':
+        writeH();
+        break;
+      case 'I':
+        writeI();
+        break;
+      case 'J':
+        writeJ();
+        break;
+      case 'K':
+        writeK();
+        break;
       case 'L':
         writeL();
+        break;
+      case 'M':
+        writeM();
+        break;
+      case 'N':
+        writeN();
         break;
       case 'O':
         writeO();
         break;
+      case 'P':
+        writeP();
+        break;
+      case 'Q':
+        writeQ();
+        break;
+      case 'R':
+        writeR();
+        break;
+      case 'S':
+        writeS();
+        break;
       case 'T':
         writeT();
+        break;
+      case 'U':
+        writeU();
+        break;
+      case 'V':
+        writeV();
+        break;
+      case 'W':
+        writeW();
+        break;
+      case 'X':
+        writeX();
+        break;
+      case 'Y':
+        writeY();
+        break;
+      case 'Z':
+        writeZ();
         break;
         
       default:
@@ -407,7 +470,29 @@ void writeText(String s) {
 
 // Alphabet
 
-#define NEXTLETTER pushTo(x + w + letterSpacing, y);
+#define NEXTLETTER nextLetter(x + w + letterSpacing, y);
+
+void nextLetter(float x, float y)
+{
+  pushCmd("PU");
+  pushTo(x, y);
+}
+
+void writeA()
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+  
+  pushCmd("PD");
+  pushTo(x + w/2, y + capHeight);
+  pushTo(x + w, y);
+  pushCmd("PU");
+  pushTo(x + w / 4, y + capHeight / 2);
+  pushCmd("PD");
+  pushTo(x + 3 * w / 4, y + capHeight / 2 );
+  NEXTLETTER
+}
 
 void writeB()
 {
@@ -423,7 +508,70 @@ void writeB()
   pushTo(x + 2 * w / 3, y + capHeight);
   pushTo(x, y + capHeight);
   pushTo(x, y);
+  NEXTLETTER
+}
+
+void writeC()
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+
+  pushTo(x + w, y + capHeight);
+  pushCmd("PD");
+  pushTo(x, y + capHeight);
+  pushTo(x, y);
+  pushTo(x + w, y);
+  NEXTLETTER
+}
+
+void writeD()
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+
+  pushCmd("PD");
+  pushTo(x + 3 * w / 4, y);
+  pushTo(x + w, y + capHeight / 4);
+  pushTo(x + w, y + 3 * capHeight / 4);
+  pushTo(x + 3 * w / 4, y + capHeight);
+  pushTo(x, y + capHeight);
+  pushTo(x, y);
+  NEXTLETTER
+}
+
+void writeE()
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+
+  pushCmd("PD");
+  pushTo(x, y + capHeight);
+  pushTo(x + w, y + capHeight);
   pushCmd("PU");
+  pushTo(x + w, y + capHeight / 2);
+  pushCmd("PD");
+  pushTo(x, y + capHeight / 2);
+  pushTo(x, y);
+  pushTo(x + w, y);
+  NEXTLETTER
+}
+
+void writeF()
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+
+  pushCmd("PD");
+  pushTo(x, y + capHeight);
+  pushTo(x + w, y + capHeight);
+  pushCmd("PU");
+  pushTo(x + w, y + capHeight / 2);
+  pushCmd("PD");
+  pushTo(x, y + capHeight / 2);
   NEXTLETTER
 }
 
@@ -432,6 +580,7 @@ void writeG()
   float x = position.x;
   float y = position.y;
   float w = fontSize * 0.5;
+  
   pushTo(x + w, y + capHeight);
   pushCmd("PD");
   pushTo(x, y + capHeight);
@@ -439,7 +588,63 @@ void writeG()
   pushTo(x + w, y);
   pushTo(x + w, y + capHeight/3);
   pushTo(x + w/3, y + capHeight/3);
+  NEXTLETTER
+}
+
+void writeH()
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+
+  pushCmd("PD");
+  pushTo(x, y + capHeight);
+  pushTo(x, y + capHeight / 2);
+  pushTo(x + w, y + capHeight / 2);
+  pushTo(x + w, y + capHeight);
+  pushTo(x + w, y);
+  NEXTLETTER
+}
+
+void writeI()
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+
+  pushTo(x + w / 2, y);
+  pushCmd("PD");
+  pushTo(x + w / 2, y + capHeight);
+  NEXTLETTER
+}
+
+void writeJ()
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+
+  pushTo(x, y + capHeight / 4);
+  pushCmd("PD");
+  pushTo(x, y);
+  pushTo(x + w, y);
+  pushTo(x + w, y + capHeight);
+  NEXTLETTER
+}
+
+void writeK()
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+
+  pushCmd("PD");
+  pushTo(x, y + capHeight);
   pushCmd("PU");
+  pushTo(x + w, y + capHeight);
+  pushCmd("PD");
+  pushTo(x, y + capHeight / 2);
+  pushTo(x + w, y);
   NEXTLETTER
 }
 
@@ -448,11 +653,38 @@ void writeL()
   float x = position.x;
   float y = position.y;
   float w = fontSize * 0.5;
+
   pushCmd("PD");
   pushTo(x, y + capHeight);
   pushTo(x,y);
   pushTo(x + w, y);
-  pushCmd("PU");
+  NEXTLETTER
+}
+
+void writeM() 
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+
+  pushCmd("PD");
+  pushTo(x, y + capHeight);
+  pushTo(x + w / 2, y + capHeight / 2);
+  pushTo(x + w, y + capHeight);
+  pushTo(x + w, y);
+  NEXTLETTER
+}
+
+void writeN() 
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+
+  pushCmd("PD");
+  pushTo(x, y + capHeight);
+  pushTo(x + w, y);
+  pushTo(x + w, y + capHeight);
   NEXTLETTER
 }
 
@@ -461,12 +693,75 @@ void writeO()
   float x = position.x;
   float y = position.y;
   float w = fontSize * 0.5;
+
   pushCmd("PD");
   pushTo(x + w, y);
   pushTo(x + w, y + capHeight);
   pushTo(x, y + capHeight);
   pushTo(x, y);
+  NEXTLETTER  
+}
+
+void writeP() 
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+  
+  pushCmd("PD");
+  pushTo(x, y + capHeight);
+  pushTo(x + w, y + capHeight);
+  pushTo(x + w, y + capHeight / 2);
+  pushTo(x, y + capHeight / 2);
+  NEXTLETTER  
+}
+
+void writeQ() 
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+  
+  pushCmd("PD");
+  pushTo(x + w / 2, y);
+  pushTo(x + w, y + capHeight / 2);
+  pushTo(x + w, y + capHeight);
+  pushTo(x, y + capHeight);
+  pushTo(x, y);
   pushCmd("PU");
+  pushTo(x + w / 2, y + capHeight / 2);
+  pushCmd("PD");
+  pushTo(x + w, y);
+  NEXTLETTER  
+}
+
+void writeR() 
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+  
+  pushCmd("PD");
+  pushTo(x, y + capHeight);
+  pushTo(x + w, y + capHeight);
+  pushTo(x + w, y + capHeight / 2);
+  pushTo(x, y + capHeight / 2);
+  pushTo(x + w, y);
+  NEXTLETTER  
+}
+
+void writeS() 
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+  
+  pushCmd("PD");
+  pushTo(x + w, y);
+  pushTo(x + w, y + capHeight / 2);
+  pushTo(x, y + capHeight / 2);
+  pushTo(x, y + capHeight);
+  pushTo(x + w, y + capHeight);
   NEXTLETTER  
 }
 
@@ -480,11 +775,94 @@ void writeT()
   pushTo(x + w/2, y + capHeight);
   pushTo(x, y + capHeight);
   pushTo(x + w, y + capHeight);
-  pushCmd("PU");
-  NEXTLETTER  
+  NEXTLETTER
 }
 
+void writeU()
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+  
+  pushTo(x, y + capHeight);
+  pushCmd("PD");
+  pushTo(x, y);
+  pushTo(x + w, y);
+  pushTo(x + w, y + capHeight);
+  NEXTLETTER
+}
 
+void writeV()
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+  
+  pushTo(x, y + capHeight);
+  pushCmd("PD");
+  pushTo(x + w / 2, y);
+  pushTo(x + w, y + capHeight);
+  NEXTLETTER
+}
+
+void writeW()
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+  
+  pushTo(x, y + capHeight);
+  pushCmd("PD");
+  pushTo(x + w / 4, y);
+  pushTo(x + w / 2, y + capHeight / 2);
+  pushTo(x + 3 * w / 4, y);
+  pushTo(x + w, y + capHeight);
+  NEXTLETTER
+}
+
+void writeX()
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+  
+  pushCmd("PD");
+  pushTo(x + w, y + capHeight);
+  pushCmd("PU");
+  pushTo(x, y + capHeight);
+  pushCmd("PD");
+  pushTo(x + w, y);
+  NEXTLETTER
+}
+
+void writeY()
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+  
+  pushCmd("PD");
+  pushTo(x + w, y + capHeight);
+  pushCmd("PU");
+  pushTo(x, y + capHeight);
+  pushCmd("PD");
+  pushTo(x + w / 2, y + capHeight / 2);
+  NEXTLETTER
+}
+
+void writeZ()
+{
+  float x = position.x;
+  float y = position.y;
+  float w = fontSize * 0.5;
+
+  pushTo(x, y + capHeight);
+  pushCmd("PD");
+  pushTo(x + w, y + capHeight);
+  pushTo(x, y);
+  pushTo(x + w, y);
+  NEXTLETTER
+}
 
 long sqr(long v) {
   return v*v;
