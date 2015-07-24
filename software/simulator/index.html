@@ -382,7 +382,7 @@
 				var intersects = raycaster.intersectObject( groundPlane );
 
 				if ( intersects.length > 0 ) {
-					logobot.pushCmd('TO '+intersects[0].point.x.toFixed(1) + ' '+ intersects[0].point.y.toFixed(1));
+					logobot.pushCmd('ARC '+intersects[0].point.x.toFixed(1) + ' '+ intersects[0].point.y.toFixed(1));
 				}
 			} else {
 				mouse.copy(nm);

@@ -229,6 +229,8 @@ function Logobot() {
             this.penUp();
         } else if (p[0] == 'PD') {
             this.penDown();
+        } else if (p[0] == 'ARC') {
+            this.arcTo(parseFloat(p[1]), parseFloat(p[2]));
         }
     }
 
@@ -257,6 +259,54 @@ function Logobot() {
 
         this.insertCmd("FD "+v.length().toFixed(1));
     }
+
+    this.arcTo = function(x,y) {
+        var v = new THREE.Vector2(x,y);
+        v.sub(new THREE.Vector2(this.state.x, this.state.y));
+
+        v.rotate(degToRad(-this.state.angle));
+
+
+        var m = -v.x / v.y;
+
+        // calc centre of arc
+        // from equation
+        // y - y1 = m (x - x1)
+        // rearranged to find y axis intersection
+        // x = (-y1)/m + x1
+        var x1 = -(v.y/2) / m + (v.x/2);
+
+        console.log(v.x, v.y, x1);
+
+
+        if (x1 < 0) {
+            var targetAng = radToDeg(Math.atan2(v.y, -x1 + v.x));
+
+            var cl = 2 * Math.PI * (-this.wheelSpacing/2 - x1);
+            var dl = cl * targetAng/360;
+
+            var cr = 2 * Math.PI * (this.wheelSpacing/2 - x1);
+            var dr = cr * targetAng/360;
+
+            console.log(targetAng, dl, dr);
+            this.planMove(dl, dr);
+
+        } else {
+            var targetAng = radToDeg(Math.atan2(v.y, x1 - v.x));
+
+            var cl = 2 * Math.PI * (x1 + this.wheelSpacing/2 );
+            var dl = cl * targetAng/360;
+
+            var cr = 2 * Math.PI * (x1 - this.wheelSpacing/2);
+            var dr = cr * targetAng/360;
+
+            this.planMove(dl, dr);
+        }
+
+
+
+    }
+
 
     this.waddle = function() {
 
