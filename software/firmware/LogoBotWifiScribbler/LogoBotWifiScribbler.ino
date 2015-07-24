@@ -264,28 +264,22 @@ static void handleCollisions() {
   if (nowColliding != state.colliding) {
     // collision state has changed, do something sensible
     
-    if (nowColliding == 1) {
-      // abort current command
+    if (nowColliding != 0) {
+      // Just hit something, so stop and buzz
       emergencyStop();
       buzz(500);
-      
-      // insert some recovery steps
+    }
+    
+    // Insert some recovery based on which bumper was hit
+    // Note since we are inserting at the head of the command queue, the first
+    // command we insert will be run second.
+    if (nowColliding == 1) {
       insertCmd("RT 45"); 
       insertCmd("BK 20"); 
     } else if (nowColliding == 2) {
-      // abort current command
-      emergencyStop();
-      buzz(500);
-      
-      // insert some recovery steps
       insertCmd("LT 45"); 
       insertCmd("BK 20"); 
     } else if (nowColliding == 3) {
-      // abort current command
-      emergencyStop();
-      buzz(500);
-      
-      // insert some recovery steps
       insertCmd("RT 120"); 
       insertCmd("BK 20"); 
     }
