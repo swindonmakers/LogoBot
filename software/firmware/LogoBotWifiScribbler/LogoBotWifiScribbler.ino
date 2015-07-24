@@ -360,7 +360,9 @@ void stop() {
 
 void emergencyStop() {
   stepperL.setCurrentPosition(stepperL.currentPosition());
+  stepperL.setSpeed(0);
   stepperR.setCurrentPosition(stepperR.currentPosition());
+  stepperR.setSpeed(0);
 }
 
 void pushTo(float x, float y)
@@ -932,4 +934,3 @@ static void writeZ()
 long sqr(long v) {
   return v*v;
 }
-
