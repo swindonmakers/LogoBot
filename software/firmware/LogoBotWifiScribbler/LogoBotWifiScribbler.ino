@@ -43,13 +43,14 @@ AccelStepper stepperR(AccelStepper::HALF4WIRE, motorRPin1, motorRPin3, motorRPin
 #define MAX_CMD_LENGTH 10
 #define QUEUE_LENGTH 20
 
-// position state info
-struct POSITION {
+// logobot state info
+struct STATE {
   float x;
   float y;
   float ang;
+  byte colliding;  // 0 = not colliding, 1=left, 2=right, 3=both
 };
-POSITION position;
+STATE state;
 
 Servo penliftServo;
 
@@ -106,8 +107,6 @@ boolean pushCmd(String s) {
     return false;
 }
 
-
-
 String popCmd() {
   // pops head of queue
   if (qSize > 0) {
@@ -129,6 +128,8 @@ boolean isQEmpty() {
   return qSize == 0;
 }
 
+
+
 void printCommandQ()
 {
   Serial.print("cmdQ:");
@@ -147,9 +148,9 @@ void printCommandQ()
 
 // position calcs
 void resetPosition() {
-  position.x = 0;
-  position.y = 0;
-  position.ang = 0; 
+  state.x = 0;
+  state.y = 0;
+  state.ang = 0; 
 }
 
 
@@ -206,12 +207,7 @@ void loop()
     }
   }
   
-  // Check bump switches
-  if (!digitalRead(switchFL) || !digitalRead(switchFR)) {
-    buzz(250);
-    stepperL.setCurrentPosition(stepperL.currentPosition());
-    stepperR.setCurrentPosition(stepperR.currentPosition());
-  }
+  handleCollisions();
     
   // Do buzzer
   if (millis() < buzzEnd)
@@ -254,7 +250,47 @@ void loop()
   }
 }
 
-void doLogoCommand(String c)
+
+static void handleCollisions() {
+  byte nowColliding = 0;
+  if (!digitalRead(switchFL)) nowColliding = 1;
+  if (!digitalRead(switchFR)) nowColliding += 2;
+  
+  if (nowColliding != state.colliding) {
+    // collision state has changed, do something sensible
+    
+    if (nowColliding == 1) {
+      // abort current command
+      abort();
+      buzz(500);
+      
+      // insert some recovery steps
+      insertCmd("RT 45"); 
+      insertCmd("BK 20"); 
+    } else if (nowColliding == 2) {
+      // abort current command
+      abort();
+      buzz(500);
+      
+      // insert some recovery steps
+      insertCmd("LT 45"); 
+      insertCmd("BK 20"); 
+    } else if (nowColliding == 3) {
+      // abort current command
+      abort();
+      buzz(500);
+      
+      // insert some recovery steps
+      insertCmd("RT 120"); 
+      insertCmd("BK 20"); 
+    }
+    
+    state.colliding = nowColliding; 
+  } 
+}
+
+
+static void doLogoCommand(String c)
 {
   /* Official Logo Commands
        Implemented
@@ -305,6 +341,11 @@ void doLogoCommand(String c)
   }
 }
 
+void abort() {
+    stepperL.setCurrentPosition(stepperL.currentPosition());
+    stepperR.setCurrentPosition(stepperR.currentPosition()); 
+}
+
 void pushTo(float x, float y)
 {
   String s = "TO ";
@@ -316,13 +357,13 @@ void pushTo(float x, float y)
 
 static void driveTo(float x, float y) {
   // calc angle
-  float ang = atan2(y-position.y, x-position.x) * 180 / PI;
+  float ang = atan2(y-state.y, x-state.x) * 180 / PI;
   // now angle delta
-  ang = ang - position.ang;
+  ang = ang - state.ang;
   turn(ang);
   
   // and distance
-  float dist = sqrt(sqr(y-position.y) + sqr(x-position.x));
+  float dist = sqrt(sqr(y-state.y) + sqr(x-state.x));
   String s = "FD ";
   s += dist;
   insertCmd(s);
@@ -331,8 +372,8 @@ static void driveTo(float x, float y) {
 void drive(float distance)
 { 
   // update state
-  position.x += distance * cos(position.ang * PI / 180);
-  position.y += distance * sin(position.ang * PI / 180);
+  state.x += distance * cos(state.ang * PI / 180);
+  state.y += distance * sin(state.ang * PI / 180);
   
   // prime the move
   int steps = distance * STEPS_PER_MM;
@@ -343,11 +384,11 @@ void drive(float distance)
 void turn(float ang)
 { 
   // update state
-  position.ang += ang;
+  state.ang += ang;
   
   // correct wrap around
-  if (position.ang > 360) position.ang -= 360;
-  if (position.ang < -360) position.ang += 360;
+  if (state.ang > 360) state.ang -= 360;
+  if (state.ang < -360) state.ang += 360;
   
   // prime the move
   int steps = ang * STEPS_PER_DEG;
@@ -480,8 +521,8 @@ static void nextLetter(float x, float y)
 
 static void writeA()
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
   
   pushCmd("PD");
@@ -496,8 +537,8 @@ static void writeA()
 
 static void writeB()
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
   
   pushCmd("PD");
@@ -513,8 +554,8 @@ static void writeB()
 
 static void writeC()
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
 
   pushTo(x + w, y + capHeight);
@@ -527,8 +568,8 @@ static void writeC()
 
 static void writeD()
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
 
   pushCmd("PD");
@@ -543,8 +584,8 @@ static void writeD()
 
 static void writeE()
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
 
   pushCmd("PD");
@@ -561,8 +602,8 @@ static void writeE()
 
 static void writeF()
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
 
   pushCmd("PD");
@@ -577,8 +618,8 @@ static void writeF()
 
 static void writeG()
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
   
   pushTo(x + w, y + capHeight);
@@ -593,8 +634,8 @@ static void writeG()
 
 static void writeH()
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
 
   pushCmd("PD");
@@ -608,8 +649,8 @@ static void writeH()
 
 static void writeI()
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
 
   pushTo(x + w / 2, y);
@@ -620,8 +661,8 @@ static void writeI()
 
 static void writeJ()
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
 
   pushTo(x, y + capHeight / 4);
@@ -634,8 +675,8 @@ static void writeJ()
 
 static void writeK()
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
 
   pushCmd("PD");
@@ -650,8 +691,8 @@ static void writeK()
 
 static void writeL() 
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
 
   pushCmd("PD");
@@ -663,8 +704,8 @@ static void writeL()
 
 static void writeM() 
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
 
   pushCmd("PD");
@@ -677,8 +718,8 @@ static void writeM()
 
 static void writeN() 
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
 
   pushCmd("PD");
@@ -690,8 +731,8 @@ static void writeN()
 
 static void writeO() 
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
 
   pushCmd("PD");
@@ -704,8 +745,8 @@ static void writeO()
 
 static void writeP() 
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
   
   pushCmd("PD");
@@ -718,8 +759,8 @@ static void writeP()
 
 static void writeQ() 
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
   
   pushCmd("PD");
@@ -737,8 +778,8 @@ static void writeQ()
 
 static void writeR() 
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
   
   pushCmd("PD");
@@ -752,8 +793,8 @@ static void writeR()
 
 static void writeS() 
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
   
   pushCmd("PD");
@@ -767,8 +808,8 @@ static void writeS()
 
 static void writeT()
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
   pushTo(x + w/2, y);
   pushCmd("PD");
@@ -780,8 +821,8 @@ static void writeT()
 
 static void writeU()
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
   
   pushTo(x, y + capHeight);
@@ -794,8 +835,8 @@ static void writeU()
 
 static void writeV()
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
   
   pushTo(x, y + capHeight);
@@ -807,8 +848,8 @@ static void writeV()
 
 static void writeW()
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
   
   pushTo(x, y + capHeight);
@@ -822,8 +863,8 @@ static void writeW()
 
 static void writeX()
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
   
   pushCmd("PD");
@@ -837,8 +878,8 @@ static void writeX()
 
 static void writeY()
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
   
   pushCmd("PD");
@@ -853,8 +894,8 @@ static void writeY()
 
 static void writeZ()
 {
-  float x = position.x;
-  float y = position.y;
+  float x = state.x;
+  float y = state.y;
   float w = fontSize * 0.5;
 
   pushTo(x, y + capHeight);
