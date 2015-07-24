@@ -30,9 +30,13 @@ function Logobot() {
         left:0,
         right:0,
         pen:0,
-        penVelocity:10
+        penVelocity:10,
+        text:''
     };
     this.cmdQ = [];
+    this.fontSize = 20;
+    this.capHeight = this.fontSize * 0.7;
+    this.letterSpacing = this.fontSize * 0.1;
 
     var lastTime = performance.now();
 
@@ -178,7 +182,14 @@ function Logobot() {
 
             // anything in the queue?
             if (this.cmdQ.length > 0)
-                this.processCmd(this.popCmd());
+                this.processCmd(this.popCmd())
+            else {
+                // what about the text buffer?
+                if (this.todo.text.length > 0) {
+                    this.writeChar(this.todo.text[0]);
+                    this.todo.text = this.todo.text.substring(1);  // lose the first character
+                }
+            }
         }
 
         // update pen position
@@ -231,6 +242,10 @@ function Logobot() {
             this.penDown();
         } else if (p[0] == 'ARC') {
             this.arcTo(parseFloat(p[1]), parseFloat(p[2]));
+        } else if (p[0] == 'SIG') {
+          this.writeText("LOGOBOT");
+      } else if (p[0] == 'WT') {
+          this.writeText(p[1]);
         }
     }
 
@@ -253,7 +268,13 @@ function Logobot() {
         var targetAng = radToDeg(Math.atan2(v.y, v.x)) - 90;
 
         if (this.state.angle != targetAng) {
-            this.turn(targetAng - this.state.angle);
+            var ang = targetAng - this.state.angle;
+            if (ang > 180)
+              ang = -(360 - ang);
+            if (ang < -180)
+              ang = 360 + ang;
+              
+            this.turn(ang);
         }
 
 
@@ -299,11 +320,7 @@ function Logobot() {
 
             this.planMove(dl, dr);
         }
-
-
-
     }
-
 
     this.waddle = function() {
 
@@ -319,6 +336,489 @@ function Logobot() {
 
     this.penDown = function() {
         this.todo.pen = 0 - this.state.penPos;
+    }
+
+    this.writeText = function(s) {
+        this.todo.text = s;
+    }
+
+    this.writeChar = function(c) {
+        switch(c) {
+            case 'A':
+                this.writeA();
+                break;
+            case 'B':
+              this.writeB();
+              break;
+            case 'C':
+              this.writeC();
+              break;
+            case 'D':
+              this.writeD();
+              break;
+            case 'E':
+              this.writeE();
+              break;
+            case 'F':
+              this.writeF();
+              break;
+            case 'G':
+              this.writeG();
+              break;
+            case 'H':
+              this.writeH();
+              break;
+            case 'I':
+              this.writeI();
+              break;
+            case 'J':
+              this.writeJ();
+              break;
+            case 'K':
+              this.writeK();
+              break;
+            case 'L':
+              this.writeL();
+              break;
+            case 'M':
+              this.writeM();
+              break;
+            case 'N':
+              this.writeN();
+              break;
+            case 'O':
+              this.writeO();
+              break;
+            case 'P':
+              this.writeP();
+              break;
+            case 'Q':
+              this.writeQ();
+              break;
+            case 'R':
+              this.writeR();
+              break;
+            case 'S':
+              this.writeS();
+              break;
+            case 'T':
+              this.writeT();
+              break;
+            case 'U':
+              this.writeU();
+              break;
+            case 'V':
+              this.writeV();
+              break;
+            case 'W':
+              this.writeW();
+              break;
+            case 'X':
+              this.writeX();
+              break;
+            case 'Y':
+              this.writeY();
+              break;
+            case 'Z':
+              this.writeZ();
+              break;
+        }
+    }
+
+    this.pushTo = function(x,y) {
+        this.pushCmd('TO '+x.toFixed(1) +' '+y.toFixed(1));
+    }
+
+    this.nextLetter = function( x, y)
+    {
+      this.pushCmd("PU");
+      this.pushTo(x, y);
+    }
+
+    this.writeA = function() {
+        var x = this.state.x;
+        var y = this.state.y;
+        var w = this.fontSize * 0.5;
+
+        this.pushCmd("PD");
+        this.pushTo(x + w/2, y + this.capHeight);
+        this.pushTo(x + w, y);
+        this.pushCmd("PU");
+        this.pushTo(x + w / 4, y + this.capHeight / 2);
+        this.pushCmd("PD");
+        this.pushTo(x + 3 * w / 4, y + this.capHeight / 2 );
+        this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeB = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushCmd("PD");
+      this.pushTo(x + 2 * w / 3, y);
+      this.pushTo(x + w, y + this.capHeight / 4);
+      this.pushTo(x + 2 * w / 3, y + this.capHeight / 2);
+      this.pushTo(x + w, y + 3 * this.capHeight / 4);
+      this.pushTo(x + 2 * w / 3, y + this.capHeight);
+      this.pushTo(x, y + this.capHeight);
+      this.pushTo(x, y);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeC = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushTo(x + w, y + this.capHeight);
+      this.pushCmd("PD");
+      this.pushTo(x, y + this.capHeight);
+      this.pushTo(x, y);
+      this.pushTo(x + w, y);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeD = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushCmd("PD");
+      this.pushTo(x + 3 * w / 4, y);
+      this.pushTo(x + w, y + this.capHeight / 4);
+      this.pushTo(x + w, y + 3 * this.capHeight / 4);
+      this.pushTo(x + 3 * w / 4, y + this.capHeight);
+      this.pushTo(x, y + this.capHeight);
+      this.pushTo(x, y);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeE = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushCmd("PD");
+      this.pushTo(x, y + this.capHeight);
+      this.pushTo(x + w, y + this.capHeight);
+      this.pushCmd("PU");
+      this.pushTo(x + w, y + this.capHeight / 2);
+      this.pushCmd("PD");
+      this.pushTo(x, y + this.capHeight / 2);
+      this.pushTo(x, y);
+      this.pushTo(x + w, y);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeF = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushCmd("PD");
+      this.pushTo(x, y + this.capHeight);
+      this.pushTo(x + w, y + this.capHeight);
+      this.pushCmd("PU");
+      this.pushTo(x + w, y + this.capHeight / 2);
+      this.pushCmd("PD");
+      this.pushTo(x, y + this.capHeight / 2);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeG = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushTo(x + w, y + this.capHeight);
+      this.pushCmd("PD");
+      this.pushTo(x, y + this.capHeight);
+      this.pushTo(x, y);
+      this.pushTo(x + w, y);
+      this.pushTo(x + w, y + this.capHeight/3);
+      this.pushTo(x + w/3, y + this.capHeight/3);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeH = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushCmd("PD");
+      this.pushTo(x, y + this.capHeight);
+      this.pushTo(x, y + this.capHeight / 2);
+      this.pushTo(x + w, y + this.capHeight / 2);
+      this.pushTo(x + w, y + this.capHeight);
+      this.pushTo(x + w, y);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeI = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushTo(x + w / 2, y);
+      this.pushCmd("PD");
+      this.pushTo(x + w / 2, y + this.capHeight);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeJ = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushTo(x, y + this.capHeight / 4);
+      this.pushCmd("PD");
+      this.pushTo(x, y);
+      this.pushTo(x + w, y);
+      this.pushTo(x + w, y + this.capHeight);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeK = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushCmd("PD");
+      this.pushTo(x, y + this.capHeight);
+      this.pushCmd("PU");
+      this.pushTo(x + w, y + this.capHeight);
+      this.pushCmd("PD");
+      this.pushTo(x, y + this.capHeight / 2);
+      this.pushTo(x + w, y);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeL = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushCmd("PD");
+      this.pushTo(x, y + this.capHeight);
+      this.pushTo(x,y);
+      this.pushTo(x + w, y);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeM = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushCmd("PD");
+      this.pushTo(x, y + this.capHeight);
+      this.pushTo(x + w / 2, y + this.capHeight / 2);
+      this.pushTo(x + w, y + this.capHeight);
+      this.pushTo(x + w, y);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeN = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushCmd("PD");
+      this.pushTo(x, y + this.capHeight);
+      this.pushTo(x + w, y);
+      this.pushTo(x + w, y + this.capHeight);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeO = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushCmd("PD");
+      this.pushTo(x + w, y);
+      this.pushTo(x + w, y + this.capHeight);
+      this.pushTo(x, y + this.capHeight);
+      this.pushTo(x, y);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeP = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushCmd("PD");
+      this.pushTo(x, y + this.capHeight);
+      this.pushTo(x + w, y + this.capHeight);
+      this.pushTo(x + w, y + this.capHeight / 2);
+      this.pushTo(x, y + this.capHeight / 2);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeQ = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushCmd("PD");
+      this.pushTo(x + w / 2, y);
+      this.pushTo(x + w, y + this.capHeight / 2);
+      this.pushTo(x + w, y + this.capHeight);
+      this.pushTo(x, y + this.capHeight);
+      this.pushTo(x, y);
+      this.pushCmd("PU");
+      this.pushTo(x + w / 2, y + this.capHeight / 2);
+      this.pushCmd("PD");
+      this.pushTo(x + w, y);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeR = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushCmd("PD");
+      this.pushTo(x, y + this.capHeight);
+      this.pushTo(x + w, y + this.capHeight);
+      this.pushTo(x + w, y + this.capHeight / 2);
+      this.pushTo(x, y + this.capHeight / 2);
+      this.pushTo(x + w, y);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeS = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushCmd("PD");
+      this.pushTo(x + w, y);
+      this.pushTo(x + w, y + this.capHeight / 2);
+      this.pushTo(x, y + this.capHeight / 2);
+      this.pushTo(x, y + this.capHeight);
+      this.pushTo(x + w, y + this.capHeight);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeT = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+      this.pushTo(x + w/2, y);
+      this.pushCmd("PD");
+      this.pushTo(x + w/2, y + this.capHeight);
+      this.pushTo(x, y + this.capHeight);
+      this.pushTo(x + w, y + this.capHeight);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeU = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushTo(x, y + this.capHeight);
+      this.pushCmd("PD");
+      this.pushTo(x, y);
+      this.pushTo(x + w, y);
+      this.pushTo(x + w, y + this.capHeight);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeV = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushTo(x, y + this.capHeight);
+      this.pushCmd("PD");
+      this.pushTo(x + w / 2, y);
+      this.pushTo(x + w, y + this.capHeight);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeW = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushTo(x, y + this.capHeight);
+      this.pushCmd("PD");
+      this.pushTo(x + w / 4, y);
+      this.pushTo(x + w / 2, y + this.capHeight / 2);
+      this.pushTo(x + 3 * w / 4, y);
+      this.pushTo(x + w, y + this.capHeight);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeX = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushCmd("PD");
+      this.pushTo(x + w, y + this.capHeight);
+      this.pushCmd("PU");
+      this.pushTo(x, y + this.capHeight);
+      this.pushCmd("PD");
+      this.pushTo(x + w, y);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+    this.writeY = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushCmd("PD");
+      this.pushTo(x + w, y + this.capHeight);
+      this.pushCmd("PU");
+      this.pushTo(x, y + this.capHeight);
+      this.pushCmd("PD");
+      this.pushTo(x + w / 2, y + this.capHeight / 2);
+      this.nextLetter(x + w + this.letterSpacing, y);
+    }
+
+
+    this.writeZ = function()
+    {
+      var x = this.state.x;
+      var y = this.state.y;
+      var w = this.fontSize * 0.5;
+
+      this.pushTo(x, y + this.capHeight);
+      this.pushCmd("PD");
+      this.pushTo(x + w, y + this.capHeight);
+      this.pushTo(x, y);
+      this.pushTo(x + w, y);
+      this.nextLetter(x + w + this.letterSpacing, y);
     }
 
 

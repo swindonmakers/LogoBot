@@ -56,6 +56,8 @@
 			<button id="PUBut" class="btn btn-primary">PU</button>
 			<button id="PDBut" class="btn btn-primary">PD</button>
 
+			<button id="SIGBut" class="btn btn-primary">SIG</button>
+
 
 		</div>
 	</div>
@@ -449,6 +451,10 @@
 
 			$('#PDBut').click(function() {
 				logobot.pushCmd('PD')
+			});
+
+			$('#SIGBut').click(function() {
+				logobot.pushCmd('SIG')
 			});
 		});
 
