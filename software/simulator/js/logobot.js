@@ -276,8 +276,6 @@ function Logobot() {
         // x = (-y1)/m + x1
         var x1 = -(v.y/2) / m + (v.x/2);
 
-        console.log(v.x, v.y, x1);
-
 
         if (x1 < 0) {
             var targetAng = radToDeg(Math.atan2(v.y, -x1 + v.x));
@@ -288,7 +286,6 @@ function Logobot() {
             var cr = 2 * Math.PI * (this.wheelSpacing/2 - x1);
             var dr = cr * targetAng/360;
 
-            console.log(targetAng, dl, dr);
             this.planMove(dl, dr);
 
         } else {

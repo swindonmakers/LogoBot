@@ -39,7 +39,6 @@
 	<!-- info on screen display -->
 	<div id="info">
 		<div class="top">
-			<h3>Logobot Simulator</h3>
 			<div id="debug"></div>
 		</div>
 		<div class="controls" >
@@ -65,18 +64,25 @@
 	<script type="text/javascript">
 		var stats, scene, renderer, composer;
 		var light1, light2;
-		var groundPlane;
+		var groundPlane, groundCanvas;
 		var camera, cameraControl;
 
 		var mouse = new THREE.Vector2();
 
+		var lastLineX, lastLineY, lastPos = 15;
 
 		var logobot = new Logobot();
 
+
 		function updatePenLine() {
 			if (logobot.state.penPos == 0) {
+				if (lastPos > 0) {
+					lastLineX = logobot.state.x;
+					lastLineY = logobot.state.y;
+				}
 				plotOnTexture(logobot.state.x, logobot.state.y, 0);
 			}
+			lastPos = logobot.state.penPos;
 		}
 
 		function updateLogobot() {
@@ -241,36 +247,45 @@
 		}
 
 		function makeDataTexture(x,y) {
-			var size = x * y * 4;
-			var a = new Uint8Array(size);
+			groundCanvas = document.createElement('canvas');
+			groundCanvas.width = x;
+			groundCanvas.height = y;
 
-			for(var i=0; i< x*y; i++){
-				// RGB
-				a[4*i] = a[4*i + 1] = a[4*i + 2] = 255;
+			var ctx = groundCanvas.getContext('2d');
+			ctx.fillStyle = "rgba(255,255,255,1)";
+			ctx.fillRect(0,0,x,y);
 
-				// OPACITY
-				a[4*i + 3] = 255;
-			}
+			// logo
+			ctx.font = "Bold 40px Arial";
+			ctx.fillStyle = "rgba(255,180,120,1)";
+    		ctx.fillText('LOGOBOT SIMULATOR', 25, 55);
 
-			dataTex = new THREE.DataTexture( a, x, y, THREE.RGBAFormat );
+			// border
+			ctx.strokeStyle = "#c0c0c0";
+			ctx.lineWidth=5;
+			ctx.beginPath();
+			ctx.rect(5,5,x-10,y-10);
+			ctx.stroke();
+
+
+			dataTex = new THREE.Texture( groundCanvas );
 			dataTex.needsUpdate = true;
 			dataTex.minFilter = THREE.LinearFilter;
 			return dataTex;
 		}
 
 		function plotOnTexture(x,y,c) {
-			// accepts greyscale values
-			x = clamp(x + 250,0,500) * 2;
-			y = clamp(250 - y,0,500) * 2;
+			var ctx = groundCanvas.getContext('2d');
 
-			x = Math.round(x);
-			y = Math.round(y);
+			ctx.strokeStyle = "#000000";
+			ctx.lineWidth = 1;
+			ctx.beginPath();
+			ctx.moveTo(lastLineX + 250, 250 - lastLineY);
+			ctx.lineTo(x + 250, 250 - y);
+			ctx.stroke();
+			lastLineX = x;
+			lastLineY = y;
 
-			var coord = ((y * 1000) + x) * 4;
-
-			groundPlane.material.map.image.data[coord] = c;
-			groundPlane.material.map.image.data[coord+1] = c;
-			groundPlane.material.map.image.data[coord+2] = c;
 			groundPlane.material.map.needsUpdate=true;
 		}
 
@@ -303,7 +318,7 @@
 			camera	= new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 1, 10000 );
 			// set Z to be up to match natural coordinate frame of OpenSCAD, etc
 			camera.up.set( 0, 0, 1 );
-			camera.position.set(170, -120, 180);
+			camera.position.set(170, -400, 350);
 			scene.add(camera);
 
 			// camera contol
@@ -333,20 +348,12 @@
 			var geometry	= new THREE.PlaneBufferGeometry( 500, 500, 1, 1 );
 			var material	= new THREE.MeshBasicMaterial({
 				color: 0xffffff,
-				map: makeDataTexture(1000,1000)
+				map: makeDataTexture(500,500)
 			});
 			groundPlane	= new THREE.Mesh( geometry, material );
 			groundPlane.receiveShadow = true;
 			scene.add( groundPlane );
 
-			// under plane
-			var geometry	= new THREE.PlaneBufferGeometry( 520, 520, 1, 1 );
-			var material	= new THREE.MeshBasicMaterial({
-				color: 0xe0e0e0
-			});
-			mesh	= new THREE.Mesh( geometry, material );
-			mesh.position.z = -1;
-			scene.add( mesh );
 
 			// axes
 			scene.add(buildAxes());
