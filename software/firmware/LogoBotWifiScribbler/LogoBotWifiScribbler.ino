@@ -360,6 +360,11 @@ static void driveTo(float x, float y) {
   float ang = atan2(y-state.y, x-state.x) * 180 / PI;
   // now angle delta
   ang = ang - state.ang;
+  if (ang > 180)
+    ang = -(360 - ang);
+  if (ang < -180)
+    ang = 360 + ang;
+
   turn(ang);
   
   // and distance
