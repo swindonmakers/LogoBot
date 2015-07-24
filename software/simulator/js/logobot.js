@@ -23,9 +23,9 @@ function Logobot() {
         penPos:15
     };
     this.todo = {
-        acceleration:100,
+        acceleration:200,
         velocity:0,
-        maxVelocity:50,
+        maxVelocity:80,
         minVelocity:5,
         left:0,
         right:0,
@@ -34,7 +34,7 @@ function Logobot() {
         text:''
     };
     this.cmdQ = [];
-    this.fontSize = 20;
+    this.fontSize = 40;
     this.capHeight = this.fontSize * 0.7;
     this.letterSpacing = this.fontSize * 0.1;
 
@@ -273,7 +273,7 @@ function Logobot() {
               ang = -(360 - ang);
             if (ang < -180)
               ang = 360 + ang;
-              
+
             this.turn(ang);
         }
 
@@ -455,14 +455,15 @@ function Logobot() {
       var x = this.state.x;
       var y = this.state.y;
       var w = this.fontSize * 0.5;
+      var w2 = w - this.capHeight/4;
 
       this.pushCmd("PD");
-      this.pushTo(x + 2 * w / 3, y);
-      this.pushTo(x + w, y + this.capHeight / 4);
-      this.pushTo(x + 2 * w / 3, y + this.capHeight / 2);
-      this.pushTo(x + w, y + 3 * this.capHeight / 4);
-      this.pushTo(x + 2 * w / 3, y + this.capHeight);
-      this.pushTo(x, y + this.capHeight);
+      this.pushTo(x + w2, y);
+      this.pushCmd("ARC "+(x + w).toFixed(1) + " " + (y + this.capHeight/4).toFixed(1));
+      this.pushCmd("ARC "+(x + w2).toFixed(1) + " " + (y + this.capHeight/2).toFixed(1));
+      this.pushCmd("ARC "+(x + w).toFixed(1) + " " + (y + 3*this.capHeight/4).toFixed(1));
+      this.pushCmd("ARC "+(x + w2).toFixed(1) + " " + (y + this.capHeight).toFixed(1));
+      this.pushCmd("ARC "+(x).toFixed(1) + " " + (y + this.capHeight).toFixed(1));
       this.pushTo(x, y);
       this.nextLetter(x + w + this.letterSpacing, y);
     }
@@ -537,13 +538,15 @@ function Logobot() {
       var y = this.state.y;
       var w = this.fontSize * 0.5;
 
-      this.pushTo(x + w, y + this.capHeight);
+      this.pushTo(x + w/2, y + w/2);
       this.pushCmd("PD");
-      this.pushTo(x, y + this.capHeight);
-      this.pushTo(x, y);
-      this.pushTo(x + w, y);
-      this.pushTo(x + w, y + this.capHeight/3);
-      this.pushTo(x + w/3, y + this.capHeight/3);
+      this.pushTo(x + w, y + w/2);
+      this.pushCmd("RT 90");
+      this.pushCmd("ARC "+(x + w/2).toFixed(1) + " " + (y).toFixed(1));
+      this.pushCmd("ARC "+(x).toFixed(1) + " " + (y + w/2).toFixed(1));
+      this.pushTo(x, y + this.capHeight - w/2);
+      this.pushCmd("ARC "+(x + w/2).toFixed(1) + " " + (y + this.capHeight).toFixed(1));
+      this.pushCmd("ARC "+(x + w).toFixed(1) + " " + (y + this.capHeight - w/2).toFixed(1));
       this.nextLetter(x + w + this.letterSpacing, y);
     }
 
@@ -610,9 +613,10 @@ function Logobot() {
       var y = this.state.y;
       var w = this.fontSize * 0.5;
 
-      this.pushCmd("PD");
       this.pushTo(x, y + this.capHeight);
-      this.pushTo(x,y);
+      this.pushCmd("PD");
+      this.pushTo(x,y + w/2);
+      this.pushCmd("ARC "+(x + w/2).toFixed(1) + " " + (y).toFixed(1));
       this.pushTo(x + w, y);
       this.nextLetter(x + w + this.letterSpacing, y);
     }
@@ -650,11 +654,14 @@ function Logobot() {
       var y = this.state.y;
       var w = this.fontSize * 0.5;
 
+      this.pushTo(x + w/2, y);
       this.pushCmd("PD");
-      this.pushTo(x + w, y);
-      this.pushTo(x + w, y + this.capHeight);
-      this.pushTo(x, y + this.capHeight);
-      this.pushTo(x, y);
+      this.pushCmd("ARC "+(x + w).toFixed(1) + " " + (y + w/2).toFixed(1))
+      this.pushTo(x + w, y + this.capHeight - w/2);
+      this.pushCmd("ARC "+(x + w/2).toFixed(1) + " " + (y + this.capHeight).toFixed(1));
+      this.pushCmd("ARC "+(x).toFixed(1) + " " + (y + this.capHeight - w/2).toFixed(1));
+      this.pushTo(x, y + w/2);
+      this.pushCmd("ARC "+(x + w/2).toFixed(1) + " " + (y).toFixed(1));
       this.nextLetter(x + w + this.letterSpacing, y);
     }
 

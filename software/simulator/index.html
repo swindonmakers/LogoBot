@@ -58,6 +58,10 @@
 
 			<button id="SIGBut" class="btn btn-primary">SIG</button>
 
+			<br>
+			<input id="textInput" type="text" class="form-control"></input>
+			<button id="WTBut" class="btn btn-primary">WT</button>
+
 
 		</div>
 	</div>
@@ -455,6 +459,10 @@
 
 			$('#SIGBut').click(function() {
 				logobot.pushCmd('SIG')
+			});
+
+			$('#WTBut').click(function() {
+				logobot.pushCmd('WT '+$('#textInput').val());
 			});
 		});
 
