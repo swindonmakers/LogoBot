@@ -314,7 +314,7 @@ void pushTo(float x, float y)
   pushCmd(s);
 }
 
-void driveTo(float x, float y) {
+static void driveTo(float x, float y) {
   // calc angle
   float ang = atan2(y-position.y, x-position.x) * 180 / PI;
   // now angle delta
@@ -370,7 +370,7 @@ void penDown()
   penliftServo.write(90);
 }
 
-void writeChar(char c) {
+static void writeChar(char c) {
     
     switch(c) {
       case 'A':
@@ -458,7 +458,7 @@ void writeChar(char c) {
     }
 }
 
-void writeText(String s) {
+static void writeText(String s) {
   // overwrite write text
   text = s;
   text.toUpperCase(); 
@@ -472,13 +472,13 @@ void writeText(String s) {
 
 #define NEXTLETTER nextLetter(x + w + letterSpacing, y);
 
-void nextLetter(float x, float y)
+static void nextLetter(float x, float y)
 {
   pushCmd("PU");
   pushTo(x, y);
 }
 
-void writeA()
+static void writeA()
 {
   float x = position.x;
   float y = position.y;
@@ -494,7 +494,7 @@ void writeA()
   NEXTLETTER
 }
 
-void writeB()
+static void writeB()
 {
   float x = position.x;
   float y = position.y;
@@ -511,7 +511,7 @@ void writeB()
   NEXTLETTER
 }
 
-void writeC()
+static void writeC()
 {
   float x = position.x;
   float y = position.y;
@@ -525,7 +525,7 @@ void writeC()
   NEXTLETTER
 }
 
-void writeD()
+static void writeD()
 {
   float x = position.x;
   float y = position.y;
@@ -541,7 +541,7 @@ void writeD()
   NEXTLETTER
 }
 
-void writeE()
+static void writeE()
 {
   float x = position.x;
   float y = position.y;
@@ -559,7 +559,7 @@ void writeE()
   NEXTLETTER
 }
 
-void writeF()
+static void writeF()
 {
   float x = position.x;
   float y = position.y;
@@ -575,7 +575,7 @@ void writeF()
   NEXTLETTER
 }
 
-void writeG()
+static void writeG()
 {
   float x = position.x;
   float y = position.y;
@@ -591,7 +591,7 @@ void writeG()
   NEXTLETTER
 }
 
-void writeH()
+static void writeH()
 {
   float x = position.x;
   float y = position.y;
@@ -606,7 +606,7 @@ void writeH()
   NEXTLETTER
 }
 
-void writeI()
+static void writeI()
 {
   float x = position.x;
   float y = position.y;
@@ -618,7 +618,7 @@ void writeI()
   NEXTLETTER
 }
 
-void writeJ()
+static void writeJ()
 {
   float x = position.x;
   float y = position.y;
@@ -632,7 +632,7 @@ void writeJ()
   NEXTLETTER
 }
 
-void writeK()
+static void writeK()
 {
   float x = position.x;
   float y = position.y;
@@ -648,7 +648,7 @@ void writeK()
   NEXTLETTER
 }
 
-void writeL() 
+static void writeL() 
 {
   float x = position.x;
   float y = position.y;
@@ -661,7 +661,7 @@ void writeL()
   NEXTLETTER
 }
 
-void writeM() 
+static void writeM() 
 {
   float x = position.x;
   float y = position.y;
@@ -675,7 +675,7 @@ void writeM()
   NEXTLETTER
 }
 
-void writeN() 
+static void writeN() 
 {
   float x = position.x;
   float y = position.y;
@@ -688,7 +688,7 @@ void writeN()
   NEXTLETTER
 }
 
-void writeO() 
+static void writeO() 
 {
   float x = position.x;
   float y = position.y;
@@ -702,7 +702,7 @@ void writeO()
   NEXTLETTER  
 }
 
-void writeP() 
+static void writeP() 
 {
   float x = position.x;
   float y = position.y;
@@ -716,7 +716,7 @@ void writeP()
   NEXTLETTER  
 }
 
-void writeQ() 
+static void writeQ() 
 {
   float x = position.x;
   float y = position.y;
@@ -735,7 +735,7 @@ void writeQ()
   NEXTLETTER  
 }
 
-void writeR() 
+static void writeR() 
 {
   float x = position.x;
   float y = position.y;
@@ -750,7 +750,7 @@ void writeR()
   NEXTLETTER  
 }
 
-void writeS() 
+static void writeS() 
 {
   float x = position.x;
   float y = position.y;
@@ -765,7 +765,7 @@ void writeS()
   NEXTLETTER  
 }
 
-void writeT()
+static void writeT()
 {
   float x = position.x;
   float y = position.y;
@@ -778,7 +778,7 @@ void writeT()
   NEXTLETTER
 }
 
-void writeU()
+static void writeU()
 {
   float x = position.x;
   float y = position.y;
@@ -792,7 +792,7 @@ void writeU()
   NEXTLETTER
 }
 
-void writeV()
+static void writeV()
 {
   float x = position.x;
   float y = position.y;
@@ -805,7 +805,7 @@ void writeV()
   NEXTLETTER
 }
 
-void writeW()
+static void writeW()
 {
   float x = position.x;
   float y = position.y;
@@ -820,7 +820,7 @@ void writeW()
   NEXTLETTER
 }
 
-void writeX()
+static void writeX()
 {
   float x = position.x;
   float y = position.y;
@@ -835,7 +835,7 @@ void writeX()
   NEXTLETTER
 }
 
-void writeY()
+static void writeY()
 {
   float x = position.x;
   float y = position.y;
@@ -850,7 +850,8 @@ void writeY()
   NEXTLETTER
 }
 
-void writeZ()
+
+static void writeZ()
 {
   float x = position.x;
   float y = position.y;
@@ -863,6 +864,7 @@ void writeZ()
   pushTo(x + w, y);
   NEXTLETTER
 }
+
 
 long sqr(long v) {
   return v*v;
