@@ -302,6 +302,7 @@ static void doLogoCommand(String c)
   /* Unofficial extensions
       BZ n - sound buzzer for n milliseconds
       ST - stop
+      SE - emergency stop
       SIG - sign Logobots name
       TO x y
     */  
@@ -325,8 +326,9 @@ static void doLogoCommand(String c)
     float angle = c.substring(3).toFloat();
     turn(angle);
   } else if (c.startsWith("ST")) {
-    stepperL.stop();
-    stepperR.stop();
+    stop();
+  } else if (c.startsWith("SE")) {
+    emergencyStop();
   } else if (c.startsWith("BZ")) {
     buzz(c.substring(3).toInt());
   } else if (c.startsWith("PU")) {
@@ -340,9 +342,14 @@ static void doLogoCommand(String c)
   }
 }
 
+void stop() {
+  stepperL.stop();
+  stepperR.stop();
+}
+
 void emergencyStop() {
-    stepperL.setCurrentPosition(stepperL.currentPosition());
-    stepperR.setCurrentPosition(stepperR.currentPosition()); 
+  stepperL.setCurrentPosition(stepperL.currentPosition());
+  stepperR.setCurrentPosition(stepperR.currentPosition()); 
 }
 
 void pushTo(float x, float y)
