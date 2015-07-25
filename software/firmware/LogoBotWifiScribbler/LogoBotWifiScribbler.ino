@@ -39,6 +39,7 @@ AccelStepper stepperR(AccelStepper::HALF4WIRE, motorRPin1, motorRPin3, motorRPin
 
 #define STEPS_PER_MM 5000/232
 #define STEPS_PER_DEG 3760.0 / 180.0
+#define WHEELSPACING 110
 
 // equivalent to 1.8 * STEPS_PER_MM
 #define STEPS_OF_BACKLASH   39
@@ -324,6 +325,12 @@ static void doLogoCommand(String c)
     float x = c.substring(3,sp).toFloat();
     float y = c.substring(sp+1).toFloat();
     driveTo(x,y);
+  } else if (c.startsWith("ARC")) {
+      // split out x and y co-ordinates
+      int sp = c.indexOf(" ",4);
+      float x = c.substring(4,sp).toFloat();
+      float y = c.substring(sp+1).toFloat();
+      arcTo(x,y);
   } else if (c.startsWith("FD")) {
     float dist = c.substring(3).toFloat();
     drive(dist);
@@ -419,6 +426,56 @@ void turn(float ang)
   stepperR.move(steps);
   stepperL.move(-steps);
 }
+
+
+void arcTo (float x, float y) {
+
+    if (y == 0) return;
+
+    float cx = x - state.x;
+    float cy = y - state.y;
+
+    //v.rotate(degToRad(-this.state.angle));
+    float ang = -state.ang * PI / 180;
+    cx = cx * cos(ang) - cy * sin(ang);
+    cy = cx * sin(ang) + cy * cos(ang);
+
+    float m = -cx / cy;
+
+    // calc centre of arc
+    // from equation
+    // y - y1 = m (x - x1)
+    // rearranged to find y axis intersection
+    // x = (-y1)/m + x1
+    float x1 = -(cy/2) / m + (cx/2);
+
+    int dl = 0, dr = 0;
+    float targetAng;
+    float cl, cr;
+
+    if (x1 < 0) {
+        targetAng = atan2(cy, -x1 + cx) * 180/PI;
+
+        cl = 2 * PI * (-WHEELSPACING/2 - x1);
+        dl = cl * targetAng/360;
+
+        cr = 2 * PI * (WHEELSPACING/2 - x1);
+        dr = cr * targetAng/360;
+
+    } else {
+        targetAng = atan2(cy, x1 - cx) * 180/PI;
+
+        cl = 2 * PI * (x1 + WHEELSPACING/2 );
+        dl = cl * targetAng/360;
+
+        cr = 2 * PI * (x1 - WHEELSPACING/2);
+        dr = cr * targetAng/360;
+    }
+
+    stepperL.move(dl * STEPS_PER_MM);
+    stepperR.move(dr * STEPS_PER_MM);
+}
+
 
 void buzz(int len)
 {
@@ -934,3 +991,4 @@ static void writeZ()
 long sqr(long v) {
   return v*v;
 }
+
