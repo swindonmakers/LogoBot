@@ -194,6 +194,21 @@
 			logobot.parts.pen = mesh;
 			g.add( mesh );
 
+			// bumper
+			var geometry	= new THREE.CylinderGeometry( 2,2, logobot.baseThickness, 4, 1, false );
+			var material	= new THREE.MeshLambertMaterial({color: 0xffa500});
+			var mesh	= new THREE.Mesh( geometry, material );
+			mesh.castShadow = true;
+			//mesh.receiveShadow =true;
+			//mesh.rotation.x = Math.PI/2;
+			mesh.position.z = logobot.groundClearance - 5;
+			g.add( mesh );
+
+			// trigger loading proper stl model for the bumper
+			loadSTL('../../hardware/printedparts/stl/Bumper.stl', mesh, function(m) {
+				//m.rotation.x = 0;
+			});
+
 			return g;
 		}
 

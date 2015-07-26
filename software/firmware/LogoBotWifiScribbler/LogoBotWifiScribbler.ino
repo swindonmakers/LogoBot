@@ -2,8 +2,8 @@
 #include <Servo.h>
 
 // Maths stuff
-#define DEGTORAD  PI/180
-#define RADTODEG  180/PI
+#define DEGTORAD  PI/180.0
+#define RADTODEG  180.0/PI
 
 // Pin definitions
 // Left motor driver
@@ -454,29 +454,29 @@ void arcTo (float x, float y) {
     // y - y1 = m (x - x1)
     // rearranged to find y axis intersection
     // x = (-y1)/m + x1
-    float x1 = -(cy/2) / m + (cx/2);
+    float x1 = -(cy/2.0) / m + (cx/2.0);
 
-    int dl = 0, dr = 0;
+    float dl = 0, dr = 0;
     float targetAng;
     float cl, cr;
 
     if (x1 < 0) {
         targetAng = atan2(cy, -x1 + cx) * RADTODEG;
 
-        cl = 2 * PI * (-WHEELSPACING/2 - x1);
-        dl = cl * targetAng/360;
+        cl = 2.0 * PI * (-WHEELSPACING/2.0 - x1);
+        dl = cl * targetAng/360.0;
 
-        cr = 2 * PI * (WHEELSPACING/2 - x1);
-        dr = cr * targetAng/360;
+        cr = 2.0 * PI * (WHEELSPACING/2.0 - x1);
+        dr = cr * targetAng/360.0;
 
     } else {
         targetAng = atan2(cy, x1 - cx) * RADTODEG;
 
-        cl = 2 * PI * (x1 + WHEELSPACING/2 );
-        dl = cl * targetAng/360;
+        cl = 2.0 * PI * (x1 + WHEELSPACING/2.0 );
+        dl = cl * targetAng/360.0;
 
-        cr = 2 * PI * (x1 - WHEELSPACING/2);
-        dr = cr * targetAng/360;
+        cr = 2.0 * PI * (x1 - WHEELSPACING/2.0);
+        dr = cr * targetAng/360.0;
     }
 
     stepperL.move(dl * STEPS_PER_MM);
