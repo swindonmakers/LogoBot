@@ -69,7 +69,23 @@ public:
     void enableOutputs();
     void disableOutputs();
 
+    /// Sets the inversion for 2, 3 and 4 wire stepper pins
+    /// \param[in] pin1Invert True for inverted pin1, false for non-inverted
+    /// \param[in] pin2Invert True for inverted pin2, false for non-inverted
+    /// \param[in] pin3Invert True for inverted pin3, false for non-inverted
+    /// \param[in] pin4Invert True for inverted pin4, false for non-inverted
+    /// \param[in] enableInvert    True for inverted enable pin, false (default) for non-inverted
+    void    setPinsInvertedFor(uint8_t motor, bool pin1Invert, bool pin2Invert, bool pin3Invert, bool pin4Invert, bool enableInvert);
+
+    /// Sets the number of steps needed to correct backlash in drive train
+    void    setBacklash(unsigned int steps);
+
     void step(Motor *motor, long step);
+
+    void setMaxSpeed(float speed);
+    void setAcceleration(float acceleration);
+
+    boolean run();  // return true if still moving
 
     /*
     void    moveTo(long absolute);
@@ -120,7 +136,8 @@ private:
     float          _maxSpeed;  // in steps/sec
     float          _acceleration;  // in steps/sec2
 
-    unsigned int   _minPulseWidth;
+    unsigned int    _minPulseWidth;
+    unsigned int    _backlash;
 
     void enableOutputsFor(Motor *motor);
     void disableOutputsFor(Motor *motor);

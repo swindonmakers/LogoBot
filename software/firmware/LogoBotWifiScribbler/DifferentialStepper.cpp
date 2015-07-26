@@ -97,6 +97,19 @@ void DifferentialStepper::setOutputPinsFor(Motor *motor, uint8_t mask) {
         digitalWrite(motor->_pin[i], (mask & (1 << i)) ? (HIGH ^ motor->_pinInverted[i]) : (LOW ^ motor->_pinInverted[i]));
 }
 
+void DifferentialStepper::setPinsInvertedFor(uint8_t motor, bool pin1Invert, bool pin2Invert, bool pin3Invert, bool pin4Invert, bool enableInvert)
+{
+    _motors[motor]._pinInverted[0] = pin1Invert;
+    _motors[motor]._pinInverted[1] = pin2Invert;
+    _motors[motor]._pinInverted[2] = pin3Invert;
+    _motors[motor]._pinInverted[3] = pin4Invert;
+    _motors[motor]._enableInverted = enableInvert;
+}
+
+void DifferentialStepper::setBacklash(unsigned int steps) {
+    _backlash = steps;
+}
+
 void DifferentialStepper::step(Motor *motor, long step) {
     switch (_interface)
     {
@@ -281,4 +294,19 @@ void DifferentialStepper::step8(Motor *motor,long step)
 	    setOutputPinsFor(motor,0b1001);
             break;
     }
+}
+
+void DifferentialStepper::setMaxSpeed(float speed) {
+    if (speed <0) speed = 0;
+    _maxSpeed = speed;
+}
+
+void DifferentialStepper::setAcceleration(float acceleration) {
+    if (acceleration <= 0) return;
+    _acceleration = acceleration;
+}
+
+
+boolean DifferentialStepper::run() {
+    return false;
 }

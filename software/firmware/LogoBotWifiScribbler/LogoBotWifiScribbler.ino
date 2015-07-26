@@ -169,11 +169,11 @@ void setup()
   Serial.begin(9600);
   Serial.println("Logobot");
 
-  //TODO: code this lot
-  //diffDrive.setMaxSpeed(1000);
-  //diffDrive.setAcceleration(2000);
-  //diffDrive.setBacklash(STEPS_OF_BACKLASH);
-  //diffDrive.setPinsInverted(0, true,true,false,false,false);
+  diffDrive.setMaxSpeed(1000);
+  diffDrive.setAcceleration(2000);
+  diffDrive.setBacklash(STEPS_OF_BACKLASH);
+  diffDrive.setPinsInvertedFor(0, true,true,false,false,false);
+  diffDrive.enableOutputs();
 
   pinMode(switchFL, INPUT_PULLUP);
   pinMode(switchFR, INPUT_PULLUP);
@@ -204,74 +204,58 @@ int progStep = 0;
 
 void loop()
 {
-  // Parse Logo commands from Serial, add to cmdQ
-  if (Serial.available()) {
-    char c = Serial.read();
-    if (c == '\r' || c == '\n') {
-      if (cmd != "") {
-        if (isQFull()) {
-            Serial.println("BUSY");
-        } else {
-            if (cmd[0] == '!') {
-                emergencyStop();
-                insertCmd(cmd.substring(1));
+    // Parse Logo commands from Serial, add to cmdQ
+    if (Serial.available()) {
+        char c = Serial.read();
+        if (c == '\r' || c == '\n') {
+          if (cmd != "") {
+            if (isQFull()) {
+                Serial.println("BUSY");
             } else {
-                pushCmd(cmd);
+                if (cmd[0] == '!') {
+                    emergencyStop();
+                    insertCmd(cmd.substring(1));
+                } else {
+                    pushCmd(cmd);
+                }
+                Serial.println("OK:" + cmd);
             }
-            Serial.println("OK:" + cmd);
+
+            cmd = "";
+          }
+        } else {
+          cmd += c;
         }
-
-        cmd = "";
-      }
-    } else {
-      cmd += c;
     }
-  }
 
-  handleCollisions();
+    handleCollisions();
 
-  // Do buzzer
-  if (millis() < buzzEnd)
-    digitalWrite(buzzer, HIGH);
-  else
-    digitalWrite(buzzer, LOW);
+    // Do buzzer
+    if (millis() < buzzEnd)
+        digitalWrite(buzzer, HIGH);
+    else
+        digitalWrite(buzzer, LOW);
 
-/*
-  // Let steppers run
-  stepperL.run();
-  stepperR.run();
 
-  // Disable motors when stopped to save power
-  // Note that AccelStepper.disableOutputs doesn't seem to work
-  // correctly when pins are inverted and leaves some outputs on.
-
-  if (stepperL.distanceToGo() == 0 && stepperR.distanceToGo() == 0) {
-
-    if (isQEmpty()) {
-
-      // check the text writing buffer
-      if (text.length() > 0) {
-        char c = text[0];
-        text = text.substring(1);  // lose the first character
-        writeChar(c);
-
-      } else {
-        // take a breather
-        digitalWrite(motorLPin1, LOW);
-        digitalWrite(motorLPin2, LOW);
-        digitalWrite(motorLPin3, LOW);
-        digitalWrite(motorLPin4, LOW);
-        digitalWrite(motorRPin1, LOW);
-        digitalWrite(motorRPin2, LOW);
-        digitalWrite(motorRPin3, LOW);
-        digitalWrite(motorRPin4, LOW);
-      }
-    } else {
-      // pop and process next command from queue
-      doLogoCommand(popCmd());
+    if (!diffDrive.run()) {
+        if (isQEmpty()) {
+            // check the text writing buffer
+            if (text.length() > 0) {
+                char c = text[0];
+                text = text.substring(1);  // lose the first character
+                writeChar(c);
+            } else {
+                // Disable motors when stopped to save power
+                // Note that AccelStepper.disableOutputs doesn't seem to work
+                // correctly when pins are inverted and leaves some outputs on.
+                diffDrive.disableOutputs();
+            }
+        } else {
+            // pop and process next command from queue
+            doLogoCommand(popCmd());
+        }
     }
-  }
-  */
+
 }
 
 
