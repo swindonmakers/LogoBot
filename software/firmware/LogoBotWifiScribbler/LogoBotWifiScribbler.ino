@@ -36,14 +36,12 @@
 // Servo for Pen Lift (Note same as LED for now)
 #define SERVO       11
 
-// Initialize with pin sequence IN1-IN3-IN2-IN4 for using the AccelStepper with 28BYJ-48
+// Initialize with pin sequence IN1-IN3-IN2-IN4 for 28BYJ-48
 DifferentialStepper diffDrive(
     DifferentialStepper::HALF4WIRE,
     motorLPin1, motorLPin3, motorLPin2, motorLPin4,
     motorRPin1, motorRPin3, motorRPin2, motorRPin4
 );
-//AccelStepper stepperL(AccelStepper::HALF4WIRE, motorLPin1, motorLPin3, motorLPin2, motorLPin4);
-//AccelStepper stepperR(AccelStepper::HALF4WIRE, motorRPin1, motorRPin3, motorRPin2, motorRPin4);
 
 #define STEPS_PER_MM 5000/232
 #define STEPS_PER_DEG 3760.0 / 180.0
@@ -170,16 +168,12 @@ void setup()
 {
   Serial.begin(9600);
   Serial.println("Logobot");
-  /*
-  stepperL.setMaxSpeed(1000);
-  stepperL.setAcceleration(2000);
-  stepperL.setBacklash(STEPS_OF_BACKLASH);
-  stepperL.setPinsInverted(true, true, false, false, false);
 
-  stepperR.setMaxSpeed(1000);
-  stepperR.setAcceleration(2000);
-  stepperR.setBacklash(STEPS_OF_BACKLASH);
-  */
+  //TODO: code this lot
+  //diffDrive.setMaxSpeed(1000);
+  //diffDrive.setAcceleration(2000);
+  //diffDrive.setBacklash(STEPS_OF_BACKLASH);
+  //diffDrive.setPinsInverted(0, true,true,false,false,false);
 
   pinMode(switchFL, INPUT_PULLUP);
   pinMode(switchFR, INPUT_PULLUP);

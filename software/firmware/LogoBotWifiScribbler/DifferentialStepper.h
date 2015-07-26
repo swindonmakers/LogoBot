@@ -19,19 +19,41 @@ public:
 
     typedef enum
     {
-    	FUNCTION  = 0, ///< Use the functional interface, implementing your own driver functions (internal use only)
-    	DRIVER    = 1, ///< Stepper Driver, 2 driver pins required
-    	FULL2WIRE = 2, ///< 2 wire stepper, 2 motor pins required
-    	FULL3WIRE = 3, ///< 3 wire stepper, such as HDD spindle, 3 motor pins required
-            FULL4WIRE = 4, ///< 4 wire full stepper, 4 motor pins required
-    	HALF3WIRE = 6, ///< 3 wire half stepper, such as HDD spindle, 3 motor pins required
-    	HALF4WIRE = 8  ///< 4 wire half stepper, 4 motor pins required
+        FUNCTION  = 0, ///< Use the functional interface, implementing your own driver functions (internal use only)
+        DRIVER    = 1, ///< Stepper Driver, 2 driver pins required
+        FULL2WIRE = 2, ///< 2 wire stepper, 2 motor pins required
+        FULL3WIRE = 3, ///< 3 wire stepper, such as HDD spindle, 3 motor pins required
+        FULL4WIRE = 4, ///< 4 wire full stepper, 4 motor pins required
+        HALF3WIRE = 6, ///< 3 wire half stepper, such as HDD spindle, 3 motor pins required
+        HALF4WIRE = 8  ///< 4 wire half stepper, 4 motor pins required
     } MotorInterfaceType;
 
+    typedef enum
+    {
+        DIRECTION_FWD   = true,
+        DIRECTION_BACK  = false
+    } Direction;
 
+    typedef enum
+    {
+        MOTOR_LEFT      = 0,
+        MOTOR_RIGHT     = 1
+    } WhichMotor;
 
+    struct Motor {
+        Direction       _direction;
+        uint8_t         _pin[4];
+        uint8_t         _pinInverted[4];
+        long            _currentPos;  // in steps
+        bool           _enableInverted;  /// Is the enable pin inverted?
+        uint8_t        _enablePin;   /// Enable pin for stepper driver, or 0xFF if unused.
 
-    // NOTE: Steppers will initially be disabled
+    };
+
+    /*
+        Constructor
+        NOTE: Steppers will initially be disabled
+    */
     DifferentialStepper(
         uint8_t interface = DifferentialStepper::FULL4WIRE,
         uint8_t pinL1 = 2,
@@ -43,6 +65,11 @@ public:
         uint8_t pinR3 = 8,
         uint8_t pinR4 = 9
     );
+
+    void enableOutputs();
+    void disableOutputs();
+
+    void step(Motor *motor, long step);
 
     /*
     void    moveTo(long absolute);
@@ -80,31 +107,32 @@ public:
 
 protected:
 
-    typedef enum
-    {
-        DIRECTION_FWD   = true,
-        DIRECTION_BACK  = false
-    } Direction;
 
-    typedef enum
-    {
-        MOTOR_LEFT = 0,
-        MOTOR_RIGHT = 1
-    } WhichMotor;
-
-    struct Motor {
-        Direction _direction = DIRECTION_FWD;
-    };
 
 
 
 
 
 private:
-    uint8_t     _interface;          // 0, 1, 2, 4, 8, See MotorInterfaceType
+    uint8_t     _interface; // See MotorInterfaceType
+    Motor       _motors[2];
 
-    Motor       motors[2];
+    float          _maxSpeed;  // in steps/sec
+    float          _acceleration;  // in steps/sec2
 
+    unsigned int   _minPulseWidth;
+
+    void enableOutputsFor(Motor *motor);
+    void disableOutputsFor(Motor *motor);
+
+    void setOutputPinsFor(Motor *motor, uint8_t mask);
+
+    void step1(Motor *motor, long step);
+    void step2(Motor *motor, long step);
+    void step3(Motor *motor, long step);
+    void step4(Motor *motor, long step);
+    void step6(Motor *motor, long step);
+    void step8(Motor *motor, long step);
 
 };
 
