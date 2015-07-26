@@ -1,10 +1,15 @@
+#include <DNSServer.h>
 #include <ESP8266WiFi.h>
-#include <WiFiClient.h>
 #include <ESP8266WebServer.h>
-#include <EEPROM.h>
- 
+#include <WiFiClient.h>
+
+#define DNS_PORT 53
+#define led 2
+
+IPAddress apIP(192, 168, 4, 1);
+IPAddress mask(255, 255, 255, 0);
+DNSServer dnsServer;
 ESP8266WebServer server(80);
-const int led = 2;
 
 const char page[] PROGMEM = R"~(
 <!DOCTYPE html>
@@ -139,8 +144,8 @@ void handleCommand()
     // Send command
     Serial.println(cmd);
 
-    // Wait a max of 500ms for a repsonse
-    Serial.setTimeout(500);
+    // Wait a max of 200ms for a repsonse
+    Serial.setTimeout(200);
     String response = Serial.readStringUntil('\n');
 
     server.send(200, F("text/plain"), response);
@@ -177,8 +182,17 @@ void setup(void){
   pinMode(led, OUTPUT);
   digitalWrite(led, 0);
 
-  WiFi.softAP("LogobotBlue", "logobot1");
   WiFi.mode(WIFI_AP);
+  WiFi.softAPConfig(apIP, apIP, mask);
+  WiFi.softAP("LogobotBlue", "logobot1");
+  
+  dnsServer.setTTL(300);
+  // set which return code will be used for all other domains (e.g. sending
+  // ServerFailure instead of NonExistentDomain will reduce number of queries
+  // sent by clients)
+  // default is DNSReplyCode::NonExistentDomain
+  dnsServer.setErrorReplyCode(DNSReplyCode::ServerFailure);
+  dnsServer.start(DNS_PORT, "logo.bot", apIP);
   
   server.on("/", handleRoot);
   server.on("/cmd", handleCommand);
@@ -188,5 +202,6 @@ void setup(void){
 }
  
 void loop(void){
+  dnsServer.processNextRequest();
   server.handleClient();
 }
