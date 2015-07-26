@@ -3,15 +3,21 @@
 #include <ESP8266WebServer.h>
 #include <WiFiClient.h>
 
+/* Settings you may want to configure for your LogoBot */
+#define LOGOBOT_SSID "LogobotBlue"
+#define LOGOBOT_PWD "logobot1"
+#define LOGOBOT_URL "logo.bot"
+static const IPAddress apIP(192, 168, 4, 1);
+static const IPAddress mask(255, 255, 255, 0);
+
+/* Settings you should leave alone */
 #define DNS_PORT 53
 #define led 2
 
-IPAddress apIP(192, 168, 4, 1);
-IPAddress mask(255, 255, 255, 0);
 DNSServer dnsServer;
 ESP8266WebServer server(80);
 
-const char page[] PROGMEM = R"~(
+static const char page[] PROGMEM = R"~(
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <html>
@@ -121,13 +127,13 @@ Y:<input style="width: 40px" type="number" id="y" value="0"/>
 
 )~";
 
-void handleRoot() {
+static void handleRoot() {
   digitalWrite(led, 1);
   server.send(200, F("text/html"), page);
   digitalWrite(led, 0);
 }
 
-void handleCommand()
+static void handleCommand()
 {
   digitalWrite(led, 1);
   
@@ -151,13 +157,13 @@ void handleCommand()
     server.send(200, F("text/plain"), response);
 
   } else {
-    server.send(200, F("text/plain"), "err");
+    server.send(200, F("text/plain"), F("err"));
   }
   
   digitalWrite(led, 0);
 }
 
-void handleNotFound(){
+static void handleNotFound(){
   digitalWrite(led, 1);
   String message = "File Not Found\n\n";
   message += "URI: ";
@@ -184,7 +190,7 @@ void setup(void){
 
   WiFi.mode(WIFI_AP);
   WiFi.softAPConfig(apIP, apIP, mask);
-  WiFi.softAP("LogobotBlue", "logobot1");
+  WiFi.softAP(LOGOBOT_SSID, LOGOBOT_PWD);
   
   dnsServer.setTTL(300);
   // set which return code will be used for all other domains (e.g. sending
@@ -192,7 +198,7 @@ void setup(void){
   // sent by clients)
   // default is DNSReplyCode::NonExistentDomain
   dnsServer.setErrorReplyCode(DNSReplyCode::ServerFailure);
-  dnsServer.start(DNS_PORT, "logo.bot", apIP);
+  dnsServer.start(DNS_PORT, LOGOBOT_URL, apIP);
   
   server.on("/", handleRoot);
   server.on("/cmd", handleCommand);
