@@ -1,4 +1,4 @@
-#include <DNSServer.h>
+#include <DNSServer2.h>
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 #include <WiFiClient.h>
@@ -193,11 +193,7 @@ void setup(void){
   WiFi.softAP(LOGOBOT_SSID, LOGOBOT_PWD);
   
   dnsServer.setTTL(300);
-  // set which return code will be used for all other domains (e.g. sending
-  // ServerFailure instead of NonExistentDomain will reduce number of queries
-  // sent by clients)
-  // default is DNSReplyCode::NonExistentDomain
-  dnsServer.setErrorReplyCode(DNSReplyCode::ServerFailure);
+  dnsServer.setErrorReplyCode(DNSReplyCode::NonExistentDomain);
   dnsServer.start(DNS_PORT, LOGOBOT_URL, apIP);
   
   server.on("/", handleRoot);
