@@ -357,6 +357,8 @@ static void doLogoCommand(String c)
     writeText("LOGOBOT");
   } else if (c.startsWith("WT")) {
     writeText(c.substring(3));
+  } else if (c.startsWith("PQ")) {
+    printCommandQ();
   }
 }
 
@@ -991,4 +993,3 @@ static void writeZ()
 long sqr(long v) {
   return v*v;
 }
-
