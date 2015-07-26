@@ -1,8 +1,11 @@
 #include <AccelStepper.h>
 #include <Servo.h>
 
-// Pin definitions
+// Maths stuff
+#define DEGTORAD  PI/180
+#define RADTODEG  180/PI
 
+// Pin definitions
 // Left motor driver
 #define motorLPin1  2     // IN1 on the ULN2003 driver 1
 #define motorLPin2  3     // IN2 on the ULN2003 driver 1
@@ -385,7 +388,7 @@ void pushTo(float x, float y)
 
 static void driveTo(float x, float y) {
   // calc angle
-  float ang = atan2(y-state.y, x-state.x) * 180 / PI;
+  float ang = atan2(y-state.y, x-state.x) * RADTODEG;
   // now angle delta
   ang = ang - state.ang;
   if (ang > 180)
@@ -405,8 +408,8 @@ static void driveTo(float x, float y) {
 void drive(float distance)
 {
   // update state
-  state.x += distance * cos(state.ang * PI / 180);
-  state.y += distance * sin(state.ang * PI / 180);
+  state.x += distance * cos(state.ang * DEGTORAD);
+  state.y += distance * sin(state.ang * DEGTORAD);
 
   // prime the move
   int steps = distance * STEPS_PER_MM;
@@ -420,8 +423,8 @@ void turn(float ang)
   state.ang += ang;
 
   // correct wrap around
-  if (state.ang > 360) state.ang -= 360;
-  if (state.ang < -360) state.ang += 360;
+  if (state.ang > 180) state.ang -= 360;
+  if (state.ang < -180) state.ang += 360;
 
   // prime the move
   int steps = ang * STEPS_PER_DEG;
@@ -434,13 +437,15 @@ void arcTo (float x, float y) {
 
     if (y == 0) return;
 
-    float cx = x - state.x;
-    float cy = y - state.y;
+    float cx1 = x - state.x;
+    float cy1 = y - state.y;
 
     //v.rotate(degToRad(-this.state.angle));
-    float ang = -state.ang * PI / 180;
-    cx = cx * cos(ang) - cy * sin(ang);
-    cy = cx * sin(ang) + cy * cos(ang);
+    float ang = -state.ang * DEGTORAD;
+    float ca = cos(ang);
+    float sa = sin(ang);
+    float cx = cx1 * ca - cy1 * sa;
+    float cy = cx1 * sa + cy1 * ca;
 
     float m = -cx / cy;
 
@@ -456,7 +461,7 @@ void arcTo (float x, float y) {
     float cl, cr;
 
     if (x1 < 0) {
-        targetAng = atan2(cy, -x1 + cx) * 180/PI;
+        targetAng = atan2(cy, -x1 + cx) * RADTODEG;
 
         cl = 2 * PI * (-WHEELSPACING/2 - x1);
         dl = cl * targetAng/360;
@@ -465,7 +470,7 @@ void arcTo (float x, float y) {
         dr = cr * targetAng/360;
 
     } else {
-        targetAng = atan2(cy, x1 - cx) * 180/PI;
+        targetAng = atan2(cy, x1 - cx) * RADTODEG;
 
         cl = 2 * PI * (x1 + WHEELSPACING/2 );
         dl = cl * targetAng/360;
