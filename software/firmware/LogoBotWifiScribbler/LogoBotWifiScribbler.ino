@@ -1,4 +1,4 @@
-#include <AccelStepper.h>
+#include "DifferentialStepper.h"
 #include <Servo.h>
 
 // Maths stuff
@@ -37,8 +37,13 @@
 #define SERVO       11
 
 // Initialize with pin sequence IN1-IN3-IN2-IN4 for using the AccelStepper with 28BYJ-48
-AccelStepper stepperL(AccelStepper::HALF4WIRE, motorLPin1, motorLPin3, motorLPin2, motorLPin4);
-AccelStepper stepperR(AccelStepper::HALF4WIRE, motorRPin1, motorRPin3, motorRPin2, motorRPin4);
+DifferentialStepper diffDrive(
+    DifferentialStepper::HALF4WIRE,
+    motorLPin1, motorLPin3, motorLPin2, motorLPin4,
+    motorRPin1, motorRPin3, motorRPin2, motorRPin4
+);
+//AccelStepper stepperL(AccelStepper::HALF4WIRE, motorLPin1, motorLPin3, motorLPin2, motorLPin4);
+//AccelStepper stepperR(AccelStepper::HALF4WIRE, motorRPin1, motorRPin3, motorRPin2, motorRPin4);
 
 #define STEPS_PER_MM 5000/232
 #define STEPS_PER_DEG 3760.0 / 180.0
@@ -165,6 +170,7 @@ void setup()
 {
   Serial.begin(9600);
   Serial.println("Logobot");
+  /*
   stepperL.setMaxSpeed(1000);
   stepperL.setAcceleration(2000);
   stepperL.setBacklash(STEPS_OF_BACKLASH);
@@ -173,6 +179,7 @@ void setup()
   stepperR.setMaxSpeed(1000);
   stepperR.setAcceleration(2000);
   stepperR.setBacklash(STEPS_OF_BACKLASH);
+  */
 
   pinMode(switchFL, INPUT_PULLUP);
   pinMode(switchFR, INPUT_PULLUP);
@@ -235,6 +242,7 @@ void loop()
   else
     digitalWrite(buzzer, LOW);
 
+/*
   // Let steppers run
   stepperL.run();
   stepperR.run();
@@ -242,6 +250,7 @@ void loop()
   // Disable motors when stopped to save power
   // Note that AccelStepper.disableOutputs doesn't seem to work
   // correctly when pins are inverted and leaves some outputs on.
+
   if (stepperL.distanceToGo() == 0 && stepperR.distanceToGo() == 0) {
 
     if (isQEmpty()) {
@@ -268,6 +277,7 @@ void loop()
       doLogoCommand(popCmd());
     }
   }
+  */
 }
 
 
@@ -366,15 +376,19 @@ static void doLogoCommand(String c)
 }
 
 void stop() {
+    /*
   stepperL.stop();
   stepperR.stop();
+  */
 }
 
 void emergencyStop() {
+  /*
   stepperL.setCurrentPosition(stepperL.currentPosition());
   stepperL.setSpeed(0);
   stepperR.setCurrentPosition(stepperR.currentPosition());
   stepperR.setSpeed(0);
+  */
 }
 
 void pushTo(float x, float y)
@@ -413,8 +427,8 @@ void drive(float distance)
 
   // prime the move
   int steps = distance * STEPS_PER_MM;
-  stepperL.move(steps);
-  stepperR.move(steps);
+  //stepperL.move(steps);
+  //stepperR.move(steps);
 }
 
 void turn(float ang)
@@ -428,8 +442,8 @@ void turn(float ang)
 
   // prime the move
   int steps = ang * STEPS_PER_DEG;
-  stepperR.move(steps);
-  stepperL.move(-steps);
+  //stepperR.move(steps);
+  //stepperL.move(-steps);
 }
 
 
@@ -479,8 +493,8 @@ void arcTo (float x, float y) {
         dr = cr * targetAng/360.0;
     }
 
-    stepperL.move(dl * STEPS_PER_MM);
-    stepperR.move(dr * STEPS_PER_MM);
+    //stepperL.move(dl * STEPS_PER_MM);
+    //stepperR.move(dr * STEPS_PER_MM);
 }
 
 
