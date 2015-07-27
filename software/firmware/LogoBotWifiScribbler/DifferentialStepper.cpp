@@ -306,7 +306,55 @@ void DifferentialStepper::setAcceleration(float acceleration) {
     _acceleration = acceleration;
 }
 
+boolean DifferentialStepper::isQFull() {
+    return _qSize == DIFFERENTIALSTEPPER_COMMAND_QUEUE_LENGTH;
+}
+
+boolean DifferentialStepper::isQEmpty() {
+    return _qSize == 0;
+}
+
+void DifferentialStepper::reset() {
+    _qSize = 0;
+}
+
+void DifferentialStepper::stopAfter() {
+    if (_qSize > 1) _qSize = 1;
+}
+
+void DifferentialStepper::dequeue() {
+    if (_qSize > 0) {
+        _qSize--;
+        _qHead++;
+        if (_qHead >= DIFFERENTIALSTEPPER_COMMAND_QUEUE_LENGTH)
+            _qHead -= DIFFERENTIALSTEPPER_COMMAND_QUEUE_LENGTH;
+    }
+}
+
+boolean DifferentialStepper::queueMove(long leftSteps, long rightSteps) {
+    if (!isQEmpty()) {
+        uint8_t next = _qHead + _qSize;
+        if (next >= DIFFERENTIALSTEPPER_COMMAND_QUEUE_LENGTH)
+            next -= DIFFERENTIALSTEPPER_COMMAND_QUEUE_LENGTH;
+
+        _q[next].leftSteps = leftSteps;
+        _q[next].rightSteps = rightSteps;
+
+
+        _qSize++;
+
+        return true;
+    } else
+        return false;
+}
+
 
 boolean DifferentialStepper::run() {
-    return false;
+    if (isQEmpty()) {
+        return false;
+    } else {
+        // move!
+
+        return true;
+    }
 }

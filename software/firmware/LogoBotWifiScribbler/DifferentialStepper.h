@@ -12,6 +12,7 @@
 #include <wiring.h>
 #endif
 
+#define DIFFERENTIALSTEPPER_COMMAND_QUEUE_LENGTH  8
 
 class DifferentialStepper
 {
@@ -50,6 +51,13 @@ public:
 
     };
 
+    // Defines a motion command in the queue
+    struct Command {
+        long leftSteps, rightSteps;  // relative steps
+    };
+
+
+
     /*
         Constructor
         NOTE: Steppers will initially be disabled
@@ -84,6 +92,16 @@ public:
 
     void setMaxSpeed(float speed);
     void setAcceleration(float acceleration);
+
+    boolean isQFull();
+    boolean isQEmpty();
+
+    void reset();  // empty queue, immediate stop, no change in enable/disable status
+
+    //void stop();  // graceful stop with deacceleration
+    void stopAfter();  // stop after current move command completes
+
+    boolean queueMove(long leftPos, long rightPos);
 
     boolean run();  // return true if still moving
 
@@ -139,6 +157,11 @@ private:
     unsigned int    _minPulseWidth;
     unsigned int    _backlash;
 
+    Command         _q[DIFFERENTIALSTEPPER_COMMAND_QUEUE_LENGTH];
+    uint8_t         _qHead = 0;
+    uint8_t         _qSize = 0;
+
+
     void enableOutputsFor(Motor *motor);
     void disableOutputsFor(Motor *motor);
 
@@ -151,6 +174,7 @@ private:
     void step6(Motor *motor, long step);
     void step8(Motor *motor, long step);
 
+    void dequeue();  // removes head of queue
 };
 
 

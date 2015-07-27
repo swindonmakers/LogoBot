@@ -353,23 +353,15 @@ static void doLogoCommand(String c)
   }
 }
 
-void stop() {
-    /*
-  stepperL.stop();
-  stepperR.stop();
-  */
+static void stop() {
+    diffDrive.stopAfter();
 }
 
-void emergencyStop() {
-  /*
-  stepperL.setCurrentPosition(stepperL.currentPosition());
-  stepperL.setSpeed(0);
-  stepperR.setCurrentPosition(stepperR.currentPosition());
-  stepperR.setSpeed(0);
-  */
+static void emergencyStop() {
+  diffDrive.reset();
 }
 
-void pushTo(float x, float y)
+static void pushTo(float x, float y)
 {
   String s = "TO ";
   s += x;
@@ -397,7 +389,7 @@ static void driveTo(float x, float y) {
   insertCmd(s);
 }
 
-void drive(float distance)
+static void drive(float distance)
 {
   // update state
   state.x += distance * cos(state.ang * DEGTORAD);
@@ -405,11 +397,10 @@ void drive(float distance)
 
   // prime the move
   int steps = distance * STEPS_PER_MM;
-  //stepperL.move(steps);
-  //stepperR.move(steps);
+  diffDrive.queueMove(steps,steps);
 }
 
-void turn(float ang)
+static void turn(float ang)
 {
   // update state
   state.ang += ang;
@@ -420,12 +411,11 @@ void turn(float ang)
 
   // prime the move
   int steps = ang * STEPS_PER_DEG;
-  //stepperR.move(steps);
-  //stepperL.move(-steps);
+  diffDrive.queueMove(steps,-steps);
 }
 
 
-void arcTo (float x, float y) {
+static void arcTo (float x, float y) {
 
     if (y == 0) return;
 
@@ -471,22 +461,21 @@ void arcTo (float x, float y) {
         dr = cr * targetAng/360.0;
     }
 
-    //stepperL.move(dl * STEPS_PER_MM);
-    //stepperR.move(dr * STEPS_PER_MM);
+    diffDrive.queueMove(dl * STEPS_PER_MM, dr * STEPS_PER_MM);
 }
 
 
-void buzz(int len)
+static void buzz(int len)
 {
   buzzEnd = millis() + len;
 }
 
-void penUp()
+static void penUp()
 {
   penliftServo.write(10);
 }
 
-void penDown()
+static void penDown()
 {
   penliftServo.write(90);
 }
