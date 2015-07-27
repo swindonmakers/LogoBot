@@ -53,7 +53,14 @@ public:
 
     // Defines a motion command in the queue
     struct Command {
-        long leftSteps, rightSteps;  // relative steps
+        unsigned long leftSteps, rightSteps;  // steps per motor
+        uint8_t directionBits;  // direction bit for each motor, left=0, right=1
+        unsigned long totalSteps;  // max(abs(leftSteps),abs(rightSteps))
+        unsigned long accelerateUntil; // The index of the step event on which to stop acceleration
+        unsigned long decelerateAfter; // The index of the step event on which to start decelerating
+        
+        //maxEntrySpeed;
+
     };
 
 
