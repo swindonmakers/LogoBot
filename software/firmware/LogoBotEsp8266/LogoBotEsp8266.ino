@@ -12,6 +12,7 @@ static const IPAddress mask(255, 255, 255, 0);
 
 /* Settings you should leave alone */
 #define DNS_PORT 53
+#define MAX_PARAM_LENGTH 50
 #define led 2
 
 DNSServer dnsServer;
@@ -127,6 +128,34 @@ Y:<input style="width: 40px" type="number" id="y" value="0"/>
 
 )~";
 
+static void urldecode2(char *dst, const char *src)
+{
+  char a, b;
+  while (*src) {
+    if ((*src == '%') &&
+      ((a = src[1]) && (b = src[2])) &&
+      (isxdigit(a) && isxdigit(b))) {
+      if (a >= 'a')
+        a -= 'a' - 'A';
+      if (a >= 'A')
+        a -= ('A' - 10);
+      else
+        a -= '0';
+      if (b >= 'a')
+        b -= 'a' - 'A';
+      if (b >= 'A')
+        b -= ('A' - 10);
+      else
+        b -= '0';
+      *dst++ = 16 * a + b;
+      src += 3;
+    } else {
+        *dst++ = *src++;
+    }
+  }
+  *dst++ = '\0';
+}
+
 static void handleRoot() {
   digitalWrite(led, 1);
   server.send(200, F("text/html"), page);
@@ -138,11 +167,21 @@ static void handleCommand()
   digitalWrite(led, 1);
   
   if (server.hasArg("action")) {
-    // Parse args, todo, url decode
+    // Parse args
     String cmd = server.arg("action");
-    if (server.hasArg("p1")) cmd += " " + server.arg("p1");
-    if (server.hasArg("p2")) cmd += " " + server.arg("p2");
-
+    char arg[MAX_PARAM_LENGTH];
+    char temp[MAX_PARAM_LENGTH];
+    if (server.hasArg("p1")) {
+      server.arg("p1").toCharArray(arg, MAX_PARAM_LENGTH);
+      urldecode2(temp, arg);
+      cmd += " " + String(temp);
+    }
+    if (server.hasArg("p2")) {
+      server.arg("p2").toCharArray(arg, MAX_PARAM_LENGTH);
+      urldecode2(temp, arg);
+      cmd += " " + String(temp);
+    }
+    
     // Clear input button in anticipation of a response.
     while(Serial.available())
       Serial.read();
