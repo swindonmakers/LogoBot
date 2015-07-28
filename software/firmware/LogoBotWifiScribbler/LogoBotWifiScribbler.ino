@@ -135,8 +135,6 @@ boolean isQEmpty() {
   return qSize == 0;
 }
 
-
-
 void printCommandQ()
 {
   Serial.print("cmdQ:");
@@ -208,7 +206,9 @@ void loop()
     char c = Serial.read();
     if (c == '\r' || c == '\n') {
       if (cmd != "") {
-        if (isQFull()) {
+        if (cmd == "STAT") {
+          showStatus();
+        } else if (isQFull()) {
             Serial.println("BUSY");
         } else {
             if (cmd[0] == '!') {
@@ -303,6 +303,17 @@ static void handleCollisions() {
   }
 }
 
+static void showStatus() 
+{
+  // Format: "X Y ang qSize"
+  Serial.print(state.x);
+  Serial.print(" ");
+  Serial.print(state.y);
+  Serial.print(" ");
+  Serial.print(state.ang);
+  Serial.print(" ");
+  Serial.println(qSize);
+}
 
 static void doLogoCommand(String c)
 {

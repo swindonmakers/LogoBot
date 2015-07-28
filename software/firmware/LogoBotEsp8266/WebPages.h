@@ -108,3 +108,49 @@ Y:<input style="width: 40px" type="number" id="y" value="0"/>
 
 )~";
 
+
+static const char statusPage[] PROGMEM = R"~(
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+  <head>
+    <title>Logobot Status</title>
+  </head>
+<body>
+<div>
+  Status: <span id="s">?</span><br />
+  X: <span id="x">0</span><br />
+  Y: <span id="y">0</span><br />
+  Ang: <span id="a">0</span><br />
+  CmdQ: <span id="q">0</span><br />
+</div>
+
+<script type="text/javascript">
+  function el(id) { return document.getElementById(id); }
+  function elv(id) { return el(id).value; }
+  function updateStatus() {
+    var xhReq = new XMLHttpRequest();
+    xhReq.open('GET', '/stat', true);
+    try {
+      xhReq.send();
+      xhReq.onload = function () {
+        var stat = JSON.parse(this.responseText);
+        el('s').innerText = stat.response;
+        el('x').innerText = stat.x;
+        el('y').innerText = stat.y;
+        el('a').innerText = stat.ang;
+        el('q').innerText = stat.qSize;
+        setTimeout(updateStatus, 1000);
+      }
+    } catch(ex) {
+      el('s').innerText = 'err';
+    }
+  }
+
+  setTimeout(updateStatus, 1000);
+</script>
+</body>
+</html>
+
+)~";
+

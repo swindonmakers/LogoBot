@@ -15,6 +15,7 @@ static const IPAddress mask(255, 255, 255, 0);
 #define DNS_PORT 53
 #define MAX_PARAM_LENGTH 50
 #define led 2
+#define LOGOBOT_RESPONSE_TIME 200
 
 DNSServer dnsServer;
 ESP8266WebServer server(80);
@@ -53,6 +54,12 @@ static void handleRoot() {
   digitalWrite(led, 0);
 }
 
+static void handleStatus() {
+  digitalWrite(led, 1);
+  server.send(200, F("text/html"), statusPage);
+  digitalWrite(led, 0);
+}
+
 static void handleCommand()
 {
   digitalWrite(led, 1);
@@ -73,15 +80,15 @@ static void handleCommand()
       cmd += " " + String(temp);
     }
     
-    // Clear input button in anticipation of a response.
+    // Clear input in anticipation of a response.
     while(Serial.available())
       Serial.read();
 
     // Send command
     Serial.println(cmd);
 
-    // Wait a max of 200ms for a repsonse
-    Serial.setTimeout(200);
+    // Wait for a limited time for a reply
+    Serial.setTimeout(LOGOBOT_RESPONSE_TIME);
     String response = Serial.readStringUntil('\n');
 
     server.send(200, F("text/plain"), response);
@@ -93,7 +100,51 @@ static void handleCommand()
   digitalWrite(led, 0);
 }
 
-static void handleNotFound(){
+static void handleStat()
+{
+  digitalWrite(led, 1);
+  
+  // Clear input in anticipation of a response.
+  while(Serial.available())
+    Serial.read();
+  
+  // Request status from Logobot
+  Serial.println("STAT");
+  
+  // Wait for a limited time for a reply
+  Serial.setTimeout(LOGOBOT_RESPONSE_TIME);
+  String response = Serial.readStringUntil('\n');
+  
+  if (response.length() == 0) {
+    server.send(401, F("application/json"), F("{\"response\": \"noreply\"}"));
+  } else {
+    // Split on space to get 4 parameters "x y ang qSize"
+    response.replace('\r', ' ');
+    String params[4];
+    int a = 0;
+    int b = 0;
+    for (int i = 0; i < 4; i++) {
+      b = response.indexOf(' ', a);
+      params[i] = response.substring(a, b);
+      a = b + 1;
+    }
+    
+    int space = response.indexOf(' ');
+    String json = "{\"response\": \"ok\"";
+    json += ", \"x\": \"" + params[0] + "\"";
+    json += ", \"y\": \"" + params[1] + "\"";
+    json += ", \"ang\": \"" + params[2] + "\"";
+    json += ", \"qSize\": \"" + params[3] + "\"";
+    json += "}";
+    
+    server.send(200, F("application/json"), json);
+  }
+  
+  digitalWrite(led, 0);
+}
+
+static void handleNotFound()
+{
   digitalWrite(led, 1);
   String message = "File Not Found\n\n";
   message += "URI: ";
@@ -125,9 +176,12 @@ void setup(void){
   dnsServer.setTTL(300);
   dnsServer.setErrorReplyCode(DNSReplyCode::NonExistentDomain);
   dnsServer.start(DNS_PORT, LOGOBOT_URL, apIP);
-  
-  server.on("/", handleRoot);
+
+  // Most frequently accesed pages first for speed.  
+  server.on("/stat", handleStat);
   server.on("/cmd", handleCommand);
+  server.on("/status", handleStatus);
+  server.on("/", handleRoot);
   server.onNotFound(handleNotFound);
   
   server.begin();
