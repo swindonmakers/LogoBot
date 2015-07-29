@@ -591,6 +591,9 @@ static void writeChar(char c) {
       case 'Z':
         writeZ();
         break;
+      case ' ':
+        writeSpace();
+        break;
 
       default:
         pushCmd("BZ 500");
@@ -687,15 +690,15 @@ static void writeE()
   float y = state.y;
   float w = fontSize * 0.5;
 
+  pushTo(x + w, y + capHeight);
   pushCmd("PD");
   pushTo(x, y + capHeight);
-  pushTo(x + w, y + capHeight);
-  pushCmd("PU");
-  pushTo(x + w, y + capHeight / 2);
-  pushCmd("PD");
-  pushTo(x, y + capHeight / 2);
   pushTo(x, y);
   pushTo(x + w, y);
+  pushCmd("PU");
+  pushTo(x, y + capHeight / 2);
+  pushCmd("PD");
+  pushTo(x + w, y + capHeight /2);
   NEXTLETTER
 }
 
@@ -1002,6 +1005,14 @@ static void writeZ()
   pushTo(x + w, y + capHeight);
   pushTo(x, y);
   pushTo(x + w, y);
+  NEXTLETTER
+}
+
+static void writeSpace()
+{
+  float x = state.x;
+  float y = state.y;
+  float w = fontSize * 0.5;
   NEXTLETTER
 }
 
