@@ -42,24 +42,25 @@ public:
     } WhichMotor;
 
     struct Motor {
-        Direction       _direction;
-        uint8_t         _pin[4];
-        uint8_t         _pinInverted[4];
-        long            _currentPos;  // in steps
-        bool           _enableInverted;  /// Is the enable pin inverted?
-        uint8_t        _enablePin;   /// Enable pin for stepper driver, or 0xFF if unused.
+        boolean       direction;
+        uint8_t         pin[4];
+        uint8_t         pinInverted[4];
+        long            currentPos;  // in steps
+        bool           enableInverted;  /// Is the enable pin inverted?
+        uint8_t        enablePin;   /// Enable pin for stepper driver, or 0xFF if unused.
 
     };
 
     // Defines a motion command in the queue
     struct Command {
         unsigned long leftSteps, rightSteps;  // steps per motor
-        uint8_t directionBits;  // direction bit for each motor, left=0, right=1
+        uint8_t directionBits;  // direction bit for each motor, left=0, right=1, 1=fwd, 0=back
         unsigned long totalSteps;  // max(abs(leftSteps),abs(rightSteps))
         unsigned long accelerateUntil; // The index of the step event on which to stop acceleration
         unsigned long decelerateAfter; // The index of the step event on which to start decelerating
-        
+
         //maxEntrySpeed;
+        boolean busy; // set to true once bresenham initialised and active
 
     };
 
@@ -95,7 +96,7 @@ public:
     /// Sets the number of steps needed to correct backlash in drive train
     void    setBacklash(unsigned int steps);
 
-    void step(Motor *motor, long step);
+    void step(Motor *motor);
 
     void setMaxSpeed(float speed);
     void setAcceleration(float acceleration);
@@ -168,20 +169,27 @@ private:
     uint8_t         _qHead = 0;
     uint8_t         _qSize = 0;
 
+    // DDA accumulators
+    long            _counterLeft, _counterRight;
+    unsigned long   _stepsCompleted;
+    unsigned long   _lastStepTime;
+    unsigned long   _stepInterval;
+
 
     void enableOutputsFor(Motor *motor);
     void disableOutputsFor(Motor *motor);
 
     void setOutputPinsFor(Motor *motor, uint8_t mask);
 
-    void step1(Motor *motor, long step);
-    void step2(Motor *motor, long step);
-    void step3(Motor *motor, long step);
-    void step4(Motor *motor, long step);
-    void step6(Motor *motor, long step);
-    void step8(Motor *motor, long step);
+    void step1(Motor *motor);
+    void step2(Motor *motor);
+    void step3(Motor *motor);
+    void step4(Motor *motor);
+    void step6(Motor *motor);
+    void step8(Motor *motor);
 
     void dequeue();  // removes head of queue
+    Command *getCurrentCommand();  // return pointer to current command (head of queue)
 };
 
 
