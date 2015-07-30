@@ -1,4 +1,5 @@
 #include <AccelStepper.h>
+#include <CommandQueue.h>
 #include <Servo.h>
 
 // Maths stuff
@@ -48,7 +49,7 @@ AccelStepper stepperR(AccelStepper::HALF4WIRE, motorRPin1, motorRPin3, motorRPin
 #define STEPS_OF_BACKLASH   39
 
 #define MAX_CMD_LENGTH 10
-#define QUEUE_LENGTH 20
+CommandQueue cmdQ(20);
 
 // logobot state info
 struct STATE {
@@ -72,92 +73,12 @@ float letterSpacing = fontSize * 0.1;
 // cmd received over serial - builds up char at a time
 String cmd;
 
-struct COMMAND {
-  String cmd;
-};
-
-COMMAND cmdQ[QUEUE_LENGTH];
-int qHead = 0;
-int qSize = 0;
-
-boolean insertCmd(String s) {
-  // inserts s at head of queue
-  // return true if inserted ok, false if buffer full
-
-  if (!isQFull()) {
-    qHead--;
-    if (qHead < 0) qHead += QUEUE_LENGTH;
-
-    cmdQ[qHead].cmd = String(s);
-
-    qSize++;
-
-    return true;
-  } else
-    return false;
-}
-
-boolean pushCmd(String s) {
-  // push s onto tail of queue
-  // return true if pushed ok, false if buffer full
-
-  if (!isQFull()) {
-    int next = qHead + qSize;
-    if (next >= QUEUE_LENGTH) next -= QUEUE_LENGTH;
-
-    cmdQ[next].cmd = String(s);
-
-    qSize++;
-
-    return true;
-  } else
-    return false;
-}
-
-String popCmd() {
-  // pops head of queue
-  if (qSize > 0) {
-    String s = cmdQ[qHead].cmd;
-    qSize--;
-    qHead++;
-    if (qHead >= QUEUE_LENGTH) qHead -= QUEUE_LENGTH;
-    return s;
-  } else
-    return "";
-}
-
-boolean isQFull() {
-  // returns true if full
-  return qSize == QUEUE_LENGTH;
-}
-
-boolean isQEmpty() {
-  return qSize == 0;
-}
-
-void printCommandQ()
-{
-  Serial.print("cmdQ:");
-  Serial.print(qHead);
-  Serial.print(":");
-  Serial.println(qSize);
-
-  for (int i=0; i<qSize; i++) {
-    Serial.print(i);
-    Serial.print(":");
-    int j = qHead + i;
-    if (j > QUEUE_LENGTH) j-= QUEUE_LENGTH;
-    Serial.println(cmdQ[j].cmd);
-  }
-}
-
 // position calcs
 void resetPosition() {
   state.x = 0;
   state.y = 0;
   state.ang = 0;
 }
-
 
 void setup()
 {
@@ -208,14 +129,14 @@ void loop()
       if (cmd != "") {
         if (cmd == "STAT") {
           showStatus();
-        } else if (isQFull()) {
+        } else if (cmdQ.isFull()) {
             Serial.println("BUSY");
         } else {
             if (cmd[0] == '!') {
                 emergencyStop();
-                insertCmd(cmd.substring(1));
+                cmdQ.insert(cmd.substring(1));
             } else {
-                pushCmd(cmd);
+                cmdQ.enqueue(cmd);
             }
             Serial.println("OK:" + cmd);
         }
@@ -244,7 +165,7 @@ void loop()
   // correctly when pins are inverted and leaves some outputs on.
   if (stepperL.distanceToGo() == 0 && stepperR.distanceToGo() == 0) {
 
-    if (isQEmpty()) {
+    if (cmdQ.isEmpty()) {
 
       // check the text writing buffer
       if (text.length() > 0) {
@@ -265,7 +186,7 @@ void loop()
       }
     } else {
       // pop and process next command from queue
-      doLogoCommand(popCmd());
+      doLogoCommand(cmdQ.dequeue());
     }
   }
 }
@@ -289,14 +210,14 @@ static void handleCollisions() {
     // Note since we are inserting at the head of the command queue, the first
     // command we insert will be run second.
     if (nowColliding == 1) {
-      insertCmd("RT 45");
-      insertCmd("BK 20");
+      cmdQ.insert("RT 45");
+      cmdQ.insert("BK 20");
     } else if (nowColliding == 2) {
-      insertCmd("LT 45");
-      insertCmd("BK 20");
+      cmdQ.insert("LT 45");
+      cmdQ.insert("BK 20");
     } else if (nowColliding == 3) {
-      insertCmd("RT 120");
-      insertCmd("BK 20");
+      cmdQ.insert("RT 120");
+      cmdQ.insert("BK 20");
     }
 
     state.colliding = nowColliding;
@@ -312,7 +233,7 @@ static void showStatus()
   Serial.print(" ");
   Serial.print(state.ang);
   Serial.print(" ");
-  Serial.println(qSize);
+  Serial.println(cmdQ.pending());
 }
 
 static void doLogoCommand(String c)
@@ -372,7 +293,7 @@ static void doLogoCommand(String c)
   } else if (c.startsWith("WT")) {
     writeText(c.substring(3));
   } else if (c.startsWith("PQ")) {
-    printCommandQ();
+    cmdQ.printCommandQ();
   }
 }
 
@@ -394,7 +315,7 @@ void pushTo(float x, float y)
   s += x;
   s += " ";
   s += y;
-  pushCmd(s);
+  cmdQ.enqueue(s);
 }
 
 static void driveTo(float x, float y) {
@@ -413,7 +334,7 @@ static void driveTo(float x, float y) {
   float dist = sqrt(sqr(y-state.y) + sqr(x-state.x));
   String s = "FD ";
   s += dist;
-  insertCmd(s);
+  cmdQ.insert(s);
 }
 
 void drive(float distance)
@@ -596,7 +517,7 @@ static void writeChar(char c) {
         break;
 
       default:
-        pushCmd("BZ 500");
+        cmdQ.enqueue("BZ 500");
         break;
     }
 }
@@ -617,7 +538,7 @@ static void writeText(String s) {
 
 static void nextLetter(float x, float y)
 {
-  pushCmd("PU");
+  cmdQ.enqueue("PU");
   pushTo(x, y);
 }
 
@@ -627,12 +548,12 @@ static void writeA()
   float y = state.y;
   float w = fontSize * 0.5;
 
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x + w/2, y + capHeight);
   pushTo(x + w, y);
-  pushCmd("PU");
+  cmdQ.enqueue("PU");
   pushTo(x + w / 4, y + capHeight / 2);
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x + 3 * w / 4, y + capHeight / 2 );
   NEXTLETTER
 }
@@ -643,7 +564,7 @@ static void writeB()
   float y = state.y;
   float w = fontSize * 0.5;
 
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x + 2 * w / 3, y);
   pushTo(x + w, y + capHeight / 4);
   pushTo(x + 2 * w / 3, y + capHeight / 2);
@@ -661,7 +582,7 @@ static void writeC()
   float w = fontSize * 0.5;
 
   pushTo(x + w, y + capHeight);
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x, y + capHeight);
   pushTo(x, y);
   pushTo(x + w, y);
@@ -674,7 +595,7 @@ static void writeD()
   float y = state.y;
   float w = fontSize * 0.5;
 
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x + 3 * w / 4, y);
   pushTo(x + w, y + capHeight / 4);
   pushTo(x + w, y + 3 * capHeight / 4);
@@ -691,13 +612,13 @@ static void writeE()
   float w = fontSize * 0.5;
 
   pushTo(x + w, y + capHeight);
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x, y + capHeight);
   pushTo(x, y);
   pushTo(x + w, y);
-  pushCmd("PU");
+  cmdQ.enqueue("PU");
   pushTo(x, y + capHeight / 2);
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x + w, y + capHeight /2);
   NEXTLETTER
 }
@@ -708,12 +629,12 @@ static void writeF()
   float y = state.y;
   float w = fontSize * 0.5;
 
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x, y + capHeight);
   pushTo(x + w, y + capHeight);
-  pushCmd("PU");
+  cmdQ.enqueue("PU");
   pushTo(x + w, y + capHeight / 2);
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x, y + capHeight / 2);
   NEXTLETTER
 }
@@ -725,7 +646,7 @@ static void writeG()
   float w = fontSize * 0.5;
 
   pushTo(x + w, y + capHeight);
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x, y + capHeight);
   pushTo(x, y);
   pushTo(x + w, y);
@@ -740,7 +661,7 @@ static void writeH()
   float y = state.y;
   float w = fontSize * 0.5;
 
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x, y + capHeight);
   pushTo(x, y + capHeight / 2);
   pushTo(x + w, y + capHeight / 2);
@@ -756,7 +677,7 @@ static void writeI()
   float w = fontSize * 0.5;
 
   pushTo(x + w / 2, y);
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x + w / 2, y + capHeight);
   NEXTLETTER
 }
@@ -768,7 +689,7 @@ static void writeJ()
   float w = fontSize * 0.5;
 
   pushTo(x, y + capHeight / 4);
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x, y);
   pushTo(x + w, y);
   pushTo(x + w, y + capHeight);
@@ -781,11 +702,11 @@ static void writeK()
   float y = state.y;
   float w = fontSize * 0.5;
 
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x, y + capHeight);
-  pushCmd("PU");
+  cmdQ.enqueue("PU");
   pushTo(x + w, y + capHeight);
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x, y + capHeight / 2);
   pushTo(x + w, y);
   NEXTLETTER
@@ -797,7 +718,7 @@ static void writeL()
   float y = state.y;
   float w = fontSize * 0.5;
 
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x, y + capHeight);
   pushTo(x,y);
   pushTo(x + w, y);
@@ -810,7 +731,7 @@ static void writeM()
   float y = state.y;
   float w = fontSize * 0.5;
 
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x, y + capHeight);
   pushTo(x + w / 2, y + capHeight / 2);
   pushTo(x + w, y + capHeight);
@@ -824,7 +745,7 @@ static void writeN()
   float y = state.y;
   float w = fontSize * 0.5;
 
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x, y + capHeight);
   pushTo(x + w, y);
   pushTo(x + w, y + capHeight);
@@ -837,7 +758,7 @@ static void writeO()
   float y = state.y;
   float w = fontSize * 0.5;
 
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x + w, y);
   pushTo(x + w, y + capHeight);
   pushTo(x, y + capHeight);
@@ -851,7 +772,7 @@ static void writeP()
   float y = state.y;
   float w = fontSize * 0.5;
 
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x, y + capHeight);
   pushTo(x + w, y + capHeight);
   pushTo(x + w, y + capHeight / 2);
@@ -865,15 +786,15 @@ static void writeQ()
   float y = state.y;
   float w = fontSize * 0.5;
 
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x + w / 2, y);
   pushTo(x + w, y + capHeight / 2);
   pushTo(x + w, y + capHeight);
   pushTo(x, y + capHeight);
   pushTo(x, y);
-  pushCmd("PU");
+  cmdQ.enqueue("PU");
   pushTo(x + w / 2, y + capHeight / 2);
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x + w, y);
   NEXTLETTER
 }
@@ -884,7 +805,7 @@ static void writeR()
   float y = state.y;
   float w = fontSize * 0.5;
 
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x, y + capHeight);
   pushTo(x + w, y + capHeight);
   pushTo(x + w, y + capHeight / 2);
@@ -899,7 +820,7 @@ static void writeS()
   float y = state.y;
   float w = fontSize * 0.5;
 
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x + w, y);
   pushTo(x + w, y + capHeight / 2);
   pushTo(x, y + capHeight / 2);
@@ -914,7 +835,7 @@ static void writeT()
   float y = state.y;
   float w = fontSize * 0.5;
   pushTo(x + w/2, y);
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x + w/2, y + capHeight);
   pushTo(x, y + capHeight);
   pushTo(x + w, y + capHeight);
@@ -928,7 +849,7 @@ static void writeU()
   float w = fontSize * 0.5;
 
   pushTo(x, y + capHeight);
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x, y);
   pushTo(x + w, y);
   pushTo(x + w, y + capHeight);
@@ -942,7 +863,7 @@ static void writeV()
   float w = fontSize * 0.5;
 
   pushTo(x, y + capHeight);
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x + w / 2, y);
   pushTo(x + w, y + capHeight);
   NEXTLETTER
@@ -955,7 +876,7 @@ static void writeW()
   float w = fontSize * 0.5;
 
   pushTo(x, y + capHeight);
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x + w / 4, y);
   pushTo(x + w / 2, y + capHeight / 2);
   pushTo(x + 3 * w / 4, y);
@@ -969,11 +890,11 @@ static void writeX()
   float y = state.y;
   float w = fontSize * 0.5;
 
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x + w, y + capHeight);
-  pushCmd("PU");
+  cmdQ.enqueue("PU");
   pushTo(x, y + capHeight);
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x + w, y);
   NEXTLETTER
 }
@@ -984,11 +905,11 @@ static void writeY()
   float y = state.y;
   float w = fontSize * 0.5;
 
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x + w, y + capHeight);
-  pushCmd("PU");
+  cmdQ.enqueue("PU");
   pushTo(x, y + capHeight);
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x + w / 2, y + capHeight / 2);
   NEXTLETTER
 }
@@ -1001,7 +922,7 @@ static void writeZ()
   float w = fontSize * 0.5;
 
   pushTo(x, y + capHeight);
-  pushCmd("PD");
+  cmdQ.enqueue("PD");
   pushTo(x + w, y + capHeight);
   pushTo(x, y);
   pushTo(x + w, y);
