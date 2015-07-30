@@ -380,7 +380,7 @@ DifferentialStepper::Command *DifferentialStepper::getCurrentCommand() {
 }
 
 boolean DifferentialStepper::queueMove(long leftSteps, long rightSteps) {
-    if (!isQEmpty()) {
+    if (!isQFull()) {
         uint8_t next = _qHead + _qSize;
         if (next >= DIFFERENTIALSTEPPER_COMMAND_QUEUE_LENGTH)
             next -= DIFFERENTIALSTEPPER_COMMAND_QUEUE_LENGTH;
@@ -396,6 +396,8 @@ boolean DifferentialStepper::queueMove(long leftSteps, long rightSteps) {
         c->directionBits = 0;
         if (leftSteps > 0)  c->directionBits |= 1;
         if (rightSteps > 0) c->directionBits |= (1<<1);
+
+		Serial.println(c->directionBits, BIN);
 
         // these will be set later...
         c->accelerateUntil = 0;
@@ -419,6 +421,28 @@ boolean DifferentialStepper::run() {
     // check timing
     unsigned long time = micros();
 
+	if (!c->busy) {
+		c->busy = true;
+		_counterLeft = - (c->totalSteps >> 1);
+		_counterRight = _counterLeft;
+		_motors[0].direction = c->directionBits & 1;
+		_motors[1].direction = c->directionBits & (1<<1);
+		_stepsCompleted = 0;
+		_stepRate = _minStepRate;
+
+		Serial.print("M0:"); Serial.println(_motors[0].direction);
+		Serial.print("M1:"); Serial.println(_motors[1].direction);
+
+		// TODO: look-ahead
+		c->accelerateUntil = min(_accelDist, c->totalSteps >> 1);
+		c->decelerateAfter = max(c->totalSteps >> 1, c->totalSteps - _accelDist);
+
+		_lastStepTime = time;
+		_stepInterval = 1000000 / _stepRate;
+	}
+
+	//delay(1);
+
     // detect and correct for wrapping of nextStepTime or time
     if (_lastStepTime + _stepInterval < _lastStepTime) {
         _lastStepTime = 0;  // hack
@@ -428,48 +452,40 @@ boolean DifferentialStepper::run() {
 
     if ( stepTime >= _stepInterval ) {
         // it's time to step...
-
-        // init new command?
-        if (!c->busy) {
-            c->busy = true;
-            _counterLeft = - c->totalSteps >> 1;
-            _counterRight = _counterLeft;
-            _motors[0].direction = c->directionBits && 1;
-            _motors[1].direction = c->directionBits && (1<<1);
-            _stepsCompleted = 0;
-            _stepRate = _minStepRate;
-
-            // TODO: look-ahead
-            c->accelerateUntil = min(_accelDist, c->totalSteps >> 1);
-            c->decelerateAfter = max(c->totalSteps >> 1, c->totalSteps - _accelDist);
-        }
-
+		// init new command?
+        
+		
         // do steps for each motor, using Bresenham algo
         _counterLeft += c->leftSteps;
         if (_counterLeft > 0) {
-            _motors[0].currentPos += c->directionBits && 1 ? 1 : -1;
+            _motors[0].currentPos += _motors[0].direction ? 1 : -1;
             step(&_motors[0]);
             _counterLeft -= c->totalSteps;
         }
 
         _counterRight += c->rightSteps;
         if (_counterRight > 0) {
-            _motors[1].currentPos += (c->directionBits && (1<<1))>0 ? 1 : -1;
+			_motors[1].currentPos += _motors[1].direction ? 1 : -1;
             step(&_motors[1]);
             _counterRight -= c->totalSteps;
         }
 
         _stepsCompleted++;
 
+
         // update _stepRate
         int accelDelta = _acceleration * stepTime / 1000000.0;
-        if (_stepsCompleted < c->accelerateUntil && _stepRate < _maxStepRate)
+        if (_stepsCompleted < c->accelerateUntil & _stepRate < _maxStepRate)
             _stepRate += accelDelta;
-        if (_stepsCompleted >= c->decelerateAfter && _stepRate > _minStepRate)
+        if (_stepsCompleted >= c->decelerateAfter & _stepRate > _minStepRate)
             _stepRate -= accelDelta;
 
         // calculate time for next step
         _stepInterval = 1000000.0 / _stepRate;
+
+		//if (_stepsCompleted % 50 == 0)
+		//	Serial.println(_stepRate);
+
 
         // see if we've finished
         if (_stepsCompleted >= c->totalSteps) {
@@ -481,6 +497,6 @@ boolean DifferentialStepper::run() {
         return !isQEmpty();
     } else {
         // too soon, come back later
-        return true;
+        return !isQEmpty();
     }
 }

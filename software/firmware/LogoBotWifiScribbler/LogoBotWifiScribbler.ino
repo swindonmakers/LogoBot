@@ -251,6 +251,7 @@ void loop()
             }
         } else {
             // pop and process next command from queue
+			Serial.println("popcmd()");
             doLogoCommand(popCmd());
         }
     }
@@ -412,7 +413,7 @@ static void turn(float ang)
 
   // prime the move
   int steps = ang * STEPS_PER_DEG;
-  diffDrive.queueMove(steps,-steps);
+  diffDrive.queueMove(-steps, steps);
 }
 
 
@@ -424,7 +425,7 @@ static void arcTo (float x, float y) {
     float cy1 = y - state.y;
 
     //v.rotate(degToRad(-this.state.angle));
-    float ang = -state.ang * DEGTORAD;
+    float ang = -state.ang * DEGTORAD + PI / 2;
     float ca = cos(ang);
     float sa = sin(ang);
     float cx = cx1 * ca - cy1 * sa;
@@ -461,6 +462,10 @@ static void arcTo (float x, float y) {
         cr = 2.0 * PI * (x1 - WHEELSPACING/2.0);
         dr = cr * targetAng/360.0;
     }
+
+	state.x = x;
+	state.y = y;
+	state.ang += targetAng;
 
     diffDrive.queueMove(dl * STEPS_PER_MM, dr * STEPS_PER_MM);
 }
