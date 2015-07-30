@@ -173,7 +173,6 @@ void setup()
   diffDrive.setAcceleration(2000);
   diffDrive.setBacklash(STEPS_OF_BACKLASH);
   diffDrive.setPinsInvertedFor(0, true,true,false,false,false);
-  diffDrive.enableOutputs();
 
   pinMode(switchFL, INPUT_PULLUP);
   pinMode(switchFR, INPUT_PULLUP);

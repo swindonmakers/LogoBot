@@ -157,6 +157,7 @@ protected:
 
 private:
     uint8_t     _interface; // See MotorInterfaceType
+    boolean     _enabled;
     Motor       _motors[2];
 
     float          _maxSpeed;  // in steps/sec

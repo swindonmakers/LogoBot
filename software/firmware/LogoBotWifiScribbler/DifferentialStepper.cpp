@@ -11,6 +11,7 @@ DifferentialStepper::DifferentialStepper(
     uint8_t pinR3,
     uint8_t pinR4
 ) {
+    _enabled = false;
     _interface = interface;
     _maxSpeed = 1000;
     _minPulseWidth = 1;
@@ -40,10 +41,11 @@ DifferentialStepper::DifferentialStepper(
 }
 
 void DifferentialStepper::enableOutputs() {
-    if (! _interface) return;
+    if (! _interface || _enabled) return;
 
     for (int i=0; i<2; i++)
         enableOutputsFor(&_motors[i]);
+    _enabled = true;
 }
 
 void DifferentialStepper::enableOutputsFor(Motor *motor) {
@@ -70,10 +72,11 @@ void DifferentialStepper::enableOutputsFor(Motor *motor) {
 
 // Prevents power consumption on the outputs
 void DifferentialStepper::disableOutputs() {
-    if (! _interface) return;
+    if (! _interface || !_enabled) return;
 
     for (int i=0; i<2; i++)
         disableOutputsFor(&_motors[i]);
+    _enabled = false;
 }
 
 void DifferentialStepper::disableOutputsFor(Motor *motor) {
@@ -372,6 +375,9 @@ boolean DifferentialStepper::queueMove(long leftSteps, long rightSteps) {
 boolean DifferentialStepper::run() {
     Command *c = getCurrentCommand();
     if (c == NULL) return false;
+
+    // check enabled
+    if (!_enabled) enableOutputs();
 
     // check timing
     unsigned long time = micros();
