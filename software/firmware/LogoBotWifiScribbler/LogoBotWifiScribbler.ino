@@ -353,11 +353,13 @@ static void doLogoCommand(String c)
 }
 
 static void stop() {
-    diffDrive.stopAfter();
+    diffDrive.stop();
+    text = "";
 }
 
 static void emergencyStop() {
-  diffDrive.reset();
+  diffDrive.emergencyStop();
+  text = "";
 }
 
 static void pushTo(float x, float y)
