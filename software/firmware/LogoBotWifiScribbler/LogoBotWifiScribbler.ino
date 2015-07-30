@@ -169,7 +169,7 @@ void setup()
   Serial.begin(9600);
   Serial.println("Logobot");
 
-  diffDrive.setMaxSpeed(1000);
+  diffDrive.setMaxStepRate(1000);
   diffDrive.setAcceleration(2000);
   diffDrive.setBacklash(STEPS_OF_BACKLASH);
   diffDrive.setPinsInvertedFor(0, true,true,false,false,false);

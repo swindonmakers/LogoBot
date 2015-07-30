@@ -13,8 +13,10 @@ DifferentialStepper::DifferentialStepper(
 ) {
     _enabled = false;
     _interface = interface;
-    _maxSpeed = 1000;
+    _maxStepRate = 1000;
+    _minStepRate = 10;
     _minPulseWidth = 1;
+    _stepRate = _minStepRate;
 
     // pins
     _motors[MOTOR_LEFT].pin[0] = pinL1;
@@ -299,14 +301,29 @@ void DifferentialStepper::step8(Motor *motor)
     }
 }
 
-void DifferentialStepper::setMaxSpeed(float speed) {
-    if (speed <0) speed = 0;
-    _maxSpeed = speed;
+void DifferentialStepper::setMaxStepRate(unsigned long speed) {
+    if (speed < _minStepRate) speed = _minStepRate;
+    _maxStepRate = speed;
+    calculateAccelDist();
+}
+
+void DifferentialStepper::setMinStepRate(unsigned long speed) {
+    if (speed < 10) speed = 10;
+    _minStepRate = speed;
+    calculateAccelDist();
 }
 
 void DifferentialStepper::setAcceleration(float acceleration) {
     if (acceleration <= 0) return;
     _acceleration = acceleration;
+    calculateAccelDist();
+}
+
+void DifferentialStepper::calculateAccelDist() {
+    // distance required for acceleration to fullspeed (or stop)
+    _accelDist = ((_maxStepRate*_maxStepRate) - (_minStepRate*_minStepRate))
+                 /
+                 ( 2 * _acceleration);
 }
 
 boolean DifferentialStepper::isQFull() {
@@ -382,10 +399,14 @@ boolean DifferentialStepper::run() {
     // check timing
     unsigned long time = micros();
 
-    // Gymnastics to detect wrapping of either the nextStepTime and/or the current time
-    unsigned long nextStepTime = _lastStepTime + _stepInterval;
-    if (   ((nextStepTime >= _lastStepTime) && ((time >= nextStepTime) || (time < _lastStepTime)))
-    || ((nextStepTime < _lastStepTime) && ((time >= nextStepTime) && (time < _lastStepTime)))) {
+    // detect and correct for wrapping of nextStepTime or time
+    if (_lastStepTime + _stepInterval < _lastStepTime) {
+        _lastStepTime = 0;  // hack
+    }
+
+    long stepTime = time - _lastStepTime;
+
+    if ( stepTime >= _stepInterval ) {
         // it's time to step...
 
         // init new command?
@@ -396,9 +417,11 @@ boolean DifferentialStepper::run() {
             _motors[0].direction = c->directionBits && 1;
             _motors[1].direction = c->directionBits && (1<<1);
             _stepsCompleted = 0;
+            _stepRate = _minStepRate;
 
-            // TODO: recalc trapezoid
-
+            // TODO: look-ahead
+            c->accelerateUntil = min(_accelDist, c->totalSteps >> 1);
+            c->decelerateAfter = max(c->totalSteps >> 1, c->totalSteps - _accelDist);
         }
 
         // do steps for each motor, using Bresenham algo
@@ -418,13 +441,22 @@ boolean DifferentialStepper::run() {
 
         _stepsCompleted++;
 
+        // update _stepRate
+        int accelDelta = _acceleration * stepTime / 1000000.0;
+        if (_stepsCompleted < c->accelerateUntil && _stepRate < _maxStepRate)
+            _stepRate += accelDelta;
+        if (_stepsCompleted >= c->decelerateAfter && _stepRate > _minStepRate)
+            _stepRate -= accelDelta;
+
         // calculate time for next step
-        _stepInterval = 1000000 / _maxSpeed;
+        _stepInterval = 1000000.0 / _stepRate;
 
         // see if we've finished
         if (_stepsCompleted >= c->totalSteps) {
             dequeue();
         }
+
+        _lastStepTime = time;
 
         return !isQEmpty();
     } else {

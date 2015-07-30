@@ -98,7 +98,9 @@ public:
 
     void step(Motor *motor);
 
-    void setMaxSpeed(float speed);
+    void setMaxStepRate(unsigned long speed);
+    void setMinStepRate(unsigned long speed);
+
     void setAcceleration(float acceleration);
 
     boolean isQFull();
@@ -160,8 +162,11 @@ private:
     boolean     _enabled;
     Motor       _motors[2];
 
-    float          _maxSpeed;  // in steps/sec
-    float          _acceleration;  // in steps/sec2
+    unsigned long   _maxStepRate;  // in steps/sec
+    unsigned long   _minStepRate;  // in steps/sec
+    float           _acceleration;  // in steps/sec2
+    unsigned long   _accelDist;  // distance required for acceleration to fullspeed (or stop), given _minStepRate, _maxStepRate and _
+
 
     unsigned int    _minPulseWidth;
     unsigned int    _backlash;
@@ -170,11 +175,12 @@ private:
     uint8_t         _qHead = 0;
     uint8_t         _qSize = 0;
 
-    // DDA accumulators
+    // step control
     long            _counterLeft, _counterRight;
     unsigned long   _stepsCompleted;
     unsigned long   _lastStepTime;
     unsigned long   _stepInterval;
+    float           _stepRate;  // in steps per second
 
 
     void enableOutputsFor(Motor *motor);
@@ -188,6 +194,8 @@ private:
     void step4(Motor *motor);
     void step6(Motor *motor);
     void step8(Motor *motor);
+
+    void calculateAccelDist();
 
     void dequeue();  // removes head of queue
     Command *getCurrentCommand();  // return pointer to current command (head of queue)
