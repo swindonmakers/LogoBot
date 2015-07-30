@@ -336,10 +336,30 @@ boolean DifferentialStepper::isQEmpty() {
 
 void DifferentialStepper::reset() {
     _qSize = 0;
+    _stepRate = _minStepRate;
 }
 
 void DifferentialStepper::stopAfter() {
     if (_qSize > 1) _qSize = 1;
+}
+
+void DifferentialStepper::emergencyStop() {
+    reset();
+}
+
+void DifferentialStepper::stop() {
+    // recalc current block to stop ASAP
+    Command *c = getCurrentCommand();
+    if (c == NULL) return;
+
+    // if already deaccelerating, then just clear the rest of the queue
+    if (_stepsCompleted > c->decelerateAfter) {
+        _qSize = 1;
+        return;
+    }
+
+    // force immediate deacceleration
+    _stepsCompleted = c->decelerateAfter;
 }
 
 void DifferentialStepper::dequeue() {

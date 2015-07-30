@@ -108,52 +108,15 @@ public:
 
     void reset();  // empty queue, immediate stop, no change in enable/disable status
 
-    //void stop();  // graceful stop with deacceleration
+    void stop();  // graceful stop with deacceleration
+    void emergencyStop();  // terminate everything - right now!
     void stopAfter();  // stop after current move command completes
 
     boolean queueMove(long leftPos, long rightPos);
 
     boolean run();  // return true if still moving
 
-    /*
-    void    moveTo(long absolute);
-
-    void    move(long relative);
-
-    boolean run();
-
-    void    setMaxSpeed(float speed);
-
-    void    setAcceleration(float acceleration);
-
-    float   speed();
-
-    long    distanceToGo();
-
-    long    targetPosition();
-
-    long    currentPosition();
-
-    void    setCurrentPosition(long position);
-
-    void stop();
-
-    virtual void    disableOutputs();
-
-    virtual void    enableOutputs();
-
-    void    setMinPulseWidth(unsigned int minWidth);
-
-    /// Sets the number of steps needed to correct backlash in drive train
-    void    setBacklash(unsigned long steps);
-    */
-
-
 protected:
-
-
-
-
 
 
 
