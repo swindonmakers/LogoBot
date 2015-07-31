@@ -15,6 +15,8 @@ Qty | Vitamin | Image
 2 | [JumperWire Female to Male 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoMale4pin100mm_view.png) | 
 1 | [16mm Marble]() | ![](../vitamins/images/16mmMarble_view.png) | 
 1 | [9g Micro Servo]() | ![](../vitamins/images/9gMicroServo_view.png) | 
+1 | [Fine Line Pen]() | ![](../vitamins/images/FineLinePen_view.png) | 
+1 | [Servo Horn]() | ![](../vitamins/images/ServoHorn_view.png) | 
 
 ### Printed Parts
 
@@ -22,9 +24,10 @@ Qty | Part Name | Image
 --- | --- | ---
 1 | [Basic Shell](../printedparts/stl/BasicShell.stl) | ![](../printedparts/images/BasicShell_view.png) | 
 2 | [Bumper](../printedparts/stl/Bumper.stl) | ![](../printedparts/images/Bumper_view.png) | 
-1 | [Lid](../printedparts/stl/Lid.stl) | ![](../printedparts/images/Lid_view.png) | 
 1 | [Base](../printedparts/stl/Base.stl) | ![](../printedparts/images/Base_view.png) | 
 1 | [Caster Housing](../printedparts/stl/CasterHousing.stl) | ![](../printedparts/images/CasterHousing_view.png) | 
+1 | [Pen Lift Holder](../printedparts/stl/PenLiftHolder.stl) | ![](../printedparts/images/PenLiftHolder_view.png) | 
+1 | [Pen Lift Slider](../printedparts/stl/PenLiftSlider.stl) | ![](../printedparts/images/PenLiftSlider_view.png) | 
 2 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
 
 
@@ -90,6 +93,29 @@ Qty | Part Name | Image
 ![](../assemblies/LogoBotScribbler/RearCaster_step1_view.png)
 
 
+## PenLift
+
+### Vitamins
+
+Qty | Vitamin | Image
+--- | --- | ---
+1 | [Fine Line Pen]() | ![](../vitamins/images/FineLinePen_view.png) | 
+
+### Printed Parts
+
+Qty | Part Name | Image
+--- | --- | ---
+1 | [Pen Lift Holder](../printedparts/stl/PenLiftHolder.stl) | ![](../printedparts/images/PenLiftHolder_view.png) | 
+1 | [Pen Lift Slider](../printedparts/stl/PenLiftSlider.stl) | ![](../printedparts/images/PenLiftSlider_view.png) | 
+
+### Assembly Steps
+
+1. Place the pen holder into the pen slider plate.  Ensure they move freely, the two parts should fall apart easily.  Lightly file or sand the pen holder part if they dont.  Fit an elastic band in the lower grooves and over the top of the mechanism so that it pulls the pen holder down in the slider mechanism.
+![](../assemblies/LogoBotScribbler/PenLift_step1_view.png)
+2. Use a small elastic band to securely fasten the pen to the holder.  Make sure that the pen is held vertically and that the nib of the pen will be touching the ground when the slider is almost, but not quite, fully down.
+![](../assemblies/LogoBotScribbler/PenLift_step2_view.png)
+
+
 ## Shell
 
 ### Printed Parts
@@ -97,12 +123,6 @@ Qty | Part Name | Image
 Qty | Part Name | Image
 --- | --- | ---
 1 | [Basic Shell](../printedparts/stl/BasicShell.stl) | ![](../printedparts/images/BasicShell_view.png) | 
-1 | [Lid](../printedparts/stl/Lid.stl) | ![](../printedparts/images/Lid_view.png) | 
-
-### Assembly Steps
-
-1. Clip the lid onto the top of the shell
-![](../assemblies/LogoBotScribbler/Shell_step1_view.png)
 
 
 ## Final Assembly
@@ -113,6 +133,7 @@ Qty | Vitamin | Image
 --- | --- | ---
 2 | [JumperWire Female to Male 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoMale4pin100mm_view.png) | 
 1 | [9g Micro Servo]() | ![](../vitamins/images/9gMicroServo_view.png) | 
+1 | [Servo Horn]() | ![](../vitamins/images/ServoHorn_view.png) | 
 
 ### Printed Parts
 
@@ -128,6 +149,7 @@ Qty | Name
 2 | Bumpers
 2 | Drive Wheel
 1 | Rear Caster
+1 | PenLift
 1 | Shell
 
 ### Assembly Steps
@@ -151,11 +173,12 @@ Qty | Name
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step8_view.png)
 9. Clip the piezo sounder into place
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step9_view.png)
-10. Push the caster assembly into the base so that it snaps into place
+10. Align the caster assembly with the base
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step10_view.png)
-11. Fit the pen lift assembly
-![](../assemblies/LogoBotScribbler/FinalAssembly_step11_view.png)
-12. Push the shell down onto the base and twist to lock into place
+11. Insert a short pin to lock the caster assembly to the base
+12. Fit the pen lift assembly using two of the pins and zip tie the servo under the base.
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step12_view.png)
+13. Push the shell down onto the base and twist to lock into place
+![](../assemblies/LogoBotScribbler/FinalAssembly_step13_view.png)
 
 
