@@ -402,9 +402,7 @@ boolean DifferentialStepper::queueMove(long leftSteps, long rightSteps) {
         if (leftSteps > 0)  c->directionBits |= 1;
         if (rightSteps > 0) c->directionBits |= (1<<1);
 
-		Serial.println(c->directionBits, BIN);
-
-        // these will be set later...
+		// these will be set later...
         c->accelerateUntil = 0;
         c->decelerateAfter = 0;
 
@@ -434,9 +432,6 @@ boolean DifferentialStepper::run() {
 		_motors[1].direction = c->directionBits & (1<<1);
 		_stepsCompleted = 0;
 		_stepRate = _minStepRate;
-
-		Serial.print("M0:"); Serial.println(_motors[0].direction);
-		Serial.print("M1:"); Serial.println(_motors[1].direction);
 
 		// TODO: look-ahead
 		c->accelerateUntil = min(_accelDist, c->totalSteps >> 1);
