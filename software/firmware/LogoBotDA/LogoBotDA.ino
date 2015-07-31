@@ -70,7 +70,7 @@ String text = "";
 // cmd received over serial - builds up char at a time
 String cmd;
 
-Logo::LogoParsedCommand lpc;
+//Logo::LogoParsedCommand lpc;
 
 // position calcs
 void resetPosition() {
@@ -117,15 +117,12 @@ void setup()
 
   resetPosition();
 
-  char *temp = "hello";
+  Logo::LogoParsedCommand cmd1;
 
-  lpc.type = Logo::FD;
-  lpc.fp.f1 = 12.7;
-  lpc.lp.l1 = 12;
-  lpc.cp.c = temp;
+  Logo::printProcedures();
+  Logo::parseCommand("BK 50", &cmd1);
 
-  delete temp;
-  #pragma message(lpc.type)
+  Serial.println(cmd1.type);
 }
 
 void loop()
@@ -390,3 +387,4 @@ long sqr(long v) {
   return v*v;
 }
 */
+

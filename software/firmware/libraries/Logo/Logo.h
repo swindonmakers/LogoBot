@@ -2,6 +2,10 @@
 #define Logo_h
 
 #include <Arduino.h>
+#include <avr/pgmspace.h>
+
+// maximum characters in a Logo procedure name
+#define LOGO_PROCEDURE_NAME_MAX_LENGTH  5
 
 namespace Logo
 {
@@ -12,8 +16,23 @@ namespace Logo
         FD =0,
         BK =1,
         LT =2,
-        RT =3
+        RT =3,
+        NUM_PROCEDURES=4
     } LogoProcedureTypes;
+
+    // procedure name declarations - needed to store them in PROGMEM
+    const char PROC_FD[] PROGMEM = "FD";
+    const char PROC_BK[] PROGMEM = "BK";
+    const char PROC_LT[] PROGMEM = "LT";
+    const char PROC_RT[] PROGMEM = "RT";
+
+    // procedure names - indices must match LogoProcedureTypes enum
+    const char* const PROC_NAMES[] PROGMEM  = {
+        PROC_FD,
+        PROC_BK,
+        PROC_LT,
+        PROC_RT
+    };
 
     // command parameter structures
     struct LogoFloatParamters {
@@ -32,7 +51,7 @@ namespace Logo
 
     // structure to hold parsed commands
     struct LogoParsedCommand {
-        uint8_t type;
+        uint8_t type;  // 0xff represents undefined
 
         union {
             LogoFloatParamters fp;
@@ -42,7 +61,14 @@ namespace Logo
     };
 
 
-	// public methods
+	/*
+        Public Methods
+    */
+
+    // Prints list of procedure names to Serial
+    void printProcedures();
+
+    void parseCommand(String cmd, LogoParsedCommand *pc);
 };
 
 #endif
