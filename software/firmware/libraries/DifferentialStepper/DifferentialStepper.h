@@ -43,6 +43,7 @@ public:
 
     struct Motor {
         boolean       direction;
+        boolean         invertDirection;   // switch forwards/backwards
         uint8_t         pin[4];
         uint8_t         pinInverted[4];
         long            currentPos;  // in steps
@@ -93,7 +94,11 @@ public:
     /// \param[in] enableInvert    True for inverted enable pin, false (default) for non-inverted
     void    setPinsInvertedFor(uint8_t motor, bool pin1Invert, bool pin2Invert, bool pin3Invert, bool pin4Invert, bool enableInvert);
 
+    // inverts direction for given motor
+    void setInvertDirectionFor(uint8_t motor, bool inv);
+
     /// Sets the number of steps needed to correct backlash in drive train
+    // TODO: implement backlash somewhere!
     void    setBacklash(unsigned int steps);
 
     void step(Motor *motor);

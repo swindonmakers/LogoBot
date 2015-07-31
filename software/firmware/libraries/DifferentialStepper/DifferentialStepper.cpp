@@ -36,6 +36,7 @@ DifferentialStepper::DifferentialStepper(
         _motors[m].direction        = DIRECTION_FWD;
         _motors[m].enablePin        = 0xff;
         _motors[m].enableInverted   = false;
+        _motors[m].invertDirection  = false;
 
         for (i = 0; i < 4; i++)
             _motors[m].pinInverted[i] = 0;
@@ -109,6 +110,10 @@ void DifferentialStepper::setPinsInvertedFor(uint8_t motor, bool pin1Invert, boo
     _motors[motor].pinInverted[2] = pin3Invert;
     _motors[motor].pinInverted[3] = pin4Invert;
     _motors[motor].enableInverted = enableInvert;
+}
+
+void DifferentialStepper::setInvertDirectionFor(uint8_t motor, bool inv) {
+    _motors[motor].invertDirection = inv;
 }
 
 void DifferentialStepper::setBacklash(unsigned int steps) {
@@ -453,19 +458,19 @@ boolean DifferentialStepper::run() {
     if ( stepTime >= _stepInterval ) {
         // it's time to step...
 		// init new command?
-        
-		
+
+
         // do steps for each motor, using Bresenham algo
         _counterLeft += c->leftSteps;
         if (_counterLeft > 0) {
-            _motors[0].currentPos += _motors[0].direction ? 1 : -1;
+            _motors[0].currentPos += _motors[0].direction ^ _motors[0].invertDirection ? 1 : -1;
             step(&_motors[0]);
             _counterLeft -= c->totalSteps;
         }
 
         _counterRight += c->rightSteps;
         if (_counterRight > 0) {
-			_motors[1].currentPos += _motors[1].direction ? 1 : -1;
+			_motors[1].currentPos += _motors[1].direction ^ _motors[1].invertDirection ? 1 : -1;
             step(&_motors[1]);
             _counterRight -= c->totalSteps;
         }
