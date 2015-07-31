@@ -241,7 +241,6 @@ static void doLogoCommand(String c)
   /* Official Logo Commands
        Implemented
          -FD, BK, LT, RT
-       Todo
          -PU - Pen Up
          -PD - Pen Down
          -ARC
@@ -250,6 +249,7 @@ static void doLogoCommand(String c)
       BZ n - sound buzzer for n milliseconds
       ST - stop
       SE - emergency stop
+	  FS - set font size
       SIG - sign Logobots name
       TO x y
     */
@@ -288,6 +288,8 @@ static void doLogoCommand(String c)
     penUp();
   } else if (c.startsWith("PD")) {
     penDown();
+  } else if (c.startsWith("FS")) {
+	LogobotText::setFontSize(c.substring(3).toFloat());
   } else if (c.startsWith("SIG")) {
     writeText("LOGOBOT");
   } else if (c.startsWith("WT")) {

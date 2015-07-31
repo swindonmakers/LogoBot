@@ -5,10 +5,10 @@ namespace LogobotText
 	// Namespace containing private functions
 	namespace
 	{
-		const float fontSize = 20;  // =em, equal to line spacing (between baselines), text sizes derived from this
-		const float capHeight = fontSize * 0.7;
-		const float letterSpacing = fontSize * 0.1;
-		const float w = fontSize * 0.5;
+		float fontSize;  // =em, equal to line spacing (between baselines), text sizes derived from this
+		float capHeight;
+		float letterSpacing;
+		float w = fontSize;
 
 		CommandQueue * _cmdQ;
 
@@ -283,6 +283,15 @@ namespace LogobotText
 	void begin(CommandQueue& cmdQ)
 	{
 		_cmdQ = &cmdQ;
+		setFontSize(20);
+	}
+
+	void setFontSize(float size)
+	{
+		fontSize = size;
+		capHeight = fontSize * 0.7;
+		letterSpacing = fontSize * 0.1;
+		w = fontSize * 0.5;
 	}
 
 	void writeChar(char c, float x, float y)
