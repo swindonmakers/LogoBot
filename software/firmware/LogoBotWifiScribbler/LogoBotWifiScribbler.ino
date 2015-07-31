@@ -63,7 +63,7 @@ STATE state;
 
 Servo penliftServo;
 
-long buzzEnd = 0;
+unsigned long buzzEnd = 0;
 
 // buffered text to "write" using the pen
 String text = "";
