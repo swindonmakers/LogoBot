@@ -51,7 +51,6 @@ AccelStepper stepperR(AccelStepper::HALF4WIRE, motorRPin1, motorRPin3, motorRPin
 
 #define MAX_CMD_LENGTH 10
 CommandQueue cmdQ(20);
-LogobotText lt(cmdQ);
 
 // logobot state info
 struct STATE {
@@ -104,6 +103,8 @@ void setup()
   penliftServo.attach(11);
   penUp();
 
+  LogobotText::begin(cmdQ);
+  
   pinMode(buzzer, OUTPUT);
 
   for (int i = 0; i < 3; i++) {
@@ -170,7 +171,7 @@ void loop()
       if (text.length() > 0) {
         char c = text[0];
         text = text.substring(1);  // lose the first character
-        lt.writeChar(c, state.x, state.y);
+        LogobotText::writeChar(c, state.x, state.y);
 
       } else {
         // take a breather
