@@ -4,6 +4,8 @@ CommandQueue::CommandQueue(int length)
 {
 	cmdQ = new COMMAND[length];
 	queueLength = length;
+	qHead = 0;
+	qSize = 0;
 }
 
 boolean CommandQueue::insert(String s) {

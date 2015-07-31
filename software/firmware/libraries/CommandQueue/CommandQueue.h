@@ -23,8 +23,8 @@ public:
 private:
 	int queueLength;
 	COMMAND *cmdQ;
-	int qHead = 0;
-	int qSize = 0;
+	int qHead;
+	int qSize;
 
 };
 
