@@ -8,7 +8,7 @@ namespace LogobotText
 		float fontSize;  // =em, equal to line spacing (between baselines), text sizes derived from this
 		float capHeight;
 		float letterSpacing;
-		float w = fontSize;
+		float w;
 
 		CommandQueue * _cmdQ;
 
