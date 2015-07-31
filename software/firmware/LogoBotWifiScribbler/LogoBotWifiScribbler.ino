@@ -49,7 +49,6 @@ AccelStepper stepperR(AccelStepper::HALF4WIRE, motorRPin1, motorRPin3, motorRPin
 // equivalent to 1.8 * STEPS_PER_MM
 #define STEPS_OF_BACKLASH   39
 
-#define MAX_CMD_LENGTH 10
 CommandQueue cmdQ(20);
 
 // logobot state info
@@ -116,9 +115,6 @@ void setup()
 
   resetPosition();
 }
-
-int progStep = 0;
-
 
 void loop()
 {
