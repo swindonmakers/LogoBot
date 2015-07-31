@@ -257,27 +257,19 @@ static void doLogoCommand(String c)
   if (c.startsWith("TO")) {
     // split out x and y co-ordinates
     int sp = c.indexOf(" ",3);
-    float x = c.substring(3,sp).toFloat();
-    float y = c.substring(sp+1).toFloat();
-    driveTo(x,y);
+    driveTo(c.substring(3,sp).toFloat(), c.substring(sp+1).toFloat());
   } else if (c.startsWith("ARC")) {
-      // split out x and y co-ordinates
-      int sp = c.indexOf(" ",4);
-      float x = c.substring(4,sp).toFloat();
-      float y = c.substring(sp+1).toFloat();
-      arcTo(x,y);
+    // split out x and y co-ordinates
+    int sp = c.indexOf(" ",4);
+    arcTo(c.substring(4,sp).toFloat(), c.substring(sp+1).toFloat());
   } else if (c.startsWith("FD")) {
-    float dist = c.substring(3).toFloat();
-    drive(dist);
+    drive(c.substring(3).toFloat());
   } else if (c.startsWith("BK")) {
-    float dist = c.substring(3).toFloat();
-    drive(-dist);
+    drive(-c.substring(3).toFloat());
   } else if (c.startsWith("RT")) {
-    float angle = c.substring(3).toFloat();
-    turn(-angle);
+    turn(-c.substring(3).toFloat());
   } else if (c.startsWith("LT")) {
-    float angle = c.substring(3).toFloat();
-    turn(angle);
+    turn(c.substring(3).toFloat());
   } else if (c.startsWith("ST")) {
     stop();
   } else if (c.startsWith("SE")) {
@@ -291,7 +283,7 @@ static void doLogoCommand(String c)
   } else if (c.startsWith("FS")) {
 	LogobotText::setFontSize(c.substring(3).toFloat());
   } else if (c.startsWith("SIG")) {
-    writeText("LOGOBOT");
+    writeText("Logobot");
   } else if (c.startsWith("WT")) {
     writeText(c.substring(3));
   } else if (c.startsWith("PQ")) {
