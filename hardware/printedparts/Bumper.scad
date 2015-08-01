@@ -45,7 +45,7 @@ module Bumper_STL()
 {
 	printedPart("printedparts/Bumper.scad", "Bumper", "Bumper_STL()") {
 
-	    view(t=[1, -8, -11], r=[52, 0, 23], d=184);
+	    view(t=[0,0,0], r=[58,0,225], d=681);
 
 		if (DebugCoordinateFrames) frame();
 		if (DebugConnectors) {

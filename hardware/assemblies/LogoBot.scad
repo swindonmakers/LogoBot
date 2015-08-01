@@ -61,7 +61,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 
             // Bumper assemblies (x2)
             step(2, "Connect the two bumper assemblies using four of the push pins with flat heads" ) {
-                view(t=[0,0,0], r=[63,0,146], d=300);
+                view(t=[0,0,0], r=[63,0,146], d=400);
 					for (i=[0,1])
 					translate([0, 0, -8])
 					rotate([0, 0, i*180]) {
@@ -210,6 +210,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
             }
 
             step(11, "Insert a short pin to lock the caster assembly to the base") {
+                view(t=[-6,7,19], r=[115,1,26], d=625);
 
                 attach(offsetConnector(invertConnector(LogoBot_Con_Caster), [0,0,dw]), MarbleCaster_Con_Default, ExplodeSpacing=15)
                     pintack(side=false, h=dw+0.6+2+1.5, lh=2, bh=2);
@@ -246,7 +247,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 			if (Shell) {
 				step(PenLift ? 13 : 12,
 					"Push the shell down onto the base and twist to lock into place") {
-					view(t=[11,-23,65], r=[66,0,217], d=1171);
+					view(t=[11,-23,65], r=[66,0,217], d=625);
 
 					attach(DefConDown, DefConDown, ExplodeSpacing=BaseDiameter/2)
 						ShellAssembly(PenLift? false : true);

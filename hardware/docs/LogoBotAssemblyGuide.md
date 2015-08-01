@@ -158,6 +158,7 @@ Qty | Name
 10. Align the caster assembly with the base
 ![](../assemblies/LogoBot/FinalAssembly_step10_view.png)
 11. Insert a short pin to lock the caster assembly to the base
+![](../assemblies/LogoBot/FinalAssembly_step11_view.png)
 12. Push the shell down onto the base and twist to lock into place
 ![](../assemblies/LogoBot/FinalAssembly_step12_view.png)
 

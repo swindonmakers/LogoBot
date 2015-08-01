@@ -1,6 +1,6 @@
 [
     {
-        "hash": "be1aba11e75d614498ebb606759bad6c",
+        "hash": "6acf1bb4eb95a01d58f31e98b4bb89f0",
         "vitamins": [
             {
                 "hash": "f9f7b8c7c104f20278aa66ad4cb62196",
@@ -99,7 +99,7 @@
         "title": "LogoBot",
         "assemblies": [
             {
-                "hash": "4c64da400b5192063f30d10c459d706d",
+                "hash": "f50dd950ddead76a86c3a3490cea15cd",
                 "vitamins": [
                     {
                         "views": [],
@@ -243,7 +243,7 @@
                                     0,
                                     146
                                 ],
-                                "dist": 300,
+                                "dist": 400,
                                 "filepath": "../assemblies/LogoBot/FinalAssembly_step2_view.png",
                                 "title": "view",
                                 "caption": "view",
@@ -500,7 +500,29 @@
                         "desc": "Align the caster assembly with the base"
                     },
                     {
-                        "views": [],
+                        "views": [
+                            {
+                                "rotate": [
+                                    115,
+                                    1,
+                                    26
+                                ],
+                                "dist": 625,
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step11_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -6,
+                                    7,
+                                    19
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
                         "num": 11,
                         "desc": "Insert a short pin to lock the caster assembly to the base"
                     },
@@ -512,7 +534,7 @@
                                     0,
                                     217
                                 ],
-                                "dist": 1171,
+                                "dist": 625,
                                 "filepath": "../assemblies/LogoBot/FinalAssembly_step12_view.png",
                                 "title": "view",
                                 "caption": "view",
@@ -611,7 +633,7 @@
                                     0,
                                     319.9
                                 ],
-                                "dist": 192,
+                                "dist": 400,
                                 "filepath": "../assemblies/LogoBot/Bumpers_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
@@ -774,7 +796,7 @@
                                     0,
                                     27
                                 ],
-                                "dist": 291,
+                                "dist": 500,
                                 "filepath": "../assemblies/LogoBot/Shell_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
@@ -833,18 +855,18 @@
                 "views": [
                     {
                         "rotate": [
-                            52,
+                            58,
                             0,
-                            23
+                            225
                         ],
-                        "dist": 184,
+                        "dist": 681,
                         "title": "view",
                         "filepath": "../printedparts/images/Bumper_view.png",
                         "caption": "view",
                         "translate": [
-                            1,
-                            -8,
-                            -11
+                            0,
+                            0,
+                            0
                         ],
                         "type": "view",
                         "size": [
@@ -877,18 +899,18 @@
                 "views": [
                     {
                         "rotate": [
-                            52,
+                            58,
                             0,
-                            23
+                            225
                         ],
-                        "dist": 184,
+                        "dist": 681,
                         "title": "view",
                         "filepath": "../printedparts/images/BumperStabiliser_view.png",
                         "caption": "view",
                         "translate": [
-                            1,
-                            -8,
-                            -11
+                            0,
+                            0,
+                            0
                         ],
                         "type": "view",
                         "size": [
@@ -1141,11 +1163,11 @@
                 "views": [
                     {
                         "rotate": [
-                            72,
+                            58,
                             0,
-                            130
+                            225
                         ],
-                        "dist": 96,
+                        "dist": 681,
                         "title": "view",
                         "filepath": "../printedparts/images/Lid_view.png",
                         "caption": "view",
@@ -1341,7 +1363,7 @@
                                     0,
                                     146
                                 ],
-                                "dist": 300,
+                                "dist": 400,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -1365,17 +1387,17 @@
                                         "children": [
                                             {
                                                 "rotate": [
-                                                    52,
+                                                    58,
                                                     0,
-                                                    23
+                                                    225
                                                 ],
-                                                "dist": 184,
+                                                "dist": 681,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    1,
-                                                    -8,
-                                                    -11
+                                                    0,
+                                                    0,
+                                                    0
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -1397,7 +1419,7 @@
                                                     0,
                                                     319.9
                                                 ],
-                                                "dist": 192,
+                                                "dist": 400,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
@@ -1424,17 +1446,17 @@
                                 "children": [
                                     {
                                         "rotate": [
-                                            52,
+                                            58,
                                             0,
-                                            23
+                                            225
                                         ],
-                                        "dist": 184,
+                                        "dist": 681,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
-                                            1,
-                                            -8,
-                                            -11
+                                            0,
+                                            0,
+                                            0
                                         ],
                                         "type": "view",
                                         "size": [
@@ -1512,17 +1534,17 @@
                                         "children": [
                                             {
                                                 "rotate": [
-                                                    52,
+                                                    58,
                                                     0,
-                                                    23
+                                                    225
                                                 ],
-                                                "dist": 184,
+                                                "dist": 681,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    1,
-                                                    -8,
-                                                    -11
+                                                    0,
+                                                    0,
+                                                    0
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -1544,7 +1566,7 @@
                                                     0,
                                                     319.9
                                                 ],
-                                                "dist": 192,
+                                                "dist": 400,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
@@ -1571,17 +1593,17 @@
                                 "children": [
                                     {
                                         "rotate": [
-                                            52,
+                                            58,
                                             0,
-                                            23
+                                            225
                                         ],
-                                        "dist": 184,
+                                        "dist": 681,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
-                                            1,
-                                            -8,
-                                            -11
+                                            0,
+                                            0,
+                                            0
                                         ],
                                         "type": "view",
                                         "size": [
@@ -2166,6 +2188,26 @@
                         "type": "step",
                         "children": [
                             {
+                                "rotate": [
+                                    115,
+                                    1,
+                                    26
+                                ],
+                                "dist": 625,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -6,
+                                    7,
+                                    19
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
                                 "type": "printed",
                                 "call": "pintack(side=false,h=6.1,bh=2)",
                                 "children": [
@@ -2206,7 +2248,7 @@
                                     0,
                                     217
                                 ],
-                                "dist": 1171,
+                                "dist": 625,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -2262,7 +2304,7 @@
                                                     0,
                                                     27
                                                 ],
-                                                "dist": 291,
+                                                "dist": 500,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
@@ -2282,11 +2324,11 @@
                                                 "children": [
                                                     {
                                                         "rotate": [
-                                                            72,
+                                                            58,
                                                             0,
-                                                            130
+                                                            225
                                                         ],
-                                                        "dist": 96,
+                                                        "dist": 681,
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -2321,7 +2363,7 @@
         ]
     },
     {
-        "hash": "368f5cd8cf9bab1ad7d825bba0c7049b",
+        "hash": "ce5e16f9af8257ef77c44776afcfa61b",
         "vitamins": [
             {
                 "hash": "f9f7b8c7c104f20278aa66ad4cb62196",
@@ -2526,7 +2568,7 @@
         "title": "LogoBot Scribbler",
         "assemblies": [
             {
-                "hash": "c79abfde08889f6a735d54a4a87be11c",
+                "hash": "ff3694cb1bf2353045fd0434752c7e48",
                 "vitamins": [
                     {
                         "views": [],
@@ -2718,7 +2760,7 @@
                                     0,
                                     146
                                 ],
-                                "dist": 300,
+                                "dist": 400,
                                 "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step2_view.png",
                                 "title": "view",
                                 "caption": "view",
@@ -2975,7 +3017,29 @@
                         "desc": "Align the caster assembly with the base"
                     },
                     {
-                        "views": [],
+                        "views": [
+                            {
+                                "rotate": [
+                                    115,
+                                    1,
+                                    26
+                                ],
+                                "dist": 625,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step11_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -6,
+                                    7,
+                                    19
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
                         "num": 11,
                         "desc": "Insert a short pin to lock the caster assembly to the base"
                     },
@@ -3014,7 +3078,7 @@
                                     0,
                                     217
                                 ],
-                                "dist": 1171,
+                                "dist": 625,
                                 "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step13_view.png",
                                 "title": "view",
                                 "caption": "view",
@@ -3113,7 +3177,7 @@
                                     0,
                                     319.9
                                 ],
-                                "dist": 192,
+                                "dist": 400,
                                 "filepath": "../assemblies/LogoBotScribbler/Bumpers_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
@@ -3392,18 +3456,18 @@
                 "views": [
                     {
                         "rotate": [
-                            52,
+                            58,
                             0,
-                            23
+                            225
                         ],
-                        "dist": 184,
+                        "dist": 681,
                         "title": "view",
                         "filepath": "../printedparts/images/Bumper_view.png",
                         "caption": "view",
                         "translate": [
-                            1,
-                            -8,
-                            -11
+                            0,
+                            0,
+                            0
                         ],
                         "type": "view",
                         "size": [
@@ -3422,18 +3486,18 @@
                 "views": [
                     {
                         "rotate": [
-                            52,
+                            58,
                             0,
-                            23
+                            225
                         ],
-                        "dist": 184,
+                        "dist": 681,
                         "title": "view",
                         "filepath": "../printedparts/images/BumperStabiliser_view.png",
                         "caption": "view",
                         "translate": [
-                            1,
-                            -8,
-                            -11
+                            0,
+                            0,
+                            0
                         ],
                         "type": "view",
                         "size": [
@@ -3890,7 +3954,7 @@
                                     0,
                                     146
                                 ],
-                                "dist": 300,
+                                "dist": 400,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -3914,17 +3978,17 @@
                                         "children": [
                                             {
                                                 "rotate": [
-                                                    52,
+                                                    58,
                                                     0,
-                                                    23
+                                                    225
                                                 ],
-                                                "dist": 184,
+                                                "dist": 681,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    1,
-                                                    -8,
-                                                    -11
+                                                    0,
+                                                    0,
+                                                    0
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -3946,7 +4010,7 @@
                                                     0,
                                                     319.9
                                                 ],
-                                                "dist": 192,
+                                                "dist": 400,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
@@ -3973,17 +4037,17 @@
                                 "children": [
                                     {
                                         "rotate": [
-                                            52,
+                                            58,
                                             0,
-                                            23
+                                            225
                                         ],
-                                        "dist": 184,
+                                        "dist": 681,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
-                                            1,
-                                            -8,
-                                            -11
+                                            0,
+                                            0,
+                                            0
                                         ],
                                         "type": "view",
                                         "size": [
@@ -4061,17 +4125,17 @@
                                         "children": [
                                             {
                                                 "rotate": [
-                                                    52,
+                                                    58,
                                                     0,
-                                                    23
+                                                    225
                                                 ],
-                                                "dist": 184,
+                                                "dist": 681,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    1,
-                                                    -8,
-                                                    -11
+                                                    0,
+                                                    0,
+                                                    0
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -4093,7 +4157,7 @@
                                                     0,
                                                     319.9
                                                 ],
-                                                "dist": 192,
+                                                "dist": 400,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
@@ -4120,17 +4184,17 @@
                                 "children": [
                                     {
                                         "rotate": [
-                                            52,
+                                            58,
                                             0,
-                                            23
+                                            225
                                         ],
-                                        "dist": 184,
+                                        "dist": 681,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
-                                            1,
-                                            -8,
-                                            -11
+                                            0,
+                                            0,
+                                            0
                                         ],
                                         "type": "view",
                                         "size": [
@@ -4715,6 +4779,26 @@
                         "type": "step",
                         "children": [
                             {
+                                "rotate": [
+                                    115,
+                                    1,
+                                    26
+                                ],
+                                "dist": 625,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -6,
+                                    7,
+                                    19
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
                                 "type": "printed",
                                 "call": "pintack(side=false,h=6.1,bh=2)",
                                 "children": [
@@ -5052,7 +5136,7 @@
                                     0,
                                     217
                                 ],
-                                "dist": 1171,
+                                "dist": 625,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [

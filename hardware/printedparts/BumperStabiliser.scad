@@ -2,7 +2,7 @@ module BumperStabiliser_STL()
 {
 	printedPart("printedparts/BumperStabiliser.scad", "BumperStabiliser", "BumperStabiliser_STL()") {
 
-	    view(t=[1, -8, -11], r=[52, 0, 23], d=184);
+	    view(t=[0,0,0], r=[58,0,225], d=681);
 
 		if (DebugCoordinateFrames) frame();
 		if (DebugConnectors) {
@@ -31,7 +31,7 @@ module BumperStabiliserModel()
 	difference() {
 		linear_extrude(6*layers) {
 		for(i=[0, 1])
-		mirror([i, 0, 0]) 
+		mirror([i, 0, 0])
 		hull() {
 			translate([Bumper_Con_LeftPin[0][0], Bumper_Con_LeftPin[0][1], 0])
 				circle(d=10);
@@ -72,7 +72,7 @@ module BumperStabiliserModel()
 		}
 
 		for(i=[0, 1])
-		mirror([i, 0, 0]) 
+		mirror([i, 0, 0])
 		translate([Bumper_Con_LeftPin[0][0], Bumper_Con_LeftPin[0][1], 0])
 		rotate([0, 0, microSwitchAngle])
 			pinhole(fixed=true);

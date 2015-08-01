@@ -17,7 +17,7 @@ module BumperAssembly()
 		Bumper_STL();
 
 		step(1,  "Place the Microswitches into the holders.  Make sure to get them the right way round so the bumper hits the metal lever.  Repeat for the second bumper.") {
-            view(t=[-7.85, 24.1, 5.63], r=[43.8, 0, 319.9], d=192);
+            view(t=[-7.85, 24.1, 5.63], r=[43.8, 0, 319.9], d=400);
 
 			attach(Bumper_Con_LeftMicroSwitch, DefConUp, ExplodeSpacing = -20)
 				MicroSwitch();
