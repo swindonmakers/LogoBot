@@ -57,9 +57,10 @@ module pintack(h=10, r=PinDiameter/2, lh=3, lt=1, t=0.2, bh=3, br=6, side=false)
 
   printedPart(
       "utils/pins.scad",
-      "Pintack",
+      str("Pintack H",h," BH",bh),
       str("pintack(side=",side,",h=",h,",bh=",bh,")")
   ) {
+      view(d=75);
 
       flip=(side==false) ? 1 : 0;
 

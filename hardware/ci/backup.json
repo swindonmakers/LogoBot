@@ -99,7 +99,7 @@
         "title": "LogoBot",
         "assemblies": [
             {
-                "hash": "3586a225643704fe5a61249ee839e6e7",
+                "hash": "e065ba2c50de3a1eb586ffef50af6eac",
                 "vitamins": [
                     {
                         "title": "JumperWire Female to Male 4pin 100mm",
@@ -880,29 +880,7 @@
                         14.1
                     ]
                 ],
-                "views": [
-                    {
-                        "rotate": [
-                            55,
-                            0,
-                            25
-                        ],
-                        "dist": 75,
-                        "filepath": "../printedparts/images/PintackH141BH2_view.png",
-                        "title": "view",
-                        "caption": "view",
-                        "translate": [
-                            0,
-                            0,
-                            0
-                        ],
-                        "type": "view",
-                        "size": [
-                            400,
-                            300
-                        ]
-                    }
-                ],
+                "views": [],
                 "qty": 4,
                 "volume": 390.84886581292477,
                 "area": 544.5752275116914,
@@ -1012,29 +990,7 @@
                         6.1
                     ]
                 ],
-                "views": [
-                    {
-                        "rotate": [
-                            55,
-                            0,
-                            25
-                        ],
-                        "dist": 75,
-                        "filepath": "../printedparts/images/PintackH61BH2_view.png",
-                        "title": "view",
-                        "caption": "view",
-                        "translate": [
-                            0,
-                            0,
-                            0
-                        ],
-                        "type": "view",
-                        "size": [
-                            400,
-                            300
-                        ]
-                    }
-                ],
+                "views": [],
                 "qty": 1,
                 "volume": 242.13750738177333,
                 "area": 354.57635941335013,
@@ -1140,6 +1096,7 @@
                     215
                 ],
                 "dist": 749,
+                "filepath": "../images/LogoBot_view.png",
                 "title": "view",
                 "caption": "view",
                 "translate": [
@@ -1369,56 +1326,14 @@
                             {
                                 "call": "pintack(side=false,h=14.1,bh=2)",
                                 "type": "printed",
-                                "children": [
-                                    {
-                                        "rotate": [
-                                            55,
-                                            0,
-                                            25
-                                        ],
-                                        "dist": 75,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            0,
-                                            0,
-                                            0
-                                        ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
-                                    }
-                                ],
+                                "children": [],
                                 "file": "utils/pins.scad",
                                 "title": "Pintack H14.1 BH2"
                             },
                             {
                                 "call": "pintack(side=false,h=14.1,bh=2)",
                                 "type": "printed",
-                                "children": [
-                                    {
-                                        "rotate": [
-                                            55,
-                                            0,
-                                            25
-                                        ],
-                                        "dist": 75,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            0,
-                                            0,
-                                            0
-                                        ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
-                                    }
-                                ],
+                                "children": [],
                                 "file": "utils/pins.scad",
                                 "title": "Pintack H14.1 BH2"
                             },
@@ -1488,56 +1403,14 @@
                             {
                                 "call": "pintack(side=false,h=14.1,bh=2)",
                                 "type": "printed",
-                                "children": [
-                                    {
-                                        "rotate": [
-                                            55,
-                                            0,
-                                            25
-                                        ],
-                                        "dist": 75,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            0,
-                                            0,
-                                            0
-                                        ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
-                                    }
-                                ],
+                                "children": [],
                                 "file": "utils/pins.scad",
                                 "title": "Pintack H14.1 BH2"
                             },
                             {
                                 "call": "pintack(side=false,h=14.1,bh=2)",
                                 "type": "printed",
-                                "children": [
-                                    {
-                                        "rotate": [
-                                            55,
-                                            0,
-                                            25
-                                        ],
-                                        "dist": 75,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            0,
-                                            0,
-                                            0
-                                        ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
-                                    }
-                                ],
+                                "children": [],
                                 "file": "utils/pins.scad",
                                 "title": "Pintack H14.1 BH2"
                             }
@@ -2060,28 +1933,7 @@
                             {
                                 "call": "pintack(side=false,h=6.1,bh=2)",
                                 "type": "printed",
-                                "children": [
-                                    {
-                                        "rotate": [
-                                            55,
-                                            0,
-                                            25
-                                        ],
-                                        "dist": 75,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            0,
-                                            0,
-                                            0
-                                        ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
-                                    }
-                                ],
+                                "children": [],
                                 "file": "utils/pins.scad",
                                 "title": "Pintack H6.1 BH2"
                             }
@@ -2312,7 +2164,7 @@
         "title": "LogoBot Batty",
         "assemblies": [
             {
-                "hash": "3586a225643704fe5a61249ee839e6e7",
+                "hash": "e065ba2c50de3a1eb586ffef50af6eac",
                 "vitamins": [
                     {
                         "title": "JumperWire Female to Male 4pin 100mm",
@@ -3067,29 +2919,7 @@
             {
                 "hash": "9cb5e8df78ef2d3b03594dece6c6c3e1",
                 "title": "Pintack H14.1 BH2",
-                "views": [
-                    {
-                        "rotate": [
-                            55,
-                            0,
-                            25
-                        ],
-                        "dist": 75,
-                        "filepath": "../printedparts/images/PintackH141BH2_view.png",
-                        "title": "view",
-                        "caption": "view",
-                        "translate": [
-                            0,
-                            0,
-                            0
-                        ],
-                        "type": "view",
-                        "size": [
-                            400,
-                            300
-                        ]
-                    }
-                ],
+                "views": [],
                 "qty": 4,
                 "call": "pintack(side=false,h=14.1,bh=2)",
                 "file": "utils/pins.scad"
@@ -3157,29 +2987,7 @@
             {
                 "hash": "189adb2a5b9d526f7db1f86a6015a2d0",
                 "title": "Pintack H6.1 BH2",
-                "views": [
-                    {
-                        "rotate": [
-                            55,
-                            0,
-                            25
-                        ],
-                        "dist": 75,
-                        "filepath": "../printedparts/images/PintackH61BH2_view.png",
-                        "title": "view",
-                        "caption": "view",
-                        "translate": [
-                            0,
-                            0,
-                            0
-                        ],
-                        "type": "view",
-                        "size": [
-                            400,
-                            300
-                        ]
-                    }
-                ],
+                "views": [],
                 "qty": 1,
                 "call": "pintack(side=false,h=6.1,bh=2)",
                 "file": "utils/pins.scad"
@@ -3255,6 +3063,7 @@
                     215
                 ],
                 "dist": 749,
+                "filepath": "../images/LogoBotBatty_view.png",
                 "title": "view",
                 "caption": "view",
                 "translate": [
@@ -3484,56 +3293,14 @@
                             {
                                 "call": "pintack(side=false,h=14.1,bh=2)",
                                 "type": "printed",
-                                "children": [
-                                    {
-                                        "rotate": [
-                                            55,
-                                            0,
-                                            25
-                                        ],
-                                        "dist": 75,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            0,
-                                            0,
-                                            0
-                                        ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
-                                    }
-                                ],
+                                "children": [],
                                 "file": "utils/pins.scad",
                                 "title": "Pintack H14.1 BH2"
                             },
                             {
                                 "call": "pintack(side=false,h=14.1,bh=2)",
                                 "type": "printed",
-                                "children": [
-                                    {
-                                        "rotate": [
-                                            55,
-                                            0,
-                                            25
-                                        ],
-                                        "dist": 75,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            0,
-                                            0,
-                                            0
-                                        ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
-                                    }
-                                ],
+                                "children": [],
                                 "file": "utils/pins.scad",
                                 "title": "Pintack H14.1 BH2"
                             },
@@ -3603,56 +3370,14 @@
                             {
                                 "call": "pintack(side=false,h=14.1,bh=2)",
                                 "type": "printed",
-                                "children": [
-                                    {
-                                        "rotate": [
-                                            55,
-                                            0,
-                                            25
-                                        ],
-                                        "dist": 75,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            0,
-                                            0,
-                                            0
-                                        ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
-                                    }
-                                ],
+                                "children": [],
                                 "file": "utils/pins.scad",
                                 "title": "Pintack H14.1 BH2"
                             },
                             {
                                 "call": "pintack(side=false,h=14.1,bh=2)",
                                 "type": "printed",
-                                "children": [
-                                    {
-                                        "rotate": [
-                                            55,
-                                            0,
-                                            25
-                                        ],
-                                        "dist": 75,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            0,
-                                            0,
-                                            0
-                                        ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
-                                    }
-                                ],
+                                "children": [],
                                 "file": "utils/pins.scad",
                                 "title": "Pintack H14.1 BH2"
                             }
@@ -4175,28 +3900,7 @@
                             {
                                 "call": "pintack(side=false,h=6.1,bh=2)",
                                 "type": "printed",
-                                "children": [
-                                    {
-                                        "rotate": [
-                                            55,
-                                            0,
-                                            25
-                                        ],
-                                        "dist": 75,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            0,
-                                            0,
-                                            0
-                                        ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
-                                    }
-                                ],
+                                "children": [],
                                 "file": "utils/pins.scad",
                                 "title": "Pintack H6.1 BH2"
                             }
@@ -4533,7 +4237,7 @@
         "title": "LogoBot Scribbler",
         "assemblies": [
             {
-                "hash": "7f7141d0747fafaae883d4ff3f667775",
+                "hash": "305ce26051ec25503a65ecdf8edebde2",
                 "vitamins": [
                     {
                         "title": "JumperWire Female to Male 4pin 100mm",
@@ -5420,29 +5124,7 @@
             {
                 "hash": "9cb5e8df78ef2d3b03594dece6c6c3e1",
                 "title": "Pintack H14.1 BH2",
-                "views": [
-                    {
-                        "rotate": [
-                            55,
-                            0,
-                            25
-                        ],
-                        "dist": 75,
-                        "filepath": "../printedparts/images/PintackH141BH2_view.png",
-                        "title": "view",
-                        "caption": "view",
-                        "translate": [
-                            0,
-                            0,
-                            0
-                        ],
-                        "type": "view",
-                        "size": [
-                            400,
-                            300
-                        ]
-                    }
-                ],
+                "views": [],
                 "qty": 4,
                 "call": "pintack(side=false,h=14.1,bh=2)",
                 "file": "utils/pins.scad"
@@ -5510,29 +5192,7 @@
             {
                 "hash": "189adb2a5b9d526f7db1f86a6015a2d0",
                 "title": "Pintack H6.1 BH2",
-                "views": [
-                    {
-                        "rotate": [
-                            55,
-                            0,
-                            25
-                        ],
-                        "dist": 75,
-                        "filepath": "../printedparts/images/PintackH61BH2_view.png",
-                        "title": "view",
-                        "caption": "view",
-                        "translate": [
-                            0,
-                            0,
-                            0
-                        ],
-                        "type": "view",
-                        "size": [
-                            400,
-                            300
-                        ]
-                    }
-                ],
+                "views": [],
                 "qty": 1,
                 "call": "pintack(side=false,h=6.1,bh=2)",
                 "file": "utils/pins.scad"
@@ -5640,29 +5300,7 @@
                         9.0
                     ]
                 ],
-                "views": [
-                    {
-                        "rotate": [
-                            55,
-                            0,
-                            25
-                        ],
-                        "dist": 75,
-                        "filepath": "../printedparts/images/PintackH9BH2_view.png",
-                        "title": "view",
-                        "caption": "view",
-                        "translate": [
-                            0,
-                            0,
-                            0
-                        ],
-                        "type": "view",
-                        "size": [
-                            400,
-                            300
-                        ]
-                    }
-                ],
+                "views": [],
                 "qty": 2,
                 "volume": 296.0453466133143,
                 "area": 423.4509566373954,
@@ -5710,6 +5348,7 @@
                     215
                 ],
                 "dist": 749,
+                "filepath": "../images/LogoBotScribbler_view.png",
                 "title": "view",
                 "caption": "view",
                 "translate": [
@@ -5939,56 +5578,14 @@
                             {
                                 "call": "pintack(side=false,h=14.1,bh=2)",
                                 "type": "printed",
-                                "children": [
-                                    {
-                                        "rotate": [
-                                            55,
-                                            0,
-                                            25
-                                        ],
-                                        "dist": 75,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            0,
-                                            0,
-                                            0
-                                        ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
-                                    }
-                                ],
+                                "children": [],
                                 "file": "utils/pins.scad",
                                 "title": "Pintack H14.1 BH2"
                             },
                             {
                                 "call": "pintack(side=false,h=14.1,bh=2)",
                                 "type": "printed",
-                                "children": [
-                                    {
-                                        "rotate": [
-                                            55,
-                                            0,
-                                            25
-                                        ],
-                                        "dist": 75,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            0,
-                                            0,
-                                            0
-                                        ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
-                                    }
-                                ],
+                                "children": [],
                                 "file": "utils/pins.scad",
                                 "title": "Pintack H14.1 BH2"
                             },
@@ -6058,56 +5655,14 @@
                             {
                                 "call": "pintack(side=false,h=14.1,bh=2)",
                                 "type": "printed",
-                                "children": [
-                                    {
-                                        "rotate": [
-                                            55,
-                                            0,
-                                            25
-                                        ],
-                                        "dist": 75,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            0,
-                                            0,
-                                            0
-                                        ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
-                                    }
-                                ],
+                                "children": [],
                                 "file": "utils/pins.scad",
                                 "title": "Pintack H14.1 BH2"
                             },
                             {
                                 "call": "pintack(side=false,h=14.1,bh=2)",
                                 "type": "printed",
-                                "children": [
-                                    {
-                                        "rotate": [
-                                            55,
-                                            0,
-                                            25
-                                        ],
-                                        "dist": 75,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            0,
-                                            0,
-                                            0
-                                        ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
-                                    }
-                                ],
+                                "children": [],
                                 "file": "utils/pins.scad",
                                 "title": "Pintack H14.1 BH2"
                             }
@@ -6630,28 +6185,7 @@
                             {
                                 "call": "pintack(side=false,h=6.1,bh=2)",
                                 "type": "printed",
-                                "children": [
-                                    {
-                                        "rotate": [
-                                            55,
-                                            0,
-                                            25
-                                        ],
-                                        "dist": 75,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            0,
-                                            0,
-                                            0
-                                        ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
-                                    }
-                                ],
+                                "children": [],
                                 "file": "utils/pins.scad",
                                 "title": "Pintack H6.1 BH2"
                             }
@@ -6831,56 +6365,14 @@
                             {
                                 "call": "pintack(side=false,h=9,bh=2)",
                                 "type": "printed",
-                                "children": [
-                                    {
-                                        "rotate": [
-                                            55,
-                                            0,
-                                            25
-                                        ],
-                                        "dist": 75,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            0,
-                                            0,
-                                            0
-                                        ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
-                                    }
-                                ],
+                                "children": [],
                                 "file": "utils/pins.scad",
                                 "title": "Pintack H9 BH2"
                             },
                             {
                                 "call": "pintack(side=false,h=9,bh=2)",
                                 "type": "printed",
-                                "children": [
-                                    {
-                                        "rotate": [
-                                            55,
-                                            0,
-                                            25
-                                        ],
-                                        "dist": 75,
-                                        "title": "view",
-                                        "caption": "view",
-                                        "translate": [
-                                            0,
-                                            0,
-                                            0
-                                        ],
-                                        "type": "view",
-                                        "size": [
-                                            400,
-                                            300
-                                        ]
-                                    }
-                                ],
+                                "children": [],
                                 "file": "utils/pins.scad",
                                 "title": "Pintack H9 BH2"
                             },

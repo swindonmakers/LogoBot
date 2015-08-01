@@ -25,6 +25,8 @@ Qty | Part Name | Image
 1 | [Base](../printedparts/stl/Base.stl) | ![](../printedparts/images/Base_view.png) | 
 1 | [Caster Housing](../printedparts/stl/CasterHousing.stl) | ![](../printedparts/images/CasterHousing_view.png) | 
 2 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
+4 | [Pintack H14.1 BH2](../printedparts/stl/PintackH141BH2.stl) | ![](../printedparts/images/PintackH141BH2_view.png) | 
+1 | [Pintack H6.1 BH2](../printedparts/stl/PintackH61BH2.stl) | ![](../printedparts/images/PintackH61BH2_view.png) | 
 
 
 ## Brain
@@ -117,6 +119,8 @@ Qty | Vitamin | Image
 Qty | Part Name | Image
 --- | --- | ---
 1 | [Base](../printedparts/stl/Base.stl) | ![](../printedparts/images/Base_view.png) | 
+4 | [Pintack H14.1 BH2](../printedparts/stl/PintackH141BH2.stl) | ![](../printedparts/images/PintackH141BH2_view.png) | 
+1 | [Pintack H6.1 BH2](../printedparts/stl/PintackH61BH2.stl) | ![](../printedparts/images/PintackH61BH2_view.png) | 
 
 ### Sub-Assemblies
 

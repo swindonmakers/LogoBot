@@ -29,6 +29,9 @@ Qty | Part Name | Image
 1 | [Pen Lift Holder](../printedparts/stl/PenLiftHolder.stl) | ![](../printedparts/images/PenLiftHolder_view.png) | 
 1 | [Pen Lift Slider](../printedparts/stl/PenLiftSlider.stl) | ![](../printedparts/images/PenLiftSlider_view.png) | 
 2 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
+4 | [Pintack H14.1 BH2](../printedparts/stl/PintackH141BH2.stl) | ![](../printedparts/images/PintackH141BH2_view.png) | 
+1 | [Pintack H6.1 BH2](../printedparts/stl/PintackH61BH2.stl) | ![](../printedparts/images/PintackH61BH2_view.png) | 
+2 | [Pintack H9 BH2](../printedparts/stl/PintackH9BH2.stl) | ![](../printedparts/images/PintackH9BH2_view.png) | 
 
 
 ## Brain
@@ -140,6 +143,9 @@ Qty | Vitamin | Image
 Qty | Part Name | Image
 --- | --- | ---
 1 | [Base](../printedparts/stl/Base.stl) | ![](../printedparts/images/Base_view.png) | 
+4 | [Pintack H14.1 BH2](../printedparts/stl/PintackH141BH2.stl) | ![](../printedparts/images/PintackH141BH2_view.png) | 
+1 | [Pintack H6.1 BH2](../printedparts/stl/PintackH61BH2.stl) | ![](../printedparts/images/PintackH61BH2_view.png) | 
+2 | [Pintack H9 BH2](../printedparts/stl/PintackH9BH2.stl) | ![](../printedparts/images/PintackH9BH2_view.png) | 
 
 ### Sub-Assemblies
 
