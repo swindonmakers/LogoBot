@@ -2,8 +2,8 @@
 	Vitamin: ULN2003DriverBoard
 	Model of a stepper driver board.
 	Based on http://42bots.com/tutorials/28byj-48-stepper-motor-with-uln2003-driver-and-arduino-uno/
-	
-	Local Frame: 
+
+	Local Frame:
 		Centred on the bottom left mounting hole
 */
 
@@ -24,8 +24,8 @@ ULN2003DriverBoard_Con_Arduino		= [ [6 - ULN2003Driver_HoleInset, 6 - ULN2003Dri
 ULN2003DriverBoard_Con_Power		= [ [24.5 - ULN2003Driver_HoleInset, 9 - ULN2003Driver_HoleInset, ULN2003Driver_PCBThickness + 2.25], [0, 0, -1], 90, 0 ];
 
 ULN2003DriverBoard_Cons = [
-	ULN2003DriverBoard_Con_LowerLeft, 
-	ULN2003DriverBoard_Con_LowerRight, 
+	ULN2003DriverBoard_Con_LowerLeft,
+	ULN2003DriverBoard_Con_LowerRight,
 	ULN2003DriverBoard_Con_UpperLeft,
 	ULN2003DriverBoard_Con_UpperRight,
 	ULN2003DriverBoard_Con_Stepper,
@@ -33,42 +33,52 @@ ULN2003DriverBoard_Cons = [
 	ULN2003DriverBoard_Con_Power
 ];
 
+
+
+module ULN2003DriverBoard_PCB(includeFixings=true, thickness=ULN2003Driver_PCBThickness) {
+	// Base PCB
+	// offset origin to bottom left
+	translate([(ULN2003Driver_BoardWidth / 2) - ULN2003Driver_HoleInset, (ULN2003Driver_BoardHeight / 2) - ULN2003Driver_HoleInset, 0])
+		linear_extrude(thickness)
+		difference() {
+			square([ULN2003Driver_BoardWidth, ULN2003Driver_BoardHeight], center=true);
+
+			// Mounting holes
+			if (includeFixings)
+				for (i = [0:1], j = [0:1])
+				mirror([i, 0, 0])
+				mirror([0, j, 0])
+				translate([ULN2003Driver_BoardWidth / 2 - ULN2003Driver_HoleInset, ULN2003Driver_BoardHeight / 2 - ULN2003Driver_HoleInset, 0])
+					circle(r = ULN2003Driver_HoleDia / 2);
+		}
+}
+
+
 module ULN2003DriverBoard() {
 
 	if (DebugCoordinateFrames) frame();
-	
+
 	if (DebugConnectors)
 		for (c = ULN2003DriverBoard_Cons)
 			connector(c);
 
-	// offset origin to bottom left
+	ULN2003DriverBoard_PCB();
+
+	// everything else
 	translate([(ULN2003Driver_BoardWidth / 2) - ULN2003Driver_HoleInset, (ULN2003Driver_BoardHeight / 2) - ULN2003Driver_HoleInset, 0])
 	{
-		// Base PCB
-		linear_extrude(ULN2003Driver_PCBThickness)
-			difference() {
-				square([ULN2003Driver_BoardWidth, ULN2003Driver_BoardHeight], center=true);
-	
-				// Mounting holes
-				for (i = [0:1], j = [0:1])
-					mirror([i, 0, 0])
-					mirror([0, j, 0])
-					translate([ULN2003Driver_BoardWidth / 2 - ULN2003Driver_HoleInset, ULN2003Driver_BoardHeight / 2 - ULN2003Driver_HoleInset, 0])
-						circle(r = ULN2003Driver_HoleDia / 2);
-			}
-	 
 		// Move us to the bottom left of the PCB
 		translate([-ULN2003Driver_BoardWidth / 2, -ULN2003Driver_BoardHeight / 2, 0]) {
-	
+
 			// ULN2003 chip
 			color("darkgrey")
 			translate([1, 8, ULN2003Driver_PCBThickness - eta])
 				cube([20, 10, 8]);
-	
+
 			// Arduino header
 			translate([6, 6, ULN2003Driver_PCBThickness - eta])
 				PcbPinStrip(4);
-	
+
 			// Stepper Connection
 			color("white")
 			translate([1.5, 19, ULN2003Driver_PCBThickness - eta])
@@ -79,11 +89,11 @@ module ULN2003DriverBoard() {
 				}
 			translate([4, 22, ULN2003Driver_PCBThickness - eta])
 				PcbPinStrip(5, 0, false);
-	
+
 			// Power & On/Off Jumper
 			translate([24.5, 9, ULN2003Driver_PCBThickness - eta])
 				PcbPinStrip(4, 90);
-	
+
 			// LEDS
 			translate([6, 29, ULN2003Driver_PCBThickness - eta])
 				LED_3mm();

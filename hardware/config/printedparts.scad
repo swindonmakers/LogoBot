@@ -1,5 +1,5 @@
 // Printed Parts
-// 
+//
 // Order alphabetically - printed parts should not have inter-dependencies!
 
 include <../printedparts/BasicShell.scad>
@@ -12,3 +12,4 @@ include <../printedparts/PenLiftHolder.scad>
 include <../printedparts/PenLiftSlider.scad>
 include <../printedparts/ProMiniClip.scad>
 include <../printedparts/Wheel.scad>
+include <../printedparts/MotorClip.scad>

@@ -1,12 +1,12 @@
 module Wheel_STL() {
 
 	printedPart("printedparts/Wheel.scad", "Wheel", "Wheel_STL()") {
-	
+
 	    view(t=[0, -1, -1], r=[49, 0, 25], d=336);
 
 		if (DebugCoordinateFrames) frame();
 		if (DebugConnectors) connector(Wheel_Con_Default);
-	
+
 	    color(Level2PlasticColor) {
             if (UseSTL) {
                 import(str(STLPath, "Wheel.stl"));
@@ -34,7 +34,7 @@ module WheelModel()
         translate([rimThickness + 0.5 , WheelThickness / 2])
             circle(r = WheelThickness / 4);
     }
-	
+
 	// Spokes
 	linear_extrude(2)
 	difference() {
@@ -48,7 +48,7 @@ module WheelModel()
 					circle(r=WheelDiameter / 4 - 2 - spokeThickness/2);
 				}
 
-			// Boring straight spokes	
+			// Boring straight spokes
 			*for (i = [0, 90, 180, 270])
 				rotate(i)
 				translate([hubDiameter / 2 - 1, -spokeThickness / 2, 0 ])
@@ -85,7 +85,7 @@ module MotorShaftSlot()
 		circle(r = 5/2 + 0.2); // = motor_shaft_r / 2
 
 		for(i = [0:1])
-			mirror([i, 0, 0])		
+			mirror([i, 0, 0])
 			translate([MotorShaftFlatThickness / 2 + 0.1, -MotorShaftDiameter / 2, 0])
 				square([MotorShaftDiameter / 2, MotorShaftDiameter]);
 	}

@@ -79,7 +79,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 					}
             }
 
-            step(3, "Push the two motor drivers onto the mounting posts") {
+            *step(3, "Push the two motor drivers onto the mounting posts") {
                 view(t=[-6,7,19], r=[64,1,212], d=625);
                 // Left Motor Driver
                 attach(LogoBot_Con_LeftMotorDriver, ULN2003DriverBoard_Con_UpperLeft, ExplodeSpacing=20)
