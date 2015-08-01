@@ -18,7 +18,7 @@
 //	Side = Orientates pins on their side for printing : true/false (not pinhole).
 
 module pinhole(h=10, r=PinDiameter/2, lh=3, lt=1, t=0.3, tight=true, fixed=false) {
-  
+
 	intersection(){
 	  union() {
 	if (tight == true || fixed == true) {
@@ -28,7 +28,7 @@ module pinhole(h=10, r=PinDiameter/2, lh=3, lt=1, t=0.3, tight=true, fixed=false
 		  pin_solid(h, r+t/2, lh, lt);
 		  translate([0,0,-t/2])cylinder(h=h+t, r=r+t/2, $fn=30);
 		}
-        
+
 	    // widen the entrance hole to make insertion easier
 	    //translate([0, 0, -0.1]) cylinder(h=lh/3, r2=r, r1=r+(t/2)+(lt/2),$fn=30);
 	  }
@@ -54,17 +54,24 @@ module pin(h=10, r=PinDiameter/2, lh=3, lt=1, t=0.2, side=false) {
 module pintack(h=10, r=PinDiameter/2, lh=3, lt=1, t=0.2, bh=3, br=6, side=false) {
   // bh = base_height
   // br = base_radius
-  
-flip=(side==false) ? 1 : 0;
 
-translate ([0,flip*(r*1.5-t)/2,0])
-rotate ([flip*90,0,0])
-  union() {
-	pin(h, r, lh, lt, t, side=true);
-	intersection(){
-		translate([0, 0, r/1.5]) rotate([90,0,0]) cylinder(h=bh, r=br);
-		translate([-br*2, -bh-1, 0])cube([br*4, bh+2, r*1.5-t]);
-	}
+  printedPart(
+      "utils/pins.scad",
+      "Pintack",
+      str("pintack(side=",side,",h=",h,",bh=",bh,")")
+  ) {
+
+      flip=(side==false) ? 1 : 0;
+
+      translate ([0,flip*(r*1.5-t)/2,0])
+      rotate ([flip*90,0,0])
+      union() {
+          pin(h, r, lh, lt, t, side=true);
+          intersection(){
+              translate([0, 0, r/1.5]) rotate([90,0,0]) cylinder(h=bh, r=br);
+              translate([-br*2, -bh-1, 0])cube([br*4, bh+2, r*1.5-t]);
+          }
+      }
   }
 }
 
@@ -87,13 +94,13 @@ module pin_vertical(h=10, r=4, lh=3, lt=1, t=0.2) {
 
   difference() {
     pin_solid(h, r-t/2, lh, lt);
-    
+
     // center cut
     translate([-lt*3/2, -(r*2+lt*2)/2, h/5+lt*3/2]) cube([lt*3, r*2+lt*2, h]);
     //translate([0, 0, h/4]) cylinder(h=h+lh, r=r/2.5, $fn=20);
     // center curve
     translate([0, 0, h/5+lt*3/2]) rotate([90, 0, 0]) cylinder(h=r*2, r=lt*3/2, center=true, $fn=20);
-  
+
     // side cuts
     translate([-r*2, -r-r*0.75+t/2, -1]) cube([r*4, r, h+2]);
     translate([-r*2, r*0.75-t/2, -1]) cube([r*4, r, h+2]);
@@ -116,7 +123,7 @@ module pin_solid(h=10, r=4, lh=3, lt=1) {
     cylinder(h=h-lh, r=r, $fn=30);
     // lip
     translate([0, 0, h-lh]) cylinder(h=lh*0.25, r1=r, r2=r+(lt/2), $fn=30);
-    translate([0, 0, h-lh+lh*0.25]) cylinder(h=lh*0.25, r=r+(lt/2), $fn=30);    
-    translate([0, 0, h-lh+lh*0.50]) cylinder(h=lh*0.50, r1=r+(lt/2), r2=r-(lt/2), $fn=30);    
+    translate([0, 0, h-lh+lh*0.25]) cylinder(h=lh*0.25, r=r+(lt/2), $fn=30);
+    translate([0, 0, h-lh+lh*0.50]) cylinder(h=lh*0.50, r1=r+(lt/2), r2=r-(lt/2), $fn=30);
   }
 }
