@@ -64,6 +64,7 @@ module pintack(h=10, r=PinDiameter/2, lh=3, lt=1, t=0.2, bh=3, br=6, side=false)
 
       flip=(side==false) ? 1 : 0;
 
+      color(Level3PlasticColor)
       translate ([0,flip*(r*1.5-t)/2,0])
       rotate ([flip*90,0,0])
       union() {

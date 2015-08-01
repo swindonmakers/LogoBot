@@ -69,7 +69,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 							BumperAssembly();
 
 						attachWithOffset(DefCon, DefCon, [0, 0, -6*layers])
-							BumperStabiliserModel();
+							BumperStabiliser_STL();
 
 						attach(Bumper_Con_LeftPin, DefConDown, ExplodeSpacing=-20, offset=[0,0,20])
 							pintack(side=false, h=7.8+2+2.5+6*layers, bh=2);
