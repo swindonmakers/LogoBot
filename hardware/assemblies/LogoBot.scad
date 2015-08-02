@@ -23,6 +23,9 @@
 
 LogoBot_Con_Breadboard          = [[-18, 40, 12],[0,0,-1], 0,0,0];
 
+LogoBot_Con_LeftWheel           = [[-40,-20, dw],[0,0,-1],90,0,0];
+LogoBot_Con_RightWheel           = [[40,20, dw],[0,0,-1],-90,0,0];
+
 LogoBot_Con_LeftMotorDriver     = [[-45, 16, 8],[0,-1,0],0,0,0];
 LogoBot_Con_RightMotorDriver    = [[45, 16, 8],[0,-1,0],0,0,0];
 
@@ -79,19 +82,21 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 					}
             }
 
-            *step(3, "Push the two motor drivers onto the mounting posts") {
-                view(t=[-6,7,19], r=[64,1,212], d=625);
-                // Left Motor Driver
-                attach(LogoBot_Con_LeftMotorDriver, ULN2003DriverBoard_Con_UpperLeft, ExplodeSpacing=20)
-                    ULN2003DriverBoard();
+            // Motor + Wheel assemblies (x2)
 
-                // Right Motor Driver
-                attach(LogoBot_Con_RightMotorDriver, ULN2003DriverBoard_Con_UpperRight, ExplodeSpacing=20)
-                    ULN2003DriverBoard();
+            //LogoBot_Con_LeftWheel
+            step(4, "Clip the two wheels assemblies onto the base and
+                    connect the motor leads to the the motor drivers") {
+                view(t=[-4,6,47], r=[66,0,190], d=740);
+
+                attach(LogoBot_Con_LeftWheel, MotorClip_Con_Fixing1, ExplodeSpacing = 40)
+                    LeftWheelAssembly();
+
+                attach(LogoBot_Con_RightWheel, MotorClip_Con_Fixing1, ExplodeSpacing = 40)
+                    RightWheelAssembly();
             }
 
-            // Motor + Wheel assemblies (x2)
-            step(4, "Clip the two wheels assemblies onto the base and
+            *step(4, "Clip the two wheels assemblies onto the base and
                     connect the motor leads to the the motor drivers") {
                 view(t=[-4,6,47], r=[66,0,190], d=740);
 

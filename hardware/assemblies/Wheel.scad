@@ -7,9 +7,9 @@
 
 */
 
-module WheelAssembly( ) {
+module LeftWheelAssembly( ) {
 
-    assembly("assemblies/Wheel.scad", "Drive Wheel", str("WheelAssembly()")) {
+    assembly("assemblies/Wheel.scad", "Left Drive Wheel", str("LeftWheelAssembly()")) {
 
         if (DebugCoordinateFrames) frame();
 
@@ -18,7 +18,7 @@ module WheelAssembly( ) {
 
         }
 
-        MotorClip_STL();
+        LeftMotorClip_STL();
 
         step(1, "Clip the motor into place") {
             view();
@@ -45,7 +45,53 @@ module WheelAssembly( ) {
         }
 
 		step (4, "Push the stepper driver into place") {
-			attach(MotorClip_Con_Driver, ULN2003DriverBoard_Con_UpperLeft)
+			attach(LeftMotorClip_Con_Driver, ULN2003DriverBoard_Con_UpperLeft)
+				ULN2003DriverBoard();
+		}
+
+	}
+}
+
+module RightWheelAssembly( ) {
+
+    assembly("assemblies/Wheel.scad", "Right Drive Wheel", str("RightWheelAssembly()")) {
+
+        if (DebugCoordinateFrames) frame();
+
+        // debug connectors?
+        if (DebugConnectors) {
+
+        }
+
+        RightMotorClip_STL();
+
+        step(1, "Clip the motor into place") {
+            view();
+
+            mirror([1,0,0])
+                MotorAndCable();
+        }
+
+		step(2, "Push the pins into the motor clip") {
+			view();
+
+			attach(offsetConnector(MotorClip_Con_Fixing1, [0,-dw,0]), DefConUp)
+				pintack(side=false, h=2*dw + 3, bh=2);
+
+			attach(offsetConnector(MotorClip_Con_Fixing2, [0,-dw,0]), DefConUp)
+				pintack(side=false, h=2*dw + 3, bh=2);
+		}
+
+
+        step(3,  "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip.") {
+            view(t=[0, -3, 5], r=[349,102,178], d=500);
+
+            attach(Wheel_Con_Default, DefConDown, ExplodeSpacing=20)
+                Wheel_STL();
+        }
+
+		step (4, "Push the stepper driver into place") {
+			attach(RightMotorClip_Con_Driver, ULN2003DriverBoard_Con_UpperRight)
 				ULN2003DriverBoard();
 		}
 

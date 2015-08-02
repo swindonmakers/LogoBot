@@ -22,21 +22,43 @@ MotorClip_Con_Fixing4 = [[-10, MotorOffsetZ -dw, 14], [0,1,0], 0,0,0];
 
 MotorClip_Con_Motor = [[0, 0, 4.5], [0,0, 1], 0,0,0];
 
-MotorClip_Con_Driver = [[-MotorClip_DriverOffsetX, 1, MotorClip_DriverOffsetZ], [1, 0, 0], 0,0,0];
+LeftMotorClip_Con_Driver = [[-MotorClip_DriverOffsetX, 1, MotorClip_DriverOffsetZ], [1, 0, 0], 0,0,0];
+RightMotorClip_Con_Driver = [[MotorClip_DriverOffsetX, 1, MotorClip_DriverOffsetZ], [-1, 0, 0], 0,0,0];
 
 
-module MotorClip_STL() {
+module LeftMotorClip_STL() {
 
     // turn off explosions inside STL!!!
     $Explode = false;
 
-    printedPart("printedparts/MotorClip.scad", "Motor Clip", "MotorClip_STL()") {
+    printedPart("printedparts/MotorClip.scad", "Left Motor Clip", "LeftMotorClip_STL()") {
 
         // TODO: Update view
         view(t=[0,0,0], r=[58,0,225], d=681);
 
         // Color it as a printed plastic part
         color(PlasticColor)
+            if (UseSTL) {
+                import(str(STLPath, "MotorClip.stl"));
+            } else {
+                MotorClip_Model();
+            }
+    }
+}
+
+module RightMotorClip_STL() {
+
+    // turn off explosions inside STL!!!
+    $Explode = false;
+
+    printedPart("printedparts/MotorClip.scad", "Right Motor Clip", "RightMotorClip_STL()") {
+
+        // TODO: Update view
+        view(t=[0,0,0], r=[58,0,225], d=681);
+
+        // Color it as a printed plastic part
+        color(PlasticColor)
+            mirror([1,0,0])
             if (UseSTL) {
                 import(str(STLPath, "MotorClip.stl"));
             } else {
@@ -53,7 +75,7 @@ module MotorClip_Model() {
         connector(MotorClip_Con_Fixing1);
         connector(MotorClip_Con_Fixing2);
 
-        connector(MotorClip_Con_Driver);
+        connector(LeftMotorClip_Con_Driver);
     }
 
     difference() {
@@ -150,48 +172,7 @@ module MotorClip_Model() {
 
 
         // hollow for driver board
-        attach(MotorClip_Con_Driver, ULN2003DriverBoard_Con_UpperLeft)
+        attach(LeftMotorClip_Con_Driver, ULN2003DriverBoard_Con_UpperLeft)
             ULN2003DriverBoard_PCB(false, 2);
-    }
-}
-
-
-module OldClip() {
-    // TODO: feed these local variables from the motor vitamin global vars
-    mbr = 28/2;  // motor body radius
-    mao = 8;     // motor axle offset from centre of motor body
-    mth = 7;     // motor tab height
-
-    linear_extrude(5) {
-        difference() {
-            union() {
-
-                difference() {
-                    hull() {
-                        // main circle
-                        circle(r=mbr + dw);
-
-                        // extension to correctly union to the base plate
-                        translate([-(mbr * 1.5)/2,  MotorOffsetZ + mao -1,0])
-                            square([mbr * 1.5, 1]);
-                    }
-
-                    // trim the top off
-                    rotate([0,0,180 + 30])
-                        sector(r=mbr+30, a=120);
-                }
-
-                // welcoming hands
-                for (k=[0,1])
-                    mirror([k,0,0])
-                    rotate([0,0,180+30])
-                    translate([mbr, -dw, 0])
-                    polygon([[1.5,0],[4,5],[3,5],[0,dw]],4);
-            }
-
-            // hollow for the motor
-            circle(r=mbr);
-
-        }
     }
 }
