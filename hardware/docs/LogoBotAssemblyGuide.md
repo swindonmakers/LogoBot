@@ -22,12 +22,15 @@ Qty | Part Name | Image
 1 | [Basic Shell](../printedparts/stl/BasicShell.stl) | ![](../printedparts/images/BasicShell_view.png) | 
 2 | [BumperStabiliser](../printedparts/stl/BumperStabiliser.stl) | ![](../printedparts/images/BumperStabiliser_view.png) | 
 2 | [Bumper](../printedparts/stl/Bumper.stl) | ![](../printedparts/images/Bumper_view.png) | 
+1 | [Left Motor Clip](../printedparts/stl/LeftMotorClip.stl) | ![](../printedparts/images/LeftMotorClip_view.png) | 
 1 | [Lid](../printedparts/stl/Lid.stl) | ![](../printedparts/images/Lid_view.png) | 
 1 | [Base](../printedparts/stl/Base.stl) | ![](../printedparts/images/Base_view.png) | 
 1 | [Caster Housing](../printedparts/stl/CasterHousing.stl) | ![](../printedparts/images/CasterHousing_view.png) | 
+1 | [Right Motor Clip](../printedparts/stl/RightMotorClip.stl) | ![](../printedparts/images/RightMotorClip_view.png) | 
 2 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
 4 | [Pintack H14.1 BH2](../printedparts/stl/PintackH141BH2.stl) | ![](../printedparts/images/PintackH141BH2_view.png) | 
 1 | [Pintack H6.1 BH2](../printedparts/stl/PintackH61BH2.stl) | ![](../printedparts/images/PintackH61BH2_view.png) | 
+4 | [Pintack H7 BH2](../printedparts/stl/PintackH7BH2.stl) | ![](../printedparts/images/PintackH7BH2_view.png) | 
 
 
 ## Brain
@@ -58,18 +61,46 @@ Qty | Part Name | Image
 ![](../assemblies/LogoBot/Bumpers_step1_view.png)
 
 
-## Drive Wheel (x2)
+## Left Drive Wheel
 
 ### Printed Parts
 
 Qty | Part Name | Image
 --- | --- | ---
-2 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
+1 | [Left Motor Clip](../printedparts/stl/LeftMotorClip.stl) | ![](../printedparts/images/LeftMotorClip_view.png) | 
+1 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
+2 | [Pintack H7 BH2](../printedparts/stl/PintackH7BH2.stl) | ![](../printedparts/images/PintackH7BH2_view.png) | 
 
 ### Assembly Steps
 
-1. Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip.
-![](../assemblies/LogoBot/DriveWheel_step1_view.png)
+1. Clip the motor into place
+![](../assemblies/LogoBot/LeftDriveWheel_step1_view.png)
+2. Push the pins into the motor clip
+![](../assemblies/LogoBot/LeftDriveWheel_step2_view.png)
+3. Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip.
+![](../assemblies/LogoBot/LeftDriveWheel_step3_view.png)
+4. Push the stepper driver into place
+
+
+## Right Drive Wheel
+
+### Printed Parts
+
+Qty | Part Name | Image
+--- | --- | ---
+1 | [Right Motor Clip](../printedparts/stl/RightMotorClip.stl) | ![](../printedparts/images/RightMotorClip_view.png) | 
+1 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
+2 | [Pintack H7 BH2](../printedparts/stl/PintackH7BH2.stl) | ![](../printedparts/images/PintackH7BH2_view.png) | 
+
+### Assembly Steps
+
+1. Clip the motor into place
+![](../assemblies/LogoBot/RightDriveWheel_step1_view.png)
+2. Push the pins into the motor clip
+![](../assemblies/LogoBot/RightDriveWheel_step2_view.png)
+3. Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip.
+![](../assemblies/LogoBot/RightDriveWheel_step3_view.png)
+4. Push the stepper driver into place
 
 
 ## Rear Caster
@@ -130,7 +161,8 @@ Qty | Name
 --- | --- 
 1 | Brain
 2 | Bumpers
-2 | Drive Wheel
+1 | Left Drive Wheel
+1 | Right Drive Wheel
 1 | Rear Caster
 1 | Shell
 
@@ -140,8 +172,6 @@ Qty | Name
 ![](../assemblies/LogoBot/FinalAssembly_step1_view.png)
 2. Connect the two bumper assemblies using four of the push pins with flat heads
 ![](../assemblies/LogoBot/FinalAssembly_step2_view.png)
-3. Push the two motor drivers onto the mounting posts
-![](../assemblies/LogoBot/FinalAssembly_step3_view.png)
 4. Clip the two wheels assemblies onto the base and                    connect the motor leads to the the motor drivers
 ![](../assemblies/LogoBot/FinalAssembly_step4_view.png)
 5. Connect the jumper wires between the motor drivers and the Arduino

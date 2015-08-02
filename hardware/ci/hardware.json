@@ -1,8 +1,9 @@
 [
     {
+        "hash": "1747c00ea3708f693f2036e23493a3f0",
         "vitamins": [
             {
-                "title": "Breadboard 170",
+                "hash": "f9f7b8c7c104f20278aa66ad4cb62196",
                 "views": [
                     {
                         "rotate": [
@@ -11,6 +12,7 @@
                             218
                         ],
                         "dist": 316,
+                        "filepath": "../vitamins/images/Breadboard170_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
@@ -25,13 +27,14 @@
                         ]
                     }
                 ],
+                "title": "Breadboard 170",
                 "qty": 1,
                 "parts": [],
                 "call": "Breadboard(Breadboard_170)",
                 "file": "vitamins/Breadboard.scad"
             },
             {
-                "title": "JumperWire Female to Male 4pin 100mm",
+                "hash": "f491a11d6c2955f6c7cb5ab42f273055",
                 "views": [
                     {
                         "rotate": [
@@ -40,6 +43,7 @@
                             29
                         ],
                         "dist": 438,
+                        "filepath": "../vitamins/images/JumperWireFemaletoMale4pin100mm_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
@@ -54,13 +58,14 @@
                         ]
                     }
                 ],
+                "title": "JumperWire Female to Male 4pin 100mm",
                 "qty": 2,
                 "parts": [],
                 "call": "JumperWire(type=JumperWire_FM4, length=100)",
                 "file": "vitamins/JumperWire.scad"
             },
             {
-                "title": "16mm Marble",
+                "hash": "34ca922a189bc80317238f20ac11a923",
                 "views": [
                     {
                         "rotate": [
@@ -69,6 +74,7 @@
                             60
                         ],
                         "dist": 119,
+                        "filepath": "../vitamins/images/16mmMarble_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
@@ -83,6 +89,7 @@
                         ]
                     }
                 ],
+                "title": "16mm Marble",
                 "qty": 1,
                 "parts": [],
                 "call": "Marble(Marble_16mm)",
@@ -92,23 +99,24 @@
         "title": "LogoBot",
         "assemblies": [
             {
+                "hash": "cd50bf62766729a1923decaadfade10d",
                 "vitamins": [
                     {
-                        "title": "JumperWire Female to Male 4pin 100mm",
                         "views": [],
+                        "title": "JumperWire Female to Male 4pin 100mm",
                         "qty": 2,
                         "parts": [],
                         "call": "JumperWire(type=JumperWire_FM4, length=100)",
                         "file": "vitamins/JumperWire.scad"
                     }
                 ],
-                "title": "Final Assembly",
+                "views": [],
                 "assemblies": [
                     {
                         "vitamins": [],
-                        "title": "Brain",
-                        "assemblies": [],
                         "views": [],
+                        "assemblies": [],
+                        "title": "Brain",
                         "qty": 1,
                         "steps": [],
                         "printed": [],
@@ -118,9 +126,9 @@
                     },
                     {
                         "vitamins": [],
-                        "title": "Bumpers",
-                        "assemblies": [],
                         "views": [],
+                        "assemblies": [],
+                        "title": "Bumpers",
                         "qty": 2,
                         "steps": [],
                         "printed": [],
@@ -130,21 +138,33 @@
                     },
                     {
                         "vitamins": [],
-                        "title": "Drive Wheel",
-                        "assemblies": [],
                         "views": [],
-                        "qty": 2,
+                        "assemblies": [],
+                        "title": "Left Drive Wheel",
+                        "qty": 1,
                         "steps": [],
                         "printed": [],
                         "file": "assemblies/Wheel.scad",
-                        "call": "WheelAssembly()",
+                        "call": "LeftWheelAssembly()",
                         "level": 1
                     },
                     {
                         "vitamins": [],
-                        "title": "Rear Caster",
-                        "assemblies": [],
                         "views": [],
+                        "assemblies": [],
+                        "title": "Right Drive Wheel",
+                        "qty": 1,
+                        "steps": [],
+                        "printed": [],
+                        "file": "assemblies/Wheel.scad",
+                        "call": "RightWheelAssembly()",
+                        "level": 1
+                    },
+                    {
+                        "vitamins": [],
+                        "views": [],
+                        "assemblies": [],
+                        "title": "Rear Caster",
                         "qty": 1,
                         "steps": [],
                         "printed": [],
@@ -154,9 +174,9 @@
                     },
                     {
                         "vitamins": [],
-                        "title": "Shell",
-                        "assemblies": [],
                         "views": [],
+                        "assemblies": [],
+                        "title": "Shell",
                         "qty": 1,
                         "steps": [],
                         "printed": [],
@@ -165,12 +185,10 @@
                         "level": 1
                     }
                 ],
-                "views": [],
+                "title": "Final Assembly",
                 "qty": 1,
                 "steps": [
                     {
-                        "desc": "Connect the breadboard assembly to the underside of the base",
-                        "num": 1,
                         "views": [
                             {
                                 "rotate": [
@@ -179,6 +197,7 @@
                                     222
                                 ],
                                 "dist": 513,
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -192,11 +211,11 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 1,
+                        "desc": "Connect the breadboard assembly to the underside of the base"
                     },
                     {
-                        "desc": "Connect the two bumper assemblies using four of the push pins with flat heads",
-                        "num": 2,
                         "views": [
                             {
                                 "rotate": [
@@ -205,6 +224,7 @@
                                     146
                                 ],
                                 "dist": 400,
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step2_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -218,11 +238,11 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 2,
+                        "desc": "Connect the two bumper assemblies using four of the push pins with flat heads"
                     },
                     {
-                        "desc": "Clip the two wheels assemblies onto the base and                    connect the motor leads to the the motor drivers",
-                        "num": 4,
                         "views": [
                             {
                                 "rotate": [
@@ -231,6 +251,7 @@
                                     190
                                 ],
                                 "dist": 740,
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step4_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -244,11 +265,11 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 4,
+                        "desc": "Clip the two wheels assemblies onto the base and                    connect the motor leads to the the motor drivers"
                     },
                     {
-                        "desc": "Connect the jumper wires between the motor drivers and the Arduino",
-                        "num": 5,
                         "views": [
                             {
                                 "rotate": [
@@ -257,6 +278,7 @@
                                     161
                                 ],
                                 "dist": 766,
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step5_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -277,6 +299,7 @@
                                     0
                                 ],
                                 "dist": 337,
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step5_plan.png",
                                 "title": "plan",
                                 "caption": "view",
                                 "translate": [
@@ -290,11 +313,38 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 5,
+                        "desc": "Connect the jumper wires between the motor drivers and the Arduino"
                     },
                     {
-                        "desc": "Clip in the battery pack",
+                        "views": [
+                            {
+                                "rotate": [
+                                    64,
+                                    1,
+                                    212
+                                ],
+                                "dist": 625,
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step6_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -6,
+                                    7,
+                                    19
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
                         "num": 6,
+                        "desc": "Clip in the battery pack"
+                    },
+                    {
                         "views": [
                             {
                                 "rotate": [
@@ -303,6 +353,7 @@
                                     212
                                 ],
                                 "dist": 625,
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step7_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -316,11 +367,11 @@
                                     300
                                 ]
                             }
-                        ]
-                    },
-                    {
-                        "desc": "Clip the power switch into place",
+                        ],
                         "num": 7,
+                        "desc": "Clip the power switch into place"
+                    },
+                    {
                         "views": [
                             {
                                 "rotate": [
@@ -329,6 +380,7 @@
                                     212
                                 ],
                                 "dist": 625,
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step8_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -342,11 +394,11 @@
                                     300
                                 ]
                             }
-                        ]
-                    },
-                    {
-                        "desc": "Clip the LED into place",
+                        ],
                         "num": 8,
+                        "desc": "Clip the LED into place"
+                    },
+                    {
                         "views": [
                             {
                                 "rotate": [
@@ -355,6 +407,7 @@
                                     212
                                 ],
                                 "dist": 625,
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step9_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -368,19 +421,20 @@
                                     300
                                 ]
                             }
-                        ]
-                    },
-                    {
-                        "desc": "Clip the piezo sounder into place",
+                        ],
                         "num": 9,
+                        "desc": "Clip the piezo sounder into place"
+                    },
+                    {
                         "views": [
                             {
                                 "rotate": [
-                                    64,
+                                    115,
                                     1,
-                                    212
+                                    26
                                 ],
                                 "dist": 625,
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step10_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -394,11 +448,11 @@
                                     300
                                 ]
                             }
-                        ]
-                    },
-                    {
-                        "desc": "Align the caster assembly with the base",
+                        ],
                         "num": 10,
+                        "desc": "Align the caster assembly with the base"
+                    },
+                    {
                         "views": [
                             {
                                 "rotate": [
@@ -407,6 +461,7 @@
                                     26
                                 ],
                                 "dist": 625,
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step11_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -420,37 +475,11 @@
                                     300
                                 ]
                             }
-                        ]
-                    },
-                    {
-                        "desc": "Insert a short pin to lock the caster assembly to the base",
+                        ],
                         "num": 11,
-                        "views": [
-                            {
-                                "rotate": [
-                                    115,
-                                    1,
-                                    26
-                                ],
-                                "dist": 625,
-                                "title": "view",
-                                "caption": "view",
-                                "translate": [
-                                    -6,
-                                    7,
-                                    19
-                                ],
-                                "type": "view",
-                                "size": [
-                                    400,
-                                    300
-                                ]
-                            }
-                        ]
+                        "desc": "Insert a short pin to lock the caster assembly to the base"
                     },
                     {
-                        "desc": "Push the shell down onto the base and twist to lock into place",
-                        "num": 12,
                         "views": [
                             {
                                 "rotate": [
@@ -459,6 +488,7 @@
                                     217
                                 ],
                                 "dist": 625,
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step12_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -472,37 +502,39 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 12,
+                        "desc": "Push the shell down onto the base and twist to lock into place"
                     }
                 ],
                 "printed": [
                     {
-                        "title": "Base",
+                        "views": [],
                         "qty": 1,
                         "call": "LogoBotBase_STL()",
                         "file": "printedparts/LogoBotBase.scad",
-                        "views": []
+                        "title": "Base"
                     },
                     {
-                        "title": "BumperStabiliser",
+                        "views": [],
                         "qty": 2,
                         "call": "BumperStabiliser_STL()",
                         "file": "printedparts/BumperStabiliser.scad",
-                        "views": []
+                        "title": "BumperStabiliser"
                     },
                     {
-                        "title": "Pintack H14.1 BH2",
+                        "views": [],
                         "qty": 4,
                         "call": "pintack(side=false,h=14.1,bh=2)",
                         "file": "utils/pins.scad",
-                        "views": []
+                        "title": "Pintack H14.1 BH2"
                     },
                     {
-                        "title": "Pintack H6.1 BH2",
+                        "views": [],
                         "qty": 1,
                         "call": "pintack(side=false,h=6.1,bh=2)",
                         "file": "utils/pins.scad",
-                        "views": []
+                        "title": "Pintack H6.1 BH2"
                     }
                 ],
                 "file": "assemblies/LogoBot.scad",
@@ -510,24 +542,23 @@
                 "level": 0
             },
             {
+                "hash": "35c02840a3121a84bb6fc6553e7eb5a7",
                 "vitamins": [
                     {
-                        "title": "Breadboard 170",
                         "views": [],
+                        "title": "Breadboard 170",
                         "qty": 1,
                         "parts": [],
                         "call": "Breadboard(Breadboard_170)",
                         "file": "vitamins/Breadboard.scad"
                     }
                 ],
-                "title": "Brain",
-                "assemblies": [],
                 "views": [],
+                "assemblies": [],
+                "title": "Brain",
                 "qty": 1,
                 "steps": [
                     {
-                        "desc": "Push the Arduino onto the breadboard - make sure you position it correctly,                  as it's a tight fit with the Robot base!",
-                        "num": 1,
                         "views": [
                             {
                                 "rotate": [
@@ -536,6 +567,7 @@
                                     218
                                 ],
                                 "dist": 316,
+                                "filepath": "../assemblies/LogoBot/Brain_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -549,7 +581,9 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 1,
+                        "desc": "Push the Arduino onto the breadboard - make sure you position it correctly,                  as it's a tight fit with the Robot base!"
                     }
                 ],
                 "printed": [],
@@ -558,15 +592,14 @@
                 "level": 2
             },
             {
+                "hash": "c4cfcea9d8d806980a27809bdf82cf20",
                 "vitamins": [],
-                "title": "Bumpers",
-                "assemblies": [],
                 "views": [],
+                "assemblies": [],
+                "title": "Bumpers",
                 "qty": 2,
                 "steps": [
                     {
-                        "desc": "Place the Microswitches into the holders.  Make sure to get them the right way round so the bumper hits the metal lever.  Repeat for the second bumper.",
-                        "num": 1,
                         "views": [
                             {
                                 "rotate": [
@@ -575,6 +608,7 @@
                                     319.9
                                 ],
                                 "dist": 400,
+                                "filepath": "../assemblies/LogoBot/Bumpers_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -588,16 +622,18 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 1,
+                        "desc": "Place the Microswitches into the holders.  Make sure to get them the right way round so the bumper hits the metal lever.  Repeat for the second bumper."
                     }
                 ],
                 "printed": [
                     {
-                        "title": "Bumper",
+                        "views": [],
                         "qty": 2,
                         "call": "Bumper_STL()",
                         "file": "printedparts/Bumper.scad",
-                        "views": []
+                        "title": "Bumper"
                     }
                 ],
                 "file": "assemblies/Bumper.scad",
@@ -605,15 +641,41 @@
                 "level": 2
             },
             {
+                "hash": "7fb2ad80bcad826dafd4a251ef949e5c",
                 "vitamins": [],
-                "title": "Drive Wheel",
-                "assemblies": [],
                 "views": [],
-                "qty": 2,
+                "assemblies": [],
+                "title": "Left Drive Wheel",
+                "qty": 1,
                 "steps": [
                     {
-                        "desc": "Clip the motor into place",
+                        "views": [
+                            {
+                                "rotate": [
+                                    55,
+                                    0,
+                                    25
+                                ],
+                                "dist": 500,
+                                "filepath": "../assemblies/LogoBot/LeftDriveWheel_step1_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
                         "num": 1,
+                        "desc": "Clip the motor into place"
+                    },
+                    {
                         "views": [
                             {
                                 "rotate": [
@@ -622,6 +684,7 @@
                                     25
                                 ],
                                 "dist": 500,
+                                "filepath": "../assemblies/LogoBot/LeftDriveWheel_step2_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -635,37 +698,11 @@
                                     300
                                 ]
                             }
-                        ]
-                    },
-                    {
-                        "desc": "Push the pins into the motor clip",
+                        ],
                         "num": 2,
-                        "views": [
-                            {
-                                "rotate": [
-                                    55,
-                                    0,
-                                    25
-                                ],
-                                "dist": 500,
-                                "title": "view",
-                                "caption": "view",
-                                "translate": [
-                                    0,
-                                    0,
-                                    0
-                                ],
-                                "type": "view",
-                                "size": [
-                                    400,
-                                    300
-                                ]
-                            }
-                        ]
+                        "desc": "Push the pins into the motor clip"
                     },
                     {
-                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip.",
-                        "num": 3,
                         "views": [
                             {
                                 "rotate": [
@@ -674,6 +711,7 @@
                                     178
                                 ],
                                 "dist": 500,
+                                "filepath": "../assemblies/LogoBot/LeftDriveWheel_step3_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -687,60 +725,183 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 3,
+                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip."
                     },
                     {
-                        "desc": "Push the stepper driver into place",
+                        "views": [],
                         "num": 4,
-                        "views": []
+                        "desc": "Push the stepper driver into place"
                     }
                 ],
                 "printed": [
                     {
-                        "title": "Motor Clip",
-                        "qty": 2,
-                        "call": "MotorClip_STL()",
+                        "views": [],
+                        "qty": 1,
+                        "call": "LeftMotorClip_STL()",
                         "file": "printedparts/MotorClip.scad",
-                        "views": []
+                        "title": "Left Motor Clip"
                     },
                     {
-                        "title": "Pintack H7 BH2",
-                        "qty": 4,
+                        "views": [],
+                        "qty": 2,
                         "call": "pintack(side=false,h=7,bh=2)",
                         "file": "utils/pins.scad",
-                        "views": []
+                        "title": "Pintack H7 BH2"
                     },
                     {
-                        "title": "Wheel",
-                        "qty": 2,
+                        "views": [],
+                        "qty": 1,
                         "call": "Wheel_STL()",
                         "file": "printedparts/Wheel.scad",
-                        "views": []
+                        "title": "Wheel"
                     }
                 ],
                 "file": "assemblies/Wheel.scad",
-                "call": "WheelAssembly()",
+                "call": "LeftWheelAssembly()",
                 "level": 2
             },
             {
+                "hash": "92e93cafd8156ea0c2a3a8a559647987",
+                "vitamins": [],
+                "views": [],
+                "assemblies": [],
+                "title": "Right Drive Wheel",
+                "qty": 1,
+                "steps": [
+                    {
+                        "views": [
+                            {
+                                "rotate": [
+                                    55,
+                                    0,
+                                    25
+                                ],
+                                "dist": 500,
+                                "filepath": "../assemblies/LogoBot/RightDriveWheel_step1_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "num": 1,
+                        "desc": "Clip the motor into place"
+                    },
+                    {
+                        "views": [
+                            {
+                                "rotate": [
+                                    55,
+                                    0,
+                                    25
+                                ],
+                                "dist": 500,
+                                "filepath": "../assemblies/LogoBot/RightDriveWheel_step2_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "num": 2,
+                        "desc": "Push the pins into the motor clip"
+                    },
+                    {
+                        "views": [
+                            {
+                                "rotate": [
+                                    349,
+                                    102,
+                                    178
+                                ],
+                                "dist": 500,
+                                "filepath": "../assemblies/LogoBot/RightDriveWheel_step3_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    -3,
+                                    5
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "num": 3,
+                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip."
+                    },
+                    {
+                        "views": [],
+                        "num": 4,
+                        "desc": "Push the stepper driver into place"
+                    }
+                ],
+                "printed": [
+                    {
+                        "views": [],
+                        "qty": 1,
+                        "call": "RightMotorClip_STL()",
+                        "file": "printedparts/MotorClip.scad",
+                        "title": "Right Motor Clip"
+                    },
+                    {
+                        "views": [],
+                        "qty": 2,
+                        "call": "pintack(side=false,h=7,bh=2)",
+                        "file": "utils/pins.scad",
+                        "title": "Pintack H7 BH2"
+                    },
+                    {
+                        "views": [],
+                        "qty": 1,
+                        "call": "Wheel_STL()",
+                        "file": "printedparts/Wheel.scad",
+                        "title": "Wheel"
+                    }
+                ],
+                "file": "assemblies/Wheel.scad",
+                "call": "RightWheelAssembly()",
+                "level": 2
+            },
+            {
+                "hash": "b1296abf5253240f34009825f918cfe3",
                 "vitamins": [
                     {
-                        "title": "16mm Marble",
                         "views": [],
+                        "title": "16mm Marble",
                         "qty": 1,
                         "parts": [],
                         "call": "Marble(Marble_16mm)",
                         "file": "vitamins/Marble.scad"
                     }
                 ],
-                "title": "Rear Caster",
-                "assemblies": [],
                 "views": [],
+                "assemblies": [],
+                "title": "Rear Caster",
                 "qty": 1,
                 "steps": [
                     {
-                        "desc": "Insert the marble into the printed housing",
-                        "num": 1,
                         "views": [
                             {
                                 "rotate": [
@@ -749,6 +910,7 @@
                                     91
                                 ],
                                 "dist": 261,
+                                "filepath": "../assemblies/LogoBot/RearCaster_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -762,16 +924,18 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 1,
+                        "desc": "Insert the marble into the printed housing"
                     }
                 ],
                 "printed": [
                     {
-                        "title": "Caster Housing",
+                        "views": [],
                         "qty": 1,
                         "call": "MarbleCaster_STL()",
                         "file": "printedparts/MarbleCaster.scad",
-                        "views": []
+                        "title": "Caster Housing"
                     }
                 ],
                 "file": "assemblies/MarbleCaster.scad",
@@ -779,15 +943,14 @@
                 "level": 2
             },
             {
+                "hash": "9f95673f2c4bfd72268a108d064b9492",
                 "vitamins": [],
-                "title": "Shell",
-                "assemblies": [],
                 "views": [],
+                "assemblies": [],
+                "title": "Shell",
                 "qty": 1,
                 "steps": [
                     {
-                        "desc": "Clip the lid onto the top of the shell",
-                        "num": 1,
                         "views": [
                             {
                                 "rotate": [
@@ -796,6 +959,7 @@
                                     27
                                 ],
                                 "dist": 500,
+                                "filepath": "../assemblies/LogoBot/Shell_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -809,23 +973,25 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 1,
+                        "desc": "Clip the lid onto the top of the shell"
                     }
                 ],
                 "printed": [
                     {
-                        "title": "Basic Shell",
+                        "views": [],
                         "qty": 1,
                         "call": "BasicShell_STL()",
                         "file": "printedparts/BasicShell.scad",
-                        "views": []
+                        "title": "Basic Shell"
                     },
                     {
-                        "title": "Lid",
+                        "views": [],
                         "qty": 1,
                         "call": "Lid_STL()",
                         "file": "printedparts/Lid.scad",
-                        "views": []
+                        "title": "Lid"
                     }
                 ],
                 "file": "assemblies/Shell.scad",
@@ -836,7 +1002,6 @@
         "printed": [
             {
                 "hash": "f4898cae5d28c2a63ec170d02ccfe03f",
-                "title": "Base",
                 "views": [
                     {
                         "rotate": [
@@ -860,13 +1025,13 @@
                         ]
                     }
                 ],
+                "title": "Base",
                 "qty": 1,
                 "call": "LogoBotBase_STL()",
                 "file": "printedparts/LogoBotBase.scad"
             },
             {
                 "hash": "731f6f0632a58dec91bd62091071b363",
-                "title": "Bumper",
                 "views": [
                     {
                         "rotate": [
@@ -890,13 +1055,13 @@
                         ]
                     }
                 ],
+                "title": "Bumper",
                 "qty": 2,
                 "call": "Bumper_STL()",
                 "file": "printedparts/Bumper.scad"
             },
             {
                 "hash": "6085def5a25e717f693e01194c7d0663",
-                "title": "BumperStabiliser",
                 "views": [
                     {
                         "rotate": [
@@ -920,13 +1085,27 @@
                         ]
                     }
                 ],
+                "aabb": [
+                    [
+                        -50.2499,
+                        27.6931,
+                        0.0
+                    ],
+                    [
+                        50.2499,
+                        58.4592,
+                        1.8
+                    ]
+                ],
+                "title": "BumperStabiliser",
                 "qty": 2,
+                "volume": 976.397854626,
+                "area": 1606.4345209526527,
                 "call": "BumperStabiliser_STL()",
                 "file": "printedparts/BumperStabiliser.scad"
             },
             {
                 "hash": "d8487f8033bdc7096d48d0575710ecc7",
-                "title": "Pintack H14.1 BH2",
                 "views": [
                     {
                         "rotate": [
@@ -950,25 +1129,27 @@
                         ]
                     }
                 ],
+                "aabb": [
+                    [
+                        -6.0,
+                        -2.525,
+                        -2.0
+                    ],
+                    [
+                        6.0,
+                        2.525,
+                        14.1
+                    ]
+                ],
+                "title": "Pintack H14.1 BH2",
                 "qty": 4,
+                "volume": 390.84886581292477,
+                "area": 544.5752275116914,
                 "call": "pintack(side=false,h=14.1,bh=2)",
                 "file": "utils/pins.scad"
             },
             {
                 "hash": "d3f4d2152aa0b16b91136c9b6abbb912",
-                "title": "Motor Clip",
-                "aabb": [
-                    [
-                        -26.0,
-                        -12.0,
-                        2.1
-                    ],
-                    [
-                        26.0,
-                        8.0,
-                        36.5
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -978,7 +1159,7 @@
                         ],
                         "dist": 681,
                         "title": "view",
-                        "filepath": "../printedparts/images/MotorClip_view.png",
+                        "filepath": "../printedparts/images/LeftMotorClip_view.png",
                         "caption": "view",
                         "translate": [
                             0,
@@ -992,27 +1173,27 @@
                         ]
                     }
                 ],
-                "qty": 2,
+                "aabb": [
+                    [
+                        -26.0,
+                        -12.0,
+                        2.1
+                    ],
+                    [
+                        26.0,
+                        8.0,
+                        36.5
+                    ]
+                ],
+                "title": "Left Motor Clip",
+                "qty": 1,
                 "volume": 4567.689599249829,
                 "area": 5598.797257968836,
-                "call": "MotorClip_STL()",
+                "call": "LeftMotorClip_STL()",
                 "file": "printedparts/MotorClip.scad"
             },
             {
                 "hash": "a9b988fc3e240b5f09e91667c9a8e345",
-                "title": "Pintack H7 BH2",
-                "aabb": [
-                    [
-                        -6.0,
-                        -2.525,
-                        -2.0
-                    ],
-                    [
-                        6.0,
-                        2.525,
-                        7.0
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -1036,6 +1217,19 @@
                         ]
                     }
                 ],
+                "aabb": [
+                    [
+                        -6.0,
+                        -2.525,
+                        -2.0
+                    ],
+                    [
+                        6.0,
+                        2.525,
+                        7.0
+                    ]
+                ],
+                "title": "Pintack H7 BH2",
                 "qty": 4,
                 "volume": 258.8674957469142,
                 "area": 375.95124293753025,
@@ -1044,7 +1238,6 @@
             },
             {
                 "hash": "c77401e9b5fd747ea4bdd40da2e9f650",
-                "title": "Wheel",
                 "views": [
                     {
                         "rotate": [
@@ -1068,13 +1261,57 @@
                         ]
                     }
                 ],
+                "title": "Wheel",
                 "qty": 2,
                 "call": "Wheel_STL()",
                 "file": "printedparts/Wheel.scad"
             },
             {
+                "hash": "2aeea62a36fe1ffb3a201fec5b7d9e8f",
+                "views": [
+                    {
+                        "rotate": [
+                            58,
+                            0,
+                            225
+                        ],
+                        "dist": 681,
+                        "title": "view",
+                        "filepath": "../printedparts/images/RightMotorClip_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "aabb": [
+                    [
+                        -26.0,
+                        -12.0,
+                        2.1
+                    ],
+                    [
+                        26.0,
+                        8.0,
+                        36.5
+                    ]
+                ],
+                "title": "Right Motor Clip",
+                "qty": 1,
+                "volume": 4567.689608079416,
+                "area": 5598.797257992755,
+                "call": "RightMotorClip_STL()",
+                "file": "printedparts/MotorClip.scad"
+            },
+            {
                 "hash": "bd4a7de840c7400b58fb27a6c2ee6f14",
-                "title": "Caster Housing",
                 "views": [
                     {
                         "rotate": [
@@ -1098,13 +1335,13 @@
                         ]
                     }
                 ],
+                "title": "Caster Housing",
                 "qty": 1,
                 "call": "MarbleCaster_STL()",
                 "file": "printedparts/MarbleCaster.scad"
             },
             {
                 "hash": "c02d3b32d707d19438d6deec9c695bce",
-                "title": "Pintack H6.1 BH2",
                 "views": [
                     {
                         "rotate": [
@@ -1128,13 +1365,27 @@
                         ]
                     }
                 ],
+                "aabb": [
+                    [
+                        -6.0,
+                        -2.525,
+                        -2.0
+                    ],
+                    [
+                        6.0,
+                        2.525,
+                        6.1
+                    ]
+                ],
+                "title": "Pintack H6.1 BH2",
                 "qty": 1,
+                "volume": 242.13750738177333,
+                "area": 354.57635941335013,
                 "call": "pintack(side=false,h=6.1,bh=2)",
                 "file": "utils/pins.scad"
             },
             {
                 "hash": "369e262b65901507a40a5683f5f31aa5",
-                "title": "Basic Shell",
                 "views": [
                     {
                         "rotate": [
@@ -1158,13 +1409,13 @@
                         ]
                     }
                 ],
+                "title": "Basic Shell",
                 "qty": 1,
                 "call": "BasicShell_STL()",
                 "file": "printedparts/BasicShell.scad"
             },
             {
                 "hash": "406b9cf0b5a5fcd6f6d82360e2efef76",
-                "title": "Lid",
                 "views": [
                     {
                         "rotate": [
@@ -1188,6 +1439,7 @@
                         ]
                     }
                 ],
+                "title": "Lid",
                 "qty": 1,
                 "call": "Lid_STL()",
                 "file": "printedparts/Lid.scad"
@@ -1204,6 +1456,7 @@
                 ],
                 "dist": 749,
                 "title": "view",
+                "filepath": "../images/LogoBot_view.png",
                 "caption": "view",
                 "translate": [
                     5,
@@ -1221,12 +1474,12 @@
                 "type": "markdown"
             },
             {
-                "call": "LogoBotAssembly(PenLift=false)",
                 "type": "assembly",
+                "call": "LogoBotAssembly(PenLift=false)",
                 "children": [
                     {
-                        "call": "LogoBotBase_STL()",
                         "type": "printed",
+                        "call": "LogoBotBase_STL()",
                         "children": [
                             {
                                 "rotate": [
@@ -1277,12 +1530,12 @@
                                 ]
                             },
                             {
-                                "call": "BreadboardAssembly()",
                                 "type": "assembly",
+                                "call": "BreadboardAssembly()",
                                 "children": [
                                     {
-                                        "call": "Breadboard(Breadboard_170)",
                                         "type": "vitamin",
+                                        "call": "Breadboard(Breadboard_170)",
                                         "children": [
                                             {
                                                 "rotate": [
@@ -1367,12 +1620,12 @@
                                 ]
                             },
                             {
-                                "call": "BumperAssembly()",
                                 "type": "assembly",
+                                "call": "BumperAssembly()",
                                 "children": [
                                     {
-                                        "call": "Bumper_STL()",
                                         "type": "printed",
+                                        "call": "Bumper_STL()",
                                         "children": [
                                             {
                                                 "rotate": [
@@ -1430,8 +1683,8 @@
                                 "title": "Bumpers"
                             },
                             {
-                                "call": "BumperStabiliser_STL()",
                                 "type": "printed",
+                                "call": "BumperStabiliser_STL()",
                                 "children": [
                                     {
                                         "rotate": [
@@ -1458,8 +1711,8 @@
                                 "title": "BumperStabiliser"
                             },
                             {
-                                "call": "pintack(side=false,h=14.1,bh=2)",
                                 "type": "printed",
+                                "call": "pintack(side=false,h=14.1,bh=2)",
                                 "children": [
                                     {
                                         "rotate": [
@@ -1486,8 +1739,8 @@
                                 "title": "Pintack H14.1 BH2"
                             },
                             {
-                                "call": "pintack(side=false,h=14.1,bh=2)",
                                 "type": "printed",
+                                "call": "pintack(side=false,h=14.1,bh=2)",
                                 "children": [
                                     {
                                         "rotate": [
@@ -1514,12 +1767,12 @@
                                 "title": "Pintack H14.1 BH2"
                             },
                             {
-                                "call": "BumperAssembly()",
                                 "type": "assembly",
+                                "call": "BumperAssembly()",
                                 "children": [
                                     {
-                                        "call": "Bumper_STL()",
                                         "type": "printed",
+                                        "call": "Bumper_STL()",
                                         "children": [
                                             {
                                                 "rotate": [
@@ -1577,8 +1830,8 @@
                                 "title": "Bumpers"
                             },
                             {
-                                "call": "BumperStabiliser_STL()",
                                 "type": "printed",
+                                "call": "BumperStabiliser_STL()",
                                 "children": [
                                     {
                                         "rotate": [
@@ -1605,8 +1858,8 @@
                                 "title": "BumperStabiliser"
                             },
                             {
-                                "call": "pintack(side=false,h=14.1,bh=2)",
                                 "type": "printed",
+                                "call": "pintack(side=false,h=14.1,bh=2)",
                                 "children": [
                                     {
                                         "rotate": [
@@ -1633,8 +1886,8 @@
                                 "title": "Pintack H14.1 BH2"
                             },
                             {
-                                "call": "pintack(side=false,h=14.1,bh=2)",
                                 "type": "printed",
+                                "call": "pintack(side=false,h=14.1,bh=2)",
                                 "children": [
                                     {
                                         "rotate": [
@@ -1688,12 +1941,12 @@
                                 ]
                             },
                             {
-                                "call": "WheelAssembly()",
                                 "type": "assembly",
+                                "call": "LeftWheelAssembly()",
                                 "children": [
                                     {
-                                        "call": "MotorClip_STL()",
                                         "type": "printed",
+                                        "call": "LeftMotorClip_STL()",
                                         "children": [
                                             {
                                                 "rotate": [
@@ -1717,7 +1970,7 @@
                                             }
                                         ],
                                         "file": "printedparts/MotorClip.scad",
-                                        "title": "Motor Clip"
+                                        "title": "Left Motor Clip"
                                     },
                                     {
                                         "num": 1,
@@ -1771,8 +2024,8 @@
                                                 ]
                                             },
                                             {
-                                                "call": "pintack(side=false,h=7,bh=2)",
                                                 "type": "printed",
+                                                "call": "pintack(side=false,h=7,bh=2)",
                                                 "children": [
                                                     {
                                                         "rotate": [
@@ -1799,8 +2052,8 @@
                                                 "title": "Pintack H7 BH2"
                                             },
                                             {
-                                                "call": "pintack(side=false,h=7,bh=2)",
                                                 "type": "printed",
+                                                "call": "pintack(side=false,h=7,bh=2)",
                                                 "children": [
                                                     {
                                                         "rotate": [
@@ -1854,8 +2107,8 @@
                                                 ]
                                             },
                                             {
-                                                "call": "Wheel_STL()",
                                                 "type": "printed",
+                                                "call": "Wheel_STL()",
                                                 "children": [
                                                     {
                                                         "rotate": [
@@ -1892,15 +2145,15 @@
                                     }
                                 ],
                                 "file": "assemblies/Wheel.scad",
-                                "title": "Drive Wheel"
+                                "title": "Left Drive Wheel"
                             },
                             {
-                                "call": "WheelAssembly()",
                                 "type": "assembly",
+                                "call": "RightWheelAssembly()",
                                 "children": [
                                     {
-                                        "call": "MotorClip_STL()",
                                         "type": "printed",
+                                        "call": "RightMotorClip_STL()",
                                         "children": [
                                             {
                                                 "rotate": [
@@ -1924,7 +2177,7 @@
                                             }
                                         ],
                                         "file": "printedparts/MotorClip.scad",
-                                        "title": "Motor Clip"
+                                        "title": "Right Motor Clip"
                                     },
                                     {
                                         "num": 1,
@@ -1978,8 +2231,8 @@
                                                 ]
                                             },
                                             {
-                                                "call": "pintack(side=false,h=7,bh=2)",
                                                 "type": "printed",
+                                                "call": "pintack(side=false,h=7,bh=2)",
                                                 "children": [
                                                     {
                                                         "rotate": [
@@ -2006,8 +2259,8 @@
                                                 "title": "Pintack H7 BH2"
                                             },
                                             {
-                                                "call": "pintack(side=false,h=7,bh=2)",
                                                 "type": "printed",
+                                                "call": "pintack(side=false,h=7,bh=2)",
                                                 "children": [
                                                     {
                                                         "rotate": [
@@ -2061,8 +2314,8 @@
                                                 ]
                                             },
                                             {
-                                                "call": "Wheel_STL()",
                                                 "type": "printed",
+                                                "call": "Wheel_STL()",
                                                 "children": [
                                                     {
                                                         "rotate": [
@@ -2099,7 +2352,7 @@
                                     }
                                 ],
                                 "file": "assemblies/Wheel.scad",
-                                "title": "Drive Wheel"
+                                "title": "Right Drive Wheel"
                             }
                         ],
                         "desc": "Clip the two wheels assemblies onto the base and                    connect the motor leads to the the motor drivers"
@@ -2149,8 +2402,8 @@
                                 ]
                             },
                             {
-                                "call": "JumperWire(type=JumperWire_FM4, length=100)",
                                 "type": "vitamin",
+                                "call": "JumperWire(type=JumperWire_FM4, length=100)",
                                 "children": [
                                     {
                                         "rotate": [
@@ -2177,8 +2430,8 @@
                                 "title": "JumperWire Female to Male 4pin 100mm"
                             },
                             {
-                                "call": "JumperWire(type=JumperWire_FM4, length=100)",
                                 "type": "vitamin",
+                                "call": "JumperWire(type=JumperWire_FM4, length=100)",
                                 "children": [
                                     {
                                         "rotate": [
@@ -2340,12 +2593,12 @@
                                 ]
                             },
                             {
-                                "call": "MarbleCasterAssembly()",
                                 "type": "assembly",
+                                "call": "MarbleCasterAssembly()",
                                 "children": [
                                     {
-                                        "call": "MarbleCaster_STL()",
                                         "type": "printed",
+                                        "call": "MarbleCaster_STL()",
                                         "children": [
                                             {
                                                 "rotate": [
@@ -2396,8 +2649,8 @@
                                                 ]
                                             },
                                             {
-                                                "call": "Marble(Marble_16mm)",
                                                 "type": "vitamin",
+                                                "call": "Marble(Marble_16mm)",
                                                 "children": [
                                                     {
                                                         "rotate": [
@@ -2458,8 +2711,8 @@
                                 ]
                             },
                             {
-                                "call": "pintack(side=false,h=6.1,bh=2)",
                                 "type": "printed",
+                                "call": "pintack(side=false,h=6.1,bh=2)",
                                 "children": [
                                     {
                                         "rotate": [
@@ -2513,12 +2766,12 @@
                                 ]
                             },
                             {
-                                "call": "ShellAssembly()",
                                 "type": "assembly",
+                                "call": "ShellAssembly()",
                                 "children": [
                                     {
-                                        "call": "BasicShell_STL()",
                                         "type": "printed",
+                                        "call": "BasicShell_STL()",
                                         "children": [
                                             {
                                                 "rotate": [
@@ -2569,8 +2822,8 @@
                                                 ]
                                             },
                                             {
-                                                "call": "Lid_STL()",
                                                 "type": "printed",
+                                                "call": "Lid_STL()",
                                                 "children": [
                                                     {
                                                         "rotate": [
@@ -2613,9 +2866,10 @@
         ]
     },
     {
+        "hash": "a3805f1ed344d4623aa64824e0b7f0ff",
         "vitamins": [
             {
-                "title": "Breadboard 170",
+                "hash": "f9f7b8c7c104f20278aa66ad4cb62196",
                 "views": [
                     {
                         "rotate": [
@@ -2624,6 +2878,7 @@
                             218
                         ],
                         "dist": 316,
+                        "filepath": "../vitamins/images/Breadboard170_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
@@ -2638,13 +2893,14 @@
                         ]
                     }
                 ],
+                "title": "Breadboard 170",
                 "qty": 1,
                 "parts": [],
                 "call": "Breadboard(Breadboard_170)",
                 "file": "vitamins/Breadboard.scad"
             },
             {
-                "title": "JumperWire Female to Male 4pin 100mm",
+                "hash": "f491a11d6c2955f6c7cb5ab42f273055",
                 "views": [
                     {
                         "rotate": [
@@ -2653,6 +2909,7 @@
                             29
                         ],
                         "dist": 438,
+                        "filepath": "../vitamins/images/JumperWireFemaletoMale4pin100mm_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
@@ -2667,13 +2924,14 @@
                         ]
                     }
                 ],
+                "title": "JumperWire Female to Male 4pin 100mm",
                 "qty": 2,
                 "parts": [],
                 "call": "JumperWire(type=JumperWire_FM4, length=100)",
                 "file": "vitamins/JumperWire.scad"
             },
             {
-                "title": "16mm Marble",
+                "hash": "34ca922a189bc80317238f20ac11a923",
                 "views": [
                     {
                         "rotate": [
@@ -2682,6 +2940,7 @@
                             60
                         ],
                         "dist": 119,
+                        "filepath": "../vitamins/images/16mmMarble_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
@@ -2696,13 +2955,14 @@
                         ]
                     }
                 ],
+                "title": "16mm Marble",
                 "qty": 1,
                 "parts": [],
                 "call": "Marble(Marble_16mm)",
                 "file": "vitamins/Marble.scad"
             },
             {
-                "title": "Fine Line Pen",
+                "hash": "35edd18e72875b24c74e6b5b141124b8",
                 "views": [
                     {
                         "rotate": [
@@ -2711,6 +2971,7 @@
                             60
                         ],
                         "dist": 119,
+                        "filepath": "../vitamins/images/FineLinePen_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
@@ -2725,13 +2986,14 @@
                         ]
                     }
                 ],
+                "title": "Fine Line Pen",
                 "qty": 1,
                 "parts": [],
                 "call": "Pen()",
                 "file": "vitamins/Pen.scad"
             },
             {
-                "title": "9g Micro Servo",
+                "hash": "89637be04af3da29bb690f5e1dadfe60",
                 "views": [
                     {
                         "rotate": [
@@ -2740,6 +3002,7 @@
                             33
                         ],
                         "dist": 280,
+                        "filepath": "../vitamins/images/9gMicroServo_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
@@ -2754,17 +3017,18 @@
                         ]
                     }
                 ],
+                "title": "9g Micro Servo",
                 "qty": 1,
                 "parts": [
                     {
-                        "call": "MicroServo_Body()",
                         "type": "part",
+                        "call": "MicroServo_Body()",
                         "children": [],
                         "title": "MicroServo_Body"
                     },
                     {
-                        "call": "MicroServo_Spline()",
                         "type": "part",
+                        "call": "MicroServo_Spline()",
                         "children": [],
                         "title": "MicroServo_Spline"
                     }
@@ -2773,7 +3037,7 @@
                 "file": "vitamins/MicroServo.scad"
             },
             {
-                "title": "Servo Horn",
+                "hash": "a8d18eb4268b4c0151690aca01074c42",
                 "views": [
                     {
                         "rotate": [
@@ -2782,6 +3046,7 @@
                             60
                         ],
                         "dist": 119,
+                        "filepath": "../vitamins/images/ServoHorn_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
@@ -2796,6 +3061,7 @@
                         ]
                     }
                 ],
+                "title": "Servo Horn",
                 "qty": 1,
                 "parts": [],
                 "call": "ServoHorn()",
@@ -2805,29 +3071,30 @@
         "title": "LogoBot Scribbler",
         "assemblies": [
             {
+                "hash": "a4a2459736872c6ca61dc3c53f62aa7a",
                 "vitamins": [
                     {
-                        "title": "JumperWire Female to Male 4pin 100mm",
                         "views": [],
+                        "title": "JumperWire Female to Male 4pin 100mm",
                         "qty": 2,
                         "parts": [],
                         "call": "JumperWire(type=JumperWire_FM4, length=100)",
                         "file": "vitamins/JumperWire.scad"
                     },
                     {
-                        "title": "9g Micro Servo",
                         "views": [],
+                        "title": "9g Micro Servo",
                         "qty": 1,
                         "parts": [
                             {
-                                "call": "MicroServo_Body()",
                                 "type": "part",
+                                "call": "MicroServo_Body()",
                                 "children": [],
                                 "title": "MicroServo_Body"
                             },
                             {
-                                "call": "MicroServo_Spline()",
                                 "type": "part",
+                                "call": "MicroServo_Spline()",
                                 "children": [],
                                 "title": "MicroServo_Spline"
                             }
@@ -2836,21 +3103,21 @@
                         "file": "vitamins/MicroServo.scad"
                     },
                     {
-                        "title": "Servo Horn",
                         "views": [],
+                        "title": "Servo Horn",
                         "qty": 1,
                         "parts": [],
                         "call": "ServoHorn()",
                         "file": "vitamins/ServoHorn.scad"
                     }
                 ],
-                "title": "Final Assembly",
+                "views": [],
                 "assemblies": [
                     {
                         "vitamins": [],
-                        "title": "Brain",
-                        "assemblies": [],
                         "views": [],
+                        "assemblies": [],
+                        "title": "Brain",
                         "qty": 1,
                         "steps": [],
                         "printed": [],
@@ -2860,9 +3127,9 @@
                     },
                     {
                         "vitamins": [],
-                        "title": "Bumpers",
-                        "assemblies": [],
                         "views": [],
+                        "assemblies": [],
+                        "title": "Bumpers",
                         "qty": 2,
                         "steps": [],
                         "printed": [],
@@ -2872,21 +3139,33 @@
                     },
                     {
                         "vitamins": [],
-                        "title": "Drive Wheel",
-                        "assemblies": [],
                         "views": [],
-                        "qty": 2,
+                        "assemblies": [],
+                        "title": "Left Drive Wheel",
+                        "qty": 1,
                         "steps": [],
                         "printed": [],
                         "file": "assemblies/Wheel.scad",
-                        "call": "WheelAssembly()",
+                        "call": "LeftWheelAssembly()",
                         "level": 1
                     },
                     {
                         "vitamins": [],
-                        "title": "Rear Caster",
-                        "assemblies": [],
                         "views": [],
+                        "assemblies": [],
+                        "title": "Right Drive Wheel",
+                        "qty": 1,
+                        "steps": [],
+                        "printed": [],
+                        "file": "assemblies/Wheel.scad",
+                        "call": "RightWheelAssembly()",
+                        "level": 1
+                    },
+                    {
+                        "vitamins": [],
+                        "views": [],
+                        "assemblies": [],
+                        "title": "Rear Caster",
                         "qty": 1,
                         "steps": [],
                         "printed": [],
@@ -2896,9 +3175,9 @@
                     },
                     {
                         "vitamins": [],
-                        "title": "PenLift",
-                        "assemblies": [],
                         "views": [],
+                        "assemblies": [],
+                        "title": "PenLift",
                         "qty": 1,
                         "steps": [],
                         "printed": [],
@@ -2908,9 +3187,9 @@
                     },
                     {
                         "vitamins": [],
-                        "title": "Shell",
-                        "assemblies": [],
                         "views": [],
+                        "assemblies": [],
+                        "title": "Shell",
                         "qty": 1,
                         "steps": [],
                         "printed": [],
@@ -2919,12 +3198,10 @@
                         "level": 1
                     }
                 ],
-                "views": [],
+                "title": "Final Assembly",
                 "qty": 1,
                 "steps": [
                     {
-                        "desc": "Connect the breadboard assembly to the underside of the base",
-                        "num": 1,
                         "views": [
                             {
                                 "rotate": [
@@ -2933,6 +3210,7 @@
                                     222
                                 ],
                                 "dist": 513,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -2946,11 +3224,11 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 1,
+                        "desc": "Connect the breadboard assembly to the underside of the base"
                     },
                     {
-                        "desc": "Connect the two bumper assemblies using four of the push pins with flat heads",
-                        "num": 2,
                         "views": [
                             {
                                 "rotate": [
@@ -2959,6 +3237,7 @@
                                     146
                                 ],
                                 "dist": 400,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step2_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -2972,11 +3251,11 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 2,
+                        "desc": "Connect the two bumper assemblies using four of the push pins with flat heads"
                     },
                     {
-                        "desc": "Clip the two wheels assemblies onto the base and                    connect the motor leads to the the motor drivers",
-                        "num": 4,
                         "views": [
                             {
                                 "rotate": [
@@ -2985,6 +3264,7 @@
                                     190
                                 ],
                                 "dist": 740,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step4_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -2998,11 +3278,11 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 4,
+                        "desc": "Clip the two wheels assemblies onto the base and                    connect the motor leads to the the motor drivers"
                     },
                     {
-                        "desc": "Connect the jumper wires between the motor drivers and the Arduino",
-                        "num": 5,
                         "views": [
                             {
                                 "rotate": [
@@ -3011,6 +3291,7 @@
                                     161
                                 ],
                                 "dist": 766,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step5_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -3031,6 +3312,7 @@
                                     0
                                 ],
                                 "dist": 337,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step5_plan.png",
                                 "title": "plan",
                                 "caption": "view",
                                 "translate": [
@@ -3044,11 +3326,38 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 5,
+                        "desc": "Connect the jumper wires between the motor drivers and the Arduino"
                     },
                     {
-                        "desc": "Clip in the battery pack",
+                        "views": [
+                            {
+                                "rotate": [
+                                    64,
+                                    1,
+                                    212
+                                ],
+                                "dist": 625,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step6_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -6,
+                                    7,
+                                    19
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
                         "num": 6,
+                        "desc": "Clip in the battery pack"
+                    },
+                    {
                         "views": [
                             {
                                 "rotate": [
@@ -3057,6 +3366,7 @@
                                     212
                                 ],
                                 "dist": 625,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step7_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -3070,11 +3380,11 @@
                                     300
                                 ]
                             }
-                        ]
-                    },
-                    {
-                        "desc": "Clip the power switch into place",
+                        ],
                         "num": 7,
+                        "desc": "Clip the power switch into place"
+                    },
+                    {
                         "views": [
                             {
                                 "rotate": [
@@ -3083,6 +3393,7 @@
                                     212
                                 ],
                                 "dist": 625,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step8_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -3096,11 +3407,11 @@
                                     300
                                 ]
                             }
-                        ]
-                    },
-                    {
-                        "desc": "Clip the LED into place",
+                        ],
                         "num": 8,
+                        "desc": "Clip the LED into place"
+                    },
+                    {
                         "views": [
                             {
                                 "rotate": [
@@ -3109,6 +3420,7 @@
                                     212
                                 ],
                                 "dist": 625,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step9_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -3122,19 +3434,20 @@
                                     300
                                 ]
                             }
-                        ]
-                    },
-                    {
-                        "desc": "Clip the piezo sounder into place",
+                        ],
                         "num": 9,
+                        "desc": "Clip the piezo sounder into place"
+                    },
+                    {
                         "views": [
                             {
                                 "rotate": [
-                                    64,
+                                    115,
                                     1,
-                                    212
+                                    26
                                 ],
                                 "dist": 625,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step10_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -3148,11 +3461,11 @@
                                     300
                                 ]
                             }
-                        ]
-                    },
-                    {
-                        "desc": "Align the caster assembly with the base",
+                        ],
                         "num": 10,
+                        "desc": "Align the caster assembly with the base"
+                    },
+                    {
                         "views": [
                             {
                                 "rotate": [
@@ -3161,6 +3474,7 @@
                                     26
                                 ],
                                 "dist": 625,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step11_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -3174,37 +3488,11 @@
                                     300
                                 ]
                             }
-                        ]
-                    },
-                    {
-                        "desc": "Insert a short pin to lock the caster assembly to the base",
+                        ],
                         "num": 11,
-                        "views": [
-                            {
-                                "rotate": [
-                                    115,
-                                    1,
-                                    26
-                                ],
-                                "dist": 625,
-                                "title": "view",
-                                "caption": "view",
-                                "translate": [
-                                    -6,
-                                    7,
-                                    19
-                                ],
-                                "type": "view",
-                                "size": [
-                                    400,
-                                    300
-                                ]
-                            }
-                        ]
+                        "desc": "Insert a short pin to lock the caster assembly to the base"
                     },
                     {
-                        "desc": "Fit the pen lift assembly using two of the pins and zip tie the servo under the base.",
-                        "num": 12,
                         "views": [
                             {
                                 "rotate": [
@@ -3213,6 +3501,7 @@
                                     212
                                 ],
                                 "dist": 625,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step12_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -3226,11 +3515,11 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 12,
+                        "desc": "Fit the pen lift assembly using two of the pins and zip tie the servo under the base."
                     },
                     {
-                        "desc": "Push the shell down onto the base and twist to lock into place",
-                        "num": 13,
                         "views": [
                             {
                                 "rotate": [
@@ -3239,6 +3528,7 @@
                                     217
                                 ],
                                 "dist": 625,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step13_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -3252,44 +3542,46 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 13,
+                        "desc": "Push the shell down onto the base and twist to lock into place"
                     }
                 ],
                 "printed": [
                     {
-                        "title": "Base",
+                        "views": [],
                         "qty": 1,
                         "call": "LogoBotBase_STL()",
                         "file": "printedparts/LogoBotBase.scad",
-                        "views": []
+                        "title": "Base"
                     },
                     {
-                        "title": "BumperStabiliser",
+                        "views": [],
                         "qty": 2,
                         "call": "BumperStabiliser_STL()",
                         "file": "printedparts/BumperStabiliser.scad",
-                        "views": []
+                        "title": "BumperStabiliser"
                     },
                     {
-                        "title": "Pintack H14.1 BH2",
+                        "views": [],
                         "qty": 4,
                         "call": "pintack(side=false,h=14.1,bh=2)",
                         "file": "utils/pins.scad",
-                        "views": []
+                        "title": "Pintack H14.1 BH2"
                     },
                     {
-                        "title": "Pintack H6.1 BH2",
+                        "views": [],
                         "qty": 1,
                         "call": "pintack(side=false,h=6.1,bh=2)",
                         "file": "utils/pins.scad",
-                        "views": []
+                        "title": "Pintack H6.1 BH2"
                     },
                     {
-                        "title": "Pintack H9 BH2",
+                        "views": [],
                         "qty": 2,
                         "call": "pintack(side=false,h=9,bh=2)",
                         "file": "utils/pins.scad",
-                        "views": []
+                        "title": "Pintack H9 BH2"
                     }
                 ],
                 "file": "assemblies/LogoBot.scad",
@@ -3297,24 +3589,23 @@
                 "level": 0
             },
             {
+                "hash": "35c02840a3121a84bb6fc6553e7eb5a7",
                 "vitamins": [
                     {
-                        "title": "Breadboard 170",
                         "views": [],
+                        "title": "Breadboard 170",
                         "qty": 1,
                         "parts": [],
                         "call": "Breadboard(Breadboard_170)",
                         "file": "vitamins/Breadboard.scad"
                     }
                 ],
-                "title": "Brain",
-                "assemblies": [],
                 "views": [],
+                "assemblies": [],
+                "title": "Brain",
                 "qty": 1,
                 "steps": [
                     {
-                        "desc": "Push the Arduino onto the breadboard - make sure you position it correctly,                  as it's a tight fit with the Robot base!",
-                        "num": 1,
                         "views": [
                             {
                                 "rotate": [
@@ -3323,6 +3614,7 @@
                                     218
                                 ],
                                 "dist": 316,
+                                "filepath": "../assemblies/LogoBotScribbler/Brain_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -3336,7 +3628,9 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 1,
+                        "desc": "Push the Arduino onto the breadboard - make sure you position it correctly,                  as it's a tight fit with the Robot base!"
                     }
                 ],
                 "printed": [],
@@ -3345,15 +3639,14 @@
                 "level": 2
             },
             {
+                "hash": "c4cfcea9d8d806980a27809bdf82cf20",
                 "vitamins": [],
-                "title": "Bumpers",
-                "assemblies": [],
                 "views": [],
+                "assemblies": [],
+                "title": "Bumpers",
                 "qty": 2,
                 "steps": [
                     {
-                        "desc": "Place the Microswitches into the holders.  Make sure to get them the right way round so the bumper hits the metal lever.  Repeat for the second bumper.",
-                        "num": 1,
                         "views": [
                             {
                                 "rotate": [
@@ -3362,6 +3655,7 @@
                                     319.9
                                 ],
                                 "dist": 400,
+                                "filepath": "../assemblies/LogoBotScribbler/Bumpers_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -3375,16 +3669,18 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 1,
+                        "desc": "Place the Microswitches into the holders.  Make sure to get them the right way round so the bumper hits the metal lever.  Repeat for the second bumper."
                     }
                 ],
                 "printed": [
                     {
-                        "title": "Bumper",
+                        "views": [],
                         "qty": 2,
                         "call": "Bumper_STL()",
                         "file": "printedparts/Bumper.scad",
-                        "views": []
+                        "title": "Bumper"
                     }
                 ],
                 "file": "assemblies/Bumper.scad",
@@ -3392,15 +3688,41 @@
                 "level": 2
             },
             {
+                "hash": "7fb2ad80bcad826dafd4a251ef949e5c",
                 "vitamins": [],
-                "title": "Drive Wheel",
-                "assemblies": [],
                 "views": [],
-                "qty": 2,
+                "assemblies": [],
+                "title": "Left Drive Wheel",
+                "qty": 1,
                 "steps": [
                     {
-                        "desc": "Clip the motor into place",
+                        "views": [
+                            {
+                                "rotate": [
+                                    55,
+                                    0,
+                                    25
+                                ],
+                                "dist": 500,
+                                "filepath": "../assemblies/LogoBotScribbler/LeftDriveWheel_step1_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
                         "num": 1,
+                        "desc": "Clip the motor into place"
+                    },
+                    {
                         "views": [
                             {
                                 "rotate": [
@@ -3409,6 +3731,7 @@
                                     25
                                 ],
                                 "dist": 500,
+                                "filepath": "../assemblies/LogoBotScribbler/LeftDriveWheel_step2_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -3422,37 +3745,11 @@
                                     300
                                 ]
                             }
-                        ]
-                    },
-                    {
-                        "desc": "Push the pins into the motor clip",
+                        ],
                         "num": 2,
-                        "views": [
-                            {
-                                "rotate": [
-                                    55,
-                                    0,
-                                    25
-                                ],
-                                "dist": 500,
-                                "title": "view",
-                                "caption": "view",
-                                "translate": [
-                                    0,
-                                    0,
-                                    0
-                                ],
-                                "type": "view",
-                                "size": [
-                                    400,
-                                    300
-                                ]
-                            }
-                        ]
+                        "desc": "Push the pins into the motor clip"
                     },
                     {
-                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip.",
-                        "num": 3,
                         "views": [
                             {
                                 "rotate": [
@@ -3461,6 +3758,7 @@
                                     178
                                 ],
                                 "dist": 500,
+                                "filepath": "../assemblies/LogoBotScribbler/LeftDriveWheel_step3_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -3474,60 +3772,183 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 3,
+                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip."
                     },
                     {
-                        "desc": "Push the stepper driver into place",
+                        "views": [],
                         "num": 4,
-                        "views": []
+                        "desc": "Push the stepper driver into place"
                     }
                 ],
                 "printed": [
                     {
-                        "title": "Motor Clip",
-                        "qty": 2,
-                        "call": "MotorClip_STL()",
+                        "views": [],
+                        "qty": 1,
+                        "call": "LeftMotorClip_STL()",
                         "file": "printedparts/MotorClip.scad",
-                        "views": []
+                        "title": "Left Motor Clip"
                     },
                     {
-                        "title": "Pintack H7 BH2",
-                        "qty": 4,
+                        "views": [],
+                        "qty": 2,
                         "call": "pintack(side=false,h=7,bh=2)",
                         "file": "utils/pins.scad",
-                        "views": []
+                        "title": "Pintack H7 BH2"
                     },
                     {
-                        "title": "Wheel",
-                        "qty": 2,
+                        "views": [],
+                        "qty": 1,
                         "call": "Wheel_STL()",
                         "file": "printedparts/Wheel.scad",
-                        "views": []
+                        "title": "Wheel"
                     }
                 ],
                 "file": "assemblies/Wheel.scad",
-                "call": "WheelAssembly()",
+                "call": "LeftWheelAssembly()",
                 "level": 2
             },
             {
+                "hash": "92e93cafd8156ea0c2a3a8a559647987",
+                "vitamins": [],
+                "views": [],
+                "assemblies": [],
+                "title": "Right Drive Wheel",
+                "qty": 1,
+                "steps": [
+                    {
+                        "views": [
+                            {
+                                "rotate": [
+                                    55,
+                                    0,
+                                    25
+                                ],
+                                "dist": 500,
+                                "filepath": "../assemblies/LogoBotScribbler/RightDriveWheel_step1_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "num": 1,
+                        "desc": "Clip the motor into place"
+                    },
+                    {
+                        "views": [
+                            {
+                                "rotate": [
+                                    55,
+                                    0,
+                                    25
+                                ],
+                                "dist": 500,
+                                "filepath": "../assemblies/LogoBotScribbler/RightDriveWheel_step2_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "num": 2,
+                        "desc": "Push the pins into the motor clip"
+                    },
+                    {
+                        "views": [
+                            {
+                                "rotate": [
+                                    349,
+                                    102,
+                                    178
+                                ],
+                                "dist": 500,
+                                "filepath": "../assemblies/LogoBotScribbler/RightDriveWheel_step3_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    -3,
+                                    5
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "num": 3,
+                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip."
+                    },
+                    {
+                        "views": [],
+                        "num": 4,
+                        "desc": "Push the stepper driver into place"
+                    }
+                ],
+                "printed": [
+                    {
+                        "views": [],
+                        "qty": 1,
+                        "call": "RightMotorClip_STL()",
+                        "file": "printedparts/MotorClip.scad",
+                        "title": "Right Motor Clip"
+                    },
+                    {
+                        "views": [],
+                        "qty": 2,
+                        "call": "pintack(side=false,h=7,bh=2)",
+                        "file": "utils/pins.scad",
+                        "title": "Pintack H7 BH2"
+                    },
+                    {
+                        "views": [],
+                        "qty": 1,
+                        "call": "Wheel_STL()",
+                        "file": "printedparts/Wheel.scad",
+                        "title": "Wheel"
+                    }
+                ],
+                "file": "assemblies/Wheel.scad",
+                "call": "RightWheelAssembly()",
+                "level": 2
+            },
+            {
+                "hash": "b1296abf5253240f34009825f918cfe3",
                 "vitamins": [
                     {
-                        "title": "16mm Marble",
                         "views": [],
+                        "title": "16mm Marble",
                         "qty": 1,
                         "parts": [],
                         "call": "Marble(Marble_16mm)",
                         "file": "vitamins/Marble.scad"
                     }
                 ],
-                "title": "Rear Caster",
-                "assemblies": [],
                 "views": [],
+                "assemblies": [],
+                "title": "Rear Caster",
                 "qty": 1,
                 "steps": [
                     {
-                        "desc": "Insert the marble into the printed housing",
-                        "num": 1,
                         "views": [
                             {
                                 "rotate": [
@@ -3536,6 +3957,7 @@
                                     91
                                 ],
                                 "dist": 261,
+                                "filepath": "../assemblies/LogoBotScribbler/RearCaster_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -3549,16 +3971,18 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 1,
+                        "desc": "Insert the marble into the printed housing"
                     }
                 ],
                 "printed": [
                     {
-                        "title": "Caster Housing",
+                        "views": [],
                         "qty": 1,
                         "call": "MarbleCaster_STL()",
                         "file": "printedparts/MarbleCaster.scad",
-                        "views": []
+                        "title": "Caster Housing"
                     }
                 ],
                 "file": "assemblies/MarbleCaster.scad",
@@ -3566,24 +3990,23 @@
                 "level": 2
             },
             {
+                "hash": "fdf3d4405779df9d41ca9be86afd72e6",
                 "vitamins": [
                     {
-                        "title": "Fine Line Pen",
                         "views": [],
+                        "title": "Fine Line Pen",
                         "qty": 1,
                         "parts": [],
                         "call": "Pen()",
                         "file": "vitamins/Pen.scad"
                     }
                 ],
-                "title": "PenLift",
-                "assemblies": [],
                 "views": [],
+                "assemblies": [],
+                "title": "PenLift",
                 "qty": 1,
                 "steps": [
                     {
-                        "desc": "Place the pen holder into the pen slider plate.  Ensure they move freely, the two parts should fall apart easily.  Lightly file or sand the pen holder part if they dont.  Fit an elastic band in the lower grooves and over the top of the mechanism so that it pulls the pen holder down in the slider mechanism.",
-                        "num": 1,
                         "views": [
                             {
                                 "rotate": [
@@ -3592,6 +4015,7 @@
                                     319.9
                                 ],
                                 "dist": 192,
+                                "filepath": "../assemblies/LogoBotScribbler/PenLift_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -3605,11 +4029,11 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 1,
+                        "desc": "Place the pen holder into the pen slider plate.  Ensure they move freely, the two parts should fall apart easily.  Lightly file or sand the pen holder part if they dont.  Fit an elastic band in the lower grooves and over the top of the mechanism so that it pulls the pen holder down in the slider mechanism."
                     },
                     {
-                        "desc": "Use a small elastic band to securely fasten the pen to the holder.  Make sure that the pen is held vertically and that the nib of the pen will be touching the ground when the slider is almost, but not quite, fully down.",
-                        "num": 2,
                         "views": [
                             {
                                 "rotate": [
@@ -3618,6 +4042,7 @@
                                     319.9
                                 ],
                                 "dist": 192,
+                                "filepath": "../assemblies/LogoBotScribbler/PenLift_step2_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -3631,23 +4056,25 @@
                                     300
                                 ]
                             }
-                        ]
+                        ],
+                        "num": 2,
+                        "desc": "Use a small elastic band to securely fasten the pen to the holder.  Make sure that the pen is held vertically and that the nib of the pen will be touching the ground when the slider is almost, but not quite, fully down."
                     }
                 ],
                 "printed": [
                     {
-                        "title": "Pen Lift Slider",
+                        "views": [],
                         "qty": 1,
                         "call": "PenLiftSlider_STL()",
                         "file": "printedparts/PenLiftSlider.scad",
-                        "views": []
+                        "title": "Pen Lift Slider"
                     },
                     {
-                        "title": "Pen Lift Holder",
+                        "views": [],
                         "qty": 1,
                         "call": "PenLiftHolder_STL()",
                         "file": "printedparts/PenLiftHolder.scad",
-                        "views": []
+                        "title": "Pen Lift Holder"
                     }
                 ],
                 "file": "assemblies/PenLift.scad",
@@ -3655,19 +4082,20 @@
                 "level": 2
             },
             {
+                "hash": "9f95673f2c4bfd72268a108d064b9492",
                 "vitamins": [],
-                "title": "Shell",
-                "assemblies": [],
                 "views": [],
+                "assemblies": [],
+                "title": "Shell",
                 "qty": 1,
                 "steps": [],
                 "printed": [
                     {
-                        "title": "Basic Shell",
+                        "views": [],
                         "qty": 1,
                         "call": "BasicShell_STL()",
                         "file": "printedparts/BasicShell.scad",
-                        "views": []
+                        "title": "Basic Shell"
                     }
                 ],
                 "file": "assemblies/Shell.scad",
@@ -3678,7 +4106,6 @@
         "printed": [
             {
                 "hash": "f4898cae5d28c2a63ec170d02ccfe03f",
-                "title": "Base",
                 "views": [
                     {
                         "rotate": [
@@ -3702,13 +4129,13 @@
                         ]
                     }
                 ],
+                "title": "Base",
                 "qty": 1,
                 "call": "LogoBotBase_STL()",
                 "file": "printedparts/LogoBotBase.scad"
             },
             {
                 "hash": "731f6f0632a58dec91bd62091071b363",
-                "title": "Bumper",
                 "views": [
                     {
                         "rotate": [
@@ -3732,13 +4159,13 @@
                         ]
                     }
                 ],
+                "title": "Bumper",
                 "qty": 2,
                 "call": "Bumper_STL()",
                 "file": "printedparts/Bumper.scad"
             },
             {
                 "hash": "6085def5a25e717f693e01194c7d0663",
-                "title": "BumperStabiliser",
                 "views": [
                     {
                         "rotate": [
@@ -3762,13 +4189,13 @@
                         ]
                     }
                 ],
+                "title": "BumperStabiliser",
                 "qty": 2,
                 "call": "BumperStabiliser_STL()",
                 "file": "printedparts/BumperStabiliser.scad"
             },
             {
                 "hash": "d8487f8033bdc7096d48d0575710ecc7",
-                "title": "Pintack H14.1 BH2",
                 "views": [
                     {
                         "rotate": [
@@ -3792,13 +4219,13 @@
                         ]
                     }
                 ],
+                "title": "Pintack H14.1 BH2",
                 "qty": 4,
                 "call": "pintack(side=false,h=14.1,bh=2)",
                 "file": "utils/pins.scad"
             },
             {
                 "hash": "d3f4d2152aa0b16b91136c9b6abbb912",
-                "title": "Motor Clip",
                 "views": [
                     {
                         "rotate": [
@@ -3808,7 +4235,7 @@
                         ],
                         "dist": 681,
                         "title": "view",
-                        "filepath": "../printedparts/images/MotorClip_view.png",
+                        "filepath": "../printedparts/images/LeftMotorClip_view.png",
                         "caption": "view",
                         "translate": [
                             0,
@@ -3822,13 +4249,13 @@
                         ]
                     }
                 ],
-                "qty": 2,
-                "call": "MotorClip_STL()",
+                "title": "Left Motor Clip",
+                "qty": 1,
+                "call": "LeftMotorClip_STL()",
                 "file": "printedparts/MotorClip.scad"
             },
             {
                 "hash": "a9b988fc3e240b5f09e91667c9a8e345",
-                "title": "Pintack H7 BH2",
                 "views": [
                     {
                         "rotate": [
@@ -3852,13 +4279,13 @@
                         ]
                     }
                 ],
+                "title": "Pintack H7 BH2",
                 "qty": 4,
                 "call": "pintack(side=false,h=7,bh=2)",
                 "file": "utils/pins.scad"
             },
             {
                 "hash": "c77401e9b5fd747ea4bdd40da2e9f650",
-                "title": "Wheel",
                 "views": [
                     {
                         "rotate": [
@@ -3882,13 +4309,43 @@
                         ]
                     }
                 ],
+                "title": "Wheel",
                 "qty": 2,
                 "call": "Wheel_STL()",
                 "file": "printedparts/Wheel.scad"
             },
             {
+                "hash": "2aeea62a36fe1ffb3a201fec5b7d9e8f",
+                "views": [
+                    {
+                        "rotate": [
+                            58,
+                            0,
+                            225
+                        ],
+                        "dist": 681,
+                        "title": "view",
+                        "filepath": "../printedparts/images/RightMotorClip_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "title": "Right Motor Clip",
+                "qty": 1,
+                "call": "RightMotorClip_STL()",
+                "file": "printedparts/MotorClip.scad"
+            },
+            {
                 "hash": "bd4a7de840c7400b58fb27a6c2ee6f14",
-                "title": "Caster Housing",
                 "views": [
                     {
                         "rotate": [
@@ -3912,13 +4369,13 @@
                         ]
                     }
                 ],
+                "title": "Caster Housing",
                 "qty": 1,
                 "call": "MarbleCaster_STL()",
                 "file": "printedparts/MarbleCaster.scad"
             },
             {
                 "hash": "c02d3b32d707d19438d6deec9c695bce",
-                "title": "Pintack H6.1 BH2",
                 "views": [
                     {
                         "rotate": [
@@ -3942,13 +4399,13 @@
                         ]
                     }
                 ],
+                "title": "Pintack H6.1 BH2",
                 "qty": 1,
                 "call": "pintack(side=false,h=6.1,bh=2)",
                 "file": "utils/pins.scad"
             },
             {
                 "hash": "93b191995ff865e345028a3a06cbea7f",
-                "title": "Pen Lift Slider",
                 "views": [
                     {
                         "rotate": [
@@ -3972,13 +4429,13 @@
                         ]
                     }
                 ],
+                "title": "Pen Lift Slider",
                 "qty": 1,
                 "call": "PenLiftSlider_STL()",
                 "file": "printedparts/PenLiftSlider.scad"
             },
             {
                 "hash": "0eb063b3b2650c4c2b5c33ce0b624ec0",
-                "title": "Pen Lift Holder",
                 "views": [
                     {
                         "rotate": [
@@ -4002,13 +4459,13 @@
                         ]
                     }
                 ],
+                "title": "Pen Lift Holder",
                 "qty": 1,
                 "call": "PenLiftHolder_STL()",
                 "file": "printedparts/PenLiftHolder.scad"
             },
             {
                 "hash": "78a0c0bebcfdef3b5ebdaa769e7d2b02",
-                "title": "Pintack H9 BH2",
                 "views": [
                     {
                         "rotate": [
@@ -4032,13 +4489,27 @@
                         ]
                     }
                 ],
+                "aabb": [
+                    [
+                        -6.0,
+                        -2.525,
+                        -2.0
+                    ],
+                    [
+                        6.0,
+                        2.525,
+                        9.0
+                    ]
+                ],
+                "title": "Pintack H9 BH2",
                 "qty": 2,
+                "volume": 296.0453466133143,
+                "area": 423.4509566373954,
                 "call": "pintack(side=false,h=9,bh=2)",
                 "file": "utils/pins.scad"
             },
             {
                 "hash": "369e262b65901507a40a5683f5f31aa5",
-                "title": "Basic Shell",
                 "views": [
                     {
                         "rotate": [
@@ -4062,6 +4533,7 @@
                         ]
                     }
                 ],
+                "title": "Basic Shell",
                 "qty": 1,
                 "call": "BasicShell_STL()",
                 "file": "printedparts/BasicShell.scad"
@@ -4078,6 +4550,7 @@
                 ],
                 "dist": 749,
                 "title": "view",
+                "filepath": "../images/LogoBotScribbler_view.png",
                 "caption": "view",
                 "translate": [
                     5,
@@ -4095,12 +4568,12 @@
                 "type": "markdown"
             },
             {
-                "call": "LogoBotAssembly(PenLift=true)",
                 "type": "assembly",
+                "call": "LogoBotAssembly(PenLift=true)",
                 "children": [
                     {
-                        "call": "LogoBotBase_STL()",
                         "type": "printed",
+                        "call": "LogoBotBase_STL()",
                         "children": [
                             {
                                 "rotate": [
@@ -4151,12 +4624,12 @@
                                 ]
                             },
                             {
-                                "call": "BreadboardAssembly()",
                                 "type": "assembly",
+                                "call": "BreadboardAssembly()",
                                 "children": [
                                     {
-                                        "call": "Breadboard(Breadboard_170)",
                                         "type": "vitamin",
+                                        "call": "Breadboard(Breadboard_170)",
                                         "children": [
                                             {
                                                 "rotate": [
@@ -4241,12 +4714,12 @@
                                 ]
                             },
                             {
-                                "call": "BumperAssembly()",
                                 "type": "assembly",
+                                "call": "BumperAssembly()",
                                 "children": [
                                     {
-                                        "call": "Bumper_STL()",
                                         "type": "printed",
+                                        "call": "Bumper_STL()",
                                         "children": [
                                             {
                                                 "rotate": [
@@ -4304,8 +4777,8 @@
                                 "title": "Bumpers"
                             },
                             {
-                                "call": "BumperStabiliser_STL()",
                                 "type": "printed",
+                                "call": "BumperStabiliser_STL()",
                                 "children": [
                                     {
                                         "rotate": [
@@ -4332,8 +4805,8 @@
                                 "title": "BumperStabiliser"
                             },
                             {
-                                "call": "pintack(side=false,h=14.1,bh=2)",
                                 "type": "printed",
+                                "call": "pintack(side=false,h=14.1,bh=2)",
                                 "children": [
                                     {
                                         "rotate": [
@@ -4360,8 +4833,8 @@
                                 "title": "Pintack H14.1 BH2"
                             },
                             {
-                                "call": "pintack(side=false,h=14.1,bh=2)",
                                 "type": "printed",
+                                "call": "pintack(side=false,h=14.1,bh=2)",
                                 "children": [
                                     {
                                         "rotate": [
@@ -4388,12 +4861,12 @@
                                 "title": "Pintack H14.1 BH2"
                             },
                             {
-                                "call": "BumperAssembly()",
                                 "type": "assembly",
+                                "call": "BumperAssembly()",
                                 "children": [
                                     {
-                                        "call": "Bumper_STL()",
                                         "type": "printed",
+                                        "call": "Bumper_STL()",
                                         "children": [
                                             {
                                                 "rotate": [
@@ -4451,8 +4924,8 @@
                                 "title": "Bumpers"
                             },
                             {
-                                "call": "BumperStabiliser_STL()",
                                 "type": "printed",
+                                "call": "BumperStabiliser_STL()",
                                 "children": [
                                     {
                                         "rotate": [
@@ -4479,8 +4952,8 @@
                                 "title": "BumperStabiliser"
                             },
                             {
-                                "call": "pintack(side=false,h=14.1,bh=2)",
                                 "type": "printed",
+                                "call": "pintack(side=false,h=14.1,bh=2)",
                                 "children": [
                                     {
                                         "rotate": [
@@ -4507,8 +4980,8 @@
                                 "title": "Pintack H14.1 BH2"
                             },
                             {
-                                "call": "pintack(side=false,h=14.1,bh=2)",
                                 "type": "printed",
+                                "call": "pintack(side=false,h=14.1,bh=2)",
                                 "children": [
                                     {
                                         "rotate": [
@@ -4562,12 +5035,12 @@
                                 ]
                             },
                             {
-                                "call": "WheelAssembly()",
                                 "type": "assembly",
+                                "call": "LeftWheelAssembly()",
                                 "children": [
                                     {
-                                        "call": "MotorClip_STL()",
                                         "type": "printed",
+                                        "call": "LeftMotorClip_STL()",
                                         "children": [
                                             {
                                                 "rotate": [
@@ -4591,7 +5064,7 @@
                                             }
                                         ],
                                         "file": "printedparts/MotorClip.scad",
-                                        "title": "Motor Clip"
+                                        "title": "Left Motor Clip"
                                     },
                                     {
                                         "num": 1,
@@ -4645,8 +5118,8 @@
                                                 ]
                                             },
                                             {
-                                                "call": "pintack(side=false,h=7,bh=2)",
                                                 "type": "printed",
+                                                "call": "pintack(side=false,h=7,bh=2)",
                                                 "children": [
                                                     {
                                                         "rotate": [
@@ -4673,8 +5146,8 @@
                                                 "title": "Pintack H7 BH2"
                                             },
                                             {
-                                                "call": "pintack(side=false,h=7,bh=2)",
                                                 "type": "printed",
+                                                "call": "pintack(side=false,h=7,bh=2)",
                                                 "children": [
                                                     {
                                                         "rotate": [
@@ -4728,8 +5201,8 @@
                                                 ]
                                             },
                                             {
-                                                "call": "Wheel_STL()",
                                                 "type": "printed",
+                                                "call": "Wheel_STL()",
                                                 "children": [
                                                     {
                                                         "rotate": [
@@ -4766,15 +5239,15 @@
                                     }
                                 ],
                                 "file": "assemblies/Wheel.scad",
-                                "title": "Drive Wheel"
+                                "title": "Left Drive Wheel"
                             },
                             {
-                                "call": "WheelAssembly()",
                                 "type": "assembly",
+                                "call": "RightWheelAssembly()",
                                 "children": [
                                     {
-                                        "call": "MotorClip_STL()",
                                         "type": "printed",
+                                        "call": "RightMotorClip_STL()",
                                         "children": [
                                             {
                                                 "rotate": [
@@ -4798,7 +5271,7 @@
                                             }
                                         ],
                                         "file": "printedparts/MotorClip.scad",
-                                        "title": "Motor Clip"
+                                        "title": "Right Motor Clip"
                                     },
                                     {
                                         "num": 1,
@@ -4852,8 +5325,8 @@
                                                 ]
                                             },
                                             {
-                                                "call": "pintack(side=false,h=7,bh=2)",
                                                 "type": "printed",
+                                                "call": "pintack(side=false,h=7,bh=2)",
                                                 "children": [
                                                     {
                                                         "rotate": [
@@ -4880,8 +5353,8 @@
                                                 "title": "Pintack H7 BH2"
                                             },
                                             {
-                                                "call": "pintack(side=false,h=7,bh=2)",
                                                 "type": "printed",
+                                                "call": "pintack(side=false,h=7,bh=2)",
                                                 "children": [
                                                     {
                                                         "rotate": [
@@ -4935,8 +5408,8 @@
                                                 ]
                                             },
                                             {
-                                                "call": "Wheel_STL()",
                                                 "type": "printed",
+                                                "call": "Wheel_STL()",
                                                 "children": [
                                                     {
                                                         "rotate": [
@@ -4973,7 +5446,7 @@
                                     }
                                 ],
                                 "file": "assemblies/Wheel.scad",
-                                "title": "Drive Wheel"
+                                "title": "Right Drive Wheel"
                             }
                         ],
                         "desc": "Clip the two wheels assemblies onto the base and                    connect the motor leads to the the motor drivers"
@@ -5023,8 +5496,8 @@
                                 ]
                             },
                             {
-                                "call": "JumperWire(type=JumperWire_FM4, length=100)",
                                 "type": "vitamin",
+                                "call": "JumperWire(type=JumperWire_FM4, length=100)",
                                 "children": [
                                     {
                                         "rotate": [
@@ -5051,8 +5524,8 @@
                                 "title": "JumperWire Female to Male 4pin 100mm"
                             },
                             {
-                                "call": "JumperWire(type=JumperWire_FM4, length=100)",
                                 "type": "vitamin",
+                                "call": "JumperWire(type=JumperWire_FM4, length=100)",
                                 "children": [
                                     {
                                         "rotate": [
@@ -5214,12 +5687,12 @@
                                 ]
                             },
                             {
-                                "call": "MarbleCasterAssembly()",
                                 "type": "assembly",
+                                "call": "MarbleCasterAssembly()",
                                 "children": [
                                     {
-                                        "call": "MarbleCaster_STL()",
                                         "type": "printed",
+                                        "call": "MarbleCaster_STL()",
                                         "children": [
                                             {
                                                 "rotate": [
@@ -5270,8 +5743,8 @@
                                                 ]
                                             },
                                             {
-                                                "call": "Marble(Marble_16mm)",
                                                 "type": "vitamin",
+                                                "call": "Marble(Marble_16mm)",
                                                 "children": [
                                                     {
                                                         "rotate": [
@@ -5332,8 +5805,8 @@
                                 ]
                             },
                             {
-                                "call": "pintack(side=false,h=6.1,bh=2)",
                                 "type": "printed",
+                                "call": "pintack(side=false,h=6.1,bh=2)",
                                 "children": [
                                     {
                                         "rotate": [
@@ -5387,12 +5860,12 @@
                                 ]
                             },
                             {
-                                "call": "PenLiftAssembly()",
                                 "type": "assembly",
+                                "call": "PenLiftAssembly()",
                                 "children": [
                                     {
-                                        "call": "PenLiftSlider_STL()",
                                         "type": "printed",
+                                        "call": "PenLiftSlider_STL()",
                                         "children": [
                                             {
                                                 "rotate": [
@@ -5443,8 +5916,8 @@
                                                 ]
                                             },
                                             {
-                                                "call": "PenLiftHolder_STL()",
                                                 "type": "printed",
+                                                "call": "PenLiftHolder_STL()",
                                                 "children": [
                                                     {
                                                         "rotate": [
@@ -5498,8 +5971,8 @@
                                                 ]
                                             },
                                             {
-                                                "call": "Pen()",
                                                 "type": "vitamin",
+                                                "call": "Pen()",
                                                 "children": [
                                                     {
                                                         "rotate": [
@@ -5533,8 +6006,8 @@
                                 "title": "PenLift"
                             },
                             {
-                                "call": "pintack(side=false,h=9,bh=2)",
                                 "type": "printed",
+                                "call": "pintack(side=false,h=9,bh=2)",
                                 "children": [
                                     {
                                         "rotate": [
@@ -5561,8 +6034,8 @@
                                 "title": "Pintack H9 BH2"
                             },
                             {
-                                "call": "pintack(side=false,h=9,bh=2)",
                                 "type": "printed",
+                                "call": "pintack(side=false,h=9,bh=2)",
                                 "children": [
                                     {
                                         "rotate": [
@@ -5589,8 +6062,8 @@
                                 "title": "Pintack H9 BH2"
                             },
                             {
-                                "call": "MicroServo()",
                                 "type": "vitamin",
+                                "call": "MicroServo()",
                                 "children": [
                                     {
                                         "rotate": [
@@ -5613,14 +6086,14 @@
                                         ]
                                     },
                                     {
-                                        "call": "MicroServo_Body()",
                                         "type": "part",
+                                        "call": "MicroServo_Body()",
                                         "children": [],
                                         "title": "MicroServo_Body"
                                     },
                                     {
-                                        "call": "MicroServo_Spline()",
                                         "type": "part",
+                                        "call": "MicroServo_Spline()",
                                         "children": [],
                                         "title": "MicroServo_Spline"
                                     }
@@ -5629,8 +6102,8 @@
                                 "title": "9g Micro Servo"
                             },
                             {
-                                "call": "ServoHorn()",
                                 "type": "vitamin",
+                                "call": "ServoHorn()",
                                 "children": [
                                     {
                                         "rotate": [
@@ -5684,12 +6157,12 @@
                                 ]
                             },
                             {
-                                "call": "ShellAssembly()",
                                 "type": "assembly",
+                                "call": "ShellAssembly()",
                                 "children": [
                                     {
-                                        "call": "BasicShell_STL()",
                                         "type": "printed",
+                                        "call": "BasicShell_STL()",
                                         "children": [
                                             {
                                                 "rotate": [
