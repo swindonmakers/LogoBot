@@ -73,7 +73,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
                 attach(LogoBot_Con_GridFixing(-1,4,90), DefConUp)
                     ProMiniClip_STL();
 
-                attach(LogoBot_Con_GridFixing(0,4,-90), ArduinoPro_Con_Center, ExplodeSpacing=20)
+                attach(offsetConnector(LogoBot_Con_GridFixing(0,4,-90), [0,0,3]), ArduinoPro_Con_Center, ExplodeSpacing=20)
                     ArduinoPro(ArduinoPro_Micro, ArduinoPro_Pins_Opposite);
             }
 
@@ -130,7 +130,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
                     con2 = attachedConnector(
                         LogoBot_Con_GridFixing(0,4,-90),
                         DefConDown,
-                        [[-7.5, -5, 4],[0,0,-1],0,0,0],
+                        [[-7.5, -5, 7],[0,0,-1],0,0,0],
                         ExplodeSpacing=20
                     ),
                     length = 100,
@@ -154,7 +154,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
                     con2 = attachedConnector(
                         LogoBot_Con_GridFixing(0,4,-90),
                         DefConDown,
-                        [[-7.5, -15, 4],[0,0,-1],0,0,0],
+                        [[-7.5, -15, 7],[0,0,-1],0,0,0],
                         ExplodeSpacing=20
                     ),
                     length = 100,
