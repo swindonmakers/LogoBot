@@ -74,7 +74,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
                     ProMiniClip_STL();
 
                 attach(offsetConnector(LogoBot_Con_GridFixing(0,4,-90), [0,0,3]), ArduinoPro_Con_Center, ExplodeSpacing=20)
-                    ArduinoPro(ArduinoPro_Micro, ArduinoPro_Pins_Opposite);
+                    ArduinoPro(ArduinoPro_Mini, ArduinoPro_Pins_Opposite, true);
             }
 
 
