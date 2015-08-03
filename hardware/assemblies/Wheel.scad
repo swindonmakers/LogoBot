@@ -69,7 +69,7 @@ module RightWheelAssembly( ) {
             view();
 
             mirror([1,0,0])
-                MotorAndCable();
+                MotorAndCable(true);
         }
 
 		step(2, "Push the pins into the motor clip") {
@@ -99,19 +99,19 @@ module RightWheelAssembly( ) {
 }
 
 
-module MotorAndCable() {
+module MotorAndCable(rightSide=false) {
     StepperMotor28YBJ48();
 
     // ribbon Cable :)
-    if ($rightSide) {
+    if (rightSide) {
         ribbonCable(
             cables=5,
             cableRadius = 0.6,
             points= [
                 [2.5, -23, 7],
-                [10, -60, 10],
-                [70, -15, 20],
-                [26, -8, 25]
+                [-10, -60, 10],
+                [-70, -15, 20],
+                [-26, -8, 25]
             ],
             vectors = [
                 [-1, 0 ,0],
@@ -136,9 +136,9 @@ module MotorAndCable() {
             cableRadius = 0.6,
             points= [
                 [-2.5, -23, 7],
-                [10, -60, 10],
-                [70, -20, 40],
-                [26, -8, 18]
+                [-10, -60, 10],
+                [-70, -20, 40],
+                [-26, -8, 18]
             ],
             vectors = [
                 [1, 0 ,0],

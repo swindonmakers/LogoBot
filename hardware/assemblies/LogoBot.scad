@@ -166,6 +166,8 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
                     midVec = [0.5,-1,0]
                 );
             }
+
+            // TODO: Add velcro or to hold down battery pack
             // Battery assembly
             step(6, "Clip in the battery pack") {
                 view(t=[-6,7,19], r=[64,1,212], d=625);
@@ -178,8 +180,9 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
                         }
             }
 
-            // Power Switch
-            step(7, "Clip the power switch into place") {
+            // TODO: Replace with toggle switch
+            //Power Switch
+            *step(7, "Clip the power switch into place") {
                 view(t=[-6,7,19], r=[64,1,212], d=625);
 
                 attach(LogoBot_Con_SlideSwitch, DefConUp)
@@ -197,7 +200,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
             }
 
             // TODO: Piezo
-            step(9, "Clip the piezo sounder into place") {
+            *step(9, "Clip the piezo sounder into place") {
                 view(t=[-6,7,19], r=[64,1,212], d=625);
 
                 attach(DefConDown, DefConDown, ExplodeSpacing=20)
