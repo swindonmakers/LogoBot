@@ -1,4 +1,3 @@
-#include "LogobotConfig.h"
 #include <AccelStepper.h>
 #include <Bot.h>
 #include <CommandQueue.h>
