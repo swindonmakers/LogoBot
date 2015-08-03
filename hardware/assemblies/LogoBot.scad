@@ -21,13 +21,16 @@
 // These are used within this module to layout the various vitamins/sub-assemblies
 // The same connectors are used to shape associated portions of the LogoBotBase_STL
 
+// dynamic connector for a given fixing in the grid
+function LogoBot_Con_GridFixing(x,y,r) = [[x*10, y*10, dw], [0,0,-1], r, 0,0];
+
 LogoBot_Con_Breadboard          = [[-18, 40, 12],[0,0,-1], 0,0,0];
 
 LogoBot_Con_LeftWheel           = [[-40,-20, dw],[0,0,-1],90,0,0];
 LogoBot_Con_RightWheel           = [[40,20, dw],[0,0,-1],-90,0,0];
 
-LogoBot_Con_LeftMotorDriver     = [[-45, 16, 8],[0,-1,0],0,0,0];
-LogoBot_Con_RightMotorDriver    = [[45, 16, 8],[0,-1,0],0,0,0];
+LogoBot_Con_LeftMotorDriver     = [[-46, 16, 10],[0,-1,0],0,0,0];
+LogoBot_Con_RightMotorDriver    = [[46, 16, 10],[0,-1,0],0,0,0];
 
 LogoBot_Con_Caster = [ [0, -BaseDiameter/2 + 10, 0], [0,0,1], 0, 0, 0];
 
@@ -55,10 +58,23 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
             // Base
             LogoBotBase_STL();
 
-            step(1, "Connect the breadboard assembly to the underside of the base") {
+            *step(1, "Connect the breadboard assembly to the underside of the base") {
                 view(t=[0,17,12], r=[112,0,222], d=513);
                 attach(LogoBot_Con_Breadboard, Breadboard_Con_BottomLeft(Breadboard_170), ExplodeSpacing=-20)
                     BreadboardAssembly();
+            }
+
+            step(1, "Plug the Pro Mini Clips into the base and then snap the Arduino Pro Mini into them") {
+                view(t=[0,17,12], r=[112,0,222], d=513);
+
+                attach(LogoBot_Con_GridFixing(1,4,90), DefConUp)
+                    ProMiniClip_STL();
+
+                attach(LogoBot_Con_GridFixing(-1,4,90), DefConUp)
+                    ProMiniClip_STL();
+
+                attach(LogoBot_Con_GridFixing(0,4,-90), ArduinoPro_Con_Center, ExplodeSpacing=20)
+                    ArduinoPro(ArduinoPro_Micro, ArduinoPro_Pins_Opposite);
             }
 
 
@@ -96,22 +112,6 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
                     RightWheelAssembly();
             }
 
-            *step(4, "Clip the two wheels assemblies onto the base and
-                    connect the motor leads to the the motor drivers") {
-                view(t=[-4,6,47], r=[66,0,190], d=740);
-
-                for (i=[0:1])
-                    mirror([i,0,0])
-                    translate([BaseDiameter/2 + MotorOffsetX, 0, MotorOffsetZ])
-                    translate([-15,0,0])
-                    attach(DefConDown, DefConDown, ExplodeSpacing = 40)
-                    translate([15,0,0])
-                    rotate([-90, 0, 90]) {
-                        assign($rightSide= i == 0? 1 : 0)
-                            WheelAssembly();
-                    }
-            }
-
             // Connect jumper wires
             step(5,
                 "Connect the jumper wires between the motor drivers and the Arduino") {
@@ -120,7 +120,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 
                 // Left
                 JumperWire(
-                    type = JumperWire_FM4,
+                    type = JumperWire_FF4,
                     con1 = attachedConnector(
                         LogoBot_Con_LeftMotorDriver,
                         ULN2003DriverBoard_Con_UpperLeft,
@@ -128,9 +128,9 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
                         ExplodeSpacing=20
                     ),
                     con2 = attachedConnector(
-                        LogoBot_Con_Breadboard,
-                        Breadboard_Con_BottomLeft(Breadboard_170),
-                        Breadboard_Con_Pin(Breadboard_170, along=6, across=8),
+                        LogoBot_Con_GridFixing(0,4,-90),
+                        DefConDown,
+                        [[-7.5, -5, 4],[0,0,-1],0,0,0],
                         ExplodeSpacing=20
                     ),
                     length = 100,
@@ -144,7 +144,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 
                 // Right
                 JumperWire(
-                    type = JumperWire_FM4,
+                    type = JumperWire_FF4,
                     con1 = attachedConnector(
                         LogoBot_Con_RightMotorDriver,
                         ULN2003DriverBoard_Con_UpperRight,
@@ -152,9 +152,9 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
                         ExplodeSpacing=20
                     ),
                     con2 = attachedConnector(
-                        LogoBot_Con_Breadboard,
-                        Breadboard_Con_BottomLeft(Breadboard_170),
-                        Breadboard_Con_Pin(Breadboard_170, along=10, across=8),
+                        LogoBot_Con_GridFixing(0,4,-90),
+                        DefConDown,
+                        [[-7.5, -15, 4],[0,0,-1],0,0,0],
                         ExplodeSpacing=20
                     ),
                     length = 100,
@@ -187,8 +187,8 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
             }
 
 
-            // LED
-            step(8, "Clip the LED into place") {
+            // TODO: LED
+            *step(8, "Clip the LED into place") {
                 view(t=[-6,7,19], r=[64,1,212], d=625);
 
                 attach(DefConDown, DefConDown, ExplodeSpacing=20)
@@ -196,7 +196,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
                     LED();
             }
 
-            // Piezo
+            // TODO: Piezo
             step(9, "Clip the piezo sounder into place") {
                 view(t=[-6,7,19], r=[64,1,212], d=625);
 
@@ -207,20 +207,15 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 
 
             // Caster
-            step(10, "Align the caster assembly with the base") {
+            step(10, "Align the caster assembly with the base, then insert a short pin to lock it to the base") {
                 view(t=[-6,7,19], r=[115,1,26], d=625);
 
                 attach(LogoBot_Con_Caster, MarbleCaster_Con_Default, ExplodeSpacing=15)
                     MarbleCasterAssembly();
-            }
 
-            step(11, "Insert a short pin to lock the caster assembly to the base") {
-                view(t=[-6,7,19], r=[115,1,26], d=625);
-
-                attach(offsetConnector(invertConnector(LogoBot_Con_Caster), [0,0,dw]), MarbleCaster_Con_Default, ExplodeSpacing=15)
+                attach(offsetConnector(invertConnector(LogoBot_Con_Caster), [0,0,dw]), MarbleCaster_Con_Default)
                     pintack(side=false, h=dw+0.6+2+1.5, lh=2, bh=2);
             }
-
 
             // Conditional Design Elements
             // ---------------------------

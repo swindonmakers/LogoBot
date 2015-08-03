@@ -45,6 +45,18 @@ ArduinoPro_PCB_Length   = 1.3 * 25.4;                   // length of the PCB (al
 ArduinoPro_PCB_Width    = 0.7 * 25.4;                   //  width of the PCB (along x)
 ArduinoPro_PCB_Colour   = [26/255, 90/255, 160/255];    // colour of solder mask
 
+// Connectors
+ArduinoPro_Con_Pin9     = [[0,0,0],[0,0,1],0,0,0];  // local origin
+ArduinoPro_Con_Center   = [
+    [
+        (ArduinoPro_PCB_Width - 2*ArduinoPro_PCB_Inset)/2,
+        (ArduinoPro_PCB_Length - 2*ArduinoPro_PCB_Inset)/2,
+        0
+    ],
+    [0,0,-1],
+    0,0,0
+];
+
 
 module ArduinoPro_MicroUSB()
 {
