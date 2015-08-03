@@ -47,6 +47,8 @@ void loop()
     }
   }
 
+  bot.run();
+
   if (!bot.isMoving()) {
     if (cmdQ.isEmpty()) {
 
