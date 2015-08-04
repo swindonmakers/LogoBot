@@ -11,8 +11,7 @@ Make sure you have all of the following parts before you begin.
 
 Qty | Vitamin | Image
 --- | --- | ---
-1 | [Breadboard 170]() | ![](../vitamins/images/Breadboard170_view.png) | 
-2 | [JumperWire Female to Male 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoMale4pin100mm_view.png) | 
+2 | [JumperWire Female to Female 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png) | 
 1 | [16mm Marble]() | ![](../vitamins/images/16mmMarble_view.png) | 
 1 | [9g Micro Servo]() | ![](../vitamins/images/9gMicroServo_view.png) | 
 1 | [Fine Line Pen]() | ![](../vitamins/images/FineLinePen_view.png) | 
@@ -30,26 +29,14 @@ Qty | Part Name | Image
 1 | [Caster Housing](../printedparts/stl/CasterHousing.stl) | ![](../printedparts/images/CasterHousing_view.png) | 
 1 | [Pen Lift Holder](../printedparts/stl/PenLiftHolder.stl) | ![](../printedparts/images/PenLiftHolder_view.png) | 
 1 | [Pen Lift Slider](../printedparts/stl/PenLiftSlider.stl) | ![](../printedparts/images/PenLiftSlider_view.png) | 
+2 | [Pro Mini Clip](../printedparts/stl/ProMiniClip.stl) | ![](../printedparts/images/ProMiniClip_view.png) | 
 1 | [Right Motor Clip](../printedparts/stl/RightMotorClip.stl) | ![](../printedparts/images/RightMotorClip_view.png) | 
 2 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
 4 | [Pintack H14.1 BH2](../printedparts/stl/PintackH141BH2.stl) | ![](../printedparts/images/PintackH141BH2_view.png) | 
 1 | [Pintack H6.1 BH2](../printedparts/stl/PintackH61BH2.stl) | ![](../printedparts/images/PintackH61BH2_view.png) | 
 4 | [Pintack H7 BH2](../printedparts/stl/PintackH7BH2.stl) | ![](../printedparts/images/PintackH7BH2_view.png) | 
 2 | [Pintack H9 BH2](../printedparts/stl/PintackH9BH2.stl) | ![](../printedparts/images/PintackH9BH2_view.png) | 
-
-
-## Brain
-
-### Vitamins
-
-Qty | Vitamin | Image
---- | --- | ---
-1 | [Breadboard 170]() | ![](../vitamins/images/Breadboard170_view.png) | 
-
-### Assembly Steps
-
-1. Push the Arduino onto the breadboard - make sure you position it correctly,                  as it's a tight fit with the Robot base!
-![](../assemblies/LogoBotScribbler/Brain_step1_view.png)
+2 | [Pintack H5.25 BH0](../printedparts/stl/PintackH525BH0.stl) | ![](../printedparts/images/PintackH525BH0_view.png) | 
 
 
 ## Bumpers (x2)
@@ -166,7 +153,7 @@ Qty | Part Name | Image
 
 Qty | Vitamin | Image
 --- | --- | ---
-2 | [JumperWire Female to Male 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoMale4pin100mm_view.png) | 
+2 | [JumperWire Female to Female 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png) | 
 1 | [9g Micro Servo]() | ![](../vitamins/images/9gMicroServo_view.png) | 
 1 | [Servo Horn]() | ![](../vitamins/images/ServoHorn_view.png) | 
 
@@ -176,6 +163,7 @@ Qty | Part Name | Image
 --- | --- | ---
 2 | [BumperStabiliser](../printedparts/stl/BumperStabiliser.stl) | ![](../printedparts/images/BumperStabiliser_view.png) | 
 1 | [Base](../printedparts/stl/Base.stl) | ![](../printedparts/images/Base_view.png) | 
+2 | [Pro Mini Clip](../printedparts/stl/ProMiniClip.stl) | ![](../printedparts/images/ProMiniClip_view.png) | 
 4 | [Pintack H14.1 BH2](../printedparts/stl/PintackH141BH2.stl) | ![](../printedparts/images/PintackH141BH2_view.png) | 
 1 | [Pintack H6.1 BH2](../printedparts/stl/PintackH61BH2.stl) | ![](../printedparts/images/PintackH61BH2_view.png) | 
 2 | [Pintack H9 BH2](../printedparts/stl/PintackH9BH2.stl) | ![](../printedparts/images/PintackH9BH2_view.png) | 
@@ -184,7 +172,6 @@ Qty | Part Name | Image
 
 Qty | Name 
 --- | --- 
-1 | Brain
 2 | Bumpers
 1 | Left Drive Wheel
 1 | Right Drive Wheel
@@ -194,7 +181,7 @@ Qty | Name
 
 ### Assembly Steps
 
-1. Connect the breadboard assembly to the underside of the base
+1. Plug the Pro Mini Clips into the base and then snap the Arduino Pro Mini into them
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step1_view.png)
 2. Connect the two bumper assemblies using four of the push pins with flat heads
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step2_view.png)
@@ -205,16 +192,8 @@ Qty | Name
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step5_plan.png)
 6. Clip in the battery pack
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step6_view.png)
-7. Clip the power switch into place
-![](../assemblies/LogoBotScribbler/FinalAssembly_step7_view.png)
-8. Clip the LED into place
-![](../assemblies/LogoBotScribbler/FinalAssembly_step8_view.png)
-9. Clip the piezo sounder into place
-![](../assemblies/LogoBotScribbler/FinalAssembly_step9_view.png)
-10. Align the caster assembly with the base
+10. Align the caster assembly with the base, then insert a short pin to lock it to the base
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step10_view.png)
-11. Insert a short pin to lock the caster assembly to the base
-![](../assemblies/LogoBotScribbler/FinalAssembly_step11_view.png)
 12. Fit the pen lift assembly using two of the pins and zip tie the servo under the base.
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step12_view.png)
 13. Push the shell down onto the base and twist to lock into place
