@@ -27,12 +27,12 @@ struct STATE {
 class Bot
 {
 public:
-	Bot(int lp1, int lp2, int lp3, int lp4, int rp1, int rp2, int rp3, int rp4);
+	Bot(uint8_t lp1, uint8_t lp2, uint8_t lp3, uint8_t lp4, uint8_t rp1, uint8_t rp2, uint8_t rp3, uint8_t rp4);
 	void begin();
 	
-	void initBuzzer(int pin);
-	void initBumpers(int fl, int fr, int bl, int br, void (*pFunc)(byte collisionData));
-	void initPenLift(int pin);
+	void initBuzzer(uint8_t pin);
+	void initBumpers(uint8_t pinFL, uint8_t pinFR, uint8_t pinBL, uint8_t pinBR, void (*pFunc)(byte collisionData));
+	void initPenLift(uint8_t pin);
 
 	void playStartupJingle();
 	bool isMoving();
@@ -42,7 +42,7 @@ public:
 	void penUp();
 	void penDown();
 
-	void buzz(int len);
+	void buzz(uint8_t len);
 
 	void stop();
 	void emergencyStop();
@@ -56,12 +56,12 @@ private:
 	unsigned long _buzzEnd;
 	void (*bumperCallback)(byte collisionData);
 
-	int _pinBuzzer;
-	int _switchFL;
-	int _switchFR;
-	int _switchBL;
-	int _switchBR;
-	int _pinStepper[8];
+	uint8_t _pinBuzzer;
+	uint8_t _pinSwitchFL;
+	uint8_t _pinSwitchFR;
+	uint8_t _pinSwitchBL;
+	uint8_t _pinSwitchBR;
+	uint8_t _pinStepper[8];
 
 	AccelStepper _stepperL;
 	AccelStepper _stepperR;
