@@ -306,7 +306,7 @@
                         ]
                     },
                     {
-                        "desc": "Clip the two wheels assemblies onto the base and                    connect the motor leads to the the motor drivers",
+                        "desc": "Plug the two wheels assemblies into the base",
                         "num": 4,
                         "views": [
                             {
@@ -2370,7 +2370,7 @@
                                 "title": "Right Drive Wheel"
                             }
                         ],
-                        "desc": "Clip the two wheels assemblies onto the base and                    connect the motor leads to the the motor drivers"
+                        "desc": "Plug the two wheels assemblies into the base"
                     },
                     {
                         "num": 5,
@@ -2836,7 +2836,7 @@
     },
     {
         "cut": [],
-        "hash": "c271e1184a35d0832de3f3043de4cc59",
+        "hash": "8b41cc69928f77815272a13293c1f1d2",
         "vitamins": [
             {
                 "hash": "ae07e1b3f3bc303c64cc8841bda3e669",
@@ -3296,7 +3296,7 @@
                         ]
                     },
                     {
-                        "desc": "Clip the two wheels assemblies onto the base and                    connect the motor leads to the the motor drivers",
+                        "desc": "Plug the two wheels assemblies into the base",
                         "num": 4,
                         "views": [
                             {
@@ -5463,7 +5463,7 @@
                                 "title": "Right Drive Wheel"
                             }
                         ],
-                        "desc": "Clip the two wheels assemblies onto the base and                    connect the motor leads to the the motor drivers"
+                        "desc": "Plug the two wheels assemblies into the base"
                     },
                     {
                         "num": 5,

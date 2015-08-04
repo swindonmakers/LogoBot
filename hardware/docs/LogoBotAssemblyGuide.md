@@ -165,7 +165,7 @@ Qty | Name
 2. Connect the two bumper assemblies using four of the push pins with flat heads
 ![](../assemblies/LogoBot/FinalAssembly_step2_view.png)
 ![](../assemblies/LogoBot/FinalAssembly_step2_Plan.png)
-4. Clip the two wheels assemblies onto the base and                    connect the motor leads to the the motor drivers
+4. Plug the two wheels assemblies into the base
 ![](../assemblies/LogoBot/FinalAssembly_step4_view.png)
 5. Connect the jumper wires between the motor drivers and the Arduino
 ![](../assemblies/LogoBot/FinalAssembly_step5_view.png)

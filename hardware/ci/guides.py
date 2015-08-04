@@ -127,6 +127,9 @@ def gen_cut(m, a):
 
 
 def gen_assembly(m, a):
+    if len(a['steps']) == 0:
+        return ""
+    
     md = '## '+a['title']
     if a['qty'] > 1:
         md += ' (x'+str(a['qty'])+')'

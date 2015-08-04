@@ -142,15 +142,6 @@ Qty | Part Name | Image
 ![](../assemblies/LogoBotScribbler/PenLift_step2_view.png)
 
 
-## Shell
-
-### Printed Parts
-
-Qty | Part Name | Image
---- | --- | ---
-1 | [Basic Shell](../printedparts/stl/BasicShell.stl) | ![](../printedparts/images/BasicShell_view.png) | 
-
-
 ## Final Assembly
 
 ### Vitamins
@@ -191,7 +182,7 @@ Qty | Name
 2. Connect the two bumper assemblies using four of the push pins with flat heads
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step2_view.png)
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step2_Plan.png)
-4. Clip the two wheels assemblies onto the base and                    connect the motor leads to the the motor drivers
+4. Plug the two wheels assemblies into the base
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step4_view.png)
 5. Connect the jumper wires between the motor drivers and the Arduino
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step5_view.png)

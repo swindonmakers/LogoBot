@@ -100,8 +100,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
             // Motor + Wheel assemblies (x2)
 
             //LogoBot_Con_LeftWheel
-            step(4, "Clip the two wheels assemblies onto the base and
-                    connect the motor leads to the the motor drivers") {
+            step(4, "Plug the two wheels assemblies into the base") {
                 view(t=[-4,6,47], r=[66,0,190], d=450);
 
                 attach(LogoBot_Con_LeftWheel, MotorClip_Con_Fixing1, ExplodeSpacing = 40)
