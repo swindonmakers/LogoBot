@@ -38,7 +38,9 @@ LogoBot_Con_PenLift_Front = [ [0, -20, 2], [0,0,1], 0, 0, 0];
 LogoBot_Con_PenLift_Rear = [ [0, 20, 2], [0,0,1], 0, 0, 0];
 LogoBot_Con_PenLiftServo = [[-12, -6, -6], [1, 0, 0], 90, 0, 0];
 
-LogoBot_Con_SlideSwitch = [[-25, 0, 0], [0,0,-1], 90, 0,0];
+LogoBot_Con_PowerSwitch = LogoBot_Con_GridFixing(2,0, 90);
+
+LogoBot_Con_BatteryPack = [[-28, -48, 27], [0,0,-1], 0,0,0];
 
 
 // Assembly
@@ -172,21 +174,19 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
             step(6, "Clip in the battery pack") {
                 view(t=[-6,7,19], r=[64,1,212], d=625);
 
-                attach(DefConDown, DefConDown, ExplodeSpacing=20)
-                    translate([-25, -45, 12])
-                        rotate([90, 0, 90]) {
-                            BatteryPack(BatteryPack_AA);
-                            battery_pack_double(BatteryPack_AA, 2, 4);
-                        }
+                attach(LogoBot_Con_BatteryPack, DefConDown, ExplodeSpacing=20)
+                    rotate([90, 90, 90]) {
+                        BatteryPack(BatteryPack_AA);
+                        battery_pack_double(BatteryPack_AA, 2, 4);
+                    }
             }
 
-            // TODO: Replace with toggle switch
             //Power Switch
-            *step(7, "Clip the power switch into place") {
+            step(7, "Fix the power toggle switch into place") {
                 view(t=[-6,7,19], r=[64,1,212], d=625);
 
-                attach(LogoBot_Con_SlideSwitch, DefConUp)
-                    SlideSwitch();
+                attach(LogoBot_Con_PowerSwitch, MiniToggleSwitch_Con_Def)
+                    MiniToggleSwitch(type=MiniToggleSwitch_SPST6A, showWasher=true, washerOffset = dw);
             }
 
 

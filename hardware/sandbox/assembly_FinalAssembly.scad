@@ -4,6 +4,6 @@ UseVitaminSTL=true;
 DebugConnectors=true;
 DebugCoordinateFrames=true;
 
-$ShowStep = 11;
+$ShowStep = 100;
 
-LogoBotAssembly(PenLift=false);
+LogoBotAssembly(PenLift=true);
