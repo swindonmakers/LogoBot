@@ -1,7 +1,7 @@
 [
     {
         "cut": [],
-        "hash": "eb3cc5f2397f3963bdb8c3459fb868af",
+        "hash": "3a20e83034bada1e49789b3e333086f3",
         "vitamins": [
             {
                 "hash": "ae07e1b3f3bc303c64cc8841bda3e669",
@@ -101,7 +101,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "a9b8fc013b52bbf12ae65c57a18a9362",
+                "hash": "8ae1298fa98cbcbe2323d9df23a0ff30",
                 "vitamins": [
                     {
                         "title": "JumperWire Female to Female 4pin 100mm",
@@ -214,17 +214,17 @@
                         "views": []
                     },
                     {
-                        "title": "Pintack H14.1 BH2",
+                        "title": "Pin Tack H14.1",
                         "qty": 4,
-                        "call": "pintack(side=false,h=14.1,bh=2)",
-                        "file": "utils/pins.scad",
+                        "call": "PinTack_STL(side=undef,h=14.1)",
+                        "file": "printedparts/PinTack.scad",
                         "views": []
                     },
                     {
-                        "title": "Pintack H6.1 BH2",
+                        "title": "Pin Tack H6.1",
                         "qty": 1,
-                        "call": "pintack(side=false,h=6.1,bh=2)",
-                        "file": "utils/pins.scad",
+                        "call": "PinTack_STL(side=undef,h=6.1)",
+                        "file": "printedparts/PinTack.scad",
                         "views": []
                     }
                 ],
@@ -543,7 +543,7 @@
             },
             {
                 "cut": [],
-                "hash": "f6d6b75e44b46648862944a5198cd8e3",
+                "hash": "0ad40b5824a8ebbb125084554e8df138",
                 "vitamins": [],
                 "views": [],
                 "assemblies": [],
@@ -559,10 +559,10 @@
                         "views": []
                     },
                     {
-                        "title": "Pintack H7 BH2",
+                        "title": "Pin Tack H7",
                         "qty": 2,
-                        "call": "pintack(side=false,h=7,bh=2)",
-                        "file": "utils/pins.scad",
+                        "call": "PinTack_STL(side=undef,h=7)",
+                        "file": "printedparts/PinTack.scad",
                         "views": []
                     },
                     {
@@ -666,7 +666,7 @@
             },
             {
                 "cut": [],
-                "hash": "dc6836a10421ea03e0bbce3dfff5dfee",
+                "hash": "1ea2d5b66484629fdaff61a163918f8a",
                 "vitamins": [],
                 "views": [],
                 "assemblies": [],
@@ -679,13 +679,6 @@
                         "qty": 1,
                         "call": "RightMotorClip_STL()",
                         "file": "printedparts/MotorClip.scad",
-                        "views": []
-                    },
-                    {
-                        "title": "Pintack H7 BH2",
-                        "qty": 2,
-                        "call": "pintack(side=false,h=7,bh=2)",
-                        "file": "utils/pins.scad",
                         "views": []
                     },
                     {
@@ -936,8 +929,20 @@
                 "file": "printedparts/LogoBotBase.scad"
             },
             {
-                "hash": "fd4f9f1a67f6545a418645cf5df924fc",
+                "hash": "414532d9c38ef94beb3c70255d504ce4",
                 "title": "Pro Mini Clip",
+                "aabb": [
+                    [
+                        -10.25,
+                        -2.55,
+                        -5.5
+                    ],
+                    [
+                        10.25,
+                        2.5,
+                        5.25
+                    ]
+                ],
                 "views": [
                     {
                         "rotate": [
@@ -962,38 +967,10 @@
                     }
                 ],
                 "qty": 2,
+                "volume": 260.46357490493426,
+                "area": 526.737236880264,
                 "call": "ProMiniClip_STL()",
                 "file": "printedparts/ProMiniClip.scad"
-            },
-            {
-                "hash": "53b12ca869060f18e0752bcd897ebb90",
-                "title": "Pintack H5.25 BH0",
-                "views": [
-                    {
-                        "rotate": [
-                            55,
-                            0,
-                            25
-                        ],
-                        "dist": 75,
-                        "filepath": "../printedparts/images/PintackH525BH0_view.png",
-                        "title": "view",
-                        "caption": "view",
-                        "translate": [
-                            0,
-                            0,
-                            0
-                        ],
-                        "type": "view",
-                        "size": [
-                            400,
-                            300
-                        ]
-                    }
-                ],
-                "qty": 2,
-                "call": "pintack(side=true,h=5.25,bh=0)",
-                "file": "utils/pins.scad"
             },
             {
                 "hash": "731f6f0632a58dec91bd62091071b363",
@@ -1056,18 +1033,30 @@
                 "file": "printedparts/BumperStabiliser.scad"
             },
             {
-                "hash": "d8487f8033bdc7096d48d0575710ecc7",
-                "title": "Pintack H14.1 BH2",
+                "hash": "9e7916d3eaca31397bfe49db6d511d07",
+                "title": "Pin Tack H14.1",
+                "aabb": [
+                    [
+                        -6.0,
+                        -2.525,
+                        -2.0
+                    ],
+                    [
+                        6.0,
+                        2.525,
+                        14.1
+                    ]
+                ],
                 "views": [
                     {
                         "rotate": [
-                            55,
+                            72,
                             0,
-                            25
+                            130
                         ],
-                        "dist": 75,
-                        "filepath": "../printedparts/images/PintackH141BH2_view.png",
+                        "dist": 400,
                         "title": "view",
+                        "filepath": "../printedparts/images/PinTackH141_view.png",
                         "caption": "view",
                         "translate": [
                             0,
@@ -1082,8 +1071,10 @@
                     }
                 ],
                 "qty": 4,
-                "call": "pintack(side=false,h=14.1,bh=2)",
-                "file": "utils/pins.scad"
+                "volume": 388.7813263993138,
+                "area": 545.6091192010445,
+                "call": "PinTack_STL(side=undef,h=14.1)",
+                "file": "printedparts/PinTack.scad"
             },
             {
                 "hash": "d3f4d2152aa0b16b91136c9b6abbb912",
@@ -1116,18 +1107,30 @@
                 "file": "printedparts/MotorClip.scad"
             },
             {
-                "hash": "a9b988fc3e240b5f09e91667c9a8e345",
-                "title": "Pintack H7 BH2",
+                "hash": "77c9271097b698cf2e541b50f5d042b6",
+                "title": "Pin Tack H7",
+                "aabb": [
+                    [
+                        -6.0,
+                        -2.525,
+                        -2.0
+                    ],
+                    [
+                        6.0,
+                        2.525,
+                        7.0
+                    ]
+                ],
                 "views": [
                     {
                         "rotate": [
-                            55,
+                            72,
                             0,
-                            25
+                            130
                         ],
-                        "dist": 75,
-                        "filepath": "../printedparts/images/PintackH7BH2_view.png",
+                        "dist": 400,
                         "title": "view",
+                        "filepath": "../printedparts/images/PinTackH7_view.png",
                         "caption": "view",
                         "translate": [
                             0,
@@ -1141,9 +1144,11 @@
                         ]
                     }
                 ],
-                "qty": 4,
-                "call": "pintack(side=false,h=7,bh=2)",
-                "file": "utils/pins.scad"
+                "qty": 2,
+                "volume": 256.79994613315546,
+                "area": 376.98513836447825,
+                "call": "PinTack_STL(side=undef,h=7)",
+                "file": "printedparts/PinTack.scad"
             },
             {
                 "hash": "c77401e9b5fd747ea4bdd40da2e9f650",
@@ -1236,18 +1241,30 @@
                 "file": "printedparts/MarbleCaster.scad"
             },
             {
-                "hash": "c02d3b32d707d19438d6deec9c695bce",
-                "title": "Pintack H6.1 BH2",
+                "hash": "fafe5808bcb70c19ecdfda9fcd7db72b",
+                "title": "Pin Tack H6.1",
+                "aabb": [
+                    [
+                        -6.0,
+                        -2.525,
+                        -2.0
+                    ],
+                    [
+                        6.0,
+                        2.525,
+                        6.1
+                    ]
+                ],
                 "views": [
                     {
                         "rotate": [
-                            55,
+                            72,
                             0,
-                            25
+                            130
                         ],
-                        "dist": 75,
-                        "filepath": "../printedparts/images/PintackH61BH2_view.png",
+                        "dist": 400,
                         "title": "view",
+                        "filepath": "../printedparts/images/PinTackH61_view.png",
                         "caption": "view",
                         "translate": [
                             0,
@@ -1262,8 +1279,10 @@
                     }
                 ],
                 "qty": 1,
-                "call": "pintack(side=false,h=6.1,bh=2)",
-                "file": "utils/pins.scad"
+                "volume": 240.06995762067106,
+                "area": 355.6102495877707,
+                "call": "PinTack_STL(side=undef,h=6.1)",
+                "file": "printedparts/PinTack.scad"
             },
             {
                 "hash": "369e262b65901507a40a5683f5f31aa5",
@@ -1435,35 +1454,6 @@
                                             400,
                                             300
                                         ]
-                                    },
-                                    {
-                                        "call": "pintack(side=true,h=5.25,bh=0)",
-                                        "type": "printed",
-                                        "children": [
-                                            {
-                                                "rotate": [
-                                                    55,
-                                                    0,
-                                                    25
-                                                ],
-                                                "dist": 75,
-                                                "filepath": "../printedparts/images/PintackH525BH0_view.png",
-                                                "title": "view",
-                                                "caption": "view",
-                                                "translate": [
-                                                    0,
-                                                    0,
-                                                    0
-                                                ],
-                                                "type": "view",
-                                                "size": [
-                                                    400,
-                                                    300
-                                                ]
-                                            }
-                                        ],
-                                        "file": "utils/pins.scad",
-                                        "title": "Pintack H5.25 BH0"
                                     }
                                 ],
                                 "file": "printedparts/ProMiniClip.scad",
@@ -1492,34 +1482,6 @@
                                             400,
                                             300
                                         ]
-                                    },
-                                    {
-                                        "call": "pintack(side=true,h=5.25,bh=0)",
-                                        "type": "printed",
-                                        "children": [
-                                            {
-                                                "rotate": [
-                                                    55,
-                                                    0,
-                                                    25
-                                                ],
-                                                "dist": 75,
-                                                "title": "view",
-                                                "caption": "view",
-                                                "translate": [
-                                                    0,
-                                                    0,
-                                                    0
-                                                ],
-                                                "type": "view",
-                                                "size": [
-                                                    400,
-                                                    300
-                                                ]
-                                            }
-                                        ],
-                                        "file": "utils/pins.scad",
-                                        "title": "Pintack H5.25 BH0"
                                     }
                                 ],
                                 "file": "printedparts/ProMiniClip.scad",
@@ -1666,17 +1628,16 @@
                                 "title": "BumperStabiliser"
                             },
                             {
-                                "call": "pintack(side=false,h=14.1,bh=2)",
+                                "call": "PinTack_STL(side=undef,h=14.1)",
                                 "type": "printed",
                                 "children": [
                                     {
                                         "rotate": [
-                                            55,
+                                            72,
                                             0,
-                                            25
+                                            130
                                         ],
-                                        "dist": 75,
-                                        "filepath": "../printedparts/images/PintackH141BH2_view.png",
+                                        "dist": 400,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -1691,20 +1652,20 @@
                                         ]
                                     }
                                 ],
-                                "file": "utils/pins.scad",
-                                "title": "Pintack H14.1 BH2"
+                                "file": "printedparts/PinTack.scad",
+                                "title": "Pin Tack H14.1"
                             },
                             {
-                                "call": "pintack(side=false,h=14.1,bh=2)",
+                                "call": "PinTack_STL(side=undef,h=14.1)",
                                 "type": "printed",
                                 "children": [
                                     {
                                         "rotate": [
-                                            55,
+                                            72,
                                             0,
-                                            25
+                                            130
                                         ],
-                                        "dist": 75,
+                                        "dist": 400,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -1719,8 +1680,8 @@
                                         ]
                                     }
                                 ],
-                                "file": "utils/pins.scad",
-                                "title": "Pintack H14.1 BH2"
+                                "file": "printedparts/PinTack.scad",
+                                "title": "Pin Tack H14.1"
                             },
                             {
                                 "call": "BumperAssembly()",
@@ -1814,16 +1775,16 @@
                                 "title": "BumperStabiliser"
                             },
                             {
-                                "call": "pintack(side=false,h=14.1,bh=2)",
+                                "call": "PinTack_STL(side=undef,h=14.1)",
                                 "type": "printed",
                                 "children": [
                                     {
                                         "rotate": [
-                                            55,
+                                            72,
                                             0,
-                                            25
+                                            130
                                         ],
-                                        "dist": 75,
+                                        "dist": 400,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -1838,20 +1799,20 @@
                                         ]
                                     }
                                 ],
-                                "file": "utils/pins.scad",
-                                "title": "Pintack H14.1 BH2"
+                                "file": "printedparts/PinTack.scad",
+                                "title": "Pin Tack H14.1"
                             },
                             {
-                                "call": "pintack(side=false,h=14.1,bh=2)",
+                                "call": "PinTack_STL(side=undef,h=14.1)",
                                 "type": "printed",
                                 "children": [
                                     {
                                         "rotate": [
-                                            55,
+                                            72,
                                             0,
-                                            25
+                                            130
                                         ],
-                                        "dist": 75,
+                                        "dist": 400,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -1866,8 +1827,8 @@
                                         ]
                                     }
                                 ],
-                                "file": "utils/pins.scad",
-                                "title": "Pintack H14.1 BH2"
+                                "file": "printedparts/PinTack.scad",
+                                "title": "Pin Tack H14.1"
                             }
                         ],
                         "desc": "Connect the two bumper assemblies using four of the push pins with flat heads"
@@ -1981,17 +1942,16 @@
                                                 ]
                                             },
                                             {
-                                                "call": "pintack(side=false,h=7,bh=2)",
+                                                "call": "PinTack_STL(side=undef,h=7)",
                                                 "type": "printed",
                                                 "children": [
                                                     {
                                                         "rotate": [
-                                                            55,
+                                                            72,
                                                             0,
-                                                            25
+                                                            130
                                                         ],
-                                                        "dist": 75,
-                                                        "filepath": "../printedparts/images/PintackH7BH2_view.png",
+                                                        "dist": 400,
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -2006,20 +1966,20 @@
                                                         ]
                                                     }
                                                 ],
-                                                "file": "utils/pins.scad",
-                                                "title": "Pintack H7 BH2"
+                                                "file": "printedparts/PinTack.scad",
+                                                "title": "Pin Tack H7"
                                             },
                                             {
-                                                "call": "pintack(side=false,h=7,bh=2)",
+                                                "call": "PinTack_STL(side=undef,h=7)",
                                                 "type": "printed",
                                                 "children": [
                                                     {
                                                         "rotate": [
-                                                            55,
+                                                            72,
                                                             0,
-                                                            25
+                                                            130
                                                         ],
-                                                        "dist": 75,
+                                                        "dist": 400,
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -2034,8 +1994,8 @@
                                                         ]
                                                     }
                                                 ],
-                                                "file": "utils/pins.scad",
-                                                "title": "Pintack H7 BH2"
+                                                "file": "printedparts/PinTack.scad",
+                                                "title": "Pin Tack H7"
                                             }
                                         ],
                                         "desc": "Push the pins into the motor clip"
@@ -2189,62 +2149,6 @@
                                                     400,
                                                     300
                                                 ]
-                                            },
-                                            {
-                                                "call": "pintack(side=false,h=7,bh=2)",
-                                                "type": "printed",
-                                                "children": [
-                                                    {
-                                                        "rotate": [
-                                                            55,
-                                                            0,
-                                                            25
-                                                        ],
-                                                        "dist": 75,
-                                                        "title": "view",
-                                                        "caption": "view",
-                                                        "translate": [
-                                                            0,
-                                                            0,
-                                                            0
-                                                        ],
-                                                        "type": "view",
-                                                        "size": [
-                                                            400,
-                                                            300
-                                                        ]
-                                                    }
-                                                ],
-                                                "file": "utils/pins.scad",
-                                                "title": "Pintack H7 BH2"
-                                            },
-                                            {
-                                                "call": "pintack(side=false,h=7,bh=2)",
-                                                "type": "printed",
-                                                "children": [
-                                                    {
-                                                        "rotate": [
-                                                            55,
-                                                            0,
-                                                            25
-                                                        ],
-                                                        "dist": 75,
-                                                        "title": "view",
-                                                        "caption": "view",
-                                                        "translate": [
-                                                            0,
-                                                            0,
-                                                            0
-                                                        ],
-                                                        "type": "view",
-                                                        "size": [
-                                                            400,
-                                                            300
-                                                        ]
-                                                    }
-                                                ],
-                                                "file": "utils/pins.scad",
-                                                "title": "Pintack H7 BH2"
                                             }
                                         ],
                                         "desc": "Push the pins into the motor clip"
@@ -2595,17 +2499,16 @@
                                 "title": "Rear Caster"
                             },
                             {
-                                "call": "pintack(side=false,h=6.1,bh=2)",
+                                "call": "PinTack_STL(side=undef,h=6.1)",
                                 "type": "printed",
                                 "children": [
                                     {
                                         "rotate": [
-                                            55,
+                                            72,
                                             0,
-                                            25
+                                            130
                                         ],
-                                        "dist": 75,
-                                        "filepath": "../printedparts/images/PintackH61BH2_view.png",
+                                        "dist": 400,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -2620,8 +2523,8 @@
                                         ]
                                     }
                                 ],
-                                "file": "utils/pins.scad",
-                                "title": "Pintack H6.1 BH2"
+                                "file": "printedparts/PinTack.scad",
+                                "title": "Pin Tack H6.1"
                             }
                         ],
                         "desc": "Align the caster assembly with the base, then insert a short pin to lock it to the base"
@@ -2781,7 +2684,7 @@
     },
     {
         "cut": [],
-        "hash": "181d0e66d2157cd8ee8b29fc79083114",
+        "hash": "28f6b89ad625c52ded2e6577001dd376",
         "vitamins": [
             {
                 "hash": "ae07e1b3f3bc303c64cc8841bda3e669",
@@ -2987,7 +2890,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "b2355d71ae88a0c69cde9beafdde6202",
+                "hash": "1c2467d3958815a72ad498cd04666f68",
                 "vitamins": [
                     {
                         "title": "JumperWire Female to Female 4pin 100mm",
@@ -3142,24 +3045,24 @@
                         "views": []
                     },
                     {
-                        "title": "Pintack H14.1 BH2",
+                        "title": "Pin Tack H14.1",
                         "qty": 4,
-                        "call": "pintack(side=false,h=14.1,bh=2)",
-                        "file": "utils/pins.scad",
+                        "call": "PinTack_STL(side=undef,h=14.1)",
+                        "file": "printedparts/PinTack.scad",
                         "views": []
                     },
                     {
-                        "title": "Pintack H6.1 BH2",
+                        "title": "Pin Tack H6.1",
                         "qty": 1,
-                        "call": "pintack(side=false,h=6.1,bh=2)",
-                        "file": "utils/pins.scad",
+                        "call": "PinTack_STL(side=undef,h=6.1)",
+                        "file": "printedparts/PinTack.scad",
                         "views": []
                     },
                     {
-                        "title": "Pintack H9 BH2",
+                        "title": "Pin Tack H9",
                         "qty": 2,
-                        "call": "pintack(side=false,h=9,bh=2)",
-                        "file": "utils/pins.scad",
+                        "call": "PinTack_STL(side=undef,h=9)",
+                        "file": "printedparts/PinTack.scad",
                         "views": []
                     }
                 ],
@@ -3505,7 +3408,7 @@
             },
             {
                 "cut": [],
-                "hash": "f6d6b75e44b46648862944a5198cd8e3",
+                "hash": "0ad40b5824a8ebbb125084554e8df138",
                 "vitamins": [],
                 "views": [],
                 "assemblies": [],
@@ -3521,10 +3424,10 @@
                         "views": []
                     },
                     {
-                        "title": "Pintack H7 BH2",
+                        "title": "Pin Tack H7",
                         "qty": 2,
-                        "call": "pintack(side=false,h=7,bh=2)",
-                        "file": "utils/pins.scad",
+                        "call": "PinTack_STL(side=undef,h=7)",
+                        "file": "printedparts/PinTack.scad",
                         "views": []
                     },
                     {
@@ -3628,7 +3531,7 @@
             },
             {
                 "cut": [],
-                "hash": "dc6836a10421ea03e0bbce3dfff5dfee",
+                "hash": "1ea2d5b66484629fdaff61a163918f8a",
                 "vitamins": [],
                 "views": [],
                 "assemblies": [],
@@ -3641,13 +3544,6 @@
                         "qty": 1,
                         "call": "RightMotorClip_STL()",
                         "file": "printedparts/MotorClip.scad",
-                        "views": []
-                    },
-                    {
-                        "title": "Pintack H7 BH2",
-                        "qty": 2,
-                        "call": "pintack(side=false,h=7,bh=2)",
-                        "file": "utils/pins.scad",
                         "views": []
                     },
                     {
@@ -3956,7 +3852,7 @@
                 "file": "printedparts/LogoBotBase.scad"
             },
             {
-                "hash": "fd4f9f1a67f6545a418645cf5df924fc",
+                "hash": "414532d9c38ef94beb3c70255d504ce4",
                 "title": "Pro Mini Clip",
                 "views": [
                     {
@@ -3984,36 +3880,6 @@
                 "qty": 2,
                 "call": "ProMiniClip_STL()",
                 "file": "printedparts/ProMiniClip.scad"
-            },
-            {
-                "hash": "53b12ca869060f18e0752bcd897ebb90",
-                "title": "Pintack H5.25 BH0",
-                "views": [
-                    {
-                        "rotate": [
-                            55,
-                            0,
-                            25
-                        ],
-                        "dist": 75,
-                        "filepath": "../printedparts/images/PintackH525BH0_view.png",
-                        "title": "view",
-                        "caption": "view",
-                        "translate": [
-                            0,
-                            0,
-                            0
-                        ],
-                        "type": "view",
-                        "size": [
-                            400,
-                            300
-                        ]
-                    }
-                ],
-                "qty": 2,
-                "call": "pintack(side=true,h=5.25,bh=0)",
-                "file": "utils/pins.scad"
             },
             {
                 "hash": "731f6f0632a58dec91bd62091071b363",
@@ -4076,18 +3942,18 @@
                 "file": "printedparts/BumperStabiliser.scad"
             },
             {
-                "hash": "d8487f8033bdc7096d48d0575710ecc7",
-                "title": "Pintack H14.1 BH2",
+                "hash": "9e7916d3eaca31397bfe49db6d511d07",
+                "title": "Pin Tack H14.1",
                 "views": [
                     {
                         "rotate": [
-                            55,
+                            72,
                             0,
-                            25
+                            130
                         ],
-                        "dist": 75,
-                        "filepath": "../printedparts/images/PintackH141BH2_view.png",
+                        "dist": 400,
                         "title": "view",
+                        "filepath": "../printedparts/images/PinTackH141_view.png",
                         "caption": "view",
                         "translate": [
                             0,
@@ -4102,8 +3968,8 @@
                     }
                 ],
                 "qty": 4,
-                "call": "pintack(side=false,h=14.1,bh=2)",
-                "file": "utils/pins.scad"
+                "call": "PinTack_STL(side=undef,h=14.1)",
+                "file": "printedparts/PinTack.scad"
             },
             {
                 "hash": "d3f4d2152aa0b16b91136c9b6abbb912",
@@ -4136,18 +4002,18 @@
                 "file": "printedparts/MotorClip.scad"
             },
             {
-                "hash": "a9b988fc3e240b5f09e91667c9a8e345",
-                "title": "Pintack H7 BH2",
+                "hash": "77c9271097b698cf2e541b50f5d042b6",
+                "title": "Pin Tack H7",
                 "views": [
                     {
                         "rotate": [
-                            55,
+                            72,
                             0,
-                            25
+                            130
                         ],
-                        "dist": 75,
-                        "filepath": "../printedparts/images/PintackH7BH2_view.png",
+                        "dist": 400,
                         "title": "view",
+                        "filepath": "../printedparts/images/PinTackH7_view.png",
                         "caption": "view",
                         "translate": [
                             0,
@@ -4161,9 +4027,9 @@
                         ]
                     }
                 ],
-                "qty": 4,
-                "call": "pintack(side=false,h=7,bh=2)",
-                "file": "utils/pins.scad"
+                "qty": 2,
+                "call": "PinTack_STL(side=undef,h=7)",
+                "file": "printedparts/PinTack.scad"
             },
             {
                 "hash": "c77401e9b5fd747ea4bdd40da2e9f650",
@@ -4256,18 +4122,18 @@
                 "file": "printedparts/MarbleCaster.scad"
             },
             {
-                "hash": "c02d3b32d707d19438d6deec9c695bce",
-                "title": "Pintack H6.1 BH2",
+                "hash": "fafe5808bcb70c19ecdfda9fcd7db72b",
+                "title": "Pin Tack H6.1",
                 "views": [
                     {
                         "rotate": [
-                            55,
+                            72,
                             0,
-                            25
+                            130
                         ],
-                        "dist": 75,
-                        "filepath": "../printedparts/images/PintackH61BH2_view.png",
+                        "dist": 400,
                         "title": "view",
+                        "filepath": "../printedparts/images/PinTackH61_view.png",
                         "caption": "view",
                         "translate": [
                             0,
@@ -4282,8 +4148,8 @@
                     }
                 ],
                 "qty": 1,
-                "call": "pintack(side=false,h=6.1,bh=2)",
-                "file": "utils/pins.scad"
+                "call": "PinTack_STL(side=undef,h=6.1)",
+                "file": "printedparts/PinTack.scad"
             },
             {
                 "hash": "93b191995ff865e345028a3a06cbea7f",
@@ -4346,18 +4212,30 @@
                 "file": "printedparts/PenLiftHolder.scad"
             },
             {
-                "hash": "78a0c0bebcfdef3b5ebdaa769e7d2b02",
-                "title": "Pintack H9 BH2",
+                "hash": "3cea398d49865cd2c0f1c56ac4264759",
+                "title": "Pin Tack H9",
+                "aabb": [
+                    [
+                        -6.0,
+                        -2.525,
+                        -2.0
+                    ],
+                    [
+                        6.0,
+                        2.525,
+                        9.0
+                    ]
+                ],
                 "views": [
                     {
                         "rotate": [
-                            55,
+                            72,
                             0,
-                            25
+                            130
                         ],
-                        "dist": 75,
-                        "filepath": "../printedparts/images/PintackH9BH2_view.png",
+                        "dist": 400,
                         "title": "view",
+                        "filepath": "../printedparts/images/PinTackH9_view.png",
                         "caption": "view",
                         "translate": [
                             0,
@@ -4372,8 +4250,10 @@
                     }
                 ],
                 "qty": 2,
-                "call": "pintack(side=false,h=9,bh=2)",
-                "file": "utils/pins.scad"
+                "volume": 293.9777969995557,
+                "area": 424.4848520643428,
+                "call": "PinTack_STL(side=undef,h=9)",
+                "file": "printedparts/PinTack.scad"
             },
             {
                 "hash": "369e262b65901507a40a5683f5f31aa5",
@@ -4515,35 +4395,6 @@
                                             400,
                                             300
                                         ]
-                                    },
-                                    {
-                                        "call": "pintack(side=true,h=5.25,bh=0)",
-                                        "type": "printed",
-                                        "children": [
-                                            {
-                                                "rotate": [
-                                                    55,
-                                                    0,
-                                                    25
-                                                ],
-                                                "dist": 75,
-                                                "filepath": "../printedparts/images/PintackH525BH0_view.png",
-                                                "title": "view",
-                                                "caption": "view",
-                                                "translate": [
-                                                    0,
-                                                    0,
-                                                    0
-                                                ],
-                                                "type": "view",
-                                                "size": [
-                                                    400,
-                                                    300
-                                                ]
-                                            }
-                                        ],
-                                        "file": "utils/pins.scad",
-                                        "title": "Pintack H5.25 BH0"
                                     }
                                 ],
                                 "file": "printedparts/ProMiniClip.scad",
@@ -4572,34 +4423,6 @@
                                             400,
                                             300
                                         ]
-                                    },
-                                    {
-                                        "call": "pintack(side=true,h=5.25,bh=0)",
-                                        "type": "printed",
-                                        "children": [
-                                            {
-                                                "rotate": [
-                                                    55,
-                                                    0,
-                                                    25
-                                                ],
-                                                "dist": 75,
-                                                "title": "view",
-                                                "caption": "view",
-                                                "translate": [
-                                                    0,
-                                                    0,
-                                                    0
-                                                ],
-                                                "type": "view",
-                                                "size": [
-                                                    400,
-                                                    300
-                                                ]
-                                            }
-                                        ],
-                                        "file": "utils/pins.scad",
-                                        "title": "Pintack H5.25 BH0"
                                     }
                                 ],
                                 "file": "printedparts/ProMiniClip.scad",
@@ -4746,17 +4569,16 @@
                                 "title": "BumperStabiliser"
                             },
                             {
-                                "call": "pintack(side=false,h=14.1,bh=2)",
+                                "call": "PinTack_STL(side=undef,h=14.1)",
                                 "type": "printed",
                                 "children": [
                                     {
                                         "rotate": [
-                                            55,
+                                            72,
                                             0,
-                                            25
+                                            130
                                         ],
-                                        "dist": 75,
-                                        "filepath": "../printedparts/images/PintackH141BH2_view.png",
+                                        "dist": 400,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -4771,20 +4593,20 @@
                                         ]
                                     }
                                 ],
-                                "file": "utils/pins.scad",
-                                "title": "Pintack H14.1 BH2"
+                                "file": "printedparts/PinTack.scad",
+                                "title": "Pin Tack H14.1"
                             },
                             {
-                                "call": "pintack(side=false,h=14.1,bh=2)",
+                                "call": "PinTack_STL(side=undef,h=14.1)",
                                 "type": "printed",
                                 "children": [
                                     {
                                         "rotate": [
-                                            55,
+                                            72,
                                             0,
-                                            25
+                                            130
                                         ],
-                                        "dist": 75,
+                                        "dist": 400,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -4799,8 +4621,8 @@
                                         ]
                                     }
                                 ],
-                                "file": "utils/pins.scad",
-                                "title": "Pintack H14.1 BH2"
+                                "file": "printedparts/PinTack.scad",
+                                "title": "Pin Tack H14.1"
                             },
                             {
                                 "call": "BumperAssembly()",
@@ -4894,16 +4716,16 @@
                                 "title": "BumperStabiliser"
                             },
                             {
-                                "call": "pintack(side=false,h=14.1,bh=2)",
+                                "call": "PinTack_STL(side=undef,h=14.1)",
                                 "type": "printed",
                                 "children": [
                                     {
                                         "rotate": [
-                                            55,
+                                            72,
                                             0,
-                                            25
+                                            130
                                         ],
-                                        "dist": 75,
+                                        "dist": 400,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -4918,20 +4740,20 @@
                                         ]
                                     }
                                 ],
-                                "file": "utils/pins.scad",
-                                "title": "Pintack H14.1 BH2"
+                                "file": "printedparts/PinTack.scad",
+                                "title": "Pin Tack H14.1"
                             },
                             {
-                                "call": "pintack(side=false,h=14.1,bh=2)",
+                                "call": "PinTack_STL(side=undef,h=14.1)",
                                 "type": "printed",
                                 "children": [
                                     {
                                         "rotate": [
-                                            55,
+                                            72,
                                             0,
-                                            25
+                                            130
                                         ],
-                                        "dist": 75,
+                                        "dist": 400,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -4946,8 +4768,8 @@
                                         ]
                                     }
                                 ],
-                                "file": "utils/pins.scad",
-                                "title": "Pintack H14.1 BH2"
+                                "file": "printedparts/PinTack.scad",
+                                "title": "Pin Tack H14.1"
                             }
                         ],
                         "desc": "Connect the two bumper assemblies using four of the push pins with flat heads"
@@ -5061,17 +4883,16 @@
                                                 ]
                                             },
                                             {
-                                                "call": "pintack(side=false,h=7,bh=2)",
+                                                "call": "PinTack_STL(side=undef,h=7)",
                                                 "type": "printed",
                                                 "children": [
                                                     {
                                                         "rotate": [
-                                                            55,
+                                                            72,
                                                             0,
-                                                            25
+                                                            130
                                                         ],
-                                                        "dist": 75,
-                                                        "filepath": "../printedparts/images/PintackH7BH2_view.png",
+                                                        "dist": 400,
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -5086,20 +4907,20 @@
                                                         ]
                                                     }
                                                 ],
-                                                "file": "utils/pins.scad",
-                                                "title": "Pintack H7 BH2"
+                                                "file": "printedparts/PinTack.scad",
+                                                "title": "Pin Tack H7"
                                             },
                                             {
-                                                "call": "pintack(side=false,h=7,bh=2)",
+                                                "call": "PinTack_STL(side=undef,h=7)",
                                                 "type": "printed",
                                                 "children": [
                                                     {
                                                         "rotate": [
-                                                            55,
+                                                            72,
                                                             0,
-                                                            25
+                                                            130
                                                         ],
-                                                        "dist": 75,
+                                                        "dist": 400,
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -5114,8 +4935,8 @@
                                                         ]
                                                     }
                                                 ],
-                                                "file": "utils/pins.scad",
-                                                "title": "Pintack H7 BH2"
+                                                "file": "printedparts/PinTack.scad",
+                                                "title": "Pin Tack H7"
                                             }
                                         ],
                                         "desc": "Push the pins into the motor clip"
@@ -5269,62 +5090,6 @@
                                                     400,
                                                     300
                                                 ]
-                                            },
-                                            {
-                                                "call": "pintack(side=false,h=7,bh=2)",
-                                                "type": "printed",
-                                                "children": [
-                                                    {
-                                                        "rotate": [
-                                                            55,
-                                                            0,
-                                                            25
-                                                        ],
-                                                        "dist": 75,
-                                                        "title": "view",
-                                                        "caption": "view",
-                                                        "translate": [
-                                                            0,
-                                                            0,
-                                                            0
-                                                        ],
-                                                        "type": "view",
-                                                        "size": [
-                                                            400,
-                                                            300
-                                                        ]
-                                                    }
-                                                ],
-                                                "file": "utils/pins.scad",
-                                                "title": "Pintack H7 BH2"
-                                            },
-                                            {
-                                                "call": "pintack(side=false,h=7,bh=2)",
-                                                "type": "printed",
-                                                "children": [
-                                                    {
-                                                        "rotate": [
-                                                            55,
-                                                            0,
-                                                            25
-                                                        ],
-                                                        "dist": 75,
-                                                        "title": "view",
-                                                        "caption": "view",
-                                                        "translate": [
-                                                            0,
-                                                            0,
-                                                            0
-                                                        ],
-                                                        "type": "view",
-                                                        "size": [
-                                                            400,
-                                                            300
-                                                        ]
-                                                    }
-                                                ],
-                                                "file": "utils/pins.scad",
-                                                "title": "Pintack H7 BH2"
                                             }
                                         ],
                                         "desc": "Push the pins into the motor clip"
@@ -5675,17 +5440,16 @@
                                 "title": "Rear Caster"
                             },
                             {
-                                "call": "pintack(side=false,h=6.1,bh=2)",
+                                "call": "PinTack_STL(side=undef,h=6.1)",
                                 "type": "printed",
                                 "children": [
                                     {
                                         "rotate": [
-                                            55,
+                                            72,
                                             0,
-                                            25
+                                            130
                                         ],
-                                        "dist": 75,
-                                        "filepath": "../printedparts/images/PintackH61BH2_view.png",
+                                        "dist": 400,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -5700,8 +5464,8 @@
                                         ]
                                     }
                                 ],
-                                "file": "utils/pins.scad",
-                                "title": "Pintack H6.1 BH2"
+                                "file": "printedparts/PinTack.scad",
+                                "title": "Pin Tack H6.1"
                             }
                         ],
                         "desc": "Align the caster assembly with the base, then insert a short pin to lock it to the base"
@@ -5880,17 +5644,16 @@
                                 "title": "PenLift"
                             },
                             {
-                                "call": "pintack(side=false,h=9,bh=2)",
+                                "call": "PinTack_STL(side=undef,h=9)",
                                 "type": "printed",
                                 "children": [
                                     {
                                         "rotate": [
-                                            55,
+                                            72,
                                             0,
-                                            25
+                                            130
                                         ],
-                                        "dist": 75,
-                                        "filepath": "../printedparts/images/PintackH9BH2_view.png",
+                                        "dist": 400,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -5905,20 +5668,20 @@
                                         ]
                                     }
                                 ],
-                                "file": "utils/pins.scad",
-                                "title": "Pintack H9 BH2"
+                                "file": "printedparts/PinTack.scad",
+                                "title": "Pin Tack H9"
                             },
                             {
-                                "call": "pintack(side=false,h=9,bh=2)",
+                                "call": "PinTack_STL(side=undef,h=9)",
                                 "type": "printed",
                                 "children": [
                                     {
                                         "rotate": [
-                                            55,
+                                            72,
                                             0,
-                                            25
+                                            130
                                         ],
-                                        "dist": 75,
+                                        "dist": 400,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -5933,8 +5696,8 @@
                                         ]
                                     }
                                 ],
-                                "file": "utils/pins.scad",
-                                "title": "Pintack H9 BH2"
+                                "file": "printedparts/PinTack.scad",
+                                "title": "Pin Tack H9"
                             },
                             {
                                 "call": "MicroServo()",
@@ -6126,10 +5889,6 @@
             },
             {
                 "type": "file",
-                "file": "utils/pins.scad"
-            },
-            {
-                "type": "file",
                 "file": "assemblies/Bumper.scad"
             },
             {
@@ -6139,6 +5898,10 @@
             {
                 "type": "file",
                 "file": "printedparts/BumperStabiliser.scad"
+            },
+            {
+                "type": "file",
+                "file": "printedparts/PinTack.scad"
             },
             {
                 "type": "file",

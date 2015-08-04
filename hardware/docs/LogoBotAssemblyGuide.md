@@ -26,13 +26,12 @@ Qty | Part Name | Image
 1 | [Lid](../printedparts/stl/Lid.stl) | ![](../printedparts/images/Lid_view.png) | 
 1 | [Base](../printedparts/stl/Base.stl) | ![](../printedparts/images/Base_view.png) | 
 1 | [Caster Housing](../printedparts/stl/CasterHousing.stl) | ![](../printedparts/images/CasterHousing_view.png) | 
+4 | [Pin Tack H14.1](../printedparts/stl/PinTackH141.stl) | ![](../printedparts/images/PinTackH141_view.png) | 
+1 | [Pin Tack H6.1](../printedparts/stl/PinTackH61.stl) | ![](../printedparts/images/PinTackH61_view.png) | 
+2 | [Pin Tack H7](../printedparts/stl/PinTackH7.stl) | ![](../printedparts/images/PinTackH7_view.png) | 
 2 | [Pro Mini Clip](../printedparts/stl/ProMiniClip.stl) | ![](../printedparts/images/ProMiniClip_view.png) | 
 1 | [Right Motor Clip](../printedparts/stl/RightMotorClip.stl) | ![](../printedparts/images/RightMotorClip_view.png) | 
 2 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
-4 | [Pintack H14.1 BH2](../printedparts/stl/PintackH141BH2.stl) | ![](../printedparts/images/PintackH141BH2_view.png) | 
-1 | [Pintack H6.1 BH2](../printedparts/stl/PintackH61BH2.stl) | ![](../printedparts/images/PintackH61BH2_view.png) | 
-4 | [Pintack H7 BH2](../printedparts/stl/PintackH7BH2.stl) | ![](../printedparts/images/PintackH7BH2_view.png) | 
-2 | [Pintack H5.25 BH0](../printedparts/stl/PintackH525BH0.stl) | ![](../printedparts/images/PintackH525BH0_view.png) | 
 
 
 # Assembly Instructions
@@ -58,8 +57,8 @@ Qty | Part Name | Image
 Qty | Part Name | Image
 --- | --- | ---
 1 | [Left Motor Clip](../printedparts/stl/LeftMotorClip.stl) | ![](../printedparts/images/LeftMotorClip_view.png) | 
+2 | [Pin Tack H7](../printedparts/stl/PinTackH7.stl) | ![](../printedparts/images/PinTackH7_view.png) | 
 1 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
-2 | [Pintack H7 BH2](../printedparts/stl/PintackH7BH2.stl) | ![](../printedparts/images/PintackH7BH2_view.png) | 
 
 ### Assembly Steps
 
@@ -80,7 +79,6 @@ Qty | Part Name | Image
 --- | --- | ---
 1 | [Right Motor Clip](../printedparts/stl/RightMotorClip.stl) | ![](../printedparts/images/RightMotorClip_view.png) | 
 1 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
-2 | [Pintack H7 BH2](../printedparts/stl/PintackH7BH2.stl) | ![](../printedparts/images/PintackH7BH2_view.png) | 
 
 ### Assembly Steps
 
@@ -143,9 +141,9 @@ Qty | Part Name | Image
 --- | --- | ---
 2 | [BumperStabiliser](../printedparts/stl/BumperStabiliser.stl) | ![](../printedparts/images/BumperStabiliser_view.png) | 
 1 | [Base](../printedparts/stl/Base.stl) | ![](../printedparts/images/Base_view.png) | 
+4 | [Pin Tack H14.1](../printedparts/stl/PinTackH141.stl) | ![](../printedparts/images/PinTackH141_view.png) | 
+1 | [Pin Tack H6.1](../printedparts/stl/PinTackH61.stl) | ![](../printedparts/images/PinTackH61_view.png) | 
 2 | [Pro Mini Clip](../printedparts/stl/ProMiniClip.stl) | ![](../printedparts/images/ProMiniClip_view.png) | 
-4 | [Pintack H14.1 BH2](../printedparts/stl/PintackH141BH2.stl) | ![](../printedparts/images/PintackH141BH2_view.png) | 
-1 | [Pintack H6.1 BH2](../printedparts/stl/PintackH61BH2.stl) | ![](../printedparts/images/PintackH61BH2_view.png) | 
 
 ### Sub-Assemblies
 

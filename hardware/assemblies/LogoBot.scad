@@ -90,10 +90,10 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 							BumperStabiliser_STL();
 
 						attach(Bumper_Con_LeftPin, DefConDown, ExplodeSpacing=-20, offset=[0,0,20])
-							PinTack_STL(side=false, h=7.8+2+2.5+6*layers, bh=2);
+							PinTack_STL(h=7.8+2+2.5+6*layers);
 
 						attach(Bumper_Con_RightPin, DefConDown, ExplodeSpacing=-20)
-                            PinTack_STL(side=false, h=7.8+2+2.5+6*layers, bh=2);
+                            PinTack_STL(h=7.8+2+2.5+6*layers);
 					}
             }
 
@@ -202,7 +202,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
                     MarbleCasterAssembly();
 
                 attach(offsetConnector(invertConnector(LogoBot_Con_Caster), [0,0,dw]), MarbleCaster_Con_Default)
-                    PinTack_STL(side=false, h=dw+0.6+2+1.5, lh=2, bh=2);
+                    PinTack_STL(h=dw+0.6+2+1.5);
             }
 
             // Conditional Design Elements
@@ -218,9 +218,9 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 						PenLiftAssembly();
 
 					attach(LogoBot_Con_PenLift_Front, offsetConnector(DefConUp, [0, 0, 2 + 2.5]), ExplodeSpacing=20)
-                        PinTack_STL(side=false, h=2.5+4+2.5, bh=2);
+                        PinTack_STL(h=2.5+4+2.5);
 					attach(LogoBot_Con_PenLift_Rear, offsetConnector(DefConUp, [0, 0, 2 + 2.5]), ExplodeSpacing=20)
-                        PinTack_STL(side=false, h=2.5+4+2.5, bh=2);
+                        PinTack_STL(h=2.5+4+2.5);
 
                     attach(LogoBot_Con_PenLiftServo, MicroServo_Con_Horn, ExplodeSpacing=0) {
 						MicroServo();

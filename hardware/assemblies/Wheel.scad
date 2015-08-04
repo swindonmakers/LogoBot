@@ -30,10 +30,10 @@ module LeftWheelAssembly( ) {
 			view();
 
 			attach(offsetConnector(MotorClip_Con_Fixing1, [0,-dw,0]), DefConUp)
-                PinTack_STL(side=false, h=2*dw + 3, bh=2);
+                PinTack_STL(h=2*dw + 3);
 
 			attach(offsetConnector(MotorClip_Con_Fixing2, [0,-dw,0]), DefConUp)
-                PinTack_STL(side=false, h=2*dw + 3, bh=2);
+                PinTack_STL(h=2*dw + 3);
 		}
 
 
