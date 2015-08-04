@@ -8,3 +8,11 @@
 *.csg
 
 *.md5
+
+# Exclude Visual Micro, Visual Studio files
+*.vcxproj*
+*.vmps.xml
+*.vsarduino.h
+*.sln
+*.suo
+*.sdf
