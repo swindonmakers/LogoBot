@@ -8,7 +8,7 @@ module PinTack_STL(h=10) {
     printedPart(
         "printedparts/PinTack.scad",
         str("Pin Tack H",h),
-        str("PinTack_STL(side=",side,",h=",h,")")
+        str("PinTack_STL(h=",h,")")
     ) {
 
         view(t=[0,0,0],r=[72,0,130],d=400);

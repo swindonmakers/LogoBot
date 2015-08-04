@@ -32,7 +32,7 @@ Qty | Part Name | Image
 1 | [Pen Lift Slider](../printedparts/stl/PenLiftSlider.stl) | ![](../printedparts/images/PenLiftSlider_view.png) | 
 4 | [Pin Tack H14.1](../printedparts/stl/PinTackH141.stl) | ![](../printedparts/images/PinTackH141_view.png) | 
 1 | [Pin Tack H6.1](../printedparts/stl/PinTackH61.stl) | ![](../printedparts/images/PinTackH61_view.png) | 
-2 | [Pin Tack H7](../printedparts/stl/PinTackH7.stl) | ![](../printedparts/images/PinTackH7_view.png) | 
+4 | [Pin Tack H7](../printedparts/stl/PinTackH7.stl) | ![](../printedparts/images/PinTackH7_view.png) | 
 2 | [Pin Tack H9](../printedparts/stl/PinTackH9.stl) | ![](../printedparts/images/PinTackH9_view.png) | 
 2 | [Pro Mini Clip](../printedparts/stl/ProMiniClip.stl) | ![](../printedparts/images/ProMiniClip_view.png) | 
 1 | [Right Motor Clip](../printedparts/stl/RightMotorClip.stl) | ![](../printedparts/images/RightMotorClip_view.png) | 
@@ -71,9 +71,10 @@ Qty | Part Name | Image
 ![](../assemblies/LogoBotScribbler/LeftDriveWheel_step1_view.png)
 2. Push the pins into the motor clip
 ![](../assemblies/LogoBotScribbler/LeftDriveWheel_step2_view.png)
-3. Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip.
+3. Push the wheel onto the motor shaft, then add a rubber band or o-ring to the wheel for extra grip.  You can also add a retaining grub screw if necessary.
 ![](../assemblies/LogoBotScribbler/LeftDriveWheel_step3_view.png)
-4. Push the stepper driver into place
+4. Slide the stepper driver into place and plug in the cable for the motor
+![](../assemblies/LogoBotScribbler/LeftDriveWheel_step4_view.png)
 
 
 ## Right Drive Wheel
@@ -82,6 +83,7 @@ Qty | Part Name | Image
 
 Qty | Part Name | Image
 --- | --- | ---
+2 | [Pin Tack H7](../printedparts/stl/PinTackH7.stl) | ![](../printedparts/images/PinTackH7_view.png) | 
 1 | [Right Motor Clip](../printedparts/stl/RightMotorClip.stl) | ![](../printedparts/images/RightMotorClip_view.png) | 
 1 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
 
@@ -91,9 +93,10 @@ Qty | Part Name | Image
 ![](../assemblies/LogoBotScribbler/RightDriveWheel_step1_view.png)
 2. Push the pins into the motor clip
 ![](../assemblies/LogoBotScribbler/RightDriveWheel_step2_view.png)
-3. Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip.
+3. Push the wheel onto the motor shaft, then add a rubber band or o-ring to the wheel for extra grip.  You can also add a retaining grub screw if necessary.
 ![](../assemblies/LogoBotScribbler/RightDriveWheel_step3_view.png)
-4. Push the stepper driver into place
+4. Slide the stepper driver into place and plug in the cable for the motor
+![](../assemblies/LogoBotScribbler/RightDriveWheel_step4_view.png)
 
 
 ## Rear Caster

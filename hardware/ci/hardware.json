@@ -1,7 +1,7 @@
 [
     {
         "cut": [],
-        "hash": "3a20e83034bada1e49789b3e333086f3",
+        "hash": "fa42e901778d4f718faa4b639e1e95dc",
         "vitamins": [
             {
                 "hash": "ae07e1b3f3bc303c64cc8841bda3e669",
@@ -101,7 +101,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "8ae1298fa98cbcbe2323d9df23a0ff30",
+                "hash": "a3fc76c09f54f95a167da724355f324c",
                 "vitamins": [
                     {
                         "title": "JumperWire Female to Female 4pin 100mm",
@@ -216,14 +216,14 @@
                     {
                         "title": "Pin Tack H14.1",
                         "qty": 4,
-                        "call": "PinTack_STL(side=undef,h=14.1)",
+                        "call": "PinTack_STL(h=14.1)",
                         "file": "printedparts/PinTack.scad",
                         "views": []
                     },
                     {
                         "title": "Pin Tack H6.1",
                         "qty": 1,
-                        "call": "PinTack_STL(side=undef,h=6.1)",
+                        "call": "PinTack_STL(h=6.1)",
                         "file": "printedparts/PinTack.scad",
                         "views": []
                     }
@@ -543,7 +543,7 @@
             },
             {
                 "cut": [],
-                "hash": "0ad40b5824a8ebbb125084554e8df138",
+                "hash": "7ea02c7b9d5d8aa95775be79e973d24c",
                 "vitamins": [],
                 "views": [],
                 "assemblies": [],
@@ -561,7 +561,7 @@
                     {
                         "title": "Pin Tack H7",
                         "qty": 2,
-                        "call": "PinTack_STL(side=undef,h=7)",
+                        "call": "PinTack_STL(h=7)",
                         "file": "printedparts/PinTack.scad",
                         "views": []
                     },
@@ -581,18 +581,18 @@
                         "views": [
                             {
                                 "rotate": [
-                                    55,
-                                    0,
-                                    25
+                                    170,
+                                    35,
+                                    0
                                 ],
-                                "dist": 500,
+                                "dist": 220,
                                 "filepath": "../assemblies/LogoBot/LeftDriveWheel_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    0,
-                                    0,
-                                    0
+                                    -5,
+                                    -23,
+                                    17
                                 ],
                                 "type": "view",
                                 "size": [
@@ -608,17 +608,44 @@
                         "views": [
                             {
                                 "rotate": [
-                                    55,
-                                    0,
-                                    25
+                                    141,
+                                    170,
+                                    0
                                 ],
-                                "dist": 500,
+                                "dist": 220,
                                 "filepath": "../assemblies/LogoBot/LeftDriveWheel_step2_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    0,
-                                    0,
+                                    -5,
+                                    -23,
+                                    17
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Push the wheel onto the motor shaft, then add a rubber band or o-ring to the wheel for extra grip.  You can also add a retaining grub screw if necessary.",
+                        "num": 3,
+                        "views": [
+                            {
+                                "rotate": [
+                                    150,
+                                    70,
+                                    0
+                                ],
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBot/LeftDriveWheel_step3_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -7,
+                                    -6,
                                     0
                                 ],
                                 "type": "view",
@@ -630,23 +657,23 @@
                         ]
                     },
                     {
-                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip.",
-                        "num": 3,
+                        "desc": "Slide the stepper driver into place and plug in the cable for the motor",
+                        "num": 4,
                         "views": [
                             {
                                 "rotate": [
-                                    349,
-                                    102,
-                                    178
+                                    177,
+                                    76,
+                                    0
                                 ],
-                                "dist": 500,
-                                "filepath": "../assemblies/LogoBot/LeftDriveWheel_step3_view.png",
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBot/LeftDriveWheel_step4_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    0,
-                                    -3,
-                                    5
+                                    -12,
+                                    -7,
+                                    14
                                 ],
                                 "type": "view",
                                 "size": [
@@ -655,18 +682,13 @@
                                 ]
                             }
                         ]
-                    },
-                    {
-                        "desc": "Push the stepper driver into place",
-                        "num": 4,
-                        "views": []
                     }
                 ],
                 "level": 2
             },
             {
                 "cut": [],
-                "hash": "1ea2d5b66484629fdaff61a163918f8a",
+                "hash": "db644fd78b9797f7be7bdd537eb437ad",
                 "vitamins": [],
                 "views": [],
                 "assemblies": [],
@@ -679,6 +701,13 @@
                         "qty": 1,
                         "call": "RightMotorClip_STL()",
                         "file": "printedparts/MotorClip.scad",
+                        "views": []
+                    },
+                    {
+                        "title": "Pin Tack H7",
+                        "qty": 2,
+                        "call": "PinTack_STL(h=7)",
+                        "file": "printedparts/PinTack.scad",
                         "views": []
                     },
                     {
@@ -697,18 +726,18 @@
                         "views": [
                             {
                                 "rotate": [
-                                    55,
-                                    0,
-                                    25
+                                    170,
+                                    35,
+                                    0
                                 ],
-                                "dist": 500,
+                                "dist": 220,
                                 "filepath": "../assemblies/LogoBot/RightDriveWheel_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    0,
-                                    0,
-                                    0
+                                    -5,
+                                    -23,
+                                    17
                                 ],
                                 "type": "view",
                                 "size": [
@@ -724,17 +753,44 @@
                         "views": [
                             {
                                 "rotate": [
-                                    55,
-                                    0,
-                                    25
+                                    141,
+                                    170,
+                                    0
                                 ],
-                                "dist": 500,
+                                "dist": 220,
                                 "filepath": "../assemblies/LogoBot/RightDriveWheel_step2_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    0,
-                                    0,
+                                    -5,
+                                    -23,
+                                    17
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Push the wheel onto the motor shaft, then add a rubber band or o-ring to the wheel for extra grip.  You can also add a retaining grub screw if necessary.",
+                        "num": 3,
+                        "views": [
+                            {
+                                "rotate": [
+                                    150,
+                                    70,
+                                    0
+                                ],
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBot/RightDriveWheel_step3_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -7,
+                                    -6,
                                     0
                                 ],
                                 "type": "view",
@@ -746,23 +802,23 @@
                         ]
                     },
                     {
-                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip.",
-                        "num": 3,
+                        "desc": "Slide the stepper driver into place and plug in the cable for the motor",
+                        "num": 4,
                         "views": [
                             {
                                 "rotate": [
-                                    349,
-                                    102,
-                                    178
+                                    177,
+                                    295,
+                                    0
                                 ],
-                                "dist": 500,
-                                "filepath": "../assemblies/LogoBot/RightDriveWheel_step3_view.png",
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBot/RightDriveWheel_step4_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    0,
+                                    5,
                                     -3,
-                                    5
+                                    14
                                 ],
                                 "type": "view",
                                 "size": [
@@ -771,11 +827,6 @@
                                 ]
                             }
                         ]
-                    },
-                    {
-                        "desc": "Push the stepper driver into place",
-                        "num": 4,
-                        "views": []
                     }
                 ],
                 "level": 2
@@ -1055,8 +1106,8 @@
                             130
                         ],
                         "dist": 400,
-                        "title": "view",
                         "filepath": "../printedparts/images/PinTackH141_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -1073,7 +1124,7 @@
                 "qty": 4,
                 "volume": 388.7813263993138,
                 "area": 545.6091192010445,
-                "call": "PinTack_STL(side=undef,h=14.1)",
+                "call": "PinTack_STL(h=14.1)",
                 "file": "printedparts/PinTack.scad"
             },
             {
@@ -1129,8 +1180,8 @@
                             130
                         ],
                         "dist": 400,
-                        "title": "view",
                         "filepath": "../printedparts/images/PinTackH7_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -1144,10 +1195,10 @@
                         ]
                     }
                 ],
-                "qty": 2,
+                "qty": 4,
                 "volume": 256.79994613315546,
                 "area": 376.98513836447825,
-                "call": "PinTack_STL(side=undef,h=7)",
+                "call": "PinTack_STL(h=7)",
                 "file": "printedparts/PinTack.scad"
             },
             {
@@ -1263,8 +1314,8 @@
                             130
                         ],
                         "dist": 400,
-                        "title": "view",
                         "filepath": "../printedparts/images/PinTackH61_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -1281,7 +1332,7 @@
                 "qty": 1,
                 "volume": 240.06995762067106,
                 "area": 355.6102495877707,
-                "call": "PinTack_STL(side=undef,h=6.1)",
+                "call": "PinTack_STL(h=6.1)",
                 "file": "printedparts/PinTack.scad"
             },
             {
@@ -1628,7 +1679,7 @@
                                 "title": "BumperStabiliser"
                             },
                             {
-                                "call": "PinTack_STL(side=undef,h=14.1)",
+                                "call": "PinTack_STL(h=14.1)",
                                 "type": "printed",
                                 "children": [
                                     {
@@ -1638,6 +1689,7 @@
                                             130
                                         ],
                                         "dist": 400,
+                                        "filepath": "../printedparts/images/PinTackH141_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -1656,7 +1708,7 @@
                                 "title": "Pin Tack H14.1"
                             },
                             {
-                                "call": "PinTack_STL(side=undef,h=14.1)",
+                                "call": "PinTack_STL(h=14.1)",
                                 "type": "printed",
                                 "children": [
                                     {
@@ -1775,7 +1827,7 @@
                                 "title": "BumperStabiliser"
                             },
                             {
-                                "call": "PinTack_STL(side=undef,h=14.1)",
+                                "call": "PinTack_STL(h=14.1)",
                                 "type": "printed",
                                 "children": [
                                     {
@@ -1803,7 +1855,7 @@
                                 "title": "Pin Tack H14.1"
                             },
                             {
-                                "call": "PinTack_STL(side=undef,h=14.1)",
+                                "call": "PinTack_STL(h=14.1)",
                                 "type": "printed",
                                 "children": [
                                     {
@@ -1896,17 +1948,17 @@
                                         "children": [
                                             {
                                                 "rotate": [
-                                                    55,
-                                                    0,
-                                                    25
+                                                    170,
+                                                    35,
+                                                    0
                                                 ],
-                                                "dist": 500,
+                                                "dist": 220,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    0,
-                                                    0,
-                                                    0
+                                                    -5,
+                                                    -23,
+                                                    17
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -1923,17 +1975,17 @@
                                         "children": [
                                             {
                                                 "rotate": [
-                                                    55,
-                                                    0,
-                                                    25
+                                                    141,
+                                                    170,
+                                                    0
                                                 ],
-                                                "dist": 500,
+                                                "dist": 220,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    0,
-                                                    0,
-                                                    0
+                                                    -5,
+                                                    -23,
+                                                    17
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -1942,7 +1994,7 @@
                                                 ]
                                             },
                                             {
-                                                "call": "PinTack_STL(side=undef,h=7)",
+                                                "call": "PinTack_STL(h=7)",
                                                 "type": "printed",
                                                 "children": [
                                                     {
@@ -1952,6 +2004,7 @@
                                                             130
                                                         ],
                                                         "dist": 400,
+                                                        "filepath": "../printedparts/images/PinTackH7_view.png",
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -1970,7 +2023,7 @@
                                                 "title": "Pin Tack H7"
                                             },
                                             {
-                                                "call": "PinTack_STL(side=undef,h=7)",
+                                                "call": "PinTack_STL(h=7)",
                                                 "type": "printed",
                                                 "children": [
                                                     {
@@ -2006,17 +2059,17 @@
                                         "children": [
                                             {
                                                 "rotate": [
-                                                    349,
-                                                    102,
-                                                    178
+                                                    150,
+                                                    70,
+                                                    0
                                                 ],
-                                                "dist": 500,
+                                                "dist": 220,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    0,
-                                                    -3,
-                                                    5
+                                                    -7,
+                                                    -6,
+                                                    0
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -2054,13 +2107,34 @@
                                                 "title": "Wheel"
                                             }
                                         ],
-                                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip."
+                                        "desc": "Push the wheel onto the motor shaft, then add a rubber band or o-ring to the wheel for extra grip.  You can also add a retaining grub screw if necessary."
                                     },
                                     {
                                         "num": 4,
                                         "type": "step",
-                                        "children": [],
-                                        "desc": "Push the stepper driver into place"
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    177,
+                                                    76,
+                                                    0
+                                                ],
+                                                "dist": 220,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -12,
+                                                    -7,
+                                                    14
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "desc": "Slide the stepper driver into place and plug in the cable for the motor"
                                     }
                                 ],
                                 "file": "assemblies/Wheel.scad",
@@ -2105,17 +2179,17 @@
                                         "children": [
                                             {
                                                 "rotate": [
-                                                    55,
-                                                    0,
-                                                    25
+                                                    170,
+                                                    35,
+                                                    0
                                                 ],
-                                                "dist": 500,
+                                                "dist": 220,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    0,
-                                                    0,
-                                                    0
+                                                    -5,
+                                                    -23,
+                                                    17
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -2132,23 +2206,79 @@
                                         "children": [
                                             {
                                                 "rotate": [
-                                                    55,
-                                                    0,
-                                                    25
+                                                    141,
+                                                    170,
+                                                    0
                                                 ],
-                                                "dist": 500,
+                                                "dist": 220,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    0,
-                                                    0,
-                                                    0
+                                                    -5,
+                                                    -23,
+                                                    17
                                                 ],
                                                 "type": "view",
                                                 "size": [
                                                     400,
                                                     300
                                                 ]
+                                            },
+                                            {
+                                                "call": "PinTack_STL(h=7)",
+                                                "type": "printed",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            72,
+                                                            0,
+                                                            130
+                                                        ],
+                                                        "dist": 400,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "printedparts/PinTack.scad",
+                                                "title": "Pin Tack H7"
+                                            },
+                                            {
+                                                "call": "PinTack_STL(h=7)",
+                                                "type": "printed",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            72,
+                                                            0,
+                                                            130
+                                                        ],
+                                                        "dist": 400,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "printedparts/PinTack.scad",
+                                                "title": "Pin Tack H7"
                                             }
                                         ],
                                         "desc": "Push the pins into the motor clip"
@@ -2159,17 +2289,17 @@
                                         "children": [
                                             {
                                                 "rotate": [
-                                                    349,
-                                                    102,
-                                                    178
+                                                    150,
+                                                    70,
+                                                    0
                                                 ],
-                                                "dist": 500,
+                                                "dist": 220,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    0,
-                                                    -3,
-                                                    5
+                                                    -7,
+                                                    -6,
+                                                    0
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -2206,13 +2336,34 @@
                                                 "title": "Wheel"
                                             }
                                         ],
-                                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip."
+                                        "desc": "Push the wheel onto the motor shaft, then add a rubber band or o-ring to the wheel for extra grip.  You can also add a retaining grub screw if necessary."
                                     },
                                     {
                                         "num": 4,
                                         "type": "step",
-                                        "children": [],
-                                        "desc": "Push the stepper driver into place"
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    177,
+                                                    295,
+                                                    0
+                                                ],
+                                                "dist": 220,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    5,
+                                                    -3,
+                                                    14
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "desc": "Slide the stepper driver into place and plug in the cable for the motor"
                                     }
                                 ],
                                 "file": "assemblies/Wheel.scad",
@@ -2499,7 +2650,7 @@
                                 "title": "Rear Caster"
                             },
                             {
-                                "call": "PinTack_STL(side=undef,h=6.1)",
+                                "call": "PinTack_STL(h=6.1)",
                                 "type": "printed",
                                 "children": [
                                     {
@@ -2509,6 +2660,7 @@
                                             130
                                         ],
                                         "dist": 400,
+                                        "filepath": "../printedparts/images/PinTackH61_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -2684,7 +2836,7 @@
     },
     {
         "cut": [],
-        "hash": "28f6b89ad625c52ded2e6577001dd376",
+        "hash": "c271e1184a35d0832de3f3043de4cc59",
         "vitamins": [
             {
                 "hash": "ae07e1b3f3bc303c64cc8841bda3e669",
@@ -2890,7 +3042,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "1c2467d3958815a72ad498cd04666f68",
+                "hash": "2c85cff0396d5d2316b2a99874a9d996",
                 "vitamins": [
                     {
                         "title": "JumperWire Female to Female 4pin 100mm",
@@ -3047,21 +3199,21 @@
                     {
                         "title": "Pin Tack H14.1",
                         "qty": 4,
-                        "call": "PinTack_STL(side=undef,h=14.1)",
+                        "call": "PinTack_STL(h=14.1)",
                         "file": "printedparts/PinTack.scad",
                         "views": []
                     },
                     {
                         "title": "Pin Tack H6.1",
                         "qty": 1,
-                        "call": "PinTack_STL(side=undef,h=6.1)",
+                        "call": "PinTack_STL(h=6.1)",
                         "file": "printedparts/PinTack.scad",
                         "views": []
                     },
                     {
                         "title": "Pin Tack H9",
                         "qty": 2,
-                        "call": "PinTack_STL(side=undef,h=9)",
+                        "call": "PinTack_STL(h=9)",
                         "file": "printedparts/PinTack.scad",
                         "views": []
                     }
@@ -3408,7 +3560,7 @@
             },
             {
                 "cut": [],
-                "hash": "0ad40b5824a8ebbb125084554e8df138",
+                "hash": "7ea02c7b9d5d8aa95775be79e973d24c",
                 "vitamins": [],
                 "views": [],
                 "assemblies": [],
@@ -3426,7 +3578,7 @@
                     {
                         "title": "Pin Tack H7",
                         "qty": 2,
-                        "call": "PinTack_STL(side=undef,h=7)",
+                        "call": "PinTack_STL(h=7)",
                         "file": "printedparts/PinTack.scad",
                         "views": []
                     },
@@ -3446,18 +3598,18 @@
                         "views": [
                             {
                                 "rotate": [
-                                    55,
-                                    0,
-                                    25
+                                    170,
+                                    35,
+                                    0
                                 ],
-                                "dist": 500,
+                                "dist": 220,
                                 "filepath": "../assemblies/LogoBotScribbler/LeftDriveWheel_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    0,
-                                    0,
-                                    0
+                                    -5,
+                                    -23,
+                                    17
                                 ],
                                 "type": "view",
                                 "size": [
@@ -3473,17 +3625,44 @@
                         "views": [
                             {
                                 "rotate": [
-                                    55,
-                                    0,
-                                    25
+                                    141,
+                                    170,
+                                    0
                                 ],
-                                "dist": 500,
+                                "dist": 220,
                                 "filepath": "../assemblies/LogoBotScribbler/LeftDriveWheel_step2_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    0,
-                                    0,
+                                    -5,
+                                    -23,
+                                    17
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Push the wheel onto the motor shaft, then add a rubber band or o-ring to the wheel for extra grip.  You can also add a retaining grub screw if necessary.",
+                        "num": 3,
+                        "views": [
+                            {
+                                "rotate": [
+                                    150,
+                                    70,
+                                    0
+                                ],
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBotScribbler/LeftDriveWheel_step3_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -7,
+                                    -6,
                                     0
                                 ],
                                 "type": "view",
@@ -3495,23 +3674,23 @@
                         ]
                     },
                     {
-                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip.",
-                        "num": 3,
+                        "desc": "Slide the stepper driver into place and plug in the cable for the motor",
+                        "num": 4,
                         "views": [
                             {
                                 "rotate": [
-                                    349,
-                                    102,
-                                    178
+                                    177,
+                                    76,
+                                    0
                                 ],
-                                "dist": 500,
-                                "filepath": "../assemblies/LogoBotScribbler/LeftDriveWheel_step3_view.png",
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBotScribbler/LeftDriveWheel_step4_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    0,
-                                    -3,
-                                    5
+                                    -12,
+                                    -7,
+                                    14
                                 ],
                                 "type": "view",
                                 "size": [
@@ -3520,18 +3699,13 @@
                                 ]
                             }
                         ]
-                    },
-                    {
-                        "desc": "Push the stepper driver into place",
-                        "num": 4,
-                        "views": []
                     }
                 ],
                 "level": 2
             },
             {
                 "cut": [],
-                "hash": "1ea2d5b66484629fdaff61a163918f8a",
+                "hash": "db644fd78b9797f7be7bdd537eb437ad",
                 "vitamins": [],
                 "views": [],
                 "assemblies": [],
@@ -3544,6 +3718,13 @@
                         "qty": 1,
                         "call": "RightMotorClip_STL()",
                         "file": "printedparts/MotorClip.scad",
+                        "views": []
+                    },
+                    {
+                        "title": "Pin Tack H7",
+                        "qty": 2,
+                        "call": "PinTack_STL(h=7)",
+                        "file": "printedparts/PinTack.scad",
                         "views": []
                     },
                     {
@@ -3562,18 +3743,18 @@
                         "views": [
                             {
                                 "rotate": [
-                                    55,
-                                    0,
-                                    25
+                                    170,
+                                    35,
+                                    0
                                 ],
-                                "dist": 500,
+                                "dist": 220,
                                 "filepath": "../assemblies/LogoBotScribbler/RightDriveWheel_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    0,
-                                    0,
-                                    0
+                                    -5,
+                                    -23,
+                                    17
                                 ],
                                 "type": "view",
                                 "size": [
@@ -3589,17 +3770,44 @@
                         "views": [
                             {
                                 "rotate": [
-                                    55,
-                                    0,
-                                    25
+                                    141,
+                                    170,
+                                    0
                                 ],
-                                "dist": 500,
+                                "dist": 220,
                                 "filepath": "../assemblies/LogoBotScribbler/RightDriveWheel_step2_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    0,
-                                    0,
+                                    -5,
+                                    -23,
+                                    17
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Push the wheel onto the motor shaft, then add a rubber band or o-ring to the wheel for extra grip.  You can also add a retaining grub screw if necessary.",
+                        "num": 3,
+                        "views": [
+                            {
+                                "rotate": [
+                                    150,
+                                    70,
+                                    0
+                                ],
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBotScribbler/RightDriveWheel_step3_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -7,
+                                    -6,
                                     0
                                 ],
                                 "type": "view",
@@ -3611,23 +3819,23 @@
                         ]
                     },
                     {
-                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip.",
-                        "num": 3,
+                        "desc": "Slide the stepper driver into place and plug in the cable for the motor",
+                        "num": 4,
                         "views": [
                             {
                                 "rotate": [
-                                    349,
-                                    102,
-                                    178
+                                    177,
+                                    295,
+                                    0
                                 ],
-                                "dist": 500,
-                                "filepath": "../assemblies/LogoBotScribbler/RightDriveWheel_step3_view.png",
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBotScribbler/RightDriveWheel_step4_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    0,
+                                    5,
                                     -3,
-                                    5
+                                    14
                                 ],
                                 "type": "view",
                                 "size": [
@@ -3636,11 +3844,6 @@
                                 ]
                             }
                         ]
-                    },
-                    {
-                        "desc": "Push the stepper driver into place",
-                        "num": 4,
-                        "views": []
                     }
                 ],
                 "level": 2
@@ -3952,8 +4155,8 @@
                             130
                         ],
                         "dist": 400,
-                        "title": "view",
                         "filepath": "../printedparts/images/PinTackH141_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -3968,7 +4171,7 @@
                     }
                 ],
                 "qty": 4,
-                "call": "PinTack_STL(side=undef,h=14.1)",
+                "call": "PinTack_STL(h=14.1)",
                 "file": "printedparts/PinTack.scad"
             },
             {
@@ -4012,8 +4215,8 @@
                             130
                         ],
                         "dist": 400,
-                        "title": "view",
                         "filepath": "../printedparts/images/PinTackH7_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -4027,8 +4230,8 @@
                         ]
                     }
                 ],
-                "qty": 2,
-                "call": "PinTack_STL(side=undef,h=7)",
+                "qty": 4,
+                "call": "PinTack_STL(h=7)",
                 "file": "printedparts/PinTack.scad"
             },
             {
@@ -4132,8 +4335,8 @@
                             130
                         ],
                         "dist": 400,
-                        "title": "view",
                         "filepath": "../printedparts/images/PinTackH61_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -4148,7 +4351,7 @@
                     }
                 ],
                 "qty": 1,
-                "call": "PinTack_STL(side=undef,h=6.1)",
+                "call": "PinTack_STL(h=6.1)",
                 "file": "printedparts/PinTack.scad"
             },
             {
@@ -4234,8 +4437,8 @@
                             130
                         ],
                         "dist": 400,
-                        "title": "view",
                         "filepath": "../printedparts/images/PinTackH9_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -4252,7 +4455,7 @@
                 "qty": 2,
                 "volume": 293.9777969995557,
                 "area": 424.4848520643428,
-                "call": "PinTack_STL(side=undef,h=9)",
+                "call": "PinTack_STL(h=9)",
                 "file": "printedparts/PinTack.scad"
             },
             {
@@ -4569,7 +4772,7 @@
                                 "title": "BumperStabiliser"
                             },
                             {
-                                "call": "PinTack_STL(side=undef,h=14.1)",
+                                "call": "PinTack_STL(h=14.1)",
                                 "type": "printed",
                                 "children": [
                                     {
@@ -4579,6 +4782,7 @@
                                             130
                                         ],
                                         "dist": 400,
+                                        "filepath": "../printedparts/images/PinTackH141_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -4597,7 +4801,7 @@
                                 "title": "Pin Tack H14.1"
                             },
                             {
-                                "call": "PinTack_STL(side=undef,h=14.1)",
+                                "call": "PinTack_STL(h=14.1)",
                                 "type": "printed",
                                 "children": [
                                     {
@@ -4716,7 +4920,7 @@
                                 "title": "BumperStabiliser"
                             },
                             {
-                                "call": "PinTack_STL(side=undef,h=14.1)",
+                                "call": "PinTack_STL(h=14.1)",
                                 "type": "printed",
                                 "children": [
                                     {
@@ -4744,7 +4948,7 @@
                                 "title": "Pin Tack H14.1"
                             },
                             {
-                                "call": "PinTack_STL(side=undef,h=14.1)",
+                                "call": "PinTack_STL(h=14.1)",
                                 "type": "printed",
                                 "children": [
                                     {
@@ -4837,17 +5041,17 @@
                                         "children": [
                                             {
                                                 "rotate": [
-                                                    55,
-                                                    0,
-                                                    25
+                                                    170,
+                                                    35,
+                                                    0
                                                 ],
-                                                "dist": 500,
+                                                "dist": 220,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    0,
-                                                    0,
-                                                    0
+                                                    -5,
+                                                    -23,
+                                                    17
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -4864,17 +5068,17 @@
                                         "children": [
                                             {
                                                 "rotate": [
-                                                    55,
-                                                    0,
-                                                    25
+                                                    141,
+                                                    170,
+                                                    0
                                                 ],
-                                                "dist": 500,
+                                                "dist": 220,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    0,
-                                                    0,
-                                                    0
+                                                    -5,
+                                                    -23,
+                                                    17
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -4883,7 +5087,7 @@
                                                 ]
                                             },
                                             {
-                                                "call": "PinTack_STL(side=undef,h=7)",
+                                                "call": "PinTack_STL(h=7)",
                                                 "type": "printed",
                                                 "children": [
                                                     {
@@ -4893,6 +5097,7 @@
                                                             130
                                                         ],
                                                         "dist": 400,
+                                                        "filepath": "../printedparts/images/PinTackH7_view.png",
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -4911,7 +5116,7 @@
                                                 "title": "Pin Tack H7"
                                             },
                                             {
-                                                "call": "PinTack_STL(side=undef,h=7)",
+                                                "call": "PinTack_STL(h=7)",
                                                 "type": "printed",
                                                 "children": [
                                                     {
@@ -4947,17 +5152,17 @@
                                         "children": [
                                             {
                                                 "rotate": [
-                                                    349,
-                                                    102,
-                                                    178
+                                                    150,
+                                                    70,
+                                                    0
                                                 ],
-                                                "dist": 500,
+                                                "dist": 220,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    0,
-                                                    -3,
-                                                    5
+                                                    -7,
+                                                    -6,
+                                                    0
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -4995,13 +5200,34 @@
                                                 "title": "Wheel"
                                             }
                                         ],
-                                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip."
+                                        "desc": "Push the wheel onto the motor shaft, then add a rubber band or o-ring to the wheel for extra grip.  You can also add a retaining grub screw if necessary."
                                     },
                                     {
                                         "num": 4,
                                         "type": "step",
-                                        "children": [],
-                                        "desc": "Push the stepper driver into place"
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    177,
+                                                    76,
+                                                    0
+                                                ],
+                                                "dist": 220,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -12,
+                                                    -7,
+                                                    14
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "desc": "Slide the stepper driver into place and plug in the cable for the motor"
                                     }
                                 ],
                                 "file": "assemblies/Wheel.scad",
@@ -5046,17 +5272,17 @@
                                         "children": [
                                             {
                                                 "rotate": [
-                                                    55,
-                                                    0,
-                                                    25
+                                                    170,
+                                                    35,
+                                                    0
                                                 ],
-                                                "dist": 500,
+                                                "dist": 220,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    0,
-                                                    0,
-                                                    0
+                                                    -5,
+                                                    -23,
+                                                    17
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -5073,23 +5299,79 @@
                                         "children": [
                                             {
                                                 "rotate": [
-                                                    55,
-                                                    0,
-                                                    25
+                                                    141,
+                                                    170,
+                                                    0
                                                 ],
-                                                "dist": 500,
+                                                "dist": 220,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    0,
-                                                    0,
-                                                    0
+                                                    -5,
+                                                    -23,
+                                                    17
                                                 ],
                                                 "type": "view",
                                                 "size": [
                                                     400,
                                                     300
                                                 ]
+                                            },
+                                            {
+                                                "call": "PinTack_STL(h=7)",
+                                                "type": "printed",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            72,
+                                                            0,
+                                                            130
+                                                        ],
+                                                        "dist": 400,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "printedparts/PinTack.scad",
+                                                "title": "Pin Tack H7"
+                                            },
+                                            {
+                                                "call": "PinTack_STL(h=7)",
+                                                "type": "printed",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            72,
+                                                            0,
+                                                            130
+                                                        ],
+                                                        "dist": 400,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "printedparts/PinTack.scad",
+                                                "title": "Pin Tack H7"
                                             }
                                         ],
                                         "desc": "Push the pins into the motor clip"
@@ -5100,17 +5382,17 @@
                                         "children": [
                                             {
                                                 "rotate": [
-                                                    349,
-                                                    102,
-                                                    178
+                                                    150,
+                                                    70,
+                                                    0
                                                 ],
-                                                "dist": 500,
+                                                "dist": 220,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    0,
-                                                    -3,
-                                                    5
+                                                    -7,
+                                                    -6,
+                                                    0
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -5147,13 +5429,34 @@
                                                 "title": "Wheel"
                                             }
                                         ],
-                                        "desc": "Push the wheel onto the motor shaft **Optional:** add a rubber band to the wheel for extra grip."
+                                        "desc": "Push the wheel onto the motor shaft, then add a rubber band or o-ring to the wheel for extra grip.  You can also add a retaining grub screw if necessary."
                                     },
                                     {
                                         "num": 4,
                                         "type": "step",
-                                        "children": [],
-                                        "desc": "Push the stepper driver into place"
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    177,
+                                                    295,
+                                                    0
+                                                ],
+                                                "dist": 220,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    5,
+                                                    -3,
+                                                    14
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "desc": "Slide the stepper driver into place and plug in the cable for the motor"
                                     }
                                 ],
                                 "file": "assemblies/Wheel.scad",
@@ -5440,7 +5743,7 @@
                                 "title": "Rear Caster"
                             },
                             {
-                                "call": "PinTack_STL(side=undef,h=6.1)",
+                                "call": "PinTack_STL(h=6.1)",
                                 "type": "printed",
                                 "children": [
                                     {
@@ -5450,6 +5753,7 @@
                                             130
                                         ],
                                         "dist": 400,
+                                        "filepath": "../printedparts/images/PinTackH61_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -5644,7 +5948,7 @@
                                 "title": "PenLift"
                             },
                             {
-                                "call": "PinTack_STL(side=undef,h=9)",
+                                "call": "PinTack_STL(h=9)",
                                 "type": "printed",
                                 "children": [
                                     {
@@ -5654,6 +5958,7 @@
                                             130
                                         ],
                                         "dist": 400,
+                                        "filepath": "../printedparts/images/PinTackH9_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -5672,7 +5977,7 @@
                                 "title": "Pin Tack H9"
                             },
                             {
-                                "call": "PinTack_STL(side=undef,h=9)",
+                                "call": "PinTack_STL(h=9)",
                                 "type": "printed",
                                 "children": [
                                     {
