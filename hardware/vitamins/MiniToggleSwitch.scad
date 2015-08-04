@@ -15,10 +15,11 @@ function MiniToggleSwitch_BodyDepth(t)     = t[2];
 function MiniToggleSwitch_BodyHeight(t)    = t[3];
 function MiniToggleSwitch_BarrelOD(t)      = t[4];
 function MiniToggleSwitch_BarrelLength(t)  = t[5];
+function MiniToggleSwitch_WasherOD(t)      = t[6];
 
 // Type table
-//                          TypeSuffix  BodyW BodyD BodyH BarrelOD BarrelL
-MiniToggleSwitch_SPST6A  = ["SPST6A",   12.5, 8,    10,   5,       9       ];
+//                          TypeSuffix  BodyW BodyD BodyH BarrelOD BarrelL WasherOD
+MiniToggleSwitch_SPST6A  = ["SPST6A",   12.5, 8,    10,   5,       9,      12       ];
 
 
 // Type collection
@@ -39,7 +40,7 @@ MiniToggleSwitch_Con_Def				= [ [0,0,0], [0,0,1], 0, 0, 0];
 
 
 
-module MiniToggleSwitch(type=MiniToggleSwitch_SPST6A) {
+module MiniToggleSwitch(type=MiniToggleSwitch_SPST6A, showWasher=true, washerOffset=3) {
 
     ts = MiniToggleSwitch_TypeSuffix(type);
 
@@ -56,11 +57,11 @@ module MiniToggleSwitch(type=MiniToggleSwitch_SPST6A) {
         }
 
         // parts
-        MiniToggleSwitch_Body(type);
+        MiniToggleSwitch_Body(type, showWasher, washerOffset);
     }
 }
 
-module MiniToggleSwitch_Body(t) {
+module MiniToggleSwitch_Body(t, showWasher=true, washerOffset=3) {
     ts = MiniToggleSwitch_TypeSuffix(t);
 
     // local shortcuts
@@ -69,6 +70,7 @@ module MiniToggleSwitch_Body(t) {
     bh = MiniToggleSwitch_BodyHeight(t);
     bod = MiniToggleSwitch_BarrelOD(t);
     bl = MiniToggleSwitch_BarrelLength(t);
+    wod = MiniToggleSwitch_WasherOD(t);
 
     // light metal bits
     color([0.8, 0.8, 0.8]) {
@@ -93,6 +95,16 @@ module MiniToggleSwitch_Body(t) {
         for (i=[-1,0])
             translate([i* 4, -bd/6, -bh-4])
             cube([0.5, bd/3, 4]);
+
+        if (showWasher) {
+            // washer
+            translate([0,0,washerOffset])
+                tube(wod/2, bod/2, 1, center=false);
+
+            // nut
+            translate([0,0,washerOffset + 1])
+                cylinder(r=bod/2 + 2, h=1.5, $fn=6);
+        }
 
     }
 
