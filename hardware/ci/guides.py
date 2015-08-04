@@ -84,7 +84,7 @@ def gen_bom(m):
         md += '\n\n'
 
         md += '**Plastic Required**\n\n'
-        md += str(round(vol,1))+'cm3, ';
+        #md += str(round(vol,1))+'cm3, ';
         md += str(round(weight,2))+'KG, ';
         md += ' approx: '+str(round(weight * 13,2))+' GBP\n\n';
 
