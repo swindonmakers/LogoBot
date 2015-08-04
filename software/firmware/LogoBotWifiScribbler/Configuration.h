@@ -15,7 +15,7 @@
 #define MOTOR_R_PIN_4       9     // IN4 on the ULN2003 driver 1
 					     
 // Piezo buzzer		     
-#define BUZZER_PIN		    10
+#define BUZZER_PIN          10
 						    
 // Microswitches		    
 #define SWITCH_FL_PIN	    A0
@@ -24,12 +24,12 @@
 #define SWITCH_BR_PIN	    A3
 						    
 // LED					    
-#define LED_INTERNAL_PIN    13
-#define LED_RED_PIN		    11
+#define LED_RED_PIN         11
 #define LED_GREEN_PIN	    12
 #define LED_BLUE_PIN	    13
-						    
-// Servo for Pen Lift (Note same as LED for now)
-#define SERVO_PIN		    11
+#define LED_INTERNAL_PIN    13
+			
+// Pen lift servo			    
+#define SERVO_PIN           A4
 
 #endif
