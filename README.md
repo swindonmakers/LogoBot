@@ -5,7 +5,7 @@ Cheap, extensible mobile robot design based on Arduino - inspired by Mirobot and
 
 Developed by the Swindon Hackspace - see [LogoBot wiki page](https://github.com/snhack/snhack.github.com/wiki/LogoBot) and [related Google Groups thread](https://groups.google.com/d/topic/swindon-hackspace/0EO_l_R9aW0/discussion)
 
-See the [Assembly Guides](http://swindon.hackspace.org.uk/LogoBot/hardware/docs/index.htm) for easy to follow build instructions.
+See the [Assembly Guides](https://rawgit.com/snhack/LogoBot/master/hardware/docs/index.htm) for easy to follow build instructions.
 
 ![](hardware/images/LogoBot_view.png)
 
@@ -13,16 +13,11 @@ See the [Assembly Guides](http://swindon.hackspace.org.uk/LogoBot/hardware/docs/
 File Structure
 --------------
 
-* hardware - contains all OpenSCAD models, and will contains electronic models in the future (e.g. PCB layout)
-* software - will contain various firmwares and host implementations
+* hardware - all OpenSCAD models, and will contains electronic models in the future (e.g. PCB layout)
+* software - firmwares and host implementations
 
 
 Contributions
 -------------
 
 Development planning will be coordinated through the normal Wednesday Hackspace meetings (i.e. who is working on what).  All project members will be given write access to the repo.
-
-
-
-
-
