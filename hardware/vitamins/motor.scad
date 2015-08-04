@@ -28,6 +28,10 @@ module StepperMotor28YBJ48() {
 	Motor_body_h = StepperMotor28YBJ48_Body_Depth;
 
 
+	vitamin("vitamins/motor.scad", "28YBJ48 Stepper Motor","StepperMotor28YBJ48()") {
+		view(r=[170,334,0],d=140);
+	}
+
 	if (DebugConnectors) {
 		connector(StepperMotor28YBJ48_Con_Axle);
 		connector(StepperMotor28YBJ48_Con_FlangeLeft);

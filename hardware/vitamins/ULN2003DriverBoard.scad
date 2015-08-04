@@ -56,6 +56,14 @@ module ULN2003DriverBoard_PCB(includeFixings=true, thickness=ULN2003Driver_PCBTh
 
 module ULN2003DriverBoard() {
 
+	vitamin(
+		"vitamins/ULN2003DriverBoard.scad",
+		str("ULN2003 Driver Board"),
+		str("ULN2003DriverBoard()")
+	) {
+		view(d=140);
+	}
+
 	if (DebugCoordinateFrames) frame();
 
 	if (DebugConnectors)

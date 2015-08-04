@@ -55,52 +55,6 @@ group() {
 													group();
 												}
 											}
-											group();
-											group();
-											color([1, 1, 1, 1]) {
-												linear_extrude(height = 3.11, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
-													difference() {
-														circle($fn = 0, $fa = 5, $fs = 0.1, r = 3.4);
-														circle($fn = 0, $fa = 5, $fs = 0.1, r = 2.2);
-													}
-												}
-												multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 3.1], [0, 0, 0, 1]]) {
-													linear_extrude(height = 1.4, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
-														difference() {
-															hull() {
-																circle($fn = 0, $fa = 5, $fs = 0.1, r = 3.4);
-																multmatrix([[1, 0, 0, 13.8], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
-																	circle($fn = 0, $fa = 5, $fs = 0.1, r = 1.9);
-																}
-															}
-															circle($fn = 0, $fa = 5, $fs = 0.1, r = 2.4);
-															group() {
-																multmatrix([[1, 0, 0, 13.8], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
-																	circle($fn = 0, $fa = 5, $fs = 0.1, r = 0.5);
-																}
-																multmatrix([[1, 0, 0, 11.8], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
-																	circle($fn = 0, $fa = 5, $fs = 0.1, r = 0.5);
-																}
-																multmatrix([[1, 0, 0, 9.8], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
-																	circle($fn = 0, $fa = 5, $fs = 0.1, r = 0.5);
-																}
-																multmatrix([[1, 0, 0, 7.8], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
-																	circle($fn = 0, $fa = 5, $fs = 0.1, r = 0.5);
-																}
-																multmatrix([[1, 0, 0, 5.8], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
-																	circle($fn = 0, $fa = 5, $fs = 0.1, r = 0.5);
-																}
-																multmatrix([[1, 0, 0, 3.8], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
-																	circle($fn = 0, $fa = 5, $fs = 0.1, r = 0.5);
-																}
-																multmatrix([[1, 0, 0, 1.8], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
-																	circle($fn = 0, $fa = 5, $fs = 0.1, r = 0.5);
-																}
-															}
-														}
-													}
-												}
-											}
 										}
 									}
 									group();
@@ -110,6 +64,414 @@ group() {
 					}
 				}
 				group();
+			}
+		}
+		group();
+		group();
+		group() {
+			multmatrix([[1, 0, 0, 12.5], [0, 1, 0, 15], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+				linear_extrude(height = 1.5, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+					difference() {
+						square(size = [30, 35], center = true);
+						group() {
+							group() {
+								multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+									multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+										multmatrix([[1, 0, 0, 12.5], [0, 1, 0, 15], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+											circle($fn = 0, $fa = 5, $fs = 0.1, r = 1.5);
+										}
+									}
+								}
+								multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+									multmatrix([[1, 0, 0, 0], [0, -1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+										multmatrix([[1, 0, 0, 12.5], [0, 1, 0, 15], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+											circle($fn = 0, $fa = 5, $fs = 0.1, r = 1.5);
+										}
+									}
+								}
+								multmatrix([[-1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+									multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+										multmatrix([[1, 0, 0, 12.5], [0, 1, 0, 15], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+											circle($fn = 0, $fa = 5, $fs = 0.1, r = 1.5);
+										}
+									}
+								}
+								multmatrix([[-1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+									multmatrix([[1, 0, 0, 0], [0, -1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+										multmatrix([[1, 0, 0, 12.5], [0, 1, 0, 15], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+											circle($fn = 0, $fa = 5, $fs = 0.1, r = 1.5);
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		multmatrix([[1, 0, 0, 12.5], [0, 1, 0, 15], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+			multmatrix([[1, 0, 0, -15], [0, 1, 0, -17.5], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+				color([0.662745, 0.662745, 0.662745, 1]) {
+					multmatrix([[1, 0, 0, 1], [0, 1, 0, 8], [0, 0, 1, 1.49], [0, 0, 0, 1]]) {
+						cube(size = [20, 10, 8], center = false);
+					}
+				}
+				multmatrix([[1, 0, 0, 6], [0, 1, 0, 6], [0, 0, 1, 1.49], [0, 0, 0, 1]]) {
+					group() {
+						multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+							group() {
+								multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+									color([1, 1, 1, 1]) {
+										multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, -3], [0, 0, 0, 1]]) {
+											linear_extrude(height = 11, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+												square(size = [0.63, 0.63], center = true);
+											}
+										}
+									}
+									group() {
+										color([0.2, 0.2, 0.2, 1]) {
+											linear_extrude(height = 2.25, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+												square(size = [2.25, 2.25], center = true);
+											}
+										}
+										color([0.2, 0.2, 0.2, 1]) {
+											multmatrix([[1, 0, 0, 1.27], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+												linear_extrude(height = 2.25, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+													square(size = [0.29, 1.9125], center = true);
+												}
+											}
+										}
+									}
+								}
+								multmatrix([[1, 0, 0, 2.54], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+									color([1, 1, 1, 1]) {
+										multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, -3], [0, 0, 0, 1]]) {
+											linear_extrude(height = 11, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+												square(size = [0.63, 0.63], center = true);
+											}
+										}
+									}
+									group() {
+										color([0.2, 0.2, 0.2, 1]) {
+											linear_extrude(height = 2.25, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+												square(size = [2.25, 2.25], center = true);
+											}
+										}
+										color([0.2, 0.2, 0.2, 1]) {
+											multmatrix([[1, 0, 0, 1.27], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+												linear_extrude(height = 2.25, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+													square(size = [0.29, 1.9125], center = true);
+												}
+											}
+										}
+									}
+								}
+								multmatrix([[1, 0, 0, 5.08], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+									color([1, 1, 1, 1]) {
+										multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, -3], [0, 0, 0, 1]]) {
+											linear_extrude(height = 11, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+												square(size = [0.63, 0.63], center = true);
+											}
+										}
+									}
+									group() {
+										color([0.2, 0.2, 0.2, 1]) {
+											linear_extrude(height = 2.25, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+												square(size = [2.25, 2.25], center = true);
+											}
+										}
+										color([0.2, 0.2, 0.2, 1]) {
+											multmatrix([[1, 0, 0, 1.27], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+												linear_extrude(height = 2.25, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+													square(size = [0.29, 1.9125], center = true);
+												}
+											}
+										}
+									}
+								}
+								multmatrix([[1, 0, 0, 7.62], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+									color([1, 1, 1, 1]) {
+										multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, -3], [0, 0, 0, 1]]) {
+											linear_extrude(height = 11, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+												square(size = [0.63, 0.63], center = true);
+											}
+										}
+									}
+									group() {
+										color([0.2, 0.2, 0.2, 1]) {
+											linear_extrude(height = 2.25, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+												square(size = [2.25, 2.25], center = true);
+											}
+										}
+										color([0.2, 0.2, 0.2, 1]) {
+											multmatrix([[1, 0, 0, 1.27], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+												linear_extrude(height = 2.25, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+													square(size = [0.29, 1.9125], center = true);
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				color([1, 1, 1, 1]) {
+					multmatrix([[1, 0, 0, 1.5], [0, 1, 0, 19], [0, 0, 1, 1.49], [0, 0, 0, 1]]) {
+						difference() {
+							cube(size = [15.5, 6, 8], center = false);
+							multmatrix([[1, 0, 0, 1], [0, 1, 0, 1], [0, 0, 1, 1], [0, 0, 0, 1]]) {
+								cube(size = [13.5, 4, 8], center = false);
+							}
+						}
+					}
+				}
+				multmatrix([[1, 0, 0, 4], [0, 1, 0, 22], [0, 0, 1, 1.49], [0, 0, 0, 1]]) {
+					group() {
+						multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+							group() {
+								multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+									color([1, 1, 1, 1]) {
+										multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, -3], [0, 0, 0, 1]]) {
+											linear_extrude(height = 11, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+												square(size = [0.63, 0.63], center = true);
+											}
+										}
+									}
+									group();
+								}
+								multmatrix([[1, 0, 0, 2.54], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+									color([1, 1, 1, 1]) {
+										multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, -3], [0, 0, 0, 1]]) {
+											linear_extrude(height = 11, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+												square(size = [0.63, 0.63], center = true);
+											}
+										}
+									}
+									group();
+								}
+								multmatrix([[1, 0, 0, 5.08], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+									color([1, 1, 1, 1]) {
+										multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, -3], [0, 0, 0, 1]]) {
+											linear_extrude(height = 11, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+												square(size = [0.63, 0.63], center = true);
+											}
+										}
+									}
+									group();
+								}
+								multmatrix([[1, 0, 0, 7.62], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+									color([1, 1, 1, 1]) {
+										multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, -3], [0, 0, 0, 1]]) {
+											linear_extrude(height = 11, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+												square(size = [0.63, 0.63], center = true);
+											}
+										}
+									}
+									group();
+								}
+								multmatrix([[1, 0, 0, 10.16], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+									color([1, 1, 1, 1]) {
+										multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, -3], [0, 0, 0, 1]]) {
+											linear_extrude(height = 11, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+												square(size = [0.63, 0.63], center = true);
+											}
+										}
+									}
+									group();
+								}
+							}
+						}
+					}
+				}
+				multmatrix([[1, 0, 0, 24.5], [0, 1, 0, 9], [0, 0, 1, 1.49], [0, 0, 0, 1]]) {
+					group() {
+						multmatrix([[6.12323e-17, -1, 0, 0], [1, 6.12323e-17, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+							group() {
+								multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+									color([1, 1, 1, 1]) {
+										multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, -3], [0, 0, 0, 1]]) {
+											linear_extrude(height = 11, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+												square(size = [0.63, 0.63], center = true);
+											}
+										}
+									}
+									group() {
+										color([0.2, 0.2, 0.2, 1]) {
+											linear_extrude(height = 2.25, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+												square(size = [2.25, 2.25], center = true);
+											}
+										}
+										color([0.2, 0.2, 0.2, 1]) {
+											multmatrix([[1, 0, 0, 1.27], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+												linear_extrude(height = 2.25, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+													square(size = [0.29, 1.9125], center = true);
+												}
+											}
+										}
+									}
+								}
+								multmatrix([[1, 0, 0, 2.54], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+									color([1, 1, 1, 1]) {
+										multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, -3], [0, 0, 0, 1]]) {
+											linear_extrude(height = 11, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+												square(size = [0.63, 0.63], center = true);
+											}
+										}
+									}
+									group() {
+										color([0.2, 0.2, 0.2, 1]) {
+											linear_extrude(height = 2.25, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+												square(size = [2.25, 2.25], center = true);
+											}
+										}
+										color([0.2, 0.2, 0.2, 1]) {
+											multmatrix([[1, 0, 0, 1.27], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+												linear_extrude(height = 2.25, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+													square(size = [0.29, 1.9125], center = true);
+												}
+											}
+										}
+									}
+								}
+								multmatrix([[1, 0, 0, 5.08], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+									color([1, 1, 1, 1]) {
+										multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, -3], [0, 0, 0, 1]]) {
+											linear_extrude(height = 11, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+												square(size = [0.63, 0.63], center = true);
+											}
+										}
+									}
+									group() {
+										color([0.2, 0.2, 0.2, 1]) {
+											linear_extrude(height = 2.25, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+												square(size = [2.25, 2.25], center = true);
+											}
+										}
+										color([0.2, 0.2, 0.2, 1]) {
+											multmatrix([[1, 0, 0, 1.27], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+												linear_extrude(height = 2.25, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+													square(size = [0.29, 1.9125], center = true);
+												}
+											}
+										}
+									}
+								}
+								multmatrix([[1, 0, 0, 7.62], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+									color([1, 1, 1, 1]) {
+										multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, -3], [0, 0, 0, 1]]) {
+											linear_extrude(height = 11, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+												square(size = [0.63, 0.63], center = true);
+											}
+										}
+									}
+									group() {
+										color([0.2, 0.2, 0.2, 1]) {
+											linear_extrude(height = 2.25, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+												square(size = [2.25, 2.25], center = true);
+											}
+										}
+										color([0.2, 0.2, 0.2, 1]) {
+											multmatrix([[1, 0, 0, 1.27], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+												linear_extrude(height = 2.25, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+													square(size = [0.29, 1.9125], center = true);
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				multmatrix([[1, 0, 0, 6], [0, 1, 0, 29], [0, 0, 1, 1.49], [0, 0, 0, 1]]) {
+					group() {
+						group() {
+							group();
+							color([1, 0, 0, 0.8]) {
+								linear_extrude(height = 1, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+									difference() {
+										circle($fn = 0, $fa = 5, $fs = 0.1, r = 1.875);
+										multmatrix([[1, 0, 0, -2.25], [0, 1, 0, -1.875], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+											square(size = [0.75, 3.75], center = false);
+										}
+									}
+								}
+								cylinder($fn = 0, $fa = 5, $fs = 0.1, h = 4, r1 = 1.5, r2 = 1.5, center = false);
+								multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 4], [0, 0, 0, 1]]) {
+									sphere($fn = 0, $fa = 5, $fs = 0.1, r = 1.5);
+								}
+							}
+							group();
+						}
+					}
+				}
+				multmatrix([[1, 0, 0, 10], [0, 1, 0, 29], [0, 0, 1, 1.49], [0, 0, 0, 1]]) {
+					group() {
+						group() {
+							group();
+							color([1, 0, 0, 0.8]) {
+								linear_extrude(height = 1, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+									difference() {
+										circle($fn = 0, $fa = 5, $fs = 0.1, r = 1.875);
+										multmatrix([[1, 0, 0, -2.25], [0, 1, 0, -1.875], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+											square(size = [0.75, 3.75], center = false);
+										}
+									}
+								}
+								cylinder($fn = 0, $fa = 5, $fs = 0.1, h = 4, r1 = 1.5, r2 = 1.5, center = false);
+								multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 4], [0, 0, 0, 1]]) {
+									sphere($fn = 0, $fa = 5, $fs = 0.1, r = 1.5);
+								}
+							}
+							group();
+						}
+					}
+				}
+				multmatrix([[1, 0, 0, 14.5], [0, 1, 0, 29], [0, 0, 1, 1.49], [0, 0, 0, 1]]) {
+					group() {
+						group() {
+							group();
+							color([1, 0, 0, 0.8]) {
+								linear_extrude(height = 1, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+									difference() {
+										circle($fn = 0, $fa = 5, $fs = 0.1, r = 1.875);
+										multmatrix([[1, 0, 0, -2.25], [0, 1, 0, -1.875], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+											square(size = [0.75, 3.75], center = false);
+										}
+									}
+								}
+								cylinder($fn = 0, $fa = 5, $fs = 0.1, h = 4, r1 = 1.5, r2 = 1.5, center = false);
+								multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 4], [0, 0, 0, 1]]) {
+									sphere($fn = 0, $fa = 5, $fs = 0.1, r = 1.5);
+								}
+							}
+							group();
+						}
+					}
+				}
+				multmatrix([[1, 0, 0, 19], [0, 1, 0, 29], [0, 0, 1, 1.49], [0, 0, 0, 1]]) {
+					group() {
+						group() {
+							group();
+							color([1, 0, 0, 0.8]) {
+								linear_extrude(height = 1, center = false, convexity = 1, scale = [1, 1], $fn = 0, $fa = 5, $fs = 0.1) {
+									difference() {
+										circle($fn = 0, $fa = 5, $fs = 0.1, r = 1.875);
+										multmatrix([[1, 0, 0, -2.25], [0, 1, 0, -1.875], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+											square(size = [0.75, 3.75], center = false);
+										}
+									}
+								}
+								cylinder($fn = 0, $fa = 5, $fs = 0.1, h = 4, r1 = 1.5, r2 = 1.5, center = false);
+								multmatrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 4], [0, 0, 0, 1]]) {
+									sphere($fn = 0, $fa = 5, $fs = 0.1, r = 1.5);
+								}
+							}
+							group();
+						}
+					}
+				}
 			}
 		}
 	}

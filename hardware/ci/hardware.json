@@ -1,8 +1,132 @@
 [
     {
         "cut": [],
-        "hash": "fa42e901778d4f718faa4b639e1e95dc",
+        "hash": "aef3828b38ee0b173fa0d7f6ce0e6b78",
         "vitamins": [
+            {
+                "hash": "dfedbd47a31000dbd5126a6e03809359",
+                "title": "Arduino Pro Mini Pins on top, inc serial pins",
+                "views": [
+                    {
+                        "rotate": [
+                            55,
+                            0,
+                            25
+                        ],
+                        "dist": 140,
+                        "title": "view",
+                        "filepath": "../vitamins/images/ArduinoProMiniPinsontopincserialpins_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "parts": [],
+                "call": "ArduinoPro(type=ArduinoPro_Mini, headerpins=2,serialpins=true)",
+                "file": "vitamins/ArduinoPro.scad"
+            },
+            {
+                "hash": "c6db4e768cf4da63e2d763f45ec6c81b",
+                "title": "MicroSwitch",
+                "views": [
+                    {
+                        "rotate": [
+                            55,
+                            0,
+                            25
+                        ],
+                        "dist": 140,
+                        "filepath": "../vitamins/images/MicroSwitch_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 4,
+                "parts": [],
+                "call": "MicroSwitch()",
+                "file": "vitamins/MicroSwitch.scad"
+            },
+            {
+                "hash": "da336afd2a62a43e7dcc8dc22d47913c",
+                "title": "28YBJ48 Stepper Motor",
+                "views": [
+                    {
+                        "rotate": [
+                            170,
+                            334,
+                            0
+                        ],
+                        "dist": 140,
+                        "filepath": "../vitamins/images/28YBJ48StepperMotor_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 2,
+                "parts": [],
+                "call": "StepperMotor28YBJ48()",
+                "file": "vitamins/motor.scad"
+            },
+            {
+                "hash": "33b8c06b60ceda09fd5d839e79691ecc",
+                "title": "ULN2003 Driver Board",
+                "views": [
+                    {
+                        "rotate": [
+                            55,
+                            0,
+                            25
+                        ],
+                        "dist": 140,
+                        "filepath": "../vitamins/images/ULN2003DriverBoard_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 2,
+                "parts": [],
+                "call": "ULN2003DriverBoard()",
+                "file": "vitamins/ULN2003DriverBoard.scad"
+            },
             {
                 "hash": "ae07e1b3f3bc303c64cc8841bda3e669",
                 "title": "JumperWire Female to Female 4pin 100mm",
@@ -101,8 +225,16 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "a3fc76c09f54f95a167da724355f324c",
+                "hash": "ef66b1fe43b79a83155d0a1899f97b6a",
                 "vitamins": [
+                    {
+                        "title": "Arduino Pro Mini Pins on top, inc serial pins",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "ArduinoPro(type=ArduinoPro_Mini, headerpins=2,serialpins=true)",
+                        "file": "vitamins/ArduinoPro.scad"
+                    },
                     {
                         "title": "JumperWire Female to Female 4pin 100mm",
                         "views": [],
@@ -493,8 +625,17 @@
             },
             {
                 "cut": [],
-                "hash": "c4cfcea9d8d806980a27809bdf82cf20",
-                "vitamins": [],
+                "hash": "e88159821f73c010666809015f699be6",
+                "vitamins": [
+                    {
+                        "title": "MicroSwitch",
+                        "views": [],
+                        "qty": 4,
+                        "parts": [],
+                        "call": "MicroSwitch()",
+                        "file": "vitamins/MicroSwitch.scad"
+                    }
+                ],
                 "views": [],
                 "assemblies": [],
                 "title": "Bumpers",
@@ -543,8 +684,25 @@
             },
             {
                 "cut": [],
-                "hash": "7ea02c7b9d5d8aa95775be79e973d24c",
-                "vitamins": [],
+                "hash": "8c1791ef07a602b47d272c97b85edf3b",
+                "vitamins": [
+                    {
+                        "title": "28YBJ48 Stepper Motor",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "StepperMotor28YBJ48()",
+                        "file": "vitamins/motor.scad"
+                    },
+                    {
+                        "title": "ULN2003 Driver Board",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "ULN2003DriverBoard()",
+                        "file": "vitamins/ULN2003DriverBoard.scad"
+                    }
+                ],
                 "views": [],
                 "assemblies": [],
                 "title": "Left Drive Wheel",
@@ -688,8 +846,25 @@
             },
             {
                 "cut": [],
-                "hash": "db644fd78b9797f7be7bdd537eb437ad",
-                "vitamins": [],
+                "hash": "c8ad24ae75be8b474bcbface12dd973e",
+                "vitamins": [
+                    {
+                        "title": "28YBJ48 Stepper Motor",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "StepperMotor28YBJ48()",
+                        "file": "vitamins/motor.scad"
+                    },
+                    {
+                        "title": "ULN2003 Driver Board",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "ULN2003DriverBoard()",
+                        "file": "vitamins/ULN2003DriverBoard.scad"
+                    }
+                ],
                 "views": [],
                 "assemblies": [],
                 "title": "Right Drive Wheel",
@@ -1537,6 +1712,34 @@
                                 ],
                                 "file": "printedparts/ProMiniClip.scad",
                                 "title": "Pro Mini Clip"
+                            },
+                            {
+                                "call": "ArduinoPro(type=ArduinoPro_Mini, headerpins=2,serialpins=true)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            55,
+                                            0,
+                                            25
+                                        ],
+                                        "dist": 140,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/ArduinoPro.scad",
+                                "title": "Arduino Pro Mini Pins on top, inc serial pins"
                             }
                         ],
                         "desc": "Plug the Pro Mini Clips into the base and then snap the Arduino Pro Mini into them"
@@ -1641,6 +1844,63 @@
                                                     400,
                                                     300
                                                 ]
+                                            },
+                                            {
+                                                "call": "MicroSwitch()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            55,
+                                                            0,
+                                                            25
+                                                        ],
+                                                        "dist": 140,
+                                                        "filepath": "../vitamins/images/MicroSwitch_view.png",
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/MicroSwitch.scad",
+                                                "title": "MicroSwitch"
+                                            },
+                                            {
+                                                "call": "MicroSwitch()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            55,
+                                                            0,
+                                                            25
+                                                        ],
+                                                        "dist": 140,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/MicroSwitch.scad",
+                                                "title": "MicroSwitch"
                                             }
                                         ],
                                         "desc": "Place the Microswitches into the holders.  Make sure to get them the right way round so the bumper hits the metal lever.  Repeat for the second bumper."
@@ -1790,6 +2050,62 @@
                                                     400,
                                                     300
                                                 ]
+                                            },
+                                            {
+                                                "call": "MicroSwitch()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            55,
+                                                            0,
+                                                            25
+                                                        ],
+                                                        "dist": 140,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/MicroSwitch.scad",
+                                                "title": "MicroSwitch"
+                                            },
+                                            {
+                                                "call": "MicroSwitch()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            55,
+                                                            0,
+                                                            25
+                                                        ],
+                                                        "dist": 140,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/MicroSwitch.scad",
+                                                "title": "MicroSwitch"
                                             }
                                         ],
                                         "desc": "Place the Microswitches into the holders.  Make sure to get them the right way round so the bumper hits the metal lever.  Repeat for the second bumper."
@@ -1965,6 +2281,35 @@
                                                     400,
                                                     300
                                                 ]
+                                            },
+                                            {
+                                                "call": "StepperMotor28YBJ48()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            170,
+                                                            334,
+                                                            0
+                                                        ],
+                                                        "dist": 140,
+                                                        "filepath": "../vitamins/images/28YBJ48StepperMotor_view.png",
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/motor.scad",
+                                                "title": "28YBJ48 Stepper Motor"
                                             }
                                         ],
                                         "desc": "Clip the motor into place"
@@ -2132,6 +2477,35 @@
                                                     400,
                                                     300
                                                 ]
+                                            },
+                                            {
+                                                "call": "ULN2003DriverBoard()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            55,
+                                                            0,
+                                                            25
+                                                        ],
+                                                        "dist": 140,
+                                                        "filepath": "../vitamins/images/ULN2003DriverBoard_view.png",
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/ULN2003DriverBoard.scad",
+                                                "title": "ULN2003 Driver Board"
                                             }
                                         ],
                                         "desc": "Slide the stepper driver into place and plug in the cable for the motor"
@@ -2196,6 +2570,34 @@
                                                     400,
                                                     300
                                                 ]
+                                            },
+                                            {
+                                                "call": "StepperMotor28YBJ48()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            170,
+                                                            334,
+                                                            0
+                                                        ],
+                                                        "dist": 140,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/motor.scad",
+                                                "title": "28YBJ48 Stepper Motor"
                                             }
                                         ],
                                         "desc": "Clip the motor into place"
@@ -2361,6 +2763,34 @@
                                                     400,
                                                     300
                                                 ]
+                                            },
+                                            {
+                                                "call": "ULN2003DriverBoard()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            55,
+                                                            0,
+                                                            25
+                                                        ],
+                                                        "dist": 140,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/ULN2003DriverBoard.scad",
+                                                "title": "ULN2003 Driver Board"
                                             }
                                         ],
                                         "desc": "Slide the stepper driver into place and plug in the cable for the motor"
@@ -2836,8 +3266,132 @@
     },
     {
         "cut": [],
-        "hash": "8b41cc69928f77815272a13293c1f1d2",
+        "hash": "b1c610cd0cb3098545caeb9330f6af18",
         "vitamins": [
+            {
+                "hash": "dfedbd47a31000dbd5126a6e03809359",
+                "title": "Arduino Pro Mini Pins on top, inc serial pins",
+                "views": [
+                    {
+                        "rotate": [
+                            55,
+                            0,
+                            25
+                        ],
+                        "dist": 140,
+                        "title": "view",
+                        "filepath": "../vitamins/images/ArduinoProMiniPinsontopincserialpins_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "parts": [],
+                "call": "ArduinoPro(type=ArduinoPro_Mini, headerpins=2,serialpins=true)",
+                "file": "vitamins/ArduinoPro.scad"
+            },
+            {
+                "hash": "c6db4e768cf4da63e2d763f45ec6c81b",
+                "title": "MicroSwitch",
+                "views": [
+                    {
+                        "rotate": [
+                            55,
+                            0,
+                            25
+                        ],
+                        "dist": 140,
+                        "filepath": "../vitamins/images/MicroSwitch_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 4,
+                "parts": [],
+                "call": "MicroSwitch()",
+                "file": "vitamins/MicroSwitch.scad"
+            },
+            {
+                "hash": "da336afd2a62a43e7dcc8dc22d47913c",
+                "title": "28YBJ48 Stepper Motor",
+                "views": [
+                    {
+                        "rotate": [
+                            170,
+                            334,
+                            0
+                        ],
+                        "dist": 140,
+                        "filepath": "../vitamins/images/28YBJ48StepperMotor_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 2,
+                "parts": [],
+                "call": "StepperMotor28YBJ48()",
+                "file": "vitamins/motor.scad"
+            },
+            {
+                "hash": "33b8c06b60ceda09fd5d839e79691ecc",
+                "title": "ULN2003 Driver Board",
+                "views": [
+                    {
+                        "rotate": [
+                            55,
+                            0,
+                            25
+                        ],
+                        "dist": 140,
+                        "filepath": "../vitamins/images/ULN2003DriverBoard_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 2,
+                "parts": [],
+                "call": "ULN2003DriverBoard()",
+                "file": "vitamins/ULN2003DriverBoard.scad"
+            },
             {
                 "hash": "ae07e1b3f3bc303c64cc8841bda3e669",
                 "title": "JumperWire Female to Female 4pin 100mm",
@@ -3042,8 +3596,16 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "2c85cff0396d5d2316b2a99874a9d996",
+                "hash": "d66fad2a12b13a0b853b825404026212",
                 "vitamins": [
+                    {
+                        "title": "Arduino Pro Mini Pins on top, inc serial pins",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "ArduinoPro(type=ArduinoPro_Mini, headerpins=2,serialpins=true)",
+                        "file": "vitamins/ArduinoPro.scad"
+                    },
                     {
                         "title": "JumperWire Female to Female 4pin 100mm",
                         "views": [],
@@ -3510,8 +4072,17 @@
             },
             {
                 "cut": [],
-                "hash": "c4cfcea9d8d806980a27809bdf82cf20",
-                "vitamins": [],
+                "hash": "e88159821f73c010666809015f699be6",
+                "vitamins": [
+                    {
+                        "title": "MicroSwitch",
+                        "views": [],
+                        "qty": 4,
+                        "parts": [],
+                        "call": "MicroSwitch()",
+                        "file": "vitamins/MicroSwitch.scad"
+                    }
+                ],
                 "views": [],
                 "assemblies": [],
                 "title": "Bumpers",
@@ -3560,8 +4131,25 @@
             },
             {
                 "cut": [],
-                "hash": "7ea02c7b9d5d8aa95775be79e973d24c",
-                "vitamins": [],
+                "hash": "8c1791ef07a602b47d272c97b85edf3b",
+                "vitamins": [
+                    {
+                        "title": "28YBJ48 Stepper Motor",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "StepperMotor28YBJ48()",
+                        "file": "vitamins/motor.scad"
+                    },
+                    {
+                        "title": "ULN2003 Driver Board",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "ULN2003DriverBoard()",
+                        "file": "vitamins/ULN2003DriverBoard.scad"
+                    }
+                ],
                 "views": [],
                 "assemblies": [],
                 "title": "Left Drive Wheel",
@@ -3705,8 +4293,25 @@
             },
             {
                 "cut": [],
-                "hash": "db644fd78b9797f7be7bdd537eb437ad",
-                "vitamins": [],
+                "hash": "c8ad24ae75be8b474bcbface12dd973e",
+                "vitamins": [
+                    {
+                        "title": "28YBJ48 Stepper Motor",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "StepperMotor28YBJ48()",
+                        "file": "vitamins/motor.scad"
+                    },
+                    {
+                        "title": "ULN2003 Driver Board",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "ULN2003DriverBoard()",
+                        "file": "vitamins/ULN2003DriverBoard.scad"
+                    }
+                ],
                 "views": [],
                 "assemblies": [],
                 "title": "Right Drive Wheel",
@@ -4630,6 +5235,34 @@
                                 ],
                                 "file": "printedparts/ProMiniClip.scad",
                                 "title": "Pro Mini Clip"
+                            },
+                            {
+                                "call": "ArduinoPro(type=ArduinoPro_Mini, headerpins=2,serialpins=true)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            55,
+                                            0,
+                                            25
+                                        ],
+                                        "dist": 140,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/ArduinoPro.scad",
+                                "title": "Arduino Pro Mini Pins on top, inc serial pins"
                             }
                         ],
                         "desc": "Plug the Pro Mini Clips into the base and then snap the Arduino Pro Mini into them"
@@ -4734,6 +5367,63 @@
                                                     400,
                                                     300
                                                 ]
+                                            },
+                                            {
+                                                "call": "MicroSwitch()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            55,
+                                                            0,
+                                                            25
+                                                        ],
+                                                        "dist": 140,
+                                                        "filepath": "../vitamins/images/MicroSwitch_view.png",
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/MicroSwitch.scad",
+                                                "title": "MicroSwitch"
+                                            },
+                                            {
+                                                "call": "MicroSwitch()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            55,
+                                                            0,
+                                                            25
+                                                        ],
+                                                        "dist": 140,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/MicroSwitch.scad",
+                                                "title": "MicroSwitch"
                                             }
                                         ],
                                         "desc": "Place the Microswitches into the holders.  Make sure to get them the right way round so the bumper hits the metal lever.  Repeat for the second bumper."
@@ -4883,6 +5573,62 @@
                                                     400,
                                                     300
                                                 ]
+                                            },
+                                            {
+                                                "call": "MicroSwitch()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            55,
+                                                            0,
+                                                            25
+                                                        ],
+                                                        "dist": 140,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/MicroSwitch.scad",
+                                                "title": "MicroSwitch"
+                                            },
+                                            {
+                                                "call": "MicroSwitch()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            55,
+                                                            0,
+                                                            25
+                                                        ],
+                                                        "dist": 140,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/MicroSwitch.scad",
+                                                "title": "MicroSwitch"
                                             }
                                         ],
                                         "desc": "Place the Microswitches into the holders.  Make sure to get them the right way round so the bumper hits the metal lever.  Repeat for the second bumper."
@@ -5058,6 +5804,35 @@
                                                     400,
                                                     300
                                                 ]
+                                            },
+                                            {
+                                                "call": "StepperMotor28YBJ48()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            170,
+                                                            334,
+                                                            0
+                                                        ],
+                                                        "dist": 140,
+                                                        "filepath": "../vitamins/images/28YBJ48StepperMotor_view.png",
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/motor.scad",
+                                                "title": "28YBJ48 Stepper Motor"
                                             }
                                         ],
                                         "desc": "Clip the motor into place"
@@ -5225,6 +6000,35 @@
                                                     400,
                                                     300
                                                 ]
+                                            },
+                                            {
+                                                "call": "ULN2003DriverBoard()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            55,
+                                                            0,
+                                                            25
+                                                        ],
+                                                        "dist": 140,
+                                                        "filepath": "../vitamins/images/ULN2003DriverBoard_view.png",
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/ULN2003DriverBoard.scad",
+                                                "title": "ULN2003 Driver Board"
                                             }
                                         ],
                                         "desc": "Slide the stepper driver into place and plug in the cable for the motor"
@@ -5289,6 +6093,34 @@
                                                     400,
                                                     300
                                                 ]
+                                            },
+                                            {
+                                                "call": "StepperMotor28YBJ48()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            170,
+                                                            334,
+                                                            0
+                                                        ],
+                                                        "dist": 140,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/motor.scad",
+                                                "title": "28YBJ48 Stepper Motor"
                                             }
                                         ],
                                         "desc": "Clip the motor into place"
@@ -5454,6 +6286,34 @@
                                                     400,
                                                     300
                                                 ]
+                                            },
+                                            {
+                                                "call": "ULN2003DriverBoard()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            55,
+                                                            0,
+                                                            25
+                                                        ],
+                                                        "dist": 140,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/ULN2003DriverBoard.scad",
+                                                "title": "ULN2003 Driver Board"
                                             }
                                         ],
                                         "desc": "Slide the stepper driver into place and plug in the cable for the motor"
@@ -6194,11 +7054,19 @@
             },
             {
                 "type": "file",
+                "file": "vitamins/ArduinoPro.scad"
+            },
+            {
+                "type": "file",
                 "file": "assemblies/Bumper.scad"
             },
             {
                 "type": "file",
                 "file": "printedparts/Bumper.scad"
+            },
+            {
+                "type": "file",
+                "file": "vitamins/MicroSwitch.scad"
             },
             {
                 "type": "file",
@@ -6218,7 +7086,15 @@
             },
             {
                 "type": "file",
+                "file": "vitamins/motor.scad"
+            },
+            {
+                "type": "file",
                 "file": "printedparts/Wheel.scad"
+            },
+            {
+                "type": "file",
+                "file": "vitamins/ULN2003DriverBoard.scad"
             },
             {
                 "type": "file",

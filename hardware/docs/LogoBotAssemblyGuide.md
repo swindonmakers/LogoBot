@@ -11,9 +11,13 @@ Make sure you have all of the following parts before you begin.
 
 Qty | Vitamin | Image
 --- | --- | ---
+1 | [Arduino Pro Mini Pins on top, inc serial pins]() | ![](../vitamins/images/ArduinoProMiniPinsontopincserialpins_view.png) | 
 2 | [JumperWire Female to Female 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png) | 
 1 | [16mm Marble]() | ![](../vitamins/images/16mmMarble_view.png) | 
+4 | [MicroSwitch]() | ![](../vitamins/images/MicroSwitch_view.png) | 
 1 | [SPST6A Mini Toggle Switch]() | ![](../vitamins/images/SPST6AMiniToggleSwitch_view.png) | 
+2 | [28YBJ48 Stepper Motor]() | ![](../vitamins/images/28YBJ48StepperMotor_view.png) | 
+2 | [ULN2003 Driver Board]() | ![](../vitamins/images/ULN2003DriverBoard_view.png) | 
 
 ### Printed Parts
 
@@ -38,6 +42,12 @@ Qty | Part Name | Image
 
 ## Bumpers (x2)
 
+### Vitamins
+
+Qty | Vitamin | Image
+--- | --- | ---
+4 | [MicroSwitch]() | ![](../vitamins/images/MicroSwitch_view.png) | 
+
 ### Printed Parts
 
 Qty | Part Name | Image
@@ -51,6 +61,13 @@ Qty | Part Name | Image
 
 
 ## Left Drive Wheel
+
+### Vitamins
+
+Qty | Vitamin | Image
+--- | --- | ---
+1 | [28YBJ48 Stepper Motor]() | ![](../vitamins/images/28YBJ48StepperMotor_view.png) | 
+1 | [ULN2003 Driver Board]() | ![](../vitamins/images/ULN2003DriverBoard_view.png) | 
 
 ### Printed Parts
 
@@ -73,6 +90,13 @@ Qty | Part Name | Image
 
 
 ## Right Drive Wheel
+
+### Vitamins
+
+Qty | Vitamin | Image
+--- | --- | ---
+1 | [28YBJ48 Stepper Motor]() | ![](../vitamins/images/28YBJ48StepperMotor_view.png) | 
+1 | [ULN2003 Driver Board]() | ![](../vitamins/images/ULN2003DriverBoard_view.png) | 
 
 ### Printed Parts
 
@@ -135,6 +159,7 @@ Qty | Part Name | Image
 
 Qty | Vitamin | Image
 --- | --- | ---
+1 | [Arduino Pro Mini Pins on top, inc serial pins]() | ![](../vitamins/images/ArduinoProMiniPinsontopincserialpins_view.png) | 
 2 | [JumperWire Female to Female 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png) | 
 1 | [SPST6A Mini Toggle Switch]() | ![](../vitamins/images/SPST6AMiniToggleSwitch_view.png) | 
 

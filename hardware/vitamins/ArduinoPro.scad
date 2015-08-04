@@ -236,6 +236,17 @@ module ArduinoPro_SMT_Components(type = ArduinoPro_Mini)
 
 module ArduinoPro(type = ArduinoPro_Mini, headerpins = 0, serialpins = 0)
 {
+    pinStr = headerpins == 0 ? "No Header Pins" : (headerpins == 2 ? "Pins on top" : "Pins underneath");
+    serialStr = serialpins ? "inc serial pins" : "no serial pins";
+
+    vitamin(
+        "vitamins/ArduinoPro.scad",
+        str("Arduino Pro ", type == ArduinoPro_Mini ? "Mini" : "Micro", " ",pinStr,", ",serialStr),
+        str("ArduinoPro(type=ArduinoPro_",type == ArduinoPro_Mini ? "Mini" : "Micro",", headerpins=",headerpins,",serialpins=",serialpins,")")
+    ) {
+        view(d=140);
+    }
+
     color(ArduinoPro_PCB_Colour)
     linear_extrude(ArduinoPro_PCB_Height)
     difference() {

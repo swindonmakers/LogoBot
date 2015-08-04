@@ -36,6 +36,14 @@ module MicroSwitch(length = 12.9, width = 6.6, height = 5.8, datxoffset = -9.6, 
 	cutout_offset = 0;
 	foot_offset = datyoffset - 0.4;
 
+	vitamin(
+		"vitamins/MicroSwitch.scad",
+		str("MicroSwitch"),
+		str("MicroSwitch()")
+	) {
+		view(d=140);
+	}
+
 	mirror ([orientation, 0, 0]){
 		// Mirror to provide a left or right mounted switch.
 		//
@@ -45,7 +53,7 @@ module MicroSwitch(length = 12.9, width = 6.6, height = 5.8, datxoffset = -9.6, 
 			color("DarkSlateGray")
 			linear_extrude(height, center=true){
 				// Body
-				// 
+				//
 				difference(){
 					union(){
 						//Add all Additive profiles together, place any extras here.
@@ -55,7 +63,7 @@ module MicroSwitch(length = 12.9, width = 6.6, height = 5.8, datxoffset = -9.6, 
 						square ([holedia, foot_offset * -2], center=true);
 						translate ([-datxoffset - xholepitch - hole_slot_length / 2, -datyoffset + yholepitch])
 						square ([holedia, foot_offset * -2], center=true);
-						
+
 					}
 					union(){
 						//Add all Subtractive profiles together, place any extras here.
@@ -98,7 +106,7 @@ module MicroSwitch(length = 12.9, width = 6.6, height = 5.8, datxoffset = -9.6, 
 	}
 }
 //
-// Terminal module for solder pad. Other terminal types are available. 
+// Terminal module for solder pad. Other terminal types are available.
 //
 module terminal (tab_length, tab_width, tab_thickness, tab_holedia){
 	rotate ([0,90,0]){
