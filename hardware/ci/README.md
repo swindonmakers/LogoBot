@@ -23,6 +23,7 @@ The build.py script calls the other scripts in order to:
 6. Render views for each completed machine
 7. Generate an assembly guide for each machine, in both markdown and html
 8. Generate a documentation index file, also in markdown and html
+9. Generate a vitamin catalogue (markdown and html)
 
 The process caches information about the structure of each part, so that only changes are rendered.
 
@@ -33,5 +34,3 @@ You'll need to install the following dependencies to run the full build process:
 
 1. PIL - the Python Image Library - use: pip install pillow
 2. Pystache - the Pystache template library - use: pip install pystache
-
-

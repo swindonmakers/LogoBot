@@ -27,9 +27,9 @@ def gen_intro(m):
     md = ''
 
     note = jsontools.get_child_by_key_values(m, kvs={'type':'markdown', 'section':'introduction'})
-    if note and 'markdown' in note:
+    if note and ('markdown' in note):
         md += note['markdown'] + '\n\n'
-        
+
     return md
 
 def gen_bom(m):
@@ -49,6 +49,21 @@ def gen_bom(m):
             md += '![](../vitamins/images/'+views.view_filename(v['title']+'_view') + ') | '
             md += '\n'
         md += '\n'
+
+
+    # cut parts
+    if len(m['cut']) > 0:
+        m['cut'].sort(key=cut_call, reverse=False)
+        md += '### Cut Parts\n\n'
+        md += 'Qty | Part Name | Image\n'
+        md += '--- | --- | ---\n'
+        for v in m['cut']:
+            md += str(v['qty']) + ' | '
+            md += v['title'] + ' | '
+            md += '![](../cutparts/images/'+views.view_filename(v['title']+'_view') + ') | '
+            md += '\n'
+        md += '\n'
+
 
     # printed parts
     if len(m['printed']) > 0:
@@ -73,6 +88,43 @@ def vitamin_call(v):
 
 def printed_call(p):
     return p['call']
+
+def cut_call(c):
+    return c['call']
+
+
+def gen_cut(m, a):
+    md = '## '+a['title']
+    if a['qty'] > 1:
+        md += ' (x'+str(a['qty'])+')'
+    md += '\n\n'
+
+    # vitamins
+    if len(a['vitamins']) > 0:
+        a['vitamins'].sort(key=vitamin_call, reverse=False)
+        md += '### Vitamins\n\n'
+        md += 'Qty | Vitamin | Image\n'
+        md += '--- | --- | ---\n'
+        for v in a['vitamins']:
+            md += str(v['qty']) + ' | '
+            md += '['+v['title']+']() | '
+            md += '![](../vitamins/images/'+views.view_filename(v['title']+'_view') + ') | '
+            md += '\n'
+        md += '\n'
+
+    # fabrication steps
+    if len(a['steps']) > 0:
+        md += '### Fabrication Steps\n\n'
+        for step in a['steps']:
+            md += str(step['num']) + '. '+step['desc'] + '\n'
+            for view in step['views']:
+                md += '![](../cutparts/images/'+views.view_filename(a['title']+'_step'+str(step['num'])+'_'+view['title'])+')\n'
+        md += '\n'
+
+    md += '\n'
+
+    return md
+
 
 def gen_assembly(m, a):
     md = '## '+a['title']
@@ -182,11 +234,24 @@ def guides():
             # BOM
             md += gen_bom(m)
 
+            # Cut Parts
+            if len(m['cut']) > 0:
+                md += '# Cutting Instructions\n\n'
+
+                # Cut Parts
+                m['cut'].sort(key=cut_call, reverse=False)
+                for c in m['cut']:
+                    md += gen_cut(m,c)
+
             # Assemblies
-            # sort by level desc
-            m['assemblies'].sort(key=assembly_level, reverse=True)
-            for a in m['assemblies']:
-                md += gen_assembly(m,a)
+            if len(m['assemblies']) > 0:
+                md += '# Assembly Instructions\n\n'
+
+                # Assemblies
+                # sort by level desc
+                m['assemblies'].sort(key=assembly_level, reverse=True)
+                for a in m['assemblies']:
+                    md += gen_assembly(m,a)
 
 
             print("  Saving markdown")

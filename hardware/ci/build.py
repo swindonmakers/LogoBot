@@ -8,28 +8,32 @@ from parse import parse_machines
 from machines import machines
 from assemblies import assemblies
 from vitamins import vitamins
+from cut import cut
 from printed import printed
 from guides import guides
 from publish import publish
+from catalogue import catalogue
 
 def build(do_publish=0):
     print("Build")
     print("-----")
-    
+
     outfile = 'hardware.json'
     oldfile = 'backup.json'
-    
+
     print("Backup current json...")
     oldjso = None
     if os.path.isfile(outfile) and not os.path.isfile(oldfile):
-        os.rename(outfile, oldfile) 
-    
+        os.rename(outfile, oldfile)
+
     errorlevel = 0
-    
+
     errorlevel += parse_machines()
-    
+
     if errorlevel == 0:
         errorlevel += vitamins()
+    if errorlevel == 0:
+        errorlevel += cut()
     if errorlevel == 0:
         errorlevel += printed()
     if errorlevel == 0:
@@ -39,11 +43,13 @@ def build(do_publish=0):
 
     if errorlevel == 0:
         errorlevel += guides()
-        
+
+    catalogue();
+
     if errorlevel == 0 and do_publish > 0:
         publish()
-    
-    
+
+
     # if everything is ok then delete backup - no longer required
     if errorlevel == 0:
         os.remove(oldfile)

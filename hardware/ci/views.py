@@ -21,7 +21,7 @@ def view_filename(s):
 
 def read_hashes_from_png(filename):
     res = {"csghash":"", "viewhash":""}
-    
+
     if os.path.isfile(filename):
         # re-open and read meta data
         try:
@@ -33,13 +33,13 @@ def read_hashes_from_png(filename):
                 res['viewhash'] = img.info['viewhash']
         except:
             print("Error reading image file")
-        
+
     return res
 
 
 def polish(filename, w, h, hash="", viewhash=""):
     print("  Polishing...")
-    
+
     img = Image.open(filename)
     img = img.convert("RGBA")
 
@@ -53,7 +53,7 @@ def polish(filename, w, h, hash="", viewhash=""):
     x2 = 0
     y1 = img.size[1]
     y2 = 0
-    
+
     # Set background to white and transparent
     for y in xrange(img.size[1]):
         solidx = 0
@@ -72,16 +72,17 @@ def polish(filename, w, h, hash="", viewhash=""):
             x2 = solidx
         if solidy > y2:
             y2 = solidy
-            
+
     x2 += 2
     y2 += 2
-                
+
     # downsample (half the res)
     img = img.resize((w, h), Image.ANTIALIAS)
-                
+
     # crop
-    img = img.crop((x1/2,y1/2,x2/2,y2/2))
-                
+    if (x1 < x2 and y1 < y2):
+        img = img.crop((x1/2,y1/2,x2/2,y2/2))
+
     # add hash to meta data
     meta = PngImagePlugin.PngInfo()
 
@@ -94,22 +95,22 @@ def polish(filename, w, h, hash="", viewhash=""):
     # Save it
     img.save(filename, "PNG", pnginfo=meta)
     img.close()
-    
-    
-    
+
+
+
 def render_view_using_file(obj_title, scadfile, dir, view, hashchanged, hash=""):
     png_name = dir + '/' + view_filename(obj_title + '_'+view['title'])
-    
+
     view['filepath'] = png_name
-    
+
     temp_name = 'temp.scad'
-                        
+
     oldhashes = read_hashes_from_png(png_name)
-    
+
     viewstr = str(view['size']) + str(view['translate']) + str(view['rotate']) + str(view['dist'])
     viewhash = hashlib.md5(viewstr).hexdigest();
-                        
-    if (not os.path.isfile(png_name) or (hash != oldhashes['csghash']) or (viewhash != oldhashes['viewhash'])):            
+
+    if (not os.path.isfile(png_name) or (hash != oldhashes['csghash']) or (viewhash != oldhashes['viewhash'])):
         print("        Updating: "+png_name)
 
         # Up-sample images
@@ -126,38 +127,44 @@ def render_view_using_file(obj_title, scadfile, dir, view, hashchanged, hash="")
 
         d = float(view['dist'])
         camera = "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f" % (dx, dy, dz, rx, ry, rz, d)
-                       
-        openscad.run(                            
+
+        openscad.run(
                     "--imgsize=%d,%d" % (w, h),
                     "--projection=p",
                     "--camera=" + camera,
-                    "-o", png_name, 
+                    "-o", png_name,
                     scadfile)
-    
+
         polish(png_name, w/2, h/2, hash, viewhash)
-        
+
         print
 
     else:
         print("        View up to date")
 
 
-def render_view(obj_title, obj_call, dir, view, hashchanged, hash=""):
+def render_view(obj_title, obj_call, dir, view, hashchanged, hash="", includes=[], debug=False):
     temp_name = 'temp.scad'
-    
+
     # make a file to use the module
     #
     f = open(temp_name, "w")
     f.write("include <../config/config.scad>\n")
+    for i in includes:
+        f.write("include <"+i+">\n")
     f.write("UseSTL=true;\n");
     f.write("UseVitaminSTL=true;\n");
-    f.write("DebugConnectors=false;\n");
-    f.write("DebugCoordinateFrames=false;\n");
+    if debug:
+        f.write("DebugConnectors=true;\n");
+        f.write("DebugCoordinateFrames=true;\n");
+    else:
+        f.write("DebugConnectors=false;\n");
+        f.write("DebugCoordinateFrames=false;\n");
     f.write(obj_call + ";\n");
     f.close()
-    
+
     render_view_using_file(obj_title, temp_name, dir, view, hashchanged, hash)
-    
+
     os.remove(temp_name)
 
 
@@ -170,7 +177,7 @@ def views(force_update):
 
     if not os.path.isdir(render_dir):
         os.makedirs(render_dir)
-    
+
     # List of "view" scad files
     #
     scads = [i for i in os.listdir(scad_dir) if i[-5:] == ".scad"]
@@ -185,38 +192,38 @@ def views(force_update):
         for line in open(scad_name, "r").readlines():
             words = line.split()
             if len(words) > 10 and words[0] == "//":
-                
+
                 cmd = words[1]
                 if cmd == "view":
                     view_count += 1
-                    
+
                     # Up-sample images
                     w = int(words[2]) * 2
                     h = int(words[3]) * 2
-                    
+
                     dx = float(words[4])
                     dy = float(words[5])
                     dz = float(words[6])
-                    
+
                     rx = float(words[7])
                     ry = float(words[8])
                     rz = float(words[9])
-                    
+
                     d = float(words[10])
                     camera = "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f" % (dx, dy, dz, rx, ry, rz, d)
-                    
-                    if (force_update) or (not os.path.isfile(png_name) or os.path.getmtime(png_name) < os.path.getmtime(scad_name)):                    
+
+                    if (force_update) or (not os.path.isfile(png_name) or os.path.getmtime(png_name) < os.path.getmtime(scad_name)):
                         openscad.run("--projection=p",
                                     ("--imgsize=%d,%d" % (w, h)),
                                     "--camera=" + camera,
-                                    "-o", png_name, 
+                                    "-o", png_name,
                                     scad_name)
-                        print                
+                        print
                         polish(png_name, w/2, h/2)
-                        
+
                     else:
                         print("  Up to date")
-                    
+
         if view_count < 1:
             print("  No views found - you need to define at least one view")
 
@@ -225,4 +232,3 @@ if __name__ == '__main__':
         views(sys.argv[1])
     else:
         views(0)
-    

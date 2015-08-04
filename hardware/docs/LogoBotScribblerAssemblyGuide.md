@@ -39,6 +39,8 @@ Qty | Part Name | Image
 2 | [Pintack H5.25 BH0](../printedparts/stl/PintackH525BH0.stl) | ![](../printedparts/images/PintackH525BH0_view.png) | 
 
 
+# Assembly Instructions
+
 ## Bumpers (x2)
 
 ### Printed Parts

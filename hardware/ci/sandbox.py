@@ -13,7 +13,7 @@ def makefilename(s):
     s = s.replace(" ","")
     return re.sub(r"\W+|\s+", "", s, re.I)
 
-def make_sandbox_file_for(title, obj_call):
+def make_sandbox_file_for(title, obj_call, showStep=False):
     target_dir = "../sandbox/"
     fn = target_dir + makefilename(title) + '.scad'
     
@@ -23,6 +23,8 @@ def make_sandbox_file_for(title, obj_call):
             f.write("UseSTL=false;\n");
             f.write("UseVitaminSTL=true;\n");
             f.write("DebugConnectors=true;\n");
+            if (showStep):
+                f.write("$ShowStep=1;\n");
             f.write("DebugCoordinateFrames=true;\n");
             f.write(obj_call + ";\n");
 
@@ -31,7 +33,13 @@ def fill_sandbox_with_assemblies(m):
     print("  Assemblies...")
     for a in m['assemblies']:
         print("    "+a['title'])
-        make_sandbox_file_for('assembly_'+a['title'], a['call'])
+        make_sandbox_file_for('assembly_'+a['title'], a['call'], True)
+    
+def fill_sandbox_with_cutparts(m):
+    print("  Cut Parts...")
+    for a in m['cut']:
+        print("    "+a['title'])
+        make_sandbox_file_for('cutpart_'+a['title'], a['call'], True)
     
     
 def fill_sandbox_with_printedparts(m):
@@ -61,6 +69,8 @@ def sandbox():
             print(m['title'])
     
             fill_sandbox_with_assemblies(m)
+        
+            fill_sandbox_with_cutparts(m)
             
             fill_sandbox_with_printedparts(m)
             

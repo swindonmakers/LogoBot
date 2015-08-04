@@ -1,0 +1,44 @@
+[
+    {
+        "cut": [],
+        "hash": "a955c9bb187d9429a22deaf0d0ec4012",
+        "vitamins": [],
+        "title": "OpenSCAD_Machine_Design_Template",
+        "assemblies": [],
+        "printed": [],
+        "file": "OpenSCAD_Machine_Design_Template.scad",
+        "type": "machine",
+        "children": [
+            {
+                "rotate": [
+                    73,
+                    0,
+                    229
+                ],
+                "dist": 1951,
+                "title": "view",
+                "filepath": "../images/OpenSCAD_Machine_Design_Template_view.png",
+                "caption": "view",
+                "translate": [
+                    68,
+                    49,
+                    -37
+                ],
+                "type": "view",
+                "size": [
+                    1024,
+                    768
+                ]
+            }
+        ]
+    },
+    {
+        "files": [
+            {
+                "type": "file",
+                "file": "OpenSCAD_Machine_Design_Template.scad"
+            }
+        ],
+        "type": "filelist"
+    }
+]
