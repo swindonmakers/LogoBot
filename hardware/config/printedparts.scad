@@ -14,3 +14,4 @@ include <../printedparts/ProMiniClip.scad>
 include <../printedparts/Wheel.scad>
 include <../printedparts/MotorClip.scad>
 include <../printedparts/PinTack.scad>
+include <../printedparts/SimpleBase.scad>
