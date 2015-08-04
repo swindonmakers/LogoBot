@@ -4,6 +4,7 @@
 
 import os
 import openscad
+import slic3r
 import shutil
 import sys
 import c14n_stl
@@ -14,7 +15,7 @@ from types import *
 
 from views import polish;
 from views import render_view;
-    
+
 
 def printed():
     print("Printed Parts")
@@ -37,70 +38,77 @@ def printed():
     jf = open("hardware.json","r")
     jso = json.load(jf)
     jf.close()
-    
+
     # for each machine
     for m in jso:
         if type(m) is DictType and m['type'] == 'machine':
             print(m['title'])
-            
+
             pl = m['printed']
-            
+
             for p in pl:
                 print("  "+p['title'])
                 fn = '../' + p['file']
                 if (os.path.isfile(fn)):
-                    
+
                     stlpath = target_dir + '/' + openscad.stl_filename(p['title'])
                     md5path = target_dir + '/' + openscad.stl_filename(p['title']) + '.md5'
-                
+
                     print("    Checking csg hash")
                     # Get csg hash
                     h = openscad.get_csg_hash(temp_name, p['call']);
                     os.remove(temp_name);
-                    
+
                     # Get old csg hash
                     oldh = ""
                     if os.path.isfile(md5path):
                         with open(md5path,'r') as f:
                             oldh = f.read()
-                    
+
                     hashchanged = h != oldh
-                    
+
                     # update hash in json
                     p['hash'] = h
-                    
+
                     # save new hash
                     with open(md5path,'w') as f:
                         f.write(h)
-                        
+
                     # STL
                     print("    STL")
                     if hashchanged or (not os.path.isfile(stlpath)):
                         print("      Rendering STL...")
                         info = openscad.render_stl(temp_name, stlpath, p['call'])
-                        
-                        jsontools.json_merge_missing_keys(p, info) 
-                        
+                        jsontools.json_merge_missing_keys(p, info)
+
+                    # Slice for weight and volume
+                    print("    Slice")
+                    if hashchanged or ('weight' not in p):
+                        # Slice part and track volume of plastic required
+                        # Estimate KG of plastic from density range: 1.23-1.25 g/cm3
+                        volinfo = slic3r.calc_plastic_required(stlpath)
+                        jsontools.json_merge_missing_keys(p, volinfo)
+
                     else:
-                        print("      STL up to date")
-                    
+                        print("      GCode up to date")
+
                     print("    views")
                     # Views
                     for view in p['views']:
                         print("      "+view['title'])
-                        
+
                         render_view(p['title'], p['call'], view_dir, view, hashchanged, h)
-                        
+
                 else:
                     print("    Error: scad file not found: "+p['file'])
-                        
-            
+
+
     # Save changes to json
     with open('hardware.json', 'w') as f:
         f.write(json.dumps(jso, sort_keys=False, indent=4, separators=(',', ': ')))
-        
+
     return 0
-                    
+
 
 if __name__ == '__main__':
     printed()

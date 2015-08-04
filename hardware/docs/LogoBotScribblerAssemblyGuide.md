@@ -43,6 +43,11 @@ Qty | Part Name | Image
 2 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
 
 
+**Plastic Required**
+
+737.7cm3, 0.19KG,  approx: 2.44 GBP
+
+
 # Assembly Instructions
 
 ## Bumpers (x2)

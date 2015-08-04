@@ -67,6 +67,8 @@ def gen_bom(m):
 
     # printed parts
     if len(m['printed']) > 0:
+        vol = 0
+        weight = 0
         m['printed'].sort(key=printed_call, reverse=False)
         md += '### Printed Parts\n\n'
         md += 'Qty | Part Name | Image\n'
@@ -76,7 +78,15 @@ def gen_bom(m):
             md += '['+v['title']+'](../printedparts/stl/'+ openscad.stl_filename(v['title']) +') | '
             md += '![](../printedparts/images/'+views.view_filename(v['title']+'_view') + ') | '
             md += '\n'
-        md += '\n'
+            if 'weight' in v:
+                weight += v['qty'] * v['weight']
+                vol += v['qty'] * v['volume']
+        md += '\n\n'
+
+        md += '**Plastic Required**\n\n'
+        md += str(round(vol,1))+'cm3, ';
+        md += str(round(weight,2))+'KG, ';
+        md += ' approx: '+str(round(weight * 13,2))+' GBP\n\n';
 
     md += '\n'
 
@@ -129,7 +139,7 @@ def gen_cut(m, a):
 def gen_assembly(m, a):
     if len(a['steps']) == 0:
         return ""
-    
+
     md = '## '+a['title']
     if a['qty'] > 1:
         md += ' (x'+str(a['qty'])+')'
