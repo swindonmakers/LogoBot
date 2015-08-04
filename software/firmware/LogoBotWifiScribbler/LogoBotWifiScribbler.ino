@@ -1,10 +1,11 @@
+#include "Configuration.h"
 #include <AccelStepper.h>
 #include <Bot.h>
 #include <CommandQueue.h>
 #include <LogobotText.h>
 #include <Servo.h>
 
-Bot bot;
+Bot bot(MOTOR_L_PIN_1, MOTOR_L_PIN_2, MOTOR_L_PIN_3, MOTOR_L_PIN_4, MOTOR_R_PIN_1, MOTOR_R_PIN_2, MOTOR_R_PIN_3, MOTOR_R_PIN_4);
 CommandQueue cmdQ(20);
 String text = ""; // buffered text to "write" using the pen
 String cmd; // cmd received over serial - builds up char at a time
@@ -14,7 +15,9 @@ void setup()
   Serial.begin(9600);
   Serial.println("Logobot");
   bot.begin();
-  bot.setBumperCallback(handleCollision);
+  bot.initBumpers(SWITCH_FL_PIN, SWITCH_FR_PIN, SWITCH_BL_PIN, SWITCH_BR_PIN, handleCollision);
+  bot.initPenLift(SERVO_PIN);
+  bot.initBuzzer(BUZZER_PIN);
   bot.playStartupJingle();
   LogobotText::begin(cmdQ);
 }
