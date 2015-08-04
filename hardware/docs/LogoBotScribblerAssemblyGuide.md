@@ -14,6 +14,7 @@ Qty | Vitamin | Image
 2 | [JumperWire Female to Female 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png) | 
 1 | [16mm Marble]() | ![](../vitamins/images/16mmMarble_view.png) | 
 1 | [9g Micro Servo]() | ![](../vitamins/images/9gMicroServo_view.png) | 
+1 | [SPST6A Mini Toggle Switch]() | ![](../vitamins/images/SPST6AMiniToggleSwitch_view.png) | 
 1 | [Fine Line Pen]() | ![](../vitamins/images/FineLinePen_view.png) | 
 1 | [Servo Horn]() | ![](../vitamins/images/ServoHorn_view.png) | 
 
@@ -157,6 +158,7 @@ Qty | Vitamin | Image
 --- | --- | ---
 2 | [JumperWire Female to Female 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png) | 
 1 | [9g Micro Servo]() | ![](../vitamins/images/9gMicroServo_view.png) | 
+1 | [SPST6A Mini Toggle Switch]() | ![](../vitamins/images/SPST6AMiniToggleSwitch_view.png) | 
 1 | [Servo Horn]() | ![](../vitamins/images/ServoHorn_view.png) | 
 
 ### Printed Parts
@@ -194,6 +196,8 @@ Qty | Name
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step5_plan.png)
 6. Clip in the battery pack
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step6_view.png)
+7. Fix the power toggle switch into place
+![](../assemblies/LogoBotScribbler/FinalAssembly_step7_view.png)
 10. Align the caster assembly with the base, then insert a short pin to lock it to the base
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step10_view.png)
 12. Fit the pen lift assembly using two of the pins and zip tie the servo under the base.

@@ -46,10 +46,10 @@ module MiniToggleSwitch(type=MiniToggleSwitch_SPST6A, showWasher=true, washerOff
 
     vitamin(
         "vitamins/MiniToggleSwitch.scad",
-        str(ts,"Mini Toggle Switch"),
-        str("MiniToggleSwitch(",ts,")")
+        str(ts," Mini Toggle Switch"),
+        str("MiniToggleSwitch(MiniToggleSwitch_",ts,")")
     ) {
-        view(t=[6.9, 13.6, 10.3], r=[72,0,33], d=280);
+        view(t=[0,0,0], r=[55,0,25], d=140);
 
         if (DebugCoordinateFrames) frame();
         if (DebugConnectors) {

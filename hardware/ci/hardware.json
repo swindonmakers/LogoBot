@@ -1,7 +1,7 @@
 [
     {
         "cut": [],
-        "hash": "0b7ab80750170c9b3425ffb40519d8d5",
+        "hash": "d020d0aa78f44ad401e9c07898ec4645",
         "vitamins": [
             {
                 "hash": "ae07e1b3f3bc303c64cc8841bda3e669",
@@ -14,8 +14,8 @@
                             29
                         ],
                         "dist": 438,
-                        "title": "view",
                         "filepath": "../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             51,
@@ -35,6 +35,37 @@
                 "file": "vitamins/JumperWire.scad"
             },
             {
+                "hash": "2be2bb25c05abe8c88f076753f1db975",
+                "title": "SPST6A Mini Toggle Switch",
+                "views": [
+                    {
+                        "rotate": [
+                            55,
+                            0,
+                            25
+                        ],
+                        "dist": 140,
+                        "title": "view",
+                        "filepath": "../vitamins/images/SPST6AMiniToggleSwitch_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "parts": [],
+                "call": "MiniToggleSwitch(MiniToggleSwitch_SPST6A)",
+                "file": "vitamins/MiniToggleSwitch.scad"
+            },
+            {
                 "hash": "34ca922a189bc80317238f20ac11a923",
                 "title": "16mm Marble",
                 "views": [
@@ -45,8 +76,8 @@
                             60
                         ],
                         "dist": 119,
-                        "title": "view",
                         "filepath": "../vitamins/images/16mmMarble_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             -1,
@@ -70,7 +101,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "363b6a7a4027fe539e36d0a6afb909a2",
+                "hash": "0b8734806279e2d85ea6ade5a5bb4f36",
                 "vitamins": [
                     {
                         "title": "JumperWire Female to Female 4pin 100mm",
@@ -79,6 +110,14 @@
                         "parts": [],
                         "call": "JumperWire(type=JumperWire_FF4, length=100)",
                         "file": "vitamins/JumperWire.scad"
+                    },
+                    {
+                        "title": "SPST6A Mini Toggle Switch",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "MiniToggleSwitch(MiniToggleSwitch_SPST6A)",
+                        "file": "vitamins/MiniToggleSwitch.scad"
                     }
                 ],
                 "views": [],
@@ -332,6 +371,33 @@
                                 ],
                                 "dist": 625,
                                 "filepath": "../assemblies/LogoBot/FinalAssembly_step6_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -6,
+                                    7,
+                                    19
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Fix the power toggle switch into place",
+                        "num": 7,
+                        "views": [
+                            {
+                                "rotate": [
+                                    64,
+                                    1,
+                                    212
+                                ],
+                                "dist": 625,
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step7_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -829,8 +895,8 @@
                             225
                         ],
                         "dist": 681,
-                        "title": "view",
                         "filepath": "../printedparts/images/Base_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -851,18 +917,6 @@
             {
                 "hash": "fd4f9f1a67f6545a418645cf5df924fc",
                 "title": "Pro Mini Clip",
-                "aabb": [
-                    [
-                        -10.25,
-                        -2.55,
-                        -5.5
-                    ],
-                    [
-                        10.25,
-                        2.5,
-                        5.25
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -871,8 +925,8 @@
                             25
                         ],
                         "dist": 336,
-                        "title": "view",
                         "filepath": "../printedparts/images/ProMiniClip_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -887,26 +941,12 @@
                     }
                 ],
                 "qty": 2,
-                "volume": 260.46357490493426,
-                "area": 526.737236880264,
                 "call": "ProMiniClip_STL()",
                 "file": "printedparts/ProMiniClip.scad"
             },
             {
                 "hash": "53b12ca869060f18e0752bcd897ebb90",
                 "title": "Pintack H5.25 BH0",
-                "aabb": [
-                    [
-                        -3.9,
-                        -5.60663e-16,
-                        3.8147e-07
-                    ],
-                    [
-                        3.9,
-                        5.25,
-                        5.05
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -915,8 +955,8 @@
                             25
                         ],
                         "dist": 75,
-                        "title": "view",
                         "filepath": "../printedparts/images/PintackH525BH0_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -931,8 +971,6 @@
                     }
                 ],
                 "qty": 2,
-                "volume": 108.96346960276557,
-                "area": 183.38609663106806,
                 "call": "pintack(side=true,h=5.25,bh=0)",
                 "file": "utils/pins.scad"
             },
@@ -947,8 +985,8 @@
                             225
                         ],
                         "dist": 681,
-                        "title": "view",
                         "filepath": "../printedparts/images/Bumper_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -969,18 +1007,6 @@
             {
                 "hash": "6085def5a25e717f693e01194c7d0663",
                 "title": "BumperStabiliser",
-                "aabb": [
-                    [
-                        -50.2499,
-                        27.6931,
-                        0.0
-                    ],
-                    [
-                        50.2499,
-                        58.4592,
-                        1.8
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -989,8 +1015,8 @@
                             225
                         ],
                         "dist": 681,
-                        "title": "view",
                         "filepath": "../printedparts/images/BumperStabiliser_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -1005,26 +1031,12 @@
                     }
                 ],
                 "qty": 2,
-                "volume": 976.397854626,
-                "area": 1606.4345209526527,
                 "call": "BumperStabiliser_STL()",
                 "file": "printedparts/BumperStabiliser.scad"
             },
             {
                 "hash": "d8487f8033bdc7096d48d0575710ecc7",
                 "title": "Pintack H14.1 BH2",
-                "aabb": [
-                    [
-                        -6.0,
-                        -2.525,
-                        -2.0
-                    ],
-                    [
-                        6.0,
-                        2.525,
-                        14.1
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -1033,8 +1045,8 @@
                             25
                         ],
                         "dist": 75,
-                        "title": "view",
                         "filepath": "../printedparts/images/PintackH141BH2_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -1049,26 +1061,12 @@
                     }
                 ],
                 "qty": 4,
-                "volume": 390.84886581292477,
-                "area": 544.5752275116914,
                 "call": "pintack(side=false,h=14.1,bh=2)",
                 "file": "utils/pins.scad"
             },
             {
                 "hash": "d3f4d2152aa0b16b91136c9b6abbb912",
                 "title": "Left Motor Clip",
-                "aabb": [
-                    [
-                        -26.0,
-                        -12.0,
-                        2.1
-                    ],
-                    [
-                        26.0,
-                        8.0,
-                        36.5
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -1077,8 +1075,8 @@
                             225
                         ],
                         "dist": 681,
-                        "title": "view",
                         "filepath": "../printedparts/images/LeftMotorClip_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -1093,26 +1091,12 @@
                     }
                 ],
                 "qty": 1,
-                "volume": 4567.689599249829,
-                "area": 5598.797257968836,
                 "call": "LeftMotorClip_STL()",
                 "file": "printedparts/MotorClip.scad"
             },
             {
                 "hash": "a9b988fc3e240b5f09e91667c9a8e345",
                 "title": "Pintack H7 BH2",
-                "aabb": [
-                    [
-                        -6.0,
-                        -2.525,
-                        -2.0
-                    ],
-                    [
-                        6.0,
-                        2.525,
-                        7.0
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -1121,8 +1105,8 @@
                             25
                         ],
                         "dist": 75,
-                        "title": "view",
                         "filepath": "../printedparts/images/PintackH7BH2_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -1137,8 +1121,6 @@
                     }
                 ],
                 "qty": 4,
-                "volume": 258.8674957469142,
-                "area": 375.95124293753025,
                 "call": "pintack(side=false,h=7,bh=2)",
                 "file": "utils/pins.scad"
             },
@@ -1153,8 +1135,8 @@
                             25
                         ],
                         "dist": 336,
-                        "title": "view",
                         "filepath": "../printedparts/images/Wheel_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -1175,18 +1157,6 @@
             {
                 "hash": "2aeea62a36fe1ffb3a201fec5b7d9e8f",
                 "title": "Right Motor Clip",
-                "aabb": [
-                    [
-                        -26.0,
-                        -12.0,
-                        2.1
-                    ],
-                    [
-                        26.0,
-                        8.0,
-                        36.5
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -1195,8 +1165,8 @@
                             225
                         ],
                         "dist": 681,
-                        "title": "view",
                         "filepath": "../printedparts/images/RightMotorClip_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -1211,8 +1181,6 @@
                     }
                 ],
                 "qty": 1,
-                "volume": 4567.689608079416,
-                "area": 5598.797257992755,
                 "call": "RightMotorClip_STL()",
                 "file": "printedparts/MotorClip.scad"
             },
@@ -1227,8 +1195,8 @@
                             114
                         ],
                         "dist": 172,
-                        "title": "view",
                         "filepath": "../printedparts/images/CasterHousing_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             1.4,
@@ -1249,18 +1217,6 @@
             {
                 "hash": "c02d3b32d707d19438d6deec9c695bce",
                 "title": "Pintack H6.1 BH2",
-                "aabb": [
-                    [
-                        -6.0,
-                        -2.525,
-                        -2.0
-                    ],
-                    [
-                        6.0,
-                        2.525,
-                        6.1
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -1269,8 +1225,8 @@
                             25
                         ],
                         "dist": 75,
-                        "title": "view",
                         "filepath": "../printedparts/images/PintackH61BH2_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -1285,8 +1241,6 @@
                     }
                 ],
                 "qty": 1,
-                "volume": 242.13750738177333,
-                "area": 354.57635941335013,
                 "call": "pintack(side=false,h=6.1,bh=2)",
                 "file": "utils/pins.scad"
             },
@@ -1301,8 +1255,8 @@
                             26
                         ],
                         "dist": 726,
-                        "title": "view",
                         "filepath": "../printedparts/images/BasicShell_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             -2,
@@ -1331,8 +1285,8 @@
                             225
                         ],
                         "dist": 681,
-                        "title": "view",
                         "filepath": "../printedparts/images/Lid_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -1394,6 +1348,7 @@
                                     225
                                 ],
                                 "dist": 681,
+                                "filepath": "../printedparts/images/Base_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -1446,6 +1401,7 @@
                                             25
                                         ],
                                         "dist": 336,
+                                        "filepath": "../printedparts/images/ProMiniClip_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -1470,6 +1426,7 @@
                                                     25
                                                 ],
                                                 "dist": 75,
+                                                "filepath": "../printedparts/images/PintackH525BH0_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
@@ -1589,6 +1546,7 @@
                                                     225
                                                 ],
                                                 "dist": 681,
+                                                "filepath": "../printedparts/images/Bumper_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
@@ -1648,6 +1606,7 @@
                                             225
                                         ],
                                         "dist": 681,
+                                        "filepath": "../printedparts/images/BumperStabiliser_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -1676,6 +1635,7 @@
                                             25
                                         ],
                                         "dist": 75,
+                                        "filepath": "../printedparts/images/PintackH141BH2_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -1910,6 +1870,7 @@
                                                     225
                                                 ],
                                                 "dist": 681,
+                                                "filepath": "../printedparts/images/LeftMotorClip_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
@@ -1989,6 +1950,7 @@
                                                             25
                                                         ],
                                                         "dist": 75,
+                                                        "filepath": "../printedparts/images/PintackH7BH2_view.png",
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -2072,6 +2034,7 @@
                                                             25
                                                         ],
                                                         "dist": 336,
+                                                        "filepath": "../printedparts/images/Wheel_view.png",
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -2117,6 +2080,7 @@
                                                     225
                                                 ],
                                                 "dist": 681,
+                                                "filepath": "../printedparts/images/RightMotorClip_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
@@ -2367,6 +2331,7 @@
                                             29
                                         ],
                                         "dist": 438,
+                                        "filepath": "../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -2443,6 +2408,61 @@
                         "desc": "Clip in the battery pack"
                     },
                     {
+                        "num": 7,
+                        "type": "step",
+                        "children": [
+                            {
+                                "rotate": [
+                                    64,
+                                    1,
+                                    212
+                                ],
+                                "dist": 625,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -6,
+                                    7,
+                                    19
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "call": "MiniToggleSwitch(MiniToggleSwitch_SPST6A)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            55,
+                                            0,
+                                            25
+                                        ],
+                                        "dist": 140,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/MiniToggleSwitch.scad",
+                                "title": "SPST6A Mini Toggle Switch"
+                            }
+                        ],
+                        "desc": "Fix the power toggle switch into place"
+                    },
+                    {
                         "num": 10,
                         "type": "step",
                         "children": [
@@ -2481,6 +2501,7 @@
                                                     114
                                                 ],
                                                 "dist": 172,
+                                                "filepath": "../printedparts/images/CasterHousing_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
@@ -2533,6 +2554,7 @@
                                                             60
                                                         ],
                                                         "dist": 119,
+                                                        "filepath": "../vitamins/images/16mmMarble_view.png",
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -2568,6 +2590,7 @@
                                             25
                                         ],
                                         "dist": 75,
+                                        "filepath": "../printedparts/images/PintackH61BH2_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -2627,6 +2650,7 @@
                                                     26
                                                 ],
                                                 "dist": 726,
+                                                "filepath": "../printedparts/images/BasicShell_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
@@ -2679,6 +2703,7 @@
                                                             225
                                                         ],
                                                         "dist": 681,
+                                                        "filepath": "../printedparts/images/Lid_view.png",
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -2714,7 +2739,7 @@
     },
     {
         "cut": [],
-        "hash": "811d529685bde601ec8f2b89751b84b0",
+        "hash": "25a657a414038c677c2abec928980e94",
         "vitamins": [
             {
                 "hash": "ae07e1b3f3bc303c64cc8841bda3e669",
@@ -2727,8 +2752,8 @@
                             29
                         ],
                         "dist": 438,
-                        "title": "view",
                         "filepath": "../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             51,
@@ -2748,6 +2773,37 @@
                 "file": "vitamins/JumperWire.scad"
             },
             {
+                "hash": "2be2bb25c05abe8c88f076753f1db975",
+                "title": "SPST6A Mini Toggle Switch",
+                "views": [
+                    {
+                        "rotate": [
+                            55,
+                            0,
+                            25
+                        ],
+                        "dist": 140,
+                        "title": "view",
+                        "filepath": "../vitamins/images/SPST6AMiniToggleSwitch_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "parts": [],
+                "call": "MiniToggleSwitch(MiniToggleSwitch_SPST6A)",
+                "file": "vitamins/MiniToggleSwitch.scad"
+            },
+            {
                 "hash": "34ca922a189bc80317238f20ac11a923",
                 "title": "16mm Marble",
                 "views": [
@@ -2758,8 +2814,8 @@
                             60
                         ],
                         "dist": 119,
-                        "title": "view",
                         "filepath": "../vitamins/images/16mmMarble_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             -1,
@@ -2789,8 +2845,8 @@
                             60
                         ],
                         "dist": 119,
-                        "title": "view",
                         "filepath": "../vitamins/images/FineLinePen_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             -1,
@@ -2820,8 +2876,8 @@
                             33
                         ],
                         "dist": 280,
-                        "title": "view",
                         "filepath": "../vitamins/images/9gMicroServo_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             6.9,
@@ -2864,8 +2920,8 @@
                             60
                         ],
                         "dist": 119,
-                        "title": "view",
                         "filepath": "../vitamins/images/ServoHorn_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             -1,
@@ -2889,7 +2945,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "5d260011d0444f58935262c8acb7c3b1",
+                "hash": "cfc2190de21f109d7430ac055fe34889",
                 "vitamins": [
                     {
                         "title": "JumperWire Female to Female 4pin 100mm",
@@ -2898,6 +2954,14 @@
                         "parts": [],
                         "call": "JumperWire(type=JumperWire_FF4, length=100)",
                         "file": "vitamins/JumperWire.scad"
+                    },
+                    {
+                        "title": "SPST6A Mini Toggle Switch",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "MiniToggleSwitch(MiniToggleSwitch_SPST6A)",
+                        "file": "vitamins/MiniToggleSwitch.scad"
                     },
                     {
                         "title": "9g Micro Servo",
@@ -3200,6 +3264,33 @@
                                 ],
                                 "dist": 625,
                                 "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step6_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -6,
+                                    7,
+                                    19
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Fix the power toggle switch into place",
+                        "num": 7,
+                        "views": [
+                            {
+                                "rotate": [
+                                    64,
+                                    1,
+                                    212
+                                ],
+                                "dist": 625,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step7_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -3782,8 +3873,8 @@
                             225
                         ],
                         "dist": 681,
-                        "title": "view",
                         "filepath": "../printedparts/images/Base_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -3812,8 +3903,8 @@
                             25
                         ],
                         "dist": 336,
-                        "title": "view",
                         "filepath": "../printedparts/images/ProMiniClip_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -3842,8 +3933,8 @@
                             25
                         ],
                         "dist": 75,
-                        "title": "view",
                         "filepath": "../printedparts/images/PintackH525BH0_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -3872,8 +3963,8 @@
                             225
                         ],
                         "dist": 681,
-                        "title": "view",
                         "filepath": "../printedparts/images/Bumper_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -3902,8 +3993,8 @@
                             225
                         ],
                         "dist": 681,
-                        "title": "view",
                         "filepath": "../printedparts/images/BumperStabiliser_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -3932,8 +4023,8 @@
                             25
                         ],
                         "dist": 75,
-                        "title": "view",
                         "filepath": "../printedparts/images/PintackH141BH2_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -3962,8 +4053,8 @@
                             225
                         ],
                         "dist": 681,
-                        "title": "view",
                         "filepath": "../printedparts/images/LeftMotorClip_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -3992,8 +4083,8 @@
                             25
                         ],
                         "dist": 75,
-                        "title": "view",
                         "filepath": "../printedparts/images/PintackH7BH2_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -4022,8 +4113,8 @@
                             25
                         ],
                         "dist": 336,
-                        "title": "view",
                         "filepath": "../printedparts/images/Wheel_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -4052,8 +4143,8 @@
                             225
                         ],
                         "dist": 681,
-                        "title": "view",
                         "filepath": "../printedparts/images/RightMotorClip_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -4082,8 +4173,8 @@
                             114
                         ],
                         "dist": 172,
-                        "title": "view",
                         "filepath": "../printedparts/images/CasterHousing_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             1.4,
@@ -4112,8 +4203,8 @@
                             25
                         ],
                         "dist": 75,
-                        "title": "view",
                         "filepath": "../printedparts/images/PintackH61BH2_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -4134,18 +4225,6 @@
             {
                 "hash": "93b191995ff865e345028a3a06cbea7f",
                 "title": "Pen Lift Slider",
-                "aabb": [
-                    [
-                        -3.0,
-                        -24.9992,
-                        0.0
-                    ],
-                    [
-                        14.9992,
-                        24.9992,
-                        30.0
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -4154,8 +4233,8 @@
                             23
                         ],
                         "dist": 184,
-                        "title": "view",
                         "filepath": "../printedparts/images/PenLiftSlider_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             1,
@@ -4170,26 +4249,12 @@
                     }
                 ],
                 "qty": 1,
-                "volume": 3333.184087760668,
-                "area": 4104.819079441405,
                 "call": "PenLiftSlider_STL()",
                 "file": "printedparts/PenLiftSlider.scad"
             },
             {
                 "hash": "0eb063b3b2650c4c2b5c33ce0b624ec0",
                 "title": "Pen Lift Holder",
-                "aabb": [
-                    [
-                        -1.0,
-                        -14.5,
-                        0.0
-                    ],
-                    [
-                        11.0,
-                        14.5,
-                        30.0
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -4198,8 +4263,8 @@
                             23
                         ],
                         "dist": 184,
-                        "title": "view",
                         "filepath": "../printedparts/images/PenLiftHolder_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             1,
@@ -4214,26 +4279,12 @@
                     }
                 ],
                 "qty": 1,
-                "volume": 5392.1955332,
-                "area": 3207.704639614044,
                 "call": "PenLiftHolder_STL()",
                 "file": "printedparts/PenLiftHolder.scad"
             },
             {
                 "hash": "78a0c0bebcfdef3b5ebdaa769e7d2b02",
                 "title": "Pintack H9 BH2",
-                "aabb": [
-                    [
-                        -6.0,
-                        -2.525,
-                        -2.0
-                    ],
-                    [
-                        6.0,
-                        2.525,
-                        9.0
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -4242,8 +4293,8 @@
                             25
                         ],
                         "dist": 75,
-                        "title": "view",
                         "filepath": "../printedparts/images/PintackH9BH2_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -4258,8 +4309,6 @@
                     }
                 ],
                 "qty": 2,
-                "volume": 296.0453466133143,
-                "area": 423.4509566373954,
                 "call": "pintack(side=false,h=9,bh=2)",
                 "file": "utils/pins.scad"
             },
@@ -4274,8 +4323,8 @@
                             26
                         ],
                         "dist": 726,
-                        "title": "view",
                         "filepath": "../printedparts/images/BasicShell_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             -2,
@@ -4337,6 +4386,7 @@
                                     225
                                 ],
                                 "dist": 681,
+                                "filepath": "../printedparts/images/Base_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -4389,6 +4439,7 @@
                                             25
                                         ],
                                         "dist": 336,
+                                        "filepath": "../printedparts/images/ProMiniClip_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -4413,6 +4464,7 @@
                                                     25
                                                 ],
                                                 "dist": 75,
+                                                "filepath": "../printedparts/images/PintackH525BH0_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
@@ -4532,6 +4584,7 @@
                                                     225
                                                 ],
                                                 "dist": 681,
+                                                "filepath": "../printedparts/images/Bumper_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
@@ -4591,6 +4644,7 @@
                                             225
                                         ],
                                         "dist": 681,
+                                        "filepath": "../printedparts/images/BumperStabiliser_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -4619,6 +4673,7 @@
                                             25
                                         ],
                                         "dist": 75,
+                                        "filepath": "../printedparts/images/PintackH141BH2_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -4853,6 +4908,7 @@
                                                     225
                                                 ],
                                                 "dist": 681,
+                                                "filepath": "../printedparts/images/LeftMotorClip_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
@@ -4932,6 +4988,7 @@
                                                             25
                                                         ],
                                                         "dist": 75,
+                                                        "filepath": "../printedparts/images/PintackH7BH2_view.png",
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -5015,6 +5072,7 @@
                                                             25
                                                         ],
                                                         "dist": 336,
+                                                        "filepath": "../printedparts/images/Wheel_view.png",
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -5060,6 +5118,7 @@
                                                     225
                                                 ],
                                                 "dist": 681,
+                                                "filepath": "../printedparts/images/RightMotorClip_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
@@ -5310,6 +5369,7 @@
                                             29
                                         ],
                                         "dist": 438,
+                                        "filepath": "../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -5386,6 +5446,61 @@
                         "desc": "Clip in the battery pack"
                     },
                     {
+                        "num": 7,
+                        "type": "step",
+                        "children": [
+                            {
+                                "rotate": [
+                                    64,
+                                    1,
+                                    212
+                                ],
+                                "dist": 625,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -6,
+                                    7,
+                                    19
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "call": "MiniToggleSwitch(MiniToggleSwitch_SPST6A)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            55,
+                                            0,
+                                            25
+                                        ],
+                                        "dist": 140,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/MiniToggleSwitch.scad",
+                                "title": "SPST6A Mini Toggle Switch"
+                            }
+                        ],
+                        "desc": "Fix the power toggle switch into place"
+                    },
+                    {
                         "num": 10,
                         "type": "step",
                         "children": [
@@ -5424,6 +5539,7 @@
                                                     114
                                                 ],
                                                 "dist": 172,
+                                                "filepath": "../printedparts/images/CasterHousing_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
@@ -5476,6 +5592,7 @@
                                                             60
                                                         ],
                                                         "dist": 119,
+                                                        "filepath": "../vitamins/images/16mmMarble_view.png",
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -5511,6 +5628,7 @@
                                             25
                                         ],
                                         "dist": 75,
+                                        "filepath": "../printedparts/images/PintackH61BH2_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -5570,6 +5688,7 @@
                                                     23
                                                 ],
                                                 "dist": 184,
+                                                "filepath": "../printedparts/images/PenLiftSlider_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
@@ -5622,6 +5741,7 @@
                                                             23
                                                         ],
                                                         "dist": 184,
+                                                        "filepath": "../printedparts/images/PenLiftHolder_view.png",
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -5677,6 +5797,7 @@
                                                             60
                                                         ],
                                                         "dist": 119,
+                                                        "filepath": "../vitamins/images/FineLinePen_view.png",
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -5712,6 +5833,7 @@
                                             25
                                         ],
                                         "dist": 75,
+                                        "filepath": "../printedparts/images/PintackH9BH2_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -5768,6 +5890,7 @@
                                             33
                                         ],
                                         "dist": 280,
+                                        "filepath": "../vitamins/images/9gMicroServo_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -5808,6 +5931,7 @@
                                             60
                                         ],
                                         "dist": 119,
+                                        "filepath": "../vitamins/images/ServoHorn_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -5867,6 +5991,7 @@
                                                     26
                                                 ],
                                                 "dist": 726,
+                                                "filepath": "../printedparts/images/BasicShell_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
@@ -5946,6 +6071,10 @@
             {
                 "type": "file",
                 "file": "vitamins/JumperWire.scad"
+            },
+            {
+                "type": "file",
+                "file": "vitamins/MiniToggleSwitch.scad"
             },
             {
                 "type": "file",
