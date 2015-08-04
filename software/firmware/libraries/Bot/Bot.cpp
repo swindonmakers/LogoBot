@@ -116,7 +116,7 @@ void Bot::penDown()
 	_penliftServo.write(90);
 }
 
-void Bot::buzz(uint8_t len)
+void Bot::buzz(int len)
 {
 	_buzzEnd = millis() + len;
 }

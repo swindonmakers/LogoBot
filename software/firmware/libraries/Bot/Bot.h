@@ -42,7 +42,7 @@ public:
 	void penUp();
 	void penDown();
 
-	void buzz(uint8_t len);
+	void buzz(int len);
 
 	void stop();
 	void emergencyStop();
