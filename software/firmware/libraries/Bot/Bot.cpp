@@ -1,60 +1,72 @@
 #include "Bot.h"
-#include <AccelStepper.h>
-#include <Servo.h>
 
-Servo penliftServo;
-// Initialize with pin sequence IN1-IN3-IN2-IN4 for using the AccelStepper with 28BYJ-48
-AccelStepper stepperL(AccelStepper::HALF4WIRE, motorLPin1, motorLPin3, motorLPin2, motorLPin4);
-AccelStepper stepperR(AccelStepper::HALF4WIRE, motorRPin1, motorRPin3, motorRPin2, motorRPin4);
-
-Bot::Bot()
+Bot::Bot(int lp1, int lp2, int lp3, int lp4, int rp1, int rp2, int rp3, int rp4) : 
+	_stepperL(AccelStepper::HALF4WIRE, lp1, lp2, lp3, lp4),
+	_stepperR(AccelStepper::HALF4WIRE, rp1, rp2, rp3, rp4)
 {
-	buzzEnd = 0;
+	_pinStepper[0] = lp1;
+	_pinStepper[1] = lp2;
+	_pinStepper[2] = lp3;
+	_pinStepper[3] = lp4;
+	_pinStepper[4] = rp1;
+	_pinStepper[5] = rp2;
+	_pinStepper[6] = rp3;
+	_pinStepper[7] = rp4;
+
+	_buzzEnd = 0;
 	resetPosition();
 }
 
 void Bot::begin()
 {
-	stepperL.setMaxSpeed(1000);
-	stepperL.setAcceleration(2000);
-	stepperL.setBacklash(STEPS_OF_BACKLASH);
-	stepperL.setPinsInverted(true, true, false, false, false);
+	_stepperL.setMaxSpeed(1000);
+	_stepperL.setAcceleration(2000);
+	_stepperL.setBacklash(STEPS_OF_BACKLASH);
+	_stepperL.setPinsInverted(true, true, false, false, false);
 
-	stepperR.setMaxSpeed(1000);
-	stepperR.setAcceleration(2000);
-	stepperR.setBacklash(STEPS_OF_BACKLASH);
-
-	pinMode(switchFL, INPUT_PULLUP);
-	pinMode(switchFR, INPUT_PULLUP);
-
-	pinMode(InternalLED, OUTPUT);
-
-	//pinMode(LEDRED, OUTPUT);
-	//pinMode(LEDGREEN, OUTPUT);
-	//pinMode(LEDBLUE, OUTPUT);
-  
-	pinMode(buzzer, OUTPUT);
-
-	penliftServo.attach(11);
-	penUp();
+	_stepperR.setMaxSpeed(1000);
+	_stepperR.setAcceleration(2000);
+	_stepperR.setBacklash(STEPS_OF_BACKLASH);
 }
 
-void Bot::setBumperCallback(void (*pFunc)(byte collisionData))
+void Bot::initBuzzer(int pin)
 {
+	_pinBuzzer = pin;
+	pinMode(_pinBuzzer, OUTPUT);
+}
+
+void Bot::initBumpers(int fl, int fr, int bl, int br, void (*pFunc)(byte collisionData))
+{
+	_switchFL = fl;
+	_switchFR = fr;
+	_switchBL = bl;
+	_switchBR = br;
+
+	pinMode(_switchFL, INPUT_PULLUP);
+	pinMode(_switchFR, INPUT_PULLUP);
+	pinMode(_switchBL, INPUT_PULLUP);
+	pinMode(_switchBR, INPUT_PULLUP);
+
 	bumperCallback = *pFunc;
+}
+
+void Bot::initPenLift(int pin)
+{
+	_penliftServo.attach(pin);
+	penUp();
 }
 
 bool Bot::isMoving()
 {
-	return stepperL.distanceToGo() != 0 || stepperR.distanceToGo() != 0;
+	return _stepperL.distanceToGo() != 0 || _stepperR.distanceToGo() != 0;
 }
 
 void Bot::playStartupJingle()
 {
 	for (int i = 0; i < 3; i++) {
-		digitalWrite(buzzer, HIGH);
+		digitalWrite(_pinBuzzer, HIGH);
 		delay(100);
-		digitalWrite(buzzer, LOW);
+		digitalWrite(_pinBuzzer, LOW);
 		delay(25);
 	}
 }
@@ -62,19 +74,21 @@ void Bot::playStartupJingle()
 void Bot::run()
 {
 	// Run steppers
-	stepperL.run();
-	stepperR.run();
+	_stepperL.run();
+	_stepperR.run();
 
 	// Do buzzer
-	if (millis() < buzzEnd)
-		digitalWrite(buzzer, HIGH);
+	if (millis() < _buzzEnd)
+		digitalWrite(_pinBuzzer, HIGH);
 	else
-		digitalWrite(buzzer, LOW);
+		digitalWrite(_pinBuzzer, LOW);
 
 	// Collisions
 	byte nowColliding = 0;
-	if (!digitalRead(switchFL)) nowColliding = 1;
-	if (!digitalRead(switchFR)) nowColliding += 2;
+	if (!digitalRead(_switchFL)) nowColliding = 1;
+	if (!digitalRead(_switchFR)) nowColliding += 2;
+	if (!digitalRead(_switchBL)) nowColliding += 4;
+	if (!digitalRead(_switchBR)) nowColliding += 8;
 
 	if (nowColliding != state.colliding) {
 		// collision state has changed
@@ -83,50 +97,42 @@ void Bot::run()
 
 		state.colliding = nowColliding;
 	}
-
 	
 	// Disable motors when stopped to save power
 	// Note that AccelStepper.disableOutputs doesn't seem to work
 	// correctly when pins are inverted and leaves some outputs on.
-	if (!isMoving()) {
-        digitalWrite(motorLPin1, LOW);
-        digitalWrite(motorLPin2, LOW);
-        digitalWrite(motorLPin3, LOW);
-        digitalWrite(motorLPin4, LOW);
-        digitalWrite(motorRPin1, LOW);
-        digitalWrite(motorRPin2, LOW);
-        digitalWrite(motorRPin3, LOW);
-        digitalWrite(motorRPin4, LOW);
-	}
+	if (!isMoving())
+		for (int i = 0; i < 8; i++)
+			digitalWrite(_pinStepper[i], LOW);
 }
 
 void Bot::penUp()
 {
-	penliftServo.write(10);
+	_penliftServo.write(10);
 }
 
 void Bot::penDown()
 {
-	penliftServo.write(90);
+	_penliftServo.write(90);
 }
 
 void Bot::buzz(int len)
 {
-  buzzEnd = millis() + len;
+	_buzzEnd = millis() + len;
 }
 
 void Bot::stop() 
 {
-	stepperL.stop();
-	stepperR.stop();
+	_stepperL.stop();
+	_stepperR.stop();
 }
 
 void Bot::emergencyStop() 
 {
-	stepperL.setCurrentPosition(stepperL.currentPosition());
-	stepperL.setSpeed(0);
-	stepperR.setCurrentPosition(stepperR.currentPosition());
-	stepperR.setSpeed(0);
+	_stepperL.setCurrentPosition(_stepperL.currentPosition());
+	_stepperL.setSpeed(0);
+	_stepperR.setCurrentPosition(_stepperR.currentPosition());
+	_stepperR.setSpeed(0);
 }
 
 void Bot::drive(float distance)
@@ -137,8 +143,8 @@ void Bot::drive(float distance)
 
 	// prime the move
 	int steps = distance * STEPS_PER_MM;
-	stepperL.move(steps);
-	stepperR.move(steps);
+	_stepperL.move(steps);
+	_stepperR.move(steps);
 }
 
 void Bot::turn(float ang)
@@ -152,13 +158,13 @@ void Bot::turn(float ang)
 
 	// prime the move
 	int steps = ang * STEPS_PER_DEG;
-	stepperR.move(steps);
-	stepperL.move(-steps);
+	_stepperR.move(steps);
+	_stepperL.move(-steps);
 }
 
 // position calcs
 void Bot::resetPosition() {
-  state.x = 0;
-  state.y = 0;
-  state.ang = 0;
+	state.x = 0;
+	state.y = 0;
+	state.ang = 0;
 }

@@ -2,6 +2,8 @@
 #define Bot_h
 
 #include <Arduino.h>
+#include <AccelStepper.h>
+#include <Servo.h>
 
 // Bot tuning and sizing parameters
 #define STEPS_PER_MM 5000/232
@@ -14,38 +16,6 @@
 #define DEGTORAD  PI/180.0
 #define RADTODEG  180.0/PI
 
-
-// Pin definitions
-// Left motor driver
-#define motorLPin1  2     // IN1 on the ULN2003 driver 1
-#define motorLPin2  3     // IN2 on the ULN2003 driver 1
-#define motorLPin3  4     // IN3 on the ULN2003 driver 1
-#define motorLPin4  5     // IN4 on the ULN2003 driver 1
-
-// Right motor driver
-#define motorRPin1  6     // IN1 on the ULN2003 driver 1
-#define motorRPin2  7     // IN2 on the ULN2003 driver 1
-#define motorRPin3  8     // IN3 on the ULN2003 driver 1
-#define motorRPin4  9     // IN4 on the ULN2003 driver 1
-
-// Piezo buzzer
-#define buzzer      10
-
-// Microswitches
-#define switchFL    A0
-#define switchFR    A1
-#define switchBL    A2
-#define switchBR    A3
-
-// LED
-#define InternalLED         13
-#define LEDRED      11
-#define LEDGREEN    12
-#define LEDBLUE     13
-
-// Servo for Pen Lift (Note same as LED for now)
-#define SERVO       11
-
 // logobot state info
 struct STATE {
 	float x;
@@ -57,8 +27,13 @@ struct STATE {
 class Bot
 {
 public:
-	Bot();
+	Bot(int lp1, int lp2, int lp3, int lp4, int rp1, int rp2, int rp3, int rp4);
 	void begin();
+	
+	void initBuzzer(int pin);
+	void initBumpers(int fl, int fr, int bl, int br, void (*pFunc)(byte collisionData));
+	void initPenLift(int pin);
+
 	void playStartupJingle();
 	bool isMoving();
 
@@ -77,11 +52,21 @@ public:
 	STATE state;
 	void resetPosition();
 
-	void setBumperCallback(void (*pFunc)(byte collisionData));
-
 private:
-	unsigned long buzzEnd;
+	unsigned long _buzzEnd;
 	void (*bumperCallback)(byte collisionData);
+
+	int _pinBuzzer;
+	int _switchFL;
+	int _switchFR;
+	int _switchBL;
+	int _switchBR;
+	int _pinStepper[8];
+
+	AccelStepper _stepperL;
+	AccelStepper _stepperR;
+	Servo _penliftServo;
+
 };
 
 #endif
