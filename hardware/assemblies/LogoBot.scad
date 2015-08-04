@@ -34,8 +34,8 @@ LogoBot_Con_RightMotorDriver    = [[46, 16, 10],[0,-1,0],0,0,0];
 
 LogoBot_Con_Caster = [ [0, -BaseDiameter/2 + 10, 0], [0,0,1], 0, 0, 0];
 
-LogoBot_Con_PenLift_Front = [ [0, -20, 2], [0,0,1], 0, 0, 0];
-LogoBot_Con_PenLift_Rear = [ [0, 20, 2], [0,0,1], 0, 0, 0];
+LogoBot_Con_PenLift_Front = [ [0, -20, 2], [0,0,-1], 0, 0, 0];
+LogoBot_Con_PenLift_Rear = [ [0, 20, 2], [0,0,-1], 0, 0, 0];
 LogoBot_Con_PenLiftServo = [[-12, -6, -6], [1, 0, 0], 90, 0, 0];
 
 LogoBot_Con_PowerSwitch = LogoBot_Con_GridFixing(2,0, 90);
@@ -60,14 +60,9 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
             // Base
             LogoBotBase_STL();
 
-            *step(1, "Connect the breadboard assembly to the underside of the base") {
-                view(t=[0,17,12], r=[112,0,222], d=513);
-                attach(LogoBot_Con_Breadboard, Breadboard_Con_BottomLeft(Breadboard_170), ExplodeSpacing=-20)
-                    BreadboardAssembly();
-            }
 
             step(1, "Plug the Pro Mini Clips into the base and then snap the Arduino Pro Mini into them") {
-                view(t=[0,17,12], r=[112,0,222], d=513);
+                view(t=[0,0,0], r=[49,0,153], d=370);
 
                 attach(LogoBot_Con_GridFixing(1,4,90), DefConUp)
                     ProMiniClip_STL();
@@ -82,8 +77,10 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 
             // Bumper assemblies (x2)
             step(2, "Connect the two bumper assemblies using four of the push pins with flat heads" ) {
-                view(t=[0,0,0], r=[63,0,146], d=400);
-					for (i=[0,1])
+                view(t=[0,-15,25], r=[49,0,200], d=450);
+                view(title="Plan", t=[0,0,0], r=[145,0,153], d=450);
+
+                for (i=[0,1])
 					translate([0, 0, -8])
 					rotate([0, 0, i*180]) {
 						attach([Bumper_Con_LeftPin[0], Bumper_Con_LeftPin[1], 0, 0, 0], Bumper_Con_LeftPin, ExplodeSpacing=20)
@@ -93,10 +90,10 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 							BumperStabiliser_STL();
 
 						attach(Bumper_Con_LeftPin, DefConDown, ExplodeSpacing=-20, offset=[0,0,20])
-							pintack(side=false, h=7.8+2+2.5+6*layers, bh=2);
+							PinTack_STL(side=false, h=7.8+2+2.5+6*layers, bh=2);
 
 						attach(Bumper_Con_RightPin, DefConDown, ExplodeSpacing=-20)
-							pintack(side=false, h=7.8+2+2.5+6*layers, bh=2);
+                            PinTack_STL(side=false, h=7.8+2+2.5+6*layers, bh=2);
 					}
             }
 
@@ -105,7 +102,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
             //LogoBot_Con_LeftWheel
             step(4, "Clip the two wheels assemblies onto the base and
                     connect the motor leads to the the motor drivers") {
-                view(t=[-4,6,47], r=[66,0,190], d=740);
+                view(t=[-4,6,47], r=[66,0,190], d=450);
 
                 attach(LogoBot_Con_LeftWheel, MotorClip_Con_Fixing1, ExplodeSpacing = 40)
                     LeftWheelAssembly();
@@ -117,8 +114,8 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
             // Connect jumper wires
             step(5,
                 "Connect the jumper wires between the motor drivers and the Arduino") {
-                view(t=[9,26,54], r=[38,0,161], d=766);
-                view(title="plan", t=[0,32,16], r=[0,0,0], d=337);
+                view(t=[-15,11,28], r=[62,0,204], d=340);
+                view(title="plan", t=[0,32,16], r=[0,0,0], d=340);
 
                 // Left
                 JumperWire(
@@ -169,29 +166,17 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
                 );
             }
 
-            // TODO: Add velcro or to hold down battery pack
-            // Battery assembly
-            step(6, "Clip in the battery pack") {
-                view(t=[-6,7,19], r=[64,1,212], d=625);
-
-                attach(LogoBot_Con_BatteryPack, DefConDown, ExplodeSpacing=20)
-                    rotate([90, 90, 90]) {
-                        BatteryPack(BatteryPack_AA);
-                        battery_pack_double(BatteryPack_AA, 2, 4);
-                    }
-            }
-
             //Power Switch
-            step(7, "Fix the power toggle switch into place") {
-                view(t=[-6,7,19], r=[64,1,212], d=625);
+            step(6, "Fix the power toggle switch into place") {
+                view(t=[8,-10,26], r=[47,0,300], d=260);
 
-                attach(LogoBot_Con_PowerSwitch, MiniToggleSwitch_Con_Def)
+                attach(LogoBot_Con_PowerSwitch, MiniToggleSwitch_Con_Def, ExplodeSpacing=20)
                     MiniToggleSwitch(type=MiniToggleSwitch_SPST6A, showWasher=true, washerOffset = dw);
             }
 
 
             // TODO: LED
-            *step(8, "Clip the LED into place") {
+            *step(7, "Clip the LED into place") {
                 view(t=[-6,7,19], r=[64,1,212], d=625);
 
                 attach(DefConDown, DefConDown, ExplodeSpacing=20)
@@ -200,7 +185,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
             }
 
             // TODO: Piezo
-            *step(9, "Clip the piezo sounder into place") {
+            *step(8, "Clip the piezo sounder into place") {
                 view(t=[-6,7,19], r=[64,1,212], d=625);
 
                 attach(DefConDown, DefConDown, ExplodeSpacing=20)
@@ -210,14 +195,14 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 
 
             // Caster
-            step(10, "Align the caster assembly with the base, then insert a short pin to lock it to the base") {
-                view(t=[-6,7,19], r=[115,1,26], d=625);
+            step(9, "Align the caster assembly with the base, then insert a short pin to lock it to the base") {
+                view(t=[7,-36,31], r=[145,0,303], d=200);
 
                 attach(LogoBot_Con_Caster, MarbleCaster_Con_Default, ExplodeSpacing=15)
                     MarbleCasterAssembly();
 
                 attach(offsetConnector(invertConnector(LogoBot_Con_Caster), [0,0,dw]), MarbleCaster_Con_Default)
-                    pintack(side=false, h=dw+0.6+2+1.5, lh=2, bh=2);
+                    PinTack_STL(side=false, h=dw+0.6+2+1.5, lh=2, bh=2);
             }
 
             // Conditional Design Elements
@@ -226,18 +211,18 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
             // PenLift
             //   Placeholder of a micro servo to illustrate having conditional design elements
             if (PenLift) {
-                step(12, "Fit the pen lift assembly using two of the pins and zip tie the servo under the base.") {
-                    view(t=[-6,7,19], r=[64,1,212], d=625);
+                step(10, "Fit the pen lift assembly using two of the pins and zip tie the servo under the base.") {
+                    view(t=[-6,7,30], r=[56,1,42], d=200);
 
 					attach(LogoBot_Con_PenLift_Front, PenLiftSlider_Con_BaseFront)
 						PenLiftAssembly();
 
-					attach(LogoBot_Con_PenLift_Front, offsetConnector(DefConDown, [0, 0, 2 + 2.5]))
-						pintack(side=false, h=2.5+4+2.5, bh=2);
-					attach(LogoBot_Con_PenLift_Rear, offsetConnector(DefConDown, [0, 0, 2 + 2.5]))
-						pintack(side=false, h=2.5+4+2.5, bh=2);
+					attach(LogoBot_Con_PenLift_Front, offsetConnector(DefConUp, [0, 0, 2 + 2.5]), ExplodeSpacing=20)
+                        PinTack_STL(side=false, h=2.5+4+2.5, bh=2);
+					attach(LogoBot_Con_PenLift_Rear, offsetConnector(DefConUp, [0, 0, 2 + 2.5]), ExplodeSpacing=20)
+                        PinTack_STL(side=false, h=2.5+4+2.5, bh=2);
 
-                    attach(LogoBot_Con_PenLiftServo, MicroServo_Con_Horn) {
+                    attach(LogoBot_Con_PenLiftServo, MicroServo_Con_Horn, ExplodeSpacing=0) {
 						MicroServo();
 						attach(MicroServo_Con_Horn, ServoHorn_Con_Default)
 							ServoHorn();
@@ -245,12 +230,24 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
                 }
             }
 
+            // TODO: Add velcro or to hold down battery pack
+            // Battery assembly
+            step(PenLift ? 11 : 10, "Attach the battery pack with velcro") {
+                view(t=[0,0,20], r=[52,0,337], d=400);
+
+                attach(LogoBot_Con_BatteryPack, DefConDown, ExplodeSpacing=20)
+                    rotate([90, 90, 90]) {
+                        BatteryPack(BatteryPack_AA);
+                        battery_pack_double(BatteryPack_AA, 2, 4);
+                    }
+            }
+
 
             // Shell + fixings
 			if (Shell) {
-				step(PenLift ? 13 : 12,
+				step(PenLift ? 12 : 11,
 					"Push the shell down onto the base and twist to lock into place") {
-					view(t=[11,-23,65], r=[66,0,217], d=625);
+					view(t=[11,-23,65], r=[66,0,217], d=570);
 
 					attach(DefConDown, DefConDown, ExplodeSpacing=BaseDiameter/2)
 						ShellAssembly(PenLift? false : true);

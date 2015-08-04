@@ -189,20 +189,21 @@ Qty | Name
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step1_view.png)
 2. Connect the two bumper assemblies using four of the push pins with flat heads
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step2_view.png)
+![](../assemblies/LogoBotScribbler/FinalAssembly_step2_Plan.png)
 4. Clip the two wheels assemblies onto the base and                    connect the motor leads to the the motor drivers
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step4_view.png)
 5. Connect the jumper wires between the motor drivers and the Arduino
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step5_view.png)
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step5_plan.png)
-6. Clip in the battery pack
+6. Fix the power toggle switch into place
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step6_view.png)
-7. Fix the power toggle switch into place
-![](../assemblies/LogoBotScribbler/FinalAssembly_step7_view.png)
-10. Align the caster assembly with the base, then insert a short pin to lock it to the base
+9. Align the caster assembly with the base, then insert a short pin to lock it to the base
+![](../assemblies/LogoBotScribbler/FinalAssembly_step9_view.png)
+10. Fit the pen lift assembly using two of the pins and zip tie the servo under the base.
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step10_view.png)
-12. Fit the pen lift assembly using two of the pins and zip tie the servo under the base.
+11. Attach the battery pack with velcro
+![](../assemblies/LogoBotScribbler/FinalAssembly_step11_view.png)
+12. Push the shell down onto the base and twist to lock into place
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step12_view.png)
-13. Push the shell down onto the base and twist to lock into place
-![](../assemblies/LogoBotScribbler/FinalAssembly_step13_view.png)
 
 

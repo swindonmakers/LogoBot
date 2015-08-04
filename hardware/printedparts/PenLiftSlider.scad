@@ -5,8 +5,8 @@
 
 
 PenLiftSlider_Con_Holder = DefCon;
-PenLiftSlider_Con_BaseFront = [[10, -20, 0], [0, 0, 1], 0, 0, 0];
-PenLiftSlider_Con_BaseRear = [[10, 20, 0], [0, 0, 1], 0, 0, 0];
+PenLiftSlider_Con_BaseFront = [[10, -20, 0], [0, 0, -1], 0, 0, 0];
+PenLiftSlider_Con_BaseRear = [[10, 20, 0], [0, 0, -1], 0, 0, 0];
 
 module PenLiftSlider_STL()
 {
@@ -41,16 +41,16 @@ module PenLiftSliderModel()
 					square([4perim + 2 * 4perim, PenLiftPlateLength + 2 * 4perim], center=true);
 
 					square([4perim + PenLiftHolderTolerance, PenLiftPlateLength + PenLiftHolderTolerance], center=true);
-					
+
 					translate([4Perim, 0, 0])
 						square([3*4perim, 21], true);
 				}
 				translate([-PenLiftHolderTolerance/2, 0, 0])
 					square([4Perim, 2*4Perim], center=true);
 			}
-			
+
 			// Base plate attachment lugs
-			linear_extrude(4) 
+			linear_extrude(4)
 			difference () {
 				for (i=[0, 1])
 				mirror([0, i, 0])
@@ -63,14 +63,14 @@ module PenLiftSliderModel()
 					}
 					circle(d=7);
 				}
-				
+
 				square([4perim + PenLiftHolderTolerance, PenLiftPlateLength + PenLiftHolderTolerance], center=true);
-				
+
 				translate([4Perim, 0, 0])
 					square([3*4perim, 21], true);
 			}
 		}
-		
+
 		// Cutaways for rubber band pull down
 		for (i=[0, 1])
 		mirror([0, i, 0])

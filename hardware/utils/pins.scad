@@ -52,29 +52,22 @@ module pin(h=10, r=PinDiameter/2, lh=3, lt=1, t=0.2, side=false) {
 }
 
 module pintack(h=10, r=PinDiameter/2, lh=3, lt=1, t=0.2, bh=3, br=6, side=false) {
-  // bh = base_height
-  // br = base_radius
+	// bh = base_height
+	// br = base_radius
+	
+	flip=(side==false) ? 1 : 0;
 
-  printedPart(
-      "utils/pins.scad",
-      str("Pintack H",h," BH",bh),
-      str("pintack(side=",side,",h=",h,",bh=",bh,")")
-  ) {
-      view(d=75);
+	color(Level3PlasticColor)
+	translate ([0,flip*(r*1.5-t)/2,0])
+	rotate ([flip*90,0,0])
+	union() {
+		pin(h, r, lh, lt, t, side=true);
+		intersection(){
+			translate([0, 0, r/1.5]) rotate([90,0,0]) cylinder(h=bh, r=br);
+			translate([-br*2, -bh-1, 0])cube([br*4, bh+2, r*1.5-t]);
+		}
+	}
 
-      flip=(side==false) ? 1 : 0;
-
-      color(Level3PlasticColor)
-      translate ([0,flip*(r*1.5-t)/2,0])
-      rotate ([flip*90,0,0])
-      union() {
-          pin(h, r, lh, lt, t, side=true);
-          intersection(){
-              translate([0, 0, r/1.5]) rotate([90,0,0]) cylinder(h=bh, r=br);
-              translate([-br*2, -bh-1, 0])cube([br*4, bh+2, r*1.5-t]);
-          }
-      }
-  }
 }
 
 module pinpeg(h=20, r=PinDiameter/2, lh=3, lt=1, t=0.2, side=false) {

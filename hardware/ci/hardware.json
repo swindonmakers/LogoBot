@@ -1,7 +1,7 @@
 [
     {
         "cut": [],
-        "hash": "d020d0aa78f44ad401e9c07898ec4645",
+        "hash": "eb3cc5f2397f3963bdb8c3459fb868af",
         "vitamins": [
             {
                 "hash": "ae07e1b3f3bc303c64cc8841bda3e669",
@@ -45,8 +45,8 @@
                             25
                         ],
                         "dist": 140,
-                        "title": "view",
                         "filepath": "../vitamins/images/SPST6AMiniToggleSwitch_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -101,7 +101,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "0b8734806279e2d85ea6ade5a5bb4f36",
+                "hash": "a9b8fc013b52bbf12ae65c57a18a9362",
                 "vitamins": [
                     {
                         "title": "JumperWire Female to Female 4pin 100mm",
@@ -236,18 +236,18 @@
                         "views": [
                             {
                                 "rotate": [
-                                    112,
+                                    49,
                                     0,
-                                    222
+                                    153
                                 ],
-                                "dist": 513,
+                                "dist": 370,
                                 "filepath": "../assemblies/LogoBot/FinalAssembly_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
                                     0,
-                                    17,
-                                    12
+                                    0,
+                                    0
                                 ],
                                 "type": "view",
                                 "size": [
@@ -263,13 +263,34 @@
                         "views": [
                             {
                                 "rotate": [
-                                    63,
+                                    49,
                                     0,
-                                    146
+                                    200
                                 ],
-                                "dist": 400,
+                                "dist": 450,
                                 "filepath": "../assemblies/LogoBot/FinalAssembly_step2_view.png",
                                 "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    -15,
+                                    25
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "rotate": [
+                                    145,
+                                    0,
+                                    153
+                                ],
+                                "dist": 450,
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step2_Plan.png",
+                                "title": "Plan",
                                 "caption": "view",
                                 "translate": [
                                     0,
@@ -294,7 +315,7 @@
                                     0,
                                     190
                                 ],
-                                "dist": 740,
+                                "dist": 450,
                                 "filepath": "../assemblies/LogoBot/FinalAssembly_step4_view.png",
                                 "title": "view",
                                 "caption": "view",
@@ -317,18 +338,18 @@
                         "views": [
                             {
                                 "rotate": [
-                                    38,
+                                    62,
                                     0,
-                                    161
+                                    204
                                 ],
-                                "dist": 766,
+                                "dist": 340,
                                 "filepath": "../assemblies/LogoBot/FinalAssembly_step5_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    9,
-                                    26,
-                                    54
+                                    -15,
+                                    11,
+                                    28
                                 ],
                                 "type": "view",
                                 "size": [
@@ -342,7 +363,7 @@
                                     0,
                                     0
                                 ],
-                                "dist": 337,
+                                "dist": 340,
                                 "filepath": "../assemblies/LogoBot/FinalAssembly_step5_plan.png",
                                 "title": "plan",
                                 "caption": "view",
@@ -360,50 +381,23 @@
                         ]
                     },
                     {
-                        "desc": "Clip in the battery pack",
+                        "desc": "Fix the power toggle switch into place",
                         "num": 6,
                         "views": [
                             {
                                 "rotate": [
-                                    64,
-                                    1,
-                                    212
+                                    47,
+                                    0,
+                                    300
                                 ],
-                                "dist": 625,
+                                "dist": 260,
                                 "filepath": "../assemblies/LogoBot/FinalAssembly_step6_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    -6,
-                                    7,
-                                    19
-                                ],
-                                "type": "view",
-                                "size": [
-                                    400,
-                                    300
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "desc": "Fix the power toggle switch into place",
-                        "num": 7,
-                        "views": [
-                            {
-                                "rotate": [
-                                    64,
-                                    1,
-                                    212
-                                ],
-                                "dist": 625,
-                                "filepath": "../assemblies/LogoBot/FinalAssembly_step7_view.png",
-                                "title": "view",
-                                "caption": "view",
-                                "translate": [
-                                    -6,
-                                    7,
-                                    19
+                                    8,
+                                    -10,
+                                    26
                                 ],
                                 "type": "view",
                                 "size": [
@@ -415,22 +409,49 @@
                     },
                     {
                         "desc": "Align the caster assembly with the base, then insert a short pin to lock it to the base",
+                        "num": 9,
+                        "views": [
+                            {
+                                "rotate": [
+                                    145,
+                                    0,
+                                    303
+                                ],
+                                "dist": 200,
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step9_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    7,
+                                    -36,
+                                    31
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Attach the battery pack with velcro",
                         "num": 10,
                         "views": [
                             {
                                 "rotate": [
-                                    115,
-                                    1,
-                                    26
+                                    52,
+                                    0,
+                                    337
                                 ],
-                                "dist": 625,
+                                "dist": 400,
                                 "filepath": "../assemblies/LogoBot/FinalAssembly_step10_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    -6,
-                                    7,
-                                    19
+                                    0,
+                                    0,
+                                    20
                                 ],
                                 "type": "view",
                                 "size": [
@@ -442,7 +463,7 @@
                     },
                     {
                         "desc": "Push the shell down onto the base and twist to lock into place",
-                        "num": 12,
+                        "num": 11,
                         "views": [
                             {
                                 "rotate": [
@@ -450,8 +471,8 @@
                                     0,
                                     217
                                 ],
-                                "dist": 625,
-                                "filepath": "../assemblies/LogoBot/FinalAssembly_step12_view.png",
+                                "dist": 570,
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step11_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -1372,17 +1393,17 @@
                         "children": [
                             {
                                 "rotate": [
-                                    112,
+                                    49,
                                     0,
-                                    222
+                                    153
                                 ],
-                                "dist": 513,
+                                "dist": 370,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
                                     0,
-                                    17,
-                                    12
+                                    0,
+                                    0
                                 ],
                                 "type": "view",
                                 "size": [
@@ -1513,12 +1534,32 @@
                         "children": [
                             {
                                 "rotate": [
-                                    63,
+                                    49,
                                     0,
-                                    146
+                                    200
                                 ],
-                                "dist": 400,
+                                "dist": 450,
                                 "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    -15,
+                                    25
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "rotate": [
+                                    145,
+                                    0,
+                                    153
+                                ],
+                                "dist": 450,
+                                "title": "Plan",
                                 "caption": "view",
                                 "translate": [
                                     0,
@@ -1841,7 +1882,7 @@
                                     0,
                                     190
                                 ],
-                                "dist": 740,
+                                "dist": 450,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -2282,17 +2323,17 @@
                         "children": [
                             {
                                 "rotate": [
-                                    38,
+                                    62,
                                     0,
-                                    161
+                                    204
                                 ],
-                                "dist": 766,
+                                "dist": 340,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    9,
-                                    26,
-                                    54
+                                    -15,
+                                    11,
+                                    28
                                 ],
                                 "type": "view",
                                 "size": [
@@ -2306,7 +2347,7 @@
                                     0,
                                     0
                                 ],
-                                "dist": 337,
+                                "dist": 340,
                                 "title": "plan",
                                 "caption": "view",
                                 "translate": [
@@ -2386,44 +2427,17 @@
                         "children": [
                             {
                                 "rotate": [
-                                    64,
-                                    1,
-                                    212
-                                ],
-                                "dist": 625,
-                                "title": "view",
-                                "caption": "view",
-                                "translate": [
-                                    -6,
-                                    7,
-                                    19
-                                ],
-                                "type": "view",
-                                "size": [
-                                    400,
+                                    47,
+                                    0,
                                     300
-                                ]
-                            }
-                        ],
-                        "desc": "Clip in the battery pack"
-                    },
-                    {
-                        "num": 7,
-                        "type": "step",
-                        "children": [
-                            {
-                                "rotate": [
-                                    64,
-                                    1,
-                                    212
                                 ],
-                                "dist": 625,
+                                "dist": 260,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    -6,
-                                    7,
-                                    19
+                                    8,
+                                    -10,
+                                    26
                                 ],
                                 "type": "view",
                                 "size": [
@@ -2442,6 +2456,7 @@
                                             25
                                         ],
                                         "dist": 140,
+                                        "filepath": "../vitamins/images/SPST6AMiniToggleSwitch_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -2463,22 +2478,22 @@
                         "desc": "Fix the power toggle switch into place"
                     },
                     {
-                        "num": 10,
+                        "num": 9,
                         "type": "step",
                         "children": [
                             {
                                 "rotate": [
-                                    115,
-                                    1,
-                                    26
+                                    145,
+                                    0,
+                                    303
                                 ],
-                                "dist": 625,
+                                "dist": 200,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    -6,
                                     7,
-                                    19
+                                    -36,
+                                    31
                                 ],
                                 "type": "view",
                                 "size": [
@@ -2612,7 +2627,34 @@
                         "desc": "Align the caster assembly with the base, then insert a short pin to lock it to the base"
                     },
                     {
-                        "num": 12,
+                        "num": 10,
+                        "type": "step",
+                        "children": [
+                            {
+                                "rotate": [
+                                    52,
+                                    0,
+                                    337
+                                ],
+                                "dist": 400,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    20
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "desc": "Attach the battery pack with velcro"
+                    },
+                    {
+                        "num": 11,
                         "type": "step",
                         "children": [
                             {
@@ -2621,7 +2663,7 @@
                                     0,
                                     217
                                 ],
-                                "dist": 625,
+                                "dist": 570,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -2739,7 +2781,7 @@
     },
     {
         "cut": [],
-        "hash": "25a657a414038c677c2abec928980e94",
+        "hash": "181d0e66d2157cd8ee8b29fc79083114",
         "vitamins": [
             {
                 "hash": "ae07e1b3f3bc303c64cc8841bda3e669",
@@ -2783,8 +2825,8 @@
                             25
                         ],
                         "dist": 140,
-                        "title": "view",
                         "filepath": "../vitamins/images/SPST6AMiniToggleSwitch_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
@@ -2945,7 +2987,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "cfc2190de21f109d7430ac055fe34889",
+                "hash": "b2355d71ae88a0c69cde9beafdde6202",
                 "vitamins": [
                     {
                         "title": "JumperWire Female to Female 4pin 100mm",
@@ -3129,18 +3171,18 @@
                         "views": [
                             {
                                 "rotate": [
-                                    112,
+                                    49,
                                     0,
-                                    222
+                                    153
                                 ],
-                                "dist": 513,
+                                "dist": 370,
                                 "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step1_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
                                     0,
-                                    17,
-                                    12
+                                    0,
+                                    0
                                 ],
                                 "type": "view",
                                 "size": [
@@ -3156,13 +3198,34 @@
                         "views": [
                             {
                                 "rotate": [
-                                    63,
+                                    49,
                                     0,
-                                    146
+                                    200
                                 ],
-                                "dist": 400,
+                                "dist": 450,
                                 "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step2_view.png",
                                 "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    -15,
+                                    25
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "rotate": [
+                                    145,
+                                    0,
+                                    153
+                                ],
+                                "dist": 450,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step2_Plan.png",
+                                "title": "Plan",
                                 "caption": "view",
                                 "translate": [
                                     0,
@@ -3187,7 +3250,7 @@
                                     0,
                                     190
                                 ],
-                                "dist": 740,
+                                "dist": 450,
                                 "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step4_view.png",
                                 "title": "view",
                                 "caption": "view",
@@ -3210,18 +3273,18 @@
                         "views": [
                             {
                                 "rotate": [
-                                    38,
+                                    62,
                                     0,
-                                    161
+                                    204
                                 ],
-                                "dist": 766,
+                                "dist": 340,
                                 "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step5_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    9,
-                                    26,
-                                    54
+                                    -15,
+                                    11,
+                                    28
                                 ],
                                 "type": "view",
                                 "size": [
@@ -3235,7 +3298,7 @@
                                     0,
                                     0
                                 ],
-                                "dist": 337,
+                                "dist": 340,
                                 "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step5_plan.png",
                                 "title": "plan",
                                 "caption": "view",
@@ -3253,50 +3316,23 @@
                         ]
                     },
                     {
-                        "desc": "Clip in the battery pack",
+                        "desc": "Fix the power toggle switch into place",
                         "num": 6,
                         "views": [
                             {
                                 "rotate": [
-                                    64,
-                                    1,
-                                    212
+                                    47,
+                                    0,
+                                    300
                                 ],
-                                "dist": 625,
+                                "dist": 260,
                                 "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step6_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    -6,
-                                    7,
-                                    19
-                                ],
-                                "type": "view",
-                                "size": [
-                                    400,
-                                    300
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "desc": "Fix the power toggle switch into place",
-                        "num": 7,
-                        "views": [
-                            {
-                                "rotate": [
-                                    64,
-                                    1,
-                                    212
-                                ],
-                                "dist": 625,
-                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step7_view.png",
-                                "title": "view",
-                                "caption": "view",
-                                "translate": [
-                                    -6,
-                                    7,
-                                    19
+                                    8,
+                                    -10,
+                                    26
                                 ],
                                 "type": "view",
                                 "size": [
@@ -3308,22 +3344,22 @@
                     },
                     {
                         "desc": "Align the caster assembly with the base, then insert a short pin to lock it to the base",
-                        "num": 10,
+                        "num": 9,
                         "views": [
                             {
                                 "rotate": [
-                                    115,
-                                    1,
-                                    26
+                                    145,
+                                    0,
+                                    303
                                 ],
-                                "dist": 625,
-                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step10_view.png",
+                                "dist": 200,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step9_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    -6,
                                     7,
-                                    19
+                                    -36,
+                                    31
                                 ],
                                 "type": "view",
                                 "size": [
@@ -3335,22 +3371,49 @@
                     },
                     {
                         "desc": "Fit the pen lift assembly using two of the pins and zip tie the servo under the base.",
-                        "num": 12,
+                        "num": 10,
                         "views": [
                             {
                                 "rotate": [
-                                    64,
+                                    56,
                                     1,
-                                    212
+                                    42
                                 ],
-                                "dist": 625,
-                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step12_view.png",
+                                "dist": 200,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step10_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
                                     -6,
                                     7,
-                                    19
+                                    30
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Attach the battery pack with velcro",
+                        "num": 11,
+                        "views": [
+                            {
+                                "rotate": [
+                                    52,
+                                    0,
+                                    337
+                                ],
+                                "dist": 400,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step11_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    20
                                 ],
                                 "type": "view",
                                 "size": [
@@ -3362,7 +3425,7 @@
                     },
                     {
                         "desc": "Push the shell down onto the base and twist to lock into place",
-                        "num": 13,
+                        "num": 12,
                         "views": [
                             {
                                 "rotate": [
@@ -3370,8 +3433,8 @@
                                     0,
                                     217
                                 ],
-                                "dist": 625,
-                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step13_view.png",
+                                "dist": 570,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step12_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -4410,17 +4473,17 @@
                         "children": [
                             {
                                 "rotate": [
-                                    112,
+                                    49,
                                     0,
-                                    222
+                                    153
                                 ],
-                                "dist": 513,
+                                "dist": 370,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
                                     0,
-                                    17,
-                                    12
+                                    0,
+                                    0
                                 ],
                                 "type": "view",
                                 "size": [
@@ -4551,12 +4614,32 @@
                         "children": [
                             {
                                 "rotate": [
-                                    63,
+                                    49,
                                     0,
-                                    146
+                                    200
                                 ],
-                                "dist": 400,
+                                "dist": 450,
                                 "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    -15,
+                                    25
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "rotate": [
+                                    145,
+                                    0,
+                                    153
+                                ],
+                                "dist": 450,
+                                "title": "Plan",
                                 "caption": "view",
                                 "translate": [
                                     0,
@@ -4879,7 +4962,7 @@
                                     0,
                                     190
                                 ],
-                                "dist": 740,
+                                "dist": 450,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -5320,17 +5403,17 @@
                         "children": [
                             {
                                 "rotate": [
-                                    38,
+                                    62,
                                     0,
-                                    161
+                                    204
                                 ],
-                                "dist": 766,
+                                "dist": 340,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    9,
-                                    26,
-                                    54
+                                    -15,
+                                    11,
+                                    28
                                 ],
                                 "type": "view",
                                 "size": [
@@ -5344,7 +5427,7 @@
                                     0,
                                     0
                                 ],
-                                "dist": 337,
+                                "dist": 340,
                                 "title": "plan",
                                 "caption": "view",
                                 "translate": [
@@ -5424,44 +5507,17 @@
                         "children": [
                             {
                                 "rotate": [
-                                    64,
-                                    1,
-                                    212
-                                ],
-                                "dist": 625,
-                                "title": "view",
-                                "caption": "view",
-                                "translate": [
-                                    -6,
-                                    7,
-                                    19
-                                ],
-                                "type": "view",
-                                "size": [
-                                    400,
+                                    47,
+                                    0,
                                     300
-                                ]
-                            }
-                        ],
-                        "desc": "Clip in the battery pack"
-                    },
-                    {
-                        "num": 7,
-                        "type": "step",
-                        "children": [
-                            {
-                                "rotate": [
-                                    64,
-                                    1,
-                                    212
                                 ],
-                                "dist": 625,
+                                "dist": 260,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    -6,
-                                    7,
-                                    19
+                                    8,
+                                    -10,
+                                    26
                                 ],
                                 "type": "view",
                                 "size": [
@@ -5480,6 +5536,7 @@
                                             25
                                         ],
                                         "dist": 140,
+                                        "filepath": "../vitamins/images/SPST6AMiniToggleSwitch_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -5501,22 +5558,22 @@
                         "desc": "Fix the power toggle switch into place"
                     },
                     {
-                        "num": 10,
+                        "num": 9,
                         "type": "step",
                         "children": [
                             {
                                 "rotate": [
-                                    115,
-                                    1,
-                                    26
+                                    145,
+                                    0,
+                                    303
                                 ],
-                                "dist": 625,
+                                "dist": 200,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
-                                    -6,
                                     7,
-                                    19
+                                    -36,
+                                    31
                                 ],
                                 "type": "view",
                                 "size": [
@@ -5650,22 +5707,22 @@
                         "desc": "Align the caster assembly with the base, then insert a short pin to lock it to the base"
                     },
                     {
-                        "num": 12,
+                        "num": 10,
                         "type": "step",
                         "children": [
                             {
                                 "rotate": [
-                                    64,
+                                    56,
                                     1,
-                                    212
+                                    42
                                 ],
-                                "dist": 625,
+                                "dist": 200,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
                                     -6,
                                     7,
-                                    19
+                                    30
                                 ],
                                 "type": "view",
                                 "size": [
@@ -5953,7 +6010,34 @@
                         "desc": "Fit the pen lift assembly using two of the pins and zip tie the servo under the base."
                     },
                     {
-                        "num": 13,
+                        "num": 11,
+                        "type": "step",
+                        "children": [
+                            {
+                                "rotate": [
+                                    52,
+                                    0,
+                                    337
+                                ],
+                                "dist": 400,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    20
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "desc": "Attach the battery pack with velcro"
+                    },
+                    {
+                        "num": 12,
                         "type": "step",
                         "children": [
                             {
@@ -5962,7 +6046,7 @@
                                     0,
                                     217
                                 ],
-                                "dist": 625,
+                                "dist": 570,
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
