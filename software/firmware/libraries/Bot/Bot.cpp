@@ -1,8 +1,8 @@
 #include "Bot.h"
 
 Bot::Bot(uint8_t lp1, uint8_t lp2, uint8_t lp3, uint8_t lp4, uint8_t rp1, uint8_t rp2, uint8_t rp3, uint8_t rp4) : 
-	_stepperL(AccelStepper::HALF4WIRE, lp1, lp2, lp3, lp4),
-	_stepperR(AccelStepper::HALF4WIRE, rp1, rp2, rp3, rp4)
+	_stepperL(AccelStepper::HALF4WIRE, lp1, lp3, lp2, lp4),
+	_stepperR(AccelStepper::HALF4WIRE, rp1, rp3, rp2, rp4)
 {
 	_pinStepper[0] = lp1;
 	_pinStepper[1] = lp2;
@@ -142,7 +142,7 @@ void Bot::drive(float distance)
 	state.y += distance * sin(state.ang * DEGTORAD);
 
 	// prime the move
-	uint8_t steps = distance * STEPS_PER_MM;
+	int steps = distance * STEPS_PER_MM;
 	_stepperL.move(steps);
 	_stepperR.move(steps);
 }
@@ -157,7 +157,7 @@ void Bot::turn(float ang)
 	if (state.ang < -180) state.ang += 360;
 
 	// prime the move
-	uint8_t steps = ang * STEPS_PER_DEG;
+	int steps = ang * STEPS_PER_DEG;
 	_stepperR.move(steps);
 	_stepperL.move(-steps);
 }
