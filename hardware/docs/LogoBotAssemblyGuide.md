@@ -40,7 +40,7 @@ Qty | Part Name | Image
 
 **Plastic Required**
 
-0.19KG,  approx: 2.5 GBP
+153.8cm3, 0.19KG,  approx: 2.5 GBP
 
 
 # Assembly Instructions

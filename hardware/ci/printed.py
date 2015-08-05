@@ -83,11 +83,11 @@ def printed():
 
                     # Slice for weight and volume
                     print("    Slice")
-                    if hashchanged or ('weight' not in p):
+                    if hashchanged or ('plasticWeight' not in p):
                         # Slice part and track volume of plastic required
                         # Estimate KG of plastic from density range: 1.23-1.25 g/cm3
-                        volinfo = slic3r.calc_plastic_required(stlpath)
-                        jsontools.json_merge_missing_keys(p, volinfo)
+                        plasticInfo = slic3r.calc_plastic_required(stlpath)
+                        jsontools.json_merge_missing_keys(p, plasticInfo)
 
                     else:
                         print("      GCode up to date")

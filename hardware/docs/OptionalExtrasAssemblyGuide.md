@@ -16,6 +16,6 @@ Qty | Part Name | Image
 
 **Plastic Required**
 
-0.01KG,  approx: 0.17 GBP
+10.7cm3, 0.01KG,  approx: 0.17 GBP
 
 

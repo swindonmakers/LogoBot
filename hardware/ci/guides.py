@@ -78,13 +78,13 @@ def gen_bom(m):
             md += '['+v['title']+'](../printedparts/stl/'+ openscad.stl_filename(v['title']) +') | '
             md += '![](../printedparts/images/'+views.view_filename(v['title']+'_view') + ') | '
             md += '\n'
-            if 'weight' in v:
-                weight += v['qty'] * v['weight']
-                vol += v['qty'] * v['volume']
+            if 'plasticWeight' in v:
+                weight += v['qty'] * v['plasticWeight']
+                vol += v['qty'] * v['plasticVolume']
         md += '\n\n'
 
         md += '**Plastic Required**\n\n'
-        #md += str(round(vol,1))+'cm3, ';
+        md += str(round(vol,1))+'cm3, ';
         md += str(round(weight,2))+'KG, ';
         md += ' approx: '+str(round(weight * 13,2))+' GBP\n\n';
 
