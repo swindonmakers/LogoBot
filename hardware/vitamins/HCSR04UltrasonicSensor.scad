@@ -57,7 +57,7 @@ module HCSR04UltrasonicSensor() {
     t = 1.3;
 
     vitamin("vitamins/HCSR04UltrasonicSensor.scad", "HCSR04 Ultrasonic Sensor", "HCSR04UltrasonicSensor()") {
-        view([23,9,3],[34,2,22],320);
+        view(t=[23,9,3],r=[34,2,22],d=320);
     }
 
     if (DebugCoordinateFrames) frame();

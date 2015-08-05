@@ -23,22 +23,22 @@ FTDIBreakout_Con_GroundPin = [[1.25, 0, -1.25], [0,-1,0], 0,0,0];
 
 module SSOP28() {
     // centred
-    
+
     w = 5.2;
     d = 10.07;
     h = 1.73;
-    
+
     headerpitch = 0.1 * 25.4;
-    
+
     pinw = (7.65 - w)/2;
     pind = 0.25;
     pins = 0.65;
-    
+
     // chip
     color([0.2,0.2,0.2])
         translate([0,0,h/2])
         cube([w,d,h], center=true);
-        
+
     // legs
     color([0.7,0.7,0.7])
         render()
@@ -49,33 +49,37 @@ module SSOP28() {
 }
 
 
-module FTDIBreakout() { 
+module FTDIBreakout() {
     w = 15.7;
     d = 23;
     t = 1.7;
-    
+
     if (DebugCoordinateFrame) frame();
     if (DebugConnectors) {
         connector(FTDIBreakout_Con_USB);
         connector(FTDIBreakout_Con_GroundPin);
     }
-    
+
+    vitamin("vitamins/FTDIBreakout.scad", "FTDI Breakout", "FTDIBreakout()") {
+        view(t=[23,9,3],r=[34,2,22],d=320);
+    }
+
     // PCB
     color([0.2,0.3,1])
         cube([w,d,t]);
-        
+
     // USB
     color([0.7,0.7,0.7])
         translate([w/2 - 4, d-8.5, t])
         cube([8, 9, 4]);
-       
-    // Header (right angle, on underside) 
+
+    // Header (right angle, on underside)
     color("black")
         translate([0, 0, -2.6])
         cube([w, 8.5, 2.6]);
-        
+
     // driver chip
     translate([w/2, 7, t])
         SSOP28();
-    
+
 }
