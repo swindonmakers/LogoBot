@@ -241,8 +241,7 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 
                 attach(LogoBot_Con_BatteryPack, DefConDown, ExplodeSpacing=20)
                     rotate([90, 90, 90]) {
-                        BatteryPack(BatteryPack_AA);
-                        battery_pack_double(BatteryPack_AA, 2, 4);
+                        BatteryPack(BatteryPack_AA, showBatteries=true);
                     }
             }
 

@@ -51,6 +51,8 @@ module Battery_Body(t) {
       top_h = (1/3)*Battery_len;
       bottom_h = Battery_len-(top_h+button_h);
 
+      $fn=32;
+
       color("black")
       linear_extrude(height=bottom_h)
         circle(r=Battery_dia/2);

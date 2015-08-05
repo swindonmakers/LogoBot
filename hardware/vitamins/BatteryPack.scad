@@ -37,32 +37,6 @@ function BatteryPack_Con_Centre(BP) = [
   0, 0, 0
 ];
 
-// We have the total battery length, assume the positive terminal is 1/20th of the length
-module battery(BP) {
-
-  Battery_len = BP[BatteryPack_Const_BLen];
-  Battery_dia = BP[BatteryPack_Const_BDia];
-
-  button_h = (1/20)*Battery_len;
-  top_h = (1/3)*Battery_len;
-  bottom_h = Battery_len-(top_h+button_h);
-
-  color("black")
-  linear_extrude(height=bottom_h)
-    circle(r=Battery_dia/2);
-
-  color("red")
-  translate([0, 0, bottom_h])
-    linear_extrude(height=top_h)
-      circle(r=Battery_dia/2);
-
-  color(MetalColor)
-  translate([0, 0, bottom_h+top_h])
-    linear_extrude(height=button_h)
-      circle(r=Battery_dia/4);
-
-}
-
 module battery_pack_linear(BP, battery_sep, battery_count) {
 
   Battery_len = BP[BatteryPack_Const_BLen];
@@ -74,9 +48,9 @@ module battery_pack_linear(BP, battery_sep, battery_count) {
         translate([0,0,Battery_len/2])
           rotate([180, 0, 0])
             translate([0,0,-Battery_len/2])
-              battery(BP);
+              Battery(Battery_AA);
       } else {
-        battery(BP);
+        Battery(Battery_AA);
       }
   }
 }
@@ -90,17 +64,17 @@ module battery_pack_double(BP, battery_sep, battery_count) {
   translate([0,0,(BatteryPack_height-Battery_len)/2])
   for(i=[0:(battery_count/2)-1]) {
     translate([i*(Battery_dia+battery_sep), 0, 0])
-      battery(BP);
+      Battery(Battery_AA);
     translate([i*(Battery_dia+battery_sep), Battery_dia+battery_sep, 0])
       translate([0,0,Battery_len/2])
         rotate([180, 0, 0])
           translate([0,0,-Battery_len/2])
-            battery(BP);
+            Battery(Battery_AA);
   }
 }
 
 // NB, This completely ignores battery count/linear setting! 2x2 is what you get!
-module BatteryPack(BP) {
+module BatteryPack(BP=BatteryPack_AA_4_SQ, showBatteries=false) {
 
   Battery_len = BP[BatteryPack_Const_BLen];
   Battery_dia = BP[BatteryPack_Const_BDia];
@@ -113,6 +87,22 @@ module BatteryPack(BP) {
   // of the case (in the y direction).
   battery_depth_offset = Battery_dia/2 - 1;
 
+  if (showBatteries) {
+      translate([0,-2,0])
+        battery_pack_double(BatteryPack_AA, 2, 4);
+  }
+
+  vitamin(
+      "vitamins/BatteryPack.scad",
+      str("Battery Pack"),
+      str("BatteryPack()")
+  ) {
+      view(t=[6.9, 13.6, 10.3], r=[72,0,33], d=280);
+  }
+
+  $fn = 16;
+
+  color([0.3,0.3,0.3])
   render()
   translate([-Battery_dia/2, -Battery_dia/2,0])
   difference() {
