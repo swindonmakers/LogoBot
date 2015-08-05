@@ -276,6 +276,47 @@ namespace LogobotText
 			pushTo(x, y);
 			pushTo(x + w, y);
 		}
+
+		void writeColon(float x, float y)
+		{
+			pushTo(x + w/3, y + capHeight/3);
+			pushCmd("PD");
+			pushTo(x + 2*w/3, y + capHeight/3);
+			pushCmd("PU");
+			pushTo(x + 2*w/3, y + 2*capHeight/3);
+			pushCmd("PD");
+			pushTo(x + w/3, y + 2*capHeight/3);
+		}
+
+		void writeCloseBracket(float x, float y)
+		{
+			pushTo(x + w/3, y);
+			pushCmd("PD");
+			pushTo(x + 2*w/3, y + capHeight/4);
+			pushTo(x + w, y + capHeight/2);
+			pushTo(x + 2*w/3, y + 3*capHeight/4);
+			pushTo(x + w/3, y + capHeight);
+		}
+
+		void writeHash(float x, float y)
+		{
+			pushTo(x, y + capHeight/3);
+			pushCmd("PD");
+			pushTo(x + w, y + capHeight/3);
+			pushCmd("PU");
+			pushTo(x + w, y + 2*capHeight/3);
+			pushCmd("PD");
+			pushTo(x, y + 2*capHeight/3);
+			pushCmd("PU");
+
+			pushTo(x + w/3, y + capHeight);
+			pushCmd("PD");
+			pushTo(x + w/3, y);
+			pushCmd("PU");
+			pushTo(x + 2*w/3, y);
+			pushCmd("PD");
+			pushTo(x + 2*w/3, y + capHeight);
+		}
 	}
 	// End private namespace functions
 
@@ -377,6 +418,15 @@ namespace LogobotText
 				break;
 			case ' ':
 				// nothing to do, just move to next letter
+				break;
+			case ':':
+				writeColon(x,y);
+				break;
+			case ')':
+				writeCloseBracket(x,y);
+				break;
+			case '#':
+				writeHash(x,y);
 				break;
 
 			default:
