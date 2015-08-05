@@ -17,6 +17,8 @@ DifferentialStepper::DifferentialStepper(
     _minStepRate = 10;
     _minPulseWidth = 1;
     _stepRate = _minStepRate;
+    _acceleration = 500;
+    calculateAccelDist();
 
     // pins
     _motors[MOTOR_LEFT].pin[0] = pinL1;
@@ -326,9 +328,9 @@ void DifferentialStepper::setAcceleration(float acceleration) {
 
 void DifferentialStepper::calculateAccelDist() {
     // distance required for acceleration to fullspeed (or stop)
-    _accelDist = ((_maxStepRate*_maxStepRate) - (_minStepRate*_minStepRate))
+    _accelDist = (float) ((_maxStepRate*_maxStepRate) - (_minStepRate*_minStepRate))
                  /
-                 ( 2 * _acceleration);
+                 ( 2.0 * _acceleration);
 }
 
 boolean DifferentialStepper::isQFull() {
@@ -415,6 +417,7 @@ boolean DifferentialStepper::queueMove(long leftSteps, long rightSteps) {
 
 
 boolean DifferentialStepper::run() {
+
     Command *c = getCurrentCommand();
     if (c == NULL) return false;
 
@@ -439,6 +442,17 @@ boolean DifferentialStepper::run() {
 
 		_lastStepTime = time;
 		_stepInterval = 1000000 / _stepRate;
+
+        /*
+        Serial.print("_accelDist:"); Serial.println(_accelDist);
+        Serial.print("totalSteps:"); Serial.println(c->totalSteps);
+        Serial.print("accUntil:"); Serial.println(c->accelerateUntil);
+        Serial.print("decelAfter:"); Serial.println(c->decelerateAfter);
+        Serial.print("maxStepRate:"); Serial.println(_maxStepRate);
+        Serial.print("minStepRate:"); Serial.println(_minStepRate);
+        Serial.print("accel:"); Serial.println(_acceleration);
+        Serial.println();
+        */
 	}
 
 	//delay(1);
@@ -474,11 +488,15 @@ boolean DifferentialStepper::run() {
 
 
         // update _stepRate
-        int accelDelta = _acceleration * stepTime / 1000000.0;
+        int accelDelta = _acceleration * (float)stepTime / 1000000.0;
+        if (accelDelta < 1) accelDelta = 1;
+
         if (_stepsCompleted < c->accelerateUntil & _stepRate < _maxStepRate)
             _stepRate += accelDelta;
         if (_stepsCompleted >= c->decelerateAfter & _stepRate > _minStepRate)
             _stepRate -= accelDelta;
+
+        if (_stepRate < 1 ) _stepRate = 1;
 
         // calculate time for next step
         _stepInterval = 1000000.0 / _stepRate;
@@ -489,6 +507,7 @@ boolean DifferentialStepper::run() {
 
         // see if we've finished
         if (_stepsCompleted >= c->totalSteps) {
+            //Serial.println("done");
             dequeue();
         }
 

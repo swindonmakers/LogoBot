@@ -1,4 +1,4 @@
-#include <AccelStepper.h>
+#include <DifferentialStepper.h>
 #include <Logo.h>
 //#include <LogoCommandQueue.h>
 #include <Servo.h>
@@ -39,8 +39,14 @@
 #define SERVO       11
 
 // Initialize with pin sequence IN1-IN3-IN2-IN4 for using the AccelStepper with 28BYJ-48
-AccelStepper stepperL(AccelStepper::HALF4WIRE, motorLPin1, motorLPin3, motorLPin2, motorLPin4);
-AccelStepper stepperR(AccelStepper::HALF4WIRE, motorRPin1, motorRPin3, motorRPin2, motorRPin4);
+//AccelStepper stepperL(AccelStepper::HALF4WIRE, motorLPin1, motorLPin3, motorLPin2, motorLPin4);
+//AccelStepper stepperR(AccelStepper::HALF4WIRE, motorRPin1, motorRPin3, motorRPin2, motorRPin4);
+
+DifferentialStepper diffDrive(
+    DifferentialStepper::HALF4WIRE,
+    motorLPin1, motorLPin3, motorLPin2, motorLPin4,
+    motorRPin1, motorRPin3, motorRPin2, motorRPin4
+);
 
 #define STEPS_PER_MM 5000/232
 #define STEPS_PER_DEG 3760.0 / 180.0
@@ -83,14 +89,9 @@ void setup()
 {
   Serial.begin(9600);
   Serial.println("Logobot");
-  stepperL.setMaxSpeed(1000);
-  stepperL.setAcceleration(2000);
-  stepperL.setBacklash(STEPS_OF_BACKLASH);
-  stepperL.setPinsInverted(true, true, false, false, false);
-
-  stepperR.setMaxSpeed(1000);
-  stepperR.setAcceleration(2000);
-  stepperR.setBacklash(STEPS_OF_BACKLASH);
+  diffDrive.setMaxStepRate(1000);
+  diffDrive.setAcceleration(666);
+  diffDrive.setInvertDirectionFor(0,true);
 
   pinMode(switchFL, INPUT_PULLUP);
   pinMode(switchFR, INPUT_PULLUP);
@@ -116,17 +117,26 @@ void setup()
   }
 
   resetPosition();
-
+/*
   Logo::LogoParsedCommand cmd1;
 
   Logo::printProcedures();
   Logo::parseCommand("BK 50", &cmd1);
 
   Serial.println(cmd1.type);
+  */
+
 }
 
 void loop()
 {
+
+    diffDrive.run();
+
+    if (diffDrive.isQEmpty()) {
+        Serial.println("Queuing move");
+        diffDrive.queueMove(1000 + random(0,1000),1000 + random(0,1000));
+    }
   /*
   // Parse Logo commands from Serial, add to cmdQ
   if (Serial.available()) {
@@ -387,4 +397,3 @@ long sqr(long v) {
   return v*v;
 }
 */
-
