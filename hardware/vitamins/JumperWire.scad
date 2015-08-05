@@ -5,10 +5,10 @@
 	Supports a variety of pin types(male, female), colours and pin widths.
 	Cabling is modelled as bezier curves.
 	Supports attachments.
-	
-	Local Frame: 
+
+	Local Frame:
 		TBC
-		
+
 	Parameters:
 	    type - type specifies pin types, no. of pins and colours
 	    con1 - From connector; automatically attached; supports Explode
@@ -26,10 +26,16 @@ JumperWire_DefaultConnector2 = [[100,0,0], [1,0,0], 0,0,0];
 Pin_Male = "Male";
 Pin_Female = "Female";
 
+
+// Type Getters
+function JumperWire_TypeName(t)     = t[0];
+function JumperWire_PinType1(t)     = t[1];
+function JumperWire_PinType2(t)     = t[2];
+function JumperWire_NumPins(t)      = t[3];
+function JumperWire_Colors(t)       = t[4];
+
+
 // JumperWire Types
-// -----
-
-
 //                    Type,  PinType1,   PinType2,   NumPins, Colors
 JumperWire_MM2    = [ "MM2", Pin_Male,   Pin_Male,   2,       ["black","red"] ];
 JumperWire_FF2    = [ "FF2", Pin_Female, Pin_Female, 2,       ["black","red"] ];
@@ -41,20 +47,27 @@ JumperWire_FF4    = [ "FF4", Pin_Female, Pin_Female, 4,       ["red","orange","y
 JumperWire_FM4    = [ "FM4", Pin_Female, Pin_Male,   4,       ["red","orange","yellow","green"] ];
 
 
-// Type Getters
-function JumperWire_TypeName(t)     = t[0];
-function JumperWire_PinType1(t)     = t[1];
-function JumperWire_PinType2(t)     = t[2];
-function JumperWire_NumPins(t)      = t[3];
-function JumperWire_Colors(t)       = t[4];
+// Type collection
+JumperWire_Types = [
+	JumperWire_MM2,
+	JumperWire_FF2,
+	JumperWire_MF2,
+	JumperWire_FF3,
+	JumperWire_FF4,
+	JumperWire_FM4
+];
 
+// Vitamin catalogue
+module JumperWire_Catalogue() {
+    for (t = JumperWire_Types) JumperWire(t);
+}
 
 
 module JumperWire_Pin(type, con, ExplodeSpacing=20) {
     w = 2.54;
     h = 14;
     attach(con, DefConDown, $Explode=false, ExplodeSpacing=ExplodeSpacing)
-        
+
         if (type == Pin_Male) {
             color("gold")
                 cylinder(r=1/2, h=h/2, $fn=6);
@@ -82,7 +95,7 @@ module JumperWire(
     ExplodeSpacing = 20
 ) {
     // vert offset of connector?
-    pinvo = [ 
+    pinvo = [
         JumperWire_PinType1(type) == Pin_Male ? -7 : 0,
         JumperWire_PinType2(type) == Pin_Male ? -7 : 0,
     ];
@@ -92,17 +105,17 @@ module JumperWire(
     con2n = VNORM(con2[1]);
     conVecs = [VNORM(conVec1), VNORM(conVec2)];
     numPins = JumperWire_NumPins(type);
-    
+
     mtv = VNORM(midTanVec);
-    
+
     tn = JumperWire_TypeName(type);
-    
+
     au = $AnimateExplode ? (1-$AnimateExplodeT) : 1;
-    
-    vitamin("vitamins/JumperWire.scad", 
-            str("JumperWire ",JumperWire_PinType1(type)," to ",JumperWire_PinType2(type)," ",JumperWire_NumPins(type),"pin ",length,"mm"), 
+
+    vitamin("vitamins/JumperWire.scad",
+            str("JumperWire ",JumperWire_PinType1(type)," to ",JumperWire_PinType2(type)," ",JumperWire_NumPins(type),"pin ",length,"mm"),
             str("JumperWire(type=JumperWire_",tn,", length=",length,")")) {
-            
+
         view(t=[51,5,2], r=[41,0,29], d=438);
 
         if (DebugCoordinateFrames) frame();
@@ -165,7 +178,7 @@ module JumperWire(
                 colors = JumperWire_Colors(type)
             );
 
-    
+
         } else {
             ribbonCable(
                 cables=numPins,
@@ -187,4 +200,4 @@ module JumperWire(
             );
         }
     }
-} 
+}

@@ -31,6 +31,11 @@ Breadboard 170 | `Breadboard(Breadboard_170)` | ![Breadboard 170](../vitamins/im
 Title | Call | Image
 --- | --- | ---
 JumperWire Male to Male 2pin 100mm | `JumperWire(type=JumperWire_MM2, length=100)` | ![JumperWire Male to Male 2pin 100mm](../vitamins/images/JumperWireMaletoMale2pin100mm_view.png)
+JumperWire Female to Female 2pin 100mm | `JumperWire(type=JumperWire_FF2, length=100)` | ![JumperWire Female to Female 2pin 100mm](../vitamins/images/JumperWireFemaletoFemale2pin100mm_view.png)
+JumperWire Male to Female 2pin 100mm | `JumperWire(type=JumperWire_MF2, length=100)` | ![JumperWire Male to Female 2pin 100mm](../vitamins/images/JumperWireMaletoFemale2pin100mm_view.png)
+JumperWire Female to Female 3pin 100mm | `JumperWire(type=JumperWire_FF3, length=100)` | ![JumperWire Female to Female 3pin 100mm](../vitamins/images/JumperWireFemaletoFemale3pin100mm_view.png)
+JumperWire Female to Female 4pin 100mm | `JumperWire(type=JumperWire_FF4, length=100)` | ![JumperWire Female to Female 4pin 100mm](../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png)
+JumperWire Female to Male 4pin 100mm | `JumperWire(type=JumperWire_FM4, length=100)` | ![JumperWire Female to Male 4pin 100mm](../vitamins/images/JumperWireFemaletoMale4pin100mm_view.png)
 
 ## Marble.scad
 
