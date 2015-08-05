@@ -47,8 +47,13 @@ public:
 
 	void stop();
 	void emergencyStop();
+
 	void drive(float distance);
 	void turn(float ang);
+	void drive(float leftDist, float rightDist);
+	void driveTo(float x, float y);
+	void arcTo(float x, float y);
+
 
 	STATE state;
 	void resetPosition();

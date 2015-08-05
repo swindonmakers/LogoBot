@@ -124,11 +124,11 @@ static void doLogoCommand(String c)
   if (c.startsWith("TO")) {
     // split out x and y co-ordinates
     int sp = c.indexOf(" ",3);
-    driveTo(c.substring(3,sp).toFloat(), c.substring(sp+1).toFloat());
+    bot.driveTo(c.substring(3,sp).toFloat(), c.substring(sp+1).toFloat());
   } else if (c.startsWith("ARC")) {
     // split out x and y co-ordinates
     int sp = c.indexOf(" ",4);
-    arcTo(c.substring(4,sp).toFloat(), c.substring(sp+1).toFloat());
+    bot.arcTo(c.substring(4,sp).toFloat(), c.substring(sp+1).toFloat());
   } else if (c.startsWith("FD")) {
     bot.drive(c.substring(3).toFloat());
   } else if (c.startsWith("BK")) {
@@ -168,75 +168,6 @@ void pushTo(float x, float y)
   s += " ";
   s += y;
   cmdQ.enqueue(s);
-}
-
-static void driveTo(float x, float y) {
-  // calc angle
-  double ang = atan2(y-bot.state.y, x-bot.state.x) * RADTODEG;
-  // now angle delta
-  ang = ang - bot.state.ang;
-  if (ang > 180)
-    ang = -(360 - ang);
-  if (ang < -180)
-    ang = 360 + ang;
-
-  bot.turn(ang);
-
-  // and distance
-  float dist = sqrt(sqr(y-bot.state.y) + sqr(x-bot.state.x));
-  String s = "FD ";
-  s += dist;
-  cmdQ.insert(s);
-}
-
-void arcTo (float x, float y) {
-
-    if (y == 0) return;
-
-    float cx1 = x - bot.state.x;
-    float cy1 = y - bot.state.y;
-
-    //v.rotate(degToRad(-this.state.angle));
-    float ang = -bot.state.ang * DEGTORAD;
-    float ca = cos(ang);
-    float sa = sin(ang);
-    float cx = cx1 * ca - cy1 * sa;
-    float cy = cx1 * sa + cy1 * ca;
-
-    float m = -cx / cy;
-
-    // calc centre of arc
-    // from equation
-    // y - y1 = m (x - x1)
-    // rearranged to find y axis intersection
-    // x = (-y1)/m + x1
-    float x1 = -(cy/2.0) / m + (cx/2.0);
-
-    float dl = 0, dr = 0;
-    float targetAng;
-    float cl, cr;
-
-    if (x1 < 0) {
-        targetAng = atan2(cy, -x1 + cx) * RADTODEG;
-
-        cl = 2.0 * PI * (-WHEELSPACING/2.0 - x1);
-        dl = cl * targetAng/360.0;
-
-        cr = 2.0 * PI * (WHEELSPACING/2.0 - x1);
-        dr = cr * targetAng/360.0;
-
-    } else {
-        targetAng = atan2(cy, x1 - cx) * RADTODEG;
-
-        cl = 2.0 * PI * (x1 + WHEELSPACING/2.0 );
-        dl = cl * targetAng/360.0;
-
-        cr = 2.0 * PI * (x1 - WHEELSPACING/2.0);
-        dr = cr * targetAng/360.0;
-    }
-
-    //stepperL.move(dl * STEPS_PER_MM);
-    //stepperR.move(dr * STEPS_PER_MM);
 }
 
 static void writeText(String s) {

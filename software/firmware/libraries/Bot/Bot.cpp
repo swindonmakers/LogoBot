@@ -162,6 +162,80 @@ void Bot::turn(float ang)
 	_diffDrive.queueMove(-steps,steps);
 }
 
+void Bot::drive(float leftDist, float rightDist) {
+	// TODO: update state, using reverse of arcTo calculations
+
+	_diffDrive.queueMove(leftDist,rightDist);
+}
+
+
+void Bot::driveTo(float x, float y) {
+  // calc angle
+  double ang = atan2(y-state.y, x-state.x) * RADTODEG;
+  // now angle delta
+  ang = ang - state.ang;
+  if (ang > 180)
+    ang = -(360 - ang);
+  if (ang < -180)
+    ang = 360 + ang;
+
+  // turn to face correct direction
+  turn(ang);
+
+  // move required distance
+  float dist = sqrt((y-state.y)*(y-state.y) + (x-state.x)*(x-state.x));
+  drive(dist);
+}
+
+void Bot::arcTo (float x, float y) {
+
+    if (y == 0) return;
+
+    float cx1 = x - state.x;
+    float cy1 = y - state.y;
+
+    //v.rotate(degToRad(-this.state.angle));
+    float ang = -state.ang * DEGTORAD;
+    float ca = cos(ang);
+    float sa = sin(ang);
+    float cx = cx1 * ca - cy1 * sa;
+    float cy = cx1 * sa + cy1 * ca;
+
+    float m = -cx / cy;
+
+    // calc centre of arc
+    // from equation
+    // y - y1 = m (x - x1)
+    // rearranged to find y axis intersection
+    // x = (-y1)/m + x1
+    float x1 = -(cy/2.0) / m + (cx/2.0);
+
+    float dl = 0, dr = 0;
+    float targetAng;
+    float cl, cr;
+
+    if (x1 < 0) {
+        targetAng = atan2(cy, -x1 + cx) * RADTODEG;
+
+        cl = 2.0 * PI * (-WHEELSPACING/2.0 - x1);
+        dl = cl * targetAng/360.0;
+
+        cr = 2.0 * PI * (WHEELSPACING/2.0 - x1);
+        dr = cr * targetAng/360.0;
+
+    } else {
+        targetAng = atan2(cy, x1 - cx) * RADTODEG;
+
+        cl = 2.0 * PI * (x1 + WHEELSPACING/2.0 );
+        dl = cl * targetAng/360.0;
+
+        cr = 2.0 * PI * (x1 - WHEELSPACING/2.0);
+        dr = cr * targetAng/360.0;
+    }
+
+	_diffDrive.queueMove(dl * STEPS_PER_MM, dr * STEPS_PER_MM);
+}
+
 // position calcs
 void Bot::resetPosition() {
 	state.x = 0;
