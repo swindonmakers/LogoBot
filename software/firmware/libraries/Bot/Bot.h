@@ -35,7 +35,7 @@ public:
 	void initPenLift(uint8_t pin);
 
 	void playStartupJingle();
-	bool isMoving();
+	bool isBusy();
 
 	void run();
 

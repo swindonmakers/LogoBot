@@ -51,7 +51,7 @@ void Bot::initPenLift(uint8_t pin)
 	penUp();
 }
 
-bool Bot::isMoving()
+bool Bot::isBusy()
 {
 	return !_diffDrive.isQEmpty();
 }
@@ -93,11 +93,8 @@ void Bot::run()
 	}
 
 	// Disable motors when stopped to save power
-	// Note that AccelStepper.disableOutputs doesn't seem to work
-	// correctly when pins are inverted and leaves some outputs on.
-	if (!isMoving())
-		for (uint8_t i = 0; i < 8; i++)
-			digitalWrite(_pinStepper[i], LOW);
+	if (!isBusy())
+		_diffDrive.disableOutputs();
 }
 
 void Bot::penUp()

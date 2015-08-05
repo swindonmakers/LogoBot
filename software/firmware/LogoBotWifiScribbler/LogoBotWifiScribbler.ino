@@ -52,7 +52,7 @@ void loop()
 
   bot.run();
 
-  if (!bot.isMoving()) {
+  if (!bot.isBusy()) {
     if (cmdQ.isEmpty()) {
 
       // check the text writing buffer
