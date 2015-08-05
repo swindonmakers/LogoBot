@@ -117,7 +117,7 @@ module MotorAndCable(rightSide=false) {
                 [2.5, -23, 7],
                 [-10, -60, 10],
                 [-70, -15, 20],
-                [-26, -8, 25]
+                [-30, -9, 24]
             ],
             vectors = [
                 [-1, 0 ,0],
@@ -135,6 +135,11 @@ module MotorAndCable(rightSide=false) {
             debug=false
         );
 
+        // TODO: fix this dirty hack
+        color("white")
+            translate([-31,-11,19.5])
+            cube([6, 3.5, 13]);
+
 
     } else {
         ribbonCable(
@@ -144,7 +149,7 @@ module MotorAndCable(rightSide=false) {
                 [-2.5, -23, 7],
                 [-10, -60, 10],
                 [-70, -20, 40],
-                [-26, -8, 18]
+                [-30, -9, 17]
             ],
             vectors = [
                 [1, 0 ,0],
@@ -161,5 +166,10 @@ module MotorAndCable(rightSide=false) {
             ],
             debug=false
         );
+
+        // TODO: fix this dirty hack
+        color("white")
+            translate([-31,-11,8.5])
+            cube([6, 3.5, 13]);
     }
 }
