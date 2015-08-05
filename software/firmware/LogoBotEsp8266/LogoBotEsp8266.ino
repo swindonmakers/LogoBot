@@ -60,6 +60,12 @@ static void handleStatus() {
   digitalWrite(led, 0);
 }
 
+static void handleBatch() {
+  digitalWrite(led, 1);
+  server.send(200, F("text/html"), batchPage);
+  digitalWrite(led, 0);
+}
+
 static void handleCommand()
 {
   digitalWrite(led, 1);
@@ -182,6 +188,7 @@ void setup(void){
   server.on("/cmd", handleCommand);
   server.on("/status", handleStatus);
   server.on("/", handleRoot);
+  server.on("/batch", handleBatch);
   server.onNotFound(handleNotFound);
   
   server.begin();

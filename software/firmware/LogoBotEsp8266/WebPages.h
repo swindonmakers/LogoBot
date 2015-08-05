@@ -154,3 +154,74 @@ static const char statusPage[] PROGMEM = R"~(
 
 )~";
 
+
+static const char batchPage[] PROGMEM = R"~(
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+  <head>
+    <title>Logobot Commander</title>
+  </head>
+  <body>
+    <div>
+      <textarea rows="10" id="cmds" placeholder="enter logo commands, one per line.">
+FD 50
+RT 90
+PD
+BK 10
+LT 45
+PU
+BZ 500
+      </textarea> <br />
+      <button onclick="s();">Send</button><br />
+      <span id="f"></span>
+    </div>
+
+    <script type="text/javascript">
+      function el(id) { return document.getElementById(id); }
+      function elv(id) { return el(id).value; }
+
+      function s() {
+        var input = elv('cmds').trim();
+        if (!input) return;
+
+        var cmds = input.split(/\r?\n/);
+        var next = cmds.shift();
+        if (!next) return;
+
+        el('f').innerText = 'Send: ' + next;
+
+        var nextCmd = next.split(' ');
+        var uri = '/cmd?action=' + nextCmd[0];
+        if (nextCmd.length > 1)
+          uri += '&p1=' + nextCmd[1];
+        if (nextCmd.length > 2)
+          uri += '&p2=' + nextCmd[2];
+
+        
+        var xhReq = new XMLHttpRequest();
+        xhReq.open('GET', uri, true);
+        console.log(uri);
+        xhReq.onload = function () {
+          if (this.responseText == 'BUSY') {
+            el('f').innerText = 'BUSY';
+            setTimeout(s, 2000);
+          } else {
+            el('f').innerText = this.responseText;
+            el('cmds').value = cmds.join('\n');
+            setTimeout(s, 250);
+          }
+        };
+
+        try {
+          xhReq.send();
+        } catch (ex) {
+          el('f').innerText = 'ERR';
+          setTimeout(s, 2000);
+        }
+      }
+    </script>
+  </body>
+</html>
+)~";
+
