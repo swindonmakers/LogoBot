@@ -5,6 +5,7 @@
  * [Battery.scad ](#batteryscad)
  * [BatteryPack.scad ](#batterypackscad)
  * [Breadboard.scad ](#breadboardscad)
+ * [ESP8266.scad ](#esp8266scad)
  * [FTDIBreakout.scad ](#ftdibreakoutscad)
  * [HCSR04UltrasonicSensor.scad ](#hcsr04ultrasonicsensorscad)
  * [JumperWire.scad ](#jumperwirescad)
@@ -41,6 +42,12 @@ Battery Pack | `BatteryPack()` | ![Battery Pack](../vitamins/images/BatteryPack_
 Title | Call | Image
 --- | --- | ---
 Breadboard 170 | `Breadboard(Breadboard_170)` | ![Breadboard 170](../vitamins/images/Breadboard170_view.png)
+
+## ESP8266.scad
+
+Title | Call | Image
+--- | --- | ---
+ESP8266 01 | `ESP8266(ESP8266_01)` | ![ESP8266 01](../vitamins/images/ESP826601_view.png)
 
 ## FTDIBreakout.scad
 
