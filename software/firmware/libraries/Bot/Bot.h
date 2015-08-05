@@ -18,9 +18,9 @@
 
 // logobot state info
 struct STATE {
-	float x;
-	float y;
-	float ang;
+	double x;
+	double y;
+	double ang;
 	byte colliding;  // 0 = not colliding, 1=left, 2=right, 3=both
 };
 

@@ -170,7 +170,7 @@ void pushTo(float x, float y)
 
 static void driveTo(float x, float y) {
   // calc angle
-  float ang = atan2(y-bot.state.y, x-bot.state.x) * RADTODEG;
+  double ang = atan2(y-bot.state.y, x-bot.state.x) * RADTODEG;
   // now angle delta
   ang = ang - bot.state.ang;
   if (ang > 180)
@@ -246,6 +246,6 @@ static void writeText(String s) {
   bot.resetPosition();
 }
 
-long sqr(long v) {
+float sqr(float v) {
   return v*v;
 }
