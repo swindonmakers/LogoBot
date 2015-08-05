@@ -165,7 +165,7 @@ void Bot::turn(float ang)
 void Bot::drive(float leftDist, float rightDist) {
 	// TODO: update state, using reverse of arcTo calculations
 
-	_diffDrive.queueMove(leftDist,rightDist);
+	_diffDrive.queueMove(leftDist * STEPS_PER_MM, rightDist * STEPS_PER_MM);
 }
 
 
