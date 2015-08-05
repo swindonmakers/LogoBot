@@ -15,10 +15,11 @@ Qty | Vitamin | Image
 4 | [AA Battery]() | ![](../vitamins/images/AABattery_view.png) | 
 1 | [Battery Pack]() | ![](../vitamins/images/BatteryPack_view.png) | 
 2 | [JumperWire Female to Female 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png) | 
-4 | [JumperWire Female to None 1pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoNone1pin100mm_view.png) | 
+6 | [JumperWire Female to None 1pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoNone1pin100mm_view.png) | 
 4 | [JumperWire Female to None 1pin 70mm]() | ![](../vitamins/images/JumperWireFemaletoNone1pin70mm_view.png) | 
-2 | [JumperWire None to None 1pin 100mm]() | ![](../vitamins/images/JumperWireNonetoNone1pin100mm_view.png) | 
+4 | [JumperWire None to None 1pin 100mm]() | ![](../vitamins/images/JumperWireNonetoNone1pin100mm_view.png) | 
 3 | [JumperWire None to None 1pin 50mm]() | ![](../vitamins/images/JumperWireNonetoNone1pin50mm_view.png) | 
+8 | [3mm LED]() | ![](../vitamins/images/3mmLED_view.png) | 
 1 | [16mm Marble]() | ![](../vitamins/images/16mmMarble_view.png) | 
 4 | [MicroSwitch]() | ![](../vitamins/images/MicroSwitch_view.png) | 
 1 | [SPST6A Mini Toggle Switch]() | ![](../vitamins/images/SPST6AMiniToggleSwitch_view.png) | 
@@ -78,6 +79,7 @@ Qty | Part Name | Image
 
 Qty | Vitamin | Image
 --- | --- | ---
+4 | [3mm LED]() | ![](../vitamins/images/3mmLED_view.png) | 
 1 | [28YBJ48 Stepper Motor]() | ![](../vitamins/images/28YBJ48StepperMotor_view.png) | 
 1 | [ULN2003 Driver Board]() | ![](../vitamins/images/ULN2003DriverBoard_view.png) | 
 
@@ -107,6 +109,7 @@ Qty | Part Name | Image
 
 Qty | Vitamin | Image
 --- | --- | ---
+4 | [3mm LED]() | ![](../vitamins/images/3mmLED_view.png) | 
 1 | [28YBJ48 Stepper Motor]() | ![](../vitamins/images/28YBJ48StepperMotor_view.png) | 
 1 | [ULN2003 Driver Board]() | ![](../vitamins/images/ULN2003DriverBoard_view.png) | 
 
@@ -175,9 +178,9 @@ Qty | Vitamin | Image
 4 | [AA Battery]() | ![](../vitamins/images/AABattery_view.png) | 
 1 | [Battery Pack]() | ![](../vitamins/images/BatteryPack_view.png) | 
 2 | [JumperWire Female to Female 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png) | 
-4 | [JumperWire Female to None 1pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoNone1pin100mm_view.png) | 
+6 | [JumperWire Female to None 1pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoNone1pin100mm_view.png) | 
 4 | [JumperWire Female to None 1pin 70mm]() | ![](../vitamins/images/JumperWireFemaletoNone1pin70mm_view.png) | 
-2 | [JumperWire None to None 1pin 100mm]() | ![](../vitamins/images/JumperWireNonetoNone1pin100mm_view.png) | 
+4 | [JumperWire None to None 1pin 100mm]() | ![](../vitamins/images/JumperWireNonetoNone1pin100mm_view.png) | 
 3 | [JumperWire None to None 1pin 50mm]() | ![](../vitamins/images/JumperWireNonetoNone1pin50mm_view.png) | 
 1 | [SPST6A Mini Toggle Switch]() | ![](../vitamins/images/SPST6AMiniToggleSwitch_view.png) | 
 1 | [2 Pole 20A Terminal Block]() | ![](../vitamins/images/2Pole20ATerminalBlock_view.png) | 

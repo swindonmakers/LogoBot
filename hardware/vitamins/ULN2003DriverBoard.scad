@@ -38,6 +38,7 @@ ULN2003DriverBoard_Cons = [
 module ULN2003DriverBoard_PCB(includeFixings=true, thickness=ULN2003Driver_PCBThickness) {
 	// Base PCB
 	// offset origin to bottom left
+	color([0.2,0.6,0.3])
 	translate([(ULN2003Driver_BoardWidth / 2) - ULN2003Driver_HoleInset, (ULN2003Driver_BoardHeight / 2) - ULN2003Driver_HoleInset, 0])
 		linear_extrude(thickness)
 		difference() {

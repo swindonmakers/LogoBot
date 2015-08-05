@@ -445,6 +445,60 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
                     conVec2 = [-1,0,0],
                     midVec = [0.5,-1,0]
                 );
+
+                //  arduino to rear left microswitch
+                JumperWire(
+                    type = JumperWire_FN1,
+                    con1 = [[0,47,8], [0,0,-1], 0,0,0],
+                    con2 = [[-40, -50, 0], [0.5,-0.5,-1], 0,0,0],
+                    length = 100,
+                    conVec1 = [-1,0,0],
+                    conVec2 = [-1,0,0],
+                    midVec = [0.5,-1,0],
+                    overrideColors=["green"]
+                );
+
+                //  arduino to rear right microswitch
+                JumperWire(
+                    type = JumperWire_FN1,
+                    con1 = [[-2.5,47,8], [0,0,-1], 0,0,0],
+                    con2 = [[40, -50, 0], [-0.5,-0.5,-1], 0,0,0],
+                    length = 100,
+                    conVec1 = [-1,0,0],
+                    conVec2 = [-1,0,0],
+                    midVec = [0.5,-1,0],
+                    overrideColors=["green"]
+                );
+
+                // terminal block ground to rear left microswitch
+                JumperWire(
+                    type = JumperWire_NN1,
+                    con1 = attachedConnector(
+                        LogoBot_Con_TerminalBlock, TerminalBlock_Con_Def,
+                        TerminalBlock_Con_Pole(TerminalBlock_20A, 1, false),
+                        ExplodeSpacing=0
+                    ),
+                    con2 = [[-42, -50, 0], [0,-0.5,-1], 0,0,0],
+                    length = 100,
+                    conVec1 = [0,1,0],
+                    conVec2 = [-1,0,0],
+                    midVec = [0.5,-1,0]
+                );
+
+                // terminal block ground to rear right microswitch
+                JumperWire(
+                    type = JumperWire_NN1,
+                    con1 = attachedConnector(
+                        LogoBot_Con_TerminalBlock, TerminalBlock_Con_Def,
+                        TerminalBlock_Con_Pole(TerminalBlock_20A, 1, false),
+                        ExplodeSpacing=0
+                    ),
+                    con2 = [[42, -50, 0], [-0.3,-0.5,-1], 0,0,0],
+                    length = 100,
+                    conVec1 = [0,1,0],
+                    conVec2 = [-1,0,0],
+                    midVec = [0.5,-1,0]
+                );
             }
 
 
