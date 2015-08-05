@@ -28,3 +28,4 @@ include <../vitamins/ULN2003DriverBoard.scad>
 include <../vitamins/MiniToggleSwitch.scad>
 include <../vitamins/TerminalBlock.scad>
 include <../vitamins/Battery.scad>
+include <../vitamins/ESP8266.scad>
