@@ -24,18 +24,21 @@
 // dynamic connector for a given fixing in the grid
 function LogoBot_Con_GridFixing(x,y,r) = [[x*10, y*10, dw], [0,0,-1], r, 0,0];
 
+// alternate dymanic connector, for things plugging up from underneath
+function LogoBot_Con_GridFixingBottom(x,y,r) = [[x*10, y*10, 0], [0,0,1], r, 0,0];
+
 LogoBot_Con_Breadboard          = [[-18, 40, 12],[0,0,-1], 0,0,0];
 
-LogoBot_Con_LeftWheel           = [[-40,-20, dw],[0,0,-1],90,0,0];
-LogoBot_Con_RightWheel           = [[40,20, dw],[0,0,-1],-90,0,0];
+LogoBot_Con_LeftWheel           = LogoBot_Con_GridFixing(-4,-2,90);
+LogoBot_Con_RightWheel           = LogoBot_Con_GridFixing(4,2,-90);
 
 LogoBot_Con_LeftMotorDriver     = [[-46, 16, 10],[0,-1,0],0,0,0];
 LogoBot_Con_RightMotorDriver    = [[46, 16, 10],[0,-1,0],0,0,0];
 
-LogoBot_Con_Caster = [ [0, -BaseDiameter/2 + 10, 0], [0,0,1], 0, 0, 0];
+LogoBot_Con_Caster = LogoBot_Con_GridFixingBottom(0,-6, 0);
 
-LogoBot_Con_PenLift_Front = [ [0, -20, 2], [0,0,-1], 0, 0, 0];
-LogoBot_Con_PenLift_Rear = [ [0, 20, 2], [0,0,-1], 0, 0, 0];
+LogoBot_Con_PenLift_Front = LogoBot_Con_GridFixing(0,-2,0);
+LogoBot_Con_PenLift_Rear = LogoBot_Con_GridFixing(0,2,0);
 LogoBot_Con_PenLiftServo = [[-12, -6, -6], [1, 0, 0], 90, 0, 0];
 
 LogoBot_Con_PowerSwitch = LogoBot_Con_GridFixing(2,0, 90);
