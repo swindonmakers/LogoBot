@@ -51,7 +51,7 @@ module TerminalBlock(type=TerminalBlock_20A, poles=2) {
 
     vitamin(
         "vitamins/TerminalBlock.scad",
-        str(poles," Pole ",ts," Terminal Block)"),
+        str(poles," Pole ",ts," Terminal Block"),
         str("TerminalBlock(type=TerminalBlock_",ts,",poles=",poles,")")
     ) {
         view(t=[6.9, 13.6, 10.3], r=[72,0,33], d=280);

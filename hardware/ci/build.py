@@ -13,6 +13,7 @@ from printed import printed
 from guides import guides
 from publish import publish
 from catalogue import catalogue
+from subprocess import check_output
 
 def build(do_publish=0):
     print("Build")
@@ -53,6 +54,8 @@ def build(do_publish=0):
     # if everything is ok then delete backup - no longer required
     if errorlevel == 0:
         os.remove(oldfile)
+
+    check_output(['osascript','-e','display notification "Build Complete" with title "Build Process"'])
 
     return errorlevel
 

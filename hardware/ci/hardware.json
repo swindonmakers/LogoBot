@@ -1,7 +1,7 @@
 [
     {
         "cut": [],
-        "hash": "aef3828b38ee0b173fa0d7f6ce0e6b78",
+        "hash": "f3e39650ba43b9b96a8d7ef5f8742dd6",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -219,13 +219,44 @@
                 "parts": [],
                 "call": "Marble(Marble_16mm)",
                 "file": "vitamins/Marble.scad"
+            },
+            {
+                "hash": "41e6fdc29ea2337f47ffa7b87220a1d1",
+                "title": "2 Pole 20A Terminal Block",
+                "views": [
+                    {
+                        "rotate": [
+                            72,
+                            0,
+                            33
+                        ],
+                        "dist": 280,
+                        "title": "view",
+                        "filepath": "../vitamins/images/2Pole20ATerminalBlock_view.png",
+                        "caption": "view",
+                        "translate": [
+                            6.9,
+                            13.6,
+                            10.3
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "parts": [],
+                "call": "TerminalBlock(type=TerminalBlock_20A,poles=2)",
+                "file": "vitamins/TerminalBlock.scad"
             }
         ],
         "title": "LogoBot",
         "assemblies": [
             {
                 "cut": [],
-                "hash": "ef66b1fe43b79a83155d0a1899f97b6a",
+                "hash": "02d2757bbfa6b8b717773638bd7b90c7",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -250,6 +281,14 @@
                         "parts": [],
                         "call": "MiniToggleSwitch(MiniToggleSwitch_SPST6A)",
                         "file": "vitamins/MiniToggleSwitch.scad"
+                    },
+                    {
+                        "title": "2 Pole 20A Terminal Block",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "TerminalBlock(type=TerminalBlock_20A,poles=2)",
+                        "file": "vitamins/TerminalBlock.scad"
                     }
                 ],
                 "views": [],
@@ -594,8 +633,35 @@
                         ]
                     },
                     {
-                        "desc": "Push the shell down onto the base and twist to lock into place",
+                        "desc": "Wire in the terminal block to distribute power",
                         "num": 11,
+                        "views": [
+                            {
+                                "rotate": [
+                                    47,
+                                    0,
+                                    300
+                                ],
+                                "dist": 260,
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step11_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    8,
+                                    -10,
+                                    26
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Push the shell down onto the base and twist to lock into place",
+                        "num": 12,
                         "views": [
                             {
                                 "rotate": [
@@ -604,7 +670,7 @@
                                     217
                                 ],
                                 "dist": 570,
-                                "filepath": "../assemblies/LogoBot/FinalAssembly_step11_view.png",
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step12_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -3193,6 +3259,61 @@
                         "children": [
                             {
                                 "rotate": [
+                                    47,
+                                    0,
+                                    300
+                                ],
+                                "dist": 260,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    8,
+                                    -10,
+                                    26
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "call": "TerminalBlock(type=TerminalBlock_20A,poles=2)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            72,
+                                            0,
+                                            33
+                                        ],
+                                        "dist": 280,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            6.9,
+                                            13.6,
+                                            10.3
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/TerminalBlock.scad",
+                                "title": "2 Pole 20A Terminal Block"
+                            }
+                        ],
+                        "desc": "Wire in the terminal block to distribute power"
+                    },
+                    {
+                        "num": 12,
+                        "type": "step",
+                        "children": [
+                            {
+                                "rotate": [
                                     66,
                                     0,
                                     217
@@ -3315,7 +3436,7 @@
     },
     {
         "cut": [],
-        "hash": "108868ed554f6ba72f43fdd9be207cf0",
+        "hash": "c5db6bea9abbd3fe1d3295871dbdf276",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -3639,13 +3760,44 @@
                 "parts": [],
                 "call": "ServoHorn()",
                 "file": "vitamins/ServoHorn.scad"
+            },
+            {
+                "hash": "41e6fdc29ea2337f47ffa7b87220a1d1",
+                "title": "2 Pole 20A Terminal Block",
+                "views": [
+                    {
+                        "rotate": [
+                            72,
+                            0,
+                            33
+                        ],
+                        "dist": 280,
+                        "title": "view",
+                        "filepath": "../vitamins/images/2Pole20ATerminalBlock_view.png",
+                        "caption": "view",
+                        "translate": [
+                            6.9,
+                            13.6,
+                            10.3
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "parts": [],
+                "call": "TerminalBlock(type=TerminalBlock_20A,poles=2)",
+                "file": "vitamins/TerminalBlock.scad"
             }
         ],
         "title": "LogoBot Scribbler",
         "assemblies": [
             {
                 "cut": [],
-                "hash": "d66fad2a12b13a0b853b825404026212",
+                "hash": "19c8b5cbb29368e46fb75058476341b7",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -3699,6 +3851,14 @@
                         "parts": [],
                         "call": "ServoHorn()",
                         "file": "vitamins/ServoHorn.scad"
+                    },
+                    {
+                        "title": "2 Pole 20A Terminal Block",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "TerminalBlock(type=TerminalBlock_20A,poles=2)",
+                        "file": "vitamins/TerminalBlock.scad"
                     }
                 ],
                 "views": [],
@@ -4090,8 +4250,35 @@
                         ]
                     },
                     {
-                        "desc": "Push the shell down onto the base and twist to lock into place",
+                        "desc": "Wire in the terminal block to distribute power",
                         "num": 12,
+                        "views": [
+                            {
+                                "rotate": [
+                                    47,
+                                    0,
+                                    300
+                                ],
+                                "dist": 260,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step12_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    8,
+                                    -10,
+                                    26
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Push the shell down onto the base and twist to lock into place",
+                        "num": 13,
                         "views": [
                             {
                                 "rotate": [
@@ -4100,7 +4287,7 @@
                                     217
                                 ],
                                 "dist": 570,
-                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step12_view.png",
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step13_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -7079,6 +7266,61 @@
                         "children": [
                             {
                                 "rotate": [
+                                    47,
+                                    0,
+                                    300
+                                ],
+                                "dist": 260,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    8,
+                                    -10,
+                                    26
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "call": "TerminalBlock(type=TerminalBlock_20A,poles=2)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            72,
+                                            0,
+                                            33
+                                        ],
+                                        "dist": 280,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            6.9,
+                                            13.6,
+                                            10.3
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/TerminalBlock.scad",
+                                "title": "2 Pole 20A Terminal Block"
+                            }
+                        ],
+                        "desc": "Wire in the terminal block to distribute power"
+                    },
+                    {
+                        "num": 13,
+                        "type": "step",
+                        "children": [
+                            {
+                                "rotate": [
                                     66,
                                     0,
                                     217
@@ -7334,6 +7576,10 @@
             {
                 "type": "file",
                 "file": "vitamins/Marble.scad"
+            },
+            {
+                "type": "file",
+                "file": "vitamins/TerminalBlock.scad"
             },
             {
                 "type": "file",

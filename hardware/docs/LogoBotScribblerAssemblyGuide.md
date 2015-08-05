@@ -20,6 +20,7 @@ Qty | Vitamin | Image
 1 | [Fine Line Pen]() | ![](../vitamins/images/FineLinePen_view.png) | 
 1 | [Servo Horn]() | ![](../vitamins/images/ServoHorn_view.png) | 
 2 | [28YBJ48 Stepper Motor]() | ![](../vitamins/images/28YBJ48StepperMotor_view.png) | 
+1 | [2 Pole 20A Terminal Block]() | ![](../vitamins/images/2Pole20ATerminalBlock_view.png) | 
 2 | [ULN2003 Driver Board]() | ![](../vitamins/images/ULN2003DriverBoard_view.png) | 
 
 ### Printed Parts
@@ -182,6 +183,7 @@ Qty | Vitamin | Image
 1 | [9g Micro Servo]() | ![](../vitamins/images/9gMicroServo_view.png) | 
 1 | [SPST6A Mini Toggle Switch]() | ![](../vitamins/images/SPST6AMiniToggleSwitch_view.png) | 
 1 | [Servo Horn]() | ![](../vitamins/images/ServoHorn_view.png) | 
+1 | [2 Pole 20A Terminal Block]() | ![](../vitamins/images/2Pole20ATerminalBlock_view.png) | 
 
 ### Printed Parts
 
@@ -225,7 +227,9 @@ Qty | Name
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step10_view.png)
 11. Attach the battery pack with velcro
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step11_view.png)
-12. Push the shell down onto the base and twist to lock into place
+12. Wire in the terminal block to distribute power
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step12_view.png)
+13. Push the shell down onto the base and twist to lock into place
+![](../assemblies/LogoBotScribbler/FinalAssembly_step13_view.png)
 
 

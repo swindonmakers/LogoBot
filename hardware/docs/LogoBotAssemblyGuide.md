@@ -17,6 +17,7 @@ Qty | Vitamin | Image
 4 | [MicroSwitch]() | ![](../vitamins/images/MicroSwitch_view.png) | 
 1 | [SPST6A Mini Toggle Switch]() | ![](../vitamins/images/SPST6AMiniToggleSwitch_view.png) | 
 2 | [28YBJ48 Stepper Motor]() | ![](../vitamins/images/28YBJ48StepperMotor_view.png) | 
+1 | [2 Pole 20A Terminal Block]() | ![](../vitamins/images/2Pole20ATerminalBlock_view.png) | 
 2 | [ULN2003 Driver Board]() | ![](../vitamins/images/ULN2003DriverBoard_view.png) | 
 
 ### Printed Parts
@@ -167,6 +168,7 @@ Qty | Vitamin | Image
 1 | [Arduino Pro Mini Pins on top, inc serial pins]() | ![](../vitamins/images/ArduinoProMiniPinsontopincserialpins_view.png) | 
 2 | [JumperWire Female to Female 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png) | 
 1 | [SPST6A Mini Toggle Switch]() | ![](../vitamins/images/SPST6AMiniToggleSwitch_view.png) | 
+1 | [2 Pole 20A Terminal Block]() | ![](../vitamins/images/2Pole20ATerminalBlock_view.png) | 
 
 ### Printed Parts
 
@@ -206,7 +208,9 @@ Qty | Name
 ![](../assemblies/LogoBot/FinalAssembly_step9_view.png)
 10. Attach the battery pack with velcro
 ![](../assemblies/LogoBot/FinalAssembly_step10_view.png)
-11. Push the shell down onto the base and twist to lock into place
+11. Wire in the terminal block to distribute power
 ![](../assemblies/LogoBot/FinalAssembly_step11_view.png)
+12. Push the shell down onto the base and twist to lock into place
+![](../assemblies/LogoBot/FinalAssembly_step12_view.png)
 
 

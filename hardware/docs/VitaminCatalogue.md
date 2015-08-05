@@ -10,6 +10,7 @@
  * [MiniToggleSwitch.scad ](#minitoggleswitchscad)
  * [Pen.scad ](#penscad)
  * [ServoHorn.scad ](#servohornscad)
+ * [TerminalBlock.scad ](#terminalblockscad)
  * [ULN2003DriverBoard.scad ](#uln2003driverboardscad)
 
 
@@ -66,6 +67,12 @@ Fine Line Pen | `Pen()` | ![Fine Line Pen](../vitamins/images/FineLinePen_view.p
 Title | Call | Image
 --- | --- | ---
 Servo Horn | `ServoHorn()` | ![Servo Horn](../vitamins/images/ServoHorn_view.png)
+
+## TerminalBlock.scad
+
+Title | Call | Image
+--- | --- | ---
+2 Pole 20A Terminal Block | `TerminalBlock(type=TerminalBlock_20A,poles=2)` | ![2 Pole 20A Terminal Block](../vitamins/images/2Pole20ATerminalBlock_view.png)
 
 ## ULN2003DriverBoard.scad
 
