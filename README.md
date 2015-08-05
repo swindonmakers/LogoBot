@@ -5,9 +5,11 @@ Cheap, extensible mobile robot design based on Arduino - inspired by Mirobot and
 
 Developed by the Swindon Hackspace (UK) - see [LogoBot wiki page](https://github.com/snhack/snhack.github.com/wiki/LogoBot) and [related Google Groups thread](https://groups.google.com/d/topic/swindon-hackspace/0EO_l_R9aW0/discussion)
 
-See the [Assembly Guides](https://rawgit.com/snhack/LogoBot/master/hardware/docs/index.htm) for easy to follow build instructions and links to the printable STLs.
+See the [Assembly Guides](https://rawgit.com/snhack/LogoBot/master/hardware/docs/index.htm) for easy to follow build instructions and links to the printable STLs.  Two of the variants are shown below - the basic design and the Scribbler variant that includes a pen lift.
 
 ![](hardware/images/LogoBot_view.png)
+
+![](hardware/images/LogoBotScribbler_view.png)
 
 
 Design Principles
@@ -21,6 +23,7 @@ Design Principles
 * Solderless (where practical)
 * Extensible - more sensors, more functionality
 * Personalisable - we don't want lots of bland, generic little robots
+* Include a Logo interpreter - as per it's namesake :)
 
 
 File Structure
