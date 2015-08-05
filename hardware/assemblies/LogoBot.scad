@@ -236,11 +236,15 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 
             // TODO: Add velcro or to hold down battery pack
             // Battery assembly
-            step(11, "Attach the battery pack with velcro") {
+            step(11, "Attach the battery pack with self-adhesive hook and loop tape") {
                 view(t=[0,0,20], r=[52,0,337], d=400);
 
                 attach(LogoBot_Con_BatteryPack, BatteryPack_Con_SideFace(), ExplodeSpacing=20)
                     BatteryPack(BatteryPack_AA, showBatteries=true);
+
+                // hook and loop tape
+                attach(LogoBot_Con_GridFixing(0,-4,0), HookAndLoopTape_Con_Def, ExplodeSpacing=0)
+                    HookAndLoopTape(length=40, width=10);
             }
 
             step(12, "Wire in the terminal block to distribute power") {
