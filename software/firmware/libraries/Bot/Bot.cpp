@@ -1,8 +1,7 @@
 #include "Bot.h"
 
-Bot::Bot(uint8_t lp1, uint8_t lp2, uint8_t lp3, uint8_t lp4, uint8_t rp1, uint8_t rp2, uint8_t rp3, uint8_t rp4) : 
-	_stepperL(AccelStepper::HALF4WIRE, lp1, lp3, lp2, lp4),
-	_stepperR(AccelStepper::HALF4WIRE, rp1, rp3, rp2, rp4)
+Bot::Bot(uint8_t lp1, uint8_t lp2, uint8_t lp3, uint8_t lp4, uint8_t rp1, uint8_t rp2, uint8_t rp3, uint8_t rp4) :
+	_diffDrive(DifferentialStepper::HALF4WIRE, lp1, lp3, lp2, lp4, rp1, rp3, rp2, rp4)
 {
 	_pinStepper[0] = lp1;
 	_pinStepper[1] = lp2;
@@ -19,14 +18,10 @@ Bot::Bot(uint8_t lp1, uint8_t lp2, uint8_t lp3, uint8_t lp4, uint8_t rp1, uint8_
 
 void Bot::begin()
 {
-	_stepperL.setMaxSpeed(1000);
-	_stepperL.setAcceleration(2000);
-	_stepperL.setBacklash(STEPS_OF_BACKLASH);
-	_stepperL.setPinsInverted(true, true, false, false, false);
-
-	_stepperR.setMaxSpeed(1000);
-	_stepperR.setAcceleration(2000);
-	_stepperR.setBacklash(STEPS_OF_BACKLASH);
+	_diffDrive.setMaxStepRate(1000);
+	_diffDrive.setAcceleration(2000);
+	_diffDrive.setBacklash(STEPS_OF_BACKLASH);
+	_diffDrive.setInvertDirectionFor(0,true);
 }
 
 void Bot::initBuzzer(uint8_t pin)
@@ -58,7 +53,7 @@ void Bot::initPenLift(uint8_t pin)
 
 bool Bot::isMoving()
 {
-	return _stepperL.distanceToGo() != 0 || _stepperR.distanceToGo() != 0;
+	return !_diffDrive.isQEmpty();
 }
 
 void Bot::playStartupJingle()
@@ -74,8 +69,7 @@ void Bot::playStartupJingle()
 void Bot::run()
 {
 	// Run steppers
-	_stepperL.run();
-	_stepperR.run();
+	_diffDrive.run();
 
 	// Do buzzer
 	if (millis() < _buzzEnd)
@@ -97,7 +91,7 @@ void Bot::run()
 
 		state.colliding = nowColliding;
 	}
-	
+
 	// Disable motors when stopped to save power
 	// Note that AccelStepper.disableOutputs doesn't seem to work
 	// correctly when pins are inverted and leaves some outputs on.
@@ -121,18 +115,14 @@ void Bot::buzz(int len)
 	_buzzEnd = millis() + len;
 }
 
-void Bot::stop() 
+void Bot::stop()
 {
-	_stepperL.stop();
-	_stepperR.stop();
+	_diffDrive.stop();
 }
 
-void Bot::emergencyStop() 
+void Bot::emergencyStop()
 {
-	_stepperL.setCurrentPosition(_stepperL.currentPosition());
-	_stepperL.setSpeed(0);
-	_stepperR.setCurrentPosition(_stepperR.currentPosition());
-	_stepperR.setSpeed(0);
+	_diffDrive.emergencyStop();
 }
 
 void Bot::drive(float distance)
@@ -143,8 +133,7 @@ void Bot::drive(float distance)
 
 	// prime the move
 	int steps = distance * STEPS_PER_MM;
-	_stepperL.move(steps);
-	_stepperR.move(steps);
+	_diffDrive.queueMove(steps,steps);
 }
 
 void Bot::turn(float ang)
@@ -158,8 +147,7 @@ void Bot::turn(float ang)
 
 	// prime the move
 	int steps = ang * STEPS_PER_DEG;
-	_stepperR.move(steps);
-	_stepperL.move(-steps);
+	_diffDrive.queueMove(-steps,steps);
 }
 
 // position calcs

@@ -1,5 +1,5 @@
 #include "Configuration.h"
-#include <AccelStepper.h>
+#include <DifferentialStepper.h>
 #include <Bot.h>
 #include <CommandQueue.h>
 #include <LogobotText.h>

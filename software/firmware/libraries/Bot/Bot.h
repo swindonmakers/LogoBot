@@ -2,7 +2,7 @@
 #define Bot_h
 
 #include <Arduino.h>
-#include <AccelStepper.h>
+#include <DifferentialStepper.h>
 #include <Servo.h>
 
 // Bot tuning and sizing parameters
@@ -29,7 +29,7 @@ class Bot
 public:
 	Bot(uint8_t lp1, uint8_t lp2, uint8_t lp3, uint8_t lp4, uint8_t rp1, uint8_t rp2, uint8_t rp3, uint8_t rp4);
 	void begin();
-	
+
 	void initBuzzer(uint8_t pin);
 	void initBumpers(uint8_t pinFL, uint8_t pinFR, uint8_t pinBL, uint8_t pinBR, void (*pFunc)(byte collisionData));
 	void initPenLift(uint8_t pin);
@@ -63,8 +63,7 @@ private:
 	uint8_t _pinSwitchBR;
 	uint8_t _pinStepper[8];
 
-	AccelStepper _stepperL;
-	AccelStepper _stepperR;
+	DifferentialStepper _diffDrive;
 	Servo _penliftServo;
 
 };
