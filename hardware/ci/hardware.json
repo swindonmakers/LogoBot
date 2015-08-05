@@ -1,7 +1,7 @@
 [
     {
         "cut": [],
-        "hash": "4d2abf0e2045bd650df3dd225138cf54",
+        "hash": "bd581a96742c82dc63ba36261d402b5e",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -97,7 +97,7 @@
                 "file": "vitamins/motor.scad"
             },
             {
-                "hash": "7d882d2504d62d9c909b901b19ab88f0",
+                "hash": "2e1c04d1a41229c9a6671468320aa856",
                 "title": "ULN2003 Driver Board",
                 "views": [
                     {
@@ -138,8 +138,8 @@
                             22
                         ],
                         "dist": 200,
-                        "title": "view",
                         "filepath": "../vitamins/images/3mmLED_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             23,
@@ -314,6 +314,37 @@
                 "file": "vitamins/BatteryPack.scad"
             },
             {
+                "hash": "d70c46d469a9560c832b1a5ada16663b",
+                "title": "Hook and Loop Tape 40x10mm",
+                "views": [
+                    {
+                        "rotate": [
+                            55,
+                            0,
+                            25
+                        ],
+                        "dist": 200,
+                        "title": "view",
+                        "filepath": "../vitamins/images/HookandLoopTape40x10mm_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "parts": [],
+                "call": "HookAndLoopTape(length=40, width=10)",
+                "file": "vitamins/HookAndLoopTape.scad"
+            },
+            {
                 "hash": "41e6fdc29ea2337f47ffa7b87220a1d1",
                 "title": "2 Pole 20A Terminal Block",
                 "views": [
@@ -473,7 +504,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "d5603441e881b88ceccaa8caaf333526",
+                "hash": "4d8aed8a4e0a1218a968135574df214f",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -514,6 +545,14 @@
                         "parts": [],
                         "call": "BatteryPack()",
                         "file": "vitamins/BatteryPack.scad"
+                    },
+                    {
+                        "title": "Hook and Loop Tape 40x10mm",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "HookAndLoopTape(length=40, width=10)",
+                        "file": "vitamins/HookAndLoopTape.scad"
                     },
                     {
                         "title": "2 Pole 20A Terminal Block",
@@ -871,7 +910,7 @@
                         ]
                     },
                     {
-                        "desc": "Attach the battery pack with velcro",
+                        "desc": "Attach the battery pack with self-adhesive hook and loop tape",
                         "num": 11,
                         "views": [
                             {
@@ -1042,7 +1081,7 @@
             },
             {
                 "cut": [],
-                "hash": "96719fd735baf2a620d00355a4bb6285",
+                "hash": "14337a8817b409adc1d011ad687f6d94",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -1059,14 +1098,6 @@
                         "parts": [],
                         "call": "ULN2003DriverBoard()",
                         "file": "vitamins/ULN2003DriverBoard.scad"
-                    },
-                    {
-                        "title": "3mm LED",
-                        "views": [],
-                        "qty": 4,
-                        "parts": [],
-                        "call": "LED(LEDType=LED_3mm)",
-                        "file": "vitamins/LED.scad"
                     }
                 ],
                 "views": [],
@@ -1212,7 +1243,7 @@
             },
             {
                 "cut": [],
-                "hash": "3a8404ed8e5c6f0576188f58274c4579",
+                "hash": "afd7565cc292eeced9f056f292a05a6b",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -1229,14 +1260,6 @@
                         "parts": [],
                         "call": "ULN2003DriverBoard()",
                         "file": "vitamins/ULN2003DriverBoard.scad"
-                    },
-                    {
-                        "title": "3mm LED",
-                        "views": [],
-                        "qty": 4,
-                        "parts": [],
-                        "call": "LED(LEDType=LED_3mm)",
-                        "file": "vitamins/LED.scad"
                     }
                 ],
                 "views": [],
@@ -1699,19 +1722,6 @@
                 "hash": "70f4982b507a3e250b271557c5c2e509",
                 "plasticWeight": 0.006125,
                 "weight": 0.006125,
-                "title": "Left Motor Clip",
-                "aabb": [
-                    [
-                        -26.0,
-                        -12.0,
-                        2.1
-                    ],
-                    [
-                        26.0,
-                        8.0,
-                        36.5
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -1735,6 +1745,19 @@
                         ]
                     }
                 ],
+                "aabb": [
+                    [
+                        -26.0,
+                        -12.0,
+                        2.1
+                    ],
+                    [
+                        26.0,
+                        8.0,
+                        36.5
+                    ]
+                ],
+                "title": "Left Motor Clip",
                 "qty": 1,
                 "volume": 4.9,
                 "area": 5598.797257968836,
@@ -1827,19 +1850,6 @@
                 "hash": "19705fbf11e6214c57421b1ee6f2cc17",
                 "plasticWeight": 0.006125,
                 "weight": 0.006125,
-                "title": "Right Motor Clip",
-                "aabb": [
-                    [
-                        -26.0,
-                        -12.0,
-                        2.1
-                    ],
-                    [
-                        26.0,
-                        8.0,
-                        36.5
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -1863,6 +1873,19 @@
                         ]
                     }
                 ],
+                "aabb": [
+                    [
+                        -26.0,
+                        -12.0,
+                        2.1
+                    ],
+                    [
+                        26.0,
+                        8.0,
+                        36.5
+                    ]
+                ],
+                "title": "Right Motor Clip",
                 "qty": 1,
                 "volume": 4.9,
                 "area": 5598.797257992755,
@@ -2951,122 +2974,123 @@
                                                             400,
                                                             300
                                                         ]
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "filepath": "../vitamins/images/3mmLED_view.png",
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
                                                     }
                                                 ],
                                                 "file": "vitamins/ULN2003DriverBoard.scad",
                                                 "title": "ULN2003 Driver Board"
-                                            },
-                                            {
-                                                "call": "LED(LEDType=LED_3mm)",
-                                                "type": "vitamin",
-                                                "children": [
-                                                    {
-                                                        "rotate": [
-                                                            34,
-                                                            2,
-                                                            22
-                                                        ],
-                                                        "dist": 200,
-                                                        "title": "view",
-                                                        "caption": "view",
-                                                        "translate": [
-                                                            23,
-                                                            9,
-                                                            3
-                                                        ],
-                                                        "type": "view",
-                                                        "size": [
-                                                            400,
-                                                            300
-                                                        ]
-                                                    }
-                                                ],
-                                                "file": "vitamins/LED.scad",
-                                                "title": "3mm LED"
-                                            },
-                                            {
-                                                "call": "LED(LEDType=LED_3mm)",
-                                                "type": "vitamin",
-                                                "children": [
-                                                    {
-                                                        "rotate": [
-                                                            34,
-                                                            2,
-                                                            22
-                                                        ],
-                                                        "dist": 200,
-                                                        "title": "view",
-                                                        "caption": "view",
-                                                        "translate": [
-                                                            23,
-                                                            9,
-                                                            3
-                                                        ],
-                                                        "type": "view",
-                                                        "size": [
-                                                            400,
-                                                            300
-                                                        ]
-                                                    }
-                                                ],
-                                                "file": "vitamins/LED.scad",
-                                                "title": "3mm LED"
-                                            },
-                                            {
-                                                "call": "LED(LEDType=LED_3mm)",
-                                                "type": "vitamin",
-                                                "children": [
-                                                    {
-                                                        "rotate": [
-                                                            34,
-                                                            2,
-                                                            22
-                                                        ],
-                                                        "dist": 200,
-                                                        "title": "view",
-                                                        "caption": "view",
-                                                        "translate": [
-                                                            23,
-                                                            9,
-                                                            3
-                                                        ],
-                                                        "type": "view",
-                                                        "size": [
-                                                            400,
-                                                            300
-                                                        ]
-                                                    }
-                                                ],
-                                                "file": "vitamins/LED.scad",
-                                                "title": "3mm LED"
-                                            },
-                                            {
-                                                "call": "LED(LEDType=LED_3mm)",
-                                                "type": "vitamin",
-                                                "children": [
-                                                    {
-                                                        "rotate": [
-                                                            34,
-                                                            2,
-                                                            22
-                                                        ],
-                                                        "dist": 200,
-                                                        "title": "view",
-                                                        "caption": "view",
-                                                        "translate": [
-                                                            23,
-                                                            9,
-                                                            3
-                                                        ],
-                                                        "type": "view",
-                                                        "size": [
-                                                            400,
-                                                            300
-                                                        ]
-                                                    }
-                                                ],
-                                                "file": "vitamins/LED.scad",
-                                                "title": "3mm LED"
                                             }
                                         ],
                                         "desc": "Slide the stepper driver into place and plug in the cable for the motor"
@@ -3348,122 +3372,122 @@
                                                             400,
                                                             300
                                                         ]
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
                                                     }
                                                 ],
                                                 "file": "vitamins/ULN2003DriverBoard.scad",
                                                 "title": "ULN2003 Driver Board"
-                                            },
-                                            {
-                                                "call": "LED(LEDType=LED_3mm)",
-                                                "type": "vitamin",
-                                                "children": [
-                                                    {
-                                                        "rotate": [
-                                                            34,
-                                                            2,
-                                                            22
-                                                        ],
-                                                        "dist": 200,
-                                                        "title": "view",
-                                                        "caption": "view",
-                                                        "translate": [
-                                                            23,
-                                                            9,
-                                                            3
-                                                        ],
-                                                        "type": "view",
-                                                        "size": [
-                                                            400,
-                                                            300
-                                                        ]
-                                                    }
-                                                ],
-                                                "file": "vitamins/LED.scad",
-                                                "title": "3mm LED"
-                                            },
-                                            {
-                                                "call": "LED(LEDType=LED_3mm)",
-                                                "type": "vitamin",
-                                                "children": [
-                                                    {
-                                                        "rotate": [
-                                                            34,
-                                                            2,
-                                                            22
-                                                        ],
-                                                        "dist": 200,
-                                                        "title": "view",
-                                                        "caption": "view",
-                                                        "translate": [
-                                                            23,
-                                                            9,
-                                                            3
-                                                        ],
-                                                        "type": "view",
-                                                        "size": [
-                                                            400,
-                                                            300
-                                                        ]
-                                                    }
-                                                ],
-                                                "file": "vitamins/LED.scad",
-                                                "title": "3mm LED"
-                                            },
-                                            {
-                                                "call": "LED(LEDType=LED_3mm)",
-                                                "type": "vitamin",
-                                                "children": [
-                                                    {
-                                                        "rotate": [
-                                                            34,
-                                                            2,
-                                                            22
-                                                        ],
-                                                        "dist": 200,
-                                                        "title": "view",
-                                                        "caption": "view",
-                                                        "translate": [
-                                                            23,
-                                                            9,
-                                                            3
-                                                        ],
-                                                        "type": "view",
-                                                        "size": [
-                                                            400,
-                                                            300
-                                                        ]
-                                                    }
-                                                ],
-                                                "file": "vitamins/LED.scad",
-                                                "title": "3mm LED"
-                                            },
-                                            {
-                                                "call": "LED(LEDType=LED_3mm)",
-                                                "type": "vitamin",
-                                                "children": [
-                                                    {
-                                                        "rotate": [
-                                                            34,
-                                                            2,
-                                                            22
-                                                        ],
-                                                        "dist": 200,
-                                                        "title": "view",
-                                                        "caption": "view",
-                                                        "translate": [
-                                                            23,
-                                                            9,
-                                                            3
-                                                        ],
-                                                        "type": "view",
-                                                        "size": [
-                                                            400,
-                                                            300
-                                                        ]
-                                                    }
-                                                ],
-                                                "file": "vitamins/LED.scad",
-                                                "title": "3mm LED"
                                             }
                                         ],
                                         "desc": "Slide the stepper driver into place and plug in the cable for the motor"
@@ -3949,9 +3973,37 @@
                                 ],
                                 "file": "vitamins/BatteryPack.scad",
                                 "title": "Battery Pack"
+                            },
+                            {
+                                "call": "HookAndLoopTape(length=40, width=10)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            55,
+                                            0,
+                                            25
+                                        ],
+                                        "dist": 200,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/HookAndLoopTape.scad",
+                                "title": "Hook and Loop Tape 40x10mm"
                             }
                         ],
-                        "desc": "Attach the battery pack with velcro"
+                        "desc": "Attach the battery pack with self-adhesive hook and loop tape"
                     },
                     {
                         "num": 12,
@@ -4644,7 +4696,7 @@
     },
     {
         "cut": [],
-        "hash": "8a4c7c69345e7152284fb525330b4054",
+        "hash": "6ca80f368ebb11c280164e529dc77d8e",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -4740,7 +4792,7 @@
                 "file": "vitamins/motor.scad"
             },
             {
-                "hash": "7d882d2504d62d9c909b901b19ab88f0",
+                "hash": "2e1c04d1a41229c9a6671468320aa856",
                 "title": "ULN2003 Driver Board",
                 "views": [
                     {
@@ -4781,8 +4833,8 @@
                             22
                         ],
                         "dist": 200,
-                        "title": "view",
                         "filepath": "../vitamins/images/3mmLED_view.png",
+                        "title": "view",
                         "caption": "view",
                         "translate": [
                             23,
@@ -5063,6 +5115,37 @@
                 "file": "vitamins/BatteryPack.scad"
             },
             {
+                "hash": "d70c46d469a9560c832b1a5ada16663b",
+                "title": "Hook and Loop Tape 40x10mm",
+                "views": [
+                    {
+                        "rotate": [
+                            55,
+                            0,
+                            25
+                        ],
+                        "dist": 200,
+                        "title": "view",
+                        "filepath": "../vitamins/images/HookandLoopTape40x10mm_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "parts": [],
+                "call": "HookAndLoopTape(length=40, width=10)",
+                "file": "vitamins/HookAndLoopTape.scad"
+            },
+            {
                 "hash": "41e6fdc29ea2337f47ffa7b87220a1d1",
                 "title": "2 Pole 20A Terminal Block",
                 "views": [
@@ -5222,7 +5305,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "bc45e2730e25d79b51d4d46eec42a253",
+                "hash": "9cbf88357c6f1797541daf53326fbd31",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -5292,6 +5375,14 @@
                         "parts": [],
                         "call": "BatteryPack()",
                         "file": "vitamins/BatteryPack.scad"
+                    },
+                    {
+                        "title": "Hook and Loop Tape 40x10mm",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "HookAndLoopTape(length=40, width=10)",
+                        "file": "vitamins/HookAndLoopTape.scad"
                     },
                     {
                         "title": "2 Pole 20A Terminal Block",
@@ -5696,7 +5787,7 @@
                         ]
                     },
                     {
-                        "desc": "Attach the battery pack with velcro",
+                        "desc": "Attach the battery pack with self-adhesive hook and loop tape",
                         "num": 11,
                         "views": [
                             {
@@ -5867,7 +5958,7 @@
             },
             {
                 "cut": [],
-                "hash": "96719fd735baf2a620d00355a4bb6285",
+                "hash": "14337a8817b409adc1d011ad687f6d94",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -5884,14 +5975,6 @@
                         "parts": [],
                         "call": "ULN2003DriverBoard()",
                         "file": "vitamins/ULN2003DriverBoard.scad"
-                    },
-                    {
-                        "title": "3mm LED",
-                        "views": [],
-                        "qty": 4,
-                        "parts": [],
-                        "call": "LED(LEDType=LED_3mm)",
-                        "file": "vitamins/LED.scad"
                     }
                 ],
                 "views": [],
@@ -6037,7 +6120,7 @@
             },
             {
                 "cut": [],
-                "hash": "3a8404ed8e5c6f0576188f58274c4579",
+                "hash": "afd7565cc292eeced9f056f292a05a6b",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -6054,14 +6137,6 @@
                         "parts": [],
                         "call": "ULN2003DriverBoard()",
                         "file": "vitamins/ULN2003DriverBoard.scad"
-                    },
-                    {
-                        "title": "3mm LED",
-                        "views": [],
-                        "qty": 4,
-                        "parts": [],
-                        "call": "LED(LEDType=LED_3mm)",
-                        "file": "vitamins/LED.scad"
                     }
                 ],
                 "views": [],
@@ -7837,122 +7912,123 @@
                                                             400,
                                                             300
                                                         ]
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "filepath": "../vitamins/images/3mmLED_view.png",
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
                                                     }
                                                 ],
                                                 "file": "vitamins/ULN2003DriverBoard.scad",
                                                 "title": "ULN2003 Driver Board"
-                                            },
-                                            {
-                                                "call": "LED(LEDType=LED_3mm)",
-                                                "type": "vitamin",
-                                                "children": [
-                                                    {
-                                                        "rotate": [
-                                                            34,
-                                                            2,
-                                                            22
-                                                        ],
-                                                        "dist": 200,
-                                                        "title": "view",
-                                                        "caption": "view",
-                                                        "translate": [
-                                                            23,
-                                                            9,
-                                                            3
-                                                        ],
-                                                        "type": "view",
-                                                        "size": [
-                                                            400,
-                                                            300
-                                                        ]
-                                                    }
-                                                ],
-                                                "file": "vitamins/LED.scad",
-                                                "title": "3mm LED"
-                                            },
-                                            {
-                                                "call": "LED(LEDType=LED_3mm)",
-                                                "type": "vitamin",
-                                                "children": [
-                                                    {
-                                                        "rotate": [
-                                                            34,
-                                                            2,
-                                                            22
-                                                        ],
-                                                        "dist": 200,
-                                                        "title": "view",
-                                                        "caption": "view",
-                                                        "translate": [
-                                                            23,
-                                                            9,
-                                                            3
-                                                        ],
-                                                        "type": "view",
-                                                        "size": [
-                                                            400,
-                                                            300
-                                                        ]
-                                                    }
-                                                ],
-                                                "file": "vitamins/LED.scad",
-                                                "title": "3mm LED"
-                                            },
-                                            {
-                                                "call": "LED(LEDType=LED_3mm)",
-                                                "type": "vitamin",
-                                                "children": [
-                                                    {
-                                                        "rotate": [
-                                                            34,
-                                                            2,
-                                                            22
-                                                        ],
-                                                        "dist": 200,
-                                                        "title": "view",
-                                                        "caption": "view",
-                                                        "translate": [
-                                                            23,
-                                                            9,
-                                                            3
-                                                        ],
-                                                        "type": "view",
-                                                        "size": [
-                                                            400,
-                                                            300
-                                                        ]
-                                                    }
-                                                ],
-                                                "file": "vitamins/LED.scad",
-                                                "title": "3mm LED"
-                                            },
-                                            {
-                                                "call": "LED(LEDType=LED_3mm)",
-                                                "type": "vitamin",
-                                                "children": [
-                                                    {
-                                                        "rotate": [
-                                                            34,
-                                                            2,
-                                                            22
-                                                        ],
-                                                        "dist": 200,
-                                                        "title": "view",
-                                                        "caption": "view",
-                                                        "translate": [
-                                                            23,
-                                                            9,
-                                                            3
-                                                        ],
-                                                        "type": "view",
-                                                        "size": [
-                                                            400,
-                                                            300
-                                                        ]
-                                                    }
-                                                ],
-                                                "file": "vitamins/LED.scad",
-                                                "title": "3mm LED"
                                             }
                                         ],
                                         "desc": "Slide the stepper driver into place and plug in the cable for the motor"
@@ -8234,122 +8310,122 @@
                                                             400,
                                                             300
                                                         ]
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
                                                     }
                                                 ],
                                                 "file": "vitamins/ULN2003DriverBoard.scad",
                                                 "title": "ULN2003 Driver Board"
-                                            },
-                                            {
-                                                "call": "LED(LEDType=LED_3mm)",
-                                                "type": "vitamin",
-                                                "children": [
-                                                    {
-                                                        "rotate": [
-                                                            34,
-                                                            2,
-                                                            22
-                                                        ],
-                                                        "dist": 200,
-                                                        "title": "view",
-                                                        "caption": "view",
-                                                        "translate": [
-                                                            23,
-                                                            9,
-                                                            3
-                                                        ],
-                                                        "type": "view",
-                                                        "size": [
-                                                            400,
-                                                            300
-                                                        ]
-                                                    }
-                                                ],
-                                                "file": "vitamins/LED.scad",
-                                                "title": "3mm LED"
-                                            },
-                                            {
-                                                "call": "LED(LEDType=LED_3mm)",
-                                                "type": "vitamin",
-                                                "children": [
-                                                    {
-                                                        "rotate": [
-                                                            34,
-                                                            2,
-                                                            22
-                                                        ],
-                                                        "dist": 200,
-                                                        "title": "view",
-                                                        "caption": "view",
-                                                        "translate": [
-                                                            23,
-                                                            9,
-                                                            3
-                                                        ],
-                                                        "type": "view",
-                                                        "size": [
-                                                            400,
-                                                            300
-                                                        ]
-                                                    }
-                                                ],
-                                                "file": "vitamins/LED.scad",
-                                                "title": "3mm LED"
-                                            },
-                                            {
-                                                "call": "LED(LEDType=LED_3mm)",
-                                                "type": "vitamin",
-                                                "children": [
-                                                    {
-                                                        "rotate": [
-                                                            34,
-                                                            2,
-                                                            22
-                                                        ],
-                                                        "dist": 200,
-                                                        "title": "view",
-                                                        "caption": "view",
-                                                        "translate": [
-                                                            23,
-                                                            9,
-                                                            3
-                                                        ],
-                                                        "type": "view",
-                                                        "size": [
-                                                            400,
-                                                            300
-                                                        ]
-                                                    }
-                                                ],
-                                                "file": "vitamins/LED.scad",
-                                                "title": "3mm LED"
-                                            },
-                                            {
-                                                "call": "LED(LEDType=LED_3mm)",
-                                                "type": "vitamin",
-                                                "children": [
-                                                    {
-                                                        "rotate": [
-                                                            34,
-                                                            2,
-                                                            22
-                                                        ],
-                                                        "dist": 200,
-                                                        "title": "view",
-                                                        "caption": "view",
-                                                        "translate": [
-                                                            23,
-                                                            9,
-                                                            3
-                                                        ],
-                                                        "type": "view",
-                                                        "size": [
-                                                            400,
-                                                            300
-                                                        ]
-                                                    }
-                                                ],
-                                                "file": "vitamins/LED.scad",
-                                                "title": "3mm LED"
                                             }
                                         ],
                                         "desc": "Slide the stepper driver into place and plug in the cable for the motor"
@@ -9138,9 +9214,37 @@
                                 ],
                                 "file": "vitamins/BatteryPack.scad",
                                 "title": "Battery Pack"
+                            },
+                            {
+                                "call": "HookAndLoopTape(length=40, width=10)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            55,
+                                            0,
+                                            25
+                                        ],
+                                        "dist": 200,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/HookAndLoopTape.scad",
+                                "title": "Hook and Loop Tape 40x10mm"
                             }
                         ],
-                        "desc": "Attach the battery pack with velcro"
+                        "desc": "Attach the battery pack with self-adhesive hook and loop tape"
                     },
                     {
                         "num": 12,
@@ -9978,6 +10082,10 @@
             {
                 "type": "file",
                 "file": "vitamins/BatteryPack.scad"
+            },
+            {
+                "type": "file",
+                "file": "vitamins/HookAndLoopTape.scad"
             },
             {
                 "type": "file",

@@ -8,6 +8,7 @@
  * [ESP8266.scad ](#esp8266scad)
  * [FTDIBreakout.scad ](#ftdibreakoutscad)
  * [HCSR04UltrasonicSensor.scad ](#hcsr04ultrasonicsensorscad)
+ * [HookAndLoopTape.scad ](#hookandlooptapescad)
  * [JumperWire.scad ](#jumperwirescad)
  * [LED.scad ](#ledscad)
  * [Marble.scad ](#marblescad)
@@ -17,6 +18,7 @@
  * [Pen.scad ](#penscad)
  * [ServoHorn.scad ](#servohornscad)
  * [TerminalBlock.scad ](#terminalblockscad)
+ * [ULN2003DriverBoard.scad ](#uln2003driverboardscad)
 
 
 ## ArduinoPro.scad
@@ -60,6 +62,12 @@ FTDI Breakout | `FTDIBreakout()` | ![FTDI Breakout](../vitamins/images/FTDIBreak
 Title | Call | Image
 --- | --- | ---
 HCSR04 Ultrasonic Sensor | `HCSR04UltrasonicSensor()` | ![HCSR04 Ultrasonic Sensor](../vitamins/images/HCSR04UltrasonicSensor_view.png)
+
+## HookAndLoopTape.scad
+
+Title | Call | Image
+--- | --- | ---
+Hook and Loop Tape 40x25mm | `HookAndLoopTape(length=40, width=25)` | ![Hook and Loop Tape 40x25mm](../vitamins/images/HookandLoopTape40x25mm_view.png)
 
 ## JumperWire.scad
 
@@ -123,4 +131,10 @@ Servo Horn | `ServoHorn()` | ![Servo Horn](../vitamins/images/ServoHorn_view.png
 Title | Call | Image
 --- | --- | ---
 2 Pole 20A Terminal Block | `TerminalBlock(type=TerminalBlock_20A,poles=2)` | ![2 Pole 20A Terminal Block](../vitamins/images/2Pole20ATerminalBlock_view.png)
+
+## ULN2003DriverBoard.scad
+
+Title | Call | Image
+--- | --- | ---
+ULN2003 Driver Board | `ULN2003DriverBoard()` | ![ULN2003 Driver Board](../vitamins/images/ULN2003DriverBoard_view.png)
 

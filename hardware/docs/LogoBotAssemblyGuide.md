@@ -14,6 +14,7 @@ Qty | Vitamin | Image
 1 | [Arduino Pro Mini Pins on top, inc serial pins]() | ![](../vitamins/images/ArduinoProMiniPinsontopincserialpins_view.png) | 
 4 | [AA Battery]() | ![](../vitamins/images/AABattery_view.png) | 
 1 | [Battery Pack]() | ![](../vitamins/images/BatteryPack_view.png) | 
+1 | [Hook and Loop Tape 40x10mm]() | ![](../vitamins/images/HookandLoopTape40x10mm_view.png) | 
 2 | [JumperWire Female to Female 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png) | 
 6 | [JumperWire Female to None 1pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoNone1pin100mm_view.png) | 
 4 | [JumperWire Female to None 1pin 70mm]() | ![](../vitamins/images/JumperWireFemaletoNone1pin70mm_view.png) | 
@@ -79,7 +80,6 @@ Qty | Part Name | Image
 
 Qty | Vitamin | Image
 --- | --- | ---
-4 | [3mm LED]() | ![](../vitamins/images/3mmLED_view.png) | 
 1 | [28YBJ48 Stepper Motor]() | ![](../vitamins/images/28YBJ48StepperMotor_view.png) | 
 1 | [ULN2003 Driver Board]() | ![](../vitamins/images/ULN2003DriverBoard_view.png) | 
 
@@ -109,7 +109,6 @@ Qty | Part Name | Image
 
 Qty | Vitamin | Image
 --- | --- | ---
-4 | [3mm LED]() | ![](../vitamins/images/3mmLED_view.png) | 
 1 | [28YBJ48 Stepper Motor]() | ![](../vitamins/images/28YBJ48StepperMotor_view.png) | 
 1 | [ULN2003 Driver Board]() | ![](../vitamins/images/ULN2003DriverBoard_view.png) | 
 
@@ -177,6 +176,7 @@ Qty | Vitamin | Image
 1 | [Arduino Pro Mini Pins on top, inc serial pins]() | ![](../vitamins/images/ArduinoProMiniPinsontopincserialpins_view.png) | 
 4 | [AA Battery]() | ![](../vitamins/images/AABattery_view.png) | 
 1 | [Battery Pack]() | ![](../vitamins/images/BatteryPack_view.png) | 
+1 | [Hook and Loop Tape 40x10mm]() | ![](../vitamins/images/HookandLoopTape40x10mm_view.png) | 
 2 | [JumperWire Female to Female 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png) | 
 6 | [JumperWire Female to None 1pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoNone1pin100mm_view.png) | 
 4 | [JumperWire Female to None 1pin 70mm]() | ![](../vitamins/images/JumperWireFemaletoNone1pin70mm_view.png) | 
@@ -221,7 +221,7 @@ Qty | Name
 ![](../assemblies/LogoBot/FinalAssembly_step6_view.png)
 9. Align the caster assembly with the base, then insert a short pin to lock it to the base
 ![](../assemblies/LogoBot/FinalAssembly_step9_view.png)
-11. Attach the battery pack with velcro
+11. Attach the battery pack with self-adhesive hook and loop tape
 ![](../assemblies/LogoBot/FinalAssembly_step11_view.png)
 12. Wire in the terminal block to distribute power
 ![](../assemblies/LogoBot/FinalAssembly_step12_view.png)
