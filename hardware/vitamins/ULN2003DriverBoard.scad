@@ -57,61 +57,61 @@ module ULN2003DriverBoard_PCB(includeFixings=true, thickness=ULN2003Driver_PCBTh
 
 module ULN2003DriverBoard() {
 
-	vitamin(
-		"vitamins/ULN2003DriverBoard.scad",
-		str("ULN2003 Driver Board"),
-		str("ULN2003DriverBoard()")
-	) {
-		view(d=140);
-	}
-
 	if (DebugCoordinateFrames) frame();
 
 	if (DebugConnectors)
 		for (c = ULN2003DriverBoard_Cons)
 			connector(c);
 
-	ULN2003DriverBoard_PCB();
+	vitamin(
+		"vitamins/ULN2003DriverBoard.scad",
+		str("ULN2003 Driver Board"),
+		str("ULN2003DriverBoard()")
+	) {
+		view(d=140);
 
-	// everything else
-	translate([(ULN2003Driver_BoardWidth / 2) - ULN2003Driver_HoleInset, (ULN2003Driver_BoardHeight / 2) - ULN2003Driver_HoleInset, 0])
-	{
-		// Move us to the bottom left of the PCB
-		translate([-ULN2003Driver_BoardWidth / 2, -ULN2003Driver_BoardHeight / 2, 0]) {
+		ULN2003DriverBoard_PCB();
 
-			// ULN2003 chip
-			color("darkgrey")
-			translate([1, 8, ULN2003Driver_PCBThickness - eta])
-				cube([20, 10, 8]);
+		// everything else
+		translate([(ULN2003Driver_BoardWidth / 2) - ULN2003Driver_HoleInset, (ULN2003Driver_BoardHeight / 2) - ULN2003Driver_HoleInset, 0])
+		{
+			// Move us to the bottom left of the PCB
+			translate([-ULN2003Driver_BoardWidth / 2, -ULN2003Driver_BoardHeight / 2, 0]) {
 
-			// Arduino header
-			translate([6, 6, ULN2003Driver_PCBThickness - eta])
-				PcbPinStrip(4);
+				// ULN2003 chip
+				color("darkgrey")
+				translate([1, 8, ULN2003Driver_PCBThickness - eta])
+					cube([20, 10, 8]);
 
-			// Stepper Connection
-			color("white")
-			translate([1.5, 19, ULN2003Driver_PCBThickness - eta])
-				difference() {
-					cube([15.5, 6, 8]);
-					translate([1, 1, 1])
-						cube([13.5, 4, 8]);
-				}
-			translate([4, 22, ULN2003Driver_PCBThickness - eta])
-				PcbPinStrip(5, 0, false);
+				// Arduino header
+				translate([6, 6, ULN2003Driver_PCBThickness - eta])
+					PcbPinStrip(4);
 
-			// Power & On/Off Jumper
-			translate([24.5, 9, ULN2003Driver_PCBThickness - eta])
-				PcbPinStrip(4, 90);
+				// Stepper Connection
+				color("white")
+				translate([1.5, 19, ULN2003Driver_PCBThickness - eta])
+					difference() {
+						cube([15.5, 6, 8]);
+						translate([1, 1, 1])
+							cube([13.5, 4, 8]);
+					}
+				translate([4, 22, ULN2003Driver_PCBThickness - eta])
+					PcbPinStrip(5, 0, false);
 
-			// LEDS
-			translate([6, 29, ULN2003Driver_PCBThickness - eta])
-				LED_3mm();
-			translate([10, 29, ULN2003Driver_PCBThickness - eta])
-				LED_3mm();
-			translate([14.5, 29, ULN2003Driver_PCBThickness - eta])
-				LED_3mm();
-			translate([19, 29, ULN2003Driver_PCBThickness - eta])
-				LED_3mm();
+				// Power & On/Off Jumper
+				translate([24.5, 9, ULN2003Driver_PCBThickness - eta])
+					PcbPinStrip(4, 90);
+
+				// LEDS
+				translate([6, 29, ULN2003Driver_PCBThickness - eta])
+					LED_3mm();
+				translate([10, 29, ULN2003Driver_PCBThickness - eta])
+					LED_3mm();
+				translate([14.5, 29, ULN2003Driver_PCBThickness - eta])
+					LED_3mm();
+				translate([19, 29, ULN2003Driver_PCBThickness - eta])
+					LED_3mm();
+			}
 		}
 	}
 }
