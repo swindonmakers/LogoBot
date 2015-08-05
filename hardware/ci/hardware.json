@@ -1,7 +1,7 @@
 [
     {
         "cut": [],
-        "hash": "ac13dfb67a8c98577849ebd1b0806e89",
+        "hash": "5f64cd0c37ea21bb7fd13cf9663a2a57",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -128,7 +128,7 @@
                 "file": "vitamins/ULN2003DriverBoard.scad"
             },
             {
-                "hash": "ae07e1b3f3bc303c64cc8841bda3e669",
+                "hash": "25f0936f568587c8dd3a86ce47cbddd2",
                 "title": "JumperWire Female to Female 4pin 100mm",
                 "views": [
                     {
@@ -312,13 +312,137 @@
                 "parts": [],
                 "call": "TerminalBlock(type=TerminalBlock_20A,poles=2)",
                 "file": "vitamins/TerminalBlock.scad"
+            },
+            {
+                "hash": "4303bf85dd4b8e6a488aa984def38431",
+                "title": "JumperWire None to None 1pin 50mm",
+                "views": [
+                    {
+                        "rotate": [
+                            41,
+                            0,
+                            29
+                        ],
+                        "dist": 438,
+                        "filepath": "../vitamins/images/JumperWireNonetoNone1pin50mm_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            51,
+                            5,
+                            2
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 3,
+                "parts": [],
+                "call": "JumperWire(type=JumperWire_NN1, length=50)",
+                "file": "vitamins/JumperWire.scad"
+            },
+            {
+                "hash": "ecd3eadfbd31a7999e61570bbade3739",
+                "title": "JumperWire Female to None 1pin 100mm",
+                "views": [
+                    {
+                        "rotate": [
+                            41,
+                            0,
+                            29
+                        ],
+                        "dist": 438,
+                        "filepath": "../vitamins/images/JumperWireFemaletoNone1pin100mm_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            51,
+                            5,
+                            2
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 4,
+                "parts": [],
+                "call": "JumperWire(type=JumperWire_FN1, length=100)",
+                "file": "vitamins/JumperWire.scad"
+            },
+            {
+                "hash": "f93d6ca47944850f0223d6c717dd9968",
+                "title": "JumperWire Female to None 1pin 70mm",
+                "views": [
+                    {
+                        "rotate": [
+                            41,
+                            0,
+                            29
+                        ],
+                        "dist": 438,
+                        "title": "view",
+                        "filepath": "../vitamins/images/JumperWireFemaletoNone1pin70mm_view.png",
+                        "caption": "view",
+                        "translate": [
+                            51,
+                            5,
+                            2
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 4,
+                "parts": [],
+                "call": "JumperWire(type=JumperWire_FN1, length=70)",
+                "file": "vitamins/JumperWire.scad"
+            },
+            {
+                "hash": "e87c0d53e246bd5a5e1e53d08f48cb3c",
+                "title": "JumperWire None to None 1pin 100mm",
+                "views": [
+                    {
+                        "rotate": [
+                            41,
+                            0,
+                            29
+                        ],
+                        "dist": 438,
+                        "filepath": "../vitamins/images/JumperWireNonetoNone1pin100mm_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            51,
+                            5,
+                            2
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 2,
+                "parts": [],
+                "call": "JumperWire(type=JumperWire_NN1, length=100)",
+                "file": "vitamins/JumperWire.scad"
             }
         ],
         "title": "LogoBot",
         "assemblies": [
             {
                 "cut": [],
-                "hash": "f5d8f745f84e1afe5bf11e4f7c5d5139",
+                "hash": "55c9f9f6358c0cedcdf28cdbb19e347c",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -367,6 +491,38 @@
                         "parts": [],
                         "call": "TerminalBlock(type=TerminalBlock_20A,poles=2)",
                         "file": "vitamins/TerminalBlock.scad"
+                    },
+                    {
+                        "title": "JumperWire None to None 1pin 50mm",
+                        "views": [],
+                        "qty": 3,
+                        "parts": [],
+                        "call": "JumperWire(type=JumperWire_NN1, length=50)",
+                        "file": "vitamins/JumperWire.scad"
+                    },
+                    {
+                        "title": "JumperWire Female to None 1pin 100mm",
+                        "views": [],
+                        "qty": 4,
+                        "parts": [],
+                        "call": "JumperWire(type=JumperWire_FN1, length=100)",
+                        "file": "vitamins/JumperWire.scad"
+                    },
+                    {
+                        "title": "JumperWire Female to None 1pin 70mm",
+                        "views": [],
+                        "qty": 4,
+                        "parts": [],
+                        "call": "JumperWire(type=JumperWire_FN1, length=70)",
+                        "file": "vitamins/JumperWire.scad"
+                    },
+                    {
+                        "title": "JumperWire None to None 1pin 100mm",
+                        "views": [],
+                        "qty": 2,
+                        "parts": [],
+                        "call": "JumperWire(type=JumperWire_NN1, length=100)",
+                        "file": "vitamins/JumperWire.scad"
                     }
                 ],
                 "views": [],
@@ -685,7 +841,7 @@
                     },
                     {
                         "desc": "Attach the battery pack with velcro",
-                        "num": 10,
+                        "num": 11,
                         "views": [
                             {
                                 "rotate": [
@@ -694,7 +850,7 @@
                                     337
                                 ],
                                 "dist": 400,
-                                "filepath": "../assemblies/LogoBot/FinalAssembly_step10_view.png",
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step11_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -712,7 +868,7 @@
                     },
                     {
                         "desc": "Wire in the terminal block to distribute power",
-                        "num": 11,
+                        "num": 12,
                         "views": [
                             {
                                 "rotate": [
@@ -721,7 +877,7 @@
                                     300
                                 ],
                                 "dist": 260,
-                                "filepath": "../assemblies/LogoBot/FinalAssembly_step11_view.png",
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step12_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -738,8 +894,35 @@
                         ]
                     },
                     {
+                        "desc": "Wire up power to the stepper drivers and Arduino.  Then connect the microswitches to the Arduino.",
+                        "num": 13,
+                        "views": [
+                            {
+                                "rotate": [
+                                    62,
+                                    0,
+                                    190
+                                ],
+                                "dist": 250,
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step13_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    20,
+                                    40
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "desc": "Push the shell down onto the base and twist to lock into place",
-                        "num": 12,
+                        "num": 14,
                         "views": [
                             {
                                 "rotate": [
@@ -748,7 +931,7 @@
                                     217
                                 ],
                                 "dist": 570,
-                                "filepath": "../assemblies/LogoBot/FinalAssembly_step12_view.png",
+                                "filepath": "../assemblies/LogoBot/FinalAssembly_step14_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -828,7 +1011,7 @@
             },
             {
                 "cut": [],
-                "hash": "8c1791ef07a602b47d272c97b85edf3b",
+                "hash": "d542832f028c065a83003d8f72a68e84",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -990,7 +1173,7 @@
             },
             {
                 "cut": [],
-                "hash": "c8ad24ae75be8b474bcbface12dd973e",
+                "hash": "bfb91dc1d8113dc62afd8ea217dff319",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -3305,7 +3488,7 @@
                         "desc": "Align the caster assembly with the base, then insert a short pin to lock it to the base"
                     },
                     {
-                        "num": 10,
+                        "num": 11,
                         "type": "step",
                         "children": [
                             {
@@ -3474,7 +3657,7 @@
                         "desc": "Attach the battery pack with velcro"
                     },
                     {
-                        "num": 11,
+                        "num": 12,
                         "type": "step",
                         "children": [
                             {
@@ -3525,12 +3708,406 @@
                                 ],
                                 "file": "vitamins/TerminalBlock.scad",
                                 "title": "2 Pole 20A Terminal Block"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_NN1, length=50)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "filepath": "../vitamins/images/JumperWireNonetoNone1pin50mm_view.png",
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire None to None 1pin 50mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_NN1, length=50)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire None to None 1pin 50mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_NN1, length=50)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire None to None 1pin 50mm"
                             }
                         ],
                         "desc": "Wire in the terminal block to distribute power"
                     },
                     {
-                        "num": 12,
+                        "num": 13,
+                        "type": "step",
+                        "children": [
+                            {
+                                "rotate": [
+                                    62,
+                                    0,
+                                    190
+                                ],
+                                "dist": 250,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    20,
+                                    40
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=100)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "filepath": "../vitamins/images/JumperWireFemaletoNone1pin100mm_view.png",
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 100mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=100)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 100mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=70)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 70mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=70)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 70mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=70)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 70mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=70)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 70mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=100)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 100mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=100)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 100mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_NN1, length=100)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "filepath": "../vitamins/images/JumperWireNonetoNone1pin100mm_view.png",
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire None to None 1pin 100mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_NN1, length=100)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire None to None 1pin 100mm"
+                            }
+                        ],
+                        "desc": "Wire up power to the stepper drivers and Arduino.  Then connect the microswitches to the Arduino."
+                    },
+                    {
+                        "num": 14,
                         "type": "step",
                         "children": [
                             {
@@ -3657,7 +4234,7 @@
     },
     {
         "cut": [],
-        "hash": "077bb7372a240509921737c6884f4875",
+        "hash": "5740866752e6f41bcfacecff8253690f",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -3784,7 +4361,7 @@
                 "file": "vitamins/ULN2003DriverBoard.scad"
             },
             {
-                "hash": "ae07e1b3f3bc303c64cc8841bda3e669",
+                "hash": "25f0936f568587c8dd3a86ce47cbddd2",
                 "title": "JumperWire Female to Female 4pin 100mm",
                 "views": [
                     {
@@ -4074,13 +4651,137 @@
                 "parts": [],
                 "call": "TerminalBlock(type=TerminalBlock_20A,poles=2)",
                 "file": "vitamins/TerminalBlock.scad"
+            },
+            {
+                "hash": "4303bf85dd4b8e6a488aa984def38431",
+                "title": "JumperWire None to None 1pin 50mm",
+                "views": [
+                    {
+                        "rotate": [
+                            41,
+                            0,
+                            29
+                        ],
+                        "dist": 438,
+                        "filepath": "../vitamins/images/JumperWireNonetoNone1pin50mm_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            51,
+                            5,
+                            2
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 3,
+                "parts": [],
+                "call": "JumperWire(type=JumperWire_NN1, length=50)",
+                "file": "vitamins/JumperWire.scad"
+            },
+            {
+                "hash": "ecd3eadfbd31a7999e61570bbade3739",
+                "title": "JumperWire Female to None 1pin 100mm",
+                "views": [
+                    {
+                        "rotate": [
+                            41,
+                            0,
+                            29
+                        ],
+                        "dist": 438,
+                        "filepath": "../vitamins/images/JumperWireFemaletoNone1pin100mm_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            51,
+                            5,
+                            2
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 4,
+                "parts": [],
+                "call": "JumperWire(type=JumperWire_FN1, length=100)",
+                "file": "vitamins/JumperWire.scad"
+            },
+            {
+                "hash": "f93d6ca47944850f0223d6c717dd9968",
+                "title": "JumperWire Female to None 1pin 70mm",
+                "views": [
+                    {
+                        "rotate": [
+                            41,
+                            0,
+                            29
+                        ],
+                        "dist": 438,
+                        "title": "view",
+                        "filepath": "../vitamins/images/JumperWireFemaletoNone1pin70mm_view.png",
+                        "caption": "view",
+                        "translate": [
+                            51,
+                            5,
+                            2
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 4,
+                "parts": [],
+                "call": "JumperWire(type=JumperWire_FN1, length=70)",
+                "file": "vitamins/JumperWire.scad"
+            },
+            {
+                "hash": "e87c0d53e246bd5a5e1e53d08f48cb3c",
+                "title": "JumperWire None to None 1pin 100mm",
+                "views": [
+                    {
+                        "rotate": [
+                            41,
+                            0,
+                            29
+                        ],
+                        "dist": 438,
+                        "filepath": "../vitamins/images/JumperWireNonetoNone1pin100mm_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            51,
+                            5,
+                            2
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 2,
+                "parts": [],
+                "call": "JumperWire(type=JumperWire_NN1, length=100)",
+                "file": "vitamins/JumperWire.scad"
             }
         ],
         "title": "LogoBot Scribbler",
         "assemblies": [
             {
                 "cut": [],
-                "hash": "1e56d0aeebbc8e331680a12a02796ac3",
+                "hash": "128adf7b2706732531e46e866871d1d3",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -4158,6 +4859,38 @@
                         "parts": [],
                         "call": "TerminalBlock(type=TerminalBlock_20A,poles=2)",
                         "file": "vitamins/TerminalBlock.scad"
+                    },
+                    {
+                        "title": "JumperWire None to None 1pin 50mm",
+                        "views": [],
+                        "qty": 3,
+                        "parts": [],
+                        "call": "JumperWire(type=JumperWire_NN1, length=50)",
+                        "file": "vitamins/JumperWire.scad"
+                    },
+                    {
+                        "title": "JumperWire Female to None 1pin 100mm",
+                        "views": [],
+                        "qty": 4,
+                        "parts": [],
+                        "call": "JumperWire(type=JumperWire_FN1, length=100)",
+                        "file": "vitamins/JumperWire.scad"
+                    },
+                    {
+                        "title": "JumperWire Female to None 1pin 70mm",
+                        "views": [],
+                        "qty": 4,
+                        "parts": [],
+                        "call": "JumperWire(type=JumperWire_FN1, length=70)",
+                        "file": "vitamins/JumperWire.scad"
+                    },
+                    {
+                        "title": "JumperWire None to None 1pin 100mm",
+                        "views": [],
+                        "qty": 2,
+                        "parts": [],
+                        "call": "JumperWire(type=JumperWire_NN1, length=100)",
+                        "file": "vitamins/JumperWire.scad"
                     }
                 ],
                 "views": [],
@@ -4576,8 +5309,35 @@
                         ]
                     },
                     {
-                        "desc": "Push the shell down onto the base and twist to lock into place",
+                        "desc": "Wire up power to the stepper drivers and Arduino.  Then connect the microswitches to the Arduino.",
                         "num": 13,
+                        "views": [
+                            {
+                                "rotate": [
+                                    62,
+                                    0,
+                                    190
+                                ],
+                                "dist": 250,
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step13_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    20,
+                                    40
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Push the shell down onto the base and twist to lock into place",
+                        "num": 14,
                         "views": [
                             {
                                 "rotate": [
@@ -4586,7 +5346,7 @@
                                     217
                                 ],
                                 "dist": 570,
-                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step13_view.png",
+                                "filepath": "../assemblies/LogoBotScribbler/FinalAssembly_step14_view.png",
                                 "title": "view",
                                 "caption": "view",
                                 "translate": [
@@ -4666,7 +5426,7 @@
             },
             {
                 "cut": [],
-                "hash": "8c1791ef07a602b47d272c97b85edf3b",
+                "hash": "d542832f028c065a83003d8f72a68e84",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -4828,7 +5588,7 @@
             },
             {
                 "cut": [],
-                "hash": "c8ad24ae75be8b474bcbface12dd973e",
+                "hash": "bfb91dc1d8113dc62afd8ea217dff319",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -7753,12 +8513,406 @@
                                 ],
                                 "file": "vitamins/TerminalBlock.scad",
                                 "title": "2 Pole 20A Terminal Block"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_NN1, length=50)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "filepath": "../vitamins/images/JumperWireNonetoNone1pin50mm_view.png",
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire None to None 1pin 50mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_NN1, length=50)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire None to None 1pin 50mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_NN1, length=50)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire None to None 1pin 50mm"
                             }
                         ],
                         "desc": "Wire in the terminal block to distribute power"
                     },
                     {
                         "num": 13,
+                        "type": "step",
+                        "children": [
+                            {
+                                "rotate": [
+                                    62,
+                                    0,
+                                    190
+                                ],
+                                "dist": 250,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    20,
+                                    40
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=100)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "filepath": "../vitamins/images/JumperWireFemaletoNone1pin100mm_view.png",
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 100mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=100)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 100mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=70)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 70mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=70)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 70mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=70)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 70mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=70)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 70mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=100)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 100mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=100)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 100mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_NN1, length=100)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "filepath": "../vitamins/images/JumperWireNonetoNone1pin100mm_view.png",
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire None to None 1pin 100mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_NN1, length=100)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire None to None 1pin 100mm"
+                            }
+                        ],
+                        "desc": "Wire up power to the stepper drivers and Arduino.  Then connect the microswitches to the Arduino."
+                    },
+                    {
+                        "num": 14,
                         "type": "step",
                         "children": [
                             {

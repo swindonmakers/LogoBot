@@ -25,6 +25,7 @@ JumperWire_DefaultConnector2 = [[100,0,0], [1,0,0], 0,0,0];
 
 Pin_Male = "Male";
 Pin_Female = "Female";
+Pin_None = "None";
 
 
 // Type Getters
@@ -37,6 +38,9 @@ function JumperWire_Colors(t)       = t[4];
 
 // JumperWire Types
 //                    Type,  PinType1,   PinType2,   NumPins, Colors
+JumperWire_NN1    = [ "NN1", Pin_None,   Pin_None,   1,       ["black"] ];
+JumperWire_FN1    = [ "FN1", Pin_Female, Pin_None,   1,       ["blue"] ];
+
 JumperWire_MM2    = [ "MM2", Pin_Male,   Pin_Male,   2,       ["black","red"] ];
 JumperWire_FF2    = [ "FF2", Pin_Female, Pin_Female, 2,       ["black","red"] ];
 JumperWire_MF2    = [ "MF2", Pin_Male,   Pin_Female, 2,       ["black","red"] ];
@@ -49,6 +53,8 @@ JumperWire_FM4    = [ "FM4", Pin_Female, Pin_Male,   4,       ["red","orange","y
 
 // Type collection
 JumperWire_Types = [
+	JumperWire_NN1,
+	JumperWire_FN1,
 	JumperWire_MM2,
 	JumperWire_FF2,
 	JumperWire_MF2,
@@ -74,7 +80,7 @@ module JumperWire_Pin(type, con, ExplodeSpacing=20) {
             color("black")
                 translate([-w/2, -w/2, h/2])
                 cube([w,w,h/2]);
-        } else {
+        } else if (type == Pin_Female) {
             color("black")
                 translate([-w/2, -w/2, 0])
                 cube([w,w,h]);
@@ -92,7 +98,8 @@ module JumperWire(
     complex = false,
     midPoint = [0,0,0],
     midTanVec = [0,1,0],
-    ExplodeSpacing = 20
+    ExplodeSpacing = 20,
+	overrideColors
 ) {
     // vert offset of connector?
     pinvo = [
@@ -146,7 +153,7 @@ module JumperWire(
                 cableRadius = 0.6,
                 cableSpacing = 2.54,
                 points= [
-                    cons[0][0] - con1n * (14),
+                    cons[0][0] - con1n * (JumperWire_PinType1(type) == Pin_None ? 0 : 14),
                     cons[0][0] - con1n * (length * 0.3),
                     midPoint - mtv * length * 0.3,
                     midPoint
@@ -157,7 +164,7 @@ module JumperWire(
                     midVec,
                     midVec
                 ],
-                colors = JumperWire_Colors(type)
+                colors = overrideColors ? overrideColors : JumperWire_Colors(type)
             );
             ribbonCable(
                 cables=numPins,
@@ -167,7 +174,7 @@ module JumperWire(
                     midPoint,
                     midPoint + mtv * length * 0.3,
                     cons[1][0] - con2n * (length * 0.3 ),
-                    cons[1][0] - con2n * (14 )
+                    cons[1][0] - con2n * (JumperWire_PinType2(type) == Pin_None ? 0 : 14)
                 ],
                 vectors = [
                     midVec,
@@ -175,7 +182,7 @@ module JumperWire(
                     conVecs[1],
                     conVecs[1]
                 ],
-                colors = JumperWire_Colors(type)
+                colors = overrideColors ? overrideColors : JumperWire_Colors(type)
             );
 
 
@@ -185,10 +192,10 @@ module JumperWire(
                 cableRadius = 0.6,
                 cableSpacing = 2.54,
                 points= [
-                    cons[0][0] - con1n * (14 ),
+                    cons[0][0] - con1n * (JumperWire_PinType1(type) == Pin_None ? 0 : 14),
                     cons[0][0] - con1n * (length * 0.6 ),
                     cons[1][0] - con2n * (length * 0.6 ),
-                    cons[1][0] - con2n * (14 )
+                    cons[1][0] - con2n * (JumperWire_PinType2(type) == Pin_None ? 0 : 14)
                 ],
                 vectors = [
                     conVecs[0],
@@ -196,7 +203,7 @@ module JumperWire(
                     midVec,
                     conVecs[1]
                 ],
-                colors = JumperWire_Colors(type)
+                colors = overrideColors ? overrideColors : JumperWire_Colors(type)
             );
         }
     }

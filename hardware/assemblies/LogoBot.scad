@@ -45,7 +45,7 @@ LogoBot_Con_PowerSwitch = LogoBot_Con_GridFixing(2,0, 90);
 
 LogoBot_Con_BatteryPack = [[0, -40, 2*dw], [0,0,-1], 0,0,0];
 
-LogoBot_Con_TerminalBlock = [[15, 0, 25], [0,0,-1], 0,0,0];
+LogoBot_Con_TerminalBlock = [[15, 0, 45], [0,0,-1], 0,0,0];
 
 
 // Assembly
@@ -236,24 +236,221 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 
             // TODO: Add velcro or to hold down battery pack
             // Battery assembly
-            step(PenLift ? 11 : 10, "Attach the battery pack with velcro") {
+            step(11, "Attach the battery pack with velcro") {
                 view(t=[0,0,20], r=[52,0,337], d=400);
 
                 attach(LogoBot_Con_BatteryPack, BatteryPack_Con_SideFace(), ExplodeSpacing=20)
                     BatteryPack(BatteryPack_AA, showBatteries=true);
             }
 
-            step(PenLift ? 12 : 11, "Wire in the terminal block to distribute power") {
+            step(12, "Wire in the terminal block to distribute power") {
                 view(t=[8,-10,26], r=[47,0,300], d=260);
 
                 attach(LogoBot_Con_TerminalBlock, TerminalBlock_Con_Def, ExplodeSpacing=0)
                     TerminalBlock(TerminalBlock_20A, 2);
+
+                // positive from toggle switch to terminal block
+                JumperWire(
+                    type = JumperWire_NN1,
+                    con1 = attachedConnector(
+                        LogoBot_Con_TerminalBlock, TerminalBlock_Con_Def,
+                        TerminalBlock_Con_Pole(TerminalBlock_20A, 2, false),
+                        ExplodeSpacing=0
+                    ),
+                    con2 = [[20, 0, 10], [0,0,-1], 0,0,0],
+                    length = 50,
+                    conVec1 = [0,1,0],
+                    conVec2 = [-1,0,0],
+                    midVec = [0.5,-1,0],
+                    overrideColors=["red"]
+                );
+
+                // positive from battery to toggle switch
+                JumperWire(
+                    type = JumperWire_NN1,
+                    con1 = [[28, -30, 30], [-1,0,0], 0,0,0],
+                    con2 = [[20, -4, 10], [0,0,-1], 0,0,0],
+                    length = 50,
+                    conVec1 = [0,1,0],
+                    conVec2 = [-1,0,0],
+                    midVec = [0.5,-1,0],
+                    overrideColors=["red"]
+                );
+
+                // ground from battery to terminal block
+                JumperWire(
+                    type = JumperWire_NN1,
+                    con1 = [[28, -30, 31], [-1,0,0], 0,0,0],
+                    con2 =  attachedConnector(
+                        LogoBot_Con_TerminalBlock, TerminalBlock_Con_Def,
+                        TerminalBlock_Con_Pole(TerminalBlock_20A, 1, false),
+                        ExplodeSpacing=0
+                    ),
+                    length = 50,
+                    conVec1 = [0,1,0],
+                    conVec2 = [-1,0,0],
+                    midVec = [0.5,-1,0]
+                );
+            }
+
+            step(13, "Wire up power to the stepper drivers and Arduino.  Then connect the microswitches to the Arduino.") {
+                view(t=[0,20,40], r=[62,0,190], d=250);
+
+                // experimental wiring :)
+
+                // arduino to ground
+                JumperWire(
+                    type = JumperWire_FN1,
+                    con1 = [[-12.5, 47, 8], [0,0,-1], 0,0,0],
+                    con2 = attachedConnector(
+                        LogoBot_Con_TerminalBlock, TerminalBlock_Con_Def,
+                        TerminalBlock_Con_Pole(TerminalBlock_20A, 1, true),
+                        ExplodeSpacing=0
+                    ),
+                    length = 100,
+                    conVec1 = [0,1,0],
+                    conVec2 = [-1,0,0],
+                    midVec = [0.5,-1,0],
+                    overrideColors = ["black"]
+                );
+
+                // arduino to power
+                JumperWire(
+                    type = JumperWire_FN1,
+                    con1 = [[-10, 47, 8], [0,0,-1], 0,0,0],
+                    con2 = attachedConnector(
+                        LogoBot_Con_TerminalBlock, TerminalBlock_Con_Def,
+                        TerminalBlock_Con_Pole(TerminalBlock_20A, 2, true),
+                        ExplodeSpacing=0
+                    ),
+                    length = 100,
+                    conVec1 = [0,1,0],
+                    conVec2 = [-1,0,0],
+                    midVec = [0.5,-1,0],
+                    overrideColors = ["red"]
+                );
+
+                // left motor driver to ground
+                JumperWire(
+                    type = JumperWire_FN1,
+                    con1 = [[-24, 24, 33], [0,-1,0], 0,0,0],
+                    con2 = attachedConnector(
+                        LogoBot_Con_TerminalBlock, TerminalBlock_Con_Def,
+                        TerminalBlock_Con_Pole(TerminalBlock_20A, 1, true),
+                        ExplodeSpacing=0
+                    ),
+                    length = 70,
+                    conVec1 = [0,1,0],
+                    conVec2 = [-1,0,0],
+                    midVec = [0.5,-1,0],
+                    overrideColors=["black"]
+                );
+
+                // left motor driver to power
+                JumperWire(
+                    type = JumperWire_FN1,
+                    con1 = [[-24, 24, 30.5], [0,-1,0], 0,0,0],
+                    con2 = attachedConnector(
+                        LogoBot_Con_TerminalBlock, TerminalBlock_Con_Def,
+                        TerminalBlock_Con_Pole(TerminalBlock_20A, 2, true),
+                        ExplodeSpacing=0
+                    ),
+                    length = 70,
+                    conVec1 = [0,1,0],
+                    conVec2 = [-1,0,0],
+                    midVec = [0.5,-1,0],
+                    overrideColors=["red"]
+                );
+
+                // right motor driver to ground
+                JumperWire(
+                    type = JumperWire_FN1,
+                    con1 = [[43, 24, 33], [0,-1,0], 0,0,0],
+                    con2 = attachedConnector(
+                        LogoBot_Con_TerminalBlock, TerminalBlock_Con_Def,
+                        TerminalBlock_Con_Pole(TerminalBlock_20A, 1, true),
+                        ExplodeSpacing=0
+                    ),
+                    length = 70,
+                    conVec1 = [0,1,0],
+                    conVec2 = [-1,0,0],
+                    midVec = [0.5,-1,0],
+                    overrideColors=["black"]
+                );
+
+                // right motor driver to power
+                JumperWire(
+                    type = JumperWire_FN1,
+                    con1 = [[43, 24, 30.5], [0,-1,0], 0,0,0],
+                    con2 = attachedConnector(
+                        LogoBot_Con_TerminalBlock, TerminalBlock_Con_Def,
+                        TerminalBlock_Con_Pole(TerminalBlock_20A, 2, true),
+                        ExplodeSpacing=0
+                    ),
+                    length = 70,
+                    conVec1 = [0,1,0],
+                    conVec2 = [-1,0,0],
+                    midVec = [0.5,-1,0],
+                    overrideColors=["red"]
+                );
+
+                //  arduino to left microswitch
+                JumperWire(
+                    type = JumperWire_FN1,
+                    con1 = [[5,47,8], [0,0,-1], 0,0,0],
+                    con2 = [[-40, 50, 0], [-0.5,0,-1], 0,0,0],
+                    length = 100,
+                    conVec1 = [-1,0,0],
+                    conVec2 = [-1,0,0],
+                    midVec = [0.5,-1,0]
+                );
+
+                //  arduino to right microswitch
+                JumperWire(
+                    type = JumperWire_FN1,
+                    con1 = [[2.5,47,8], [0,0,-1], 0,0,0],
+                    con2 = [[40, 50, 0], [0.5,0.1,-1], 0,0,0],
+                    length = 100,
+                    conVec1 = [-1,0,0],
+                    conVec2 = [-1,0,0],
+                    midVec = [0.5,-1,0]
+                );
+
+                // terminal block ground to left microswitch
+                JumperWire(
+                    type = JumperWire_NN1,
+                    con1 = attachedConnector(
+                        LogoBot_Con_TerminalBlock, TerminalBlock_Con_Def,
+                        TerminalBlock_Con_Pole(TerminalBlock_20A, 1, true),
+                        ExplodeSpacing=0
+                    ),
+                    con2 = [[-42, 50, 0], [-0.5,0,-1], 0,0,0],
+                    length = 100,
+                    conVec1 = [0,1,0],
+                    conVec2 = [-1,0,0],
+                    midVec = [0.5,-1,0]
+                );
+
+                // terminal block ground to right microswitch
+                JumperWire(
+                    type = JumperWire_NN1,
+                    con1 = attachedConnector(
+                        LogoBot_Con_TerminalBlock, TerminalBlock_Con_Def,
+                        TerminalBlock_Con_Pole(TerminalBlock_20A, 1, true),
+                        ExplodeSpacing=0
+                    ),
+                    con2 = [[42, 50, 0], [0.7,0,-1], 0,0,0],
+                    length = 100,
+                    conVec1 = [0,1,0],
+                    conVec2 = [-1,0,0],
+                    midVec = [0.5,-1,0]
+                );
             }
 
 
             // Shell + fixings
 			if (Shell) {
-				step(PenLift ? 13 : 12,
+				step(14,
 					"Push the shell down onto the base and twist to lock into place") {
 					view(t=[11,-23,65], r=[66,0,217], d=570);
 

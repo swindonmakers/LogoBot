@@ -15,6 +15,10 @@ Qty | Vitamin | Image
 4 | [AA Battery]() | ![](../vitamins/images/AABattery_view.png) | 
 1 | [Battery Pack]() | ![](../vitamins/images/BatteryPack_view.png) | 
 2 | [JumperWire Female to Female 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png) | 
+4 | [JumperWire Female to None 1pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoNone1pin100mm_view.png) | 
+4 | [JumperWire Female to None 1pin 70mm]() | ![](../vitamins/images/JumperWireFemaletoNone1pin70mm_view.png) | 
+2 | [JumperWire None to None 1pin 100mm]() | ![](../vitamins/images/JumperWireNonetoNone1pin100mm_view.png) | 
+3 | [JumperWire None to None 1pin 50mm]() | ![](../vitamins/images/JumperWireNonetoNone1pin50mm_view.png) | 
 1 | [16mm Marble]() | ![](../vitamins/images/16mmMarble_view.png) | 
 4 | [MicroSwitch]() | ![](../vitamins/images/MicroSwitch_view.png) | 
 1 | [SPST6A Mini Toggle Switch]() | ![](../vitamins/images/SPST6AMiniToggleSwitch_view.png) | 
@@ -171,6 +175,10 @@ Qty | Vitamin | Image
 4 | [AA Battery]() | ![](../vitamins/images/AABattery_view.png) | 
 1 | [Battery Pack]() | ![](../vitamins/images/BatteryPack_view.png) | 
 2 | [JumperWire Female to Female 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png) | 
+4 | [JumperWire Female to None 1pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoNone1pin100mm_view.png) | 
+4 | [JumperWire Female to None 1pin 70mm]() | ![](../vitamins/images/JumperWireFemaletoNone1pin70mm_view.png) | 
+2 | [JumperWire None to None 1pin 100mm]() | ![](../vitamins/images/JumperWireNonetoNone1pin100mm_view.png) | 
+3 | [JumperWire None to None 1pin 50mm]() | ![](../vitamins/images/JumperWireNonetoNone1pin50mm_view.png) | 
 1 | [SPST6A Mini Toggle Switch]() | ![](../vitamins/images/SPST6AMiniToggleSwitch_view.png) | 
 1 | [2 Pole 20A Terminal Block]() | ![](../vitamins/images/2Pole20ATerminalBlock_view.png) | 
 
@@ -210,11 +218,13 @@ Qty | Name
 ![](../assemblies/LogoBot/FinalAssembly_step6_view.png)
 9. Align the caster assembly with the base, then insert a short pin to lock it to the base
 ![](../assemblies/LogoBot/FinalAssembly_step9_view.png)
-10. Attach the battery pack with velcro
-![](../assemblies/LogoBot/FinalAssembly_step10_view.png)
-11. Wire in the terminal block to distribute power
+11. Attach the battery pack with velcro
 ![](../assemblies/LogoBot/FinalAssembly_step11_view.png)
-12. Push the shell down onto the base and twist to lock into place
+12. Wire in the terminal block to distribute power
 ![](../assemblies/LogoBot/FinalAssembly_step12_view.png)
+13. Wire up power to the stepper drivers and Arduino.  Then connect the microswitches to the Arduino.
+![](../assemblies/LogoBot/FinalAssembly_step13_view.png)
+14. Push the shell down onto the base and twist to lock into place
+![](../assemblies/LogoBot/FinalAssembly_step14_view.png)
 
 

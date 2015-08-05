@@ -1,9 +1,9 @@
 include <../config/config.scad>
-UseSTL=false;
+UseSTL=true;
 UseVitaminSTL=true;
 DebugConnectors=false;
 DebugCoordinateFrames=false;
 
-$ShowStep = 11;
+$ShowStep = 13;
 
 LogoBotAssembly(PenLift=true);

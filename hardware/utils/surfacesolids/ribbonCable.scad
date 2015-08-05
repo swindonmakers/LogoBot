@@ -14,18 +14,18 @@ module ribbonCable(cables=0, cableRadius = 0.5, cableSpacing=0, points, vectors,
     // vectors to align the strips of the ribbon
     cv = vectors;
 
-    cableWidth = (cables - 1) * (cableSpacing > 0 ? cableSpacing : cableD);
-    cableWidth2 = (cables - 1) * cableD;
-    
+    cableWidth = cables > 1 ? (cables - 1) * (cableSpacing > 0 ? cableSpacing : cableD) : cableD;
+    cableWidth2 = cables > 1 ? (cables - 1) * cableD : cableD;
+
     cps2 = [
         cps[0] + VNORM(cv[0]) * cableWidth,
         cps[1] + VNORM(cv[1]) * cableWidth2,
         cps[2] + VNORM(cv[2]) * cableWidth2,
         cps[3] + VNORM(cv[3]) * cableWidth
     ];
-    
+
     if (debug) {
-    
+
         // draw control points and control vectors
         for (i=[0:3]) {
             color("black")
@@ -33,7 +33,7 @@ module ribbonCable(cables=0, cableRadius = 0.5, cableSpacing=0, points, vectors,
                     [cps[i], cps2[i]],
                     radius=0.3
                 );
-                
+
             translate(cps[i])
                 frame();
         }
@@ -53,11 +53,19 @@ module ribbonCable(cables=0, cableRadius = 0.5, cableSpacing=0, points, vectors,
                    n2 = p2 - p1,
                    n3 = p4 - p3
                    )
-            {    
-                PlaceLine([
-                    p1 + n2 * cable/(cables-1), 
-                    p3 + n3 * cable/(cables-1)
-                ], radius=cableR, $fn=6);
+            {
+                if (cables > 1) {
+                    PlaceLine([
+                        p1 + n2 * cable/(cables-1),
+                        p3 + n3 * cable/(cables-1)
+                    ], radius=cableR, $fn=6);
+                } else {
+                    PlaceLine([
+                        p1,
+                        p3
+                    ], radius=cableR, $fn=6);
+                }
+
             }
 }
 

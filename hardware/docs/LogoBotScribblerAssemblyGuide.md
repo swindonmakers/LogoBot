@@ -15,6 +15,10 @@ Qty | Vitamin | Image
 4 | [AA Battery]() | ![](../vitamins/images/AABattery_view.png) | 
 1 | [Battery Pack]() | ![](../vitamins/images/BatteryPack_view.png) | 
 2 | [JumperWire Female to Female 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png) | 
+4 | [JumperWire Female to None 1pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoNone1pin100mm_view.png) | 
+4 | [JumperWire Female to None 1pin 70mm]() | ![](../vitamins/images/JumperWireFemaletoNone1pin70mm_view.png) | 
+2 | [JumperWire None to None 1pin 100mm]() | ![](../vitamins/images/JumperWireNonetoNone1pin100mm_view.png) | 
+3 | [JumperWire None to None 1pin 50mm]() | ![](../vitamins/images/JumperWireNonetoNone1pin50mm_view.png) | 
 1 | [16mm Marble]() | ![](../vitamins/images/16mmMarble_view.png) | 
 1 | [9g Micro Servo]() | ![](../vitamins/images/9gMicroServo_view.png) | 
 4 | [MicroSwitch]() | ![](../vitamins/images/MicroSwitch_view.png) | 
@@ -184,6 +188,10 @@ Qty | Vitamin | Image
 4 | [AA Battery]() | ![](../vitamins/images/AABattery_view.png) | 
 1 | [Battery Pack]() | ![](../vitamins/images/BatteryPack_view.png) | 
 2 | [JumperWire Female to Female 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png) | 
+4 | [JumperWire Female to None 1pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoNone1pin100mm_view.png) | 
+4 | [JumperWire Female to None 1pin 70mm]() | ![](../vitamins/images/JumperWireFemaletoNone1pin70mm_view.png) | 
+2 | [JumperWire None to None 1pin 100mm]() | ![](../vitamins/images/JumperWireNonetoNone1pin100mm_view.png) | 
+3 | [JumperWire None to None 1pin 50mm]() | ![](../vitamins/images/JumperWireNonetoNone1pin50mm_view.png) | 
 1 | [9g Micro Servo]() | ![](../vitamins/images/9gMicroServo_view.png) | 
 1 | [SPST6A Mini Toggle Switch]() | ![](../vitamins/images/SPST6AMiniToggleSwitch_view.png) | 
 1 | [Servo Horn]() | ![](../vitamins/images/ServoHorn_view.png) | 
@@ -233,7 +241,9 @@ Qty | Name
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step11_view.png)
 12. Wire in the terminal block to distribute power
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step12_view.png)
-13. Push the shell down onto the base and twist to lock into place
+13. Wire up power to the stepper drivers and Arduino.  Then connect the microswitches to the Arduino.
 ![](../assemblies/LogoBotScribbler/FinalAssembly_step13_view.png)
+14. Push the shell down onto the base and twist to lock into place
+![](../assemblies/LogoBotScribbler/FinalAssembly_step14_view.png)
 
 
