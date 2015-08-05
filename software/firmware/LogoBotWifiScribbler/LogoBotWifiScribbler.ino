@@ -147,6 +147,8 @@ static void doLogoCommand(String c)
     bot.penUp();
   } else if (c.startsWith("PD")) {
     bot.penDown();
+  } else if (c.startsWith("PF")) {  // Pause For
+    bot.pause(c.substring(3).toInt());
   } else if (c.startsWith("FS")) {
 	LogobotText::setFontSize(c.substring(3).toFloat());
   } else if (c.startsWith("SIG")) {

@@ -42,6 +42,7 @@ public:
 	void penUp();
 	void penDown();
 
+	void pause(int len);
 	void buzz(int len);
 
 	void stop();
@@ -54,6 +55,7 @@ public:
 
 private:
 	unsigned long _buzzEnd;
+	unsigned long _pauseEnd;
 	void (*bumperCallback)(byte collisionData);
 
 	uint8_t _pinBuzzer;

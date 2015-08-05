@@ -13,6 +13,7 @@ Bot::Bot(uint8_t lp1, uint8_t lp2, uint8_t lp3, uint8_t lp4, uint8_t rp1, uint8_
 	_pinStepper[7] = rp4;
 
 	_buzzEnd = 0;
+	_pauseEnd = 0;
 	resetPosition();
 }
 
@@ -53,7 +54,7 @@ void Bot::initPenLift(uint8_t pin)
 
 bool Bot::isBusy()
 {
-	return !_diffDrive.isQEmpty();
+	return (!_diffDrive.isQEmpty()) || (millis() < _pauseEnd);
 }
 
 void Bot::playStartupJingle()
@@ -68,8 +69,13 @@ void Bot::playStartupJingle()
 
 void Bot::run()
 {
-	// Run steppers
-	_diffDrive.run();
+	// do pause
+	if (millis() < _pauseEnd) {
+		// do nothing for a while
+	} else {
+		// Run steppers
+		_diffDrive.run();
+	}
 
 	// Do buzzer
 	if (millis() < _buzzEnd)
@@ -100,15 +106,24 @@ void Bot::run()
 void Bot::penUp()
 {
 	_penliftServo.write(10);
+	pause(100);
 }
 
 void Bot::penDown()
 {
 	_penliftServo.write(90);
+	pause(200);
+}
+
+void Bot::pause(int len)
+{
+	// TODO: account for timer overflow
+	_pauseEnd = millis() + len;
 }
 
 void Bot::buzz(int len)
 {
+	// TODO: account for timer overflow
 	_buzzEnd = millis() + len;
 }
 
