@@ -27,7 +27,7 @@ module Battery(type=Battery_AA) {
     vitamin(
         "vitamins/Battery.scad",
         str(ts," Battery"),
-        str("Battery(",ts,")")
+        str("Battery(Battery_",ts,")")
     ) {
         view(t=[6.9, 13.6, 10.3], r=[72,0,33], d=280);
 

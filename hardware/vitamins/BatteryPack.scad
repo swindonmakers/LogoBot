@@ -27,13 +27,13 @@ BatteryPack_Const_Count = 6;
 BatteryPack_Const_Name = 7;
 
 // Connectors:
-function BatteryPack_Con_Centre(BP) = [
+function BatteryPack_Con_SideFace(BP=BatteryPack_AA_4_SQ) = [
   [
-    BP[BatteryPack_Const_PWidth]/2 + BP[BatteryPack_Const_BDia]/2,
-    BP[BatteryPack_Const_PDepth]/2 + BP[BatteryPack_Const_BDia]/2,
+    BP[BatteryPack_Const_PWidth] - BP[BatteryPack_Const_BDia]/2,
+    (BP[BatteryPack_Const_PDepth]/2 - BP[BatteryPack_Const_BDia]/2),
     BP[BatteryPack_Const_PHeight]/2,
   ],
-  [ 0,0,0 ],
+  [ 1,0,0 ],
   0, 0, 0
 ];
 
@@ -90,6 +90,10 @@ module BatteryPack(BP=BatteryPack_AA_4_SQ, showBatteries=false) {
   if (showBatteries) {
       translate([0,-2,0])
         battery_pack_double(BatteryPack_AA, 2, 4);
+  }
+
+  if (DebugConnectors) {
+      connector(BatteryPack_Con_SideFace(BP));
   }
 
   vitamin(

@@ -43,7 +43,7 @@ LogoBot_Con_PenLiftServo = [[-12, -6, -6], [1, 0, 0], 90, 0, 0];
 
 LogoBot_Con_PowerSwitch = LogoBot_Con_GridFixing(2,0, 90);
 
-LogoBot_Con_BatteryPack = [[-28, -48, 27], [0,0,-1], 0,0,0];
+LogoBot_Con_BatteryPack = [[0, -40, 2*dw], [0,0,-1], 0,0,0];
 
 LogoBot_Con_TerminalBlock = [[15, 0, 25], [0,0,-1], 0,0,0];
 
@@ -239,10 +239,8 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
             step(PenLift ? 11 : 10, "Attach the battery pack with velcro") {
                 view(t=[0,0,20], r=[52,0,337], d=400);
 
-                attach(LogoBot_Con_BatteryPack, DefConDown, ExplodeSpacing=20)
-                    rotate([90, 90, 90]) {
-                        BatteryPack(BatteryPack_AA, showBatteries=true);
-                    }
+                attach(LogoBot_Con_BatteryPack, BatteryPack_Con_SideFace(), ExplodeSpacing=20)
+                    BatteryPack(BatteryPack_AA, showBatteries=true);
             }
 
             step(PenLift ? 12 : 11, "Wire in the terminal block to distribute power") {

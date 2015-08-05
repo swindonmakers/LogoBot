@@ -8,4 +8,4 @@ $fn=50;
 *battery(BatteryPack_AA);
 
 
-BatteryPack(BatteryPack_AA_4_SQ, false);
+BatteryPack(BatteryPack_AA_4_SQ, true);

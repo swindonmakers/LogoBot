@@ -12,6 +12,8 @@ Make sure you have all of the following parts before you begin.
 Qty | Vitamin | Image
 --- | --- | ---
 1 | [Arduino Pro Mini Pins on top, inc serial pins]() | ![](../vitamins/images/ArduinoProMiniPinsontopincserialpins_view.png) | 
+4 | [AA Battery]() | ![](../vitamins/images/AABattery_view.png) | 
+1 | [Battery Pack]() | ![](../vitamins/images/BatteryPack_view.png) | 
 2 | [JumperWire Female to Female 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png) | 
 1 | [16mm Marble]() | ![](../vitamins/images/16mmMarble_view.png) | 
 1 | [9g Micro Servo]() | ![](../vitamins/images/9gMicroServo_view.png) | 
@@ -179,6 +181,8 @@ Qty | Part Name | Image
 Qty | Vitamin | Image
 --- | --- | ---
 1 | [Arduino Pro Mini Pins on top, inc serial pins]() | ![](../vitamins/images/ArduinoProMiniPinsontopincserialpins_view.png) | 
+4 | [AA Battery]() | ![](../vitamins/images/AABattery_view.png) | 
+1 | [Battery Pack]() | ![](../vitamins/images/BatteryPack_view.png) | 
 2 | [JumperWire Female to Female 4pin 100mm]() | ![](../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png) | 
 1 | [9g Micro Servo]() | ![](../vitamins/images/9gMicroServo_view.png) | 
 1 | [SPST6A Mini Toggle Switch]() | ![](../vitamins/images/SPST6AMiniToggleSwitch_view.png) | 
