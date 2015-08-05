@@ -203,7 +203,7 @@ BZ 500
         xhReq.open('GET', uri, true);
         console.log(uri);
         xhReq.onload = function () {
-          if (this.responseText == 'BUSY') {
+          if (this.responseText.trim() == 'BUSY') {
             el('f').innerText = 'BUSY';
             setTimeout(s, 2000);
           } else {
