@@ -60,7 +60,7 @@ void loop()
         char c = text[0];
         text = text.substring(1);  // lose the first character
         LogobotText::writeChar(c, bot.state.x, bot.state.y);
-      } 
+      }
     } else {
       // pop and process next command from queue
       doLogoCommand(cmdQ.dequeue());
@@ -80,18 +80,18 @@ static void handleCollision(byte collisionData)
 	// Note since we are inserting at the head of the command queue, the first
 	// command we insert will be run second.
 	if (collisionData == 1) {
-		cmdQ.insert("RT 45");
+		cmdQ.insert("RT 30");
 		cmdQ.insert("BK 20");
 	} else if (collisionData == 2) {
-		cmdQ.insert("LT 45");
+		cmdQ.insert("LT 60");
 		cmdQ.insert("BK 20");
 	} else if (collisionData == 3) {
-		cmdQ.insert("RT 120");
+		cmdQ.insert("RT 90");
 		cmdQ.insert("BK 20");
 	}
 }
 
-static void showStatus() 
+static void showStatus()
 {
   // Format: "X Y ang qSize"
   Serial.print(bot.state.x);
