@@ -1,9 +1,6 @@
 include <../config/config.scad>
 UseSTL=false;
-UseVitaminSTL=true;
+UseVitaminSTL=false;
 DebugConnectors=true;
 DebugCoordinateFrames=true;
-
-$ShowStep = 10;
-
-LogoBotAssembly(PenLift=true);
+TerminalBlock();

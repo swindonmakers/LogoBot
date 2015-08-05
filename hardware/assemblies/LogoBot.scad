@@ -45,6 +45,8 @@ LogoBot_Con_PowerSwitch = LogoBot_Con_GridFixing(2,0, 90);
 
 LogoBot_Con_BatteryPack = [[-28, -48, 27], [0,0,-1], 0,0,0];
 
+LogoBot_Con_TerminalBlock = [[15, 0, 25], [0,0,-1], 0,0,0];
+
 
 // Assembly
 // --------
@@ -244,10 +246,17 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
                     }
             }
 
+            step(PenLift ? 12 : 11, "Wire in the terminal block to distribute power") {
+                view(t=[8,-10,26], r=[47,0,300], d=260);
+
+                attach(LogoBot_Con_TerminalBlock, TerminalBlock_Con_Def, ExplodeSpacing=0)
+                    TerminalBlock(TerminalBlock_20A, 2);
+            }
+
 
             // Shell + fixings
 			if (Shell) {
-				step(PenLift ? 12 : 11,
+				step(PenLift ? 13 : 12,
 					"Push the shell down onto the base and twist to lock into place") {
 					view(t=[11,-23,65], r=[66,0,217], d=570);
 

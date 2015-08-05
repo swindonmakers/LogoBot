@@ -26,3 +26,4 @@ include <../vitamins/ServoHorn.scad>
 include <../vitamins/SlideSwitch.scad>
 include <../vitamins/ULN2003DriverBoard.scad>
 include <../vitamins/MiniToggleSwitch.scad>
+include <../vitamins/TerminalBlock.scad>
