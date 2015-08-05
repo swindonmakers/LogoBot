@@ -160,16 +160,6 @@ static void doLogoCommand(String c)
   }
 }
 
-
-void pushTo(float x, float y)
-{
-  String s = "TO ";
-  s += x;
-  s += " ";
-  s += y;
-  cmdQ.enqueue(s);
-}
-
 static void writeText(String s) {
   // overwrite write text
   text = s;
@@ -179,6 +169,3 @@ static void writeText(String s) {
   bot.resetPosition();
 }
 
-float sqr(float v) {
-  return v*v;
-}
