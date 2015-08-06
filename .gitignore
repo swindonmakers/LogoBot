@@ -24,3 +24,5 @@
 /software/firmware/lib/*
 /software/firmware/.build_ano/*
 *.pickle
+
+*.csg
