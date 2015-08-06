@@ -59,8 +59,9 @@ public:
         unsigned long totalSteps;  // max(abs(leftSteps),abs(rightSteps))
         unsigned long accelerateUntil; // The index of the step event on which to stop acceleration
         unsigned long decelerateAfter; // The index of the step event on which to start decelerating
+        unsigned long entryStepRate;  // step rate we should start at
 
-        //maxEntrySpeed;
+        boolean dirChange;  // true if direction has changed vs previous command
         boolean busy; // set to true once bresenham initialised and active
 
     };
@@ -166,7 +167,10 @@ private:
 
     void calculateAccelDist();
 
+    void replan();  // updates acceleration plan
+
     void dequeue();  // removes head of queue
+    Command *getCommand(uint8_t index);  // return pointer to command at index
     Command *getCurrentCommand();  // return pointer to current command (head of queue)
 };
 

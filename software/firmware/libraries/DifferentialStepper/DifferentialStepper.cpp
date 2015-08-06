@@ -352,6 +352,7 @@ void DifferentialStepper::reset() {
 
 void DifferentialStepper::stopAfter() {
     if (_qSize > 1) _qSize = 1;
+    replan();
 }
 
 void DifferentialStepper::emergencyStop() {
@@ -362,6 +363,9 @@ void DifferentialStepper::stop() {
     // recalc current block to stop ASAP
     Command *c = getCurrentCommand();
     if (c == NULL) return;
+
+    // recalc minimum deceleration distance
+    c->decelerateAfter = max(c->totalSteps >> 1, c->totalSteps - _accelDist);
 
     // if already deaccelerating, then just clear the rest of the queue
     if (_stepsCompleted > c->decelerateAfter) {
@@ -382,6 +386,17 @@ void DifferentialStepper::dequeue() {
     }
 }
 
+DifferentialStepper::Command *DifferentialStepper::getCommand(uint8_t index) {
+    if (isQEmpty() || index >= _qSize) {
+        return NULL;
+    } else {
+        index += _qHead;
+        if (index >= DIFFERENTIALSTEPPER_COMMAND_QUEUE_LENGTH)
+            index -= DIFFERENTIALSTEPPER_COMMAND_QUEUE_LENGTH;
+        return &_q[index];
+    }
+}
+
 DifferentialStepper::Command *DifferentialStepper::getCurrentCommand() {
     if (isQEmpty()) {
         return NULL;
@@ -399,6 +414,7 @@ boolean DifferentialStepper::queueMove(long leftSteps, long rightSteps) {
         Command *c = &_q[next];
 
         c->busy = false;
+        c->dirChange = false;
         c->leftSteps = abs(leftSteps);
         c->rightSteps = abs(rightSteps);
         c->totalSteps = max(c->leftSteps, c->rightSteps);
@@ -408,15 +424,62 @@ boolean DifferentialStepper::queueMove(long leftSteps, long rightSteps) {
         if (leftSteps > 0)  c->directionBits |= 1;
         if (rightSteps > 0) c->directionBits |= (1<<1);
 
-		// these will be set later...
+		// these will be set by replan()
         c->accelerateUntil = 0;
-        c->decelerateAfter = 0;
+        c->decelerateAfter = c->totalSteps;
+        c->entryStepRate = _minStepRate;
 
         _qSize++;
+
+        replan();
 
         return true;
     } else
         return false;
+}
+
+void DifferentialStepper::replan() {
+    Command *c;
+    uint8_t i;
+    uint8_t lastDirBits = (_motors[0].direction) || (_motors[1].direction << 1);
+    unsigned long lastStepRate = _stepRate;  // init with current stepRate
+
+    // forward pass
+    // determine if dirChanged between blocks
+    // set accel values
+    for (i=0; i< _qSize; i++) {
+        c = getCommand(i);
+
+        c->dirChange = c->directionBits ^ lastDirBits;
+        lastDirBits = c->directionBits;
+
+        // calc accelerations, unconstrained at this point
+        if (c->dirChange) {
+            // need to accelerate from standstill again
+            c->accelerateUntil = min(_accelDist, c->totalSteps);
+
+            // calc speed reached
+            lastStepRate = _minStepRate + c->accelerateUntil * _acceleration;
+        } else {
+            // no dir change, so accelerate from lastStepRate
+            float d = (float) ((_maxStepRate*_maxStepRate) - (lastStepRate * lastStepRate))
+                         /
+                         ( 2.0 * _acceleration);
+            c->accelerateUntil = min(d, c->totalSteps);
+
+            // calc speed reached
+            lastStepRate = lastStepRate + c->accelerateUntil * _acceleration;
+        }
+    }
+
+
+    // 2nd pass
+    // set decel values, adjust accel values if necessary
+    for (i=0; i< _qSize; i++) {
+        c = getCommand(i);
+        c->decelerateAfter = max(c->totalSteps >> 1, c->totalSteps - _accelDist);
+    }
+
 }
 
 
@@ -438,14 +501,15 @@ boolean DifferentialStepper::run() {
 		_motors[0].direction = c->directionBits & 1;
 		_motors[1].direction = c->directionBits & (1<<1);
 		_stepsCompleted = 0;
-		_stepRate = _minStepRate;
-
-		// TODO: look-ahead
-		c->accelerateUntil = min(_accelDist, c->totalSteps >> 1);
-		c->decelerateAfter = max(c->totalSteps >> 1, c->totalSteps - _accelDist);
+		_stepRate = c->entryStepRate; // calculated by planner
 
 		_lastStepTime = time;
 		_stepInterval = 1000000 / _stepRate;
+
+        // old planner
+        // TODO: remove this once look ahead planning code is ready to test!
+        c->accelerateUntil = min(_accelDist, c->totalSteps >> 1);
+        c->decelerateAfter = max(c->totalSteps >> 1, c->totalSteps - _accelDist);
 
         /*
         Serial.print("_accelDist:"); Serial.println(_accelDist);
@@ -470,8 +534,6 @@ boolean DifferentialStepper::run() {
 
     if ( stepTime >= _stepInterval ) {
         // it's time to step...
-		// init new command?
-
 
         // do steps for each motor, using Bresenham algo
         _counterLeft += c->leftSteps;
@@ -492,15 +554,15 @@ boolean DifferentialStepper::run() {
 
 
         // update _stepRate
-        int accelDelta = _acceleration * (float)stepTime / 1000000.0;
-        if (accelDelta < 1) accelDelta = 1;
+        float accelDelta = _acceleration * stepTime / 1000000.0;
+        //if (accelDelta < 1) accelDelta = 1;
 
-        if (_stepsCompleted < c->accelerateUntil & _stepRate < _maxStepRate)
+        if (_stepsCompleted < c->accelerateUntil && _stepRate < _maxStepRate)
             _stepRate += accelDelta;
-        if (_stepsCompleted >= c->decelerateAfter & _stepRate > _minStepRate)
+        if (_stepsCompleted >= c->decelerateAfter && _stepRate > _minStepRate)
             _stepRate -= accelDelta;
 
-        if (_stepRate < 1 ) _stepRate = 1;
+        if (_stepRate < _minStepRate) _stepRate = _minStepRate;
 
         // calculate time for next step
         _stepInterval = 1000000.0 / _stepRate;
