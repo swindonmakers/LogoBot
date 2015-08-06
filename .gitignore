@@ -19,3 +19,6 @@
 *.csg
 
 *.csg
+
+/software/firmware/lib
+/software/firmware/lib/*
