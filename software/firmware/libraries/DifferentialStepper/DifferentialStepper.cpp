@@ -18,6 +18,7 @@ DifferentialStepper::DifferentialStepper(
     _minPulseWidth = 1;
     _stepRate = _minStepRate;
     _acceleration = 500;
+    _lookAheadEnabled = false;
     calculateAccelDist();
 
     // pins
@@ -326,6 +327,11 @@ void DifferentialStepper::setAcceleration(float acceleration) {
     calculateAccelDist();
 }
 
+void DifferentialStepper::setLookAhead(boolean v) {
+    _lookAheadEnabled = v;
+    replan();
+}
+
 void DifferentialStepper::calculateAccelDist() {
     // distance required for acceleration to fullspeed (or stop)
     _accelDist = (float) ((_maxStepRate*_maxStepRate) - (_minStepRate*_minStepRate))
@@ -424,10 +430,10 @@ boolean DifferentialStepper::queueMove(long leftSteps, long rightSteps) {
         if (leftSteps > 0)  c->directionBits |= 1;
         if (rightSteps > 0) c->directionBits |= (1<<1);
 
-		// these will be set by replan()
-        c->accelerateUntil = 0;
-        c->decelerateAfter = c->totalSteps;
+		// these will be replaced by replan() if look ahead is enabled
         c->entryStepRate = _minStepRate;
+        c->accelerateUntil = min(_accelDist, c->totalSteps >> 1);
+        c->decelerateAfter = max(c->totalSteps >> 1, c->totalSteps - _accelDist);
 
         _qSize++;
 
@@ -439,6 +445,8 @@ boolean DifferentialStepper::queueMove(long leftSteps, long rightSteps) {
 }
 
 void DifferentialStepper::replan() {
+    if (!_lookAheadEnabled) return;
+
     Command *c;
     uint8_t i;
     uint8_t lastDirBits = (_motors[0].direction) || (_motors[1].direction << 1);
@@ -475,9 +483,12 @@ void DifferentialStepper::replan() {
 
     // 2nd pass
     // set decel values, adjust accel values if necessary
-    for (i=0; i< _qSize; i++) {
+    lastStepRate = _minStepRate;  // this is now storing the exit rate, which must end up as zero
+    for (i=_qSize; i>0; --i) {
         c = getCommand(i);
-        c->decelerateAfter = max(c->totalSteps >> 1, c->totalSteps - _accelDist);
+
+        // unconstrained deceleration
+        c->decelerateAfter = max(c->totalSteps, c->totalSteps - _accelDist);
     }
 
 }
@@ -505,11 +516,6 @@ boolean DifferentialStepper::run() {
 
 		_lastStepTime = time;
 		_stepInterval = 1000000 / _stepRate;
-
-        // old planner
-        // TODO: remove this once look ahead planning code is ready to test!
-        c->accelerateUntil = min(_accelDist, c->totalSteps >> 1);
-        c->decelerateAfter = max(c->totalSteps >> 1, c->totalSteps - _accelDist);
 
         /*
         Serial.print("_accelDist:"); Serial.println(_accelDist);

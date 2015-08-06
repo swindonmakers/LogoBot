@@ -109,6 +109,8 @@ public:
 
     void setAcceleration(float acceleration);
 
+    void setLookAhead(boolean v);
+
     boolean isQFull();
     boolean isQEmpty();
     uint8_t getQueueCapacity(); // returns umber of free blocks in buffer
@@ -131,6 +133,7 @@ private:
     uint8_t     _interface; // See MotorInterfaceType
     boolean     _enabled;
     Motor       _motors[2];
+    boolean     _lookAheadEnabled;
 
     unsigned long   _maxStepRate;  // in steps/sec
     unsigned long   _minStepRate;  // in steps/sec
