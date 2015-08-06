@@ -155,7 +155,7 @@ static void parseLogoCommand(String c) {
     if (cmdType == 0xff) return;
 
     // lose the command name, keep the parameters
-    int sp = c.indexOf(" ");
+    int sp = c.indexOf(' ');
     if (sp > -1) {
         c = c.substring(sp+1);
     } else {
@@ -193,7 +193,7 @@ static void doLogoCommand(COMMAND *c)
     */
 
     // Parse out parameter values
-    int sp = c->cmd.indexOf(" ");
+    int sp = c->cmd.indexOf(' ');
     float f1 = 0;
     float f2 = 0;
     if (sp > -1 && c->cmdType != LOGO_CMD_WT) {
