@@ -1,5 +1,10 @@
 #include "LogobotText.h"
 
+// local copy of critical command defines - for space optimisation
+#define LOGO_CMD_BZ			8
+#define LOGO_CMD_PU			9
+#define LOGO_CMD_PD			10
+
 namespace LogobotText
 {
 	// Namespace containing private functions
@@ -17,6 +22,14 @@ namespace LogobotText
 			_cmdQ->enqueue(cmd, 0xff);
 		}
 
+		void pushPU() {
+			_cmdQ->enqueue("", LOGO_CMD_PU);
+		}
+
+		void pushPD() {
+			_cmdQ->enqueue("", LOGO_CMD_PD);
+		}
+
 		void pushTo(float x, float y)
 		{
 			String s = "TO ";
@@ -29,18 +42,18 @@ namespace LogobotText
 		// Alphabet
 		void writeA(float x, float y)
 		{
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + w/2, y + capHeight);
 			pushTo(x + w, y);
-			pushCmd("PU");
+			pushPU();
 			pushTo(x + w / 4, y + capHeight / 2);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + 3 * w / 4, y + capHeight / 2 );
 		}
 
 		void writeB(float x, float y)
 		{
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + 2 * w / 3, y);
 			pushTo(x + w, y + capHeight / 4);
 			pushTo(x + 2 * w / 3, y + capHeight / 2);
@@ -53,7 +66,7 @@ namespace LogobotText
 		void writeC(float x, float y)
 		{
 			pushTo(x + w, y + capHeight);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x, y + capHeight);
 			pushTo(x, y);
 			pushTo(x + w, y);
@@ -61,7 +74,7 @@ namespace LogobotText
 
 		void writeD(float x, float y)
 		{
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + 3 * w / 4, y);
 			pushTo(x + w, y + capHeight / 4);
 			pushTo(x + w, y + 3 * capHeight / 4);
@@ -73,27 +86,27 @@ namespace LogobotText
 		void writeE(float x, float y)
 		{
 			writeC(x, y);
-			pushCmd("PU");
+			pushPU();
 			pushTo(x, y + capHeight / 2);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + w, y + capHeight /2);
 		}
 
 		void writeF(float x, float y)
 		{
-			pushCmd("PD");
+			pushPD();
 			pushTo(x, y + capHeight);
 			pushTo(x + w, y + capHeight);
-			pushCmd("PU");
+			pushPU();
 			pushTo(x + w, y + capHeight / 2);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x, y + capHeight / 2);
 		}
 
 		void writeG(float x, float y)
 		{
 			pushTo(x + w, y + capHeight);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x, y + capHeight);
 			pushTo(x, y);
 			pushTo(x + w, y);
@@ -103,7 +116,7 @@ namespace LogobotText
 
 		void writeH(float x, float y)
 		{
-			pushCmd("PD");
+			pushPD();
 			pushTo(x, y + capHeight);
 			pushTo(x, y + capHeight / 2);
 			pushTo(x + w, y + capHeight / 2);
@@ -114,14 +127,14 @@ namespace LogobotText
 		void writeI(float x, float y)
 		{
 			pushTo(x + w / 2, y);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + w / 2, y + capHeight);
 		}
 
 		void writeJ(float x, float y)
 		{
 			pushTo(x, y + capHeight / 4);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x, y);
 			pushTo(x + w, y);
 			pushTo(x + w, y + capHeight);
@@ -129,18 +142,18 @@ namespace LogobotText
 
 		void writeK(float x, float y)
 		{
-			pushCmd("PD");
+			pushPD();
 			pushTo(x, y + capHeight);
-			pushCmd("PU");
+			pushPU();
 			pushTo(x + w, y + capHeight);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x, y + capHeight / 2);
 			pushTo(x + w, y);
 		}
 
 		void writeL(float x, float y)
 		{
-			pushCmd("PD");
+			pushPD();
 			pushTo(x, y + capHeight);
 			pushTo(x,y);
 			pushTo(x + w, y);
@@ -148,7 +161,7 @@ namespace LogobotText
 
 		void writeM(float x, float y)
 		{
-			pushCmd("PD");
+			pushPD();
 			pushTo(x, y + capHeight);
 			pushTo(x + w / 2, y + capHeight / 2);
 			pushTo(x + w, y + capHeight);
@@ -157,7 +170,7 @@ namespace LogobotText
 
 		void writeN(float x, float y)
 		{
-			pushCmd("PD");
+			pushPD();
 			pushTo(x, y + capHeight);
 			pushTo(x + w, y);
 			pushTo(x + w, y + capHeight);
@@ -166,7 +179,7 @@ namespace LogobotText
 
 		void writeO(float x, float y)
 		{
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + w, y);
 			pushTo(x + w, y + capHeight);
 			pushTo(x, y + capHeight);
@@ -175,7 +188,7 @@ namespace LogobotText
 
 		void writeP(float x, float y)
 		{
-			pushCmd("PD");
+			pushPD();
 			pushTo(x, y + capHeight);
 			pushTo(x + w, y + capHeight);
 			pushTo(x + w, y + capHeight / 2);
@@ -184,15 +197,15 @@ namespace LogobotText
 
 		void writeQ(float x, float y)
 		{
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + w / 2, y);
 			pushTo(x + w, y + capHeight / 2);
 			pushTo(x + w, y + capHeight);
 			pushTo(x, y + capHeight);
 			pushTo(x, y);
-			pushCmd("PU");
+			pushPU();
 			pushTo(x + w / 2, y + capHeight / 2);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + w, y);
 		}
 
@@ -204,7 +217,7 @@ namespace LogobotText
 
 		void writeS(float x, float y)
 		{
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + w, y);
 			pushTo(x + w, y + capHeight / 2);
 			pushTo(x, y + capHeight / 2);
@@ -215,7 +228,7 @@ namespace LogobotText
 		void writeT(float x, float y)
 		{
 			pushTo(x + w/2, y);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + w/2, y + capHeight);
 			pushTo(x, y + capHeight);
 			pushTo(x + w, y + capHeight);
@@ -224,7 +237,7 @@ namespace LogobotText
 		void writeU(float x, float y)
 		{
 			pushTo(x, y + capHeight);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x, y);
 			pushTo(x + w, y);
 			pushTo(x + w, y + capHeight);
@@ -233,7 +246,7 @@ namespace LogobotText
 		void writeV(float x, float y)
 		{
 			pushTo(x, y + capHeight);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + w / 2, y);
 			pushTo(x + w, y + capHeight);
 		}
@@ -241,7 +254,7 @@ namespace LogobotText
 		void writeW(float x, float y)
 		{
 			pushTo(x, y + capHeight);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + w / 4, y);
 			pushTo(x + w / 2, y + capHeight / 2);
 			pushTo(x + 3 * w / 4, y);
@@ -250,28 +263,28 @@ namespace LogobotText
 
 		void writeX(float x, float y)
 		{
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + w, y + capHeight);
-			pushCmd("PU");
+			pushPU();
 			pushTo(x, y + capHeight);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + w, y);
 		}
 
 		void writeY(float x, float y)
 		{
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + w, y + capHeight);
-			pushCmd("PU");
+			pushPU();
 			pushTo(x, y + capHeight);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + w / 2, y + capHeight / 2);
 		}
 
 		void writeZ(float x, float y)
 		{
 			pushTo(x, y + capHeight);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + w, y + capHeight);
 			pushTo(x, y);
 			pushTo(x + w, y);
@@ -280,18 +293,18 @@ namespace LogobotText
 		void writeColon(float x, float y)
 		{
 			pushTo(x + w/3, y + capHeight/3);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + 2*w/3, y + capHeight/3);
-			pushCmd("PU");
+			pushPU();
 			pushTo(x + 2*w/3, y + 2*capHeight/3);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + w/3, y + 2*capHeight/3);
 		}
 
 		void writeCloseBracket(float x, float y)
 		{
 			pushTo(x + w/3, y);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + 2*w/3, y + capHeight/4);
 			pushTo(x + w, y + capHeight/2);
 			pushTo(x + 2*w/3, y + 3*capHeight/4);
@@ -301,20 +314,20 @@ namespace LogobotText
 		void writeHash(float x, float y)
 		{
 			pushTo(x, y + capHeight/3);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + w, y + capHeight/3);
-			pushCmd("PU");
+			pushPU();
 			pushTo(x + w, y + 2*capHeight/3);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x, y + 2*capHeight/3);
-			pushCmd("PU");
+			pushPU();
 
 			pushTo(x + w/3, y + capHeight);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + w/3, y);
-			pushCmd("PU");
+			pushPU();
 			pushTo(x + 2*w/3, y);
-			pushCmd("PD");
+			pushPD();
 			pushTo(x + 2*w/3, y + capHeight);
 		}
 	}
@@ -430,11 +443,12 @@ namespace LogobotText
 				break;
 
 			default:
-				pushCmd("BZ 500");
+				_cmdQ->enqueue("500",LOGO_CMD_BZ);
+				//pushCmd("BZ 500");
 				return;
 		}
 
-		pushCmd("PU");
+		pushPU();
 		pushTo(x + w + letterSpacing, y);
 	}
 }
