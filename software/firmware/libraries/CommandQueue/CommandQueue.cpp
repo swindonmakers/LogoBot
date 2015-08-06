@@ -8,7 +8,7 @@ CommandQueue::CommandQueue(int length)
 	qSize = 0;
 }
 
-boolean CommandQueue::insert(String s) {
+boolean CommandQueue::insert(String s, uint8_t cmdType) {
 	// inserts s at head of queue
 	// return true if inserted ok, false if buffer full
 
@@ -17,6 +17,7 @@ boolean CommandQueue::insert(String s) {
 		if (qHead < 0) qHead += queueLength;
 
 		cmdQ[qHead].cmd = String(s);
+		cmdQ[qHead].cmdType = cmdType;
 
 		qSize++;
 
@@ -26,7 +27,7 @@ boolean CommandQueue::insert(String s) {
 		return false;
 }
 
-boolean CommandQueue::enqueue(String s) {
+boolean CommandQueue::enqueue(String s, uint8_t cmdType) {
 	// push s onto tail of queue
 	// return true if pushed ok, false if buffer full
 
@@ -35,6 +36,7 @@ boolean CommandQueue::enqueue(String s) {
 		if (next >= queueLength) next -= queueLength;
 
 		cmdQ[next].cmd = String(s);
+		cmdQ[next].cmdType = cmdType;
 
 		qSize++;
 
@@ -44,17 +46,25 @@ boolean CommandQueue::enqueue(String s) {
 		return false;
 }
 
-String CommandQueue::dequeue() {
+uint8_t CommandQueue::peekAtType() {
+	if (qSize > 0) {
+		return cmdQ[qHead].cmdType;
+	} else
+		return 0xff;
+}
+
+COMMAND * CommandQueue::dequeue() {
 	// pops head of queue
 	if (qSize > 0) {
-		String s = cmdQ[qHead].cmd;
+		COMMAND * res = &cmdQ[qHead];
+		//String s = cmdQ[qHead].cmd;
 		qSize--;
 		qHead++;
 		if (qHead >= queueLength) qHead -= queueLength;
-		return s;
+		return res;
 	}
 	else
-		return "";
+		return NULL;
 }
 
 boolean CommandQueue::isFull() {

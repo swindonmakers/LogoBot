@@ -14,7 +14,7 @@ namespace LogobotText
 
 		void pushCmd(String cmd)
 		{
-			_cmdQ->enqueue(cmd);
+			_cmdQ->enqueue(cmd, 0xff);
 		}
 
 		void pushTo(float x, float y)

@@ -24,42 +24,41 @@ void setup()
 
 void loop()
 {
-  // Parse Logo commands from Serial, add to cmdQ
+  // Parse Logo commands from Serial
   if (Serial.available()) {
     char c = Serial.read();
-    if (c == '\r' || c == '\n') {
-      if (cmd != "") {
-        if (cmd == "STAT") {
+    if (c == '\r' || c == '\n') {  // if found a line end
+      if (cmd != "") {  // check the command isn't blank
+        if (cmd == "STAT") { // handle status commands: execute immediately, no need to parse and/or queue
           showStatus();
         } else if (cmdQ.isFull()) {
             Serial.println("BUSY");
         } else {
-            if (cmd[0] == '!') {
-                bot.emergencyStop();
-                cmdQ.insert(cmd.substring(1));
-            } else {
-                cmdQ.enqueue(cmd);
-            }
+            parseLogoCommand(cmd);
             Serial.println("OK:" + cmd);
         }
 
+        // reset the command buffer
         cmd = "";
       }
     } else {
-      cmd += c;
+      cmd += c;  // append the character onto the command buffer
     }
   }
 
+  // keep the bot moving (this triggers the stepper motors to move, so needs to be called frequently, i.e. >1KHz)
   bot.run();
 
+  // See if the bot has finished whatever it's doing...
   if (!bot.isBusy()) {
+    // see if there's more things todo in the command queue
     if (cmdQ.isEmpty()) {
-
-      // check the text writing buffer
+      // As the command queue is empty, check the text writing buffer
+      // to see if there are any more letters to write
       if (text.length() > 0) {
-        char c = text[0];
-        text = text.substring(1);  // lose the first character
-        LogobotText::writeChar(c, bot.state.x, bot.state.y);
+        char c = text[0];  // grab the next character to write
+        text = text.substring(1);  // and remove the first character from the text writing buffer
+        LogobotText::writeChar(c, bot.state.x, bot.state.y);  // use the LogobotText library to write the letter
       }
     } else {
       // pop and process next command from queue
@@ -72,22 +71,19 @@ static void handleCollision(byte collisionData)
 {
 	if (collisionData != 0) {
 		// Just hit something, so stop and buzz
-		bot.emergencyStop();
+		bot.emergencyStop();  // this will be called by parseLogoCommand
 		bot.buzz(500);
 	}
 
 	// Insert some recovery based on which bumper was hit
-	// Note since we are inserting at the head of the command queue, the first
-	// command we insert will be run second.
+	// Queue the moves directly to bot, don't bother with Logo command queue
+    bot.drive(-20);
 	if (collisionData == 1) {
-		cmdQ.insert("RT 30");
-		cmdQ.insert("BK 20");
+        bot.turn(-30);
 	} else if (collisionData == 2) {
-		cmdQ.insert("LT 60");
-		cmdQ.insert("BK 20");
-	} else if (collisionData == 3) {
-		cmdQ.insert("RT 90");
-		cmdQ.insert("BK 20");
+        bot.turn(60);
+	} else {
+        bot.turn(-90);
 	}
 }
 
@@ -103,61 +99,157 @@ static void showStatus()
   Serial.println(cmdQ.pending());
 }
 
-static void doLogoCommand(String c)
+
+static void parseLogoCommand(String c) {
+    // parse and queue/insert
+    uint8_t cmdType = 0xff;
+
+    // check for urgent commands
+    boolean doNow = false;
+    if (cmd[0] == '!') {
+        doNow = true;
+        c = c.substring(1);
+    }
+
+    // parse the command type
+    if (c.startsWith("TO")) {
+        cmdType = LOGO_CMD_TO;
+    } else if (c.startsWith("ARC")) {
+        cmdType = LOGO_CMD_ARC;
+    } else if (c.startsWith("FD")) {
+        cmdType = LOGO_CMD_FD;
+    } else if (c.startsWith("BK")) {
+        cmdType = LOGO_CMD_BK;
+    } else if (c.startsWith("RT")) {
+        cmdType = LOGO_CMD_RT;
+    } else if (c.startsWith("LT")) {
+        cmdType = LOGO_CMD_LT;
+    } else if (c.startsWith("ST")) {
+        cmdType = LOGO_CMD_ST;
+    } else if (c.startsWith("SE")) {
+        cmdType = LOGO_CMD_SE;
+    } else if (c.startsWith("BZ")) {
+        cmdType = LOGO_CMD_BZ;
+    } else if (c.startsWith("PU")) {
+        cmdType = LOGO_CMD_PU;
+    } else if (c.startsWith("PD")) {
+        cmdType = LOGO_CMD_PD;
+    } else if (c.startsWith("PF")) {
+        cmdType = LOGO_CMD_PF;
+    } else if (c.startsWith("FS")) {
+        cmdType = LOGO_CMD_FS;
+    } else if (c.startsWith("SIG")) {
+        cmdType = LOGO_CMD_SIG;
+    } else if (c.startsWith("WT")) {
+        cmdType = LOGO_CMD_WT;
+    } else if (c.startsWith("PQ")) {
+        cmdType = LOGO_CMD_PQ;
+    }
+
+    // give up if command not recognised
+    if (cmdType == 0xff) return;
+
+    // lose the command name, keep the parameters
+    int sp = c.indexOf(" ");
+    if (sp > -1) {
+        c = c.substring(sp+1);
+    } else {
+        c = "";
+    }
+
+    // insert/queue the command
+    if (doNow) {
+        bot.emergencyStop();  // stop the bot, clear any internally queued movement commands
+        cmdQ.insert(c, cmdType);  // insert the new command at the head of the command queue
+    } else {
+        cmdQ.enqueue(c, cmdType);
+    }
+}
+
+static void doLogoCommand(COMMAND *c)
 {
-  /* Official Logo Commands
-       Implemented
-         -FD, BK, LT, RT
-         -PU - Pen Up
-         -PD - Pen Down
-         -ARC
-   */
-  /* Unofficial extensions
-      BZ n - sound buzzer for n milliseconds
-      ST - stop
-      SE - emergency stop
-	  FS - set font size
-      SIG - sign Logobots name
-      TO x y
+    if (c == NULL) return;
+
+    /* Official Logo Commands
+    Implemented
+    -FD, BK, LT, RT
+    -PU - Pen Up
+    -PD - Pen Down
+    */
+    /* Unofficial extensions
+    BZ n - sound buzzer for n milliseconds
+    PF n - pause for n milliseconds
+    ST - stop
+    SE - emergency stop
+    FS - set font size
+    SIG - sign Logobots name
+    TO x y   - straight line to co-ordinates x y
+    ARC x y  - smooth arc to co-ordinates x y
     */
 
-  if (c.startsWith("TO")) {
-    // split out x and y co-ordinates
-    int sp = c.indexOf(" ",3);
-    bot.driveTo(c.substring(3,sp).toFloat(), c.substring(sp+1).toFloat());
-  } else if (c.startsWith("ARC")) {
-    // split out x and y co-ordinates
-    int sp = c.indexOf(" ",4);
-    bot.arcTo(c.substring(4,sp).toFloat(), c.substring(sp+1).toFloat());
-  } else if (c.startsWith("FD")) {
-    bot.drive(c.substring(3).toFloat());
-  } else if (c.startsWith("BK")) {
-    bot.drive(-c.substring(3).toFloat());
-  } else if (c.startsWith("RT")) {
-    bot.turn(-c.substring(3).toFloat());
-  } else if (c.startsWith("LT")) {
-    bot.turn(c.substring(3).toFloat());
-  } else if (c.startsWith("ST")) {
-    bot.stop();
-  } else if (c.startsWith("SE")) {
-    bot.emergencyStop();
-  } else if (c.startsWith("BZ")) {
-    bot.buzz(c.substring(3).toInt());
-  } else if (c.startsWith("PU")) {
-    bot.penUp();
-  } else if (c.startsWith("PD")) {
-    bot.penDown();
-  } else if (c.startsWith("PF")) {  // Pause For
-    bot.pause(c.substring(3).toInt());
-  } else if (c.startsWith("FS")) {
-	LogobotText::setFontSize(c.substring(3).toFloat());
-  } else if (c.startsWith("SIG")) {
-    writeText("Logobot");
-  } else if (c.startsWith("WT")) {
-    writeText(c.substring(3));
-  } else if (c.startsWith("PQ")) {
-    cmdQ.printCommandQ();
-  }
+    // Parse out parameter values
+    int sp = c->cmd.indexOf(" ");
+    float f1 = 0;
+    float f2 = 0;
+    if (sp > -1 && c->cmdType != LOGO_CMD_WT) {
+        f1 = c->cmd.substring(0,sp).toFloat();
+        f2 = c->cmd.substring(sp+1).toFloat();
+    } else if (cmd.length() > 0 && c->cmdType != LOGO_CMD_WT) {
+        f1 = c->cmd.toFloat();
+    }
+
+    // Handle each command type
+    switch(c->cmdType) {
+        case LOGO_CMD_TO:
+            bot.driveTo(f1,f2);
+            break;
+        case LOGO_CMD_ARC:
+            bot.arcTo(f1,f2);
+            break;
+        case LOGO_CMD_FD:
+            bot.drive(f1);
+            break;
+        case LOGO_CMD_BK:
+            bot.drive( - f1);
+            break;
+        case LOGO_CMD_LT:
+            bot.turn(f1);
+            break;
+        case LOGO_CMD_RT:
+            bot.turn( - f1);
+            break;
+        case LOGO_CMD_ST:
+            bot.stop();
+            break;
+        case LOGO_CMD_SE:
+            bot.emergencyStop();
+            break;
+        case LOGO_CMD_BZ:
+            bot.buzz(f1);
+            break;
+        case LOGO_CMD_PU:
+            bot.penUp();
+            break;
+        case LOGO_CMD_PD:
+            bot.penDown();
+            break;
+        case LOGO_CMD_PF:
+            bot.pause(f1);
+            break;
+        case LOGO_CMD_FS:
+            LogobotText::setFontSize(f1);
+            break;
+        case LOGO_CMD_SIG:
+            writeText("LOGOBOT");
+            break;
+        case LOGO_CMD_WT:
+            writeText(c->cmd);
+            break;
+        case LOGO_CMD_PQ:
+            cmdQ.printCommandQ();
+            break;
+
+    }
 }
 
 static void writeText(String s) {
@@ -168,4 +260,3 @@ static void writeText(String s) {
   // reset current state
   bot.resetPosition();
 }
-
