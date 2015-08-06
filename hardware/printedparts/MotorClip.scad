@@ -78,6 +78,8 @@ module MotorClip_Model() {
         connector(LeftMotorClip_Con_Driver);
     }
 
+    dbw = ULN2003Driver_BoardWidth + 1;  // includes clearance
+
     difference() {
         // solid stuff
         union() {
@@ -122,14 +124,14 @@ module MotorClip_Model() {
 
             // driver holder
             translate([-MotorClip_DriverOffsetX  -2*dw, MotorOffsetZ - 2*dw, MotorClip_DriverOffsetZ-4])
-                cube([3*dw, dw, ULN2003Driver_BoardWidth]);
+                cube([3*dw, dw, dbw]);
 
             // outer post
             translate([-MotorClip_DriverOffsetX  -2*dw, MotorOffsetZ - dw - 12, MotorClip_DriverOffsetZ-4])
                 cube([3*dw, 12, 4]);
 
             // inner post
-            translate([-MotorClip_DriverOffsetX  -2*dw, MotorOffsetZ - dw - 20, MotorClip_DriverOffsetZ-5.5  + ULN2003Driver_BoardWidth])
+            translate([-MotorClip_DriverOffsetX  -2*dw, MotorOffsetZ - dw - 20, MotorClip_DriverOffsetZ-5.5  + dbw])
                 cube([3*dw, 20, 4]);
 
 
@@ -173,6 +175,11 @@ module MotorClip_Model() {
 
         // hollow for driver board
         attach(LeftMotorClip_Con_Driver, ULN2003DriverBoard_Con_UpperLeft)
-            ULN2003DriverBoard_PCB(false, 2);
+            ULN2003DriverBoard_PCB(false, ULN2003Driver_PCBThickness+0.5);
+
+        // hollow again, but shifted slightly - cheap hack to provide some side-to-side clearance
+        translate([0,0,1])
+            attach(LeftMotorClip_Con_Driver, ULN2003DriverBoard_Con_UpperLeft)
+            ULN2003DriverBoard_PCB(false, ULN2003Driver_PCBThickness+0.5);
     }
 }

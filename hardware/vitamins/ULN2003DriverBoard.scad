@@ -7,9 +7,9 @@
 		Centred on the bottom left mounting hole
 */
 
-ULN2003Driver_BoardHeight = 35;
-ULN2003Driver_BoardWidth = 30;
-ULN2003Driver_PCBThickness = 1.5;
+ULN2003Driver_BoardHeight = 35.5;
+ULN2003Driver_BoardWidth = 32.5;
+ULN2003Driver_PCBThickness = 1.7;
 ULN2003Driver_HoleDia = 3;
 ULN2003Driver_HoleInset = 2.5;
 
