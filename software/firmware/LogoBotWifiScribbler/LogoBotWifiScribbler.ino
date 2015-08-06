@@ -96,11 +96,11 @@ static void showStatus()
 {
   // Format: "X Y ang qSize"
   Serial.print((int)bot.state.x);
-  Serial.print(" ");
+  Serial.print(' ');
   Serial.print((int)bot.state.y);
-  Serial.print(" ");
+  Serial.print(' ');
   Serial.print((int)bot.state.ang);
-  Serial.print(" ");
+  Serial.print(' ');
   Serial.println(cmdQ.pending());
 }
 

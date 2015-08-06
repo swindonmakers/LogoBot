@@ -84,14 +84,18 @@ void CommandQueue::printCommandQ()
 {
 	Serial.print("cmdQ:");
 	Serial.print(qHead);
-	Serial.print(":");
+	Serial.print(':');
 	Serial.println(qSize);
 
+	// No longer very helpful, as the cmdType is not human readable
+	// and would take too much code storage to translate back...
+	/*
 	for (int i = 0; i<qSize; i++) {
 		Serial.print(i);
-		Serial.print(":");
+		Serial.print(':');
 		int j = qHead + i;
 		if (j > queueLength) j -= queueLength;
 		Serial.println(cmdQ[j].cmd);
 	}
+	*/
 }
