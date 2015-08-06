@@ -1,6 +1,7 @@
 #include "LogobotText.h"
 
 // local copy of critical command defines - for space optimisation
+#define LOGO_CMD_TO			4
 #define LOGO_CMD_BZ			8
 #define LOGO_CMD_PU			9
 #define LOGO_CMD_PD			10
@@ -17,11 +18,6 @@ namespace LogobotText
 
 		CommandQueue * _cmdQ;
 
-		void pushCmd(String cmd)
-		{
-			_cmdQ->enqueue(cmd, 0xff);
-		}
-
 		void pushPU() {
 			_cmdQ->enqueue("", LOGO_CMD_PU);
 		}
@@ -32,11 +28,10 @@ namespace LogobotText
 
 		void pushTo(float x, float y)
 		{
-			String s = "TO ";
-			s += x;
+			String s = String(x);
 			s += " ";
 			s += y;
-			pushCmd(s);
+			_cmdQ->enqueue(s, LOGO_CMD_TO);
 		}
 
 		// Alphabet
