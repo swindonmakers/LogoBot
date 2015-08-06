@@ -341,6 +341,10 @@ boolean DifferentialStepper::isQEmpty() {
     return _qSize == 0;
 }
 
+uint8_t DifferentialStepper::getQueueCapacity() {
+    return DIFFERENTIALSTEPPER_COMMAND_QUEUE_LENGTH - _qSize;
+}
+
 void DifferentialStepper::reset() {
     _qSize = 0;
     _stepRate = _minStepRate;

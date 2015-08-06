@@ -57,6 +57,11 @@ bool Bot::isBusy()
 	return (!_diffDrive.isQEmpty()) || (millis() < _pauseEnd);
 }
 
+bool Bot::isQFull() {
+	// make sure we always have two blocks free, to allow space for driveTo commands that need two blocks!
+	return _diffDrive.getQueueCapacity() > 1;
+}
+
 void Bot::playStartupJingle()
 {
 	for (uint8_t i = 0; i < 3; i++) {

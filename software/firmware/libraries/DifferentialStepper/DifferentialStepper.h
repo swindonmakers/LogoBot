@@ -110,6 +110,7 @@ public:
 
     boolean isQFull();
     boolean isQEmpty();
+    uint8_t getQueueCapacity(); // returns umber of free blocks in buffer
 
     void reset();  // empty queue, immediate stop, no change in enable/disable status
 

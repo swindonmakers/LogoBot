@@ -49,8 +49,13 @@ void loop()
   // keep the bot moving (this triggers the stepper motors to move, so needs to be called frequently, i.e. >1KHz)
   bot.run();
 
-  // See if the bot has finished whatever it's doing...
-  if (!bot.isBusy()) {
+  // see if we can queue the next command to the bot...
+  // Needs to be a movement command and the bot movement queue must not be full
+  if (cmdQ.peekAtType() <= LOGO_MOVE_CMDS && !bot.isQFull()) {
+      // pop and process next command from queue
+      doLogoCommand(cmdQ.dequeue());
+
+  } else if (!bot.isBusy()) {  // See if the bot has finished whatever it's doing...
     // see if there's more things todo in the command queue
     if (cmdQ.isEmpty()) {
       // As the command queue is empty, check the text writing buffer
