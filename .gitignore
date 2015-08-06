@@ -22,3 +22,5 @@
 
 /software/firmware/lib
 /software/firmware/lib/*
+/software/firmware/.build_ano/*
+*.pickle
