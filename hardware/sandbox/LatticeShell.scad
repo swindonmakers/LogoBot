@@ -4,26 +4,26 @@ UseVitaminSTL=true;
 DebugConnectors=true;
 DebugCoordinateFrames=true;
 
-VoronoiShell_STL();
+LatticeShell_STL();
 
 
 
 
-module VoronoiShell_STL() {
-	printedPart("printedparts/VoronoiShell.scad", "Voronoi Shell", "VoronoiShell_STL()") {
+module LatticeShell_STL() {
+	printedPart("printedparts/LatticeShell.scad", "Lattice Shell", "LatticeShell_STL()") {
 	    view(t=[-2, 6, 14], r=[63, 0, 26], d=726);
 
         color([Level2PlasticColor[0], Level2PlasticColor[1], Level2PlasticColor[2], 1])
              if (UseSTL) {
-                import(str(STLPath, "VoronoiShell.stl"));
+                import(str(STLPath, "LatticeShell.stl"));
             } else {
-				VoronoiShell_Model();
+				LatticeShell_Model();
             }
     }
 }
 
 
-module VoronoiShell_Model() {
+module LatticeShell_Model() {
 
 	sw = 2 * perim;
 
