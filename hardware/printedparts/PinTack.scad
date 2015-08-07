@@ -20,7 +20,7 @@ module PinTack_STL(h=10) {
 
         color(Level3PlasticColor) {
             // uses pins.scad library:
-            pintack(h=h, bh=2, lh=2);
+            pintack(h=h, bh=2, lh=2, r=PinDiameter/2-0.1);
         }
     }
 }

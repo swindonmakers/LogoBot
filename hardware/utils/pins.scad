@@ -54,7 +54,7 @@ module pin(h=10, r=PinDiameter/2, lh=3, lt=1, t=0.2, side=false) {
 module pintack(h=10, r=PinDiameter/2, lh=3, lt=1, t=0.2, bh=3, br=6, side=false) {
 	// bh = base_height
 	// br = base_radius
-	
+
 	flip=(side==false) ? 1 : 0;
 
 	color(Level3PlasticColor)
@@ -114,8 +114,12 @@ module pin_horizontal(h=10, r=4, lh=3, lt=1, t=0.2) {
 // this is mainly to make the pinhole module easier
 module pin_solid(h=10, r=4, lh=3, lt=1) {
   union() {
+	// join to head
+	cylinder(h=r/2+eta, r1=r*0.8, r2=r, $fn=30);
+
     // shaft
-    cylinder(h=h-lh, r=r, $fn=30);
+	translate([0,0,r/2])
+	    cylinder(h=h-lh - r/2, r=r, $fn=30);
     // lip
     translate([0, 0, h-lh]) cylinder(h=lh*0.25, r1=r, r2=r+(lt/2), $fn=30);
     translate([0, 0, h-lh+lh*0.25]) cylinder(h=lh*0.25, r=r+(lt/2), $fn=30);

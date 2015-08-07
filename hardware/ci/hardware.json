@@ -1,7 +1,7 @@
 [
     {
         "cut": [],
-        "hash": "9578bcc094e44d4b17af259025efc1b9",
+        "hash": "124f8184e18c6fea69d168aeda0ee35f",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -504,7 +504,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "451c041868145baca72c05c33ee06ea8",
+                "hash": "f638e676ee03bc30c2e72da3d9bd5afa",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -1022,7 +1022,7 @@
             },
             {
                 "cut": [],
-                "hash": "9203947cfbfdb936007c1aac32f0c355",
+                "hash": "de5b178756389f4ad919d46e8772bb31",
                 "vitamins": [
                     {
                         "title": "MicroSwitch",
@@ -1081,7 +1081,7 @@
             },
             {
                 "cut": [],
-                "hash": "9381ec849cbd1f5caa941ee133611eae",
+                "hash": "cc5e4fa6fdb829fd4f8cbbf71a3ff1e6",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -1243,7 +1243,7 @@
             },
             {
                 "cut": [],
-                "hash": "39409ff61d718c72bc2585440d97eaa2",
+                "hash": "9cf1012e30f5e8c7f2000faa449a7acb",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -1557,7 +1557,7 @@
             },
             {
                 "plasticVolume": 0.3,
-                "hash": "f80273db76639a00c0f35c3a538c069c",
+                "hash": "35cf884fb6d0f9a153821f04ba66842a",
                 "plasticWeight": 0.000375,
                 "weight": 0.000375,
                 "views": [
@@ -1604,7 +1604,7 @@
             },
             {
                 "plasticVolume": 12.9,
-                "hash": "2362cf6334b943a05e034d0866541f1f",
+                "hash": "5ed7ba2184bf0dbb2b4b4a1b67a32303",
                 "plasticWeight": 0.016125,
                 "weight": 0.016125,
                 "views": [
@@ -1651,7 +1651,7 @@
             },
             {
                 "plasticVolume": 1.1,
-                "hash": "6085def5a25e717f693e01194c7d0663",
+                "hash": "3b84ee886dee0aa06ddb470493c12088",
                 "plasticWeight": 0.001375,
                 "weight": 0.001375,
                 "views": [
@@ -1698,7 +1698,7 @@
             },
             {
                 "plasticVolume": 0.4,
-                "hash": "9e7916d3eaca31397bfe49db6d511d07",
+                "hash": "0633dbf27d33455020c7da29cc30cc07",
                 "plasticWeight": 0.0005,
                 "weight": 0.0005,
                 "views": [
@@ -1792,7 +1792,7 @@
             },
             {
                 "plasticVolume": 0.3,
-                "hash": "77c9271097b698cf2e541b50f5d042b6",
+                "hash": "4e3a95bca7ed9d320ed7baac02a72d8f",
                 "plasticWeight": 0.000375,
                 "weight": 0.000375,
                 "views": [
@@ -1954,7 +1954,7 @@
             },
             {
                 "plasticVolume": 0.3,
-                "hash": "fafe5808bcb70c19ecdfda9fcd7db72b",
+                "hash": "e0158d1179c23a910aafce630965eac5",
                 "plasticWeight": 0.000375,
                 "weight": 0.000375,
                 "views": [
@@ -4736,7 +4736,7 @@
     },
     {
         "cut": [],
-        "hash": "8825832147d61049e57efc01f9588e0a",
+        "hash": "c1678c296eb33d1b5c2a890649967375",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -5345,7 +5345,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "7f0cedecf24f112cb3a5835c7c903546",
+                "hash": "5db4dfcdc12ffd3094156a95202bdd49",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -5939,7 +5939,7 @@
             },
             {
                 "cut": [],
-                "hash": "9203947cfbfdb936007c1aac32f0c355",
+                "hash": "de5b178756389f4ad919d46e8772bb31",
                 "vitamins": [
                     {
                         "title": "MicroSwitch",
@@ -5998,7 +5998,7 @@
             },
             {
                 "cut": [],
-                "hash": "9381ec849cbd1f5caa941ee133611eae",
+                "hash": "cc5e4fa6fdb829fd4f8cbbf71a3ff1e6",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -6160,7 +6160,7 @@
             },
             {
                 "cut": [],
-                "hash": "39409ff61d718c72bc2585440d97eaa2",
+                "hash": "9cf1012e30f5e8c7f2000faa449a7acb",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -6532,7 +6532,7 @@
             },
             {
                 "plasticVolume": 0.3,
-                "hash": "f80273db76639a00c0f35c3a538c069c",
+                "hash": "35cf884fb6d0f9a153821f04ba66842a",
                 "plasticWeight": 0.000375,
                 "weight": 0.000375,
                 "title": "Pro Mini Clip",
@@ -6566,7 +6566,7 @@
             },
             {
                 "plasticVolume": 12.9,
-                "hash": "2362cf6334b943a05e034d0866541f1f",
+                "hash": "5ed7ba2184bf0dbb2b4b4a1b67a32303",
                 "plasticWeight": 0.016125,
                 "weight": 0.016125,
                 "title": "Bumper",
@@ -6600,7 +6600,7 @@
             },
             {
                 "plasticVolume": 1.1,
-                "hash": "6085def5a25e717f693e01194c7d0663",
+                "hash": "3b84ee886dee0aa06ddb470493c12088",
                 "plasticWeight": 0.001375,
                 "weight": 0.001375,
                 "title": "BumperStabiliser",
@@ -6634,7 +6634,7 @@
             },
             {
                 "plasticVolume": 0.4,
-                "hash": "9e7916d3eaca31397bfe49db6d511d07",
+                "hash": "0633dbf27d33455020c7da29cc30cc07",
                 "plasticWeight": 0.0005,
                 "weight": 0.0005,
                 "title": "Pin Tack H14.1",
@@ -6702,7 +6702,7 @@
             },
             {
                 "plasticVolume": 0.3,
-                "hash": "77c9271097b698cf2e541b50f5d042b6",
+                "hash": "4e3a95bca7ed9d320ed7baac02a72d8f",
                 "plasticWeight": 0.000375,
                 "weight": 0.000375,
                 "title": "Pin Tack H7",
@@ -6838,7 +6838,7 @@
             },
             {
                 "plasticVolume": 0.3,
-                "hash": "fafe5808bcb70c19ecdfda9fcd7db72b",
+                "hash": "e0158d1179c23a910aafce630965eac5",
                 "plasticWeight": 0.000375,
                 "weight": 0.000375,
                 "title": "Pin Tack H6.1",
@@ -6966,7 +6966,7 @@
             },
             {
                 "plasticVolume": 0.3,
-                "hash": "3cea398d49865cd2c0f1c56ac4264759",
+                "hash": "9a03db8780f02b1a83bdd82d4899b807",
                 "plasticWeight": 0.000375,
                 "weight": 0.000375,
                 "views": [
