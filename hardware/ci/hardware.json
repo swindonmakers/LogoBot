@@ -1,7 +1,7 @@
 [
     {
         "cut": [],
-        "hash": "fc8c4895d3135891cb75f6a6866d6f30",
+        "hash": "cf7922aee25953304e1764b280d936cb",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -504,7 +504,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "5de9ff4160e5a894cc359b67d19a100d",
+                "hash": "8f3e9d0dc01aa0488b90bf54feea3771",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -1022,7 +1022,7 @@
             },
             {
                 "cut": [],
-                "hash": "1ae2ddd7436397f6bf0eac90cc0fb2b3",
+                "hash": "9203947cfbfdb936007c1aac32f0c355",
                 "vitamins": [
                     {
                         "title": "MicroSwitch",
@@ -1604,22 +1604,9 @@
             },
             {
                 "plasticVolume": 12.9,
-                "hash": "ca7c4f3cb84dac3b64e0e5a00cfc5523",
+                "hash": "2362cf6334b943a05e034d0866541f1f",
                 "plasticWeight": 0.016125,
                 "weight": 0.016125,
-                "title": "Bumper",
-                "aabb": [
-                    [
-                        -76.6842,
-                        6.36048,
-                        0.0
-                    ],
-                    [
-                        76.707,
-                        76.9954,
-                        15.0
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -1643,6 +1630,19 @@
                         ]
                     }
                 ],
+                "aabb": [
+                    [
+                        -76.6842,
+                        6.36048,
+                        0.0
+                    ],
+                    [
+                        76.707,
+                        76.9954,
+                        15.0
+                    ]
+                ],
+                "title": "Bumper",
                 "qty": 2,
                 "volume": 12.9,
                 "area": 12328.082454022706,
@@ -1654,19 +1654,6 @@
                 "hash": "6085def5a25e717f693e01194c7d0663",
                 "plasticWeight": 0.001375,
                 "weight": 0.001375,
-                "title": "BumperStabiliser",
-                "aabb": [
-                    [
-                        -50.2499,
-                        27.6931,
-                        0.0
-                    ],
-                    [
-                        50.2499,
-                        58.4592,
-                        1.8
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -1690,6 +1677,19 @@
                         ]
                     }
                 ],
+                "aabb": [
+                    [
+                        -50.2499,
+                        27.6931,
+                        0.0
+                    ],
+                    [
+                        50.2499,
+                        58.4592,
+                        1.8
+                    ]
+                ],
+                "title": "BumperStabiliser",
                 "qty": 2,
                 "volume": 1.1,
                 "area": 1606.4345209526527,
@@ -4723,7 +4723,7 @@
     },
     {
         "cut": [],
-        "hash": "77ba3532cc677cf23df0824bdbb3da5d",
+        "hash": "a690f69c33cde9b97c769799506b436d",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -5332,7 +5332,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "40e9a42093f61aa43d4c60e6d2537427",
+                "hash": "7f0cedecf24f112cb3a5835c7c903546",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -5926,7 +5926,7 @@
             },
             {
                 "cut": [],
-                "hash": "1ae2ddd7436397f6bf0eac90cc0fb2b3",
+                "hash": "9203947cfbfdb936007c1aac32f0c355",
                 "vitamins": [
                     {
                         "title": "MicroSwitch",
@@ -6553,7 +6553,7 @@
             },
             {
                 "plasticVolume": 12.9,
-                "hash": "ca7c4f3cb84dac3b64e0e5a00cfc5523",
+                "hash": "2362cf6334b943a05e034d0866541f1f",
                 "plasticWeight": 0.016125,
                 "weight": 0.016125,
                 "title": "Bumper",
@@ -6862,19 +6862,6 @@
                 "hash": "93b191995ff865e345028a3a06cbea7f",
                 "plasticWeight": 0.005125,
                 "weight": 0.005125,
-                "title": "Pen Lift Slider",
-                "aabb": [
-                    [
-                        -3.0,
-                        -24.9992,
-                        0.0
-                    ],
-                    [
-                        14.9992,
-                        24.9992,
-                        30.0
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -6898,6 +6885,19 @@
                         ]
                     }
                 ],
+                "aabb": [
+                    [
+                        -3.0,
+                        -24.9992,
+                        0.0
+                    ],
+                    [
+                        14.9992,
+                        24.9992,
+                        30.0
+                    ]
+                ],
+                "title": "Pen Lift Slider",
                 "qty": 1,
                 "volume": 4.1,
                 "area": 4104.819079441405,
@@ -6909,19 +6909,6 @@
                 "hash": "0eb063b3b2650c4c2b5c33ce0b624ec0",
                 "plasticWeight": 0.007125,
                 "weight": 0.007125,
-                "title": "Pen Lift Holder",
-                "aabb": [
-                    [
-                        -1.0,
-                        -14.5,
-                        0.0
-                    ],
-                    [
-                        11.0,
-                        14.5,
-                        30.0
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -6945,6 +6932,19 @@
                         ]
                     }
                 ],
+                "aabb": [
+                    [
+                        -1.0,
+                        -14.5,
+                        0.0
+                    ],
+                    [
+                        11.0,
+                        14.5,
+                        30.0
+                    ]
+                ],
+                "title": "Pen Lift Holder",
                 "qty": 1,
                 "volume": 5.7,
                 "area": 3207.704639614044,

@@ -105,6 +105,16 @@ module BumperModel()
 			cube([2*outr, 100,50]);
 	}
 
+	// text
+	s = "LOGOBOT";
+	lw = 10;  // letter width
+	for (i=[0:len(s)-1])
+		rotate([0,0,-21 + i*7 + (i==0 ? 2 : 0)])
+		translate([5, outr-1.5, (height-10)/2 ])
+		rotate([90,0,180])
+		linear_extrude(2)
+		text(s[i], size=10);
+
 	// Connectors
 	for(i=[0, 1])
 	mirror([i, 0, 0])
