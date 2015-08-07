@@ -67,7 +67,7 @@ module Lid_Model()
                     // outer shell
                     rotate_extrude()
                         donutSector(
-                            or=or+0.5,
+                            or=or+1,
                             ir=or-1,
                             a=90
                         );
@@ -83,7 +83,7 @@ module Lid_Model()
                     // outer shell
                     rotate_extrude()
                         donutSector(
-                            or=or+1,
+                            or=or+1.5,
                             ir=or-1,
                             a=90
                         );
