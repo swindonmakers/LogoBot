@@ -41,146 +41,107 @@ module LatticeShell_Model() {
 
 	$fn=64;
 
+	//LatticeShell_Lattice();
+
 	// shell with hole for LED
 	//render()
+	union() {
+		// shell coupler and skirt
 		difference() {
-			union() {
-				// curved shell with centre hole for pen
+			rotate_extrude()
 				difference() {
-					rotate_extrude()
-						difference() {
-							// outer shell
+					union() {
+						// upper coupling ring
+						rotate([0,0,56])
 							donutSector(
 								or=or,
 								ir=BaseDiameter/2 + Shell_NotchTol,
-								a=90
+								a=20
 							);
 
-							polygon(
-								[
-									[0, ShellOpeningHeight + 1000],
-									[ShellOpeningDiameter/2 + 1000, ShellOpeningHeight + 1000],
-									[ShellOpeningDiameter/2 - dw - 1, ShellOpeningHeight - dw - 1],
-									[0, ShellOpeningHeight - dw - 1]
-								]);
-
-						}
-
-					difference() {
-						linear_extrude(or)
-							random_voronoi(
-								n = 80, nuclei = false,
-								L = or+30, thickness = 1.5,
-								round = 1, min = 0, max = 2*or,
-								seed = 7, center = true
+						// lower skirt
+						rotate([0,0,0])
+							donutSector(
+								or=or,
+								ir=BaseDiameter/2 + Shell_NotchTol,
+								a=5
 							);
-
-						// hollow the middle of the voronoi mesh
-						cylinder(r=ShellOpeningDiameter/2 + 5, h=or);
 					}
 
+
+					polygon(
+						[
+							[0, ShellOpeningHeight + 1000],
+							[ShellOpeningDiameter/2 + 1000, ShellOpeningHeight + 1000],
+							[ShellOpeningDiameter/2 - dw - 1, ShellOpeningHeight - dw - 1],
+							[0, ShellOpeningHeight - dw - 1]
+						]);
+
 				}
-
-
-
-				// twist lock
-				Shell_TwistLock();
-			}
 		}
+
+		// Lattice
+		LatticeShell_Lattice();
+
+		// twist lock
+		Shell_TwistLock();
+	}
+
 }
 
 
-/*
-
-    Shell API Functions
-
-    To help build loads of funky shells...  with twist-lock fitting
-
-*/
-
-Shell_NotchOuterWidth   = 20;
-Shell_NotchSlope        = 2;
-Shell_NotchInnerWidth   = Shell_NotchOuterWidth - 2* Shell_NotchSlope;
-Shell_NotchDepth        = 5;
-Shell_NotchTol          = 1;
-Shell_NotchStop         = dw;
-Shell_NotchRotation = 2 * atan2(Shell_NotchOuterWidth/2 - Shell_NotchStop/2, BaseDiameter/2);
-
-// 2D shape to be removed from the base to support shell twist-lock
-module Shell_TwistLockCutouts() {
-    a = Shell_NotchOuterWidth + 2*Shell_NotchTol;
-    b = Shell_NotchInnerWidth + 2*Shell_NotchTol;
-    h = Shell_NotchDepth + Shell_NotchTol;
-    aOffset = Shell_NotchSlope;
-
-    for (i=[0,1])
-        rotate([0,0, i*180 + Shell_NotchRotation/2])
-        translate([BaseDiameter/2 - h/2 + eta, 0, 0])
-        rotate([0,0, 90])
-        trapezoid(b, a, h, aOffset, center=true);
-}
-
-// 3D twist-lock ring to mate a shell to the base
-module Shell_TwistLock() {
-    a = Shell_NotchOuterWidth;
-    b = Shell_NotchInnerWidth;
-    h = Shell_NotchDepth;
-    aOffset = Shell_NotchSlope;
-
-    union() {
-        // Locking tabs
-        for (i=[0,1])
-            translate([0,0,-dw])
-            difference() {
-                // create the basic tab shape
-                linear_extrude(dw)
-                    hull() {
-                        // Locking tab
-                        rotate([0,0, i*180 - Shell_NotchRotation/2])
-                            translate([BaseDiameter/2 - h/2 + eta, 0, 0])
-                            rotate([0,0, 90])
-                            trapezoid(b, a, h, aOffset, center=true);
-
-                        // linking piece to connect locking tab to outer ring
-                        translate([0,0,0])
-                            rotate([0,0, i*180 - Shell_NotchRotation])
-                            donutSector(or=BaseDiameter/2 + Shell_NotchTol + dw,
-                                ir=BaseDiameter/2,
-                                a=Shell_NotchRotation
-                            );
-                    }
-
-                // now chop out a slight slope to allow for a tight friction fit
-                rotate([0,0, i*180 - Shell_NotchRotation/2])
-                    translate([BaseDiameter/2 - h - 3, 0, dw * 0.8])
-                    rotate([5,0,0])
-                    translate([0,-a/2-1,0])
-                    cube([10, a + 2,10]);
-            }
+module LatticeShell_Lattice() {
+	or = BaseDiameter/2 + Shell_NotchTol + dw;
 
 
-        // notch stops
-        for (i=[0,1])
-            rotate([0,0, i*180 - Shell_NotchRotation/2 + 0.3])
-            translate([BaseDiameter/2 - h/2 + 1+eta, a/2 - Shell_NotchStop/2 - 0.5/2, -dw])
-            rotate([0,0, 90])
-            linear_extrude(dw*2)
-            trapezoid(Shell_NotchStop-aOffset+0.7, Shell_NotchStop+1.3, h+2, 0, center=true);
+	// number of steps in curve
+	steps = 20;
 
-        // outer ring
-        translate([0,0,-dw])
-            rotate_extrude()
-            translate([BaseDiameter/2 + Shell_NotchTol, 0])
-            union() {
-                square([dw, 3*dw]);
+	stripWidth = 2.5;
+	numStrips = 40;
 
-                translate([eta, 3*dw - Shell_NotchTol, 0])
-                    mirror([1,1,0])
-                    rightTriangle(dw, dw, center = true);
+	intersection() {
+		// shell
+		rotate_extrude()
+			donutSector(
+				or=or,
+				ir=BaseDiameter/2 + Shell_NotchTol,
+				a=58
+			);
 
-                translate([-dw+eta, 3*dw - Shell_NotchTol - eta,0])
-                    square([dw, Shell_NotchTol+eta]);
-            }
+		// lattice work
+		for (k=[0:numStrips-1])
+			rotate([0,0,k * 360/numStrips]) {
+				// control points
+				//cp1 = [rands(-10,10,1)[0], 0];  // start
+				//cp4 = [rands(-5,5,1)[0] + (k%2 == 0 ? 20 : -20),  or * sin(60) + 5];  // end
+				cp1 = [0, 0];  // start
+				cp4 = [(k%2 == 0 ? 20 : -20),  or * sin(60)];  // end
+				cp2 = [ cp1[0] + rands(-25,25,1)[0],  or * sin(20) ];  // handle 1
+				cp3 = [ cp4[0] + rands(-25,25,1)[0],  or * sin(40)];  // handle 2
 
-    }
+				// generate and position the curve
+				rotate([90,0,0])
+					translate([0,0,0])
+					linear_extrude(2*or)
+					union() // union lots of little "pill" shapes for each segment of the curve
+					for (i=[0:steps-2]) {
+						// curve time parameters for this step and next
+						u1 = i / (steps-1);
+						u2 = (i+1) / (steps-1);
+
+						// 2D points for this step and next
+						p1 = PtOnBez2D(cp1, cp2, cp3, cp4, u1);
+						p2 = PtOnBez2D(cp1, cp2, cp3, cp4, u2);
+
+						// hull together circles at this the position of this step and next
+						hull($fn=8) {
+							translate(p1) circle(stripWidth/2);
+							translate(p2) circle(stripWidth/2);
+						}
+					}
+			}
+	}
+
+
 }
