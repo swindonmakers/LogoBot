@@ -1,7 +1,7 @@
 [
     {
         "cut": [],
-        "hash": "cf7922aee25953304e1764b280d936cb",
+        "hash": "9578bcc094e44d4b17af259025efc1b9",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -504,7 +504,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "8f3e9d0dc01aa0488b90bf54feea3771",
+                "hash": "451c041868145baca72c05c33ee06ea8",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -1464,7 +1464,7 @@
             },
             {
                 "cut": [],
-                "hash": "9f95673f2c4bfd72268a108d064b9492",
+                "hash": "9491f76b793207670d2d966667fe44b8",
                 "vitamins": [],
                 "views": [],
                 "assemblies": [],
@@ -2035,10 +2035,9 @@
             },
             {
                 "plasticVolume": 13.9,
-                "hash": "406b9cf0b5a5fcd6f6d82360e2efef76",
+                "hash": "472aaec37b60d8c7213a1124e87127c8",
                 "plasticWeight": 0.017375,
                 "weight": 0.017375,
-                "title": "Lid",
                 "views": [
                     {
                         "rotate": [
@@ -2062,8 +2061,22 @@
                         ]
                     }
                 ],
+                "aabb": [
+                    [
+                        -37.1296,
+                        -37.1296,
+                        -2.0
+                    ],
+                    [
+                        37.1296,
+                        37.1296,
+                        13.3782
+                    ]
+                ],
+                "title": "Lid",
                 "qty": 1,
                 "volume": 13.9,
+                "area": 21179.814048613203,
                 "call": "Lid_STL()",
                 "file": "printedparts/Lid.scad"
             }
@@ -4723,7 +4736,7 @@
     },
     {
         "cut": [],
-        "hash": "a690f69c33cde9b97c769799506b436d",
+        "hash": "8825832147d61049e57efc01f9588e0a",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -6461,7 +6474,7 @@
             },
             {
                 "cut": [],
-                "hash": "9f95673f2c4bfd72268a108d064b9492",
+                "hash": "9491f76b793207670d2d966667fe44b8",
                 "vitamins": [],
                 "views": [],
                 "assemblies": [],

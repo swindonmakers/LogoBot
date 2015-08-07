@@ -49,10 +49,46 @@ module Lid_Model()
 
     $fn=64;
 
+    clearance = 0.5;
+
     //render()
     translate([0,0,-ShellOpeningHeight])
         difference() {
             union() {
+
+                // Swindon Hackspace Logo
+                // S
+                render()
+                intersection() {
+                    translate([0,0,50])
+                        scale([0.3,0.3,2])
+                        import(str(STLPath,"../snhack_logo_s.stl"));
+
+                    // outer shell
+                    rotate_extrude()
+                        donutSector(
+                            or=or+0.5,
+                            ir=or-1,
+                            a=90
+                        );
+                }
+
+                // H
+                render()
+                intersection() {
+                    translate([0,0,50])
+                        scale([0.3,0.3,1])
+                        import(str(STLPath,"../snhack_logo_H.stl"));
+
+                    // outer shell
+                    rotate_extrude()
+                        donutSector(
+                            or=or+1,
+                            ir=or-1,
+                            a=90
+                        );
+                }
+
 
                 // dome
                 rotate_extrude()
@@ -65,9 +101,10 @@ module Lid_Model()
                         );
 
                         // opening for lid, as a 45 degree chamfer starting at ShellOpeningDiameter and sloping inwards
+                        // less fitting clearance
                         polygon(
                             [
-                                [ShellOpeningDiameter/2 - dw - 1, ShellOpeningHeight - dw - 1],
+                                [ShellOpeningDiameter/2 - dw - 1 - clearance, ShellOpeningHeight - dw - 1],
                                 [ShellOpeningDiameter/2 + 1000, ShellOpeningHeight + 1000],
                                 [BaseDiameter, 0],
                                 [0,0],
@@ -79,7 +116,7 @@ module Lid_Model()
 
                 // skirt
                 translate([0,0, ShellOpeningHeight])
-                    tube(or=ShellOpeningDiameter/2+dw - dw*cos(45), ir=ShellOpeningDiameter/2- dw*cos(45), h=2*dw);
+                    tube(or=ShellOpeningDiameter/2+dw - dw*cos(45) - clearance, ir=ShellOpeningDiameter/2- dw*cos(45), h=2*dw);
 
 
 
@@ -114,14 +151,14 @@ module Lid_Model()
 
                 for (i=[0:2])
                     rotate([0,0,i*360/3])
-                    translate([ShellOpeningDiameter/2+dw - dw*cos(45), 0, ShellOpeningHeight-dw])
+                    translate([ShellOpeningDiameter/2+dw - dw*cos(45) - clearance, 0, ShellOpeningHeight-dw])
                     rotate([90,0,0])
                     translate([0,0,-dw/2])
                     linear_extrude(dw)
                     polygon([
                         [0,0],
                         [0,dw+1],
-                        [dw/2,dw/2+1],
+                        [dw/2,dw/2],
                         [0,0]
                     ]);
 
