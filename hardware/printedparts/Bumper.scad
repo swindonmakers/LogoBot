@@ -93,9 +93,17 @@ module BumperModel()
     }
 
 	// Bumper arc
-	#linear_extrude(height)
-	rotate([0, 0, (180 - wrapAngle) / 2])
-		donutSector(outr, outr - thickness, wrapAngle, $fn=128);
+	difference() {
+		linear_extrude(height)
+			rotate([0, 0, (180 - wrapAngle) / 2])
+			donutSector(outr, outr - thickness, wrapAngle, $fn=128);
+
+		// trim off the back of the bumper to save plastic and look cool
+		translate([0,0,3])
+			rotate([15,0,0])
+			translate([-outr,0,0])
+			cube([2*outr, 100,50]);
+	}
 
 	// Connectors
 	for(i=[0, 1])

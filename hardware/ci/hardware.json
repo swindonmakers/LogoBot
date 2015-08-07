@@ -1,7 +1,7 @@
 [
     {
         "cut": [],
-        "hash": "104f2249e86792608c0ba2c2c5aebe5a",
+        "hash": "fc8c4895d3135891cb75f6a6866d6f30",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -504,7 +504,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "70188caab097a640345e222daaa6433a",
+                "hash": "5de9ff4160e5a894cc359b67d19a100d",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -1022,7 +1022,7 @@
             },
             {
                 "cut": [],
-                "hash": "0091e1576d644e878098d89e9629c4dc",
+                "hash": "1ae2ddd7436397f6bf0eac90cc0fb2b3",
                 "vitamins": [
                     {
                         "title": "MicroSwitch",
@@ -1604,7 +1604,7 @@
             },
             {
                 "plasticVolume": 12.9,
-                "hash": "838d965c7764d4014f7e708915e7852c",
+                "hash": "ca7c4f3cb84dac3b64e0e5a00cfc5523",
                 "plasticWeight": 0.016125,
                 "weight": 0.016125,
                 "title": "Bumper",
@@ -1645,7 +1645,7 @@
                 ],
                 "qty": 2,
                 "volume": 12.9,
-                "area": 13178.345130364854,
+                "area": 12328.082454022706,
                 "call": "Bumper_STL()",
                 "file": "printedparts/Bumper.scad"
             },
@@ -1655,6 +1655,18 @@
                 "plasticWeight": 0.001375,
                 "weight": 0.001375,
                 "title": "BumperStabiliser",
+                "aabb": [
+                    [
+                        -50.2499,
+                        27.6931,
+                        0.0
+                    ],
+                    [
+                        50.2499,
+                        58.4592,
+                        1.8
+                    ]
+                ],
                 "views": [
                     {
                         "rotate": [
@@ -1680,6 +1692,7 @@
                 ],
                 "qty": 2,
                 "volume": 1.1,
+                "area": 1606.4345209526527,
                 "call": "BumperStabiliser_STL()",
                 "file": "printedparts/BumperStabiliser.scad"
             },
@@ -4710,7 +4723,7 @@
     },
     {
         "cut": [],
-        "hash": "d6cb41dd51c7f2ebd9f809ea106c3ae6",
+        "hash": "77ba3532cc677cf23df0824bdbb3da5d",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -5319,7 +5332,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "d7070ae3d50dedf0729db79292fea64f",
+                "hash": "40e9a42093f61aa43d4c60e6d2537427",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -5913,7 +5926,7 @@
             },
             {
                 "cut": [],
-                "hash": "0091e1576d644e878098d89e9629c4dc",
+                "hash": "1ae2ddd7436397f6bf0eac90cc0fb2b3",
                 "vitamins": [
                     {
                         "title": "MicroSwitch",
@@ -6540,7 +6553,7 @@
             },
             {
                 "plasticVolume": 12.9,
-                "hash": "838d965c7764d4014f7e708915e7852c",
+                "hash": "ca7c4f3cb84dac3b64e0e5a00cfc5523",
                 "plasticWeight": 0.016125,
                 "weight": 0.016125,
                 "title": "Bumper",
@@ -6850,6 +6863,18 @@
                 "plasticWeight": 0.005125,
                 "weight": 0.005125,
                 "title": "Pen Lift Slider",
+                "aabb": [
+                    [
+                        -3.0,
+                        -24.9992,
+                        0.0
+                    ],
+                    [
+                        14.9992,
+                        24.9992,
+                        30.0
+                    ]
+                ],
                 "views": [
                     {
                         "rotate": [
@@ -6875,6 +6900,7 @@
                 ],
                 "qty": 1,
                 "volume": 4.1,
+                "area": 4104.819079441405,
                 "call": "PenLiftSlider_STL()",
                 "file": "printedparts/PenLiftSlider.scad"
             },
@@ -6884,6 +6910,18 @@
                 "plasticWeight": 0.007125,
                 "weight": 0.007125,
                 "title": "Pen Lift Holder",
+                "aabb": [
+                    [
+                        -1.0,
+                        -14.5,
+                        0.0
+                    ],
+                    [
+                        11.0,
+                        14.5,
+                        30.0
+                    ]
+                ],
                 "views": [
                     {
                         "rotate": [
@@ -6909,6 +6947,7 @@
                 ],
                 "qty": 1,
                 "volume": 5.7,
+                "area": 3207.704639614044,
                 "call": "PenLiftHolder_STL()",
                 "file": "printedparts/PenLiftHolder.scad"
             },
