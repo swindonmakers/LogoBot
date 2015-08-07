@@ -18,6 +18,7 @@ void setup()
   bot.initBumpers(SWITCH_FL_PIN, SWITCH_FR_PIN, SWITCH_BL_PIN, SWITCH_BR_PIN, handleCollision);
   bot.initPenLift(SERVO_PIN);
   bot.initBuzzer(BUZZER_PIN);
+  //bot.lookAheadEnable(true);
   bot.playStartupJingle();
   LogobotText::begin(cmdQ);
 }
@@ -169,6 +170,14 @@ static void parseLogoCommand(String c) {
     } else {
         cmdQ.enqueue(c, cmdType);
     }
+
+    // debug what bot is up to
+    /*
+    Serial.print("CQ Peek: ");
+    Serial.println(cmdQ.peekAtType());
+    Serial.print("bot.isQFull:");
+    Serial.println(bot.isQFull());
+    */
 }
 
 static void doLogoCommand(COMMAND *c)
@@ -199,9 +208,20 @@ static void doLogoCommand(COMMAND *c)
     if (sp > -1 && c->cmdType != LOGO_CMD_WT) {
         f1 = c->cmd.substring(0,sp).toFloat();
         f2 = c->cmd.substring(sp+1).toFloat();
-    } else if (cmd.length() > 0 && c->cmdType != LOGO_CMD_WT) {
+    } else if (c->cmdType != LOGO_CMD_WT) {
         f1 = c->cmd.toFloat();
     }
+
+    /*
+    Serial.print("Do: ");
+    Serial.print(c->cmdType);
+    Serial.print(' ');
+    Serial.print(f1);
+    Serial.print(',');
+    Serial.print(f2);
+    Serial.print(' ');
+    Serial.println(c->cmd);
+    */
 
     // Handle each command type
     switch(c->cmdType) {
