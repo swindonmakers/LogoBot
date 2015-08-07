@@ -93,7 +93,7 @@ module BumperModel()
     }
 
 	// Bumper arc
-	linear_extrude(height)
+	#linear_extrude(height)
 	rotate([0, 0, (180 - wrapAngle) / 2])
 		donutSector(outr, outr - thickness, wrapAngle, $fn=128);
 
@@ -133,8 +133,8 @@ module MicroSwitchSpring() {
 	// control points
 	cp1 = [7, BaseDiameter/2];  // start
 	cp4 = [3,  BaseDiameter/2 - 24];  // end
-	cp2 = [ cp1[0] + 40,  cp1[1]-5 ];  // handle 1
-	cp3 = [ cp4[0] + 20,  cp4[1]-10 ];  // handle 2
+	cp2 = [ cp1[0] + 40,  cp1[1]-30 ];  // handle 1
+	cp3 = [ cp4[0] + 20,  cp4[1]-20 ];  // handle 2
 
 	// debug control points
 	*color("red") {

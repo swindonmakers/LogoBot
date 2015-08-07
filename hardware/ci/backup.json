@@ -1,7 +1,7 @@
 [
     {
         "cut": [],
-        "hash": "104f2249e86792608c0ba2c2c5aebe5a",
+        "hash": "132cb6f99055a1e9932058487ab1a614",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -504,7 +504,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "70188caab097a640345e222daaa6433a",
+                "hash": "2b5791ecb59a9275deb10cea26aeae11",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -1022,7 +1022,7 @@
             },
             {
                 "cut": [],
-                "hash": "0091e1576d644e878098d89e9629c4dc",
+                "hash": "e88159821f73c010666809015f699be6",
                 "vitamins": [
                     {
                         "title": "MicroSwitch",
@@ -1604,22 +1604,10 @@
             },
             {
                 "plasticVolume": 12.9,
-                "hash": "838d965c7764d4014f7e708915e7852c",
+                "hash": "731f6f0632a58dec91bd62091071b363",
                 "plasticWeight": 0.016125,
                 "weight": 0.016125,
                 "title": "Bumper",
-                "aabb": [
-                    [
-                        -76.6842,
-                        6.36048,
-                        0.0
-                    ],
-                    [
-                        76.707,
-                        76.9954,
-                        15.0
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -1645,7 +1633,6 @@
                 ],
                 "qty": 2,
                 "volume": 12.9,
-                "area": 13178.345130364854,
                 "call": "Bumper_STL()",
                 "file": "printedparts/Bumper.scad"
             },
@@ -4710,7 +4697,7 @@
     },
     {
         "cut": [],
-        "hash": "d6cb41dd51c7f2ebd9f809ea106c3ae6",
+        "hash": "242ddd61460dd9b08170e6cba6ff170a",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -5319,7 +5306,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "d7070ae3d50dedf0729db79292fea64f",
+                "hash": "39260521b6225096078dc4ad1a4ae4a3",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -5913,7 +5900,7 @@
             },
             {
                 "cut": [],
-                "hash": "0091e1576d644e878098d89e9629c4dc",
+                "hash": "e88159821f73c010666809015f699be6",
                 "vitamins": [
                     {
                         "title": "MicroSwitch",
@@ -6540,7 +6527,7 @@
             },
             {
                 "plasticVolume": 12.9,
-                "hash": "838d965c7764d4014f7e708915e7852c",
+                "hash": "731f6f0632a58dec91bd62091071b363",
                 "plasticWeight": 0.016125,
                 "weight": 0.016125,
                 "title": "Bumper",
