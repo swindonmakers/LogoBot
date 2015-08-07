@@ -8,6 +8,8 @@ include <../config/config.scad>
 
 module specialVoronoi() {
 
+    // distributes voronoi points in a circular band around the origin
+
     numPoints = 80;
     or = 60;
     ir = 30;
