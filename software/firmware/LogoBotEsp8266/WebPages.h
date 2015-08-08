@@ -90,8 +90,8 @@ Y:<input style="width: 40px" type="number" id="y" value="0"/>
     function l(cmd, p1, p2) {
         var xhReq = new XMLHttpRequest();
         var uri = '/cmd?action=' + cmd;
-        if (p1) { uri += '&p1=' + p1; }
-        if (p2) { uri += '&p2=' + p2; }
+        if (p1) { uri += '&p1=' + encodeURIComponent(p1); }
+        if (p2) { uri += '&p2=' + encodeURIComponent(p2); }
         xhReq.open('GET', uri, true);
   try {
           xhReq.send();
@@ -194,9 +194,9 @@ BZ 500
         var nextCmd = next.split(' ');
         var uri = '/cmd?action=' + nextCmd[0];
         if (nextCmd.length > 1)
-          uri += '&p1=' + nextCmd[1];
+          uri += '&p1=' + encodeURIComponent(nextCmd[1]);
         if (nextCmd.length > 2)
-          uri += '&p2=' + nextCmd[2];
+          uri += '&p2=' + encodeURIComponent(nextCmd[2]);
 
         
         var xhReq = new XMLHttpRequest();
