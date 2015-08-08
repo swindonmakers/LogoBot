@@ -301,7 +301,6 @@ namespace LogobotText
 			pushTo(x + w/3, y);
 			pushPD();
 			pushTo(x + 2*w/3, y + capHeight/4);
-			pushTo(x + w, y + capHeight/2);
 			pushTo(x + 2*w/3, y + 3*capHeight/4);
 			pushTo(x + w/3, y + capHeight);
 		}
