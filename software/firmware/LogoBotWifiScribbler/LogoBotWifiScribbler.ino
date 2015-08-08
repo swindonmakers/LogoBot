@@ -76,19 +76,19 @@ void loop()
 static void handleCollision(byte collisionData)
 {
 	if (collisionData != 0) {
-		// Just hit something, so stop and buzz
+		// Just hit something, so stop, buzz and backoff
 		bot.emergencyStop();  // this will be called by parseLogoCommand
 		bot.buzz(500);
+		bot.drive(-20);
 	}
 
 	// Insert some recovery based on which bumper was hit
 	// Queue the moves directly to bot, don't bother with Logo command queue
-    bot.drive(-20);
 	if (collisionData == 1) {
         bot.turn(-30);
 	} else if (collisionData == 2) {
         bot.turn(60);
-	} else {
+	} else if (collisionData != 0) {
         bot.turn(-90);
 	}
 }
