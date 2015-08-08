@@ -69,8 +69,8 @@ module VoronoiShell_Model() {
 					difference() {
 						linear_extrude(or)
 							random_voronoi(
-								n = 80, nuclei = false,
-								L = or+30, thickness = 1.5,
+								n = 240, nuclei = false,
+								L = or+30, thickness = 1,
 								round = 1, min = 0, max = 2*or,
 								seed = 7, center = true
 							);
