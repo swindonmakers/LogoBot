@@ -584,10 +584,7 @@ boolean DifferentialStepper::run() {
         }
 
         _lastStepTime = time;
-
-        return !isQEmpty();
     } else {
         // too soon, come back later
-        return !isQEmpty();
     }
 }
