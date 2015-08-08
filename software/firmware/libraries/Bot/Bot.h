@@ -69,7 +69,6 @@ private:
 	uint8_t _pinSwitchFR;
 	uint8_t _pinSwitchBL;
 	uint8_t _pinSwitchBR;
-	uint8_t _pinStepper[8];
 
 	DifferentialStepper _diffDrive;
 	Servo _penliftServo;

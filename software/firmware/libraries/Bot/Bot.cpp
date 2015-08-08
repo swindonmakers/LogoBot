@@ -3,15 +3,6 @@
 Bot::Bot(uint8_t lp1, uint8_t lp2, uint8_t lp3, uint8_t lp4, uint8_t rp1, uint8_t rp2, uint8_t rp3, uint8_t rp4) :
 	_diffDrive(DifferentialStepper::HALF4WIRE, lp1, lp3, lp2, lp4, rp1, rp3, rp2, rp4)
 {
-	_pinStepper[0] = lp1;
-	_pinStepper[1] = lp2;
-	_pinStepper[2] = lp3;
-	_pinStepper[3] = lp4;
-	_pinStepper[4] = rp1;
-	_pinStepper[5] = rp2;
-	_pinStepper[6] = rp3;
-	_pinStepper[7] = rp4;
-
 	_buzzEnd = 0;
 	_pauseEnd = 0;
 	resetPosition();
