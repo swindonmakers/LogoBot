@@ -9,7 +9,7 @@ VoronoiShell_STL();
 
 
 
-module VoronoiShell_STL() {
+module VoronoiShell_STL(type=2) {
 	printedPart("printedparts/VoronoiShell.scad", "Voronoi Shell", "VoronoiShell_STL()") {
 	    view(t=[-2, 6, 14], r=[63, 0, 26], d=726);
 
@@ -17,13 +17,17 @@ module VoronoiShell_STL() {
              if (UseSTL) {
                 import(str(STLPath, "VoronoiShell.stl"));
             } else {
-				VoronoiShell_Model();
+				if (type==1) {
+					VoronoiShell_Model_1();
+				} else{
+					VoronoiShell_Model_2();
+				}
             }
     }
 }
 
 
-module VoronoiShell_Model() {
+module VoronoiShell_Model_1() {
 
 	sw = 2 * perim;
 
@@ -90,97 +94,122 @@ module VoronoiShell_Model() {
 }
 
 
-/*
 
-    Shell API Functions
+module polarVoronoi(points, or=50, L = 200, thickness = 1) {
+	for (p = points) {
+        //polarLat = atan2(p[1], p[0]);
+        polarLon = sqrt(p[1]*p[1] + p[0]*p[0]);
 
-    To help build loads of funky shells...  with twist-lock fitting
+		t = thickness * polarLon / 90;
 
-*/
+        // calc rot vector
+        rv = [ p[1], -p[0], 0 ];
 
-Shell_NotchOuterWidth   = 20;
-Shell_NotchSlope        = 2;
-Shell_NotchInnerWidth   = Shell_NotchOuterWidth - 2* Shell_NotchSlope;
-Shell_NotchDepth        = 5;
-Shell_NotchTol          = 1;
-Shell_NotchStop         = dw;
-Shell_NotchRotation = 2 * atan2(Shell_NotchOuterWidth/2 - Shell_NotchStop/2, BaseDiameter/2);
+        if (polarLon < 90 )
+            rotate(a=-polarLon, v=rv)
+            linear_extrude(or, scale=or)
+            scale([1/or,1/or,1])
+            translate([-p[0], -p[1], 0])
+            intersection_for(p1 = points){
+                if (p != p1) {
+                    angle = 90 + atan2(p[1] - p1[1], p[0] - p1[0]);
 
-// 2D shape to be removed from the base to support shell twist-lock
-module Shell_TwistLockCutouts() {
-    a = Shell_NotchOuterWidth + 2*Shell_NotchTol;
-    b = Shell_NotchInnerWidth + 2*Shell_NotchTol;
-    h = Shell_NotchDepth + Shell_NotchTol;
-    aOffset = Shell_NotchSlope;
+                    translate((p + p1) / 2 - normalize(p1 - p) * (t))
+                        rotate([0, 0, angle])
+                        translate([-L, -L])
+                        square([2 * L, L]);
+                }
+            }
 
-    for (i=[0,1])
-        rotate([0,0, i*180 + Shell_NotchRotation/2])
-        translate([BaseDiameter/2 - h/2 + eta, 0, 0])
-        rotate([0,0, 90])
-        trapezoid(b, a, h, aOffset, center=true);
+	}
 }
 
-// 3D twist-lock ring to mate a shell to the base
-module Shell_TwistLock() {
-    a = Shell_NotchOuterWidth;
-    b = Shell_NotchInnerWidth;
-    h = Shell_NotchDepth;
-    aOffset = Shell_NotchSlope;
+module polarVoronoiWrapper() {
+    numPoints = 300;
+    or = BaseDiameter/2 + Shell_NotchTol + dw + 2;
 
-    union() {
-        // Locking tabs
-        for (i=[0,1])
-            translate([0,0,-dw])
-            difference() {
-                // create the basic tab shape
-                linear_extrude(dw)
-                    hull() {
-                        // Locking tab
-                        rotate([0,0, i*180 - Shell_NotchRotation/2])
-                            translate([BaseDiameter/2 - h/2 + eta, 0, 0])
-                            rotate([0,0, 90])
-                            trapezoid(b, a, h, aOffset, center=true);
+    function x(r,a) = r * cos(a);
+    function y(r,a) = r * sin(a);
 
-                        // linking piece to connect locking tab to outer ring
-                        translate([0,0,0])
-                            rotate([0,0, i*180 - Shell_NotchRotation])
-                            donutSector(or=BaseDiameter/2 + Shell_NotchTol + dw,
-                                ir=BaseDiameter/2,
-                                a=Shell_NotchRotation
-                            );
-                    }
+    seed = 139;
+    rand_vec = [rands(20,110 * 1.1,numPoints,seed), rands(0,360,numPoints,seed+1)];
 
-                // now chop out a slight slope to allow for a tight friction fit
-                rotate([0,0, i*180 - Shell_NotchRotation/2])
-                    translate([BaseDiameter/2 - h - 3, 0, dw * 0.8])
-                    rotate([5,0,0])
-                    translate([0,-a/2-1,0])
-                    cube([10, a + 2,10]);
-            }
+    point_set = [
+        for (i=[0:numPoints-1])
+            let (r = rand_vec[0][i], a = rand_vec[1][i])
+            [ x(r,a), y(r,a) ]
+    ];
+
+	polarVoronoi(point_set, or=or, L = 2*or, thickness = 1.5);
+}
 
 
-        // notch stops
-        for (i=[0,1])
-            rotate([0,0, i*180 - Shell_NotchRotation/2 + 0.3])
-            translate([BaseDiameter/2 - h/2 + 1+eta, a/2 - Shell_NotchStop/2 - 0.5/2, -dw])
-            rotate([0,0, 90])
-            linear_extrude(dw*2)
-            trapezoid(Shell_NotchStop-aOffset+0.7, Shell_NotchStop+1.3, h+2, 0, center=true);
+module VoronoiShell_Model_2() {
 
-        // outer ring
-        translate([0,0,-dw])
-            rotate_extrude()
-            translate([BaseDiameter/2 + Shell_NotchTol, 0])
-            union() {
-                square([dw, 3*dw]);
+	sw = 2 * perim;
 
-                translate([eta, 3*dw - Shell_NotchTol, 0])
-                    mirror([1,1,0])
-                    rightTriangle(dw, dw, center = true);
+	or = BaseDiameter/2 + Shell_NotchTol + dw;
 
-                translate([-dw+eta, 3*dw - Shell_NotchTol - eta,0])
-                    square([dw, Shell_NotchTol+eta]);
-            }
+	sr = or - sw + eta;
 
-    }
+	supportAngle = 50;
+	bridgeDist = 5;
+
+	numRibs1 = round(circumference(sr * cos(supportAngle)) / bridgeDist);
+	numRibs = 4 * (floor(numRibs1 / 4) + 1);
+
+	ribThickness = 0.7;
+
+	$fn=64;
+
+	// shell with hole for LED
+	//render()
+		difference() {
+			union() {
+				// skirt
+				rotate_extrude()
+					donutSector(
+						or=or,
+						ir=BaseDiameter/2 + Shell_NotchTol,
+						a=8
+					);
+
+				// shell coupling
+				rotate_extrude()
+					difference() {
+						// skirt
+						rotate([0,0,53])
+						donutSector(
+							or=or,
+							ir=BaseDiameter/2 + Shell_NotchTol,
+							a=4
+						);
+
+						polygon(
+							[
+								[0, ShellOpeningHeight + 1000],
+								[ShellOpeningDiameter/2 + 1000, ShellOpeningHeight + 1000],
+								[ShellOpeningDiameter/2 - dw - 1, ShellOpeningHeight - dw - 1],
+								[0, ShellOpeningHeight - dw - 1]
+							]);
+
+					}
+
+
+				difference() {
+					rotate_extrude()
+						donutSector(
+							or=or,
+							ir=BaseDiameter/2 + Shell_NotchTol,
+							a=57
+						);
+
+					polarVoronoiWrapper();
+				}
+
+
+				// twist lock
+				Shell_TwistLock();
+			}
+		}
 }
