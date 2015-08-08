@@ -248,6 +248,7 @@ static void doLogoCommand(COMMAND *c)
             break;
         case LOGO_CMD_SE:
             bot.emergencyStop();
+			text = "";
             break;
         case LOGO_CMD_BZ:
             bot.buzz(f1);
