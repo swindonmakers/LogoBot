@@ -150,7 +150,9 @@ static void parseLogoCommand(String c) {
         cmdType = LOGO_CMD_WT;
     } else if (c.startsWith("PQ")) {
         cmdType = LOGO_CMD_PQ;
-    }
+    } else if (c.startsWith("CS")) {
+		cmdType = LOGO_CMD_CS;
+	}
 
     // give up if command not recognised
     if (cmdType == 0xff) return;
@@ -189,6 +191,7 @@ static void doLogoCommand(COMMAND *c)
     -FD, BK, LT, RT
     -PU - Pen Up
     -PD - Pen Down
+	-CS - Clear screen - resets logobots position state to x=0, y=0, ang=0
     */
     /* Unofficial extensions
     BZ n - sound buzzer for n milliseconds
@@ -250,6 +253,9 @@ static void doLogoCommand(COMMAND *c)
             bot.emergencyStop();
 			text = "";
             break;
+		case LOGO_CMD_CS:
+			bot.resetPosition();
+			break;
         case LOGO_CMD_BZ:
             bot.buzz(f1);
             break;

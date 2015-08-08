@@ -56,6 +56,7 @@
 #define LOGO_CMD_SIG		13
 #define LOGO_CMD_WT			14
 #define LOGO_CMD_PQ			15
+#define LOGO_CMD_CS			16
 
 // maximum value of movement commands, used to determine which can be queued for look ahead acceleration planning
 #define LOGO_MOVE_CMDS		LOGO_CMD_ARC
