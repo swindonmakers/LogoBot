@@ -287,42 +287,56 @@ namespace LogobotText
 
 		void writeColon(float x, float y)
 		{
-			pushTo(x + w/3, y + capHeight/3);
+			pushTo(x + w / 3, y + capHeight / 3);
 			pushPD();
-			pushTo(x + 2*w/3, y + capHeight/3);
+			pushTo(x + 2 * w / 3, y + capHeight / 3);
 			pushPU();
-			pushTo(x + 2*w/3, y + 2*capHeight/3);
+			pushTo(x + 2 * w / 3, y + 2 * capHeight / 3);
 			pushPD();
-			pushTo(x + w/3, y + 2*capHeight/3);
+			pushTo(x + w / 3, y + 2 * capHeight / 3);
 		}
 
 		void writeCloseBracket(float x, float y)
 		{
-			pushTo(x + w/3, y);
+			pushTo(x + w / 3, y);
 			pushPD();
-			pushTo(x + 2*w/3, y + capHeight/4);
-			pushTo(x + 2*w/3, y + 3*capHeight/4);
-			pushTo(x + w/3, y + capHeight);
+			pushTo(x + 2 * w / 3, y + capHeight / 4);
+			pushTo(x + 2 * w / 3, y + 3 * capHeight / 4);
+			pushTo(x + w / 3, y + capHeight);
 		}
 
 		void writeHash(float x, float y)
 		{
-			pushTo(x, y + capHeight/3);
+			pushTo(x, y + capHeight / 3);
 			pushPD();
-			pushTo(x + w, y + capHeight/3);
+			pushTo(x + w, y + capHeight / 3);
 			pushPU();
-			pushTo(x + w, y + 2*capHeight/3);
+			pushTo(x + w, y + 2 * capHeight / 3);
 			pushPD();
-			pushTo(x, y + 2*capHeight/3);
+			pushTo(x, y + 2 * capHeight / 3);
 			pushPU();
 
-			pushTo(x + w/3, y + capHeight);
+			pushTo(x + w / 3, y + capHeight);
 			pushPD();
-			pushTo(x + w/3, y);
+			pushTo(x + w / 3, y);
 			pushPU();
-			pushTo(x + 2*w/3, y);
+			pushTo(x + 2 * w / 3, y);
 			pushPD();
-			pushTo(x + 2*w/3, y + capHeight);
+			pushTo(x + 2 * w / 3, y + capHeight);
+		}
+
+		void writeAt(float x, float y)
+		{
+			pushTo(x + 2 * w / 3, y + capHeight / 3);
+			pushPD();
+			pushTo(x + 2 * w / 3, y + 2 * capHeight / 3);
+			pushTo(x + w / 3, y + capHeight / 2);
+			pushTo(x + 2 * w / 3, y + capHeight / 3);
+			pushTo(x + w, y + capHeight / 2);
+			pushTo(x + 2 * w / 3, y + capHeight);
+			pushTo(x, y + capHeight / 2);
+			pushTo(x + w / 2, y);
+			pushTo(x + w, y + capHeight / 3);
 		}
 	}
 	// End private namespace functions
@@ -427,18 +441,19 @@ namespace LogobotText
 				// nothing to do, just move to next letter
 				break;
 			case ':':
-				writeColon(x,y);
+				writeColon(x, y);
 				break;
 			case ')':
-				writeCloseBracket(x,y);
+				writeCloseBracket(x, y);
 				break;
 			case '#':
-				writeHash(x,y);
+				writeHash(x, y);
 				break;
+			case '@':
+				writeAt(x, y);
 
 			default:
-				_cmdQ->enqueue("500",LOGO_CMD_BZ);
-				//pushCmd("BZ 500");
+				_cmdQ->enqueue("500", LOGO_CMD_BZ);
 				return;
 		}
 
