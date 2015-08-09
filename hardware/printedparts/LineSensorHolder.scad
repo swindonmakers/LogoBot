@@ -55,7 +55,7 @@ module LineSensorHolder_Model()
         // hollow for sensors
         for (i=[0,1])
             mirror([i,0,0])
-            translate([6.7,-3,-GroundClearance-1])
-            cube([10.5,6,14]);
+            translate([6.2,-3.5,-GroundClearance-1])
+            cube([11,6.5,14]);
     }
 }
