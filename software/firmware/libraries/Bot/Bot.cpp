@@ -148,10 +148,7 @@ void Bot::turn(float ang)
 {
 	// update state
 	state.ang += ang;
-
-	// correct wrap around
-	if (state.ang > 180) state.ang -= 360;
-	if (state.ang < -180) state.ang += 360;
+	correctAngleWrap();
 
 	// prime the move
 	int steps = ang * STEPS_PER_DEG;
@@ -231,7 +228,11 @@ void Bot::arcTo (float x, float y) {
 
 	state.x = x;
 	state.y = y;
-	state.ang += targetAng;
+	if (dl < dr)
+		state.ang += targetAng;
+	else
+		state.ang -= targetAng;
+	correctAngleWrap();
 
 	_diffDrive.queueMove(dl * STEPS_PER_MM, dr * STEPS_PER_MM);
 }
@@ -241,4 +242,11 @@ void Bot::resetPosition() {
 	state.x = 0;
 	state.y = 0;
 	state.ang = 0;
+}
+
+// correct wrap around
+void Bot::correctAngleWrap()
+{
+	if (state.ang > 180) state.ang -= 360;
+	if (state.ang < -180) state.ang += 360;
 }

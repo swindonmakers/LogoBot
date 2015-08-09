@@ -58,6 +58,7 @@ public:
 
 	STATE state;
 	void resetPosition();
+	void correctAngleWrap();
 
 private:
 	unsigned long _buzzEnd;
