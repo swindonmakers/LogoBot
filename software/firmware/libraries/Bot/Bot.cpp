@@ -180,10 +180,8 @@ void Bot::driveTo(float x, float y) {
   drive(dist);
 }
 
-void Bot::arcTo (float x, float y) {
-
-    if (y == 0) return;
-
+void Bot::arcTo (float x, float y) 
+{
     float cx1 = x - state.x;
     float cy1 = y - state.y;
 
@@ -193,6 +191,8 @@ void Bot::arcTo (float x, float y) {
     float sa = sin(ang);
     float cx = cx1 * ca - cy1 * sa;
     float cy = cx1 * sa + cy1 * ca;
+
+	if (cy == 0) return;
 
     float m = -cx / cy;
 
