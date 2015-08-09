@@ -11,11 +11,11 @@ module LineSensorAssembly () {
             view(t=[0,0,0], r=[52,0,218], d=400);
 
             //left
-            attach([[-12,40,-8],[0,0,1],0,0,0], LineSensor_Con_Def)
+            attach([[-12,-29.3,-8],[0,0,1],0,0,0], LineSensor_Con_Def)
                 LineSensor();
 
             //right
-            attach([[12,40,-8],[0,0,1],0,0,0], LineSensor_Con_Def)
+            attach([[12,-29.3,-8],[0,0,1],0,0,0], LineSensor_Con_Def)
                 LineSensor();
         }
 

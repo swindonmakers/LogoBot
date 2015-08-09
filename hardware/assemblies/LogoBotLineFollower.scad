@@ -3,7 +3,7 @@
 // ----------
 // Mostly inherited from the core LogoBot.scad assembly
 
-LogoBotLineFollower_Con_LineSensors = [[0,0,0], [0,0,1], 0,0,0];
+LogoBotLineFollower_Con_LineSensors = [[0,30,0], [0,0,1], 0,0,0];
 
 
 // Assembly
@@ -39,7 +39,7 @@ module LogoBotLineFollowerAssembly ( Shell=true ) {
             step(2, "Pin the line sensor assembly to the underside") {
                 view(t=[-4,6,47], r=[66,0,190], d=450);
 
-                attach(LogotBotLineFollower_Con_LineSensors, DefConUp)
+                attach(LogoBotLineFollower_Con_LineSensors, DefConUp)
                     LineSensorAssembly();
 
                 attach(LogoBot_Con_GridFixing(0,6,90), DefConUp)
