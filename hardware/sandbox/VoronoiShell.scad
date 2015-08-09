@@ -112,12 +112,15 @@ module polarVoronoi(points, or=50, L = 200, thickness = 1) {
             translate([-p[0], -p[1], 0])
             intersection_for(p1 = points){
                 if (p != p1) {
-                    angle = 90 + atan2(p[1] - p1[1], p[0] - p1[0]);
+					dsqr = (p[1] - p1[1])*(p[1] - p1[1]) +  (p[0] - p1[0])*(p[0] - p1[0]);
+					if (dsqr < or*or) {
+						angle = 90 + atan2(p[1] - p1[1], p[0] - p1[0]);
 
-                    translate((p + p1) / 2 - normalize(p1 - p) * (t))
-                        rotate([0, 0, angle])
-                        translate([-L, -L])
-                        square([2 * L, L]);
+	                    translate((p + p1) / 2 - normalize(p1 - p) * (t))
+	                        rotate([0, 0, angle])
+	                        translate([-L, -L])
+	                        square([2 * L, L]);
+					}
                 }
             }
 
@@ -178,12 +181,12 @@ module VoronoiShell_Model_2() {
 				rotate_extrude()
 					difference() {
 						// skirt
-						rotate([0,0,53])
-						donutSector(
-							or=or,
-							ir=BaseDiameter/2 + Shell_NotchTol,
-							a=4
-						);
+						rotate([0,0,55])
+							donutSector(
+								or=or,
+								ir=BaseDiameter/2 + Shell_NotchTol,
+								a=10
+							);
 
 						polygon(
 							[
