@@ -23,6 +23,7 @@ include <../vitamins/Nut.scad>
 include <../vitamins/Pen.scad>
 include <../vitamins/PlasticCaster.scad>
 include <../vitamins/ServoHorn.scad>
+include <../vitamins/Sharp2Y0A21IrDistanceSensor.scad>
 include <../vitamins/SlideSwitch.scad>
 include <../vitamins/ULN2003DriverBoard.scad>
 include <../vitamins/MiniToggleSwitch.scad>
