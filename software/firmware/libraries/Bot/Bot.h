@@ -54,6 +54,7 @@ public:
 	void drive(float leftDist, float rightDist);
 	void driveTo(float x, float y);
 	void arcTo(float x, float y);
+	void circle(float dia, float direction);
 
 
 	STATE state;

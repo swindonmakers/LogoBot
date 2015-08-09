@@ -237,6 +237,24 @@ void Bot::arcTo (float x, float y)
 	_diffDrive.queueMove(dl * STEPS_PER_MM, dr * STEPS_PER_MM);
 }
 
+// Draw a circle size dia, direction = -1 clockwise, 1 anticlockwise
+void Bot::circle(float dia, float direction)
+{
+	// Calc circle diameters wheels will have to follow
+	float diaR = dia + WHEELSPACING;
+	float diaL = dia - WHEELSPACING;
+	
+	// Calc distances round circles
+	float dr = PI * diaR;
+	float dl = PI * diaL;
+
+	// No state change :-)
+	if (direction > 0)
+		_diffDrive.queueMove(dl * STEPS_PER_MM, dr * STEPS_PER_MM);
+	else
+		_diffDrive.queueMove(dr * STEPS_PER_MM, dl * STEPS_PER_MM);
+}
+
 // position calcs
 void Bot::resetPosition() {
 	state.x = 0;

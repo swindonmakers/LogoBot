@@ -2,9 +2,9 @@
 
 // local copy of critical command defines - for space optimisation
 #define LOGO_CMD_TO			4
-#define LOGO_CMD_BZ			8
-#define LOGO_CMD_PU			9
-#define LOGO_CMD_PD			10
+#define LOGO_CMD_BZ			12
+#define LOGO_CMD_PU			13
+#define LOGO_CMD_PD			14
 
 namespace LogobotText
 {

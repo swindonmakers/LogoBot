@@ -44,21 +44,22 @@
 #define LOGO_CMD_RT			3
 #define LOGO_CMD_TO			4
 #define LOGO_CMD_ARC		5
+#define LOGO_CMD_CIRC		6
 
 // Other commands
-#define LOGO_CMD_ST			6
-#define LOGO_CMD_SE			7
-#define LOGO_CMD_BZ			8
-#define LOGO_CMD_PU			9
-#define LOGO_CMD_PD			10
-#define LOGO_CMD_PF			11
-#define LOGO_CMD_FS			12
-#define LOGO_CMD_SIG		13
-#define LOGO_CMD_WT			14
-#define LOGO_CMD_PQ			15
-#define LOGO_CMD_CS			16
+#define LOGO_CMD_ST			10
+#define LOGO_CMD_SE			11
+#define LOGO_CMD_BZ			12
+#define LOGO_CMD_PU			13
+#define LOGO_CMD_PD			14
+#define LOGO_CMD_PF			15
+#define LOGO_CMD_FS			16
+#define LOGO_CMD_SIG		17
+#define LOGO_CMD_WT			18
+#define LOGO_CMD_PQ			19
+#define LOGO_CMD_CS			20
 
 // maximum value of movement commands, used to determine which can be queued for look ahead acceleration planning
-#define LOGO_MOVE_CMDS		LOGO_CMD_ARC
+#define LOGO_MOVE_CMDS		LOGO_CMD_CIRC
 
 #endif

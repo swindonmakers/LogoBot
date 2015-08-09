@@ -122,6 +122,8 @@ static void parseLogoCommand(String c) {
         cmdType = LOGO_CMD_TO;
     } else if (c.startsWith("ARC")) {
         cmdType = LOGO_CMD_ARC;
+	} else if (c.startsWith("CIRC")) {
+		cmdType = LOGO_CMD_CIRC;
     } else if (c.startsWith("FD")) {
         cmdType = LOGO_CMD_FD;
     } else if (c.startsWith("BK")) {
@@ -202,6 +204,7 @@ static void doLogoCommand(COMMAND *c)
     SIG - sign Logobots name
     TO x y   - straight line to co-ordinates x y
     ARC x y  - smooth arc to co-ordinates x y
+	CIRC dia dir - circle dia in dir (dir +ve = anticlockwise)
     */
 
     // Parse out parameter values
@@ -234,6 +237,9 @@ static void doLogoCommand(COMMAND *c)
         case LOGO_CMD_ARC:
             bot.arcTo(f1,f2);
             break;
+		case LOGO_CMD_CIRC:
+			bot.circle(f1, f2);
+			break;
         case LOGO_CMD_FD:
             bot.drive(f1);
             break;
