@@ -451,6 +451,7 @@ namespace LogobotText
 				break;
 			case '@':
 				writeAt(x, y);
+				break;
 
 			default:
 				_cmdQ->enqueue("500", LOGO_CMD_BZ);
