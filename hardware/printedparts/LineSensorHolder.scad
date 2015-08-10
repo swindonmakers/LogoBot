@@ -31,31 +31,44 @@ module LineSensorHolder_Model()
 
     // model
     difference() {
-        union() {
+        hull() {
             // surrounds for sensors
             for (i=[0,1])
                 mirror([i,0,0])
-                translate([4,-5,-GroundClearance+2])
-                cube([15,10,10]);
+                translate([5,-4.5,-GroundClearance+2])
+                cube([14,9,10]);
 
             // walls
-            for (i=[0,1])
+            *for (i=[0,1])
                 mirror([i,0,0])
                 translate([3,-5,-GroundClearance+2])
                 cube([dw,10,GroundClearance-2]);
 
             // pin plate
-            translate([-5,-5,-2])
-                cube([10, 10, 2]);
+            translate([-5,-6,-2])
+                cube([10, 12, 2]);
         }
 
         // hollow for Pin
-        cylinder(r=PinDiameter/2, h=20, center=true);
+        translate([0,0,-5])
+            rotate([0,0,90])
+            scale(1.05)  // make it an easy fit
+            pinhole(h=10, r=PinDiameter/2, lh=3, lt=1, t=0.3, tight=true, fixed=true);
+
+        // hollow between sensors
+        translate([-3, -50, -GroundClearance])
+            cube([6, 100, GroundClearance-2]);
 
         // hollow for sensors
         for (i=[0,1])
             mirror([i,0,0])
             translate([6.2,-3.5,-GroundClearance-1])
-            cube([11,6.5,14]);
+            cube([11,6.5,20]);
+
+        // hollow for sensor pcbs
+        for (i=[0,1])
+            mirror([i,0,0])
+            translate([5,-50,-8])
+            cube([20,100,20]);
     }
 }

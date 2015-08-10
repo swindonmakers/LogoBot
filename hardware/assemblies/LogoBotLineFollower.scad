@@ -3,7 +3,7 @@
 // ----------
 // Mostly inherited from the core LogoBot.scad assembly
 
-LogoBotLineFollower_Con_LineSensors = [[0,30,0], [0,0,1], 0,0,0];
+LogoBotLineFollower_Con_LineSensors = offsetConnector(invertConnector(LogoBot_Con_GridFixing(0,6,0)), [0,0,-dw]);
 
 
 // Assembly
