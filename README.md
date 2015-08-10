@@ -7,7 +7,7 @@ Developed by the Swindon Hackspace (UK) - see [LogoBot wiki page](https://github
 
 See the [Assembly Guides](https://rawgit.com/snhack/LogoBot/master/hardware/docs/index.htm) for easy to follow build instructions and links to the printable STLs.  Two of the variants are shown below - the basic design and the Scribbler variant that includes a pen lift.
 
-Various photos of LogoBot builds can be found on the [Flickr group][https://www.flickr.com/groups/logobot/], please contribute if you build one!
+Various photos of LogoBot builds can be found on the [Flickr group](https://www.flickr.com/groups/logobot/), please contribute if you build one!
 
 ![](hardware/images/LogoBot_view.png)
 
