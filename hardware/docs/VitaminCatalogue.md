@@ -11,6 +11,7 @@
  * [HookAndLoopTape.scad ](#hookandlooptapescad)
  * [JumperWire.scad ](#jumperwirescad)
  * [LED.scad ](#ledscad)
+ * [LineSensor.scad ](#linesensorscad)
  * [Marble.scad ](#marblescad)
  * [MicroServo.scad ](#microservoscad)
  * [MicroSwitch.scad ](#microswitchscad)
@@ -89,6 +90,12 @@ Title | Call | Image
 3mm LED | `LED(LEDType=LED_3mm)` | ![3mm LED](../vitamins/images/3mmLED_view.png)
 5mm LED | `LED(LEDType=LED_5mm)` | ![5mm LED](../vitamins/images/5mmLED_view.png)
 RGB_5mm LED | `LED(LEDType=LED_RGB_5mm)` | ![RGB_5mm LED](../vitamins/images/RGB_5mmLED_view.png)
+
+## LineSensor.scad
+
+Title | Call | Image
+--- | --- | ---
+Line Sensor | `LineSensor()` | ![Line Sensor](../vitamins/images/LineSensor_view.png)
 
 ## Marble.scad
 

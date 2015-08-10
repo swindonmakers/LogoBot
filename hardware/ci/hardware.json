@@ -1,7 +1,7 @@
 [
     {
         "cut": [],
-        "hash": "f74277e36acc6b3e664b36270f018d71",
+        "hash": "68b6bac5606c5d99c2db16ae09832d1b",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -504,7 +504,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "37d0a8a278cdf3888293ef1b4bac150b",
+                "hash": "8d0ffbf5c021af1b4e6fc1b8f3b552b1",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -1022,7 +1022,7 @@
             },
             {
                 "cut": [],
-                "hash": "de5b178756389f4ad919d46e8772bb31",
+                "hash": "5623323a2a29ec233409dcbbf088b022",
                 "vitamins": [
                     {
                         "title": "MicroSwitch",
@@ -1604,7 +1604,7 @@
             },
             {
                 "plasticVolume": 12.9,
-                "hash": "5ed7ba2184bf0dbb2b4b4a1b67a32303",
+                "hash": "6ae5b8f5e17b8e0722be5187130c0042",
                 "plasticWeight": 0.016125,
                 "weight": 0.016125,
                 "views": [
@@ -4736,7 +4736,3723 @@
     },
     {
         "cut": [],
-        "hash": "730b687e783a1c1d3a6c86e2aa1c38a1",
+        "hash": "2861713f5789c74b19106e6ea98a2210",
+        "vitamins": [
+            {
+                "hash": "dfedbd47a31000dbd5126a6e03809359",
+                "title": "Arduino Pro Mini Pins on top, inc serial pins",
+                "views": [
+                    {
+                        "rotate": [
+                            55,
+                            0,
+                            25
+                        ],
+                        "dist": 140,
+                        "title": "view",
+                        "filepath": "../vitamins/images/ArduinoProMiniPinsontopincserialpins_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "parts": [],
+                "call": "ArduinoPro(type=ArduinoPro_Mini, headerpins=2,serialpins=true)",
+                "file": "vitamins/ArduinoPro.scad"
+            },
+            {
+                "hash": "9cf53ec5f5e6ddff35fc240e65d60d27",
+                "title": "Line Sensor",
+                "views": [
+                    {
+                        "rotate": [
+                            72,
+                            0,
+                            33
+                        ],
+                        "dist": 280,
+                        "title": "view",
+                        "filepath": "../vitamins/images/LineSensor_view.png",
+                        "caption": "view",
+                        "translate": [
+                            6.9,
+                            13.6,
+                            10.3
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 2,
+                "parts": [],
+                "call": "LineSensor()",
+                "file": "vitamins/LineSensor.scad"
+            },
+            {
+                "hash": "da336afd2a62a43e7dcc8dc22d47913c",
+                "title": "28YBJ48 Stepper Motor",
+                "views": [
+                    {
+                        "rotate": [
+                            170,
+                            334,
+                            0
+                        ],
+                        "dist": 140,
+                        "title": "view",
+                        "filepath": "../vitamins/images/28YBJ48StepperMotor_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 2,
+                "parts": [],
+                "call": "StepperMotor28YBJ48()",
+                "file": "vitamins/motor.scad"
+            },
+            {
+                "hash": "76d351ab8991b9f920200c0caac216ed",
+                "title": "ULN2003 Driver Board",
+                "views": [
+                    {
+                        "rotate": [
+                            55,
+                            0,
+                            25
+                        ],
+                        "dist": 140,
+                        "title": "view",
+                        "filepath": "../vitamins/images/ULN2003DriverBoard_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 2,
+                "parts": [],
+                "call": "ULN2003DriverBoard()",
+                "file": "vitamins/ULN2003DriverBoard.scad"
+            },
+            {
+                "hash": "b3ed4da1098b75bcce508905c3b63f30",
+                "title": "3mm LED",
+                "views": [
+                    {
+                        "rotate": [
+                            34,
+                            2,
+                            22
+                        ],
+                        "dist": 200,
+                        "title": "view",
+                        "filepath": "../vitamins/images/3mmLED_view.png",
+                        "caption": "view",
+                        "translate": [
+                            23,
+                            9,
+                            3
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 8,
+                "parts": [],
+                "call": "LED(LEDType=LED_3mm)",
+                "file": "vitamins/LED.scad"
+            },
+            {
+                "hash": "25f0936f568587c8dd3a86ce47cbddd2",
+                "title": "JumperWire Female to Female 4pin 100mm",
+                "views": [
+                    {
+                        "rotate": [
+                            41,
+                            0,
+                            29
+                        ],
+                        "dist": 438,
+                        "title": "view",
+                        "filepath": "../vitamins/images/JumperWireFemaletoFemale4pin100mm_view.png",
+                        "caption": "view",
+                        "translate": [
+                            51,
+                            5,
+                            2
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 2,
+                "parts": [],
+                "call": "JumperWire(type=JumperWire_FF4, length=100)",
+                "file": "vitamins/JumperWire.scad"
+            },
+            {
+                "hash": "2be2bb25c05abe8c88f076753f1db975",
+                "title": "SPST6A Mini Toggle Switch",
+                "views": [
+                    {
+                        "rotate": [
+                            55,
+                            0,
+                            25
+                        ],
+                        "dist": 140,
+                        "title": "view",
+                        "filepath": "../vitamins/images/SPST6AMiniToggleSwitch_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "parts": [],
+                "call": "MiniToggleSwitch(MiniToggleSwitch_SPST6A)",
+                "file": "vitamins/MiniToggleSwitch.scad"
+            },
+            {
+                "hash": "34ca922a189bc80317238f20ac11a923",
+                "title": "16mm Marble",
+                "views": [
+                    {
+                        "rotate": [
+                            66,
+                            0,
+                            60
+                        ],
+                        "dist": 119,
+                        "title": "view",
+                        "filepath": "../vitamins/images/16mmMarble_view.png",
+                        "caption": "view",
+                        "translate": [
+                            -1,
+                            0,
+                            -1
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "parts": [],
+                "call": "Marble(Marble_16mm)",
+                "file": "vitamins/Marble.scad"
+            },
+            {
+                "hash": "cb1334d6a68efa4fef33198cf1d03f85",
+                "title": "AA Battery",
+                "views": [
+                    {
+                        "rotate": [
+                            72,
+                            0,
+                            33
+                        ],
+                        "dist": 280,
+                        "title": "view",
+                        "filepath": "../vitamins/images/AABattery_view.png",
+                        "caption": "view",
+                        "translate": [
+                            6.9,
+                            13.6,
+                            10.3
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 4,
+                "parts": [],
+                "call": "Battery(Battery_AA)",
+                "file": "vitamins/Battery.scad"
+            },
+            {
+                "hash": "9d4394bd7af7a5e24cfe63423abd7021",
+                "title": "Battery Pack",
+                "views": [
+                    {
+                        "rotate": [
+                            72,
+                            0,
+                            33
+                        ],
+                        "dist": 280,
+                        "title": "view",
+                        "filepath": "../vitamins/images/BatteryPack_view.png",
+                        "caption": "view",
+                        "translate": [
+                            6.9,
+                            13.6,
+                            10.3
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "parts": [],
+                "call": "BatteryPack()",
+                "file": "vitamins/BatteryPack.scad"
+            },
+            {
+                "hash": "d70c46d469a9560c832b1a5ada16663b",
+                "title": "Hook and Loop Tape 40x10mm",
+                "views": [
+                    {
+                        "rotate": [
+                            55,
+                            0,
+                            25
+                        ],
+                        "dist": 200,
+                        "title": "view",
+                        "filepath": "../vitamins/images/HookandLoopTape40x10mm_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "parts": [],
+                "call": "HookAndLoopTape(length=40, width=10)",
+                "file": "vitamins/HookAndLoopTape.scad"
+            },
+            {
+                "hash": "41e6fdc29ea2337f47ffa7b87220a1d1",
+                "title": "2 Pole 20A Terminal Block",
+                "views": [
+                    {
+                        "rotate": [
+                            72,
+                            0,
+                            33
+                        ],
+                        "dist": 280,
+                        "title": "view",
+                        "filepath": "../vitamins/images/2Pole20ATerminalBlock_view.png",
+                        "caption": "view",
+                        "translate": [
+                            6.9,
+                            13.6,
+                            10.3
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "parts": [],
+                "call": "TerminalBlock(type=TerminalBlock_20A,poles=2)",
+                "file": "vitamins/TerminalBlock.scad"
+            },
+            {
+                "hash": "4303bf85dd4b8e6a488aa984def38431",
+                "title": "JumperWire None to None 1pin 50mm",
+                "views": [
+                    {
+                        "rotate": [
+                            41,
+                            0,
+                            29
+                        ],
+                        "dist": 438,
+                        "title": "view",
+                        "filepath": "../vitamins/images/JumperWireNonetoNone1pin50mm_view.png",
+                        "caption": "view",
+                        "translate": [
+                            51,
+                            5,
+                            2
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 3,
+                "parts": [],
+                "call": "JumperWire(type=JumperWire_NN1, length=50)",
+                "file": "vitamins/JumperWire.scad"
+            },
+            {
+                "hash": "ecd3eadfbd31a7999e61570bbade3739",
+                "title": "JumperWire Female to None 1pin 100mm",
+                "views": [
+                    {
+                        "rotate": [
+                            41,
+                            0,
+                            29
+                        ],
+                        "dist": 438,
+                        "title": "view",
+                        "filepath": "../vitamins/images/JumperWireFemaletoNone1pin100mm_view.png",
+                        "caption": "view",
+                        "translate": [
+                            51,
+                            5,
+                            2
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 4,
+                "parts": [],
+                "call": "JumperWire(type=JumperWire_FN1, length=100)",
+                "file": "vitamins/JumperWire.scad"
+            },
+            {
+                "hash": "f93d6ca47944850f0223d6c717dd9968",
+                "title": "JumperWire Female to None 1pin 70mm",
+                "views": [
+                    {
+                        "rotate": [
+                            41,
+                            0,
+                            29
+                        ],
+                        "dist": 438,
+                        "title": "view",
+                        "filepath": "../vitamins/images/JumperWireFemaletoNone1pin70mm_view.png",
+                        "caption": "view",
+                        "translate": [
+                            51,
+                            5,
+                            2
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 4,
+                "parts": [],
+                "call": "JumperWire(type=JumperWire_FN1, length=70)",
+                "file": "vitamins/JumperWire.scad"
+            },
+            {
+                "hash": "e87c0d53e246bd5a5e1e53d08f48cb3c",
+                "title": "JumperWire None to None 1pin 100mm",
+                "views": [
+                    {
+                        "rotate": [
+                            41,
+                            0,
+                            29
+                        ],
+                        "dist": 438,
+                        "title": "view",
+                        "filepath": "../vitamins/images/JumperWireNonetoNone1pin100mm_view.png",
+                        "caption": "view",
+                        "translate": [
+                            51,
+                            5,
+                            2
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 2,
+                "parts": [],
+                "call": "JumperWire(type=JumperWire_NN1, length=100)",
+                "file": "vitamins/JumperWire.scad"
+            }
+        ],
+        "title": "LogoBot Line Follower",
+        "assemblies": [
+            {
+                "cut": [],
+                "hash": "66afa0f5812fdae9f58ad27757bf4fb5",
+                "vitamins": [
+                    {
+                        "title": "Arduino Pro Mini Pins on top, inc serial pins",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "ArduinoPro(type=ArduinoPro_Mini, headerpins=2,serialpins=true)",
+                        "file": "vitamins/ArduinoPro.scad"
+                    },
+                    {
+                        "title": "JumperWire Female to Female 4pin 100mm",
+                        "views": [],
+                        "qty": 2,
+                        "parts": [],
+                        "call": "JumperWire(type=JumperWire_FF4, length=100)",
+                        "file": "vitamins/JumperWire.scad"
+                    },
+                    {
+                        "title": "SPST6A Mini Toggle Switch",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "MiniToggleSwitch(MiniToggleSwitch_SPST6A)",
+                        "file": "vitamins/MiniToggleSwitch.scad"
+                    },
+                    {
+                        "title": "AA Battery",
+                        "views": [],
+                        "qty": 4,
+                        "parts": [],
+                        "call": "Battery(Battery_AA)",
+                        "file": "vitamins/Battery.scad"
+                    },
+                    {
+                        "title": "Battery Pack",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "BatteryPack()",
+                        "file": "vitamins/BatteryPack.scad"
+                    },
+                    {
+                        "title": "Hook and Loop Tape 40x10mm",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "HookAndLoopTape(length=40, width=10)",
+                        "file": "vitamins/HookAndLoopTape.scad"
+                    },
+                    {
+                        "title": "2 Pole 20A Terminal Block",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "TerminalBlock(type=TerminalBlock_20A,poles=2)",
+                        "file": "vitamins/TerminalBlock.scad"
+                    },
+                    {
+                        "title": "JumperWire None to None 1pin 50mm",
+                        "views": [],
+                        "qty": 3,
+                        "parts": [],
+                        "call": "JumperWire(type=JumperWire_NN1, length=50)",
+                        "file": "vitamins/JumperWire.scad"
+                    },
+                    {
+                        "title": "JumperWire Female to None 1pin 100mm",
+                        "views": [],
+                        "qty": 4,
+                        "parts": [],
+                        "call": "JumperWire(type=JumperWire_FN1, length=100)",
+                        "file": "vitamins/JumperWire.scad"
+                    },
+                    {
+                        "title": "JumperWire Female to None 1pin 70mm",
+                        "views": [],
+                        "qty": 4,
+                        "parts": [],
+                        "call": "JumperWire(type=JumperWire_FN1, length=70)",
+                        "file": "vitamins/JumperWire.scad"
+                    },
+                    {
+                        "title": "JumperWire None to None 1pin 100mm",
+                        "views": [],
+                        "qty": 2,
+                        "parts": [],
+                        "call": "JumperWire(type=JumperWire_NN1, length=100)",
+                        "file": "vitamins/JumperWire.scad"
+                    }
+                ],
+                "views": [],
+                "assemblies": [
+                    {
+                        "cut": [],
+                        "vitamins": [],
+                        "views": [],
+                        "assemblies": [],
+                        "title": "Line Sensor",
+                        "qty": 1,
+                        "call": "LineSensorAssembly()",
+                        "printed": [],
+                        "file": "assemblies/LineSensor.scad",
+                        "steps": [],
+                        "level": 1
+                    },
+                    {
+                        "cut": [],
+                        "vitamins": [],
+                        "views": [],
+                        "assemblies": [],
+                        "title": "Left Drive Wheel",
+                        "qty": 1,
+                        "call": "LeftWheelAssembly()",
+                        "printed": [],
+                        "file": "assemblies/Wheel.scad",
+                        "steps": [],
+                        "level": 1
+                    },
+                    {
+                        "cut": [],
+                        "vitamins": [],
+                        "views": [],
+                        "assemblies": [],
+                        "title": "Right Drive Wheel",
+                        "qty": 1,
+                        "call": "RightWheelAssembly()",
+                        "printed": [],
+                        "file": "assemblies/Wheel.scad",
+                        "steps": [],
+                        "level": 1
+                    },
+                    {
+                        "cut": [],
+                        "vitamins": [],
+                        "views": [],
+                        "assemblies": [],
+                        "title": "Rear Caster",
+                        "qty": 1,
+                        "call": "MarbleCasterAssembly()",
+                        "printed": [],
+                        "file": "assemblies/MarbleCaster.scad",
+                        "steps": [],
+                        "level": 1
+                    }
+                ],
+                "title": "Final Assembly",
+                "qty": 1,
+                "call": "LogoBotLineFollowerAssembly()",
+                "printed": [
+                    {
+                        "title": "Base",
+                        "qty": 1,
+                        "call": "LogoBotBase_STL()",
+                        "file": "printedparts/LogoBotBase.scad",
+                        "views": []
+                    },
+                    {
+                        "title": "Pin Tack H7",
+                        "qty": 1,
+                        "call": "PinTack_STL(h=7)",
+                        "file": "printedparts/PinTack.scad",
+                        "views": []
+                    },
+                    {
+                        "title": "Pin Tack H6.1",
+                        "qty": 1,
+                        "call": "PinTack_STL(h=6.1)",
+                        "file": "printedparts/PinTack.scad",
+                        "views": []
+                    }
+                ],
+                "file": "assemblies/LogoBotLineFollower.scad",
+                "steps": [
+                    {
+                        "desc": "Plug the Pro Mini Clips into the base and then snap the Arduino Pro Mini into them",
+                        "num": 1,
+                        "views": [
+                            {
+                                "rotate": [
+                                    49,
+                                    0,
+                                    153
+                                ],
+                                "dist": 370,
+                                "filepath": "../assemblies/LogoBotLineFollower/FinalAssembly_step1_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Pin the line sensor assembly to the underside",
+                        "num": 2,
+                        "views": [
+                            {
+                                "rotate": [
+                                    66,
+                                    0,
+                                    190
+                                ],
+                                "dist": 450,
+                                "filepath": "../assemblies/LogoBotLineFollower/FinalAssembly_step2_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -4,
+                                    6,
+                                    47
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Plug the two wheels assemblies into the base",
+                        "num": 4,
+                        "views": [
+                            {
+                                "rotate": [
+                                    66,
+                                    0,
+                                    190
+                                ],
+                                "dist": 450,
+                                "filepath": "../assemblies/LogoBotLineFollower/FinalAssembly_step4_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -4,
+                                    6,
+                                    47
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Connect the jumper wires between the motor drivers and the Arduino",
+                        "num": 5,
+                        "views": [
+                            {
+                                "rotate": [
+                                    62,
+                                    0,
+                                    204
+                                ],
+                                "dist": 340,
+                                "filepath": "../assemblies/LogoBotLineFollower/FinalAssembly_step5_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -15,
+                                    11,
+                                    28
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "rotate": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "dist": 340,
+                                "filepath": "../assemblies/LogoBotLineFollower/FinalAssembly_step5_plan.png",
+                                "title": "plan",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    32,
+                                    16
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Fix the power toggle switch into place",
+                        "num": 6,
+                        "views": [
+                            {
+                                "rotate": [
+                                    47,
+                                    0,
+                                    300
+                                ],
+                                "dist": 260,
+                                "filepath": "../assemblies/LogoBotLineFollower/FinalAssembly_step6_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    8,
+                                    -10,
+                                    26
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Align the caster assembly with the base, then insert a short pin to lock it to the base",
+                        "num": 9,
+                        "views": [
+                            {
+                                "rotate": [
+                                    145,
+                                    0,
+                                    303
+                                ],
+                                "dist": 200,
+                                "filepath": "../assemblies/LogoBotLineFollower/FinalAssembly_step9_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    7,
+                                    -36,
+                                    31
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Attach the battery pack with self-adhesive hook and loop tape",
+                        "num": 11,
+                        "views": [
+                            {
+                                "rotate": [
+                                    52,
+                                    0,
+                                    337
+                                ],
+                                "dist": 400,
+                                "filepath": "../assemblies/LogoBotLineFollower/FinalAssembly_step11_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    20
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Wire in the terminal block to distribute power",
+                        "num": 12,
+                        "views": [
+                            {
+                                "rotate": [
+                                    47,
+                                    0,
+                                    300
+                                ],
+                                "dist": 260,
+                                "filepath": "../assemblies/LogoBotLineFollower/FinalAssembly_step12_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    8,
+                                    -10,
+                                    26
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Wire up power to the stepper drivers and Arduino.  Then connect the microswitches to the Arduino.",
+                        "num": 13,
+                        "views": [
+                            {
+                                "rotate": [
+                                    62,
+                                    0,
+                                    190
+                                ],
+                                "dist": 250,
+                                "filepath": "../assemblies/LogoBotLineFollower/FinalAssembly_step13_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    20,
+                                    40
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "level": 0
+            },
+            {
+                "cut": [],
+                "hash": "85dec7c574efc0cd05e08c8e5a824c4f",
+                "vitamins": [
+                    {
+                        "title": "Line Sensor",
+                        "views": [],
+                        "qty": 2,
+                        "parts": [],
+                        "call": "LineSensor()",
+                        "file": "vitamins/LineSensor.scad"
+                    }
+                ],
+                "views": [],
+                "assemblies": [],
+                "title": "Line Sensor",
+                "qty": 1,
+                "call": "LineSensorAssembly()",
+                "printed": [
+                    {
+                        "title": "Line Sensor Holder",
+                        "qty": 1,
+                        "call": "LineSensorHolder_STL()",
+                        "file": "printedparts/LineSensorHolder.scad",
+                        "views": []
+                    }
+                ],
+                "file": "assemblies/LineSensor.scad",
+                "steps": [
+                    {
+                        "desc": "Insert the two line sensor modules",
+                        "num": 1,
+                        "views": [
+                            {
+                                "rotate": [
+                                    52,
+                                    0,
+                                    218
+                                ],
+                                "dist": 400,
+                                "filepath": "../assemblies/LogoBotLineFollower/LineSensor_step1_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "level": 2
+            },
+            {
+                "cut": [],
+                "hash": "cc5e4fa6fdb829fd4f8cbbf71a3ff1e6",
+                "vitamins": [
+                    {
+                        "title": "28YBJ48 Stepper Motor",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "StepperMotor28YBJ48()",
+                        "file": "vitamins/motor.scad"
+                    },
+                    {
+                        "title": "ULN2003 Driver Board",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "ULN2003DriverBoard()",
+                        "file": "vitamins/ULN2003DriverBoard.scad"
+                    }
+                ],
+                "views": [],
+                "assemblies": [],
+                "title": "Left Drive Wheel",
+                "qty": 1,
+                "call": "LeftWheelAssembly()",
+                "printed": [
+                    {
+                        "title": "Left Motor Clip",
+                        "qty": 1,
+                        "call": "LeftMotorClip_STL()",
+                        "file": "printedparts/MotorClip.scad",
+                        "views": []
+                    },
+                    {
+                        "title": "Pin Tack H7",
+                        "qty": 2,
+                        "call": "PinTack_STL(h=7)",
+                        "file": "printedparts/PinTack.scad",
+                        "views": []
+                    },
+                    {
+                        "title": "Wheel",
+                        "qty": 1,
+                        "call": "Wheel_STL()",
+                        "file": "printedparts/Wheel.scad",
+                        "views": []
+                    }
+                ],
+                "file": "assemblies/Wheel.scad",
+                "steps": [
+                    {
+                        "desc": "Clip the motor into place",
+                        "num": 1,
+                        "views": [
+                            {
+                                "rotate": [
+                                    170,
+                                    35,
+                                    0
+                                ],
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBotLineFollower/LeftDriveWheel_step1_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -5,
+                                    -23,
+                                    17
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Push the pins into the motor clip",
+                        "num": 2,
+                        "views": [
+                            {
+                                "rotate": [
+                                    141,
+                                    170,
+                                    0
+                                ],
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBotLineFollower/LeftDriveWheel_step2_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -5,
+                                    -23,
+                                    17
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Push the wheel onto the motor shaft, then add a rubber band or o-ring to the wheel for extra grip.  You can also add a retaining grub screw if necessary.",
+                        "num": 3,
+                        "views": [
+                            {
+                                "rotate": [
+                                    150,
+                                    70,
+                                    0
+                                ],
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBotLineFollower/LeftDriveWheel_step3_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -7,
+                                    -6,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Slide the stepper driver into place and plug in the cable for the motor",
+                        "num": 4,
+                        "views": [
+                            {
+                                "rotate": [
+                                    177,
+                                    76,
+                                    0
+                                ],
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBotLineFollower/LeftDriveWheel_step4_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -12,
+                                    -7,
+                                    14
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "level": 2
+            },
+            {
+                "cut": [],
+                "hash": "9cf1012e30f5e8c7f2000faa449a7acb",
+                "vitamins": [
+                    {
+                        "title": "28YBJ48 Stepper Motor",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "StepperMotor28YBJ48()",
+                        "file": "vitamins/motor.scad"
+                    },
+                    {
+                        "title": "ULN2003 Driver Board",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "ULN2003DriverBoard()",
+                        "file": "vitamins/ULN2003DriverBoard.scad"
+                    }
+                ],
+                "views": [],
+                "assemblies": [],
+                "title": "Right Drive Wheel",
+                "qty": 1,
+                "call": "RightWheelAssembly()",
+                "printed": [
+                    {
+                        "title": "Right Motor Clip",
+                        "qty": 1,
+                        "call": "RightMotorClip_STL()",
+                        "file": "printedparts/MotorClip.scad",
+                        "views": []
+                    },
+                    {
+                        "title": "Pin Tack H7",
+                        "qty": 2,
+                        "call": "PinTack_STL(h=7)",
+                        "file": "printedparts/PinTack.scad",
+                        "views": []
+                    },
+                    {
+                        "title": "Wheel",
+                        "qty": 1,
+                        "call": "Wheel_STL()",
+                        "file": "printedparts/Wheel.scad",
+                        "views": []
+                    }
+                ],
+                "file": "assemblies/Wheel.scad",
+                "steps": [
+                    {
+                        "desc": "Clip the motor into place",
+                        "num": 1,
+                        "views": [
+                            {
+                                "rotate": [
+                                    170,
+                                    35,
+                                    0
+                                ],
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBotLineFollower/RightDriveWheel_step1_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -5,
+                                    -23,
+                                    17
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Push the pins into the motor clip",
+                        "num": 2,
+                        "views": [
+                            {
+                                "rotate": [
+                                    141,
+                                    170,
+                                    0
+                                ],
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBotLineFollower/RightDriveWheel_step2_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -5,
+                                    -23,
+                                    17
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Push the wheel onto the motor shaft, then add a rubber band or o-ring to the wheel for extra grip.  You can also add a retaining grub screw if necessary.",
+                        "num": 3,
+                        "views": [
+                            {
+                                "rotate": [
+                                    150,
+                                    70,
+                                    0
+                                ],
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBotLineFollower/RightDriveWheel_step3_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -7,
+                                    -6,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Slide the stepper driver into place and plug in the cable for the motor",
+                        "num": 4,
+                        "views": [
+                            {
+                                "rotate": [
+                                    177,
+                                    295,
+                                    0
+                                ],
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBotLineFollower/RightDriveWheel_step4_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    5,
+                                    -3,
+                                    14
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "level": 2
+            },
+            {
+                "cut": [],
+                "hash": "b1296abf5253240f34009825f918cfe3",
+                "vitamins": [
+                    {
+                        "title": "16mm Marble",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "Marble(Marble_16mm)",
+                        "file": "vitamins/Marble.scad"
+                    }
+                ],
+                "views": [],
+                "assemblies": [],
+                "title": "Rear Caster",
+                "qty": 1,
+                "call": "MarbleCasterAssembly()",
+                "printed": [
+                    {
+                        "title": "Caster Housing",
+                        "qty": 1,
+                        "call": "MarbleCaster_STL()",
+                        "file": "printedparts/MarbleCaster.scad",
+                        "views": []
+                    }
+                ],
+                "file": "assemblies/MarbleCaster.scad",
+                "steps": [
+                    {
+                        "desc": "Insert the marble into the printed housing",
+                        "num": 1,
+                        "views": [
+                            {
+                                "rotate": [
+                                    108,
+                                    0,
+                                    91
+                                ],
+                                "dist": 261,
+                                "filepath": "../assemblies/LogoBotLineFollower/RearCaster_step1_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0.67,
+                                    0,
+                                    -15
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "level": 2
+            }
+        ],
+        "printed": [
+            {
+                "plasticVolume": 21.2,
+                "hash": "f4898cae5d28c2a63ec170d02ccfe03f",
+                "plasticWeight": 0.0265,
+                "title": "Base",
+                "views": [
+                    {
+                        "rotate": [
+                            58,
+                            0,
+                            225
+                        ],
+                        "dist": 681,
+                        "title": "view",
+                        "filepath": "../printedparts/images/Base_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "call": "LogoBotBase_STL()",
+                "file": "printedparts/LogoBotBase.scad"
+            },
+            {
+                "plasticVolume": 2.5,
+                "hash": "37f10c536e359c28bc78c05fdb465054",
+                "plasticWeight": 0.003125,
+                "title": "Line Sensor Holder",
+                "aabb": [
+                    [
+                        -19.0,
+                        -6.0,
+                        -18.0
+                    ],
+                    [
+                        19.0,
+                        6.0,
+                        0.0
+                    ]
+                ],
+                "views": [
+                    {
+                        "rotate": [
+                            72,
+                            0,
+                            130
+                        ],
+                        "dist": 400,
+                        "title": "view",
+                        "filepath": "../printedparts/images/LineSensorHolder_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "volume": 2137.5294759383987,
+                "area": 2586.634804835584,
+                "call": "LineSensorHolder_STL()",
+                "file": "printedparts/LineSensorHolder.scad"
+            },
+            {
+                "plasticVolume": 0.3,
+                "hash": "4e3a95bca7ed9d320ed7baac02a72d8f",
+                "plasticWeight": 0.000375,
+                "title": "Pin Tack H7",
+                "views": [
+                    {
+                        "rotate": [
+                            72,
+                            0,
+                            130
+                        ],
+                        "dist": 400,
+                        "title": "view",
+                        "filepath": "../printedparts/images/PinTackH7_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 5,
+                "call": "PinTack_STL(h=7)",
+                "file": "printedparts/PinTack.scad"
+            },
+            {
+                "plasticVolume": 5.0,
+                "hash": "1474f23b715a59aa7d064bb55ff07c02",
+                "plasticWeight": 0.00625,
+                "title": "Left Motor Clip",
+                "views": [
+                    {
+                        "rotate": [
+                            58,
+                            0,
+                            225
+                        ],
+                        "dist": 681,
+                        "title": "view",
+                        "filepath": "../printedparts/images/LeftMotorClip_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "call": "LeftMotorClip_STL()",
+                "file": "printedparts/MotorClip.scad"
+            },
+            {
+                "plasticVolume": 4.5,
+                "hash": "c77401e9b5fd747ea4bdd40da2e9f650",
+                "plasticWeight": 0.005625,
+                "title": "Wheel",
+                "views": [
+                    {
+                        "rotate": [
+                            49,
+                            0,
+                            25
+                        ],
+                        "dist": 336,
+                        "title": "view",
+                        "filepath": "../printedparts/images/Wheel_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            -1,
+                            -1
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 2,
+                "call": "Wheel_STL()",
+                "file": "printedparts/Wheel.scad"
+            },
+            {
+                "plasticVolume": 5.0,
+                "hash": "e4a666c96b3999a7b5ebb5a6effef3f4",
+                "plasticWeight": 0.00625,
+                "title": "Right Motor Clip",
+                "views": [
+                    {
+                        "rotate": [
+                            58,
+                            0,
+                            225
+                        ],
+                        "dist": 681,
+                        "title": "view",
+                        "filepath": "../printedparts/images/RightMotorClip_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "call": "RightMotorClip_STL()",
+                "file": "printedparts/MotorClip.scad"
+            },
+            {
+                "plasticVolume": 1.5,
+                "hash": "bd4a7de840c7400b58fb27a6c2ee6f14",
+                "plasticWeight": 0.001875,
+                "title": "Caster Housing",
+                "views": [
+                    {
+                        "rotate": [
+                            63,
+                            0,
+                            114
+                        ],
+                        "dist": 172,
+                        "title": "view",
+                        "filepath": "../printedparts/images/CasterHousing_view.png",
+                        "caption": "view",
+                        "translate": [
+                            1.4,
+                            0.8,
+                            -5.6
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "call": "MarbleCaster_STL()",
+                "file": "printedparts/MarbleCaster.scad"
+            },
+            {
+                "plasticVolume": 0.3,
+                "hash": "e0158d1179c23a910aafce630965eac5",
+                "plasticWeight": 0.000375,
+                "title": "Pin Tack H6.1",
+                "views": [
+                    {
+                        "rotate": [
+                            72,
+                            0,
+                            130
+                        ],
+                        "dist": 400,
+                        "title": "view",
+                        "filepath": "../printedparts/images/PinTackH61_view.png",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "call": "PinTack_STL(h=6.1)",
+                "file": "printedparts/PinTack.scad"
+            }
+        ],
+        "file": "LogoBotLineFollower.scad",
+        "type": "machine",
+        "children": [
+            {
+                "rotate": [
+                    78,
+                    0,
+                    215
+                ],
+                "dist": 749,
+                "title": "view",
+                "filepath": "../images/LogoBotLineFollower_view.png",
+                "caption": "view",
+                "translate": [
+                    5,
+                    -1,
+                    34
+                ],
+                "type": "view",
+                "size": [
+                    1024,
+                    768
+                ]
+            },
+            {
+                "call": "LogoBotLineFollowerAssembly()",
+                "type": "assembly",
+                "children": [
+                    {
+                        "call": "LogoBotBase_STL()",
+                        "type": "printed",
+                        "children": [
+                            {
+                                "rotate": [
+                                    58,
+                                    0,
+                                    225
+                                ],
+                                "dist": 681,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "file": "printedparts/LogoBotBase.scad",
+                        "title": "Base"
+                    },
+                    {
+                        "num": 1,
+                        "type": "step",
+                        "children": [
+                            {
+                                "rotate": [
+                                    49,
+                                    0,
+                                    153
+                                ],
+                                "dist": 370,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "call": "ArduinoPro(type=ArduinoPro_Mini, headerpins=2,serialpins=true)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            55,
+                                            0,
+                                            25
+                                        ],
+                                        "dist": 140,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/ArduinoPro.scad",
+                                "title": "Arduino Pro Mini Pins on top, inc serial pins"
+                            }
+                        ],
+                        "desc": "Plug the Pro Mini Clips into the base and then snap the Arduino Pro Mini into them"
+                    },
+                    {
+                        "num": 2,
+                        "type": "step",
+                        "children": [
+                            {
+                                "rotate": [
+                                    66,
+                                    0,
+                                    190
+                                ],
+                                "dist": 450,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -4,
+                                    6,
+                                    47
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "call": "LineSensorAssembly()",
+                                "type": "assembly",
+                                "children": [
+                                    {
+                                        "call": "LineSensorHolder_STL()",
+                                        "type": "printed",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    72,
+                                                    0,
+                                                    130
+                                                ],
+                                                "dist": 400,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    0,
+                                                    0,
+                                                    0
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "printedparts/LineSensorHolder.scad",
+                                        "title": "Line Sensor Holder"
+                                    },
+                                    {
+                                        "num": 1,
+                                        "type": "step",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    52,
+                                                    0,
+                                                    218
+                                                ],
+                                                "dist": 400,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    0,
+                                                    0,
+                                                    0
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            },
+                                            {
+                                                "call": "LineSensor()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            72,
+                                                            0,
+                                                            33
+                                                        ],
+                                                        "dist": 280,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            6.9,
+                                                            13.6,
+                                                            10.3
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/LineSensor.scad",
+                                                "title": "Line Sensor"
+                                            },
+                                            {
+                                                "call": "LineSensor()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            72,
+                                                            0,
+                                                            33
+                                                        ],
+                                                        "dist": 280,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            6.9,
+                                                            13.6,
+                                                            10.3
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/LineSensor.scad",
+                                                "title": "Line Sensor"
+                                            }
+                                        ],
+                                        "desc": "Insert the two line sensor modules"
+                                    }
+                                ],
+                                "file": "assemblies/LineSensor.scad",
+                                "title": "Line Sensor"
+                            },
+                            {
+                                "call": "PinTack_STL(h=7)",
+                                "type": "printed",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            72,
+                                            0,
+                                            130
+                                        ],
+                                        "dist": 400,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "printedparts/PinTack.scad",
+                                "title": "Pin Tack H7"
+                            }
+                        ],
+                        "desc": "Pin the line sensor assembly to the underside"
+                    },
+                    {
+                        "num": 4,
+                        "type": "step",
+                        "children": [
+                            {
+                                "rotate": [
+                                    66,
+                                    0,
+                                    190
+                                ],
+                                "dist": 450,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -4,
+                                    6,
+                                    47
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "call": "LeftWheelAssembly()",
+                                "type": "assembly",
+                                "children": [
+                                    {
+                                        "call": "LeftMotorClip_STL()",
+                                        "type": "printed",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    58,
+                                                    0,
+                                                    225
+                                                ],
+                                                "dist": 681,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    0,
+                                                    0,
+                                                    0
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "printedparts/MotorClip.scad",
+                                        "title": "Left Motor Clip"
+                                    },
+                                    {
+                                        "num": 1,
+                                        "type": "step",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    170,
+                                                    35,
+                                                    0
+                                                ],
+                                                "dist": 220,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -5,
+                                                    -23,
+                                                    17
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            },
+                                            {
+                                                "call": "StepperMotor28YBJ48()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            170,
+                                                            334,
+                                                            0
+                                                        ],
+                                                        "dist": 140,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/motor.scad",
+                                                "title": "28YBJ48 Stepper Motor"
+                                            }
+                                        ],
+                                        "desc": "Clip the motor into place"
+                                    },
+                                    {
+                                        "num": 2,
+                                        "type": "step",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    141,
+                                                    170,
+                                                    0
+                                                ],
+                                                "dist": 220,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -5,
+                                                    -23,
+                                                    17
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            },
+                                            {
+                                                "call": "PinTack_STL(h=7)",
+                                                "type": "printed",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            72,
+                                                            0,
+                                                            130
+                                                        ],
+                                                        "dist": 400,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "printedparts/PinTack.scad",
+                                                "title": "Pin Tack H7"
+                                            },
+                                            {
+                                                "call": "PinTack_STL(h=7)",
+                                                "type": "printed",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            72,
+                                                            0,
+                                                            130
+                                                        ],
+                                                        "dist": 400,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "printedparts/PinTack.scad",
+                                                "title": "Pin Tack H7"
+                                            }
+                                        ],
+                                        "desc": "Push the pins into the motor clip"
+                                    },
+                                    {
+                                        "num": 3,
+                                        "type": "step",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    150,
+                                                    70,
+                                                    0
+                                                ],
+                                                "dist": 220,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -7,
+                                                    -6,
+                                                    0
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            },
+                                            {
+                                                "call": "Wheel_STL()",
+                                                "type": "printed",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            49,
+                                                            0,
+                                                            25
+                                                        ],
+                                                        "dist": 336,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            -1,
+                                                            -1
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "printedparts/Wheel.scad",
+                                                "title": "Wheel"
+                                            }
+                                        ],
+                                        "desc": "Push the wheel onto the motor shaft, then add a rubber band or o-ring to the wheel for extra grip.  You can also add a retaining grub screw if necessary."
+                                    },
+                                    {
+                                        "num": 4,
+                                        "type": "step",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    177,
+                                                    76,
+                                                    0
+                                                ],
+                                                "dist": 220,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -12,
+                                                    -7,
+                                                    14
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            },
+                                            {
+                                                "call": "ULN2003DriverBoard()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            55,
+                                                            0,
+                                                            25
+                                                        ],
+                                                        "dist": 140,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
+                                                    }
+                                                ],
+                                                "file": "vitamins/ULN2003DriverBoard.scad",
+                                                "title": "ULN2003 Driver Board"
+                                            }
+                                        ],
+                                        "desc": "Slide the stepper driver into place and plug in the cable for the motor"
+                                    }
+                                ],
+                                "file": "assemblies/Wheel.scad",
+                                "title": "Left Drive Wheel"
+                            },
+                            {
+                                "call": "RightWheelAssembly()",
+                                "type": "assembly",
+                                "children": [
+                                    {
+                                        "call": "RightMotorClip_STL()",
+                                        "type": "printed",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    58,
+                                                    0,
+                                                    225
+                                                ],
+                                                "dist": 681,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    0,
+                                                    0,
+                                                    0
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "printedparts/MotorClip.scad",
+                                        "title": "Right Motor Clip"
+                                    },
+                                    {
+                                        "num": 1,
+                                        "type": "step",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    170,
+                                                    35,
+                                                    0
+                                                ],
+                                                "dist": 220,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -5,
+                                                    -23,
+                                                    17
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            },
+                                            {
+                                                "call": "StepperMotor28YBJ48()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            170,
+                                                            334,
+                                                            0
+                                                        ],
+                                                        "dist": 140,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/motor.scad",
+                                                "title": "28YBJ48 Stepper Motor"
+                                            }
+                                        ],
+                                        "desc": "Clip the motor into place"
+                                    },
+                                    {
+                                        "num": 2,
+                                        "type": "step",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    141,
+                                                    170,
+                                                    0
+                                                ],
+                                                "dist": 220,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -5,
+                                                    -23,
+                                                    17
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            },
+                                            {
+                                                "call": "PinTack_STL(h=7)",
+                                                "type": "printed",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            72,
+                                                            0,
+                                                            130
+                                                        ],
+                                                        "dist": 400,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "printedparts/PinTack.scad",
+                                                "title": "Pin Tack H7"
+                                            },
+                                            {
+                                                "call": "PinTack_STL(h=7)",
+                                                "type": "printed",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            72,
+                                                            0,
+                                                            130
+                                                        ],
+                                                        "dist": 400,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "printedparts/PinTack.scad",
+                                                "title": "Pin Tack H7"
+                                            }
+                                        ],
+                                        "desc": "Push the pins into the motor clip"
+                                    },
+                                    {
+                                        "num": 3,
+                                        "type": "step",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    150,
+                                                    70,
+                                                    0
+                                                ],
+                                                "dist": 220,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -7,
+                                                    -6,
+                                                    0
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            },
+                                            {
+                                                "call": "Wheel_STL()",
+                                                "type": "printed",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            49,
+                                                            0,
+                                                            25
+                                                        ],
+                                                        "dist": 336,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            -1,
+                                                            -1
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "printedparts/Wheel.scad",
+                                                "title": "Wheel"
+                                            }
+                                        ],
+                                        "desc": "Push the wheel onto the motor shaft, then add a rubber band or o-ring to the wheel for extra grip.  You can also add a retaining grub screw if necessary."
+                                    },
+                                    {
+                                        "num": 4,
+                                        "type": "step",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    177,
+                                                    295,
+                                                    0
+                                                ],
+                                                "dist": 220,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    5,
+                                                    -3,
+                                                    14
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            },
+                                            {
+                                                "call": "ULN2003DriverBoard()",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            55,
+                                                            0,
+                                                            25
+                                                        ],
+                                                        "dist": 140,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            0,
+                                                            0,
+                                                            0
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
+                                                    },
+                                                    {
+                                                        "call": "LED(LEDType=LED_3mm)",
+                                                        "type": "vitamin",
+                                                        "children": [
+                                                            {
+                                                                "rotate": [
+                                                                    34,
+                                                                    2,
+                                                                    22
+                                                                ],
+                                                                "dist": 200,
+                                                                "title": "view",
+                                                                "caption": "view",
+                                                                "translate": [
+                                                                    23,
+                                                                    9,
+                                                                    3
+                                                                ],
+                                                                "type": "view",
+                                                                "size": [
+                                                                    400,
+                                                                    300
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "file": "vitamins/LED.scad",
+                                                        "title": "3mm LED"
+                                                    }
+                                                ],
+                                                "file": "vitamins/ULN2003DriverBoard.scad",
+                                                "title": "ULN2003 Driver Board"
+                                            }
+                                        ],
+                                        "desc": "Slide the stepper driver into place and plug in the cable for the motor"
+                                    }
+                                ],
+                                "file": "assemblies/Wheel.scad",
+                                "title": "Right Drive Wheel"
+                            }
+                        ],
+                        "desc": "Plug the two wheels assemblies into the base"
+                    },
+                    {
+                        "num": 5,
+                        "type": "step",
+                        "children": [
+                            {
+                                "rotate": [
+                                    62,
+                                    0,
+                                    204
+                                ],
+                                "dist": 340,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -15,
+                                    11,
+                                    28
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "rotate": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "dist": 340,
+                                "title": "plan",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    32,
+                                    16
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FF4, length=100)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to Female 4pin 100mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FF4, length=100)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to Female 4pin 100mm"
+                            }
+                        ],
+                        "desc": "Connect the jumper wires between the motor drivers and the Arduino"
+                    },
+                    {
+                        "num": 6,
+                        "type": "step",
+                        "children": [
+                            {
+                                "rotate": [
+                                    47,
+                                    0,
+                                    300
+                                ],
+                                "dist": 260,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    8,
+                                    -10,
+                                    26
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "call": "MiniToggleSwitch(MiniToggleSwitch_SPST6A)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            55,
+                                            0,
+                                            25
+                                        ],
+                                        "dist": 140,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/MiniToggleSwitch.scad",
+                                "title": "SPST6A Mini Toggle Switch"
+                            }
+                        ],
+                        "desc": "Fix the power toggle switch into place"
+                    },
+                    {
+                        "num": 9,
+                        "type": "step",
+                        "children": [
+                            {
+                                "rotate": [
+                                    145,
+                                    0,
+                                    303
+                                ],
+                                "dist": 200,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    7,
+                                    -36,
+                                    31
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "call": "MarbleCasterAssembly()",
+                                "type": "assembly",
+                                "children": [
+                                    {
+                                        "call": "MarbleCaster_STL()",
+                                        "type": "printed",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    63,
+                                                    0,
+                                                    114
+                                                ],
+                                                "dist": 172,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    1.4,
+                                                    0.8,
+                                                    -5.6
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "printedparts/MarbleCaster.scad",
+                                        "title": "Caster Housing"
+                                    },
+                                    {
+                                        "num": 1,
+                                        "type": "step",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    108,
+                                                    0,
+                                                    91
+                                                ],
+                                                "dist": 261,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    0.67,
+                                                    0,
+                                                    -15
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            },
+                                            {
+                                                "call": "Marble(Marble_16mm)",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            66,
+                                                            0,
+                                                            60
+                                                        ],
+                                                        "dist": 119,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            -1,
+                                                            0,
+                                                            -1
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/Marble.scad",
+                                                "title": "16mm Marble"
+                                            }
+                                        ],
+                                        "desc": "Insert the marble into the printed housing"
+                                    }
+                                ],
+                                "file": "assemblies/MarbleCaster.scad",
+                                "title": "Rear Caster"
+                            },
+                            {
+                                "call": "PinTack_STL(h=6.1)",
+                                "type": "printed",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            72,
+                                            0,
+                                            130
+                                        ],
+                                        "dist": 400,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "printedparts/PinTack.scad",
+                                "title": "Pin Tack H6.1"
+                            }
+                        ],
+                        "desc": "Align the caster assembly with the base, then insert a short pin to lock it to the base"
+                    },
+                    {
+                        "num": 11,
+                        "type": "step",
+                        "children": [
+                            {
+                                "rotate": [
+                                    52,
+                                    0,
+                                    337
+                                ],
+                                "dist": 400,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    20
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "call": "Battery(Battery_AA)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            72,
+                                            0,
+                                            33
+                                        ],
+                                        "dist": 280,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            6.9,
+                                            13.6,
+                                            10.3
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/Battery.scad",
+                                "title": "AA Battery"
+                            },
+                            {
+                                "call": "Battery(Battery_AA)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            72,
+                                            0,
+                                            33
+                                        ],
+                                        "dist": 280,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            6.9,
+                                            13.6,
+                                            10.3
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/Battery.scad",
+                                "title": "AA Battery"
+                            },
+                            {
+                                "call": "Battery(Battery_AA)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            72,
+                                            0,
+                                            33
+                                        ],
+                                        "dist": 280,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            6.9,
+                                            13.6,
+                                            10.3
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/Battery.scad",
+                                "title": "AA Battery"
+                            },
+                            {
+                                "call": "Battery(Battery_AA)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            72,
+                                            0,
+                                            33
+                                        ],
+                                        "dist": 280,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            6.9,
+                                            13.6,
+                                            10.3
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/Battery.scad",
+                                "title": "AA Battery"
+                            },
+                            {
+                                "call": "BatteryPack()",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            72,
+                                            0,
+                                            33
+                                        ],
+                                        "dist": 280,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            6.9,
+                                            13.6,
+                                            10.3
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/BatteryPack.scad",
+                                "title": "Battery Pack"
+                            },
+                            {
+                                "call": "HookAndLoopTape(length=40, width=10)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            55,
+                                            0,
+                                            25
+                                        ],
+                                        "dist": 200,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/HookAndLoopTape.scad",
+                                "title": "Hook and Loop Tape 40x10mm"
+                            }
+                        ],
+                        "desc": "Attach the battery pack with self-adhesive hook and loop tape"
+                    },
+                    {
+                        "num": 12,
+                        "type": "step",
+                        "children": [
+                            {
+                                "rotate": [
+                                    47,
+                                    0,
+                                    300
+                                ],
+                                "dist": 260,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    8,
+                                    -10,
+                                    26
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "call": "TerminalBlock(type=TerminalBlock_20A,poles=2)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            72,
+                                            0,
+                                            33
+                                        ],
+                                        "dist": 280,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            6.9,
+                                            13.6,
+                                            10.3
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/TerminalBlock.scad",
+                                "title": "2 Pole 20A Terminal Block"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_NN1, length=50)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire None to None 1pin 50mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_NN1, length=50)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire None to None 1pin 50mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_NN1, length=50)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire None to None 1pin 50mm"
+                            }
+                        ],
+                        "desc": "Wire in the terminal block to distribute power"
+                    },
+                    {
+                        "num": 13,
+                        "type": "step",
+                        "children": [
+                            {
+                                "rotate": [
+                                    62,
+                                    0,
+                                    190
+                                ],
+                                "dist": 250,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    20,
+                                    40
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=100)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 100mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=100)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 100mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=70)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 70mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=70)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 70mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=70)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 70mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=70)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 70mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=100)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 100mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_FN1, length=100)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire Female to None 1pin 100mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_NN1, length=100)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire None to None 1pin 100mm"
+                            },
+                            {
+                                "call": "JumperWire(type=JumperWire_NN1, length=100)",
+                                "type": "vitamin",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            41,
+                                            0,
+                                            29
+                                        ],
+                                        "dist": 438,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            51,
+                                            5,
+                                            2
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "vitamins/JumperWire.scad",
+                                "title": "JumperWire None to None 1pin 100mm"
+                            }
+                        ],
+                        "desc": "Wire up power to the stepper drivers and Arduino.  Then connect the microswitches to the Arduino."
+                    }
+                ],
+                "file": "assemblies/LogoBotLineFollower.scad",
+                "title": "Final Assembly"
+            }
+        ]
+    },
+    {
+        "cut": [],
+        "hash": "dbc023c0601bcb970544bf9f7a2d2e50",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -5345,7 +9061,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "5db4dfcdc12ffd3094156a95202bdd49",
+                "hash": "5e5198e01aedf7a1ef00dc6de71f25fc",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -5939,7 +9655,7 @@
             },
             {
                 "cut": [],
-                "hash": "de5b178756389f4ad919d46e8772bb31",
+                "hash": "5623323a2a29ec233409dcbbf088b022",
                 "vitamins": [
                     {
                         "title": "MicroSwitch",
@@ -6566,7 +10282,7 @@
             },
             {
                 "plasticVolume": 12.9,
-                "hash": "5ed7ba2184bf0dbb2b4b4a1b67a32303",
+                "hash": "6ae5b8f5e17b8e0722be5187130c0042",
                 "plasticWeight": 0.016125,
                 "weight": 0.016125,
                 "title": "Bumper",
@@ -10169,6 +13885,26 @@
             {
                 "type": "file",
                 "file": "printedparts/Lid.scad"
+            },
+            {
+                "type": "file",
+                "file": "LogoBotLineFollower.scad"
+            },
+            {
+                "type": "file",
+                "file": "assemblies/LogoBotLineFollower.scad"
+            },
+            {
+                "type": "file",
+                "file": "assemblies/LineSensor.scad"
+            },
+            {
+                "type": "file",
+                "file": "printedparts/LineSensorHolder.scad"
+            },
+            {
+                "type": "file",
+                "file": "vitamins/LineSensor.scad"
             },
             {
                 "type": "file",
