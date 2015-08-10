@@ -99,7 +99,7 @@ module MotorClip_Model() {
                 attach(StepperMotor28YBJ48_Con_Body, DefConUp)
                     translate([0,0,2])
                     rotate([0,0,-10])
-                    sector3D(r=StepperMotor28YBJ48_Body_OR + dw, a=200, h=StepperMotor28YBJ48_Body_Depth + 2*dw, center=false);
+                    sector3D(r=StepperMotor28YBJ48_Body_OR + dw, a=200, h=StepperMotor28YBJ48_Body_Depth + 2*dw + 0.5, center=false);
 
 
             // base plate
@@ -164,7 +164,7 @@ module MotorClip_Model() {
             // hollow for motor body
             attach(MotorClip_Con_Motor, DefConDown)
                 attach(StepperMotor28YBJ48_Con_Body, DefConDown)
-                cylinder(r=StepperMotor28YBJ48_Body_OR, h=StepperMotor28YBJ48_Body_Depth + 0.5, center=false);
+                cylinder(r=StepperMotor28YBJ48_Body_OR, h=StepperMotor28YBJ48_Body_Depth + 1, center=false);
 
             // hollow for motor tabs
             translate([0,-8, -0.5])
