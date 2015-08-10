@@ -15,8 +15,9 @@ void setup()
     Serial.println("Logobot");
     bot.begin();
     bot.initBumpers(SWITCH_FL_PIN, SWITCH_FR_PIN, SWITCH_BL_PIN, SWITCH_BR_PIN, handleCollision);
-    bot.initBuzzer(BUZZER_PIN);
-    bot.playStartupJingle();
+
+    initBuzzer();
+    playStartupJingle();
 }
 
 void loop()
@@ -40,6 +41,7 @@ static void handleCollision(byte collisionData)
         bot.buzz(500);
         bot.drive(-20);
         setLEDColour(1,0,0);  // Red, because we hit something
+        playGrumpy();
     }
 
     // Insert some recovery based on which bumper was hit
@@ -61,8 +63,30 @@ static void initLEDs() {
     setLEDColour(0,0,0);
 }
 
-static void setLEDColour(uint8_t r, uint8_t g, uint8_t b) {
+static void setLEDColour(byte r, byte g, byte b) {
     digitalWrite(LED_RED_PIN, r);
     digitalWrite(LED_GREEN_PIN, g);
     digitalWrite(LED_BLUE_PIN, b);
+}
+
+static void initBuzzer() {
+    pinMode(BUZZER_PIN, OUTPUT);
+}
+
+static void playStartupJingle() {
+    for (byte i=0; i<3; i++) {
+        analogWrite(BUZZER_PIN, 100 + i*50);
+        delay(200 + i*50);
+    }
+
+    analogWrite(BUZZER_PIN, 0);
+}
+
+static void playGrumpy() {
+    for (byte i=0; i<2; i++) {
+        analogWrite(BUZZER_PIN, 250 - i*100);
+        delay(100 + i*100);
+    }
+
+    analogWrite(BUZZER_PIN, 0);
 }
