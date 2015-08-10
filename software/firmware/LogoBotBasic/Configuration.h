@@ -23,9 +23,10 @@
 #define SWITCH_BL_PIN	    A2
 #define SWITCH_BR_PIN	    A3
 
-// IR Reflectance sensors
-#define IR_LEFT_PIN         11
-#define IR_RIGHT_PIN        12
+// LED
+#define LED_RED_PIN         11
+#define LED_GREEN_PIN	    12
+#define LED_BLUE_PIN	    13
 
 
 #endif
