@@ -74,8 +74,8 @@ module BumperModel()
 	wrapAngle = 170;			// angle that bumper wraps around
 	microSwitchAngle = 43.5;	// angle that microswitches are placed at
 
-	bumpstopWidth = 8;			// width of little block that sticks out to hit the microswitch
-	bumpstopHeight = 5;			// height of little block that sticks out to hit the microswitch
+	bumpstopWidth = 12;			// width of little block that sticks out to hit the microswitch
+	bumpstopHeight = 7;			// height of little block that sticks out to hit the microswitch
 
 	// Calculated parameters
 	outr = BaseDiameter/2 + offset + thickness;		// outside radius of the bumper
@@ -132,7 +132,7 @@ module BumperModel()
 
 
 		// Bumpstops to hit microwitch arm
-		translate([0, BaseDiameter/2 - 1 , 0])
+		translate([-bumpstopWidth + 8, BaseDiameter/2 - 1 , 0])
 			cube([bumpstopWidth, offset + 1 , bumpstopHeight]);
 
 		// Microswitch plates
