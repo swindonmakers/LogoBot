@@ -110,7 +110,7 @@ public:
 
     void setAcceleration(float acceleration);
 
-    void setLookAhead(boolean v);
+    void enableLookAhead(boolean v);
 
     boolean isQFull();
     boolean isQEmpty();

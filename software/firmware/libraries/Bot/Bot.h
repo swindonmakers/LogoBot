@@ -48,6 +48,7 @@ public:
 
 	void stop();
 	void emergencyStop();
+	void enableLookAhead(boolean v);
 
 	void drive(float distance);
 	void turn(float ang);

@@ -329,7 +329,7 @@ void DifferentialStepper::setAcceleration(float acceleration) {
     calculateAccelDist();
 }
 
-void DifferentialStepper::setLookAhead(boolean v) {
+void DifferentialStepper::enableLookAhead(boolean v) {
     _lookAheadEnabled = v;
     _replanNeeded = true;
 }
@@ -431,7 +431,7 @@ boolean DifferentialStepper::queueMove(long leftSteps, long rightSteps) {
         Command *c = &_q[next];
 
         c->busy = false;
-        c->planned = false;
+        c->planned = true;
         c->dirChange = false;
         c->leftSteps = abs(leftSteps);
         c->rightSteps = abs(rightSteps);
@@ -447,7 +447,10 @@ boolean DifferentialStepper::queueMove(long leftSteps, long rightSteps) {
         c->accelerateUntil = min(_accelDist, c->totalSteps >> 1);
         c->decelerateAfter = max(c->totalSteps >> 1, c->totalSteps - _accelDist);
 
-        c->accelerateTo = calculateVelocityByAccelAndDist(c->entryStepRate, c->accelerateUntil);
+        if (c->accelerateUntil == _accelDist)
+            c->accelerateTo = _maxStepRate;
+        else
+            c->accelerateTo = calculateVelocityByAccelAndDist(c->entryStepRate, c->accelerateUntil);
 
         _qSize++;
 
@@ -463,12 +466,21 @@ void DifferentialStepper::replan() {
 
     Command *c;
     uint8_t i;
-    uint8_t lastDirBits = (_motors[0].direction) || (_motors[1].direction << 1);
+    uint8_t lastDirBits = (_motors[0].direction ? 1 : 0) | (_motors[1].direction ? 1 << 1 : 0);
     unsigned long lastStepRate = _stepRate;  // init with current stepRate
 
     unsigned long dist = 0; // accumulated distance in steps
     unsigned long accelDistRemaining = _accelDist;
     uint8_t stopAt = 0;
+
+/*
+    Serial.println("");
+    Serial.println("replan");
+    Serial.print("lastStepRate: ");
+    Serial.println(lastStepRate);
+    Serial.print("lastDirBits: ");
+    Serial.println(lastDirBits, BIN);
+*/
 
     // forward pass
     // determine if dirChanged between blocks
@@ -480,8 +492,12 @@ void DifferentialStepper::replan() {
         c->dirChange = c->directionBits ^ lastDirBits;
         lastDirBits = c->directionBits;
 
-        // stop at first direction change, no point planning beyond there
-        if (c->dirChange) break;
+/*
+        Serial.print("db: ");
+        Serial.println(c->directionBits, BIN);
+        Serial.print("dc: ");
+        Serial.println(c->dirChange);
+*/
 
         // set entry speed
         c->entryStepRate = lastStepRate;
@@ -491,13 +507,34 @@ void DifferentialStepper::replan() {
         accelDistRemaining -= c->accelerateUntil;
 
         // calculate local speed reached
-        c->accelerateTo = calculateVelocityByAccelAndDist(c->entryStepRate, c->accelerateUntil);
+        if (accelDistRemaining == 0) {
+            c->accelerateTo = _maxStepRate;
+        } else
+            c->accelerateTo = calculateVelocityByAccelAndDist(c->entryStepRate, c->accelerateUntil);
         lastStepRate = c->accelerateTo;
 
         stopAt = i;
 
         // update cumulative steps
         dist += c->totalSteps;
+/*
+        Serial.print(i);
+        Serial.print('>');
+        Serial.print(c->totalSteps);
+        Serial.print(' ');
+        Serial.print(c->entryStepRate);
+        Serial.print(' ');
+        Serial.print(c->accelerateUntil);
+        Serial.print(',');
+        Serial.print(c->accelerateTo);
+        Serial.print(' ');
+        Serial.println(dist);
+*/
+        // stop at first direction change, no point planning beyond there
+        if (c->dirChange) {
+            //Serial.println("dirChanged");
+            break;
+        }
     }
 
 
@@ -505,16 +542,33 @@ void DifferentialStepper::replan() {
     // work back from last command, setting decel values
     // accel dist is at most half of total dist, or accel dist to minStepRate given current step rate
     accelDistRemaining = min(calculateAccelDistByAccelAndVel(_minStepRate, lastStepRate), dist >> 1);
-    unsigned long decelFor = 0;
-    for (i=stopAt+1; i>0; --i) {
-        c = getCommand(i);
 
-        decelFor = max(accelDistRemaining, c->totalSteps);
+/*
+    Serial.print("decel dist: ");
+    Serial.println(accelDistRemaining);
+*/
+    unsigned long decelFor = 0;
+    for (i=stopAt+1; i>0; i--) {
+        c = getCommand(i-1);
+
+        decelFor = min(accelDistRemaining, c->totalSteps);
         c->decelerateAfter = c->totalSteps - decelFor;
 
         accelDistRemaining -= decelFor;
         c->planned = true;
+
+/*
+        Serial.print(i-1);
+        Serial.print('>');
+        Serial.print(c->totalSteps);
+        Serial.print(' ');
+        Serial.print(decelFor);
+        Serial.print(' ');
+        Serial.println(c->decelerateAfter);
+        */
     }
+
+    _replanNeeded = false;
 }
 
 

@@ -14,6 +14,7 @@ void setup()
     Serial.begin(9600);
     Serial.println("Logobot");
     bot.begin();
+    bot.enableLookAhead(true);
     bot.initBumpers(SWITCH_FL_PIN, SWITCH_FR_PIN, SWITCH_BL_PIN, SWITCH_BR_PIN, handleCollision);
 
     initBuzzer();
@@ -25,10 +26,10 @@ void loop()
     // keep the bot moving (this triggers the stepper motors to move, so needs to be called frequently, i.e. >1KHz)
     bot.run();
 
-    if (!bot.isBusy()) {  // See if the bot has finished whatever it's doing...
-        setLEDColour(0,1,0); // Green, because we are happily going forwards
+    if (!bot.isQFull()) {  // fill up the move queue to get the speed up
+        setLEDColour(0,1,0); // Green, because we are happily doing something
         // keep it moving, until it hits something
-        bot.drive(50);
+        bot.drive(10);
     }
 }
 
@@ -36,11 +37,11 @@ static void handleCollision(byte collisionData)
 {
     if (collisionData != 0) {
         // Just hit something, so stop, buzz and backoff
+        setLEDColour(1,0,0);  // Red, because we hit something
         Serial.println("Ouch!");
         bot.emergencyStop();
         bot.buzz(500);
         bot.drive(-20);
-        setLEDColour(1,0,0);  // Red, because we hit something
         playGrumpy();
     }
 

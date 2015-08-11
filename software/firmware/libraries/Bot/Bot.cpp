@@ -133,6 +133,10 @@ void Bot::emergencyStop()
 	_diffDrive.emergencyStop();
 }
 
+void Bot::enableLookAhead(boolean v) {
+	_diffDrive.enableLookAhead(v);
+}
+
 void Bot::drive(float distance)
 {
 	// update state
@@ -180,7 +184,7 @@ void Bot::driveTo(float x, float y) {
   drive(dist);
 }
 
-void Bot::arcTo (float x, float y) 
+void Bot::arcTo (float x, float y)
 {
     float cx1 = x - state.x;
     float cy1 = y - state.y;
@@ -243,7 +247,7 @@ void Bot::circle(float dia, float direction)
 	// Calc circle diameters wheels will have to follow
 	float diaR = dia + WHEELSPACING;
 	float diaL = dia - WHEELSPACING;
-	
+
 	// Calc distances round circles
 	float dr = PI * diaR;
 	float dl = PI * diaL;
