@@ -104,6 +104,7 @@ def printed():
 
                     # Add to stlList
                     stlList.append(stlpath)
+                    stlList.append(md5path)
 
                 else:
                     print("    Error: scad file not found: "+p['file'])
@@ -114,13 +115,16 @@ def printed():
         f.write(json.dumps(jso, sort_keys=False, indent=4, separators=(',', ': ')))
 
     # clean-up orphaned stls and checksums
+    print "Checking for outdated STLs..."
     for f in os.listdir(target_dir):
         fp = os.path.join(target_dir, f)
         try:
             if os.path.isfile(fp) and (fp not in stlList):
-                os.unlink(file_path)
+                print "Removing: "+fp
+                os.unlink(fp)
         except Exception, e:
             print e
+    print "  Done"
 
     return 0
 

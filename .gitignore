@@ -1,13 +1,6 @@
-
 *.pyc
-
 *.log
-
 *.csg
-
-*.csg
-
-*.md5
 
 # Exclude Visual Micro, Visual Studio files
 *.vcxproj*
@@ -16,15 +9,9 @@
 *.sln
 *.suo
 *.sdf
-*.csg
 
-*.csg
-
+# Exclude simlink for lib and arturo build files
 /software/firmware/lib
 /software/firmware/lib/*
 /software/firmware/.build_ano/*
 *.pickle
-
-*.csg
-
-*.csg

@@ -3,6 +3,7 @@ from __future__ import print_function
 import subprocess
 import hashlib
 import re
+import os
 from c14n_stl import canonicalise
 
 def stl_filename(s):
@@ -32,6 +33,10 @@ def get_csg_hash_for(scadname):
     with open('dummy.csg', 'rb') as afile:
         buf = afile.read()
         hasher.update(buf)
+
+    # remove dummy.csg
+    os.unlink('dummy.csg')
+
     return hasher.hexdigest()
 
 def render_stl(scadname, stlpath, obj_call, includes=[]):
