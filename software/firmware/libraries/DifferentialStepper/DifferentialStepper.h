@@ -57,13 +57,14 @@ public:
         unsigned long leftSteps, rightSteps;  // steps per motor
         uint8_t directionBits;  // direction bit for each motor, left=0, right=1, 1=fwd, 0=back
         unsigned long totalSteps;  // max(abs(leftSteps),abs(rightSteps))
+        unsigned int accelerateTo;  // step rate to accelerate to
         unsigned long accelerateUntil; // The index of the step event on which to stop acceleration
         unsigned long decelerateAfter; // The index of the step event on which to start decelerating
-        unsigned long entryStepRate;  // step rate we should start at
+        unsigned int entryStepRate;  // step rate we should start at
 
         boolean dirChange;  // true if direction has changed vs previous command
         boolean busy; // set to true once bresenham initialised and active
-
+        boolean planned;  // set to true once planner has recalculated this command
     };
 
 
@@ -104,8 +105,8 @@ public:
 
     void step(Motor *motor);
 
-    void setMaxStepRate(unsigned long speed);
-    void setMinStepRate(unsigned long speed);
+    void setMaxStepRate(unsigned int speed);
+    void setMinStepRate(unsigned int speed);
 
     void setAcceleration(float acceleration);
 
@@ -133,12 +134,11 @@ private:
     uint8_t     _interface; // See MotorInterfaceType
     boolean     _enabled;
     Motor       _motors[2];
-    boolean     _lookAheadEnabled;
 
-    unsigned long   _maxStepRate;  // in steps/sec
-    unsigned long   _minStepRate;  // in steps/sec
+    unsigned int   _maxStepRate;  // in steps/sec
+    unsigned int   _minStepRate;  // in steps/sec
     float           _acceleration;  // in steps/sec2
-    unsigned long   _accelDist;  // distance required for acceleration to fullspeed (or stop), given _minStepRate, _maxStepRate and _
+    unsigned long   _accelDist;  // distance required for acceleration to fullspeed (or stop), given _minStepRate, _maxStepRate and _acceleration
 
 
     unsigned int    _minPulseWidth;
@@ -152,8 +152,12 @@ private:
     long            _counterLeft, _counterRight;
     unsigned long   _stepsCompleted;
     unsigned long   _lastStepTime;
-    unsigned long   _stepInterval;
+    unsigned int   _stepInterval;
     float           _stepRate;  // in steps per second
+
+    // planner control
+    boolean     _lookAheadEnabled;
+    boolean     _replanNeeded;
 
 
     void enableOutputsFor(Motor *motor);
@@ -169,6 +173,8 @@ private:
     void step8(Motor *motor);
 
     void calculateAccelDist();
+    float calculateAccelDistByAccelAndVel(float v1, float v2);
+    float calculateVelocityByAccelAndDist(float v1, float d);
 
     void replan();  // updates acceleration plan
 
