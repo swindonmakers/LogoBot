@@ -30,6 +30,9 @@ def printed():
     if not os.path.isdir(target_dir):
         os.makedirs(target_dir)
 
+    # store a list of valid STLs to aid cleanup
+    stlList = []
+
     view_dir = "../printedparts/images"
     if not os.path.isdir(view_dir):
         os.makedirs(view_dir)
@@ -51,8 +54,8 @@ def printed():
                 fn = '../' + p['file']
                 if (os.path.isfile(fn)):
 
-                    stlpath = target_dir + '/' + openscad.stl_filename(p['title'])
-                    md5path = target_dir + '/' + openscad.stl_filename(p['title']) + '.md5'
+                    stlpath = os.path.join(target_dir, openscad.stl_filename(p['title']))
+                    md5path = os.path.join(target_dir, openscad.stl_filename(p['title']) + '.md5')
 
                     print("    Checking csg hash")
                     # Get csg hash
@@ -99,6 +102,9 @@ def printed():
 
                         render_view(p['title'], p['call'], view_dir, view, hashchanged, h)
 
+                    # Add to stlList
+                    stlList.append(stlpath)
+
                 else:
                     print("    Error: scad file not found: "+p['file'])
 
@@ -106,6 +112,15 @@ def printed():
     # Save changes to json
     with open('hardware.json', 'w') as f:
         f.write(json.dumps(jso, sort_keys=False, indent=4, separators=(',', ': ')))
+
+    # clean-up orphaned stls and checksums
+    for f in os.listdir(target_dir):
+        fp = os.path.join(target_dir, f)
+        try:
+            if os.path.isfile(fp) and (fp not in stlList):
+                os.unlink(file_path)
+        except Exception, e:
+            print e
 
     return 0
 
