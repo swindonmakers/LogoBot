@@ -17,15 +17,9 @@
 // Piezo buzzer
 #define BUZZER_PIN          10
 
-// Microswitches
-#define SWITCH_FL_PIN	    A0
-#define SWITCH_FR_PIN	    A1
-#define SWITCH_BL_PIN	    A2
-#define SWITCH_BR_PIN	    A3
-
 // IR Reflectance sensors
-#define IR_LEFT_PIN         11
-#define IR_RIGHT_PIN        12
+#define IR_RIGHT_PIN         A0
+#define IR_LEFT_PIN        A1
 
 
 #endif
