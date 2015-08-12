@@ -35,7 +35,7 @@ def get_csg_hash_for(scadname):
         hasher.update(buf)
 
     # remove dummy.csg
-    os.unlink('dummy.csg')
+    os.remove('dummy.csg')
 
     return hasher.hexdigest()
 

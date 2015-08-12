@@ -121,7 +121,7 @@ def printed():
         try:
             if os.path.isfile(fp) and (fp not in stlList):
                 print "Removing: "+fp
-                os.unlink(fp)
+                os.remove(fp)
         except Exception, e:
             print e
     print "  Done"

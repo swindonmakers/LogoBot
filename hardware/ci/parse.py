@@ -101,7 +101,7 @@ def parse_machine(scadfile, logfile, errorfile):
     openscad.run('-D','$ShowBOM=true','-o','dummy.csg',scadfile);
 
     # remove dummy.csg
-    os.unlink('dummy.csg')
+    os.remove('dummy.csg')
 
     js = ''
 
