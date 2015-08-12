@@ -199,6 +199,65 @@ def gen_assembly(m, a):
 def assembly_level(a):
     return a['level']
 
+
+def gen_assembly_guide(m, target_dir, guide_template):
+    print(m['title'])
+
+    md = ''
+
+    md += '# '+m['title'] + '\n'
+    md += '# Assembly Guide\n\n'
+
+    # machine views
+    for c in m['children']:
+        if type(c) is DictType and c['type'] == 'view' and 'filepath' in c:
+            view = c
+            md += '!['+view['caption']+']('+ view['filepath'] +')\n\n'
+
+    # intro
+    md += gen_intro(m)
+
+
+    # BOM
+    md += gen_bom(m)
+
+    # Cut Parts
+    if len(m['cut']) > 0:
+        md += '# Cutting Instructions\n\n'
+
+        # Cut Parts
+        m['cut'].sort(key=cut_call, reverse=False)
+        for c in m['cut']:
+            md += gen_cut(m,c)
+
+    # Assemblies
+    if len(m['assemblies']) > 0:
+        md += '# Assembly Instructions\n\n'
+
+        # Assemblies
+        # sort by level desc
+        m['assemblies'].sort(key=assembly_level, reverse=True)
+        for a in m['assemblies']:
+            md += gen_assembly(m,a)
+
+
+    print("  Saving markdown")
+    mdfilename = md_filename(m['title'] +'AssemblyGuide')
+    mdpath = target_dir + '/' +mdfilename
+    with open(mdpath,'w') as f:
+        f.write(md)
+
+    print("  Generating htm")
+    htmfilename = htm_filename(m['title'] +'AssemblyGuide')
+    htmpath = target_dir + '/' + htmfilename
+    with open(htmpath, 'w') as f:
+        for line in open(guide_template, "r").readlines():
+            line = line.replace("{{mdfilename}}", mdfilename)
+            f.write(line)
+
+    return {'title':m['title'], 'mdfilename':mdfilename, 'htmfilename':htmfilename}
+
+
 def guides():
     print("Guides")
     print("------")
@@ -227,61 +286,7 @@ def guides():
     # for each machine
     for m in jso:
         if type(m) is DictType and m['type'] == 'machine':
-            print(m['title'])
-
-            md = ''
-
-            md += '# '+m['title'] + '\n'
-            md += '# Assembly Guide\n\n'
-
-            # machine views
-            for c in m['children']:
-                if type(c) is DictType and c['type'] == 'view' and 'filepath' in c:
-                    view = c
-                    md += '!['+view['caption']+']('+ view['filepath'] +')\n\n'
-
-            # intro
-            md += gen_intro(m)
-
-
-            # BOM
-            md += gen_bom(m)
-
-            # Cut Parts
-            if len(m['cut']) > 0:
-                md += '# Cutting Instructions\n\n'
-
-                # Cut Parts
-                m['cut'].sort(key=cut_call, reverse=False)
-                for c in m['cut']:
-                    md += gen_cut(m,c)
-
-            # Assemblies
-            if len(m['assemblies']) > 0:
-                md += '# Assembly Instructions\n\n'
-
-                # Assemblies
-                # sort by level desc
-                m['assemblies'].sort(key=assembly_level, reverse=True)
-                for a in m['assemblies']:
-                    md += gen_assembly(m,a)
-
-
-            print("  Saving markdown")
-            mdfilename = md_filename(m['title'] +'AssemblyGuide')
-            mdpath = target_dir + '/' +mdfilename
-            with open(mdpath,'w') as f:
-                f.write(md)
-
-            print("  Generating htm")
-            htmfilename = htm_filename(m['title'] +'AssemblyGuide')
-            htmpath = target_dir + '/' + htmfilename
-            with open(htmpath, 'w') as f:
-                for line in open(guide_template, "r").readlines():
-                    line = line.replace("{{mdfilename}}", mdfilename)
-                    f.write(line)
-
-            dl['guides'].append({'title':m['title'], 'mdfilename':mdfilename, 'htmfilename':htmfilename})
+            dl['guides'].append(gen_assembly_guide(m, target_dir, guide_template))
 
 
     # Generate index file
