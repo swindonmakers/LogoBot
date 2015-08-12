@@ -64,7 +64,7 @@ public:
 
         boolean dirChange;  // true if direction has changed vs previous command
         boolean busy; // set to true once bresenham initialised and active
-        boolean planned;  // set to true once planner has recalculated this command
+        //boolean planned;  // set to true once planner has recalculated this command
     };
 
 

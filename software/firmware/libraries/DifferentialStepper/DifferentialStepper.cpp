@@ -431,7 +431,7 @@ boolean DifferentialStepper::queueMove(long leftSteps, long rightSteps) {
         Command *c = &_q[next];
 
         c->busy = false;
-        c->planned = true;
+        //c->planned = true;
         c->dirChange = false;
         c->leftSteps = abs(leftSteps);
         c->rightSteps = abs(rightSteps);
@@ -466,7 +466,7 @@ void DifferentialStepper::replan() {
 
     Command *c;
     uint8_t i;
-    uint8_t lastDirBits = (_motors[0].direction ? 1 : 0) | (_motors[1].direction ? 1 << 1 : 0);
+    uint8_t lastDirBits = 0;
     unsigned long lastStepRate = _stepRate;  // init with current stepRate
 
     unsigned long dist = 0; // accumulated distance in steps
@@ -488,8 +488,11 @@ void DifferentialStepper::replan() {
     for (i=0; i< _qSize; i++) {
         c = getCommand(i);
 
-        // check direction bits
-        c->dirChange = c->directionBits ^ lastDirBits;
+        // check direction bits - not relevant if this is the first move in the queue
+        if (i>0)
+            c->dirChange = c->directionBits ^ lastDirBits;
+        else
+            c->dirChange = false;
         lastDirBits = c->directionBits;
 
 /*
@@ -555,7 +558,7 @@ void DifferentialStepper::replan() {
         c->decelerateAfter = c->totalSteps - decelFor;
 
         accelDistRemaining -= decelFor;
-        c->planned = true;
+        //c->planned = true;
 
 /*
         Serial.print(i-1);
@@ -581,7 +584,8 @@ boolean DifferentialStepper::run() {
     if (!_enabled) enableOutputs();
 
     // check for replan
-    if (!c->planned || _replanNeeded) replan();
+    //if (!c->planned || _replanNeeded) replan();
+    if (_replanNeeded) replan();
 
     // check timing
     unsigned long time = micros();
