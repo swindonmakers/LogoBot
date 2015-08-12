@@ -258,6 +258,77 @@ def gen_assembly_guide(m, target_dir, guide_template):
     return {'title':m['title'], 'mdfilename':mdfilename, 'htmfilename':htmfilename}
 
 
+def gen_printing_guide(m, target_dir, guide_template):
+    print(m['title'])
+
+    if len(m['printed']) == 0:
+        return {};
+
+    md = ''
+
+    md += '# '+m['title'] + '\n'
+    md += '# Printing Guide\n\n'
+
+    vol = 0
+    weight = 0
+    qty = 0
+    m['printed'].sort(key=printed_call, reverse=False)
+
+    for v in m['printed']:
+        md += '### '+v['title']+'\n\n'
+
+        md += 'Metric | Value \n'
+        md += '--- | --- \n'
+        md += 'Quantity | ' + str(v['qty']) + '\n'
+        qty += v['qty']
+        md += 'STL | ' + '['+v['title']+'](../printedparts/stl/'+ openscad.stl_filename(v['title']) +')\n'
+
+        if 'plasticWeight' in v:
+            w = v['qty'] * v['plasticWeight']
+            weight += w
+            vol += v['qty'] * v['plasticVolume']
+            md += 'Plastic (Kg) | ' + str(round(w,2)) + '\n'
+            md += 'Plastic (cm3) | ' + str(round(v['qty'] * v['plasticVolume'],1)) + '\n'
+            md += 'Approx Plastic Cost | '+str(round(w * 15,2))+' GBP\n';
+
+        md += '\n'
+        md += '![](../printedparts/images/'+views.view_filename(v['title']+'_view') + ')\n'
+        md += '\n'
+
+        note = jsontools.get_child_by_key_values(v, kvs={'type':'markdown', 'section':'guide'})
+        if note and ('markdown' in note):
+            md += note['markdown'] + '\n\n'
+
+
+    md += '\n\n'
+
+    md += '## Summary\n\n'
+    md += '### Statistics\n\n'
+    md += 'Metric | Value \n'
+    md += '--- | --- \n'
+    md += 'Total Parts | ' + str(qty) + '\n'
+    md += 'Total Plastic (Kg) | ' +str(round(vol,1))+'cm3\n';
+    md += 'Total Plastic (cm3) | ' +str(round(weight,2))+'KG\n';
+    md += 'Approx Plastic Cost | '+str(round(weight * 15,2))+' GBP\n';
+    md += '\n\n'
+
+    print("  Saving markdown")
+    mdfilename = md_filename(m['title'] +'PrintingGuide')
+    mdpath = target_dir + '/' +mdfilename
+    with open(mdpath,'w') as f:
+        f.write(md)
+
+    print("  Generating htm")
+    htmfilename = htm_filename(m['title'] +'PrintingGuide')
+    htmpath = target_dir + '/' + htmfilename
+    with open(htmpath, 'w') as f:
+        for line in open(guide_template, "r").readlines():
+            line = line.replace("{{mdfilename}}", mdfilename)
+            f.write(line)
+
+    return {'title':m['title'], 'mdfilename':mdfilename, 'htmfilename':htmfilename}
+
+
 def guides():
     print("Guides")
     print("------")
@@ -271,22 +342,25 @@ def guides():
     if not os.path.isdir(target_dir):
         os.makedirs(target_dir)
 
-    guide_template = target_dir + "/templates/AssemblyGuide.htm"
-    index_template = target_dir + "/templates/index.htm"
-    index_file = target_dir + '/index.htm'
+    assembly_guide_template = os.path.join(target_dir, "templates/AssemblyGuide.htm")
+    printing_guide_template = os.path.join(target_dir, "templates/PrintingGuide.htm")
+    index_template = os.path.join(target_dir, "templates/index.htm")
+    index_file = os.path.join(target_dir, 'index.htm')
 
     # load hardware.json
     jf = open("hardware.json","r")
     jso = json.load(jf)
     jf.close()
 
-    dl = {'type':'docs', 'guides':[] }
+    dl = {'type':'docs', 'assemblyGuides':[], 'printingGuides':[] }
     jso.append(dl)
 
     # for each machine
     for m in jso:
         if type(m) is DictType and m['type'] == 'machine':
-            dl['guides'].append(gen_assembly_guide(m, target_dir, guide_template))
+            dl['assemblyGuides'].append(gen_assembly_guide(m, target_dir, assembly_guide_template))
+
+            dl['printingGuides'].append(gen_printing_guide(m, target_dir, printing_guide_template))
 
 
     # Generate index file
