@@ -8,23 +8,23 @@
   <body>
 
     <div id="mdcontent">
-        <h1>Machine Documentation</h1>
+        <h1>LogoBot Documentation</h1>
 
-        <h2>Assembly Guides</h2>
-        <p>Guides for each of the machine variants:</p>
-        <ul>
-        {{#assemblyGuides}}
-            <li><a href="{{htmfilename}}">{{title}}</a></li>
-        {{/assemblyGuides}}
-        </ul>
+        <p>Design variants are listed below, with associated links to their assembly and printing guides.  The Vitamin catalogue for the project can be found at the bottom of the page.</p>
 
-        <h2>Printing Guides</h2>
-        <p>Printing guides for each of the machine variants:</p>
-        <ul>
-        {{#printingGuides}}
-            <li><a href="{{htmfilename}}">{{title}}</a></li>
-        {{/printingGuides}}
-        </ul>
+        {{#machines}}
+            <h2>{{title}}</h2>
+
+            <img src="../images/{{viewFilename}}">
+
+            <h3>Guides</h3>
+            <ul>
+                {{#guides}}
+                    <li><a href="{{htmfilename}}">{{title}}</a></li>
+                {{/guides}}
+            </ul>
+        {{/machines}}
+
 
         <h2>Vitamin Catalogue</h2>
         <p>Catalogue of the vitamins available within this project:</p>

@@ -15,6 +15,8 @@ module SimpleBase_STL() {
 
     printedPart("printedparts/SimpleBase.scad", "Simple Base", "SimpleBase_STL()") {
 
+        markdown("guide","The base requires a well calibrated printer to avoid adhesion issues.  You may also need to ream the holes to 7mm, depending on your print tolerances.");
+
         view(t=[0,0,0], r=[58,0,225], d=681);
 
         // Color it as a printed plastic part

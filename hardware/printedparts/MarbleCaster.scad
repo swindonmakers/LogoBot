@@ -10,6 +10,7 @@ module MarbleCaster_STL () {
 	$fn=64;
 
 	printedPart("printedparts/MarbleCaster.scad", "Caster Housing", "MarbleCaster_STL()") {
+		markdown("guide","Orient to print upside down for best results.  No support required.  A brim may help with bed adhesion and would not need to removed after printing.  Ream the pin hole to 7mm if necessary.");
 
 	    view(t=[1.4, 0.8, -5.6], r=[63, 0, 114], d=172);
 

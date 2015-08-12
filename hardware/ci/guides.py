@@ -255,7 +255,7 @@ def gen_assembly_guide(m, target_dir, guide_template):
             line = line.replace("{{mdfilename}}", mdfilename)
             f.write(line)
 
-    return {'title':m['title'], 'mdfilename':mdfilename, 'htmfilename':htmfilename}
+    return {'title':m['title']+ ' Assembly Guide', 'mdfilename':mdfilename, 'htmfilename':htmfilename}
 
 
 def gen_printing_guide(m, target_dir, guide_template):
@@ -295,10 +295,13 @@ def gen_printing_guide(m, target_dir, guide_template):
         md += '![](../printedparts/images/'+views.view_filename(v['title']+'_view') + ')\n'
         md += '\n'
 
-        note = jsontools.get_child_by_key_values(v, kvs={'type':'markdown', 'section':'guide'})
-        if note and ('markdown' in note):
-            md += note['markdown'] + '\n\n'
+        if 'markdown' in v and len(v['markdown']) > 0:
+            md += '**Notes**\n\n'
+            for note in v['markdown']:
+                if 'markdown' in note:
+                    md += ' * ' + note['markdown'] + '\n'
 
+        md += '\n\n'
 
     md += '\n\n'
 
@@ -307,9 +310,9 @@ def gen_printing_guide(m, target_dir, guide_template):
     md += 'Metric | Value \n'
     md += '--- | --- \n'
     md += 'Total Parts | ' + str(qty) + '\n'
-    md += 'Total Plastic (Kg) | ' +str(round(vol,1))+'cm3\n';
-    md += 'Total Plastic (cm3) | ' +str(round(weight,2))+'KG\n';
-    md += 'Approx Plastic Cost | '+str(round(weight * 15,2))+' GBP\n';
+    md += 'Total Plastic (Kg) | ' +str(round(weight,2))+'KG\n'
+    md += 'Total Plastic (cm3) | ' +str(round(vol,1))+'cm3\n'
+    md += 'Approx Plastic Cost | '+str(round(weight * 15,2))+' GBP\n'
     md += '\n\n'
 
     print("  Saving markdown")
@@ -326,7 +329,28 @@ def gen_printing_guide(m, target_dir, guide_template):
             line = line.replace("{{mdfilename}}", mdfilename)
             f.write(line)
 
-    return {'title':m['title'], 'mdfilename':mdfilename, 'htmfilename':htmfilename}
+    return {'title':m['title'] + ' Printing Guide', 'mdfilename':mdfilename, 'htmfilename':htmfilename}
+
+
+
+def gen_index(jso, index_file, index_template):
+    # Generate index file
+
+    # build object
+    indexObj = { 'machines': [] };
+    for m in jso:
+        if type(m) is DictType and m['type'] == 'machine':
+
+            # tack in a view filename
+            m['viewFilename'] = views.view_filename(m['title'] + '_view')
+
+            indexObj['machines'].append(m)
+
+    print("Saving index")
+    with open(index_file,'w') as o:
+        with open(index_template,'r') as i:
+            o.write(pystache.render(i.read(), indexObj))
+
 
 
 def guides():
@@ -358,17 +382,16 @@ def guides():
     # for each machine
     for m in jso:
         if type(m) is DictType and m['type'] == 'machine':
-            dl['assemblyGuides'].append(gen_assembly_guide(m, target_dir, assembly_guide_template))
 
-            dl['printingGuides'].append(gen_printing_guide(m, target_dir, printing_guide_template))
+            if 'guides' not in m:
+                m['guides'] = []
+
+            m['guides'].append(gen_assembly_guide(m, target_dir, assembly_guide_template))
+
+            m['guides'].append(gen_printing_guide(m, target_dir, printing_guide_template))
 
 
-    # Generate index file
-    print("Saving index")
-    with open(index_file,'w') as o:
-        with open(index_template,'r') as i:
-            o.write(pystache.render(i.read(), dl))
-
+    gen_index(jso, index_file, index_template)
 
 
     return 0

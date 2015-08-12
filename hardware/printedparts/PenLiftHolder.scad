@@ -5,6 +5,8 @@ module PenLiftHolder_STL()
 {
 	printedPart("printedparts/PenLiftHolder.scad", "Pen Lift Holder", "PenLiftHolder_STL()") {
 
+		markdown("guide","You may need to ream the pin holes to 7mm, depending on your print tolerances");
+
 	    view(t=[1, -8, -11], r=[52, 0, 23], d=184);
 
 		if (DebugCoordinateFrames) frame();
@@ -31,7 +33,7 @@ module PenLiftHolderModel()
 				union () {
 					// Rear upright plate
 					square([4perim, PenLiftPlateLength], center=true);
-					
+
 					// V-Shape pen holder
 					translate([2perim + PenLiftPenOffset, 0, 0])
 					difference() {
@@ -41,19 +43,19 @@ module PenLiftHolderModel()
 							square([15, 15], center=true);
 					}
 				}
-				
+
 				// Rear nubbin cutout
 				square([4Perim, 2*4Perim + PenLiftHolderTolerance], center=true);
-				
+
 			}
 		}
-		
+
 		// Slots for rubber band pen attachment
 		translate([7, 0, 0])
 			cube([2, PenLiftPlateLength, 4], center=true);
 		translate([7, 0, PenLiftPlateHeight])
 			cube([2, PenLiftPlateLength, 4], center=true);
-		
+
 		// Cutaways for rubber band pull down
 		for (i=[0, 1])
 		mirror([0, i, 0])

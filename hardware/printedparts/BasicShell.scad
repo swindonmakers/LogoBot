@@ -2,6 +2,8 @@ module BasicShell_STL() {
 
 	printedPart("printedparts/BasicShell.scad", "Basic Shell", "BasicShell_STL()") {
 
+		markdown("guide","The shell has a maximum overhang of 60 degrees and should print without support on most printers");
+
 	    view(t=[-2, 6, 14], r=[63, 0, 26], d=726);
 
         color([Level2PlasticColor[0], Level2PlasticColor[1], Level2PlasticColor[2], 0.5])

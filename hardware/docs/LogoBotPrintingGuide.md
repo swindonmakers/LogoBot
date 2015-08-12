@@ -13,6 +13,11 @@ Approx Plastic Cost | 1.25 GBP
 
 ![](../printedparts/images/BasicShell_view.png)
 
+**Notes**
+
+ * The shell has a maximum overhang of 60 degrees and should print without support on most printers
+
+
 ### BumperStabiliser
 
 Metric | Value 
@@ -24,6 +29,8 @@ Plastic (cm3) | 2.2
 Approx Plastic Cost | 0.04 GBP
 
 ![](../printedparts/images/BumperStabiliser_view.png)
+
+
 
 ### Bumper
 
@@ -37,6 +44,8 @@ Approx Plastic Cost | 0.48 GBP
 
 ![](../printedparts/images/Bumper_view.png)
 
+
+
 ### Left Motor Clip
 
 Metric | Value 
@@ -48,6 +57,11 @@ Plastic (cm3) | 4.9
 Approx Plastic Cost | 0.09 GBP
 
 ![](../printedparts/images/LeftMotorClip_view.png)
+
+**Notes**
+
+ * MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed
+
 
 ### Lid
 
@@ -61,6 +75,11 @@ Approx Plastic Cost | 0.26 GBP
 
 ![](../printedparts/images/Lid_view.png)
 
+**Notes**
+
+ * Includes built-in support material which should easily break out after printing
+
+
 ### Base
 
 Metric | Value 
@@ -72,6 +91,11 @@ Plastic (cm3) | 21.2
 Approx Plastic Cost | 0.4 GBP
 
 ![](../printedparts/images/Base_view.png)
+
+**Notes**
+
+ * The base requires a well calibrated printer to avoid adhesion issues.  You may also need to ream the holes to 7mm, depending on your print tolerances.
+
 
 ### Caster Housing
 
@@ -85,6 +109,11 @@ Approx Plastic Cost | 0.03 GBP
 
 ![](../printedparts/images/CasterHousing_view.png)
 
+**Notes**
+
+ * Orient to print upside down for best results.  No support required.  A brim may help with bed adhesion and would not need to removed after printing.  Ream the pin hole to 7mm if necessary.
+
+
 ### Pin Tack H14.1
 
 Metric | Value 
@@ -96,6 +125,11 @@ Plastic (cm3) | 1.6
 Approx Plastic Cost | 0.03 GBP
 
 ![](../printedparts/images/PinTackH141_view.png)
+
+**Notes**
+
+ * Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.
+
 
 ### Pin Tack H6.1
 
@@ -109,6 +143,11 @@ Approx Plastic Cost | 0.01 GBP
 
 ![](../printedparts/images/PinTackH61_view.png)
 
+**Notes**
+
+ * Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.
+
+
 ### Pin Tack H7
 
 Metric | Value 
@@ -120,6 +159,11 @@ Plastic (cm3) | 1.2
 Approx Plastic Cost | 0.02 GBP
 
 ![](../printedparts/images/PinTackH7_view.png)
+
+**Notes**
+
+ * Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.
+
 
 ### Pro Mini Clip
 
@@ -133,6 +177,8 @@ Approx Plastic Cost | 0.01 GBP
 
 ![](../printedparts/images/ProMiniClip_view.png)
 
+
+
 ### Right Motor Clip
 
 Metric | Value 
@@ -144,6 +190,11 @@ Plastic (cm3) | 4.9
 Approx Plastic Cost | 0.09 GBP
 
 ![](../printedparts/images/RightMotorClip_view.png)
+
+**Notes**
+
+ * MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed
+
 
 ### Wheel
 
@@ -159,6 +210,8 @@ Approx Plastic Cost | 0.17 GBP
 
 
 
+
+
 ## Summary
 
 ### Statistics
@@ -166,8 +219,8 @@ Approx Plastic Cost | 0.17 GBP
 Metric | Value 
 --- | --- 
 Total Parts | 23
-Total Plastic (Kg) | 153.8cm3
-Total Plastic (cm3) | 0.19KG
+Total Plastic (Kg) | 0.19KG
+Total Plastic (cm3) | 153.8cm3
 Approx Plastic Cost | 2.88 GBP
 
 

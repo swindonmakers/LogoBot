@@ -13,6 +13,11 @@ Approx Plastic Cost | 0.09 GBP
 
 ![](../printedparts/images/LeftMotorClip_view.png)
 
+**Notes**
+
+ * MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed
+
+
 ### Line Sensor Holder
 
 Metric | Value 
@@ -24,6 +29,11 @@ Plastic (cm3) | 2.5
 Approx Plastic Cost | 0.05 GBP
 
 ![](../printedparts/images/LineSensorHolder_view.png)
+
+**Notes**
+
+ * No support required, pin hole may need to be reamed to 7mm
+
 
 ### Base
 
@@ -37,6 +47,11 @@ Approx Plastic Cost | 0.4 GBP
 
 ![](../printedparts/images/Base_view.png)
 
+**Notes**
+
+ * The base requires a well calibrated printer to avoid adhesion issues.  You may also need to ream the holes to 7mm, depending on your print tolerances.
+
+
 ### Caster Housing
 
 Metric | Value 
@@ -48,6 +63,11 @@ Plastic (cm3) | 1.5
 Approx Plastic Cost | 0.03 GBP
 
 ![](../printedparts/images/CasterHousing_view.png)
+
+**Notes**
+
+ * Orient to print upside down for best results.  No support required.  A brim may help with bed adhesion and would not need to removed after printing.  Ream the pin hole to 7mm if necessary.
+
 
 ### Pin Tack H6.1
 
@@ -61,6 +81,11 @@ Approx Plastic Cost | 0.01 GBP
 
 ![](../printedparts/images/PinTackH61_view.png)
 
+**Notes**
+
+ * Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.
+
+
 ### Pin Tack H7
 
 Metric | Value 
@@ -73,6 +98,11 @@ Approx Plastic Cost | 0.03 GBP
 
 ![](../printedparts/images/PinTackH7_view.png)
 
+**Notes**
+
+ * Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.
+
+
 ### Right Motor Clip
 
 Metric | Value 
@@ -84,6 +114,11 @@ Plastic (cm3) | 5.0
 Approx Plastic Cost | 0.09 GBP
 
 ![](../printedparts/images/RightMotorClip_view.png)
+
+**Notes**
+
+ * MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed
+
 
 ### Wheel
 
@@ -99,6 +134,8 @@ Approx Plastic Cost | 0.17 GBP
 
 
 
+
+
 ## Summary
 
 ### Statistics
@@ -106,8 +143,8 @@ Approx Plastic Cost | 0.17 GBP
 Metric | Value 
 --- | --- 
 Total Parts | 13
-Total Plastic (Kg) | 46.0cm3
-Total Plastic (cm3) | 0.06KG
+Total Plastic (Kg) | 0.06KG
+Total Plastic (cm3) | 46.0cm3
 Approx Plastic Cost | 0.86 GBP
 
 

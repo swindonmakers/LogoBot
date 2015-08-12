@@ -7,6 +7,8 @@ module LineSensorHolder_STL() {
 
     printedPart("printedparts/LineSensorHolder.scad", "Line Sensor Holder", "LineSensorHolder_STL()") {
 
+        markdown("guide","No support required, pin hole may need to be reamed to 7mm");
+
         view(t=[0,0,0],r=[72,0,130],d=400);
 
         if (DebugCoordinateFrames) frame();

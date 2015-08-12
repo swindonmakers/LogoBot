@@ -13,6 +13,11 @@ Approx Plastic Cost | 0.2 GBP
 
 ![](../printedparts/images/SimpleBase_view.png)
 
+**Notes**
+
+ * The base requires a well calibrated printer to avoid adhesion issues.  You may also need to ream the holes to 7mm, depending on your print tolerances.
+
+
 
 
 ## Summary
@@ -22,8 +27,8 @@ Approx Plastic Cost | 0.2 GBP
 Metric | Value 
 --- | --- 
 Total Parts | 1
-Total Plastic (Kg) | 10.7cm3
-Total Plastic (cm3) | 0.01KG
+Total Plastic (Kg) | 0.01KG
+Total Plastic (cm3) | 10.7cm3
 Approx Plastic Cost | 0.2 GBP
 
 

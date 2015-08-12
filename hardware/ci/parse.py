@@ -211,6 +211,24 @@ def add_views_for(jso, o):
         if type(c) is DictType and c['type'] == 'view':
             add_view(c, o)
 
+def add_markdown(jso, o):
+    vfound = None
+    if 'markdown' not in o:
+        o['markdown'] = []
+    for v in o['markdown']:
+        if v['section'] == jso['section']:
+            vfound = v
+            continue
+
+    if vfound == None:
+        vfound = o['markdown'].append(jso)
+
+def add_markdown_for(jso, o):
+    # check for markdown in children
+    for c in jso['children']:
+        if type(c) is DictType and c['type'] == 'markdown':
+            add_markdown(c, o)
+
 def add_part(jso, o):
     vfound = None
     for v in o['parts']:
@@ -282,11 +300,13 @@ def add_printed(jso, pl, addViews=True):
     if pfound:
         pfound['qty'] += 1
     else:
-        pfound = { 'title':jso['title'], 'call':jso['call'], 'file':jso['file'], 'qty':1, 'views':[] }
+        pfound = { 'title':jso['title'], 'call':jso['call'], 'file':jso['file'], 'qty':1, 'views':[], 'markdown':[] }
         pl.append(pfound)
 
     if addViews:
         add_views_for(jso, pfound)
+
+        add_markdown_for(jso, pfound)
 
 
 def add_cut(jso, cl, addSteps=True, addViews=True, addChildren=True):
@@ -406,7 +426,7 @@ def summarise_parts_for(jso, al, pl, vl, cl, level=0):
     # print("sum_parts_for "+str(level))
     if type(jso) is DictType:
         tn = jso['type']
-
+        
         if tn == 'vitamin':
             add_vitamin(jso, vl)
 

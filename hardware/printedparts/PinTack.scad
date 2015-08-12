@@ -10,6 +10,7 @@ module PinTack_STL(h=10) {
         str("Pin Tack H",h),
         str("PinTack_STL(h=",h,")")
     ) {
+        markdown("guide","Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.");
 
         view(t=[0,0,0],r=[72,0,130],d=400);
 

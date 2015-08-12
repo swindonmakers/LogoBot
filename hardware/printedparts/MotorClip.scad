@@ -33,13 +33,14 @@ module LeftMotorClip_STL() {
 
     printedPart("printedparts/MotorClip.scad", "Left Motor Clip", "LeftMotorClip_STL()") {
 
-        // TODO: Update view
-        view(t=[0,0,0], r=[58,0,225], d=681);
+        markdown("guide","MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed");
+
+        view(t=[0,0,20], r=[150, 50, 2], d=160);
 
         // Color it as a printed plastic part
         color(PlasticColor)
             if (UseSTL) {
-                import(str(STLPath, "MotorClip.stl"));
+                import(str(STLPath, "LeftMotorClip.stl"));
             } else {
                 MotorClip_Model();
             }
@@ -53,16 +54,17 @@ module RightMotorClip_STL() {
 
     printedPart("printedparts/MotorClip.scad", "Right Motor Clip", "RightMotorClip_STL()") {
 
-        // TODO: Update view
-        view(t=[0,0,0], r=[58,0,225], d=681);
+        markdown("guide","MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed");
+
+        view(t=[0,0,20], r=[150, 50, 2], d=160);
 
         // Color it as a printed plastic part
         color(PlasticColor)
-            mirror([1,0,0])
             if (UseSTL) {
-                import(str(STLPath, "MotorClip.stl"));
+                import(str(STLPath, "RightMotorClip.stl"));
             } else {
-                MotorClip_Model();
+                mirror([1,0,0])
+                    MotorClip_Model();
             }
     }
 }

@@ -1,7 +1,7 @@
 [
     {
         "cut": [],
-        "hash": "d5fea66b8dac2a2ad436902a58921fbd",
+        "hash": "6dc65cf7ca469ec50e801933f30e919f",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -504,7 +504,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "a1fa6c09403344b2baa731b906aa0230",
+                "hash": "7bf285f98c004fe0b6745a2dd1bd505f",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -668,39 +668,44 @@
                 "call": "LogoBotAssembly(PenLift=false)",
                 "printed": [
                     {
+                        "markdown": [],
                         "title": "Base",
+                        "views": [],
                         "qty": 1,
                         "call": "LogoBotBase_STL()",
-                        "file": "printedparts/LogoBotBase.scad",
-                        "views": []
+                        "file": "printedparts/LogoBotBase.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Pro Mini Clip",
+                        "views": [],
                         "qty": 2,
                         "call": "ProMiniClip_STL()",
-                        "file": "printedparts/ProMiniClip.scad",
-                        "views": []
+                        "file": "printedparts/ProMiniClip.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "BumperStabiliser",
+                        "views": [],
                         "qty": 2,
                         "call": "BumperStabiliser_STL()",
-                        "file": "printedparts/BumperStabiliser.scad",
-                        "views": []
+                        "file": "printedparts/BumperStabiliser.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Pin Tack H14.1",
+                        "views": [],
                         "qty": 4,
                         "call": "PinTack_STL(h=14.1)",
-                        "file": "printedparts/PinTack.scad",
-                        "views": []
+                        "file": "printedparts/PinTack.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Pin Tack H6.1",
+                        "views": [],
                         "qty": 1,
                         "call": "PinTack_STL(h=6.1)",
-                        "file": "printedparts/PinTack.scad",
-                        "views": []
+                        "file": "printedparts/PinTack.scad"
                     }
                 ],
                 "file": "assemblies/LogoBot.scad",
@@ -1040,11 +1045,12 @@
                 "call": "BumperAssembly()",
                 "printed": [
                     {
+                        "markdown": [],
                         "title": "Bumper",
+                        "views": [],
                         "qty": 2,
                         "call": "Bumper_STL()",
-                        "file": "printedparts/Bumper.scad",
-                        "views": []
+                        "file": "printedparts/Bumper.scad"
                     }
                 ],
                 "file": "assemblies/Bumper.scad",
@@ -1081,7 +1087,7 @@
             },
             {
                 "cut": [],
-                "hash": "879e284b2efbdc62634016ead8065570",
+                "hash": "089a411317d0aaa0921d098316d3c1f6",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -1107,25 +1113,28 @@
                 "call": "LeftWheelAssembly()",
                 "printed": [
                     {
+                        "markdown": [],
                         "title": "Left Motor Clip",
+                        "views": [],
                         "qty": 1,
                         "call": "LeftMotorClip_STL()",
-                        "file": "printedparts/MotorClip.scad",
-                        "views": []
+                        "file": "printedparts/MotorClip.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Pin Tack H7",
+                        "views": [],
                         "qty": 2,
                         "call": "PinTack_STL(h=7)",
-                        "file": "printedparts/PinTack.scad",
-                        "views": []
+                        "file": "printedparts/PinTack.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Wheel",
+                        "views": [],
                         "qty": 1,
                         "call": "Wheel_STL()",
-                        "file": "printedparts/Wheel.scad",
-                        "views": []
+                        "file": "printedparts/Wheel.scad"
                     }
                 ],
                 "file": "assemblies/Wheel.scad",
@@ -1243,7 +1252,7 @@
             },
             {
                 "cut": [],
-                "hash": "973f7d602bcf8f5440128fdf5b45c0db",
+                "hash": "cd7da2f6b2768efc7926632036a33ecb",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -1269,25 +1278,28 @@
                 "call": "RightWheelAssembly()",
                 "printed": [
                     {
+                        "markdown": [],
                         "title": "Right Motor Clip",
+                        "views": [],
                         "qty": 1,
                         "call": "RightMotorClip_STL()",
-                        "file": "printedparts/MotorClip.scad",
-                        "views": []
+                        "file": "printedparts/MotorClip.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Pin Tack H7",
+                        "views": [],
                         "qty": 2,
                         "call": "PinTack_STL(h=7)",
-                        "file": "printedparts/PinTack.scad",
-                        "views": []
+                        "file": "printedparts/PinTack.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Wheel",
+                        "views": [],
                         "qty": 1,
                         "call": "Wheel_STL()",
-                        "file": "printedparts/Wheel.scad",
-                        "views": []
+                        "file": "printedparts/Wheel.scad"
                     }
                 ],
                 "file": "assemblies/Wheel.scad",
@@ -1405,7 +1417,7 @@
             },
             {
                 "cut": [],
-                "hash": "b1296abf5253240f34009825f918cfe3",
+                "hash": "61b2d102e1ae37a112de079b6998efb8",
                 "vitamins": [
                     {
                         "title": "16mm Marble",
@@ -1423,11 +1435,12 @@
                 "call": "MarbleCasterAssembly()",
                 "printed": [
                     {
+                        "markdown": [],
                         "title": "Caster Housing",
+                        "views": [],
                         "qty": 1,
                         "call": "MarbleCaster_STL()",
-                        "file": "printedparts/MarbleCaster.scad",
-                        "views": []
+                        "file": "printedparts/MarbleCaster.scad"
                     }
                 ],
                 "file": "assemblies/MarbleCaster.scad",
@@ -1464,7 +1477,7 @@
             },
             {
                 "cut": [],
-                "hash": "793630def6907b10065961e98357b0b2",
+                "hash": "554533713560a76c4230a12a4bb7a589",
                 "vitamins": [],
                 "views": [],
                 "assemblies": [],
@@ -1473,18 +1486,20 @@
                 "call": "ShellAssembly()",
                 "printed": [
                     {
+                        "markdown": [],
                         "title": "Basic Shell",
+                        "views": [],
                         "qty": 1,
                         "call": "BasicShell_STL()",
-                        "file": "printedparts/BasicShell.scad",
-                        "views": []
+                        "file": "printedparts/BasicShell.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Lid",
+                        "views": [],
                         "qty": 1,
                         "call": "Lid_STL()",
-                        "file": "printedparts/Lid.scad",
-                        "views": []
+                        "file": "printedparts/Lid.scad"
                     }
                 ],
                 "file": "assemblies/Shell.scad",
@@ -1522,11 +1537,29 @@
         ],
         "printed": [
             {
-                "plasticVolume": 21.2,
-                "hash": "f4898cae5d28c2a63ec170d02ccfe03f",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "The base requires a well calibrated printer to avoid adhesion issues.  You may also need to ream the holes to 7mm, depending on your print tolerances.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "0a6d5d5f3d69abd7ec2a52ff74514bf5",
                 "plasticWeight": 0.0265,
                 "weight": 0.0265,
                 "title": "Base",
+                "aabb": [
+                    [
+                        -69.9213,
+                        -70.0,
+                        0.0
+                    ],
+                    [
+                        69.9213,
+                        70.0,
+                        2.0
+                    ]
+                ],
                 "views": [
                     {
                         "rotate": [
@@ -1552,11 +1585,13 @@
                 ],
                 "qty": 1,
                 "volume": 21.2,
+                "area": 25747.40742227899,
+                "plasticVolume": 21.2,
                 "call": "LogoBotBase_STL()",
                 "file": "printedparts/LogoBotBase.scad"
             },
             {
-                "plasticVolume": 0.3,
+                "markdown": [],
                 "hash": "35cf884fb6d0f9a153821f04ba66842a",
                 "plasticWeight": 0.000375,
                 "weight": 0.000375,
@@ -1599,11 +1634,12 @@
                 "qty": 2,
                 "volume": 260.46357490493426,
                 "area": 526.737236880264,
+                "plasticVolume": 0.3,
                 "call": "ProMiniClip_STL()",
                 "file": "printedparts/ProMiniClip.scad"
             },
             {
-                "plasticVolume": 12.9,
+                "markdown": [],
                 "hash": "6ae5b8f5e17b8e0722be5187130c0042",
                 "plasticWeight": 0.016125,
                 "weight": 0.016125,
@@ -1646,11 +1682,12 @@
                 "qty": 2,
                 "volume": 12.9,
                 "area": 12328.082454022706,
+                "plasticVolume": 12.9,
                 "call": "Bumper_STL()",
                 "file": "printedparts/Bumper.scad"
             },
             {
-                "plasticVolume": 1.1,
+                "markdown": [],
                 "hash": "3b84ee886dee0aa06ddb470493c12088",
                 "plasticWeight": 0.001375,
                 "weight": 0.001375,
@@ -1693,12 +1730,19 @@
                 "qty": 2,
                 "volume": 1.1,
                 "area": 1606.4345209526527,
+                "plasticVolume": 1.1,
                 "call": "BumperStabiliser_STL()",
                 "file": "printedparts/BumperStabiliser.scad"
             },
             {
-                "plasticVolume": 0.4,
-                "hash": "0633dbf27d33455020c7da29cc30cc07",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "cfd4f4eb6067d5da828f904ae5cbe750",
                 "plasticWeight": 0.0005,
                 "weight": 0.0005,
                 "views": [
@@ -1740,29 +1784,36 @@
                 "qty": 4,
                 "volume": 388.7813263993138,
                 "area": 545.6091192010445,
+                "plasticVolume": 0.4,
                 "call": "PinTack_STL(h=14.1)",
                 "file": "printedparts/PinTack.scad"
             },
             {
-                "plasticVolume": 4.9,
-                "hash": "f0d95234387753a2b7805cf6e6c50d53",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "06cdd2b3fb08d35d062600917f9bd567",
                 "plasticWeight": 0.006125,
                 "weight": 0.006125,
                 "views": [
                     {
                         "rotate": [
-                            58,
-                            0,
-                            225
+                            150,
+                            50,
+                            2
                         ],
-                        "dist": 681,
+                        "dist": 160,
                         "filepath": "../printedparts/images/LeftMotorClip_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
                             0,
-                            0
+                            20
                         ],
                         "type": "view",
                         "size": [
@@ -1787,12 +1838,19 @@
                 "qty": 1,
                 "volume": 4.9,
                 "area": 5598.797257968836,
+                "plasticVolume": 4.9,
                 "call": "LeftMotorClip_STL()",
                 "file": "printedparts/MotorClip.scad"
             },
             {
-                "plasticVolume": 0.3,
-                "hash": "4e3a95bca7ed9d320ed7baac02a72d8f",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "a9595b3fe2ea74db14b274d256df9a90",
                 "plasticWeight": 0.000375,
                 "weight": 0.000375,
                 "views": [
@@ -1834,11 +1892,12 @@
                 "qty": 4,
                 "volume": 256.79994613315546,
                 "area": 376.98513836447825,
+                "plasticVolume": 0.3,
                 "call": "PinTack_STL(h=7)",
                 "file": "printedparts/PinTack.scad"
             },
             {
-                "plasticVolume": 4.5,
+                "markdown": [],
                 "hash": "c77401e9b5fd747ea4bdd40da2e9f650",
                 "plasticWeight": 0.005625,
                 "weight": 0.005625,
@@ -1868,29 +1927,36 @@
                 ],
                 "qty": 2,
                 "volume": 4.5,
+                "plasticVolume": 4.5,
                 "call": "Wheel_STL()",
                 "file": "printedparts/Wheel.scad"
             },
             {
-                "plasticVolume": 4.9,
-                "hash": "5be4bd060c8bee699ff257a5f5500804",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "f00a9cd723fa05bedccb1360f98cdcc4",
                 "plasticWeight": 0.006125,
                 "weight": 0.006125,
                 "views": [
                     {
                         "rotate": [
-                            58,
-                            0,
-                            225
+                            150,
+                            50,
+                            2
                         ],
-                        "dist": 681,
+                        "dist": 160,
                         "filepath": "../printedparts/images/RightMotorClip_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
                             0,
-                            0
+                            20
                         ],
                         "type": "view",
                         "size": [
@@ -1915,15 +1981,34 @@
                 "qty": 1,
                 "volume": 4.9,
                 "area": 5598.797257992755,
+                "plasticVolume": 4.9,
                 "call": "RightMotorClip_STL()",
                 "file": "printedparts/MotorClip.scad"
             },
             {
-                "plasticVolume": 1.5,
-                "hash": "bd4a7de840c7400b58fb27a6c2ee6f14",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "Orient to print upside down for best results.  No support required.  A brim may help with bed adhesion and would not need to removed after printing.  Ream the pin hole to 7mm if necessary.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "da34fc1705d3762cdb74e20c10b1609d",
                 "plasticWeight": 0.001875,
                 "weight": 0.001875,
                 "title": "Caster Housing",
+                "aabb": [
+                    [
+                        -9.16935,
+                        -10.0,
+                        -16.0
+                    ],
+                    [
+                        9.16935,
+                        10.0,
+                        0.00999928
+                    ]
+                ],
                 "views": [
                     {
                         "rotate": [
@@ -1949,12 +2034,20 @@
                 ],
                 "qty": 1,
                 "volume": 1.5,
+                "area": 1548.0474106051506,
+                "plasticVolume": 1.5,
                 "call": "MarbleCaster_STL()",
                 "file": "printedparts/MarbleCaster.scad"
             },
             {
-                "plasticVolume": 0.3,
-                "hash": "e0158d1179c23a910aafce630965eac5",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "ed212fa93ceb3b27e4d26ab537de8f3a",
                 "plasticWeight": 0.000375,
                 "weight": 0.000375,
                 "views": [
@@ -1996,15 +2089,34 @@
                 "qty": 1,
                 "volume": 240.06995762067106,
                 "area": 355.6102495877707,
+                "plasticVolume": 0.3,
                 "call": "PinTack_STL(h=6.1)",
                 "file": "printedparts/PinTack.scad"
             },
             {
-                "plasticVolume": 66.7,
-                "hash": "369e262b65901507a40a5683f5f31aa5",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "The shell has a maximum overhang of 60 degrees and should print without support on most printers",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "27fd6c56c1123ff1baf669a62608f71e",
                 "plasticWeight": 0.083375,
                 "weight": 0.083375,
                 "title": "Basic Shell",
+                "aabb": [
+                    [
+                        -73.0,
+                        -73.0,
+                        -2.0
+                    ],
+                    [
+                        73.0,
+                        73.0,
+                        62.7514
+                    ]
+                ],
                 "views": [
                     {
                         "rotate": [
@@ -2030,12 +2142,20 @@
                 ],
                 "qty": 1,
                 "volume": 66.7,
+                "area": 60942.896357528116,
+                "plasticVolume": 66.7,
                 "call": "BasicShell_STL()",
                 "file": "printedparts/BasicShell.scad"
             },
             {
-                "plasticVolume": 13.9,
-                "hash": "e271c8fd0ec6e775658aa1531840ae55",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "Includes built-in support material which should easily break out after printing",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "c109a50f95cf0a6c1653a859ba04fad6",
                 "plasticWeight": 0.017375,
                 "weight": 0.017375,
                 "views": [
@@ -2077,6 +2197,7 @@
                 "qty": 1,
                 "volume": 13.9,
                 "area": 21179.814048613203,
+                "plasticVolume": 13.9,
                 "call": "Lid_STL()",
                 "file": "printedparts/Lid.scad"
             }
@@ -2117,6 +2238,11 @@
                         "call": "LogoBotBase_STL()",
                         "type": "printed",
                         "children": [
+                            {
+                                "section": "guide",
+                                "markdown": "The base requires a well calibrated printer to avoid adhesion issues.  You may also need to ream the holes to 7mm, depending on your print tolerances.",
+                                "type": "markdown"
+                            },
                             {
                                 "rotate": [
                                     58,
@@ -2454,6 +2580,11 @@
                                 "type": "printed",
                                 "children": [
                                     {
+                                        "section": "guide",
+                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                        "type": "markdown"
+                                    },
+                                    {
                                         "rotate": [
                                             72,
                                             0,
@@ -2482,6 +2613,11 @@
                                 "call": "PinTack_STL(h=14.1)",
                                 "type": "printed",
                                 "children": [
+                                    {
+                                        "section": "guide",
+                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                        "type": "markdown"
+                                    },
                                     {
                                         "rotate": [
                                             72,
@@ -2658,6 +2794,11 @@
                                 "type": "printed",
                                 "children": [
                                     {
+                                        "section": "guide",
+                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                        "type": "markdown"
+                                    },
+                                    {
                                         "rotate": [
                                             72,
                                             0,
@@ -2685,6 +2826,11 @@
                                 "call": "PinTack_STL(h=14.1)",
                                 "type": "printed",
                                 "children": [
+                                    {
+                                        "section": "guide",
+                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                        "type": "markdown"
+                                    },
                                     {
                                         "rotate": [
                                             72,
@@ -2745,19 +2891,24 @@
                                         "type": "printed",
                                         "children": [
                                             {
+                                                "section": "guide",
+                                                "markdown": "MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed",
+                                                "type": "markdown"
+                                            },
+                                            {
                                                 "rotate": [
-                                                    58,
-                                                    0,
-                                                    225
+                                                    150,
+                                                    50,
+                                                    2
                                                 ],
-                                                "dist": 681,
+                                                "dist": 160,
                                                 "filepath": "../printedparts/images/LeftMotorClip_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
                                                     0,
                                                     0,
-                                                    0
+                                                    20
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -2854,6 +3005,11 @@
                                                 "type": "printed",
                                                 "children": [
                                                     {
+                                                        "section": "guide",
+                                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                                        "type": "markdown"
+                                                    },
+                                                    {
                                                         "rotate": [
                                                             72,
                                                             0,
@@ -2882,6 +3038,11 @@
                                                 "call": "PinTack_STL(h=7)",
                                                 "type": "printed",
                                                 "children": [
+                                                    {
+                                                        "section": "guide",
+                                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                                        "type": "markdown"
+                                                    },
                                                     {
                                                         "rotate": [
                                                             72,
@@ -3147,19 +3308,24 @@
                                         "type": "printed",
                                         "children": [
                                             {
+                                                "section": "guide",
+                                                "markdown": "MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed",
+                                                "type": "markdown"
+                                            },
+                                            {
                                                 "rotate": [
-                                                    58,
-                                                    0,
-                                                    225
+                                                    150,
+                                                    50,
+                                                    2
                                                 ],
-                                                "dist": 681,
+                                                "dist": 160,
                                                 "filepath": "../printedparts/images/RightMotorClip_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
                                                     0,
                                                     0,
-                                                    0
+                                                    20
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -3255,6 +3421,11 @@
                                                 "type": "printed",
                                                 "children": [
                                                     {
+                                                        "section": "guide",
+                                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                                        "type": "markdown"
+                                                    },
+                                                    {
                                                         "rotate": [
                                                             72,
                                                             0,
@@ -3282,6 +3453,11 @@
                                                 "call": "PinTack_STL(h=7)",
                                                 "type": "printed",
                                                 "children": [
+                                                    {
+                                                        "section": "guide",
+                                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                                        "type": "markdown"
+                                                    },
                                                     {
                                                         "rotate": [
                                                             72,
@@ -3731,6 +3907,11 @@
                                         "type": "printed",
                                         "children": [
                                             {
+                                                "section": "guide",
+                                                "markdown": "Orient to print upside down for best results.  No support required.  A brim may help with bed adhesion and would not need to removed after printing.  Ream the pin hole to 7mm if necessary.",
+                                                "type": "markdown"
+                                            },
+                                            {
                                                 "rotate": [
                                                     63,
                                                     0,
@@ -3819,6 +4000,11 @@
                                 "call": "PinTack_STL(h=6.1)",
                                 "type": "printed",
                                 "children": [
+                                    {
+                                        "section": "guide",
+                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                        "type": "markdown"
+                                    },
                                     {
                                         "rotate": [
                                             72,
@@ -4641,6 +4827,11 @@
                                         "type": "printed",
                                         "children": [
                                             {
+                                                "section": "guide",
+                                                "markdown": "The shell has a maximum overhang of 60 degrees and should print without support on most printers",
+                                                "type": "markdown"
+                                            },
+                                            {
                                                 "rotate": [
                                                     63,
                                                     0,
@@ -4694,6 +4885,11 @@
                                                 "type": "printed",
                                                 "children": [
                                                     {
+                                                        "section": "guide",
+                                                        "markdown": "Includes built-in support material which should easily break out after printing",
+                                                        "type": "markdown"
+                                                    },
+                                                    {
                                                         "rotate": [
                                                             58,
                                                             0,
@@ -4736,7 +4932,7 @@
     },
     {
         "cut": [],
-        "hash": "12e62cf772545ad4c81f294439f1a0cd",
+        "hash": "4754d2795b4a1f9016dde34539609bb5",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -5239,7 +5435,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "cbff89ece110c25414e71504510ef9d8",
+                "hash": "bc1622e9989aba5ade6201ef688d7870",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -5390,25 +5586,28 @@
                 "call": "LogoBotLineFollowerAssembly()",
                 "printed": [
                     {
+                        "markdown": [],
                         "title": "Base",
+                        "views": [],
                         "qty": 1,
                         "call": "LogoBotBase_STL()",
-                        "file": "printedparts/LogoBotBase.scad",
-                        "views": []
+                        "file": "printedparts/LogoBotBase.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Pin Tack H7",
+                        "views": [],
                         "qty": 1,
                         "call": "PinTack_STL(h=7)",
-                        "file": "printedparts/PinTack.scad",
-                        "views": []
+                        "file": "printedparts/PinTack.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Pin Tack H6.1",
+                        "views": [],
                         "qty": 1,
                         "call": "PinTack_STL(h=6.1)",
-                        "file": "printedparts/PinTack.scad",
-                        "views": []
+                        "file": "printedparts/PinTack.scad"
                     }
                 ],
                 "file": "assemblies/LogoBotLineFollower.scad",
@@ -5682,7 +5881,7 @@
             },
             {
                 "cut": [],
-                "hash": "85dec7c574efc0cd05e08c8e5a824c4f",
+                "hash": "e6b622ba55821d7b31a7b96f1ae510bd",
                 "vitamins": [
                     {
                         "title": "Line Sensor",
@@ -5700,11 +5899,12 @@
                 "call": "LineSensorAssembly()",
                 "printed": [
                     {
+                        "markdown": [],
                         "title": "Line Sensor Holder",
+                        "views": [],
                         "qty": 1,
                         "call": "LineSensorHolder_STL()",
-                        "file": "printedparts/LineSensorHolder.scad",
-                        "views": []
+                        "file": "printedparts/LineSensorHolder.scad"
                     }
                 ],
                 "file": "assemblies/LineSensor.scad",
@@ -5741,7 +5941,7 @@
             },
             {
                 "cut": [],
-                "hash": "879e284b2efbdc62634016ead8065570",
+                "hash": "089a411317d0aaa0921d098316d3c1f6",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -5767,25 +5967,28 @@
                 "call": "LeftWheelAssembly()",
                 "printed": [
                     {
+                        "markdown": [],
                         "title": "Left Motor Clip",
+                        "views": [],
                         "qty": 1,
                         "call": "LeftMotorClip_STL()",
-                        "file": "printedparts/MotorClip.scad",
-                        "views": []
+                        "file": "printedparts/MotorClip.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Pin Tack H7",
+                        "views": [],
                         "qty": 2,
                         "call": "PinTack_STL(h=7)",
-                        "file": "printedparts/PinTack.scad",
-                        "views": []
+                        "file": "printedparts/PinTack.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Wheel",
+                        "views": [],
                         "qty": 1,
                         "call": "Wheel_STL()",
-                        "file": "printedparts/Wheel.scad",
-                        "views": []
+                        "file": "printedparts/Wheel.scad"
                     }
                 ],
                 "file": "assemblies/Wheel.scad",
@@ -5903,7 +6106,7 @@
             },
             {
                 "cut": [],
-                "hash": "973f7d602bcf8f5440128fdf5b45c0db",
+                "hash": "cd7da2f6b2768efc7926632036a33ecb",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -5929,25 +6132,28 @@
                 "call": "RightWheelAssembly()",
                 "printed": [
                     {
+                        "markdown": [],
                         "title": "Right Motor Clip",
+                        "views": [],
                         "qty": 1,
                         "call": "RightMotorClip_STL()",
-                        "file": "printedparts/MotorClip.scad",
-                        "views": []
+                        "file": "printedparts/MotorClip.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Pin Tack H7",
+                        "views": [],
                         "qty": 2,
                         "call": "PinTack_STL(h=7)",
-                        "file": "printedparts/PinTack.scad",
-                        "views": []
+                        "file": "printedparts/PinTack.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Wheel",
+                        "views": [],
                         "qty": 1,
                         "call": "Wheel_STL()",
-                        "file": "printedparts/Wheel.scad",
-                        "views": []
+                        "file": "printedparts/Wheel.scad"
                     }
                 ],
                 "file": "assemblies/Wheel.scad",
@@ -6065,7 +6271,7 @@
             },
             {
                 "cut": [],
-                "hash": "b1296abf5253240f34009825f918cfe3",
+                "hash": "61b2d102e1ae37a112de079b6998efb8",
                 "vitamins": [
                     {
                         "title": "16mm Marble",
@@ -6083,11 +6289,12 @@
                 "call": "MarbleCasterAssembly()",
                 "printed": [
                     {
+                        "markdown": [],
                         "title": "Caster Housing",
+                        "views": [],
                         "qty": 1,
                         "call": "MarbleCaster_STL()",
-                        "file": "printedparts/MarbleCaster.scad",
-                        "views": []
+                        "file": "printedparts/MarbleCaster.scad"
                     }
                 ],
                 "file": "assemblies/MarbleCaster.scad",
@@ -6125,8 +6332,14 @@
         ],
         "printed": [
             {
-                "plasticVolume": 21.2,
-                "hash": "f4898cae5d28c2a63ec170d02ccfe03f",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "The base requires a well calibrated printer to avoid adhesion issues.  You may also need to ream the holes to 7mm, depending on your print tolerances.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "0a6d5d5f3d69abd7ec2a52ff74514bf5",
                 "plasticWeight": 0.0265,
                 "title": "Base",
                 "views": [
@@ -6153,12 +6366,19 @@
                     }
                 ],
                 "qty": 1,
+                "plasticVolume": 21.2,
                 "call": "LogoBotBase_STL()",
                 "file": "printedparts/LogoBotBase.scad"
             },
             {
-                "plasticVolume": 2.5,
-                "hash": "37f10c536e359c28bc78c05fdb465054",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "No support required, pin hole may need to be reamed to 7mm",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "af71b9d430d8aade0d5d62bc440c3d44",
                 "plasticWeight": 0.003125,
                 "title": "Line Sensor Holder",
                 "aabb": [
@@ -6199,12 +6419,19 @@
                 "qty": 1,
                 "volume": 2137.5294759383987,
                 "area": 2586.634804835584,
+                "plasticVolume": 2.5,
                 "call": "LineSensorHolder_STL()",
                 "file": "printedparts/LineSensorHolder.scad"
             },
             {
-                "plasticVolume": 0.3,
-                "hash": "4e3a95bca7ed9d320ed7baac02a72d8f",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "a9595b3fe2ea74db14b274d256df9a90",
                 "plasticWeight": 0.000375,
                 "title": "Pin Tack H7",
                 "views": [
@@ -6231,29 +6458,36 @@
                     }
                 ],
                 "qty": 5,
+                "plasticVolume": 0.3,
                 "call": "PinTack_STL(h=7)",
                 "file": "printedparts/PinTack.scad"
             },
             {
-                "plasticVolume": 5.0,
-                "hash": "f0d95234387753a2b7805cf6e6c50d53",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "06cdd2b3fb08d35d062600917f9bd567",
                 "plasticWeight": 0.00625,
                 "title": "Left Motor Clip",
                 "views": [
                     {
                         "rotate": [
-                            58,
-                            0,
-                            225
+                            150,
+                            50,
+                            2
                         ],
-                        "dist": 681,
+                        "dist": 160,
                         "filepath": "../printedparts/images/LeftMotorClip_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
                             0,
-                            0
+                            20
                         ],
                         "type": "view",
                         "size": [
@@ -6263,11 +6497,12 @@
                     }
                 ],
                 "qty": 1,
+                "plasticVolume": 5.0,
                 "call": "LeftMotorClip_STL()",
                 "file": "printedparts/MotorClip.scad"
             },
             {
-                "plasticVolume": 4.5,
+                "markdown": [],
                 "hash": "c77401e9b5fd747ea4bdd40da2e9f650",
                 "plasticWeight": 0.005625,
                 "title": "Wheel",
@@ -6295,29 +6530,36 @@
                     }
                 ],
                 "qty": 2,
+                "plasticVolume": 4.5,
                 "call": "Wheel_STL()",
                 "file": "printedparts/Wheel.scad"
             },
             {
-                "plasticVolume": 5.0,
-                "hash": "5be4bd060c8bee699ff257a5f5500804",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "f00a9cd723fa05bedccb1360f98cdcc4",
                 "plasticWeight": 0.00625,
                 "title": "Right Motor Clip",
                 "views": [
                     {
                         "rotate": [
-                            58,
-                            0,
-                            225
+                            150,
+                            50,
+                            2
                         ],
-                        "dist": 681,
+                        "dist": 160,
                         "filepath": "../printedparts/images/RightMotorClip_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
                             0,
-                            0
+                            20
                         ],
                         "type": "view",
                         "size": [
@@ -6327,12 +6569,19 @@
                     }
                 ],
                 "qty": 1,
+                "plasticVolume": 5.0,
                 "call": "RightMotorClip_STL()",
                 "file": "printedparts/MotorClip.scad"
             },
             {
-                "plasticVolume": 1.5,
-                "hash": "bd4a7de840c7400b58fb27a6c2ee6f14",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "Orient to print upside down for best results.  No support required.  A brim may help with bed adhesion and would not need to removed after printing.  Ream the pin hole to 7mm if necessary.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "da34fc1705d3762cdb74e20c10b1609d",
                 "plasticWeight": 0.001875,
                 "title": "Caster Housing",
                 "views": [
@@ -6359,12 +6608,19 @@
                     }
                 ],
                 "qty": 1,
+                "plasticVolume": 1.5,
                 "call": "MarbleCaster_STL()",
                 "file": "printedparts/MarbleCaster.scad"
             },
             {
-                "plasticVolume": 0.3,
-                "hash": "e0158d1179c23a910aafce630965eac5",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "ed212fa93ceb3b27e4d26ab537de8f3a",
                 "plasticWeight": 0.000375,
                 "title": "Pin Tack H6.1",
                 "views": [
@@ -6391,6 +6647,7 @@
                     }
                 ],
                 "qty": 1,
+                "plasticVolume": 0.3,
                 "call": "PinTack_STL(h=6.1)",
                 "file": "printedparts/PinTack.scad"
             }
@@ -6427,6 +6684,11 @@
                         "call": "LogoBotBase_STL()",
                         "type": "printed",
                         "children": [
+                            {
+                                "section": "guide",
+                                "markdown": "The base requires a well calibrated printer to avoid adhesion issues.  You may also need to ream the holes to 7mm, depending on your print tolerances.",
+                                "type": "markdown"
+                            },
                             {
                                 "rotate": [
                                     58,
@@ -6540,6 +6802,11 @@
                                         "call": "LineSensorHolder_STL()",
                                         "type": "printed",
                                         "children": [
+                                            {
+                                                "section": "guide",
+                                                "markdown": "No support required, pin hole may need to be reamed to 7mm",
+                                                "type": "markdown"
+                                            },
                                             {
                                                 "rotate": [
                                                     72,
@@ -6658,6 +6925,11 @@
                                 "type": "printed",
                                 "children": [
                                     {
+                                        "section": "guide",
+                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                        "type": "markdown"
+                                    },
+                                    {
                                         "rotate": [
                                             72,
                                             0,
@@ -6718,19 +6990,24 @@
                                         "type": "printed",
                                         "children": [
                                             {
+                                                "section": "guide",
+                                                "markdown": "MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed",
+                                                "type": "markdown"
+                                            },
+                                            {
                                                 "rotate": [
-                                                    58,
-                                                    0,
-                                                    225
+                                                    150,
+                                                    50,
+                                                    2
                                                 ],
-                                                "dist": 681,
+                                                "dist": 160,
                                                 "filepath": "../printedparts/images/LeftMotorClip_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
                                                     0,
                                                     0,
-                                                    0
+                                                    20
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -6827,6 +7104,11 @@
                                                 "type": "printed",
                                                 "children": [
                                                     {
+                                                        "section": "guide",
+                                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                                        "type": "markdown"
+                                                    },
+                                                    {
                                                         "rotate": [
                                                             72,
                                                             0,
@@ -6854,6 +7136,11 @@
                                                 "call": "PinTack_STL(h=7)",
                                                 "type": "printed",
                                                 "children": [
+                                                    {
+                                                        "section": "guide",
+                                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                                        "type": "markdown"
+                                                    },
                                                     {
                                                         "rotate": [
                                                             72,
@@ -7119,19 +7406,24 @@
                                         "type": "printed",
                                         "children": [
                                             {
+                                                "section": "guide",
+                                                "markdown": "MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed",
+                                                "type": "markdown"
+                                            },
+                                            {
                                                 "rotate": [
-                                                    58,
-                                                    0,
-                                                    225
+                                                    150,
+                                                    50,
+                                                    2
                                                 ],
-                                                "dist": 681,
+                                                "dist": 160,
                                                 "filepath": "../printedparts/images/RightMotorClip_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
                                                     0,
                                                     0,
-                                                    0
+                                                    20
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -7227,6 +7519,11 @@
                                                 "type": "printed",
                                                 "children": [
                                                     {
+                                                        "section": "guide",
+                                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                                        "type": "markdown"
+                                                    },
+                                                    {
                                                         "rotate": [
                                                             72,
                                                             0,
@@ -7254,6 +7551,11 @@
                                                 "call": "PinTack_STL(h=7)",
                                                 "type": "printed",
                                                 "children": [
+                                                    {
+                                                        "section": "guide",
+                                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                                        "type": "markdown"
+                                                    },
                                                     {
                                                         "rotate": [
                                                             72,
@@ -7703,6 +8005,11 @@
                                         "type": "printed",
                                         "children": [
                                             {
+                                                "section": "guide",
+                                                "markdown": "Orient to print upside down for best results.  No support required.  A brim may help with bed adhesion and would not need to removed after printing.  Ream the pin hole to 7mm if necessary.",
+                                                "type": "markdown"
+                                            },
+                                            {
                                                 "rotate": [
                                                     63,
                                                     0,
@@ -7791,6 +8098,11 @@
                                 "call": "PinTack_STL(h=6.1)",
                                 "type": "printed",
                                 "children": [
+                                    {
+                                        "section": "guide",
+                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                        "type": "markdown"
+                                    },
                                     {
                                         "rotate": [
                                             72,
@@ -8476,7 +8788,7 @@
     },
     {
         "cut": [],
-        "hash": "35dea48af83c72346243ee58bade5534",
+        "hash": "27ed22e9e008d5b3a0896519e5c875f9",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -9085,7 +9397,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "4b7042762e85eb35532a6fca8965e390",
+                "hash": "40a2617a9e56c3ca5bf1014bd5f8b0e9",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -9291,46 +9603,52 @@
                 "call": "LogoBotAssembly(PenLift=true)",
                 "printed": [
                     {
+                        "markdown": [],
                         "title": "Base",
+                        "views": [],
                         "qty": 1,
                         "call": "LogoBotBase_STL()",
-                        "file": "printedparts/LogoBotBase.scad",
-                        "views": []
+                        "file": "printedparts/LogoBotBase.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Pro Mini Clip",
+                        "views": [],
                         "qty": 2,
                         "call": "ProMiniClip_STL()",
-                        "file": "printedparts/ProMiniClip.scad",
-                        "views": []
+                        "file": "printedparts/ProMiniClip.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "BumperStabiliser",
+                        "views": [],
                         "qty": 2,
                         "call": "BumperStabiliser_STL()",
-                        "file": "printedparts/BumperStabiliser.scad",
-                        "views": []
+                        "file": "printedparts/BumperStabiliser.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Pin Tack H14.1",
+                        "views": [],
                         "qty": 4,
                         "call": "PinTack_STL(h=14.1)",
-                        "file": "printedparts/PinTack.scad",
-                        "views": []
+                        "file": "printedparts/PinTack.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Pin Tack H6.1",
+                        "views": [],
                         "qty": 1,
                         "call": "PinTack_STL(h=6.1)",
-                        "file": "printedparts/PinTack.scad",
-                        "views": []
+                        "file": "printedparts/PinTack.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Pin Tack H9",
+                        "views": [],
                         "qty": 2,
                         "call": "PinTack_STL(h=9)",
-                        "file": "printedparts/PinTack.scad",
-                        "views": []
+                        "file": "printedparts/PinTack.scad"
                     }
                 ],
                 "file": "assemblies/LogoBot.scad",
@@ -9697,11 +10015,12 @@
                 "call": "BumperAssembly()",
                 "printed": [
                     {
+                        "markdown": [],
                         "title": "Bumper",
+                        "views": [],
                         "qty": 2,
                         "call": "Bumper_STL()",
-                        "file": "printedparts/Bumper.scad",
-                        "views": []
+                        "file": "printedparts/Bumper.scad"
                     }
                 ],
                 "file": "assemblies/Bumper.scad",
@@ -9738,7 +10057,7 @@
             },
             {
                 "cut": [],
-                "hash": "879e284b2efbdc62634016ead8065570",
+                "hash": "089a411317d0aaa0921d098316d3c1f6",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -9764,25 +10083,28 @@
                 "call": "LeftWheelAssembly()",
                 "printed": [
                     {
+                        "markdown": [],
                         "title": "Left Motor Clip",
+                        "views": [],
                         "qty": 1,
                         "call": "LeftMotorClip_STL()",
-                        "file": "printedparts/MotorClip.scad",
-                        "views": []
+                        "file": "printedparts/MotorClip.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Pin Tack H7",
+                        "views": [],
                         "qty": 2,
                         "call": "PinTack_STL(h=7)",
-                        "file": "printedparts/PinTack.scad",
-                        "views": []
+                        "file": "printedparts/PinTack.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Wheel",
+                        "views": [],
                         "qty": 1,
                         "call": "Wheel_STL()",
-                        "file": "printedparts/Wheel.scad",
-                        "views": []
+                        "file": "printedparts/Wheel.scad"
                     }
                 ],
                 "file": "assemblies/Wheel.scad",
@@ -9900,7 +10222,7 @@
             },
             {
                 "cut": [],
-                "hash": "973f7d602bcf8f5440128fdf5b45c0db",
+                "hash": "cd7da2f6b2768efc7926632036a33ecb",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -9926,25 +10248,28 @@
                 "call": "RightWheelAssembly()",
                 "printed": [
                     {
+                        "markdown": [],
                         "title": "Right Motor Clip",
+                        "views": [],
                         "qty": 1,
                         "call": "RightMotorClip_STL()",
-                        "file": "printedparts/MotorClip.scad",
-                        "views": []
+                        "file": "printedparts/MotorClip.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Pin Tack H7",
+                        "views": [],
                         "qty": 2,
                         "call": "PinTack_STL(h=7)",
-                        "file": "printedparts/PinTack.scad",
-                        "views": []
+                        "file": "printedparts/PinTack.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Wheel",
+                        "views": [],
                         "qty": 1,
                         "call": "Wheel_STL()",
-                        "file": "printedparts/Wheel.scad",
-                        "views": []
+                        "file": "printedparts/Wheel.scad"
                     }
                 ],
                 "file": "assemblies/Wheel.scad",
@@ -10062,7 +10387,7 @@
             },
             {
                 "cut": [],
-                "hash": "b1296abf5253240f34009825f918cfe3",
+                "hash": "61b2d102e1ae37a112de079b6998efb8",
                 "vitamins": [
                     {
                         "title": "16mm Marble",
@@ -10080,11 +10405,12 @@
                 "call": "MarbleCasterAssembly()",
                 "printed": [
                     {
+                        "markdown": [],
                         "title": "Caster Housing",
+                        "views": [],
                         "qty": 1,
                         "call": "MarbleCaster_STL()",
-                        "file": "printedparts/MarbleCaster.scad",
-                        "views": []
+                        "file": "printedparts/MarbleCaster.scad"
                     }
                 ],
                 "file": "assemblies/MarbleCaster.scad",
@@ -10121,7 +10447,7 @@
             },
             {
                 "cut": [],
-                "hash": "fdf3d4405779df9d41ca9be86afd72e6",
+                "hash": "943b3646f2043d16468b3fe42eb2555f",
                 "vitamins": [
                     {
                         "title": "Fine Line Pen",
@@ -10139,18 +10465,20 @@
                 "call": "PenLiftAssembly()",
                 "printed": [
                     {
+                        "markdown": [],
                         "title": "Pen Lift Slider",
+                        "views": [],
                         "qty": 1,
                         "call": "PenLiftSlider_STL()",
-                        "file": "printedparts/PenLiftSlider.scad",
-                        "views": []
+                        "file": "printedparts/PenLiftSlider.scad"
                     },
                     {
+                        "markdown": [],
                         "title": "Pen Lift Holder",
+                        "views": [],
                         "qty": 1,
                         "call": "PenLiftHolder_STL()",
-                        "file": "printedparts/PenLiftHolder.scad",
-                        "views": []
+                        "file": "printedparts/PenLiftHolder.scad"
                     }
                 ],
                 "file": "assemblies/PenLift.scad",
@@ -10214,7 +10542,7 @@
             },
             {
                 "cut": [],
-                "hash": "793630def6907b10065961e98357b0b2",
+                "hash": "554533713560a76c4230a12a4bb7a589",
                 "vitamins": [],
                 "views": [],
                 "assemblies": [],
@@ -10223,11 +10551,12 @@
                 "call": "ShellAssembly()",
                 "printed": [
                     {
+                        "markdown": [],
                         "title": "Basic Shell",
+                        "views": [],
                         "qty": 1,
                         "call": "BasicShell_STL()",
-                        "file": "printedparts/BasicShell.scad",
-                        "views": []
+                        "file": "printedparts/BasicShell.scad"
                     }
                 ],
                 "file": "assemblies/Shell.scad",
@@ -10237,8 +10566,14 @@
         ],
         "printed": [
             {
-                "plasticVolume": 21.2,
-                "hash": "f4898cae5d28c2a63ec170d02ccfe03f",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "The base requires a well calibrated printer to avoid adhesion issues.  You may also need to ream the holes to 7mm, depending on your print tolerances.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "0a6d5d5f3d69abd7ec2a52ff74514bf5",
                 "plasticWeight": 0.0265,
                 "weight": 0.0265,
                 "title": "Base",
@@ -10267,11 +10602,12 @@
                 ],
                 "qty": 1,
                 "volume": 21.2,
+                "plasticVolume": 21.2,
                 "call": "LogoBotBase_STL()",
                 "file": "printedparts/LogoBotBase.scad"
             },
             {
-                "plasticVolume": 0.3,
+                "markdown": [],
                 "hash": "35cf884fb6d0f9a153821f04ba66842a",
                 "plasticWeight": 0.000375,
                 "weight": 0.000375,
@@ -10301,11 +10637,12 @@
                 ],
                 "qty": 2,
                 "volume": 0.3,
+                "plasticVolume": 0.3,
                 "call": "ProMiniClip_STL()",
                 "file": "printedparts/ProMiniClip.scad"
             },
             {
-                "plasticVolume": 12.9,
+                "markdown": [],
                 "hash": "6ae5b8f5e17b8e0722be5187130c0042",
                 "plasticWeight": 0.016125,
                 "weight": 0.016125,
@@ -10335,11 +10672,12 @@
                 ],
                 "qty": 2,
                 "volume": 12.9,
+                "plasticVolume": 12.9,
                 "call": "Bumper_STL()",
                 "file": "printedparts/Bumper.scad"
             },
             {
-                "plasticVolume": 1.1,
+                "markdown": [],
                 "hash": "3b84ee886dee0aa06ddb470493c12088",
                 "plasticWeight": 0.001375,
                 "weight": 0.001375,
@@ -10369,12 +10707,19 @@
                 ],
                 "qty": 2,
                 "volume": 1.1,
+                "plasticVolume": 1.1,
                 "call": "BumperStabiliser_STL()",
                 "file": "printedparts/BumperStabiliser.scad"
             },
             {
-                "plasticVolume": 0.4,
-                "hash": "0633dbf27d33455020c7da29cc30cc07",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "cfd4f4eb6067d5da828f904ae5cbe750",
                 "plasticWeight": 0.0005,
                 "weight": 0.0005,
                 "title": "Pin Tack H14.1",
@@ -10403,30 +10748,37 @@
                 ],
                 "qty": 4,
                 "volume": 0.4,
+                "plasticVolume": 0.4,
                 "call": "PinTack_STL(h=14.1)",
                 "file": "printedparts/PinTack.scad"
             },
             {
-                "plasticVolume": 4.9,
-                "hash": "f0d95234387753a2b7805cf6e6c50d53",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "06cdd2b3fb08d35d062600917f9bd567",
                 "plasticWeight": 0.006125,
                 "weight": 0.006125,
                 "title": "Left Motor Clip",
                 "views": [
                     {
                         "rotate": [
-                            58,
-                            0,
-                            225
+                            150,
+                            50,
+                            2
                         ],
-                        "dist": 681,
+                        "dist": 160,
                         "filepath": "../printedparts/images/LeftMotorClip_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
                             0,
-                            0
+                            20
                         ],
                         "type": "view",
                         "size": [
@@ -10437,12 +10789,19 @@
                 ],
                 "qty": 1,
                 "volume": 4.9,
+                "plasticVolume": 4.9,
                 "call": "LeftMotorClip_STL()",
                 "file": "printedparts/MotorClip.scad"
             },
             {
-                "plasticVolume": 0.3,
-                "hash": "4e3a95bca7ed9d320ed7baac02a72d8f",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "a9595b3fe2ea74db14b274d256df9a90",
                 "plasticWeight": 0.000375,
                 "weight": 0.000375,
                 "title": "Pin Tack H7",
@@ -10471,11 +10830,12 @@
                 ],
                 "qty": 4,
                 "volume": 0.3,
+                "plasticVolume": 0.3,
                 "call": "PinTack_STL(h=7)",
                 "file": "printedparts/PinTack.scad"
             },
             {
-                "plasticVolume": 4.5,
+                "markdown": [],
                 "hash": "c77401e9b5fd747ea4bdd40da2e9f650",
                 "plasticWeight": 0.005625,
                 "weight": 0.005625,
@@ -10505,30 +10865,37 @@
                 ],
                 "qty": 2,
                 "volume": 4.5,
+                "plasticVolume": 4.5,
                 "call": "Wheel_STL()",
                 "file": "printedparts/Wheel.scad"
             },
             {
-                "plasticVolume": 4.9,
-                "hash": "5be4bd060c8bee699ff257a5f5500804",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "f00a9cd723fa05bedccb1360f98cdcc4",
                 "plasticWeight": 0.006125,
                 "weight": 0.006125,
                 "title": "Right Motor Clip",
                 "views": [
                     {
                         "rotate": [
-                            58,
-                            0,
-                            225
+                            150,
+                            50,
+                            2
                         ],
-                        "dist": 681,
+                        "dist": 160,
                         "filepath": "../printedparts/images/RightMotorClip_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
                             0,
-                            0
+                            20
                         ],
                         "type": "view",
                         "size": [
@@ -10539,12 +10906,19 @@
                 ],
                 "qty": 1,
                 "volume": 4.9,
+                "plasticVolume": 4.9,
                 "call": "RightMotorClip_STL()",
                 "file": "printedparts/MotorClip.scad"
             },
             {
-                "plasticVolume": 1.5,
-                "hash": "bd4a7de840c7400b58fb27a6c2ee6f14",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "Orient to print upside down for best results.  No support required.  A brim may help with bed adhesion and would not need to removed after printing.  Ream the pin hole to 7mm if necessary.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "da34fc1705d3762cdb74e20c10b1609d",
                 "plasticWeight": 0.001875,
                 "weight": 0.001875,
                 "title": "Caster Housing",
@@ -10573,12 +10947,19 @@
                 ],
                 "qty": 1,
                 "volume": 1.5,
+                "plasticVolume": 1.5,
                 "call": "MarbleCaster_STL()",
                 "file": "printedparts/MarbleCaster.scad"
             },
             {
-                "plasticVolume": 0.3,
-                "hash": "e0158d1179c23a910aafce630965eac5",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "ed212fa93ceb3b27e4d26ab537de8f3a",
                 "plasticWeight": 0.000375,
                 "weight": 0.000375,
                 "title": "Pin Tack H6.1",
@@ -10607,12 +10988,19 @@
                 ],
                 "qty": 1,
                 "volume": 0.3,
+                "plasticVolume": 0.3,
                 "call": "PinTack_STL(h=6.1)",
                 "file": "printedparts/PinTack.scad"
             },
             {
-                "plasticVolume": 4.1,
-                "hash": "93b191995ff865e345028a3a06cbea7f",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "Slider will probably require some sanding to get a smooth fit into the holder.  A bit of silicon spray lubricant may also help.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "399f9e5760a7c31e35593ee168582b9e",
                 "plasticWeight": 0.005125,
                 "weight": 0.005125,
                 "views": [
@@ -10654,12 +11042,19 @@
                 "qty": 1,
                 "volume": 4.1,
                 "area": 4104.819079441405,
+                "plasticVolume": 4.1,
                 "call": "PenLiftSlider_STL()",
                 "file": "printedparts/PenLiftSlider.scad"
             },
             {
-                "plasticVolume": 5.7,
-                "hash": "0eb063b3b2650c4c2b5c33ce0b624ec0",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "You may need to ream the pin holes to 7mm, depending on your print tolerances",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "7015d5c507823846581fe968bf6b25f0",
                 "plasticWeight": 0.007125,
                 "weight": 0.007125,
                 "views": [
@@ -10701,12 +11096,19 @@
                 "qty": 1,
                 "volume": 5.7,
                 "area": 3207.704639614044,
+                "plasticVolume": 5.7,
                 "call": "PenLiftHolder_STL()",
                 "file": "printedparts/PenLiftHolder.scad"
             },
             {
-                "plasticVolume": 0.3,
-                "hash": "9a03db8780f02b1a83bdd82d4899b807",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "ac9ff0d30ab5b18de6cfbc31d29ae9f5",
                 "plasticWeight": 0.000375,
                 "weight": 0.000375,
                 "views": [
@@ -10748,12 +11150,19 @@
                 "qty": 2,
                 "volume": 293.9777969995557,
                 "area": 424.4848520643428,
+                "plasticVolume": 0.3,
                 "call": "PinTack_STL(h=9)",
                 "file": "printedparts/PinTack.scad"
             },
             {
-                "plasticVolume": 66.7,
-                "hash": "369e262b65901507a40a5683f5f31aa5",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "The shell has a maximum overhang of 60 degrees and should print without support on most printers",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "27fd6c56c1123ff1baf669a62608f71e",
                 "plasticWeight": 0.083375,
                 "weight": 0.083375,
                 "title": "Basic Shell",
@@ -10782,6 +11191,7 @@
                 ],
                 "qty": 1,
                 "volume": 66.7,
+                "plasticVolume": 66.7,
                 "call": "BasicShell_STL()",
                 "file": "printedparts/BasicShell.scad"
             }
@@ -10822,6 +11232,11 @@
                         "call": "LogoBotBase_STL()",
                         "type": "printed",
                         "children": [
+                            {
+                                "section": "guide",
+                                "markdown": "The base requires a well calibrated printer to avoid adhesion issues.  You may also need to ream the holes to 7mm, depending on your print tolerances.",
+                                "type": "markdown"
+                            },
                             {
                                 "rotate": [
                                     58,
@@ -11159,6 +11574,11 @@
                                 "type": "printed",
                                 "children": [
                                     {
+                                        "section": "guide",
+                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                        "type": "markdown"
+                                    },
+                                    {
                                         "rotate": [
                                             72,
                                             0,
@@ -11187,6 +11607,11 @@
                                 "call": "PinTack_STL(h=14.1)",
                                 "type": "printed",
                                 "children": [
+                                    {
+                                        "section": "guide",
+                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                        "type": "markdown"
+                                    },
                                     {
                                         "rotate": [
                                             72,
@@ -11363,6 +11788,11 @@
                                 "type": "printed",
                                 "children": [
                                     {
+                                        "section": "guide",
+                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                        "type": "markdown"
+                                    },
+                                    {
                                         "rotate": [
                                             72,
                                             0,
@@ -11390,6 +11820,11 @@
                                 "call": "PinTack_STL(h=14.1)",
                                 "type": "printed",
                                 "children": [
+                                    {
+                                        "section": "guide",
+                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                        "type": "markdown"
+                                    },
                                     {
                                         "rotate": [
                                             72,
@@ -11450,19 +11885,24 @@
                                         "type": "printed",
                                         "children": [
                                             {
+                                                "section": "guide",
+                                                "markdown": "MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed",
+                                                "type": "markdown"
+                                            },
+                                            {
                                                 "rotate": [
-                                                    58,
-                                                    0,
-                                                    225
+                                                    150,
+                                                    50,
+                                                    2
                                                 ],
-                                                "dist": 681,
+                                                "dist": 160,
                                                 "filepath": "../printedparts/images/LeftMotorClip_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
                                                     0,
                                                     0,
-                                                    0
+                                                    20
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -11559,6 +11999,11 @@
                                                 "type": "printed",
                                                 "children": [
                                                     {
+                                                        "section": "guide",
+                                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                                        "type": "markdown"
+                                                    },
+                                                    {
                                                         "rotate": [
                                                             72,
                                                             0,
@@ -11587,6 +12032,11 @@
                                                 "call": "PinTack_STL(h=7)",
                                                 "type": "printed",
                                                 "children": [
+                                                    {
+                                                        "section": "guide",
+                                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                                        "type": "markdown"
+                                                    },
                                                     {
                                                         "rotate": [
                                                             72,
@@ -11852,19 +12302,24 @@
                                         "type": "printed",
                                         "children": [
                                             {
+                                                "section": "guide",
+                                                "markdown": "MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed",
+                                                "type": "markdown"
+                                            },
+                                            {
                                                 "rotate": [
-                                                    58,
-                                                    0,
-                                                    225
+                                                    150,
+                                                    50,
+                                                    2
                                                 ],
-                                                "dist": 681,
+                                                "dist": 160,
                                                 "filepath": "../printedparts/images/RightMotorClip_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
                                                     0,
                                                     0,
-                                                    0
+                                                    20
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -11960,6 +12415,11 @@
                                                 "type": "printed",
                                                 "children": [
                                                     {
+                                                        "section": "guide",
+                                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                                        "type": "markdown"
+                                                    },
+                                                    {
                                                         "rotate": [
                                                             72,
                                                             0,
@@ -11987,6 +12447,11 @@
                                                 "call": "PinTack_STL(h=7)",
                                                 "type": "printed",
                                                 "children": [
+                                                    {
+                                                        "section": "guide",
+                                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                                        "type": "markdown"
+                                                    },
                                                     {
                                                         "rotate": [
                                                             72,
@@ -12436,6 +12901,11 @@
                                         "type": "printed",
                                         "children": [
                                             {
+                                                "section": "guide",
+                                                "markdown": "Orient to print upside down for best results.  No support required.  A brim may help with bed adhesion and would not need to removed after printing.  Ream the pin hole to 7mm if necessary.",
+                                                "type": "markdown"
+                                            },
+                                            {
                                                 "rotate": [
                                                     63,
                                                     0,
@@ -12525,6 +12995,11 @@
                                 "type": "printed",
                                 "children": [
                                     {
+                                        "section": "guide",
+                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                        "type": "markdown"
+                                    },
+                                    {
                                         "rotate": [
                                             72,
                                             0,
@@ -12585,6 +13060,11 @@
                                         "type": "printed",
                                         "children": [
                                             {
+                                                "section": "guide",
+                                                "markdown": "Slider will probably require some sanding to get a smooth fit into the holder.  A bit of silicon spray lubricant may also help.",
+                                                "type": "markdown"
+                                            },
+                                            {
                                                 "rotate": [
                                                     52,
                                                     0,
@@ -12637,6 +13117,11 @@
                                                 "call": "PenLiftHolder_STL()",
                                                 "type": "printed",
                                                 "children": [
+                                                    {
+                                                        "section": "guide",
+                                                        "markdown": "You may need to ream the pin holes to 7mm, depending on your print tolerances",
+                                                        "type": "markdown"
+                                                    },
                                                     {
                                                         "rotate": [
                                                             52,
@@ -12730,6 +13215,11 @@
                                 "type": "printed",
                                 "children": [
                                     {
+                                        "section": "guide",
+                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                        "type": "markdown"
+                                    },
+                                    {
                                         "rotate": [
                                             72,
                                             0,
@@ -12758,6 +13248,11 @@
                                 "call": "PinTack_STL(h=9)",
                                 "type": "printed",
                                 "children": [
+                                    {
+                                        "section": "guide",
+                                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                        "type": "markdown"
+                                    },
                                     {
                                         "rotate": [
                                             72,
@@ -13649,6 +14144,11 @@
                                         "type": "printed",
                                         "children": [
                                             {
+                                                "section": "guide",
+                                                "markdown": "The shell has a maximum overhang of 60 degrees and should print without support on most printers",
+                                                "type": "markdown"
+                                            },
+                                            {
                                                 "rotate": [
                                                     63,
                                                     0,
@@ -13688,14 +14188,20 @@
     },
     {
         "cut": [],
-        "hash": "8b08269bb1f7234d84bf120f74b26ee0",
+        "hash": "7f45a20f75d3106fd7606bc3e99bafd4",
         "vitamins": [],
         "title": "OptionalExtras",
         "assemblies": [],
         "printed": [
             {
-                "plasticVolume": 10.7,
-                "hash": "63364a8556a300a891745c0a0fb75ee7",
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "The base requires a well calibrated printer to avoid adhesion issues.  You may also need to ream the holes to 7mm, depending on your print tolerances.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "2861482b08e8a3e826282c7abc23ef49",
                 "plasticWeight": 0.013375,
                 "weight": 0.013375,
                 "views": [
@@ -13737,6 +14243,7 @@
                 "qty": 1,
                 "volume": 9868.278615770476,
                 "area": 13764.498262422792,
+                "plasticVolume": 10.7,
                 "call": "SimpleBase_STL()",
                 "file": "printedparts/SimpleBase.scad"
             }
@@ -13769,6 +14276,11 @@
                 "call": "SimpleBase_STL()",
                 "type": "printed",
                 "children": [
+                    {
+                        "section": "guide",
+                        "markdown": "The base requires a well calibrated printer to avoid adhesion issues.  You may also need to ream the holes to 7mm, depending on your print tolerances.",
+                        "type": "markdown"
+                    },
                     {
                         "rotate": [
                             58,

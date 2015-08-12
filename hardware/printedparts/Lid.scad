@@ -2,6 +2,8 @@ module Lid_STL() {
 
     printedPart("printedparts/Lid.scad", "Lid", "Lid_STL()") {
 
+        markdown("guide","Includes built-in support material which should easily break out after printing");
+
         view(t=[0,0,0], r=[58,0,225], d=681);
 
         if (DebugCoordinateFrames) frame();
