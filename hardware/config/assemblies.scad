@@ -16,6 +16,7 @@ include <../assemblies/Wheel.scad>
 include <../assemblies/PenLift.scad>
 include <../assemblies/Shell.scad>
 include <../assemblies/LineSensor.scad>
+include <../assemblies/Capstan.scad>
 
 // these go last!
 include <../assemblies/LogoBot.scad>

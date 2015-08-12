@@ -18,10 +18,10 @@ module LogoBotPolarGraphAssembly () {
 
     // wheels - aka winches
     attach([[240,0,0],[0,0,-1],0,00], MotorClip_Con_Fixing1, ExplodeSpacing = 40)
-        LeftWheelAssembly();
+        LeftCapstanAssembly();
 
     attach([[-240,0,0],[0,0,-1],0,00], MotorClip_Con_Fixing2, ExplodeSpacing = 40)
-        RightWheelAssembly();
+        RightCapstanAssembly();
 
 
     // gondola - aka base
@@ -32,6 +32,11 @@ module LogoBotPolarGraphAssembly () {
         rotate([0,0,90]) {
             attach(LogoBot_Con_PenLift_Front, PenLiftSlider_Con_BaseFront)
                 PenLiftAssembly();
+
+            attach(LogoBot_Con_PenLift_Front, offsetConnector(DefConUp, [0, 0, 2 + 2.5]), ExplodeSpacing=20)
+                PinTack_STL(h=2.5+4+2.5);
+            attach(LogoBot_Con_PenLift_Rear, offsetConnector(DefConUp, [0, 0, 2 + 2.5]), ExplodeSpacing=20)
+                PinTack_STL(h=2.5+4+2.5);
 
             attach(LogoBot_Con_PenLiftServo, MicroServo_Con_Horn, ExplodeSpacing=0) {
                 MicroServo();

@@ -16,3 +16,4 @@ include <../printedparts/MotorClip.scad>
 include <../printedparts/PinTack.scad>
 include <../printedparts/SimpleBase.scad>
 include <../printedparts/LineSensorHolder.scad>
+include <../printedparts/Capstan.scad>
