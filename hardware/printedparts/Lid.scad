@@ -4,7 +4,7 @@ module Lid_STL() {
 
         markdown("guide","Includes built-in support material which should easily break out after printing");
 
-        view(t=[0,0,0], r=[58,0,225], d=681);
+        view(t=[0,0,0], r=[58,0,225], d=180);
 
         if (DebugCoordinateFrames) frame();
         if (DebugConnectors) connector(Wheel_Con_Default);

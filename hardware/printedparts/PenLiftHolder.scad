@@ -7,7 +7,7 @@ module PenLiftHolder_STL()
 
 		markdown("guide","You may need to ream the pin holes to 7mm, depending on your print tolerances");
 
-	    view(t=[1, -8, -11], r=[52, 0, 23], d=184);
+	    view(t=[1, -8, -11], r=[52, 0, 23], d=240);
 
 		if (DebugCoordinateFrames) frame();
 		if (DebugConnectors) {

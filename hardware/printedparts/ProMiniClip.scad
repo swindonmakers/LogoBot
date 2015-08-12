@@ -2,7 +2,7 @@ module ProMiniClip_STL()
 {
 	printedPart("printedparts/ProMiniClip.scad", "Pro Mini Clip", "ProMiniClip_STL()") {
 
-		view(t=[0, -1, -1], r=[49, 0, 25], d=336);
+		view(t=[0,0,0],r=[145,135,0],d=150);
 
 		if (DebugCoordinateFrames) frame();
 		if (DebugConnectors) connector(Con_Default);

@@ -9,7 +9,7 @@ module LineSensorHolder_STL() {
 
         markdown("guide","No support required, pin hole may need to be reamed to 7mm");
 
-        view(t=[0,0,0],r=[72,0,130],d=400);
+        view(t=[0,0,0],r=[72,0,130],d=140);
 
         if (DebugCoordinateFrames) frame();
         if (DebugConnectors) {

@@ -1547,19 +1547,6 @@
                 "hash": "0a6d5d5f3d69abd7ec2a52ff74514bf5",
                 "plasticWeight": 0.0265,
                 "weight": 0.0265,
-                "title": "Base",
-                "aabb": [
-                    [
-                        -69.9213,
-                        -70.0,
-                        0.0
-                    ],
-                    [
-                        69.9213,
-                        70.0,
-                        2.0
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -1567,7 +1554,7 @@
                             0,
                             225
                         ],
-                        "dist": 681,
+                        "dist": 270,
                         "filepath": "../printedparts/images/Base_view.png",
                         "title": "view",
                         "caption": "view",
@@ -1583,6 +1570,19 @@
                         ]
                     }
                 ],
+                "aabb": [
+                    [
+                        -69.9213,
+                        -70.0,
+                        0.0
+                    ],
+                    [
+                        69.9213,
+                        70.0,
+                        2.0
+                    ]
+                ],
+                "title": "Base",
                 "qty": 1,
                 "volume": 21.2,
                 "area": 25747.40742227899,
@@ -1598,18 +1598,18 @@
                 "views": [
                     {
                         "rotate": [
-                            49,
-                            0,
-                            25
+                            145,
+                            135,
+                            0
                         ],
-                        "dist": 336,
+                        "dist": 150,
                         "filepath": "../printedparts/images/ProMiniClip_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
-                            -1,
-                            -1
+                            0,
+                            0
                         ],
                         "type": "view",
                         "size": [
@@ -1648,16 +1648,16 @@
                         "rotate": [
                             58,
                             0,
-                            225
+                            21
                         ],
-                        "dist": 681,
+                        "dist": 250,
                         "filepath": "../printedparts/images/Bumper_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
-                            0,
-                            0,
-                            0
+                            5,
+                            12,
+                            14
                         ],
                         "type": "view",
                         "size": [
@@ -1696,16 +1696,16 @@
                         "rotate": [
                             58,
                             0,
-                            225
+                            21
                         ],
-                        "dist": 681,
+                        "dist": 200,
                         "filepath": "../printedparts/images/BumperStabiliser_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
-                            0,
-                            0,
-                            0
+                            5,
+                            12,
+                            14
                         ],
                         "type": "view",
                         "size": [
@@ -1748,11 +1748,11 @@
                 "views": [
                     {
                         "rotate": [
-                            72,
-                            0,
-                            130
+                            145,
+                            135,
+                            0
                         ],
-                        "dist": 400,
+                        "dist": 130,
                         "filepath": "../printedparts/images/PinTackH141_view.png",
                         "title": "view",
                         "caption": "view",
@@ -1856,11 +1856,11 @@
                 "views": [
                     {
                         "rotate": [
-                            72,
-                            0,
-                            130
+                            145,
+                            135,
+                            0
                         ],
-                        "dist": 400,
+                        "dist": 130,
                         "filepath": "../printedparts/images/PinTackH7_view.png",
                         "title": "view",
                         "caption": "view",
@@ -1909,7 +1909,7 @@
                             0,
                             25
                         ],
-                        "dist": 336,
+                        "dist": 150,
                         "filepath": "../printedparts/images/Wheel_view.png",
                         "title": "view",
                         "caption": "view",
@@ -1996,7 +1996,29 @@
                 "hash": "da34fc1705d3762cdb74e20c10b1609d",
                 "plasticWeight": 0.001875,
                 "weight": 0.001875,
-                "title": "Caster Housing",
+                "views": [
+                    {
+                        "rotate": [
+                            235,
+                            0,
+                            257
+                        ],
+                        "dist": 172,
+                        "filepath": "../printedparts/images/CasterHousing_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            -4,
+                            0,
+                            -6
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
                 "aabb": [
                     [
                         -9.16935,
@@ -2009,29 +2031,7 @@
                         0.00999928
                     ]
                 ],
-                "views": [
-                    {
-                        "rotate": [
-                            63,
-                            0,
-                            114
-                        ],
-                        "dist": 172,
-                        "filepath": "../printedparts/images/CasterHousing_view.png",
-                        "title": "view",
-                        "caption": "view",
-                        "translate": [
-                            1.4,
-                            0.8,
-                            -5.6
-                        ],
-                        "type": "view",
-                        "size": [
-                            400,
-                            300
-                        ]
-                    }
-                ],
+                "title": "Caster Housing",
                 "qty": 1,
                 "volume": 1.5,
                 "area": 1548.0474106051506,
@@ -2053,11 +2053,11 @@
                 "views": [
                     {
                         "rotate": [
-                            72,
-                            0,
-                            130
+                            145,
+                            135,
+                            0
                         ],
-                        "dist": 400,
+                        "dist": 130,
                         "filepath": "../printedparts/images/PinTackH61_view.png",
                         "title": "view",
                         "caption": "view",
@@ -2104,19 +2104,6 @@
                 "hash": "27fd6c56c1123ff1baf669a62608f71e",
                 "plasticWeight": 0.083375,
                 "weight": 0.083375,
-                "title": "Basic Shell",
-                "aabb": [
-                    [
-                        -73.0,
-                        -73.0,
-                        -2.0
-                    ],
-                    [
-                        73.0,
-                        73.0,
-                        62.7514
-                    ]
-                ],
                 "views": [
                     {
                         "rotate": [
@@ -2124,7 +2111,7 @@
                             0,
                             26
                         ],
-                        "dist": 726,
+                        "dist": 400,
                         "filepath": "../printedparts/images/BasicShell_view.png",
                         "title": "view",
                         "caption": "view",
@@ -2140,6 +2127,19 @@
                         ]
                     }
                 ],
+                "aabb": [
+                    [
+                        -73.0,
+                        -73.0,
+                        -2.0
+                    ],
+                    [
+                        73.0,
+                        73.0,
+                        62.7514
+                    ]
+                ],
+                "title": "Basic Shell",
                 "qty": 1,
                 "volume": 66.7,
                 "area": 60942.896357528116,
@@ -2165,7 +2165,7 @@
                             0,
                             225
                         ],
-                        "dist": 681,
+                        "dist": 180,
                         "filepath": "../printedparts/images/Lid_view.png",
                         "title": "view",
                         "caption": "view",
@@ -2249,7 +2249,7 @@
                                     0,
                                     225
                                 ],
-                                "dist": 681,
+                                "dist": 270,
                                 "filepath": "../printedparts/images/Base_view.png",
                                 "title": "view",
                                 "caption": "view",
@@ -2298,18 +2298,18 @@
                                 "children": [
                                     {
                                         "rotate": [
-                                            49,
-                                            0,
-                                            25
+                                            145,
+                                            135,
+                                            0
                                         ],
-                                        "dist": 336,
+                                        "dist": 150,
                                         "filepath": "../printedparts/images/ProMiniClip_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
                                             0,
-                                            -1,
-                                            -1
+                                            0,
+                                            0
                                         ],
                                         "type": "view",
                                         "size": [
@@ -2327,17 +2327,17 @@
                                 "children": [
                                     {
                                         "rotate": [
-                                            49,
-                                            0,
-                                            25
+                                            145,
+                                            135,
+                                            0
                                         ],
-                                        "dist": 336,
+                                        "dist": 150,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
                                             0,
-                                            -1,
-                                            -1
+                                            0,
+                                            0
                                         ],
                                         "type": "view",
                                         "size": [
@@ -2437,16 +2437,16 @@
                                                 "rotate": [
                                                     58,
                                                     0,
-                                                    225
+                                                    21
                                                 ],
-                                                "dist": 681,
+                                                "dist": 250,
                                                 "filepath": "../printedparts/images/Bumper_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    0,
-                                                    0,
-                                                    0
+                                                    5,
+                                                    12,
+                                                    14
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -2554,16 +2554,16 @@
                                         "rotate": [
                                             58,
                                             0,
-                                            225
+                                            21
                                         ],
-                                        "dist": 681,
+                                        "dist": 200,
                                         "filepath": "../printedparts/images/BumperStabiliser_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
-                                            0,
-                                            0,
-                                            0
+                                            5,
+                                            12,
+                                            14
                                         ],
                                         "type": "view",
                                         "size": [
@@ -2586,11 +2586,11 @@
                                     },
                                     {
                                         "rotate": [
-                                            72,
-                                            0,
-                                            130
+                                            145,
+                                            135,
+                                            0
                                         ],
-                                        "dist": 400,
+                                        "dist": 130,
                                         "filepath": "../printedparts/images/PinTackH141_view.png",
                                         "title": "view",
                                         "caption": "view",
@@ -2620,11 +2620,11 @@
                                     },
                                     {
                                         "rotate": [
-                                            72,
-                                            0,
-                                            130
+                                            145,
+                                            135,
+                                            0
                                         ],
-                                        "dist": 400,
+                                        "dist": 130,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -2654,15 +2654,15 @@
                                                 "rotate": [
                                                     58,
                                                     0,
-                                                    225
+                                                    21
                                                 ],
-                                                "dist": 681,
+                                                "dist": 250,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    0,
-                                                    0,
-                                                    0
+                                                    5,
+                                                    12,
+                                                    14
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -2769,15 +2769,15 @@
                                         "rotate": [
                                             58,
                                             0,
-                                            225
+                                            21
                                         ],
-                                        "dist": 681,
+                                        "dist": 200,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
-                                            0,
-                                            0,
-                                            0
+                                            5,
+                                            12,
+                                            14
                                         ],
                                         "type": "view",
                                         "size": [
@@ -2800,11 +2800,11 @@
                                     },
                                     {
                                         "rotate": [
-                                            72,
-                                            0,
-                                            130
+                                            145,
+                                            135,
+                                            0
                                         ],
-                                        "dist": 400,
+                                        "dist": 130,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -2833,11 +2833,11 @@
                                     },
                                     {
                                         "rotate": [
-                                            72,
-                                            0,
-                                            130
+                                            145,
+                                            135,
+                                            0
                                         ],
-                                        "dist": 400,
+                                        "dist": 130,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -3011,11 +3011,11 @@
                                                     },
                                                     {
                                                         "rotate": [
-                                                            72,
-                                                            0,
-                                                            130
+                                                            145,
+                                                            135,
+                                                            0
                                                         ],
-                                                        "dist": 400,
+                                                        "dist": 130,
                                                         "filepath": "../printedparts/images/PinTackH7_view.png",
                                                         "title": "view",
                                                         "caption": "view",
@@ -3045,11 +3045,11 @@
                                                     },
                                                     {
                                                         "rotate": [
-                                                            72,
-                                                            0,
-                                                            130
+                                                            145,
+                                                            135,
+                                                            0
                                                         ],
-                                                        "dist": 400,
+                                                        "dist": 130,
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -3104,7 +3104,7 @@
                                                             0,
                                                             25
                                                         ],
-                                                        "dist": 336,
+                                                        "dist": 150,
                                                         "filepath": "../printedparts/images/Wheel_view.png",
                                                         "title": "view",
                                                         "caption": "view",
@@ -3427,11 +3427,11 @@
                                                     },
                                                     {
                                                         "rotate": [
-                                                            72,
-                                                            0,
-                                                            130
+                                                            145,
+                                                            135,
+                                                            0
                                                         ],
-                                                        "dist": 400,
+                                                        "dist": 130,
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -3460,11 +3460,11 @@
                                                     },
                                                     {
                                                         "rotate": [
-                                                            72,
-                                                            0,
-                                                            130
+                                                            145,
+                                                            135,
+                                                            0
                                                         ],
-                                                        "dist": 400,
+                                                        "dist": 130,
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -3519,7 +3519,7 @@
                                                             0,
                                                             25
                                                         ],
-                                                        "dist": 336,
+                                                        "dist": 150,
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -3913,18 +3913,18 @@
                                             },
                                             {
                                                 "rotate": [
-                                                    63,
+                                                    235,
                                                     0,
-                                                    114
+                                                    257
                                                 ],
                                                 "dist": 172,
                                                 "filepath": "../printedparts/images/CasterHousing_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    1.4,
-                                                    0.8,
-                                                    -5.6
+                                                    -4,
+                                                    0,
+                                                    -6
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -4007,11 +4007,11 @@
                                     },
                                     {
                                         "rotate": [
-                                            72,
-                                            0,
-                                            130
+                                            145,
+                                            135,
+                                            0
                                         ],
-                                        "dist": 400,
+                                        "dist": 130,
                                         "filepath": "../printedparts/images/PinTackH61_view.png",
                                         "title": "view",
                                         "caption": "view",
@@ -4837,7 +4837,7 @@
                                                     0,
                                                     26
                                                 ],
-                                                "dist": 726,
+                                                "dist": 400,
                                                 "filepath": "../printedparts/images/BasicShell_view.png",
                                                 "title": "view",
                                                 "caption": "view",
@@ -4895,7 +4895,7 @@
                                                             0,
                                                             225
                                                         ],
-                                                        "dist": 681,
+                                                        "dist": 180,
                                                         "filepath": "../printedparts/images/Lid_view.png",
                                                         "title": "view",
                                                         "caption": "view",
@@ -6349,7 +6349,7 @@
                             0,
                             225
                         ],
-                        "dist": 681,
+                        "dist": 270,
                         "filepath": "../printedparts/images/Base_view.png",
                         "title": "view",
                         "caption": "view",
@@ -6400,7 +6400,7 @@
                             0,
                             130
                         ],
-                        "dist": 400,
+                        "dist": 140,
                         "filepath": "../printedparts/images/LineSensorHolder_view.png",
                         "title": "view",
                         "caption": "view",
@@ -6437,11 +6437,11 @@
                 "views": [
                     {
                         "rotate": [
-                            72,
-                            0,
-                            130
+                            145,
+                            135,
+                            0
                         ],
-                        "dist": 400,
+                        "dist": 130,
                         "filepath": "../printedparts/images/PinTackH7_view.png",
                         "title": "view",
                         "caption": "view",
@@ -6513,7 +6513,7 @@
                             0,
                             25
                         ],
-                        "dist": 336,
+                        "dist": 150,
                         "filepath": "../printedparts/images/Wheel_view.png",
                         "title": "view",
                         "caption": "view",
@@ -6587,18 +6587,18 @@
                 "views": [
                     {
                         "rotate": [
-                            63,
+                            235,
                             0,
-                            114
+                            257
                         ],
                         "dist": 172,
                         "filepath": "../printedparts/images/CasterHousing_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
-                            1.4,
-                            0.8,
-                            -5.6
+                            -4,
+                            0,
+                            -6
                         ],
                         "type": "view",
                         "size": [
@@ -6626,11 +6626,11 @@
                 "views": [
                     {
                         "rotate": [
-                            72,
-                            0,
-                            130
+                            145,
+                            135,
+                            0
                         ],
-                        "dist": 400,
+                        "dist": 130,
                         "filepath": "../printedparts/images/PinTackH61_view.png",
                         "title": "view",
                         "caption": "view",
@@ -6695,7 +6695,7 @@
                                     0,
                                     225
                                 ],
-                                "dist": 681,
+                                "dist": 270,
                                 "filepath": "../printedparts/images/Base_view.png",
                                 "title": "view",
                                 "caption": "view",
@@ -6813,7 +6813,7 @@
                                                     0,
                                                     130
                                                 ],
-                                                "dist": 400,
+                                                "dist": 140,
                                                 "filepath": "../printedparts/images/LineSensorHolder_view.png",
                                                 "title": "view",
                                                 "caption": "view",
@@ -6931,11 +6931,11 @@
                                     },
                                     {
                                         "rotate": [
-                                            72,
-                                            0,
-                                            130
+                                            145,
+                                            135,
+                                            0
                                         ],
-                                        "dist": 400,
+                                        "dist": 130,
                                         "filepath": "../printedparts/images/PinTackH7_view.png",
                                         "title": "view",
                                         "caption": "view",
@@ -7110,11 +7110,11 @@
                                                     },
                                                     {
                                                         "rotate": [
-                                                            72,
-                                                            0,
-                                                            130
+                                                            145,
+                                                            135,
+                                                            0
                                                         ],
-                                                        "dist": 400,
+                                                        "dist": 130,
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -7143,11 +7143,11 @@
                                                     },
                                                     {
                                                         "rotate": [
-                                                            72,
-                                                            0,
-                                                            130
+                                                            145,
+                                                            135,
+                                                            0
                                                         ],
-                                                        "dist": 400,
+                                                        "dist": 130,
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -7202,7 +7202,7 @@
                                                             0,
                                                             25
                                                         ],
-                                                        "dist": 336,
+                                                        "dist": 150,
                                                         "filepath": "../printedparts/images/Wheel_view.png",
                                                         "title": "view",
                                                         "caption": "view",
@@ -7525,11 +7525,11 @@
                                                     },
                                                     {
                                                         "rotate": [
-                                                            72,
-                                                            0,
-                                                            130
+                                                            145,
+                                                            135,
+                                                            0
                                                         ],
-                                                        "dist": 400,
+                                                        "dist": 130,
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -7558,11 +7558,11 @@
                                                     },
                                                     {
                                                         "rotate": [
-                                                            72,
-                                                            0,
-                                                            130
+                                                            145,
+                                                            135,
+                                                            0
                                                         ],
-                                                        "dist": 400,
+                                                        "dist": 130,
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -7617,7 +7617,7 @@
                                                             0,
                                                             25
                                                         ],
-                                                        "dist": 336,
+                                                        "dist": 150,
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -8011,18 +8011,18 @@
                                             },
                                             {
                                                 "rotate": [
-                                                    63,
+                                                    235,
                                                     0,
-                                                    114
+                                                    257
                                                 ],
                                                 "dist": 172,
                                                 "filepath": "../printedparts/images/CasterHousing_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    1.4,
-                                                    0.8,
-                                                    -5.6
+                                                    -4,
+                                                    0,
+                                                    -6
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -8105,11 +8105,11 @@
                                     },
                                     {
                                         "rotate": [
-                                            72,
-                                            0,
-                                            130
+                                            145,
+                                            135,
+                                            0
                                         ],
-                                        "dist": 400,
+                                        "dist": 130,
                                         "filepath": "../printedparts/images/PinTackH61_view.png",
                                         "title": "view",
                                         "caption": "view",
@@ -8788,7 +8788,7 @@
     },
     {
         "cut": [],
-        "hash": "27ed22e9e008d5b3a0896519e5c875f9",
+        "hash": "d4a5f3657cc22979436d4187d31e7d50",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -10584,7 +10584,7 @@
                             0,
                             225
                         ],
-                        "dist": 681,
+                        "dist": 270,
                         "filepath": "../printedparts/images/Base_view.png",
                         "title": "view",
                         "caption": "view",
@@ -10615,18 +10615,18 @@
                 "views": [
                     {
                         "rotate": [
-                            49,
-                            0,
-                            25
+                            145,
+                            135,
+                            0
                         ],
-                        "dist": 336,
+                        "dist": 150,
                         "filepath": "../printedparts/images/ProMiniClip_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
                             0,
-                            -1,
-                            -1
+                            0,
+                            0
                         ],
                         "type": "view",
                         "size": [
@@ -10652,16 +10652,16 @@
                         "rotate": [
                             58,
                             0,
-                            225
+                            21
                         ],
-                        "dist": 681,
+                        "dist": 250,
                         "filepath": "../printedparts/images/Bumper_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
-                            0,
-                            0,
-                            0
+                            5,
+                            12,
+                            14
                         ],
                         "type": "view",
                         "size": [
@@ -10687,16 +10687,16 @@
                         "rotate": [
                             58,
                             0,
-                            225
+                            21
                         ],
-                        "dist": 681,
+                        "dist": 200,
                         "filepath": "../printedparts/images/BumperStabiliser_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
-                            0,
-                            0,
-                            0
+                            5,
+                            12,
+                            14
                         ],
                         "type": "view",
                         "size": [
@@ -10726,11 +10726,11 @@
                 "views": [
                     {
                         "rotate": [
-                            72,
-                            0,
-                            130
+                            145,
+                            135,
+                            0
                         ],
-                        "dist": 400,
+                        "dist": 130,
                         "filepath": "../printedparts/images/PinTackH141_view.png",
                         "title": "view",
                         "caption": "view",
@@ -10808,11 +10808,11 @@
                 "views": [
                     {
                         "rotate": [
-                            72,
-                            0,
-                            130
+                            145,
+                            135,
+                            0
                         ],
-                        "dist": 400,
+                        "dist": 130,
                         "filepath": "../printedparts/images/PinTackH7_view.png",
                         "title": "view",
                         "caption": "view",
@@ -10847,7 +10847,7 @@
                             0,
                             25
                         ],
-                        "dist": 336,
+                        "dist": 150,
                         "filepath": "../printedparts/images/Wheel_view.png",
                         "title": "view",
                         "caption": "view",
@@ -10925,18 +10925,18 @@
                 "views": [
                     {
                         "rotate": [
-                            63,
+                            235,
                             0,
-                            114
+                            257
                         ],
                         "dist": 172,
                         "filepath": "../printedparts/images/CasterHousing_view.png",
                         "title": "view",
                         "caption": "view",
                         "translate": [
-                            1.4,
-                            0.8,
-                            -5.6
+                            -4,
+                            0,
+                            -6
                         ],
                         "type": "view",
                         "size": [
@@ -10966,11 +10966,11 @@
                 "views": [
                     {
                         "rotate": [
-                            72,
-                            0,
-                            130
+                            145,
+                            135,
+                            0
                         ],
-                        "dist": 400,
+                        "dist": 130,
                         "filepath": "../printedparts/images/PinTackH61_view.png",
                         "title": "view",
                         "caption": "view",
@@ -11010,7 +11010,7 @@
                             0,
                             23
                         ],
-                        "dist": 184,
+                        "dist": 240,
                         "filepath": "../printedparts/images/PenLiftSlider_view.png",
                         "title": "view",
                         "caption": "view",
@@ -11064,7 +11064,7 @@
                             0,
                             23
                         ],
-                        "dist": 184,
+                        "dist": 240,
                         "filepath": "../printedparts/images/PenLiftHolder_view.png",
                         "title": "view",
                         "caption": "view",
@@ -11114,11 +11114,11 @@
                 "views": [
                     {
                         "rotate": [
-                            72,
-                            0,
-                            130
+                            145,
+                            135,
+                            0
                         ],
-                        "dist": 400,
+                        "dist": 130,
                         "filepath": "../printedparts/images/PinTackH9_view.png",
                         "title": "view",
                         "caption": "view",
@@ -11173,7 +11173,7 @@
                             0,
                             26
                         ],
-                        "dist": 726,
+                        "dist": 400,
                         "filepath": "../printedparts/images/BasicShell_view.png",
                         "title": "view",
                         "caption": "view",
@@ -11243,7 +11243,7 @@
                                     0,
                                     225
                                 ],
-                                "dist": 681,
+                                "dist": 270,
                                 "filepath": "../printedparts/images/Base_view.png",
                                 "title": "view",
                                 "caption": "view",
@@ -11292,18 +11292,18 @@
                                 "children": [
                                     {
                                         "rotate": [
-                                            49,
-                                            0,
-                                            25
+                                            145,
+                                            135,
+                                            0
                                         ],
-                                        "dist": 336,
+                                        "dist": 150,
                                         "filepath": "../printedparts/images/ProMiniClip_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
                                             0,
-                                            -1,
-                                            -1
+                                            0,
+                                            0
                                         ],
                                         "type": "view",
                                         "size": [
@@ -11321,17 +11321,17 @@
                                 "children": [
                                     {
                                         "rotate": [
-                                            49,
-                                            0,
-                                            25
+                                            145,
+                                            135,
+                                            0
                                         ],
-                                        "dist": 336,
+                                        "dist": 150,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
                                             0,
-                                            -1,
-                                            -1
+                                            0,
+                                            0
                                         ],
                                         "type": "view",
                                         "size": [
@@ -11431,16 +11431,16 @@
                                                 "rotate": [
                                                     58,
                                                     0,
-                                                    225
+                                                    21
                                                 ],
-                                                "dist": 681,
+                                                "dist": 250,
                                                 "filepath": "../printedparts/images/Bumper_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    0,
-                                                    0,
-                                                    0
+                                                    5,
+                                                    12,
+                                                    14
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -11548,16 +11548,16 @@
                                         "rotate": [
                                             58,
                                             0,
-                                            225
+                                            21
                                         ],
-                                        "dist": 681,
+                                        "dist": 200,
                                         "filepath": "../printedparts/images/BumperStabiliser_view.png",
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
-                                            0,
-                                            0,
-                                            0
+                                            5,
+                                            12,
+                                            14
                                         ],
                                         "type": "view",
                                         "size": [
@@ -11580,11 +11580,11 @@
                                     },
                                     {
                                         "rotate": [
-                                            72,
-                                            0,
-                                            130
+                                            145,
+                                            135,
+                                            0
                                         ],
-                                        "dist": 400,
+                                        "dist": 130,
                                         "filepath": "../printedparts/images/PinTackH141_view.png",
                                         "title": "view",
                                         "caption": "view",
@@ -11614,11 +11614,11 @@
                                     },
                                     {
                                         "rotate": [
-                                            72,
-                                            0,
-                                            130
+                                            145,
+                                            135,
+                                            0
                                         ],
-                                        "dist": 400,
+                                        "dist": 130,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -11648,15 +11648,15 @@
                                                 "rotate": [
                                                     58,
                                                     0,
-                                                    225
+                                                    21
                                                 ],
-                                                "dist": 681,
+                                                "dist": 250,
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    0,
-                                                    0,
-                                                    0
+                                                    5,
+                                                    12,
+                                                    14
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -11763,15 +11763,15 @@
                                         "rotate": [
                                             58,
                                             0,
-                                            225
+                                            21
                                         ],
-                                        "dist": 681,
+                                        "dist": 200,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
-                                            0,
-                                            0,
-                                            0
+                                            5,
+                                            12,
+                                            14
                                         ],
                                         "type": "view",
                                         "size": [
@@ -11794,11 +11794,11 @@
                                     },
                                     {
                                         "rotate": [
-                                            72,
-                                            0,
-                                            130
+                                            145,
+                                            135,
+                                            0
                                         ],
-                                        "dist": 400,
+                                        "dist": 130,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -11827,11 +11827,11 @@
                                     },
                                     {
                                         "rotate": [
-                                            72,
-                                            0,
-                                            130
+                                            145,
+                                            135,
+                                            0
                                         ],
-                                        "dist": 400,
+                                        "dist": 130,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -12005,11 +12005,11 @@
                                                     },
                                                     {
                                                         "rotate": [
-                                                            72,
-                                                            0,
-                                                            130
+                                                            145,
+                                                            135,
+                                                            0
                                                         ],
-                                                        "dist": 400,
+                                                        "dist": 130,
                                                         "filepath": "../printedparts/images/PinTackH7_view.png",
                                                         "title": "view",
                                                         "caption": "view",
@@ -12039,11 +12039,11 @@
                                                     },
                                                     {
                                                         "rotate": [
-                                                            72,
-                                                            0,
-                                                            130
+                                                            145,
+                                                            135,
+                                                            0
                                                         ],
-                                                        "dist": 400,
+                                                        "dist": 130,
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -12098,7 +12098,7 @@
                                                             0,
                                                             25
                                                         ],
-                                                        "dist": 336,
+                                                        "dist": 150,
                                                         "filepath": "../printedparts/images/Wheel_view.png",
                                                         "title": "view",
                                                         "caption": "view",
@@ -12421,11 +12421,11 @@
                                                     },
                                                     {
                                                         "rotate": [
-                                                            72,
-                                                            0,
-                                                            130
+                                                            145,
+                                                            135,
+                                                            0
                                                         ],
-                                                        "dist": 400,
+                                                        "dist": 130,
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -12454,11 +12454,11 @@
                                                     },
                                                     {
                                                         "rotate": [
-                                                            72,
-                                                            0,
-                                                            130
+                                                            145,
+                                                            135,
+                                                            0
                                                         ],
-                                                        "dist": 400,
+                                                        "dist": 130,
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -12513,7 +12513,7 @@
                                                             0,
                                                             25
                                                         ],
-                                                        "dist": 336,
+                                                        "dist": 150,
                                                         "title": "view",
                                                         "caption": "view",
                                                         "translate": [
@@ -12907,18 +12907,18 @@
                                             },
                                             {
                                                 "rotate": [
-                                                    63,
+                                                    235,
                                                     0,
-                                                    114
+                                                    257
                                                 ],
                                                 "dist": 172,
                                                 "filepath": "../printedparts/images/CasterHousing_view.png",
                                                 "title": "view",
                                                 "caption": "view",
                                                 "translate": [
-                                                    1.4,
-                                                    0.8,
-                                                    -5.6
+                                                    -4,
+                                                    0,
+                                                    -6
                                                 ],
                                                 "type": "view",
                                                 "size": [
@@ -13001,11 +13001,11 @@
                                     },
                                     {
                                         "rotate": [
-                                            72,
-                                            0,
-                                            130
+                                            145,
+                                            135,
+                                            0
                                         ],
-                                        "dist": 400,
+                                        "dist": 130,
                                         "filepath": "../printedparts/images/PinTackH61_view.png",
                                         "title": "view",
                                         "caption": "view",
@@ -13070,7 +13070,7 @@
                                                     0,
                                                     23
                                                 ],
-                                                "dist": 184,
+                                                "dist": 240,
                                                 "filepath": "../printedparts/images/PenLiftSlider_view.png",
                                                 "title": "view",
                                                 "caption": "view",
@@ -13128,7 +13128,7 @@
                                                             0,
                                                             23
                                                         ],
-                                                        "dist": 184,
+                                                        "dist": 240,
                                                         "filepath": "../printedparts/images/PenLiftHolder_view.png",
                                                         "title": "view",
                                                         "caption": "view",
@@ -13221,11 +13221,11 @@
                                     },
                                     {
                                         "rotate": [
-                                            72,
-                                            0,
-                                            130
+                                            145,
+                                            135,
+                                            0
                                         ],
-                                        "dist": 400,
+                                        "dist": 130,
                                         "filepath": "../printedparts/images/PinTackH9_view.png",
                                         "title": "view",
                                         "caption": "view",
@@ -13255,11 +13255,11 @@
                                     },
                                     {
                                         "rotate": [
-                                            72,
-                                            0,
-                                            130
+                                            145,
+                                            135,
+                                            0
                                         ],
-                                        "dist": 400,
+                                        "dist": 130,
                                         "title": "view",
                                         "caption": "view",
                                         "translate": [
@@ -14154,7 +14154,7 @@
                                                     0,
                                                     26
                                                 ],
-                                                "dist": 726,
+                                                "dist": 400,
                                                 "filepath": "../printedparts/images/BasicShell_view.png",
                                                 "title": "view",
                                                 "caption": "view",
@@ -14211,7 +14211,7 @@
                             0,
                             225
                         ],
-                        "dist": 681,
+                        "dist": 270,
                         "filepath": "../printedparts/images/SimpleBase_view.png",
                         "title": "view",
                         "caption": "view",
@@ -14287,7 +14287,7 @@
                             0,
                             225
                         ],
-                        "dist": 681,
+                        "dist": 270,
                         "filepath": "../printedparts/images/SimpleBase_view.png",
                         "title": "view",
                         "caption": "view",

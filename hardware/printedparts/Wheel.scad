@@ -2,7 +2,7 @@ module Wheel_STL() {
 
 	printedPart("printedparts/Wheel.scad", "Wheel", "Wheel_STL()") {
 
-	    view(t=[0, -1, -1], r=[49, 0, 25], d=336);
+	    view(t=[0, -1, -1], r=[49, 0, 25], d=150);
 
 		if (DebugCoordinateFrames) frame();
 		if (DebugConnectors) connector(Wheel_Con_Default);

@@ -12,7 +12,7 @@ module PinTack_STL(h=10) {
     ) {
         markdown("guide","Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.");
 
-        view(t=[0,0,0],r=[72,0,130],d=400);
+        view(t=[0,0,0],r=[145,135,0],d=130);
 
         if (DebugCoordinateFrames) frame();
         if (DebugConnectors) {

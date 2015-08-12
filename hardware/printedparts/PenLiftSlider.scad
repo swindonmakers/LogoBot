@@ -14,7 +14,7 @@ module PenLiftSlider_STL()
 
 		markdown("guide","Slider will probably require some sanding to get a smooth fit into the holder.  A bit of silicon spray lubricant may also help.");
 
-	    view(t=[1, -8, -11], r=[52, 0, 23], d=184);
+	    view(t=[1, -8, -11], r=[52, 0, 23], d=240);
 
 		if (DebugCoordinateFrames) frame();
 		if (DebugConnectors) {

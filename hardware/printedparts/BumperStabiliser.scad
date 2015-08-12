@@ -2,7 +2,7 @@ module BumperStabiliser_STL()
 {
 	printedPart("printedparts/BumperStabiliser.scad", "BumperStabiliser", "BumperStabiliser_STL()") {
 
-	    view(t=[0,0,0], r=[58,0,225], d=681);
+	    view(t=[5,12,14], r=[58,0,21], d=200);
 
 		if (DebugCoordinateFrames) frame();
 		if (DebugConnectors) {
