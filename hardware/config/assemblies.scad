@@ -15,8 +15,9 @@ include <../assemblies/MarbleCaster.scad>
 include <../assemblies/Wheel.scad>
 include <../assemblies/PenLift.scad>
 include <../assemblies/Shell.scad>
+include <../assemblies/LineSensor.scad>
 
 // these go last!
 include <../assemblies/LogoBot.scad>
 include <../assemblies/LogoBotLineFollower.scad>
-include <../assemblies/LineSensor.scad>
+include <../assemblies/LogoBotPolarGraph.scad>
