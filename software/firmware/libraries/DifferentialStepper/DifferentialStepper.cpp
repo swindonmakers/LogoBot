@@ -382,11 +382,13 @@ void DifferentialStepper::stop() {
     if (c == NULL) return;
 
     // recalc minimum deceleration distance
-    c->decelerateAfter = max(c->totalSteps >> 1, c->totalSteps - _accelDist);
+    c->decelerateAfter = max(c->totalSteps - _stepsCompleted, c->totalSteps - _accelDist);
+
+    // make sure the queue is cleared
+    _qSize = 1;
 
     // if already deaccelerating, then just clear the rest of the queue
     if (_stepsCompleted > c->decelerateAfter) {
-        _qSize = 1;
         return;
     }
 

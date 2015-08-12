@@ -13,6 +13,8 @@ DifferentialStepper diffDrive(
 long nextLeft, nextRight;
 int leftBaseline = 0, rightBaseline = 0;
 int leftThreshold = 50, rightThreshold = 50;
+byte colliding = 0;
+float leftReading = 0, rightReading = 0;  // time averaged values to remove some noise
 
 void setup()
 {
@@ -27,44 +29,62 @@ void setup()
   nextLeft = 10;
   nextRight = 10;
 
+  // wait a sec to give us time to put the bot down
+  delay(1000);
+
   setBaselines();
 }
 
 void loop()
 {
-
   diffDrive.run();
 
-  if (diffDrive.isQEmpty()) {
+  handleSensors();
 
-      // check sensors
-      int lv  = analogRead(IR_LEFT_PIN);
-      int rv = analogRead(IR_RIGHT_PIN);
-
-      if (lv > leftThreshold) {
-          nextLeft = -5;
-      }
-      if (rv > rightThreshold) {
-          nextRight = -5;
-      }
-
-      Serial.print(lv);
-      Serial.print(',');
-      Serial.println(rv);
-
-      // decide what to do next
-      diffDrive.queueMove(nextLeft * STEPS_PER_MM, nextRight * STEPS_PER_MM);
-
-      // reset next
-      nextLeft = 10;
-      nextRight = 10;
+  if (!diffDrive.isQFull()) {
+      // queue up straight moves to fill buffer
+      diffDrive.queueMove((long)10 * STEPS_PER_MM, (long)10 * STEPS_PER_MM);
   }
+}
+
+void handleSensors() {
+    // check sensors
+    leftReading =  (leftReading * 15 + analogRead(IR_LEFT_PIN)) / 16;
+    rightReading =  (rightReading * 15 + analogRead(IR_RIGHT_PIN)) / 16;
+
+    byte nowColliding = 0;
+    if (leftReading > leftThreshold) nowColliding = 1;
+    if (rightReading > rightThreshold) nowColliding += 2;
+
+	if (nowColliding != colliding) {
+		// collision state has changed
+		handleCollision(nowColliding);
+
+		colliding = nowColliding;
+	}
+}
+
+void handleCollision(byte nowColliding) {
+    Serial.print("Collision: ");
+    Serial.println(nowColliding);
+
+    if (nowColliding == 0 || nowColliding == 3) return;
+
+    // stop bot, and thereby empty queue buffer
+    diffDrive.stop();
+
+    // queue up a recovery move
+    if (nowColliding == 1) // hit left, so turn left
+        diffDrive.queueMove((long)1 * STEPS_PER_MM, (long)15 * STEPS_PER_MM);
+    else // hit right, so turn right
+        diffDrive.queueMove((long)15 * STEPS_PER_MM, (long)1 * STEPS_PER_MM);
 }
 
 
 void setBaselines() {
   int lv;
   int rv;
+  Serial.println("Gathering sensor baseline...");
   leftBaseline = 0;
   rightBaseline = 0;
   for (int i =0; i<32; i++) {
@@ -80,6 +100,10 @@ void setBaselines() {
 
   leftThreshold = leftBaseline + 10;
   rightThreshold = rightBaseline + 10;
+  Serial.print("Baselines: ");
+  Serial.print(leftBaseline);
+  Serial.print(',');
+  Serial.println(rightBaseline);
 }
 
 
