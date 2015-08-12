@@ -8,20 +8,20 @@ module LogoBotPolarGraphAssembly () {
 
     // bit of wood to fix it all to
     color([0.8,0.7,0.6])
-        translate([-200,-10,-20])
-        cube([400,20,20]);
+        translate([-250,-10,-20])
+        cube([500,20,20]);
 
     // drawing surface
     color([0.9,0.9,0.9])
-        translate([-200,-10,-420])
-        cube([400,4,400]);
+        translate([-250,-10,-420])
+        cube([500,4,400]);
 
     // wheels - aka winches
-    attach([[200,0,0],[0,0,-1],0,00], MotorClip_Con_Fixing1, ExplodeSpacing = 40)
-        RightWheelAssembly();
-
-    attach([[-200,0,0],[0,0,-1],0,00], MotorClip_Con_Fixing2, ExplodeSpacing = 40)
+    attach([[240,0,0],[0,0,-1],0,00], MotorClip_Con_Fixing1, ExplodeSpacing = 40)
         LeftWheelAssembly();
+
+    attach([[-240,0,0],[0,0,-1],0,00], MotorClip_Con_Fixing2, ExplodeSpacing = 40)
+        RightWheelAssembly();
 
 
     // gondola - aka base
@@ -32,11 +32,6 @@ module LogoBotPolarGraphAssembly () {
         rotate([0,0,90]) {
             attach(LogoBot_Con_PenLift_Front, PenLiftSlider_Con_BaseFront)
                 PenLiftAssembly();
-
-            attach(LogoBot_Con_PenLift_Front, offsetConnector(DefConUp, [0, 0, 2 + 2.5]), ExplodeSpacing=20)
-                PinTack_STL(h=2.5+4+2.5);
-            attach(LogoBot_Con_PenLift_Rear, offsetConnector(DefConUp, [0, 0, 2 + 2.5]), ExplodeSpacing=20)
-                PinTack_STL(h=2.5+4+2.5);
 
             attach(LogoBot_Con_PenLiftServo, MicroServo_Con_Horn, ExplodeSpacing=0) {
                 MicroServo();
