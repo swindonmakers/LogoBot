@@ -204,8 +204,8 @@ void PolarBot::circle(float dia, float direction)
 
 // position calcs
 void PolarBot::resetPosition() {
-	state.x = 220;
-	state.y = -200;
+	state.x = WHEELSPACING/2;
+	state.y = -300;
 	state.ang = 0;
 	state.left = sqrt(sq(state.x) + sq(state.y));
 	state.right = sqrt(sq(WHEELSPACING-state.x) + sq(state.y));
