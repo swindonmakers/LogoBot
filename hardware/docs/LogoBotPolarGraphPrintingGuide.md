@@ -100,23 +100,6 @@ Approx Plastic Cost | 0.08 GBP
  * Slider will probably require some sanding to get a smooth fit into the holder.  A bit of silicon spray lubricant may also help.
 
 
-### Pin Tack H7
-
-Metric | Value 
---- | --- 
-Quantity | 4
-STL | [Pin Tack H7](../printedparts/stl/PinTackH7.stl)
-Plastic (Kg) | 0.0
-Plastic (cm3) | 1.2
-Approx Plastic Cost | 0.02 GBP
-
-![](../printedparts/images/PinTackH7_view.png)
-
-**Notes**
-
- * Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.
-
-
 ### Pin Tack H9
 
 Metric | Value 
@@ -159,9 +142,9 @@ Approx Plastic Cost | 0.1 GBP
 
 Metric | Value 
 --- | --- 
-Total Parts | 16
+Total Parts | 12
 Total Plastic (Kg) | 0.07KG
-Total Plastic (cm3) | 53.3cm3
-Approx Plastic Cost | 1.0 GBP
+Total Plastic (cm3) | 52.1cm3
+Approx Plastic Cost | 0.98 GBP
 
 
