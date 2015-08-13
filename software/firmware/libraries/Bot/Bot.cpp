@@ -144,7 +144,7 @@ void Bot::drive(float distance)
 	state.y += distance * sin(state.ang * DEGTORAD);
 
 	// prime the move
-	int steps = distance * STEPS_PER_MM;
+	long steps = distance * STEPS_PER_MM;
 	_diffDrive.queueMove(steps,steps);
 }
 
@@ -155,7 +155,7 @@ void Bot::turn(float ang)
 	correctAngleWrap();
 
 	// prime the move
-	int steps = ang * STEPS_PER_DEG;
+	long steps = ang * STEPS_PER_DEG;
 	_diffDrive.queueMove(-steps,steps);
 }
 
