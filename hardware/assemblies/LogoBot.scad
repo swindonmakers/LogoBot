@@ -297,10 +297,12 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
                 );
             }
 
-            step(13, "Wire up power to the stepper drivers and Arduino.  Then connect the microswitches to the Arduino.") {
+            step(13, "Wire up power to the stepper drivers and Arduino.  Then connect the microswitches to the Arduino. \\n
+            Refer to the following wiring for Arduino pin connections: \\n
+            ![Arduino Wiring Diagram](../images/ArduinoWiringDiagram.png)") {
                 view(t=[0,20,40], r=[62,0,190], d=250);
 
-                // experimental wiring :)
+                // TODO: use proper connectors for wiring, vs hard-coded positions
 
                 // arduino to ground
                 JumperWire(

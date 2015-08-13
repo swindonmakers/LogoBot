@@ -225,7 +225,9 @@ Qty | Name
 ![](../assemblies/LogoBot/FinalAssembly_step11_view.png)
 12. Wire in the terminal block to distribute power
 ![](../assemblies/LogoBot/FinalAssembly_step12_view.png)
-13. Wire up power to the stepper drivers and Arduino.  Then connect the microswitches to the Arduino.
+13. Wire up power to the stepper drivers and Arduino.  Then connect the microswitches to the Arduino. 
+            Refer to the following wiring for Arduino pin connections: 
+            ![Arduino Wiring Diagram](../images/ArduinoWiringDiagram.png)
 ![](../assemblies/LogoBot/FinalAssembly_step13_view.png)
 14. Push the shell down onto the base and twist to lock into place
 ![](../assemblies/LogoBot/FinalAssembly_step14_view.png)

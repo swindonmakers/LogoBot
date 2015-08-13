@@ -1,7 +1,7 @@
 [
     {
         "cut": [],
-        "hash": "6dc65cf7ca469ec50e801933f30e919f",
+        "hash": "9e54f493a9f79f1c515f3a41aaa05015",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -504,7 +504,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "7bf285f98c004fe0b6745a2dd1bd505f",
+                "hash": "493b0d920c65384dc880fa9742feaa4a",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -969,7 +969,7 @@
                         ]
                     },
                     {
-                        "desc": "Wire up power to the stepper drivers and Arduino.  Then connect the microswitches to the Arduino.",
+                        "desc": "Wire up power to the stepper drivers and Arduino.  Then connect the microswitches to the Arduino. \n            Refer to the following wiring for Arduino pin connections: \n            ![Arduino Wiring Diagram](../images/ArduinoWiringDiagram.png)",
                         "num": 13,
                         "views": [
                             {
@@ -1477,7 +1477,7 @@
             },
             {
                 "cut": [],
-                "hash": "554533713560a76c4230a12a4bb7a589",
+                "hash": "83c20e2d91eed7ec03771831173fce47",
                 "vitamins": [],
                 "views": [],
                 "assemblies": [],
@@ -2155,7 +2155,7 @@
                         "type": "markdown"
                     }
                 ],
-                "hash": "c109a50f95cf0a6c1653a859ba04fad6",
+                "hash": "82916eccd6f4f34a4edda1bd1bf1d358",
                 "plasticWeight": 0.017375,
                 "weight": 0.017375,
                 "views": [
@@ -4792,7 +4792,7 @@
                                 "title": "JumperWire None to None 1pin 100mm"
                             }
                         ],
-                        "desc": "Wire up power to the stepper drivers and Arduino.  Then connect the microswitches to the Arduino."
+                        "desc": "Wire up power to the stepper drivers and Arduino.  Then connect the microswitches to the Arduino. \n            Refer to the following wiring for Arduino pin connections: \n            ![Arduino Wiring Diagram](../images/ArduinoWiringDiagram.png)"
                     },
                     {
                         "num": 14,
@@ -5435,7 +5435,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "bc1622e9989aba5ade6201ef688d7870",
+                "hash": "d991398d50ba411be7c5cd4d4e9f17ec",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -8788,7 +8788,2802 @@
     },
     {
         "cut": [],
-        "hash": "d4a5f3657cc22979436d4187d31e7d50",
+        "hash": "ae7631109f10c7f11035906ff1a9f6cd",
+        "vitamins": [
+            {
+                "hash": "da336afd2a62a43e7dcc8dc22d47913c",
+                "title": "28YBJ48 Stepper Motor",
+                "views": [
+                    {
+                        "rotate": [
+                            170,
+                            334,
+                            0
+                        ],
+                        "dist": 140,
+                        "filepath": "../vitamins/images/28YBJ48StepperMotor_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 2,
+                "parts": [],
+                "call": "StepperMotor28YBJ48()",
+                "file": "vitamins/motor.scad"
+            },
+            {
+                "hash": "76d351ab8991b9f920200c0caac216ed",
+                "title": "ULN2003 Driver Board",
+                "views": [
+                    {
+                        "rotate": [
+                            55,
+                            0,
+                            25
+                        ],
+                        "dist": 140,
+                        "filepath": "../vitamins/images/ULN2003DriverBoard_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 2,
+                "parts": [],
+                "call": "ULN2003DriverBoard()",
+                "file": "vitamins/ULN2003DriverBoard.scad"
+            },
+            {
+                "hash": "b3ed4da1098b75bcce508905c3b63f30",
+                "title": "3mm LED",
+                "views": [
+                    {
+                        "rotate": [
+                            34,
+                            2,
+                            22
+                        ],
+                        "dist": 200,
+                        "filepath": "../vitamins/images/3mmLED_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            23,
+                            9,
+                            3
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 8,
+                "parts": [],
+                "call": "LED(LEDType=LED_3mm)",
+                "file": "vitamins/LED.scad"
+            },
+            {
+                "hash": "35edd18e72875b24c74e6b5b141124b8",
+                "title": "Fine Line Pen",
+                "views": [
+                    {
+                        "rotate": [
+                            66,
+                            0,
+                            60
+                        ],
+                        "dist": 119,
+                        "filepath": "../vitamins/images/FineLinePen_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            -1,
+                            0,
+                            -1
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "parts": [],
+                "call": "Pen()",
+                "file": "vitamins/Pen.scad"
+            },
+            {
+                "hash": "89637be04af3da29bb690f5e1dadfe60",
+                "title": "9g Micro Servo",
+                "views": [
+                    {
+                        "rotate": [
+                            72,
+                            0,
+                            33
+                        ],
+                        "dist": 280,
+                        "filepath": "../vitamins/images/9gMicroServo_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            6.9,
+                            13.6,
+                            10.3
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "parts": [
+                    {
+                        "call": "MicroServo_Body()",
+                        "type": "part",
+                        "children": [],
+                        "title": "MicroServo_Body"
+                    },
+                    {
+                        "call": "MicroServo_Spline()",
+                        "type": "part",
+                        "children": [],
+                        "title": "MicroServo_Spline"
+                    }
+                ],
+                "call": "MicroServo()",
+                "file": "vitamins/MicroServo.scad"
+            },
+            {
+                "hash": "a8d18eb4268b4c0151690aca01074c42",
+                "title": "Servo Horn",
+                "views": [
+                    {
+                        "rotate": [
+                            66,
+                            0,
+                            60
+                        ],
+                        "dist": 119,
+                        "filepath": "../vitamins/images/ServoHorn_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            -1,
+                            0,
+                            -1
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "parts": [],
+                "call": "ServoHorn()",
+                "file": "vitamins/ServoHorn.scad"
+            },
+            {
+                "hash": "34ca922a189bc80317238f20ac11a923",
+                "title": "16mm Marble",
+                "views": [
+                    {
+                        "rotate": [
+                            66,
+                            0,
+                            60
+                        ],
+                        "dist": 119,
+                        "filepath": "../vitamins/images/16mmMarble_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            -1,
+                            0,
+                            -1
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 3,
+                "parts": [],
+                "call": "Marble(Marble_16mm)",
+                "file": "vitamins/Marble.scad"
+            },
+            {
+                "hash": "dfedbd47a31000dbd5126a6e03809359",
+                "title": "Arduino Pro Mini Pins on top, inc serial pins",
+                "views": [
+                    {
+                        "rotate": [
+                            55,
+                            0,
+                            25
+                        ],
+                        "dist": 140,
+                        "filepath": "../vitamins/images/ArduinoProMiniPinsontopincserialpins_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "parts": [],
+                "call": "ArduinoPro(type=ArduinoPro_Mini, headerpins=2,serialpins=true)",
+                "file": "vitamins/ArduinoPro.scad"
+            }
+        ],
+        "title": "LogoBot Polar Graph",
+        "assemblies": [
+            {
+                "cut": [],
+                "hash": "20a59ab1201ab74acda7152aee1f9195",
+                "vitamins": [
+                    {
+                        "title": "9g Micro Servo",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [
+                            {
+                                "call": "MicroServo_Body()",
+                                "type": "part",
+                                "children": [],
+                                "title": "MicroServo_Body"
+                            },
+                            {
+                                "call": "MicroServo_Spline()",
+                                "type": "part",
+                                "children": [],
+                                "title": "MicroServo_Spline"
+                            }
+                        ],
+                        "call": "MicroServo()",
+                        "file": "vitamins/MicroServo.scad"
+                    },
+                    {
+                        "title": "Servo Horn",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "ServoHorn()",
+                        "file": "vitamins/ServoHorn.scad"
+                    },
+                    {
+                        "title": "Arduino Pro Mini Pins on top, inc serial pins",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "ArduinoPro(type=ArduinoPro_Mini, headerpins=2,serialpins=true)",
+                        "file": "vitamins/ArduinoPro.scad"
+                    }
+                ],
+                "views": [],
+                "assemblies": [
+                    {
+                        "cut": [],
+                        "vitamins": [],
+                        "views": [],
+                        "assemblies": [],
+                        "title": "Left Capstan",
+                        "qty": 1,
+                        "call": "LeftCapstanAssembly()",
+                        "printed": [],
+                        "file": "assemblies/Capstan.scad",
+                        "steps": [],
+                        "level": 1
+                    },
+                    {
+                        "cut": [],
+                        "vitamins": [],
+                        "views": [],
+                        "assemblies": [],
+                        "title": "Right Capstan",
+                        "qty": 1,
+                        "call": "RightCapstanAssembly()",
+                        "printed": [],
+                        "file": "assemblies/Capstan.scad",
+                        "steps": [],
+                        "level": 1
+                    },
+                    {
+                        "cut": [],
+                        "vitamins": [],
+                        "views": [],
+                        "assemblies": [],
+                        "title": "PenLift",
+                        "qty": 1,
+                        "call": "PenLiftAssembly()",
+                        "printed": [],
+                        "file": "assemblies/PenLift.scad",
+                        "steps": [],
+                        "level": 1
+                    },
+                    {
+                        "cut": [],
+                        "vitamins": [],
+                        "views": [],
+                        "assemblies": [],
+                        "title": "Rear Caster",
+                        "qty": 3,
+                        "call": "MarbleCasterAssembly()",
+                        "printed": [],
+                        "file": "assemblies/MarbleCaster.scad",
+                        "steps": [],
+                        "level": 1
+                    }
+                ],
+                "title": "LogoBot Polar Graph",
+                "qty": 1,
+                "call": "LogoBotPolarGraphAssembly()",
+                "printed": [
+                    {
+                        "markdown": [],
+                        "title": "Base",
+                        "views": [],
+                        "qty": 1,
+                        "call": "LogoBotBase_STL()",
+                        "file": "printedparts/LogoBotBase.scad"
+                    },
+                    {
+                        "markdown": [],
+                        "title": "Pin Tack H9",
+                        "views": [],
+                        "qty": 2,
+                        "call": "PinTack_STL(h=9)",
+                        "file": "printedparts/PinTack.scad"
+                    }
+                ],
+                "file": "assemblies/LogoBotPolarGraph.scad",
+                "steps": [
+                    {
+                        "desc": "Do something",
+                        "num": 1,
+                        "views": [
+                            {
+                                "rotate": [
+                                    52,
+                                    0,
+                                    218
+                                ],
+                                "dist": 400,
+                                "filepath": "../assemblies/LogoBotPolarGraph/LogoBotPolarGraph_step1_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "level": 0
+            },
+            {
+                "cut": [],
+                "hash": "2ba8ebda2a41ef3541227367ca3490e4",
+                "vitamins": [
+                    {
+                        "title": "28YBJ48 Stepper Motor",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "StepperMotor28YBJ48()",
+                        "file": "vitamins/motor.scad"
+                    },
+                    {
+                        "title": "ULN2003 Driver Board",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "ULN2003DriverBoard()",
+                        "file": "vitamins/ULN2003DriverBoard.scad"
+                    }
+                ],
+                "views": [],
+                "assemblies": [],
+                "title": "Left Capstan",
+                "qty": 1,
+                "call": "LeftCapstanAssembly()",
+                "printed": [
+                    {
+                        "markdown": [],
+                        "title": "Left Motor Clip",
+                        "views": [],
+                        "qty": 1,
+                        "call": "LeftMotorClip_STL()",
+                        "file": "printedparts/MotorClip.scad"
+                    },
+                    {
+                        "markdown": [],
+                        "title": "Pin Tack H7",
+                        "views": [],
+                        "qty": 2,
+                        "call": "PinTack_STL(h=7)",
+                        "file": "printedparts/PinTack.scad"
+                    },
+                    {
+                        "markdown": [],
+                        "title": "Capstan",
+                        "views": [],
+                        "qty": 1,
+                        "call": "Capstan_STL()",
+                        "file": "printedparts/Capstan.scad"
+                    }
+                ],
+                "file": "assemblies/Capstan.scad",
+                "steps": [
+                    {
+                        "desc": "Clip the motor into place",
+                        "num": 1,
+                        "views": [
+                            {
+                                "rotate": [
+                                    170,
+                                    35,
+                                    0
+                                ],
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBotPolarGraph/LeftCapstan_step1_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -5,
+                                    -23,
+                                    17
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Push the pins into the motor clip",
+                        "num": 2,
+                        "views": [
+                            {
+                                "rotate": [
+                                    141,
+                                    170,
+                                    0
+                                ],
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBotPolarGraph/LeftCapstan_step2_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -5,
+                                    -23,
+                                    17
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Push the wheel onto the motor shaft, then add a rubber band or o-ring to the wheel for extra grip.  You can also add a retaining grub screw if necessary.",
+                        "num": 3,
+                        "views": [
+                            {
+                                "rotate": [
+                                    150,
+                                    70,
+                                    0
+                                ],
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBotPolarGraph/LeftCapstan_step3_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -7,
+                                    -6,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Slide the stepper driver into place and plug in the cable for the motor",
+                        "num": 4,
+                        "views": [
+                            {
+                                "rotate": [
+                                    177,
+                                    76,
+                                    0
+                                ],
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBotPolarGraph/LeftCapstan_step4_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -12,
+                                    -7,
+                                    14
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "level": 1
+            },
+            {
+                "cut": [],
+                "hash": "790e11afc0f01dee0f412dc294489ec7",
+                "vitamins": [
+                    {
+                        "title": "28YBJ48 Stepper Motor",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "StepperMotor28YBJ48()",
+                        "file": "vitamins/motor.scad"
+                    },
+                    {
+                        "title": "ULN2003 Driver Board",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "ULN2003DriverBoard()",
+                        "file": "vitamins/ULN2003DriverBoard.scad"
+                    }
+                ],
+                "views": [],
+                "assemblies": [],
+                "title": "Right Capstan",
+                "qty": 1,
+                "call": "RightCapstanAssembly()",
+                "printed": [
+                    {
+                        "markdown": [],
+                        "title": "Right Motor Clip",
+                        "views": [],
+                        "qty": 1,
+                        "call": "RightMotorClip_STL()",
+                        "file": "printedparts/MotorClip.scad"
+                    },
+                    {
+                        "markdown": [],
+                        "title": "Pin Tack H7",
+                        "views": [],
+                        "qty": 2,
+                        "call": "PinTack_STL(h=7)",
+                        "file": "printedparts/PinTack.scad"
+                    },
+                    {
+                        "markdown": [],
+                        "title": "Capstan",
+                        "views": [],
+                        "qty": 1,
+                        "call": "Capstan_STL()",
+                        "file": "printedparts/Capstan.scad"
+                    }
+                ],
+                "file": "assemblies/Capstan.scad",
+                "steps": [
+                    {
+                        "desc": "Clip the motor into place",
+                        "num": 1,
+                        "views": [
+                            {
+                                "rotate": [
+                                    170,
+                                    35,
+                                    0
+                                ],
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBotPolarGraph/RightCapstan_step1_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -5,
+                                    -23,
+                                    17
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Push the pins into the motor clip",
+                        "num": 2,
+                        "views": [
+                            {
+                                "rotate": [
+                                    141,
+                                    170,
+                                    0
+                                ],
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBotPolarGraph/RightCapstan_step2_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -5,
+                                    -23,
+                                    17
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Push the wheel onto the motor shaft, then add a rubber band or o-ring to the wheel for extra grip.  You can also add a retaining grub screw if necessary.",
+                        "num": 3,
+                        "views": [
+                            {
+                                "rotate": [
+                                    150,
+                                    70,
+                                    0
+                                ],
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBotPolarGraph/RightCapstan_step3_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -7,
+                                    -6,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Slide the stepper driver into place and plug in the cable for the motor",
+                        "num": 4,
+                        "views": [
+                            {
+                                "rotate": [
+                                    177,
+                                    295,
+                                    0
+                                ],
+                                "dist": 220,
+                                "filepath": "../assemblies/LogoBotPolarGraph/RightCapstan_step4_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    5,
+                                    -3,
+                                    14
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "level": 1
+            },
+            {
+                "cut": [],
+                "hash": "943b3646f2043d16468b3fe42eb2555f",
+                "vitamins": [
+                    {
+                        "title": "Fine Line Pen",
+                        "views": [],
+                        "qty": 1,
+                        "parts": [],
+                        "call": "Pen()",
+                        "file": "vitamins/Pen.scad"
+                    }
+                ],
+                "views": [],
+                "assemblies": [],
+                "title": "PenLift",
+                "qty": 1,
+                "call": "PenLiftAssembly()",
+                "printed": [
+                    {
+                        "markdown": [],
+                        "title": "Pen Lift Slider",
+                        "views": [],
+                        "qty": 1,
+                        "call": "PenLiftSlider_STL()",
+                        "file": "printedparts/PenLiftSlider.scad"
+                    },
+                    {
+                        "markdown": [],
+                        "title": "Pen Lift Holder",
+                        "views": [],
+                        "qty": 1,
+                        "call": "PenLiftHolder_STL()",
+                        "file": "printedparts/PenLiftHolder.scad"
+                    }
+                ],
+                "file": "assemblies/PenLift.scad",
+                "steps": [
+                    {
+                        "desc": "Place the pen holder into the pen slider plate.  Ensure they move freely, the two parts should fall apart easily.  Lightly file or sand the pen holder part if they dont.  Fit an elastic band in the lower grooves and over the top of the mechanism so that it pulls the pen holder down in the slider mechanism.",
+                        "num": 1,
+                        "views": [
+                            {
+                                "rotate": [
+                                    43.8,
+                                    0,
+                                    319.9
+                                ],
+                                "dist": 192,
+                                "filepath": "../assemblies/LogoBotPolarGraph/PenLift_step1_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -7.85,
+                                    24.1,
+                                    5.63
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "desc": "Use a small elastic band to securely fasten the pen to the holder.  Make sure that the pen is held vertically and that the nib of the pen will be touching the ground when the slider is almost, but not quite, fully down.",
+                        "num": 2,
+                        "views": [
+                            {
+                                "rotate": [
+                                    43.8,
+                                    0,
+                                    319.9
+                                ],
+                                "dist": 192,
+                                "filepath": "../assemblies/LogoBotPolarGraph/PenLift_step2_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -7.85,
+                                    24.1,
+                                    5.63
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "level": 1
+            },
+            {
+                "cut": [],
+                "hash": "61b2d102e1ae37a112de079b6998efb8",
+                "vitamins": [
+                    {
+                        "title": "16mm Marble",
+                        "views": [],
+                        "qty": 3,
+                        "parts": [],
+                        "call": "Marble(Marble_16mm)",
+                        "file": "vitamins/Marble.scad"
+                    }
+                ],
+                "views": [],
+                "assemblies": [],
+                "title": "Rear Caster",
+                "qty": 3,
+                "call": "MarbleCasterAssembly()",
+                "printed": [
+                    {
+                        "markdown": [],
+                        "title": "Caster Housing",
+                        "views": [],
+                        "qty": 3,
+                        "call": "MarbleCaster_STL()",
+                        "file": "printedparts/MarbleCaster.scad"
+                    }
+                ],
+                "file": "assemblies/MarbleCaster.scad",
+                "steps": [
+                    {
+                        "desc": "Insert the marble into the printed housing",
+                        "num": 1,
+                        "views": [
+                            {
+                                "rotate": [
+                                    108,
+                                    0,
+                                    91
+                                ],
+                                "dist": 261,
+                                "filepath": "../assemblies/LogoBotPolarGraph/RearCaster_step1_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0.67,
+                                    0,
+                                    -15
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "level": 1
+            }
+        ],
+        "printed": [
+            {
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "06cdd2b3fb08d35d062600917f9bd567",
+                "plasticWeight": 0.006375,
+                "title": "Left Motor Clip",
+                "views": [
+                    {
+                        "rotate": [
+                            150,
+                            50,
+                            2
+                        ],
+                        "dist": 160,
+                        "filepath": "../printedparts/images/LeftMotorClip_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            20
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "plasticVolume": 5.1,
+                "call": "LeftMotorClip_STL()",
+                "file": "printedparts/MotorClip.scad"
+            },
+            {
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "a9595b3fe2ea74db14b274d256df9a90",
+                "plasticWeight": 0.000375,
+                "title": "Pin Tack H7",
+                "views": [
+                    {
+                        "rotate": [
+                            145,
+                            135,
+                            0
+                        ],
+                        "dist": 130,
+                        "filepath": "../printedparts/images/PinTackH7_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 4,
+                "plasticVolume": 0.3,
+                "call": "PinTack_STL(h=7)",
+                "file": "printedparts/PinTack.scad"
+            },
+            {
+                "markdown": [],
+                "hash": "00f6ddf3f06696f1018a2df311a96e71",
+                "plasticWeight": 0.003625,
+                "title": "Capstan",
+                "views": [
+                    {
+                        "rotate": [
+                            72,
+                            0,
+                            130
+                        ],
+                        "dist": 400,
+                        "filepath": "../printedparts/images/Capstan_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 2,
+                "plasticVolume": 2.9,
+                "call": "Capstan_STL()",
+                "file": "printedparts/Capstan.scad"
+            },
+            {
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "f00a9cd723fa05bedccb1360f98cdcc4",
+                "plasticWeight": 0.006375,
+                "title": "Right Motor Clip",
+                "views": [
+                    {
+                        "rotate": [
+                            150,
+                            50,
+                            2
+                        ],
+                        "dist": 160,
+                        "filepath": "../printedparts/images/RightMotorClip_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            20
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "plasticVolume": 5.1,
+                "call": "RightMotorClip_STL()",
+                "file": "printedparts/MotorClip.scad"
+            },
+            {
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "The base requires a well calibrated printer to avoid adhesion issues.  You may also need to ream the holes to 7mm, depending on your print tolerances.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "0a6d5d5f3d69abd7ec2a52ff74514bf5",
+                "plasticWeight": 0.0265,
+                "title": "Base",
+                "views": [
+                    {
+                        "rotate": [
+                            58,
+                            0,
+                            225
+                        ],
+                        "dist": 270,
+                        "filepath": "../printedparts/images/Base_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "plasticVolume": 21.2,
+                "call": "LogoBotBase_STL()",
+                "file": "printedparts/LogoBotBase.scad"
+            },
+            {
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "Slider will probably require some sanding to get a smooth fit into the holder.  A bit of silicon spray lubricant may also help.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "399f9e5760a7c31e35593ee168582b9e",
+                "plasticWeight": 0.005125,
+                "title": "Pen Lift Slider",
+                "views": [
+                    {
+                        "rotate": [
+                            52,
+                            0,
+                            23
+                        ],
+                        "dist": 240,
+                        "filepath": "../printedparts/images/PenLiftSlider_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            1,
+                            -8,
+                            -11
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "plasticVolume": 4.1,
+                "call": "PenLiftSlider_STL()",
+                "file": "printedparts/PenLiftSlider.scad"
+            },
+            {
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "You may need to ream the pin holes to 7mm, depending on your print tolerances",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "7015d5c507823846581fe968bf6b25f0",
+                "plasticWeight": 0.007125,
+                "title": "Pen Lift Holder",
+                "views": [
+                    {
+                        "rotate": [
+                            52,
+                            0,
+                            23
+                        ],
+                        "dist": 240,
+                        "filepath": "../printedparts/images/PenLiftHolder_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            1,
+                            -8,
+                            -11
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "plasticVolume": 5.7,
+                "call": "PenLiftHolder_STL()",
+                "file": "printedparts/PenLiftHolder.scad"
+            },
+            {
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "ac9ff0d30ab5b18de6cfbc31d29ae9f5",
+                "plasticWeight": 0.000375,
+                "title": "Pin Tack H9",
+                "views": [
+                    {
+                        "rotate": [
+                            145,
+                            135,
+                            0
+                        ],
+                        "dist": 130,
+                        "filepath": "../printedparts/images/PinTackH9_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 2,
+                "plasticVolume": 0.3,
+                "call": "PinTack_STL(h=9)",
+                "file": "printedparts/PinTack.scad"
+            },
+            {
+                "markdown": [
+                    {
+                        "section": "guide",
+                        "markdown": "Orient to print upside down for best results.  No support required.  A brim may help with bed adhesion and would not need to removed after printing.  Ream the pin hole to 7mm if necessary.",
+                        "type": "markdown"
+                    }
+                ],
+                "hash": "da34fc1705d3762cdb74e20c10b1609d",
+                "plasticWeight": 0.001875,
+                "title": "Caster Housing",
+                "views": [
+                    {
+                        "rotate": [
+                            235,
+                            0,
+                            257
+                        ],
+                        "dist": 172,
+                        "filepath": "../printedparts/images/CasterHousing_view.png",
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            -4,
+                            0,
+                            -6
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 3,
+                "plasticVolume": 1.5,
+                "call": "MarbleCaster_STL()",
+                "file": "printedparts/MarbleCaster.scad"
+            }
+        ],
+        "file": "LogoBotPolarGraph.scad",
+        "type": "machine",
+        "children": [
+            {
+                "section": "introduction",
+                "markdown": "Re-uses most of the LogoBot vitamins and printed parts to make a basic polar graph drawing machine",
+                "type": "markdown"
+            },
+            {
+                "rotate": [
+                    78,
+                    0,
+                    215
+                ],
+                "dist": 850,
+                "title": "view",
+                "filepath": "../images/LogoBotPolarGraph_view.png",
+                "caption": "view",
+                "translate": [
+                    5,
+                    -1,
+                    34
+                ],
+                "type": "view",
+                "size": [
+                    1024,
+                    768
+                ]
+            },
+            {
+                "call": "LogoBotPolarGraphAssembly()",
+                "type": "assembly",
+                "children": [
+                    {
+                        "call": "LeftCapstanAssembly()",
+                        "type": "assembly",
+                        "children": [
+                            {
+                                "call": "LeftMotorClip_STL()",
+                                "type": "printed",
+                                "children": [
+                                    {
+                                        "section": "guide",
+                                        "markdown": "MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed",
+                                        "type": "markdown"
+                                    },
+                                    {
+                                        "rotate": [
+                                            150,
+                                            50,
+                                            2
+                                        ],
+                                        "dist": 160,
+                                        "filepath": "../printedparts/images/LeftMotorClip_view.png",
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            0,
+                                            0,
+                                            20
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "printedparts/MotorClip.scad",
+                                "title": "Left Motor Clip"
+                            },
+                            {
+                                "num": 1,
+                                "type": "step",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            170,
+                                            35,
+                                            0
+                                        ],
+                                        "dist": 220,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            -5,
+                                            -23,
+                                            17
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    },
+                                    {
+                                        "call": "StepperMotor28YBJ48()",
+                                        "type": "vitamin",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    170,
+                                                    334,
+                                                    0
+                                                ],
+                                                "dist": 140,
+                                                "filepath": "../vitamins/images/28YBJ48StepperMotor_view.png",
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    0,
+                                                    0,
+                                                    0
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "vitamins/motor.scad",
+                                        "title": "28YBJ48 Stepper Motor"
+                                    }
+                                ],
+                                "desc": "Clip the motor into place"
+                            },
+                            {
+                                "num": 2,
+                                "type": "step",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            141,
+                                            170,
+                                            0
+                                        ],
+                                        "dist": 220,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            -5,
+                                            -23,
+                                            17
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    },
+                                    {
+                                        "call": "PinTack_STL(h=7)",
+                                        "type": "printed",
+                                        "children": [
+                                            {
+                                                "section": "guide",
+                                                "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                                "type": "markdown"
+                                            },
+                                            {
+                                                "rotate": [
+                                                    145,
+                                                    135,
+                                                    0
+                                                ],
+                                                "dist": 130,
+                                                "filepath": "../printedparts/images/PinTackH7_view.png",
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    0,
+                                                    0,
+                                                    0
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "printedparts/PinTack.scad",
+                                        "title": "Pin Tack H7"
+                                    },
+                                    {
+                                        "call": "PinTack_STL(h=7)",
+                                        "type": "printed",
+                                        "children": [
+                                            {
+                                                "section": "guide",
+                                                "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                                "type": "markdown"
+                                            },
+                                            {
+                                                "rotate": [
+                                                    145,
+                                                    135,
+                                                    0
+                                                ],
+                                                "dist": 130,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    0,
+                                                    0,
+                                                    0
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "printedparts/PinTack.scad",
+                                        "title": "Pin Tack H7"
+                                    }
+                                ],
+                                "desc": "Push the pins into the motor clip"
+                            },
+                            {
+                                "num": 3,
+                                "type": "step",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            150,
+                                            70,
+                                            0
+                                        ],
+                                        "dist": 220,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            -7,
+                                            -6,
+                                            0
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    },
+                                    {
+                                        "call": "Capstan_STL()",
+                                        "type": "printed",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    72,
+                                                    0,
+                                                    130
+                                                ],
+                                                "dist": 400,
+                                                "filepath": "../printedparts/images/Capstan_view.png",
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    0,
+                                                    0,
+                                                    0
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "printedparts/Capstan.scad",
+                                        "title": "Capstan"
+                                    }
+                                ],
+                                "desc": "Push the wheel onto the motor shaft, then add a rubber band or o-ring to the wheel for extra grip.  You can also add a retaining grub screw if necessary."
+                            },
+                            {
+                                "num": 4,
+                                "type": "step",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            177,
+                                            76,
+                                            0
+                                        ],
+                                        "dist": 220,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            -12,
+                                            -7,
+                                            14
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    },
+                                    {
+                                        "call": "ULN2003DriverBoard()",
+                                        "type": "vitamin",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    55,
+                                                    0,
+                                                    25
+                                                ],
+                                                "dist": 140,
+                                                "filepath": "../vitamins/images/ULN2003DriverBoard_view.png",
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    0,
+                                                    0,
+                                                    0
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            },
+                                            {
+                                                "call": "LED(LEDType=LED_3mm)",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            34,
+                                                            2,
+                                                            22
+                                                        ],
+                                                        "dist": 200,
+                                                        "filepath": "../vitamins/images/3mmLED_view.png",
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            23,
+                                                            9,
+                                                            3
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/LED.scad",
+                                                "title": "3mm LED"
+                                            },
+                                            {
+                                                "call": "LED(LEDType=LED_3mm)",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            34,
+                                                            2,
+                                                            22
+                                                        ],
+                                                        "dist": 200,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            23,
+                                                            9,
+                                                            3
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/LED.scad",
+                                                "title": "3mm LED"
+                                            },
+                                            {
+                                                "call": "LED(LEDType=LED_3mm)",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            34,
+                                                            2,
+                                                            22
+                                                        ],
+                                                        "dist": 200,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            23,
+                                                            9,
+                                                            3
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/LED.scad",
+                                                "title": "3mm LED"
+                                            },
+                                            {
+                                                "call": "LED(LEDType=LED_3mm)",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            34,
+                                                            2,
+                                                            22
+                                                        ],
+                                                        "dist": 200,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            23,
+                                                            9,
+                                                            3
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/LED.scad",
+                                                "title": "3mm LED"
+                                            }
+                                        ],
+                                        "file": "vitamins/ULN2003DriverBoard.scad",
+                                        "title": "ULN2003 Driver Board"
+                                    }
+                                ],
+                                "desc": "Slide the stepper driver into place and plug in the cable for the motor"
+                            }
+                        ],
+                        "file": "assemblies/Capstan.scad",
+                        "title": "Left Capstan"
+                    },
+                    {
+                        "call": "RightCapstanAssembly()",
+                        "type": "assembly",
+                        "children": [
+                            {
+                                "call": "RightMotorClip_STL()",
+                                "type": "printed",
+                                "children": [
+                                    {
+                                        "section": "guide",
+                                        "markdown": "MotorClips need re-orienting before printing so that the base of the motor clip sits on the bed",
+                                        "type": "markdown"
+                                    },
+                                    {
+                                        "rotate": [
+                                            150,
+                                            50,
+                                            2
+                                        ],
+                                        "dist": 160,
+                                        "filepath": "../printedparts/images/RightMotorClip_view.png",
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            0,
+                                            0,
+                                            20
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "printedparts/MotorClip.scad",
+                                "title": "Right Motor Clip"
+                            },
+                            {
+                                "num": 1,
+                                "type": "step",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            170,
+                                            35,
+                                            0
+                                        ],
+                                        "dist": 220,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            -5,
+                                            -23,
+                                            17
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    },
+                                    {
+                                        "call": "StepperMotor28YBJ48()",
+                                        "type": "vitamin",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    170,
+                                                    334,
+                                                    0
+                                                ],
+                                                "dist": 140,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    0,
+                                                    0,
+                                                    0
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "vitamins/motor.scad",
+                                        "title": "28YBJ48 Stepper Motor"
+                                    }
+                                ],
+                                "desc": "Clip the motor into place"
+                            },
+                            {
+                                "num": 2,
+                                "type": "step",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            141,
+                                            170,
+                                            0
+                                        ],
+                                        "dist": 220,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            -5,
+                                            -23,
+                                            17
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    },
+                                    {
+                                        "call": "PinTack_STL(h=7)",
+                                        "type": "printed",
+                                        "children": [
+                                            {
+                                                "section": "guide",
+                                                "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                                "type": "markdown"
+                                            },
+                                            {
+                                                "rotate": [
+                                                    145,
+                                                    135,
+                                                    0
+                                                ],
+                                                "dist": 130,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    0,
+                                                    0,
+                                                    0
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "printedparts/PinTack.scad",
+                                        "title": "Pin Tack H7"
+                                    },
+                                    {
+                                        "call": "PinTack_STL(h=7)",
+                                        "type": "printed",
+                                        "children": [
+                                            {
+                                                "section": "guide",
+                                                "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                                "type": "markdown"
+                                            },
+                                            {
+                                                "rotate": [
+                                                    145,
+                                                    135,
+                                                    0
+                                                ],
+                                                "dist": 130,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    0,
+                                                    0,
+                                                    0
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "printedparts/PinTack.scad",
+                                        "title": "Pin Tack H7"
+                                    }
+                                ],
+                                "desc": "Push the pins into the motor clip"
+                            },
+                            {
+                                "num": 3,
+                                "type": "step",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            150,
+                                            70,
+                                            0
+                                        ],
+                                        "dist": 220,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            -7,
+                                            -6,
+                                            0
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    },
+                                    {
+                                        "call": "Capstan_STL()",
+                                        "type": "printed",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    72,
+                                                    0,
+                                                    130
+                                                ],
+                                                "dist": 400,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    0,
+                                                    0,
+                                                    0
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "printedparts/Capstan.scad",
+                                        "title": "Capstan"
+                                    }
+                                ],
+                                "desc": "Push the wheel onto the motor shaft, then add a rubber band or o-ring to the wheel for extra grip.  You can also add a retaining grub screw if necessary."
+                            },
+                            {
+                                "num": 4,
+                                "type": "step",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            177,
+                                            295,
+                                            0
+                                        ],
+                                        "dist": 220,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            5,
+                                            -3,
+                                            14
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    },
+                                    {
+                                        "call": "ULN2003DriverBoard()",
+                                        "type": "vitamin",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    55,
+                                                    0,
+                                                    25
+                                                ],
+                                                "dist": 140,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    0,
+                                                    0,
+                                                    0
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            },
+                                            {
+                                                "call": "LED(LEDType=LED_3mm)",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            34,
+                                                            2,
+                                                            22
+                                                        ],
+                                                        "dist": 200,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            23,
+                                                            9,
+                                                            3
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/LED.scad",
+                                                "title": "3mm LED"
+                                            },
+                                            {
+                                                "call": "LED(LEDType=LED_3mm)",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            34,
+                                                            2,
+                                                            22
+                                                        ],
+                                                        "dist": 200,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            23,
+                                                            9,
+                                                            3
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/LED.scad",
+                                                "title": "3mm LED"
+                                            },
+                                            {
+                                                "call": "LED(LEDType=LED_3mm)",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            34,
+                                                            2,
+                                                            22
+                                                        ],
+                                                        "dist": 200,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            23,
+                                                            9,
+                                                            3
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/LED.scad",
+                                                "title": "3mm LED"
+                                            },
+                                            {
+                                                "call": "LED(LEDType=LED_3mm)",
+                                                "type": "vitamin",
+                                                "children": [
+                                                    {
+                                                        "rotate": [
+                                                            34,
+                                                            2,
+                                                            22
+                                                        ],
+                                                        "dist": 200,
+                                                        "title": "view",
+                                                        "caption": "view",
+                                                        "translate": [
+                                                            23,
+                                                            9,
+                                                            3
+                                                        ],
+                                                        "type": "view",
+                                                        "size": [
+                                                            400,
+                                                            300
+                                                        ]
+                                                    }
+                                                ],
+                                                "file": "vitamins/LED.scad",
+                                                "title": "3mm LED"
+                                            }
+                                        ],
+                                        "file": "vitamins/ULN2003DriverBoard.scad",
+                                        "title": "ULN2003 Driver Board"
+                                    }
+                                ],
+                                "desc": "Slide the stepper driver into place and plug in the cable for the motor"
+                            }
+                        ],
+                        "file": "assemblies/Capstan.scad",
+                        "title": "Right Capstan"
+                    },
+                    {
+                        "call": "LogoBotBase_STL()",
+                        "type": "printed",
+                        "children": [
+                            {
+                                "section": "guide",
+                                "markdown": "The base requires a well calibrated printer to avoid adhesion issues.  You may also need to ream the holes to 7mm, depending on your print tolerances.",
+                                "type": "markdown"
+                            },
+                            {
+                                "rotate": [
+                                    58,
+                                    0,
+                                    225
+                                ],
+                                "dist": 270,
+                                "filepath": "../printedparts/images/Base_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "file": "printedparts/LogoBotBase.scad",
+                        "title": "Base"
+                    },
+                    {
+                        "call": "PenLiftAssembly()",
+                        "type": "assembly",
+                        "children": [
+                            {
+                                "call": "PenLiftSlider_STL()",
+                                "type": "printed",
+                                "children": [
+                                    {
+                                        "section": "guide",
+                                        "markdown": "Slider will probably require some sanding to get a smooth fit into the holder.  A bit of silicon spray lubricant may also help.",
+                                        "type": "markdown"
+                                    },
+                                    {
+                                        "rotate": [
+                                            52,
+                                            0,
+                                            23
+                                        ],
+                                        "dist": 240,
+                                        "filepath": "../printedparts/images/PenLiftSlider_view.png",
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            1,
+                                            -8,
+                                            -11
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "printedparts/PenLiftSlider.scad",
+                                "title": "Pen Lift Slider"
+                            },
+                            {
+                                "num": 1,
+                                "type": "step",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            43.8,
+                                            0,
+                                            319.9
+                                        ],
+                                        "dist": 192,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            -7.85,
+                                            24.1,
+                                            5.63
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    },
+                                    {
+                                        "call": "PenLiftHolder_STL()",
+                                        "type": "printed",
+                                        "children": [
+                                            {
+                                                "section": "guide",
+                                                "markdown": "You may need to ream the pin holes to 7mm, depending on your print tolerances",
+                                                "type": "markdown"
+                                            },
+                                            {
+                                                "rotate": [
+                                                    52,
+                                                    0,
+                                                    23
+                                                ],
+                                                "dist": 240,
+                                                "filepath": "../printedparts/images/PenLiftHolder_view.png",
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    1,
+                                                    -8,
+                                                    -11
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "printedparts/PenLiftHolder.scad",
+                                        "title": "Pen Lift Holder"
+                                    }
+                                ],
+                                "desc": "Place the pen holder into the pen slider plate.  Ensure they move freely, the two parts should fall apart easily.  Lightly file or sand the pen holder part if they dont.  Fit an elastic band in the lower grooves and over the top of the mechanism so that it pulls the pen holder down in the slider mechanism."
+                            },
+                            {
+                                "num": 2,
+                                "type": "step",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            43.8,
+                                            0,
+                                            319.9
+                                        ],
+                                        "dist": 192,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            -7.85,
+                                            24.1,
+                                            5.63
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    },
+                                    {
+                                        "call": "Pen()",
+                                        "type": "vitamin",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    66,
+                                                    0,
+                                                    60
+                                                ],
+                                                "dist": 119,
+                                                "filepath": "../vitamins/images/FineLinePen_view.png",
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -1,
+                                                    0,
+                                                    -1
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "vitamins/Pen.scad",
+                                        "title": "Fine Line Pen"
+                                    }
+                                ],
+                                "desc": "Use a small elastic band to securely fasten the pen to the holder.  Make sure that the pen is held vertically and that the nib of the pen will be touching the ground when the slider is almost, but not quite, fully down."
+                            }
+                        ],
+                        "file": "assemblies/PenLift.scad",
+                        "title": "PenLift"
+                    },
+                    {
+                        "call": "PinTack_STL(h=9)",
+                        "type": "printed",
+                        "children": [
+                            {
+                                "section": "guide",
+                                "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                "type": "markdown"
+                            },
+                            {
+                                "rotate": [
+                                    145,
+                                    135,
+                                    0
+                                ],
+                                "dist": 130,
+                                "filepath": "../printedparts/images/PinTackH9_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "file": "printedparts/PinTack.scad",
+                        "title": "Pin Tack H9"
+                    },
+                    {
+                        "call": "PinTack_STL(h=9)",
+                        "type": "printed",
+                        "children": [
+                            {
+                                "section": "guide",
+                                "markdown": "Orient to print on the flat side, no brim.  You may need to sand the flat sides depending on the tolerances of your printer.",
+                                "type": "markdown"
+                            },
+                            {
+                                "rotate": [
+                                    145,
+                                    135,
+                                    0
+                                ],
+                                "dist": 130,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "file": "printedparts/PinTack.scad",
+                        "title": "Pin Tack H9"
+                    },
+                    {
+                        "call": "MicroServo()",
+                        "type": "vitamin",
+                        "children": [
+                            {
+                                "rotate": [
+                                    72,
+                                    0,
+                                    33
+                                ],
+                                "dist": 280,
+                                "filepath": "../vitamins/images/9gMicroServo_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    6.9,
+                                    13.6,
+                                    10.3
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            },
+                            {
+                                "call": "MicroServo_Body()",
+                                "type": "part",
+                                "children": [],
+                                "title": "MicroServo_Body"
+                            },
+                            {
+                                "call": "MicroServo_Spline()",
+                                "type": "part",
+                                "children": [],
+                                "title": "MicroServo_Spline"
+                            }
+                        ],
+                        "file": "vitamins/MicroServo.scad",
+                        "title": "9g Micro Servo"
+                    },
+                    {
+                        "call": "ServoHorn()",
+                        "type": "vitamin",
+                        "children": [
+                            {
+                                "rotate": [
+                                    66,
+                                    0,
+                                    60
+                                ],
+                                "dist": 119,
+                                "filepath": "../vitamins/images/ServoHorn_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    -1,
+                                    0,
+                                    -1
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "file": "vitamins/ServoHorn.scad",
+                        "title": "Servo Horn"
+                    },
+                    {
+                        "call": "MarbleCasterAssembly()",
+                        "type": "assembly",
+                        "children": [
+                            {
+                                "call": "MarbleCaster_STL()",
+                                "type": "printed",
+                                "children": [
+                                    {
+                                        "section": "guide",
+                                        "markdown": "Orient to print upside down for best results.  No support required.  A brim may help with bed adhesion and would not need to removed after printing.  Ream the pin hole to 7mm if necessary.",
+                                        "type": "markdown"
+                                    },
+                                    {
+                                        "rotate": [
+                                            235,
+                                            0,
+                                            257
+                                        ],
+                                        "dist": 172,
+                                        "filepath": "../printedparts/images/CasterHousing_view.png",
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            -4,
+                                            0,
+                                            -6
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "printedparts/MarbleCaster.scad",
+                                "title": "Caster Housing"
+                            },
+                            {
+                                "num": 1,
+                                "type": "step",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            108,
+                                            0,
+                                            91
+                                        ],
+                                        "dist": 261,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            0.67,
+                                            0,
+                                            -15
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    },
+                                    {
+                                        "call": "Marble(Marble_16mm)",
+                                        "type": "vitamin",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    66,
+                                                    0,
+                                                    60
+                                                ],
+                                                "dist": 119,
+                                                "filepath": "../vitamins/images/16mmMarble_view.png",
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -1,
+                                                    0,
+                                                    -1
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "vitamins/Marble.scad",
+                                        "title": "16mm Marble"
+                                    }
+                                ],
+                                "desc": "Insert the marble into the printed housing"
+                            }
+                        ],
+                        "file": "assemblies/MarbleCaster.scad",
+                        "title": "Rear Caster"
+                    },
+                    {
+                        "call": "MarbleCasterAssembly()",
+                        "type": "assembly",
+                        "children": [
+                            {
+                                "call": "MarbleCaster_STL()",
+                                "type": "printed",
+                                "children": [
+                                    {
+                                        "section": "guide",
+                                        "markdown": "Orient to print upside down for best results.  No support required.  A brim may help with bed adhesion and would not need to removed after printing.  Ream the pin hole to 7mm if necessary.",
+                                        "type": "markdown"
+                                    },
+                                    {
+                                        "rotate": [
+                                            235,
+                                            0,
+                                            257
+                                        ],
+                                        "dist": 172,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            -4,
+                                            0,
+                                            -6
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "printedparts/MarbleCaster.scad",
+                                "title": "Caster Housing"
+                            },
+                            {
+                                "num": 1,
+                                "type": "step",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            108,
+                                            0,
+                                            91
+                                        ],
+                                        "dist": 261,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            0.67,
+                                            0,
+                                            -15
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    },
+                                    {
+                                        "call": "Marble(Marble_16mm)",
+                                        "type": "vitamin",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    66,
+                                                    0,
+                                                    60
+                                                ],
+                                                "dist": 119,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -1,
+                                                    0,
+                                                    -1
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "vitamins/Marble.scad",
+                                        "title": "16mm Marble"
+                                    }
+                                ],
+                                "desc": "Insert the marble into the printed housing"
+                            }
+                        ],
+                        "file": "assemblies/MarbleCaster.scad",
+                        "title": "Rear Caster"
+                    },
+                    {
+                        "call": "MarbleCasterAssembly()",
+                        "type": "assembly",
+                        "children": [
+                            {
+                                "call": "MarbleCaster_STL()",
+                                "type": "printed",
+                                "children": [
+                                    {
+                                        "section": "guide",
+                                        "markdown": "Orient to print upside down for best results.  No support required.  A brim may help with bed adhesion and would not need to removed after printing.  Ream the pin hole to 7mm if necessary.",
+                                        "type": "markdown"
+                                    },
+                                    {
+                                        "rotate": [
+                                            235,
+                                            0,
+                                            257
+                                        ],
+                                        "dist": 172,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            -4,
+                                            0,
+                                            -6
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    }
+                                ],
+                                "file": "printedparts/MarbleCaster.scad",
+                                "title": "Caster Housing"
+                            },
+                            {
+                                "num": 1,
+                                "type": "step",
+                                "children": [
+                                    {
+                                        "rotate": [
+                                            108,
+                                            0,
+                                            91
+                                        ],
+                                        "dist": 261,
+                                        "title": "view",
+                                        "caption": "view",
+                                        "translate": [
+                                            0.67,
+                                            0,
+                                            -15
+                                        ],
+                                        "type": "view",
+                                        "size": [
+                                            400,
+                                            300
+                                        ]
+                                    },
+                                    {
+                                        "call": "Marble(Marble_16mm)",
+                                        "type": "vitamin",
+                                        "children": [
+                                            {
+                                                "rotate": [
+                                                    66,
+                                                    0,
+                                                    60
+                                                ],
+                                                "dist": 119,
+                                                "title": "view",
+                                                "caption": "view",
+                                                "translate": [
+                                                    -1,
+                                                    0,
+                                                    -1
+                                                ],
+                                                "type": "view",
+                                                "size": [
+                                                    400,
+                                                    300
+                                                ]
+                                            }
+                                        ],
+                                        "file": "vitamins/Marble.scad",
+                                        "title": "16mm Marble"
+                                    }
+                                ],
+                                "desc": "Insert the marble into the printed housing"
+                            }
+                        ],
+                        "file": "assemblies/MarbleCaster.scad",
+                        "title": "Rear Caster"
+                    },
+                    {
+                        "call": "ArduinoPro(type=ArduinoPro_Mini, headerpins=2,serialpins=true)",
+                        "type": "vitamin",
+                        "children": [
+                            {
+                                "rotate": [
+                                    55,
+                                    0,
+                                    25
+                                ],
+                                "dist": 140,
+                                "filepath": "../vitamins/images/ArduinoProMiniPinsontopincserialpins_view.png",
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "file": "vitamins/ArduinoPro.scad",
+                        "title": "Arduino Pro Mini Pins on top, inc serial pins"
+                    },
+                    {
+                        "num": 1,
+                        "type": "step",
+                        "children": [
+                            {
+                                "rotate": [
+                                    52,
+                                    0,
+                                    218
+                                ],
+                                "dist": 400,
+                                "title": "view",
+                                "caption": "view",
+                                "translate": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "type": "view",
+                                "size": [
+                                    400,
+                                    300
+                                ]
+                            }
+                        ],
+                        "desc": "Do something"
+                    }
+                ],
+                "file": "assemblies/LogoBotPolarGraph.scad",
+                "title": "LogoBot Polar Graph"
+            }
+        ]
+    },
+    {
+        "cut": [],
+        "hash": "1587efb54a010b915354bda4ce715901",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -9939,7 +12734,7 @@
                         ]
                     },
                     {
-                        "desc": "Wire up power to the stepper drivers and Arduino.  Then connect the microswitches to the Arduino.",
+                        "desc": "Wire up power to the stepper drivers and Arduino.  Then connect the microswitches to the Arduino. \n            Refer to the following wiring for Arduino pin connections: \n            ![Arduino Wiring Diagram](../images/ArduinoWiringDiagram.png)",
                         "num": 13,
                         "views": [
                             {
@@ -10542,7 +13337,7 @@
             },
             {
                 "cut": [],
-                "hash": "554533713560a76c4230a12a4bb7a589",
+                "hash": "83c20e2d91eed7ec03771831173fce47",
                 "vitamins": [],
                 "views": [],
                 "assemblies": [],
@@ -14109,7 +16904,7 @@
                                 "title": "JumperWire None to None 1pin 100mm"
                             }
                         ],
-                        "desc": "Wire up power to the stepper drivers and Arduino.  Then connect the microswitches to the Arduino."
+                        "desc": "Wire up power to the stepper drivers and Arduino.  Then connect the microswitches to the Arduino. \n            Refer to the following wiring for Arduino pin connections: \n            ![Arduino Wiring Diagram](../images/ArduinoWiringDiagram.png)"
                     },
                     {
                         "num": 14,
@@ -14444,7 +17239,19 @@
             },
             {
                 "type": "file",
-                "file": "LogoBotScribbler.scad"
+                "file": "LogoBotPolarGraph.scad"
+            },
+            {
+                "type": "file",
+                "file": "assemblies/LogoBotPolarGraph.scad"
+            },
+            {
+                "type": "file",
+                "file": "assemblies/Capstan.scad"
+            },
+            {
+                "type": "file",
+                "file": "printedparts/Capstan.scad"
             },
             {
                 "type": "file",
@@ -14469,6 +17276,10 @@
             {
                 "type": "file",
                 "file": "vitamins/ServoHorn.scad"
+            },
+            {
+                "type": "file",
+                "file": "LogoBotScribbler.scad"
             },
             {
                 "type": "file",
