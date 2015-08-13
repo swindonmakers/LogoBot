@@ -516,6 +516,7 @@ void DifferentialStepper::replan() {
             c->accelerateTo = _maxStepRate;
         } else
             c->accelerateTo = calculateVelocityByAccelAndDist(c->entryStepRate, c->accelerateUntil);
+        if (c->accelerateTo > _maxStepRate) c->accelerateTo = _maxStepRate;
         lastStepRate = c->accelerateTo;
 
         stopAt = i;
