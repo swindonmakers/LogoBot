@@ -4,7 +4,7 @@
 
 // Coding-style
 // ------------
-// 
+//
 // Global variables are written in UpperCamelCase.
 // A logical hierarchy should be indicated using underscores, for example:
 //     StepperMotor_Connections_Axle
@@ -14,7 +14,7 @@
 
 
 // Global OpenSCAD variables - short-hand!
-// 
+//
 eta = 0.01;                     // small fudge factor to stop CSG barfing on coincident faces.
 $fa = 5;
 $fs = 0.5;
@@ -56,6 +56,7 @@ $DefaultViewSize = [400, 300];
 
 // Include all other configuration files
 
+include <holesizes.scad>
 include <colors.scad>
 include <utils.scad>
 include <vitamins.scad>

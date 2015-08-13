@@ -22,3 +22,4 @@ include <../assemblies/Capstan.scad>
 include <../assemblies/LogoBot.scad>
 include <../assemblies/LogoBotLineFollower.scad>
 include <../assemblies/LogoBotPolarGraph.scad>
+include <../assemblies/Gondola.scad>

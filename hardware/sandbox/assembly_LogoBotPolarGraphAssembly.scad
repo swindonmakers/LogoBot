@@ -1,6 +1,9 @@
 include <../config/config.scad>
 UseSTL=false;
 UseVitaminSTL=true;
-DebugConnectors=true;
-DebugCoordinateFrames=true;
+DebugConnectors=false;
+DebugCoordinateFrames=false;
+
+$ShowStep = 4;
+
 LogoBotPolarGraphAssembly();

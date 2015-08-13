@@ -32,3 +32,6 @@ include <../vitamins/Battery.scad>
 include <../vitamins/ESP8266.scad>
 include <../vitamins/HookAndLoopTape.scad>
 include <../vitamins/LineSensor.scad>
+include <../vitamins/washer.scad>
+include <../vitamins/nut.scad>
+include <../vitamins/screw.scad>
