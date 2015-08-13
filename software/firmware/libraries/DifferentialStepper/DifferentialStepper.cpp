@@ -491,11 +491,17 @@ void DifferentialStepper::replan() {
         c = getCommand(i);
 
         // check direction bits - not relevant if this is the first move in the queue
-        if (i>0)
+        if (i>0) {
             c->dirChange = c->directionBits ^ lastDirBits;
-        else
+        } else
             c->dirChange = false;
         lastDirBits = c->directionBits;
+
+        // stop at first direction change, no point planning beyond there
+        if (c->dirChange) {
+            //Serial.println("dirChanged");
+            break;
+        }
 
 /*
         Serial.print("db: ");
@@ -536,11 +542,6 @@ void DifferentialStepper::replan() {
         Serial.print(' ');
         Serial.println(dist);
 */
-        // stop at first direction change, no point planning beyond there
-        if (c->dirChange) {
-            //Serial.println("dirChanged");
-            break;
-        }
     }
 
 
@@ -574,7 +575,8 @@ void DifferentialStepper::replan() {
         */
     }
 
-    _replanNeeded = false;
+    // still need to replan if we didn't get to the end of the queue
+    _replanNeeded = (stopAt+1 == _qSize);
 }
 
 
