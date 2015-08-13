@@ -54,7 +54,7 @@ module MarbleCaster_STL () {
                         cube([2*ballr, 2, 100]);
 
                     // chop the bottom off
-                    translate([-50, -50, -100 - GroundClearance + ballr/2])
+                    translate([-50, -50, -100 - GroundClearance + ballr/1.7])
                         cube([100, 100, 100]);
 
                     // hollow the casing for the ball - allow some tolerance
@@ -74,7 +74,7 @@ module MarbleCaster_STL () {
                     // and so it looks pretty :)
                     translate([0, 0, -GroundClearance + ballr/2])
                         rotate([0, 90, 0])
-                        scale([1, 0.7, 1])
+                        scale([1, 0.8, 1])
                         cylinder(r=ballr, h=100, center=true, $fn=32);
 
                     // chop it in half for debugging
