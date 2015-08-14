@@ -19,7 +19,7 @@ void setup()
   bot.begin();
   bot.initPenLift(SERVO_PIN);
   //bot.initBuzzer(BUZZER_PIN);
-  //bot.lookAheadEnable(true);
+  bot.enableLookAhead(true);
   //bot.playStartupJingle();
   LogobotText::begin(cmdQ);
 }
