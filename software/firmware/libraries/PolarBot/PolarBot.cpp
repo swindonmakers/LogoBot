@@ -10,8 +10,8 @@ PolarBot::PolarBot(uint8_t lp1, uint8_t lp2, uint8_t lp3, uint8_t lp4, uint8_t r
 
 void PolarBot::begin()
 {
-	_diffDrive.setMaxStepRate(500);
-	_diffDrive.setAcceleration(200);
+	_diffDrive.setMaxStepRate(800);
+	_diffDrive.setAcceleration(400);
 	_diffDrive.setBacklash(STEPS_OF_BACKLASH);
 	_diffDrive.setInvertDirectionFor(1,true);
 }

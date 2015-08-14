@@ -17,3 +17,4 @@ include <../printedparts/PinTack.scad>
 include <../printedparts/SimpleBase.scad>
 include <../printedparts/LineSensorHolder.scad>
 include <../printedparts/Capstan.scad>
+include <../printedparts/StringGuide.scad>
