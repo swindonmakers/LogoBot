@@ -7,6 +7,7 @@ include <../printedparts/BatteryClip.scad>
 include <../printedparts/Bumper.scad>
 include <../printedparts/BumperStabiliser.scad>
 include <../printedparts/Lid.scad>
+include <../printedparts/LidIR.scad>
 include <../printedparts/LogoBotBase.scad>
 include <../printedparts/MarbleCaster.scad>
 include <../printedparts/PenLiftHolder.scad>
