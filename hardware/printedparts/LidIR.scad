@@ -1,3 +1,5 @@
+LidIR_Con_Servo = [[0, 0, -3], [0, 0, 1], 90, 0, 0];
+
 module LidIR_STL() {
 
     printedPart("printedparts/LidIR.scad", "LidIR", "LidIR_STL()") {
@@ -7,7 +9,10 @@ module LidIR_STL() {
         view(t=[0,0,0], r=[58,0,225], d=180);
 
         if (DebugCoordinateFrames) frame();
-        if (DebugConnectors) connector(DefCon);
+        if (DebugConnectors) {
+			connector(DefCon);
+			connector(LidIR_Con_Servo);
+		}
 
         color(Level3PlasticColor) {
             if (UseSTL) {

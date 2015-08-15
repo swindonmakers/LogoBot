@@ -4,20 +4,23 @@ UseVitaminSTL=true;
 DebugConnectors=false;
 DebugCoordinateFrames=false;
 
-render()
-translate([0, 0, 0])
-	LidIR_STL();
+//BasicShell_STL();
 
-translate([0, 0, -3])
-rotate([0, 0, 90])
-attach(DefCon, MicroServo_Con_Horn) {
-	MicroServo();
-	attach(MicroServo_Con_Horn, ServoHorn_Con_Default)
-		ServoHorn();
+LogoBotBase_STL();
+attach(Shell_Con_Lid, DefConDown) {
+	render() 
+		LidIR_STL();
+
+	//rotate([0, 0, 90])
+	attach(LidIR_Con_Servo, MicroServo_Con_Horn) {
+		MicroServo();
+		attach(MicroServo_Con_Horn, ServoHorn_Con_Default)
+			ServoHorn();
+	}
 }
 
 
-translate([0, (7.1+4.4)/2, 15.5])
+translate([0, (7.1+4.4)/2, 76])
 rotate([90, 0, 0])
 	Sharp2Y0A21();
 
