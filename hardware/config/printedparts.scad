@@ -3,6 +3,7 @@
 // Order alphabetically - printed parts should not have inter-dependencies!
 
 include <../printedparts/BasicShell.scad>
+include <../printedparts/BatteryClip.scad>
 include <../printedparts/Bumper.scad>
 include <../printedparts/BumperStabiliser.scad>
 include <../printedparts/Lid.scad>
