@@ -10,10 +10,19 @@ Bot::Bot(uint8_t lp1, uint8_t lp2, uint8_t lp3, uint8_t lp4, uint8_t rp1, uint8_
 
 void Bot::begin()
 {
+	begin(false);
+}
+
+void Bot::begin(bool reverse)
+{
 	_diffDrive.setMaxStepRate(1000);
 	_diffDrive.setAcceleration(2000);
 	_diffDrive.setBacklash(STEPS_OF_BACKLASH);
-	_diffDrive.setInvertDirectionFor(0,true);
+	if (reverse) {
+		_diffDrive.setInvertDirectionFor(1, true);
+	} else {
+		_diffDrive.setInvertDirectionFor(0, true);
+	}
 }
 
 void Bot::initBuzzer(uint8_t pin)
