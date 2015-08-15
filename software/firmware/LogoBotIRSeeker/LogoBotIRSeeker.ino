@@ -24,12 +24,11 @@ void setup()
     bot.begin(true);
     bot.enableLookAhead(true);
     bot.initBumpers(SWITCH_FL_PIN, SWITCH_FR_PIN, SWITCH_BL_PIN, SWITCH_BR_PIN, handleCollision);
-
-    initBuzzer();
-    playStartupJingle();
+    bot.initBuzzer(BUZZER_PIN);
+    bot.playStartupJingle();
 
     lidServo.attach(SERVO_PIN);
-    lidServo.write(90);
+    lookAt(90);
     
     pinMode(IR_PIN, INPUT);
 }
@@ -57,6 +56,7 @@ void loop()
           if (dist < DIST_TOO_CLOSE) {
             // too close!  back off
             setLEDColour(1, 0, 0);
+            bot.buzz(40);
             bot.drive(-10);
           } else {
             setLEDColour(0, 1, 0);
@@ -71,7 +71,7 @@ void loop()
         if (lookAng > 180) scanDir = -1;
         if (lookAng < 0) scanDir = 1;
       }
-      lidServo.write(lookAng);
+      lookAt(lookAng);
       lastScanMove = millis() + SCAN_SPEED;
     }
 }
@@ -89,9 +89,8 @@ static void handleCollision(byte collisionData)
         setLEDColour(1,0,0);  // Red, because we hit something
         Serial.println("Ouch!");
         bot.emergencyStop();
-        bot.buzz(500);
+        bot.buzz(250);
         bot.drive(-20);
-        playGrumpy();
     }
 
     // Insert some recovery based on which bumper was hit
@@ -121,26 +120,8 @@ static void setLEDColour(byte r, byte g, byte b) {
     digitalWrite(LED_BLUE_PIN, b);
 }
 
-static void initBuzzer() {
-    pinMode(BUZZER_PIN, OUTPUT);
+static void lookAt(int ang)
+{
+    lidServo.write(ang);
 }
-
-static void playStartupJingle() {
-    for (byte i=0; i<3; i++) {
-        analogWrite(BUZZER_PIN, 100 + i*50);
-        delay(200 + i*50);
-    }
-
-    analogWrite(BUZZER_PIN, 0);
-}
-
-static void playGrumpy() {
-    for (byte i=0; i<2; i++) {
-        analogWrite(BUZZER_PIN, 250 - i*100);
-        delay(100 + i*100);
-    }
-
-    analogWrite(BUZZER_PIN, 0);
-}
-
 
