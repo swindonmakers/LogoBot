@@ -6,6 +6,7 @@ include <../printedparts/BasicShell.scad>
 include <../printedparts/BatteryClip.scad>
 include <../printedparts/Bumper.scad>
 include <../printedparts/BumperStabiliser.scad>
+include <../printedparts/IRServoBracket.scad>
 include <../printedparts/Lid.scad>
 include <../printedparts/LidIR.scad>
 include <../printedparts/LogoBotBase.scad>
