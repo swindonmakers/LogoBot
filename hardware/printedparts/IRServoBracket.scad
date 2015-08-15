@@ -3,9 +3,9 @@ IRServoBracket_Con_Right = [[20, 0, 2], [0, 0, 1], 0, 0, 0];
 
 module IRServoBracket_STL() {
 
-    printedPart("printedparts/IRServoBracket.scad", "IRServoBracket", "IRServoBracket_STL()") {
+    printedPart("printedparts/IRServoBracket.scad", "IR Servo Bracket", "IRServoBracket_STL()") {
 
-        view(t=[0,0,0], r=[58,0,225], d=180);
+        view(t=[0,0,0], r=[160,295,180], d=150);
 
         if (DebugCoordinateFrames) frame();
         if (DebugConnectors) {
@@ -29,7 +29,7 @@ module IRServoBracket_Model()
 	// Base
 	linear_extrude(2)
 	difference() {
-		square([52, 12], center=true);
+		chamferedSquare([52, 12], 3, center=true);
 
 		// pin holes
 		for (i=[0, 1])
