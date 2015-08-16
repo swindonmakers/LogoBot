@@ -124,22 +124,31 @@ static void handleCollision(byte collisionData)
 {
     if (collisionData != 0) {
         // Just hit something, so stop, buzz and backoff
-        action = Retreat;
-        lastScanMove += 2000;
         Serial.println("Ouch!");
+        action = Retreat;
+        lastScanMove = millis() + 2000;
         bot.emergencyStop();
         bot.buzz(250);
-        bot.drive(-20);
     }
 
     // Insert some recovery based on which bumper was hit
     // Queue the moves directly to bot, don't bother with Logo command queue
-    if (collisionData == 1) {
+    if (collisionData == 1) { // Front Left
         lookAng=135;
+        bot.drive(-20);
         bot.turn(-30);
-    } else if (collisionData == 2) {
+    } else if (collisionData == 2) { // Front Right
         lookAng=45;
+        bot.drive(-20);
         bot.turn(60);
+    } else if (collisionData == 4) { // Back left
+        lookAng=180;
+        bot.drive(20);
+        bot.turn(60);
+    } else if (collisionData == 8) { // Back right
+        lookAng=0;
+        bot.drive(20);
+        bot.turn(-25);
     } else if (collisionData != 0) {
         bot.turn(-90);
     }
