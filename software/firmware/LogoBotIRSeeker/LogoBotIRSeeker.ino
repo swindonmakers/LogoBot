@@ -6,6 +6,7 @@
 enum Activity
 {
   Idle,
+  Bored,
   Seek,
   Turn,
   Advance,
@@ -19,6 +20,9 @@ static int lookAng = 90; // current angle bot is looking 0 -> right, 180 -> left
 static int scanDir = 1; // direction we are panning the servo in - 1 or -1.
 static long lastScanMove = 0; // last time we moved the servo
 static Activity action = Idle; // current activity the bot is doing
+
+#define BORDEM_THRESHOLD 2 // how long before the bot gets bored and makes a random move
+static int blankScanCount = 0; // number of scans with no interaction
 
 Bot bot(MOTOR_L_PIN_1, MOTOR_L_PIN_2, MOTOR_L_PIN_3, MOTOR_L_PIN_4, MOTOR_R_PIN_1, MOTOR_R_PIN_2, MOTOR_R_PIN_3, MOTOR_R_PIN_4);
 Servo lidServo;
@@ -53,6 +57,8 @@ void loop()
 
       if (dist < DIST_CLOSE) {
         // object close, turn to face or drive towards if already facing
+        blankScanCount = 0;
+        
         if (lookAng < 90) {
           action = Turn;
           bot.turn(-1);
@@ -86,8 +92,13 @@ void loop()
         lookAng += scanDir;
         
         // switch scan direction if end of servo travel reached
-        if (lookAng > 180) scanDir = -1;
-        if (lookAng < 0) scanDir = 1;
+        if (lookAng > 180) {
+          scanDir = -1;
+        }
+        if (lookAng < 0) {
+          scanDir = 1;
+          blankScanCount++;
+        }
       }
       
       lastScanMove = millis() + SCAN_SPEED;
@@ -99,6 +110,7 @@ void loop()
     // Update LED
     switch(action) {
       case Idle:
+      case Bored:
         setLEDColour(0, 0, 0);
         break;
       case Seek:
@@ -111,6 +123,18 @@ void loop()
       case Retreat:
         setLEDColour(1, 0, 0);
         break;
+    }
+
+    // Bored, nothing much to see here, wander around a bit in the hope of finding something
+    if (action == Seek && blankScanCount > BORDEM_THRESHOLD) {
+      action = Bored;
+      lookAng = 90;
+      if (random(0, 100) > 35)
+        bot.driveTo(random(-50, 50), random(-50, 50));
+      else
+        bot.arcTo(random(-50, 50), random(-50, 50));
+      blankScanCount = 0;
+      lastScanMove = millis() + 5000;
     }
 }
 
