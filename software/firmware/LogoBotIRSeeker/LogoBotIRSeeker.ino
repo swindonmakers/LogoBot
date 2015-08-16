@@ -3,13 +3,22 @@
 #include <Bot.h>
 #include <Servo.h>
 
-#define SCAN_SPEED 25
-int lookAng = 90; // 0 -> right, 180 -> left, 90 -> straight ahead
-int scanDir = 1;
-long lastScanMove = 0;
+enum Activity
+{
+  Idle,
+  Seek,
+  Turn,
+  Advance,
+  Retreat
+};
 
-#define DIST_CLOSE 140
-#define DIST_TOO_CLOSE 70
+#define SCAN_SPEED 25 // speed eyes turn, lower is faster.  (delay in ms between moves)
+#define DIST_CLOSE 140 // distance in mm for an object to warrant investigation
+#define DIST_TOO_CLOSE 70 // distance in mm that bot is too close and should back off
+static int lookAng = 90; // current angle bot is looking 0 -> right, 180 -> left, 90 -> straight ahead
+static int scanDir = 1; // direction we are panning the servo in - 1 or -1.
+static long lastScanMove = 0; // last time we moved the servo
+static Activity action = Idle; // current activity the bot is doing
 
 Bot bot(MOTOR_L_PIN_1, MOTOR_L_PIN_2, MOTOR_L_PIN_3, MOTOR_L_PIN_4, MOTOR_R_PIN_1, MOTOR_R_PIN_2, MOTOR_R_PIN_3, MOTOR_R_PIN_4);
 Servo lidServo;
@@ -45,34 +54,63 @@ void loop()
       if (dist < DIST_CLOSE) {
         // object close, turn to face or drive towards if already facing
         if (lookAng < 90) {
-          setLEDColour(0, 1, 0);
+          action = Turn;
           bot.turn(-1);
           lookAng += 1;
+          
         } else if (lookAng > 90) {
-          setLEDColour(0, 1, 0);
+          action = Turn;
           bot.turn(1);
           lookAng -= 1;
-        } else if (lookAng == 90 && !bot.isBusy()) {
+          
+        } else if (lookAng == 90) {
+          // bot is facing the object
           if (dist < DIST_TOO_CLOSE) {
             // too close!  back off
-            setLEDColour(1, 0, 0);
-            bot.buzz(40);
+            if (action != Retreat) bot.stop();
+            action = Retreat;
+            bot.buzz(10);
             bot.drive(-10);
+            
           } else {
-            setLEDColour(0, 1, 0);
             // head for object
+            if (action != Advance) bot.stop();
+            action = Advance;
             bot.drive(10);
           }
         }
       } else {
         // keep scanning for objects
-        setLEDColour(0, 0, 1); // blue, seeking
+        if (action != Seek) bot.stop();
+        action = Seek;
         lookAng += scanDir;
+        
+        // switch scan direction if end of servo travel reached
         if (lookAng > 180) scanDir = -1;
         if (lookAng < 0) scanDir = 1;
       }
-      lookAt(lookAng);
+      
       lastScanMove = millis() + SCAN_SPEED;
+    }
+
+    // Update Servo position
+    lookAt(lookAng);
+    
+    // Update LED
+    switch(action) {
+      case Idle:
+        setLEDColour(0, 0, 0);
+        break;
+      case Seek:
+        setLEDColour(0, 0, 1);
+        break;
+      case Turn:
+      case Advance:
+        setLEDColour(0, 1, 0);
+        break;
+      case Retreat:
+        setLEDColour(1, 0, 0);
+        break;
     }
 }
 
@@ -86,7 +124,8 @@ static void handleCollision(byte collisionData)
 {
     if (collisionData != 0) {
         // Just hit something, so stop, buzz and backoff
-        setLEDColour(1,0,0);  // Red, because we hit something
+        action = Retreat;
+        lastScanMove += 2000;
         Serial.println("Ouch!");
         bot.emergencyStop();
         bot.buzz(250);
