@@ -446,18 +446,20 @@ module LogoBotIRSeekerAssembly ( Shell=true ) {
 
 
             // Shell + fixings
-			if (Shell) {
+            if (Shell) {
 				step(14,
 					"Push the shell down onto the base and twist to lock into place") {
 					view(t=[11,-23,65], r=[66,0,217], d=570);
 
 					attach(DefConDown, DefConDown, ExplodeSpacing=BaseDiameter/2)
-						ShellAssembly(true);
+						BasicShell_STL();
 				}
             }
 
             step(15, "Push fit the servo into the bracket, thereby fixing the lid in place") {
-                attach([[0,0,50],[0,0,-1],0,0,0], DefConDown)
+                view(t=[11,-23,65], r=[66,0,217], d=570);
+
+                attach([[0,0,60.5],[0,0,-1],180,0,0], DefConDown)
                     LidIRAssembly();
             }
         }
