@@ -51,7 +51,7 @@ module Lid_Model()
 
     $fn=64;
 
-    clearance = 0.5;
+    clearance = 0.3;
 
     //render()
     translate([0,0,-ShellOpeningHeight])
