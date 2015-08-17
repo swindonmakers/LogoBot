@@ -29,4 +29,3 @@ translate([0, 0, 2]) {
 	attach(IRServoBracket_Con_Right, DefConDown)
 		 render() PinTack_STL(h=6.5);
 }
-
