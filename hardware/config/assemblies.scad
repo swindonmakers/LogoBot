@@ -24,3 +24,4 @@ include <../assemblies/LogoBotLineFollower.scad>
 include <../assemblies/LogoBotPolarGraph.scad>
 include <../assemblies/Gondola.scad>
 include <../assemblies/LogoBotIRSeeker.scad>
+include <../assemblies/LidIR.scad>

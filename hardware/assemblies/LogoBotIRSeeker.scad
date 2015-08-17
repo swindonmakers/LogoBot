@@ -161,7 +161,7 @@ module LogoBotIRSeekerAssembly ( Shell=true ) {
 
             step(10, "Fix the servo bracket assembly into place using two pins") {
                 view(t=[8,-10,26], r=[47,0,300], d=260);
-                
+
                 attach([[0, 0, 2],[0,0,-1],0,0,0], DefConDown) {
                 	IRServoBracket_STL();
                 	attach(IRServoBracket_Con_Left, DefConDown)
@@ -454,6 +454,11 @@ module LogoBotIRSeekerAssembly ( Shell=true ) {
 					attach(DefConDown, DefConDown, ExplodeSpacing=BaseDiameter/2)
 						ShellAssembly(true);
 				}
+            }
+
+            step(15, "Push fit the servo into the bracket, thereby fixing the lid in place") {
+                attach([[0,0,50],[0,0,-1],0,0,0], DefConDown)
+                    LidIRAssembly();
             }
         }
 
