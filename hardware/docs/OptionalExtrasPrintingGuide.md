@@ -1,6 +1,20 @@
 # OptionalExtras
 # Printing Guide
 
+### Lego Lid
+
+Metric | Value 
+--- | --- 
+Quantity | 1
+STL | [Lego Lid](../printedparts/stl/LegoLid.stl)
+Plastic (Kg) | 0.02
+Plastic (cm3) | 13.2
+Approx Plastic Cost | 0.25 GBP
+
+![](../printedparts/images/LegoLid_view.png)
+
+
+
 ### Simple Base
 
 Metric | Value 
@@ -26,9 +40,9 @@ Approx Plastic Cost | 0.2 GBP
 
 Metric | Value 
 --- | --- 
-Total Parts | 1
-Total Plastic (Kg) | 0.01KG
-Total Plastic (cm3) | 10.7cm3
-Approx Plastic Cost | 0.2 GBP
+Total Parts | 2
+Total Plastic (Kg) | 0.03KG
+Total Plastic (cm3) | 23.9cm3
+Approx Plastic Cost | 0.45 GBP
 
 

@@ -14,9 +14,11 @@ DebugConnectors = false;
 
 machine("OptionalExtras.scad","OptionalExtras") {
 
-    view(size=[1024,768], t=[5, -1, 34], r=[78, 0, 215], d=749);
+    view(size=[1024,768], t=[50, 14, -14], r=[52, 0, 17], d=400);
 
     // optional extras go here... try to make the layout pretty :)
     SimpleBase_STL();
 
+    translate([100,0,0])
+        LegoLid_STL();
 }
