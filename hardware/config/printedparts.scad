@@ -22,3 +22,4 @@ include <../printedparts/LineSensorHolder.scad>
 include <../printedparts/Capstan.scad>
 include <../printedparts/StringGuide.scad>
 include <../printedparts/LegoLid.scad>
+include <../printedparts/VoronoiShell.scad>

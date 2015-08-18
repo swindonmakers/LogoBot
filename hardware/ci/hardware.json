@@ -4932,7 +4932,7 @@
     },
     {
         "cut": [],
-        "hash": "16367b45beea308559605118a08f3339",
+        "hash": "0243191a24f75972cb7a591774c515a3",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -14168,7 +14168,7 @@
     },
     {
         "cut": [],
-        "hash": "4f1e5620b359338be2e2108fff6f2371",
+        "hash": "0df9df7e291c63f8cad67ea0ba5d3a26",
         "vitamins": [
             {
                 "hash": "da336afd2a62a43e7dcc8dc22d47913c",
@@ -17181,7 +17181,7 @@
     },
     {
         "cut": [],
-        "hash": "966f94a2a371f21494673664483d2de1",
+        "hash": "40ec9d736f5ad44686525a1dae8a4436",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -22581,7 +22581,7 @@
     },
     {
         "cut": [],
-        "hash": "66824f7138ffe44cb2348543762186e7",
+        "hash": "b5b0e7df98b5b3f8224d19486e500ed4",
         "vitamins": [],
         "title": "OptionalExtras",
         "assemblies": [],
@@ -22686,6 +22686,100 @@
                 "plasticVolume": 13.2,
                 "call": "LegoLid_STL()",
                 "file": "printedparts/LegoLid.scad"
+            },
+            {
+                "markdown": [],
+                "hash": "ac32dfae4ff4d234570bffa98d485446",
+                "plasticWeight": 0.036875,
+                "title": "Voronoi Shell Type1",
+                "aabb": [
+                    [
+                        -73.0,
+                        -73.0,
+                        -2.0
+                    ],
+                    [
+                        73.0,
+                        73.0,
+                        62.7514
+                    ]
+                ],
+                "views": [
+                    {
+                        "rotate": [
+                            63,
+                            0,
+                            26
+                        ],
+                        "dist": 726,
+                        "title": "view",
+                        "filepath": "../printedparts/images/VoronoiShellType1_view.png",
+                        "caption": "view",
+                        "translate": [
+                            -2,
+                            6,
+                            14
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "volume": 28723.574763006894,
+                "area": 45250.17024574495,
+                "plasticVolume": 29.5,
+                "call": "VoronoiShell_STL(type=1)",
+                "file": "printedparts/VoronoiShell.scad"
+            },
+            {
+                "markdown": [],
+                "hash": "fcb327e9e1a1fb6a900dcac27f5a3bf2",
+                "plasticWeight": 0.0515,
+                "title": "Voronoi Shell Type2",
+                "aabb": [
+                    [
+                        -73.0,
+                        -73.0,
+                        -2.0
+                    ],
+                    [
+                        73.0,
+                        73.0,
+                        62.7705
+                    ]
+                ],
+                "views": [
+                    {
+                        "rotate": [
+                            63,
+                            0,
+                            26
+                        ],
+                        "dist": 726,
+                        "title": "view",
+                        "filepath": "../printedparts/images/VoronoiShellType2_view.png",
+                        "caption": "view",
+                        "translate": [
+                            -2,
+                            6,
+                            14
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "volume": 38553.17488195493,
+                "area": 49907.76484893339,
+                "plasticVolume": 41.2,
+                "call": "VoronoiShell_STL(type=2)",
+                "file": "printedparts/VoronoiShell.scad"
             }
         ],
         "file": "OptionalExtras.scad",
@@ -22693,18 +22787,18 @@
         "children": [
             {
                 "rotate": [
-                    52,
+                    59,
                     0,
                     17
                 ],
-                "dist": 400,
+                "dist": 500,
                 "title": "view",
                 "filepath": "../images/OptionalExtras_view.png",
                 "caption": "view",
                 "translate": [
+                    90,
                     50,
-                    14,
-                    -14
+                    35
                 ],
                 "type": "view",
                 "size": [
@@ -22774,6 +22868,62 @@
                 ],
                 "file": "printedparts/LegoLid.scad",
                 "title": "Lego Lid"
+            },
+            {
+                "call": "VoronoiShell_STL(type=1)",
+                "type": "printed",
+                "children": [
+                    {
+                        "rotate": [
+                            63,
+                            0,
+                            26
+                        ],
+                        "dist": 726,
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            -2,
+                            6,
+                            14
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "file": "printedparts/VoronoiShell.scad",
+                "title": "Voronoi Shell Type1"
+            },
+            {
+                "call": "VoronoiShell_STL(type=2)",
+                "type": "printed",
+                "children": [
+                    {
+                        "rotate": [
+                            63,
+                            0,
+                            26
+                        ],
+                        "dist": 726,
+                        "title": "view",
+                        "caption": "view",
+                        "translate": [
+                            -2,
+                            6,
+                            14
+                        ],
+                        "type": "view",
+                        "size": [
+                            400,
+                            300
+                        ]
+                    }
+                ],
+                "file": "printedparts/VoronoiShell.scad",
+                "title": "Voronoi Shell Type2"
             }
         ]
     },
@@ -22998,6 +23148,10 @@
             {
                 "type": "file",
                 "file": "printedparts/LegoLid.scad"
+            },
+            {
+                "type": "file",
+                "file": "printedparts/VoronoiShell.scad"
             }
         ],
         "type": "filelist"
