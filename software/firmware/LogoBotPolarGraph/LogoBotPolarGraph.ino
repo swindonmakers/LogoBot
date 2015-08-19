@@ -58,11 +58,10 @@ void loop()
       doLogoCommand(cmdQ.dequeue());
 
   } else if (!bot.isBusy()) {  // See if the bot has finished whatever it's doing...
-    // see if there's more things todo in the command queue
-    if (cmdQ.isEmpty()) {
-      // As the command queue is empty, check the text writing buffer
-      // to see if there are any more letters to write
-      if (text.length() > 0) {
+    // see if we've got more text to write
+    if (text.length() > 0) {
+      // check if we're ready for another letter - need the queue to be empty as letters take a LOT of commands
+      if (bot.isQEmpty()) {
         char c = text[0];  // grab the next character to write
         text = text.substring(1);  // and remove the first character from the text writing buffer
         LogobotText::writeChar(c, bot.state.x, bot.state.y);  // use the LogobotText library to write the letter

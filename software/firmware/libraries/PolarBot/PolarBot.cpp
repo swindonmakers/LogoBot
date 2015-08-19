@@ -39,6 +39,10 @@ bool PolarBot::isQFull() {
 	return _diffDrive.getQueueCapacity() < 3;
 }
 
+bool PolarBot::isQEmpty() {
+	return _diffDrive.isQEmpty();
+}
+
 void PolarBot::playStartupJingle()
 {
 	for (uint8_t i = 0; i < 3; i++) {
