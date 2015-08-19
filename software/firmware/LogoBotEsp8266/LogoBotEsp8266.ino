@@ -5,7 +5,7 @@
 #include "WebPages.h"
 
 /* Settings you may want to configure for your LogoBot */
-#define LOGOBOT_SSID "LogobotBlue"
+#define LOGOBOT_SSID "LogobotPG"
 #define LOGOBOT_PWD "logobot1"
 #define LOGOBOT_URL "logo.bot"
 static const IPAddress apIP(192, 168, 4, 1);
@@ -155,6 +155,26 @@ static void handleStat()
   digitalWrite(led, 0);
 }
 
+static void handleNetworks() {
+  digitalWrite(led, 1);
+
+  int8_t netCount = WiFi.scanNetworks();
+
+  String json = "{\"response\": \"ok\"";
+  json += ", \"count\": \"" + String(netCount) + "\"";
+  
+  json += ", names:[";
+  for (uint8_t i=0; i<netCount; i++) {
+    if (i > 0) json += ',';
+    json += "\"" + String(WiFi.SSID(i)) + "\"";
+  }
+  json += "]}";
+
+  server.send(200, F("application/json"), json);
+
+  digitalWrite(led, 0);
+}
+
 static void handleNotFound()
 {
   digitalWrite(led, 1);
@@ -183,7 +203,8 @@ void setup(void){
 
   WiFi.mode(WIFI_AP);
   WiFi.softAPConfig(apIP, apIP, mask);
-  WiFi.softAP(LOGOBOT_SSID, LOGOBOT_PWD);
+  //WiFi.softAP(LOGOBOT_SSID, LOGOBOT_PWD);
+  WiFi.softAP(LOGOBOT_SSID);
   
   dnsServer.setTTL(300);
   dnsServer.setErrorReplyCode(DNSReplyCode::NonExistentDomain);
@@ -196,6 +217,7 @@ void setup(void){
   server.on("/", handleRoot);
   server.on("/batch", handleBatch);
   server.on("/style.css", handleStyle);
+  server.on("/networks", handleNetworks);
   server.onNotFound(handleNotFound);
   
   server.begin();
