@@ -40,62 +40,64 @@ def read_hashes_from_png(filename):
 def polish(filename, w, h, hash="", viewhash=""):
     print("  Polishing...")
 
-    img = Image.open(filename)
-    img = img.convert("RGBA")
+    try:
+        img = Image.open(filename)
+        img = img.convert("RGBA")
 
-    pixdata = img.load()
+        pixdata = img.load()
 
-    # Read top left pixel color - not robust to zoomed in images
-    # tlc = pixdata[0,0]
+        # Read top left pixel color - not robust to zoomed in images
+        # tlc = pixdata[0,0]
 
-    # init clipping bounds
-    x1 = img.size[0]
-    x2 = 0
-    y1 = img.size[1]
-    y2 = 0
+        # init clipping bounds
+        x1 = img.size[0]
+        x2 = 0
+        y1 = img.size[1]
+        y2 = 0
 
-    # Set background to white and transparent
-    for y in xrange(img.size[1]):
-        solidx = 0
-        solidy = 0
-        for x in xrange(img.size[0]):
-            if pixdata[x, y] == bkc:
-                pixdata[x, y] = (255, 255, 255, 0)
-            else:
-                if solidx == 0 and x < x1:
-                    x1 = x
-                if solidy == 0 and y < y1:
-                    y1 = y
-                solidx = x
-                solidy = y
-        if solidx > x2:
-            x2 = solidx
-        if solidy > y2:
-            y2 = solidy
+        # Set background to white and transparent
+        for y in xrange(img.size[1]):
+            solidx = 0
+            solidy = 0
+            for x in xrange(img.size[0]):
+                if pixdata[x, y] == bkc:
+                    pixdata[x, y] = (255, 255, 255, 0)
+                else:
+                    if solidx == 0 and x < x1:
+                        x1 = x
+                    if solidy == 0 and y < y1:
+                        y1 = y
+                    solidx = x
+                    solidy = y
+            if solidx > x2:
+                x2 = solidx
+            if solidy > y2:
+                y2 = solidy
 
-    x2 += 2
-    y2 += 2
+        x2 += 2
+        y2 += 2
 
-    # downsample (half the res)
-    img = img.resize((w, h), Image.ANTIALIAS)
+        # downsample (half the res)
+        img = img.resize((w, h), Image.ANTIALIAS)
 
-    # crop
-    if (x1 < x2 and y1 < y2):
-        img = img.crop((x1/2,y1/2,x2/2,y2/2))
+        # crop
+        if (x1 < x2 and y1 < y2):
+            img = img.crop((x1/2,y1/2,x2/2,y2/2))
 
-    # add hash to meta data
-    meta = PngImagePlugin.PngInfo()
+        # add hash to meta data
+        meta = PngImagePlugin.PngInfo()
 
-    # copy metadata into new object
-    #for k,v in im.info.iteritems():
-    #    if k in reserved: continue
-    meta.add_text("csghash", hash, 0)
-    meta.add_text("viewhash", viewhash, 0)
+        # copy metadata into new object
+        #for k,v in im.info.iteritems():
+        #    if k in reserved: continue
+        meta.add_text("csghash", hash, 0)
+        meta.add_text("viewhash", viewhash, 0)
 
-    # Save it
-    img.save(filename, "PNG", pnginfo=meta)
-    img.close()
-
+        # Save it
+        img.save(filename, "PNG", pnginfo=meta)
+        img.close()
+    except:
+        print("  Exception error")
 
 
 def render_view_using_file(obj_title, scadfile, dir, view, hashchanged, hash=""):
