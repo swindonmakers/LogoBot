@@ -20,6 +20,10 @@ static const IPAddress mask(255, 255, 255, 0);
 DNSServer dnsServer;
 ESP8266WebServer server(80);
 
+unsigned long debugTimer = millis();
+
+IPAddress localIP(0,0,0,0);
+
 static void urldecode2(char *dst, const char *src)
 {
   char a, b;
@@ -161,6 +165,8 @@ static void handleNetworks() {
   int8_t netCount = WiFi.scanNetworks();
 
   String json = "{\"response\": \"ok\"";
+  json += ", \"localIP\": \"" + String(WiFi.localIP()) + "\"";
+  json += ", \"status\": \"" + String(WiFi.status()) + "\"";
   json += ", \"count\": \"" + String(netCount) + "\"";
   
   json += ", names:[";
@@ -173,6 +179,45 @@ static void handleNetworks() {
   server.send(200, F("application/json"), json);
 
   digitalWrite(led, 0);
+}
+
+static void handleJoin()
+{
+  digitalWrite(led, 1);
+  
+  if (server.hasArg("name") && server.hasArg("pw")) {
+    // Parse args
+    String n = server.arg("name");
+    String pw = server.arg("pw");
+
+    char nc[MAX_PARAM_LENGTH];
+    char pwc[MAX_PARAM_LENGTH];
+
+    n.toCharArray(nc, MAX_PARAM_LENGTH);
+    pw.toCharArray(pwc, MAX_PARAM_LENGTH);
+
+    // clear current IP address
+    localIP = IPAddress(0,0,0,0);
+
+    // attempt to join network
+    int response = WiFi.begin(nc, pwc);
+
+    if (response == WL_CONNECT_FAILED) {
+      server.send(500, F("text/plain"), F("Connection failed"));
+    } else {
+      server.send(200, F("text/plain"), "OK");
+    }
+
+  } else {
+    server.send(500, F("text/plain"), F("Missing arguments"));
+  }
+  
+  digitalWrite(led, 0);
+}
+
+static void handleLeave() {
+ WiFi.disconnect();
+ server.send(200, F("text/plain"), "OK");
 }
 
 static void handleNotFound()
@@ -218,6 +263,8 @@ void setup(void){
   server.on("/batch", handleBatch);
   server.on("/style.css", handleStyle);
   server.on("/networks", handleNetworks);
+  server.on("/join", handleJoin);
+  server.on("/leave", handleLeave);
   server.onNotFound(handleNotFound);
   
   server.begin();
@@ -226,4 +273,11 @@ void setup(void){
 void loop(void){
   dnsServer.processNextRequest();
   server.handleClient();
+
+  // write IP address when connected!
+  if (WiFi.status() == WL_CONNECTED && (uint32_t)localIP == 0) {
+    localIP = WiFi.localIP();
+    Serial.print("WT ");
+    Serial.println(WiFi.localIP());
+  }
 }
