@@ -48,6 +48,12 @@ static void urldecode2(char *dst, const char *src)
   *dst++ = '\0';
 }
 
+static void handleStyle() {
+  digitalWrite(led, 1);
+  server.send(200, F("text/css"), stylePage);
+  digitalWrite(led, 0);
+}
+
 static void handleRoot() {
   digitalWrite(led, 1);
   server.send(200, F("text/html"), mainPage);
@@ -189,6 +195,7 @@ void setup(void){
   server.on("/status", handleStatus);
   server.on("/", handleRoot);
   server.on("/batch", handleBatch);
+  server.on("/style.css", handleStyle);
   server.onNotFound(handleNotFound);
   
   server.begin();

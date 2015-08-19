@@ -1,10 +1,5 @@
-static const char mainPage[] PROGMEM = R"~(
-<!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<html>
-<head>
-<title>Logobot Blue</title>
-<style>
+
+static const char stylePage[] = R"~(
 body, button,input {font-family:sans-serif; font-size: 22px;}
 body {
     padding: 5% 5%;
@@ -48,7 +43,16 @@ input {
 .button30 {
     width: 28%;
 }
-</style>
+)~";
+
+
+static const char mainPage[] = R"~(
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+<head>
+<title>Logobot</title>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <div class="header-fixed">Logobot: <span id="state">ready!</span></div>
@@ -105,16 +109,16 @@ Y:<input style="width: 40px" type="number" id="y" value="0"/>
 </script>
 </body>
 </html>
-
 )~";
 
 
-static const char statusPage[] PROGMEM = R"~(
+static const char statusPage[] = R"~(
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <html>
   <head>
     <title>Logobot Status</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
 <body>
 <div>
@@ -155,12 +159,13 @@ static const char statusPage[] PROGMEM = R"~(
 )~";
 
 
-static const char batchPage[] PROGMEM = R"~(
+static const char batchPage[] = R"~(
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <html>
   <head>
     <title>Logobot Commander</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
     <div>
