@@ -38,6 +38,7 @@ public:
 	void playStartupJingle();
 	bool isBusy();
 	bool isQFull();
+	bool isQEmpty();
 
 	void run();
 

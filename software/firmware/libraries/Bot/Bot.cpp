@@ -62,6 +62,10 @@ bool Bot::isQFull() {
 	return _diffDrive.getQueueCapacity() < 3;
 }
 
+bool Bot::isQEmpty() {
+	return _diffDrive.isQEmpty();
+}
+
 void Bot::playStartupJingle()
 {
 	for (uint8_t i = 0; i < 3; i++) {
