@@ -247,9 +247,13 @@ static void doLogoCommand(COMMAND *c)
             break;
         case LOGO_CMD_ST:
             bot.stop();
+            textQ.clear();
+            cmdQ.clear();
             break;
         case LOGO_CMD_SE:
             bot.emergencyStop();
+            textQ.clear();
+            cmdQ.clear();
             break;
         case LOGO_CMD_BZ:
             bot.buzz(f1);

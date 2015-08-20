@@ -19,6 +19,7 @@ public:
 	COMMAND * dequeue();
 	boolean isFull();
 	boolean isEmpty();
+	void clear();
 	int pending();
 	void printCommandQ();
 

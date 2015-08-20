@@ -76,6 +76,10 @@ boolean CommandQueue::isEmpty() {
 	return qSize == 0;
 }
 
+void CommandQueue::clear() {
+	qSize = 0;
+}
+
 int CommandQueue::pending() {
 	return qSize;
 }
