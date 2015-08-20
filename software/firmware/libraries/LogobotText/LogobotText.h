@@ -8,6 +8,7 @@ namespace LogobotText
 	void begin(CommandQueue& cmdQ);
 	void writeChar(char c, float x, float y);
 	void setFontSize(float size);
+	float getFontSize();
 };
 
 #endif

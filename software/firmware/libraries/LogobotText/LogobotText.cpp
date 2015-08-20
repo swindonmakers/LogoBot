@@ -5,6 +5,7 @@
 #define LOGO_CMD_BZ			12
 #define LOGO_CMD_PU			13
 #define LOGO_CMD_PD			14
+#define LOGO_CMD_NL			21
 
 namespace LogobotText
 {
@@ -356,9 +357,16 @@ namespace LogobotText
 		w = fontSize * 0.5;
 	}
 
+	float getFontSize() {
+		return fontSize;
+	}
+
 	void writeChar(char c, float x, float y)
 	{
 		switch (c) {
+			case '\n':
+				_cmdQ->enqueue("", LOGO_CMD_NL);
+				break;
 			case 'A':
 				writeA(x, y);
 				break;

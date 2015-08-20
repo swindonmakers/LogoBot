@@ -8,9 +8,10 @@
 // left and right are inverted vs normal LogoBot wiring
 // orientations are when looking at the drawing surface from the front
 PolarBot bot(MOTOR_R_PIN_1, MOTOR_R_PIN_2, MOTOR_R_PIN_3, MOTOR_R_PIN_4, MOTOR_L_PIN_1, MOTOR_L_PIN_2, MOTOR_L_PIN_3, MOTOR_L_PIN_4);
-CommandQueue cmdQ(20);
-String text = ""; // buffered text to "write" using the pen
+CommandQueue cmdQ(15);
+CommandQueue textQ(20);
 String cmd; // cmd received over serial - builds up char at a time
+float lineY;  //  stores current line position to allow for writing lines of text
 
 void setup()
 {
@@ -21,7 +22,13 @@ void setup()
   //bot.initBuzzer(BUZZER_PIN);
   bot.enableLookAhead(true);
   //bot.playStartupJingle();
-  LogobotText::begin(cmdQ);
+  LogobotText::begin(textQ);
+
+  // bot will initialise at 260,-300
+
+  // Move to top left of writing window (100, -200)
+  //cmdQ.enqueue("", LOGO_CMD_CS);
+  lineY = bot.state.y;
 }
 
 void loop()
@@ -29,6 +36,7 @@ void loop()
   // Parse Logo commands from Serial
   if (Serial.available()) {
     char c = Serial.read();
+    
     if (c == '\r' || c == '\n') {  // if found a line end
       if (cmd != "") {  // check the command isn't blank
         if (cmd == "STAT") { // handle status commands: execute immediately, no need to parse and/or queue
@@ -51,25 +59,33 @@ void loop()
   // keep the bot moving (this triggers the stepper motors to move, so needs to be called frequently, i.e. >1KHz)
   bot.run();
 
-  // see if we can queue the next command to the bot...
-  // Needs to be a movement command and the bot movement queue must not be full
-  if (cmdQ.peekAtType() <= LOGO_MOVE_CMDS && !bot.isQFull()) {
-      // pop and process next command from queue
-      doLogoCommand(cmdQ.dequeue());
-
-  } else if (!bot.isBusy()) {  // See if the bot has finished whatever it's doing...
-    // see if we've got more text to write
-    if (text.length() > 0) {
-      // check if we're ready for another letter - need the queue to be empty as letters take a LOT of commands
-      if (bot.isQEmpty()) {
-        char c = text[0];  // grab the next character to write
-        text = text.substring(1);  // and remove the first character from the text writing buffer
-        LogobotText::writeChar(c, bot.state.x, bot.state.y);  // use the LogobotText library to write the letter
-      }
-    } else {
-      // pop and process next command from queue
-      doLogoCommand(cmdQ.dequeue());
+  if (!textQ.isEmpty()) {
+    // see if we can queue the next command to the bot...
+    // Needs to be a movement command and the bot movement queue must not be full
+    if (textQ.peekAtType() <= LOGO_MOVE_CMDS && !bot.isQFull()) {
+        // pop and process next command from queue
+        doLogoCommand(textQ.dequeue());
+    
+    } else if (!bot.isBusy()) {  // See if the bot has finished whatever it's doing...
+      
+        // pop and process next command from queue
+        doLogoCommand(textQ.dequeue());
+      //}
     }
+  
+  } else {
+    // see if we can queue the next command to the bot...
+    // Needs to be a movement command and the bot movement queue must not be full
+    if (cmdQ.peekAtType() <= LOGO_MOVE_CMDS && !bot.isQFull()) {
+        // pop and process next command from queue
+        doLogoCommand(cmdQ.dequeue());
+  
+    } else if (!bot.isBusy()) {  // See if the bot has finished whatever it's doing...
+      
+        // pop and process next command from queue
+        doLogoCommand(cmdQ.dequeue());
+      //}
+    } 
   }
 }
 
@@ -137,8 +153,10 @@ static void parseLogoCommand(String c) {
     } else if (c.startsWith("PQ")) {
         cmdType = LOGO_CMD_PQ;
     } else if (c.startsWith("CS")) {
-		cmdType = LOGO_CMD_CS;
-	}
+		    cmdType = LOGO_CMD_CS;
+	  } else if (c.startsWith("NL")) {
+        cmdType = LOGO_CMD_NL;
+    }
 
     // give up if command not recognised
     if (cmdType == 0xff) return;
@@ -241,11 +259,7 @@ static void doLogoCommand(COMMAND *c)
             break;
         case LOGO_CMD_SE:
             bot.emergencyStop();
-			text = "";
             break;
-		case LOGO_CMD_CS:
-			bot.resetPosition();
-			break;
         case LOGO_CMD_BZ:
             bot.buzz(f1);
             break;
@@ -270,15 +284,26 @@ static void doLogoCommand(COMMAND *c)
         case LOGO_CMD_PQ:
             cmdQ.printCommandQ();
             break;
-
+        case LOGO_CMD_CS:
+           bot.driveTo(100,-200);
+           lineY = -200;
+           break;
+        case LOGO_CMD_NL:
+           lineY -= LogobotText::getFontSize();
+           if (lineY < -600) lineY = -200;
+           bot.driveTo(100, lineY);
+           break;
     }
 }
 
 static void writeText(String s) {
-  // overwrite write text
-  text = s;
-  text.toUpperCase();
+  if (s.length() > 0) {
+    char c = s[0];  // grab the next character to write
+    
+    // put the rest of the command back at the beginning of the queue
+    cmdQ.insert(s.substring(1), LOGO_CMD_WT);
 
-  // reset current state
-  //bot.resetPosition();
+    // use the LogobotText library to write the letter
+    LogobotText::writeChar(c, bot.state.x, bot.state.y);  
+  } 
 }
