@@ -25,9 +25,6 @@ void setup()
   LogobotText::begin(textQ);
 
   // bot will initialise at 260,-300
-
-  // Move to top left of writing window (100, -200)
-  //cmdQ.enqueue("", LOGO_CMD_CS);
   lineY = bot.state.y;
 }
 
@@ -35,7 +32,7 @@ void loop()
 {
   // Parse Logo commands from Serial
   if (Serial.available()) {
-    char c = Serial.read();
+    char c = toupper(Serial.read());
     
     if (c == '\r' || c == '\n') {  // if found a line end
       if (cmd != "") {  // check the command isn't blank
