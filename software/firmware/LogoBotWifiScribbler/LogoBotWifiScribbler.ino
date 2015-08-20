@@ -6,8 +6,8 @@
 #include <Servo.h>
 
 Bot bot(MOTOR_L_PIN_1, MOTOR_L_PIN_2, MOTOR_L_PIN_3, MOTOR_L_PIN_4, MOTOR_R_PIN_1, MOTOR_R_PIN_2, MOTOR_R_PIN_3, MOTOR_R_PIN_4);
-CommandQueue cmdQ(20);
-String text = ""; // buffered text to "write" using the pen
+CommandQueue cmdQ(15);
+CommandQueue textQ(20);
 String cmd; // cmd received over serial - builds up char at a time
 
 void setup()
@@ -20,14 +20,14 @@ void setup()
   bot.initBuzzer(BUZZER_PIN);
   //bot.lookAheadEnable(true);
   bot.playStartupJingle();
-  LogobotText::begin(cmdQ);
+  LogobotText::begin(textQ);
 }
 
 void loop()
 {
   // Parse Logo commands from Serial
   if (Serial.available()) {
-    char c = Serial.read();
+    char c = toupper(Serial.read());
     if (c == '\r' || c == '\n') {  // if found a line end
       if (cmd != "") {  // check the command isn't blank
         if (cmd == "STAT") { // handle status commands: execute immediately, no need to parse and/or queue
@@ -50,26 +50,28 @@ void loop()
   // keep the bot moving (this triggers the stepper motors to move, so needs to be called frequently, i.e. >1KHz)
   bot.run();
 
-  // see if we can queue the next command to the bot...
-  // Needs to be a movement command and the bot movement queue must not be full
-  if (cmdQ.peekAtType() <= LOGO_MOVE_CMDS && !bot.isQFull()) {
-      // pop and process next command from queue
-      doLogoCommand(cmdQ.dequeue());
+  // dequeue commands from textQ, then cmdQ
+  // textQ will be emptied before processing anything in cmdQ
+  if (dequeueFrom(textQ))
+    dequeueFrom(cmdQ);
+}
 
-  } else if (!bot.isBusy()) {  // See if the bot has finished whatever it's doing...
-    // see if we've got more text to write
-    if (text.length() > 0) {
-      // check if we're ready for another letter - need the queue to be empty as letters take a LOT of commands
-      if (bot.isQEmpty()) {
-        char c = text[0];  // grab the next character to write
-        text = text.substring(1);  // and remove the first character from the text writing buffer
-        LogobotText::writeChar(c, bot.state.x, bot.state.y);  // use the LogobotText library to write the letter
-      }
-    } else {
-      // pop and process next command from queue
-      doLogoCommand(cmdQ.dequeue());
+static boolean dequeueFrom(CommandQueue q) {
+  if (!q.isEmpty()) {
+    // see if we can queue the next command to the bot...  two situations where we can dequeue:
+    //   1) if the next command is a movement command, and the bots motion queue isn't full
+    //   2) the bot has finished whatever it was doing
+    if ( 
+        ( q.peekAtType() <= LOGO_MOVE_CMDS && !bot.isQFull() )
+        ||
+        !bot.isBusy()
+    ) {
+        // dequeue and process next command - ultimately passing it over to the bot object for execution
+        doLogoCommand(q.dequeue());
     }
   }
+  // return true when this queue is empty
+  return q.isEmpty();
 }
 
 static void handleCollision(byte collisionData)
@@ -256,7 +258,6 @@ static void doLogoCommand(COMMAND *c)
             break;
         case LOGO_CMD_SE:
             bot.emergencyStop();
-			text = "";
             break;
 		case LOGO_CMD_CS:
 			bot.resetPosition();
@@ -290,10 +291,13 @@ static void doLogoCommand(COMMAND *c)
 }
 
 static void writeText(String s) {
-  // overwrite write text
-  text = s;
-  text.toUpperCase();
+  if (s.length() > 0) {
+    char c = s[0];  // grab the next character to write
+    
+    // put the rest of the command back at the beginning of the queue
+    cmdQ.insert(s.substring(1), LOGO_CMD_WT);
 
-  // reset current state
-  bot.resetPosition();
+    // use the LogobotText library to write the letter
+    LogobotText::writeChar(c, bot.state.x, bot.state.y);  
+  } 
 }
