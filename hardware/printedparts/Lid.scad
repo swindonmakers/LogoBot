@@ -80,7 +80,7 @@ module Lid_Model()
                 intersection() {
                     translate([0,0,50])
                         scale([0.3,0.3,1])
-                        import(str(STLPath,"../snhack_logo_H.stl"));
+                        import(str(STLPath,"../snhack_logo_h.stl"));
 
                     // outer shell
                     rotate_extrude()

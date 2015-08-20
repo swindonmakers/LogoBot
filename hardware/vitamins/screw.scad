@@ -9,7 +9,7 @@
 //
 
 include <../vitamins/washer.scad>
-include <../vitamins/nut.scad>
+include <../vitamins/Nut.scad>
 
 hs_cap = 0;
 hs_pan = 1;
