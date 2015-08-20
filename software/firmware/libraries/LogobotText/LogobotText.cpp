@@ -19,6 +19,13 @@ namespace LogobotText
 
 		CommandQueue * _cmdQ;
 
+		// forward declarations
+		void writeG(float x, float y);
+		void writeO(float x, float y);
+		void writeForwardSlash(float x, float y);
+
+
+
 		void pushPU() {
 			_cmdQ->enqueue("", LOGO_CMD_PU);
 		}
@@ -35,7 +42,77 @@ namespace LogobotText
 			_cmdQ->enqueue(s, LOGO_CMD_TO);
 		}
 
-		// Alphabet
+		/*
+			Alphabet
+		*/
+
+		void writeZero(float x, float y) {
+			writeO(x,y);
+			writeForwardSlash(x,y);
+		}
+
+		void writeOne(float x, float y) {
+			pushTo(x + w/3, y + 0.7 * capHeight);
+			pushPD();
+			pushTo(x + 2*w/3, y + capHeight);
+			pushTo(x + 2*w/3, y);
+		}
+
+		void writeTwo(float x, float y) {
+			pushTo(x, y + 0.7 * capHeight);
+			pushPD();
+			pushTo(x + w/2, y + capHeight);
+			pushTo(x + w, y + 0.7* capHeight);
+			pushTo(x, y);
+			pushTo(x + w, y);
+		}
+
+		void writeThree(float x, float y) {
+			pushPD();
+			pushTo(x + 2 * w / 3, y);
+			pushTo(x + w, y + capHeight / 4);
+			pushTo(x + 2 * w / 3, y + capHeight / 2);
+			pushTo(x + w, y + 3 * capHeight / 4);
+			pushTo(x + 2 * w / 3, y + capHeight);
+			pushTo(x, y + capHeight);
+		}
+
+		void writeFour(float x, float y) {
+			pushTo(x, y + capHeight);
+			pushPD();
+			pushTo(x, y + capHeight / 2);
+			pushTo(x + w, y + capHeight / 2);
+			pushTo(x + w, y + capHeight);
+			pushTo(x + w, y);
+		}
+
+		void writeSix(float x, float y) {
+			writeG(x,y);
+			pushTo(x, y + capHeight/3);
+		}
+
+		void writeSeven(float x, float y) {
+			pushTo(x, y + capHeight);
+			pushPD();
+			pushTo(x + w, y + capHeight);
+			pushTo(x,y);
+		}
+
+		void writeEight(float x, float y) {
+			writeO(x,y);
+			pushTo(x, y + capHeight/2);
+			pushTo(x + w, y + capHeight/2);
+		}
+
+		void writeNine(float x, float y) {
+			pushPD();
+			pushTo(x + w, y);
+			pushTo(x + w, y + capHeight);
+			pushTo(x, y + capHeight);
+			pushTo(x, y + capHeight/2);
+			pushTo(x + w, y + capHeight/2);
+		}
+
 		void writeA(float x, float y)
 		{
 			pushPD();
@@ -49,13 +126,7 @@ namespace LogobotText
 
 		void writeB(float x, float y)
 		{
-			pushPD();
-			pushTo(x + 2 * w / 3, y);
-			pushTo(x + w, y + capHeight / 4);
-			pushTo(x + 2 * w / 3, y + capHeight / 2);
-			pushTo(x + w, y + 3 * capHeight / 4);
-			pushTo(x + 2 * w / 3, y + capHeight);
-			pushTo(x, y + capHeight);
+			writeThree(x,y);
 			pushTo(x, y);
 		}
 
@@ -113,11 +184,8 @@ namespace LogobotText
 		void writeH(float x, float y)
 		{
 			pushPD();
-			pushTo(x, y + capHeight);
-			pushTo(x, y + capHeight / 2);
-			pushTo(x + w, y + capHeight / 2);
-			pushTo(x + w, y + capHeight);
-			pushTo(x + w, y);
+			pushTo(x, y + capHeight/2);
+			writeFour(x,y);
 		}
 
 		void writeI(float x, float y)
@@ -149,8 +217,8 @@ namespace LogobotText
 
 		void writeL(float x, float y)
 		{
-			pushPD();
 			pushTo(x, y + capHeight);
+			pushPD();
 			pushTo(x,y);
 			pushTo(x + w, y);
 		}
@@ -211,12 +279,12 @@ namespace LogobotText
 			pushTo(x + w, y);
 		}
 
-		void writeS(float x, float y)
+		void writeSFive(float x, float y, float skew)
 		{
 			pushPD();
 			pushTo(x + w, y);
-			pushTo(x + w, y + capHeight / 2);
-			pushTo(x, y + capHeight / 2);
+			pushTo(x + w, y + capHeight * (0.5 - skew));
+			pushTo(x, y + capHeight * (0.5 + skew));
 			pushTo(x, y + capHeight);
 			pushTo(x + w, y + capHeight);
 		}
@@ -339,6 +407,11 @@ namespace LogobotText
 			pushTo(x + w / 2, y);
 			pushTo(x + w, y + capHeight / 3);
 		}
+
+		void writeForwardSlash(float x, float y) {
+			pushPD();
+			pushTo(x + w, y + capHeight);
+		}
 	}
 	// End private namespace functions
 
@@ -366,6 +439,36 @@ namespace LogobotText
 		switch (c) {
 			case '\n':
 				_cmdQ->enqueue("", LOGO_CMD_NL);
+				break;
+			case '0':
+				writeZero(x,y);
+				break;
+			case '1':
+				writeOne(x,y);
+				break;
+			case '2':
+				writeTwo(x,y);
+				break;
+			case '3':
+				writeThree(x,y);
+				break;
+			case '4':
+				writeFour(x,y);
+				break;
+			case '5':
+				writeSFive(x,y,0);
+				break;
+			case '6':
+				writeSix(x,y);
+				break;
+			case '7':
+				writeSeven(x,y);
+				break;
+			case '8':
+				writeEight(x,y);
+				break;
+			case '9':
+				writeNine(x,y);
 				break;
 			case 'A':
 				writeA(x, y);
@@ -422,7 +525,7 @@ namespace LogobotText
 				writeR(x, y);
 				break;
 			case 'S':
-				writeS(x, y);
+				writeSFive(x, y, 0.1);
 				break;
 			case 'T':
 				writeT(x, y);
@@ -459,6 +562,9 @@ namespace LogobotText
 				break;
 			case '@':
 				writeAt(x, y);
+				break;
+			case '/':
+				writeForwardSlash(x,y);
 				break;
 
 			default:
