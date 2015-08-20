@@ -59,34 +59,28 @@ void loop()
   // keep the bot moving (this triggers the stepper motors to move, so needs to be called frequently, i.e. >1KHz)
   bot.run();
 
-  if (!textQ.isEmpty()) {
-    // see if we can queue the next command to the bot...
-    // Needs to be a movement command and the bot movement queue must not be full
-    if (textQ.peekAtType() <= LOGO_MOVE_CMDS && !bot.isQFull()) {
-        // pop and process next command from queue
-        doLogoCommand(textQ.dequeue());
-    
-    } else if (!bot.isBusy()) {  // See if the bot has finished whatever it's doing...
-      
-        // pop and process next command from queue
-        doLogoCommand(textQ.dequeue());
-      //}
+  // dequeue commands from textQ, then cmdQ
+  // textQ will be emptied before processing anything in cmdQ
+  if (dequeueFrom(textQ))
+    dequeueFrom(cmdQ);
+}
+
+static boolean dequeueFrom(CommandQueue q) {
+  if (!q.isEmpty()) {
+    // see if we can queue the next command to the bot...  two situations where we can dequeue:
+    //   1) if the next command is a movement command, and the bots motion queue isn't full
+    //   2) the bot has finished whatever it was doing
+    if ( 
+        ( q.peekAtType() <= LOGO_MOVE_CMDS && !bot.isQFull() )
+        ||
+        !bot.isBusy()
+    ) {
+        // dequeue and process next command - ultimately passing it over to the bot object for execution
+        doLogoCommand(q.dequeue());
     }
-  
-  } else {
-    // see if we can queue the next command to the bot...
-    // Needs to be a movement command and the bot movement queue must not be full
-    if (cmdQ.peekAtType() <= LOGO_MOVE_CMDS && !bot.isQFull()) {
-        // pop and process next command from queue
-        doLogoCommand(cmdQ.dequeue());
-  
-    } else if (!bot.isBusy()) {  // See if the bot has finished whatever it's doing...
-      
-        // pop and process next command from queue
-        doLogoCommand(cmdQ.dequeue());
-      //}
-    } 
   }
+  // return true when this queue is empty
+  return q.isEmpty();
 }
 
 static void showStatus()
