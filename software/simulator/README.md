@@ -1,13 +1,7 @@
-[boilerplate for three.js](https://github.com/jeromeetienne/threejsboilerplate)
-is a template to get you started. You download it and modify it until it fits your needs.
-It is a fast way to start a clean project with [three.js](https://github.com/mrdoob/three.js/).
-It avoids repetitive tasks, following DRY principles.
-It includes various good practices and compatibilities features.
-More details [here](http://learningthreejs.com/blog/2011/12/20/boilerplate-for-three-js/).
+# LogoBot Simulator
 
-# Get Started
-```
-git clone https://github.com/jeromeetienne/threejsboilerplate.git
-```
+This is a browser-based simulation of the LogoBot Scribbler variant.  It supports the same LOGO command syntax so you have a play without needing a physical bot on hand.
 
-And start updating ```index.html``` until it fits yours need.
+[Launch the Simulator](https://rawgit.com/snhack/LogoBot/master/software/simulator/index.html)
+
+Note: The simulator requires a browser than supports WebGL, we recommend Google Chrome
