@@ -61,7 +61,7 @@ def build(do_publish=0):
     except:
         print("Exception running osascript")
 
-    print()
+    print("")
     print("==============")
     print("Build Complete")
 
