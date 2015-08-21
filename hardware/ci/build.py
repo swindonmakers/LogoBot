@@ -55,7 +55,15 @@ def build(do_publish=0):
     if errorlevel == 0:
         os.remove(oldfile)
 
-    check_output(['osascript','-e','display notification "Build Complete" with title "Build Process"'])
+    try:
+        if sys.platform == "darwin":
+            check_output(['osascript','-e','display notification "Build Complete" with title "Build Process"'])
+    except:
+        print("Exception running osascript")
+
+    print()
+    print("==============")
+    print("Build Complete")
 
     return errorlevel
 
