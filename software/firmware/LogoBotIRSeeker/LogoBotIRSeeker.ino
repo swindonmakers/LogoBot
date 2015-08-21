@@ -150,7 +150,7 @@ static void handleCollision(byte collisionData)
         // Just hit something, so stop, buzz and backoff
         Serial.println("Ouch!");
         action = Retreat;
-        lastScanMove = millis() + 2000;
+        lastScanMove = millis() + 5000;
         bot.emergencyStop();
         bot.buzz(250);
     }
@@ -160,19 +160,19 @@ static void handleCollision(byte collisionData)
     if (collisionData == 1) { // Front Left
         lookAng=135;
         bot.drive(-20);
-        bot.turn(-30);
+        bot.turn(-175);
     } else if (collisionData == 2) { // Front Right
         lookAng=45;
         bot.drive(-20);
-        bot.turn(60);
+        bot.turn(165);
     } else if (collisionData == 4) { // Back left
         lookAng=180;
         bot.drive(20);
-        bot.turn(60);
+        bot.turn(150);
     } else if (collisionData == 8) { // Back right
         lookAng=0;
         bot.drive(20);
-        bot.turn(-25);
+        bot.turn(-165);
     } else if (collisionData != 0) {
         bot.turn(-90);
     }
