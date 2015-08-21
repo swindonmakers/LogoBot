@@ -203,7 +203,7 @@ BZ 500
         if (nextCmd.length > 2)
           uri += '&p2=' + encodeURIComponent(nextCmd[2]);
 
-        
+
         var xhReq = new XMLHttpRequest();
         xhReq.open('GET', uri, true);
         console.log(uri);
@@ -230,3 +230,149 @@ BZ 500
 </html>
 )~";
 
+static const char drawPage[] = R"~(
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+  <head>
+    <title>Logobot Sketchpad</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+    html,body {
+        height:100%;
+    }
+    canvas {
+        border:1px solid #eee;
+    }
+    #cd {
+        height:80%;
+    }
+    </style>
+  </head>
+  <body onload="ol();">
+      <div id="cd"></div>
+    <div>
+      <button onclick="clr();">Clear</button>
+      <button onclick="gen();s();">Send</button><br />
+      <span id="f" class="header-fixed"></span>
+    </div>
+
+    <script type="text/javascript">
+     var ctx;
+     var pts = [];
+     var cx=0,cy=0;
+     var cmds = [];
+
+      function ol() {
+        var cd = document.getElementById('cd');
+        c = document.createElement('canvas');
+        c.setAttribute('width', cd.offsetWidth);
+        c.setAttribute('height', cd.offsetHeight-10);
+        c.setAttribute('id', 'canvas');
+        cd.appendChild(c);
+        ctx = c.getContext("2d");
+        cx = c.width / 2;
+        cy = c.height / 2;
+
+        cd.addEventListener("mouseup", function(e) {
+            pts.push([(e.pageX - cd.offsetLeft) - cx, cy - (e.clientY - cd.offsetTop)]);
+            redraw();
+            return false;
+        });
+
+        redraw();
+      }
+
+      function redraw() {
+          ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+          ctx.strokeStyle = "#aaa";
+          ctx.beginPath();
+          ctx.moveTo(cx-20, cy);
+          ctx.lineTo(cx+20, cy);
+          ctx.moveTo(cx, cy-20);
+          ctx.lineTo(cx, cy+20);
+          ctx.stroke();
+          ctx.closePath();
+
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          var x=cx;
+          var y=cy;
+          ctx.moveTo(x,y);
+          for (i=0;i<pts.length;i++) {
+              if (i==1) {
+                  ctx.stroke();
+                  ctx.strokeStyle = "#f00";
+                  ctx.beginPath();
+                  ctx.moveTo(x,y);
+              }
+              x=cx + pts[i][0];
+              y=cy - pts[i][1];
+              ctx.lineTo(x,y);
+          }
+          ctx.stroke();
+      }
+
+      function clr() {
+          pts = [];
+          redraw();
+      }
+
+      function gen() {
+          cmds = [];
+          cmds.push("CS");
+          for (i=0;i<pts.length;i++) {
+              x=pts[i][1];
+              y=-pts[i][0];
+              cmds.push("TO "+x/2+" "+y/2);
+              if (i==0) cmds.push("PD");
+          }
+          cmds.push("PU");
+          cmds.push("TO 0 0");
+      }
+
+
+      function el(id) { return document.getElementById(id); }
+      function elv(id) { return el(id).value; }
+
+      function s() {
+        if (pts.length==0) return;
+
+        var next = cmds.shift();
+        if (!next) return;
+
+        el('f').innerText = 'Send: ' + next;
+
+        var nextCmd = next.split(' ');
+        var uri = '/cmd?action=' + nextCmd[0];
+        if (nextCmd.length > 1)
+          uri += '&p1=' + encodeURIComponent(nextCmd[1]);
+        if (nextCmd.length > 2)
+          uri += '&p2=' + encodeURIComponent(nextCmd[2]);
+
+        var xhReq = new XMLHttpRequest();
+        xhReq.open('GET', uri, true);
+        console.log(uri);
+        xhReq.onload = function () {
+          if (this.responseText.trim() == 'BUSY') {
+            el('f').innerText = 'BUSY';
+            setTimeout(s, 2000);
+          } else {
+            el('f').innerText = this.responseText;
+            setTimeout(s, 250);
+          }
+        };
+
+        try {
+          xhReq.send();
+        } catch (ex) {
+          el('f').innerText = 'ERR';
+          setTimeout(s, 2000);
+        }
+      }
+
+
+    </script>
+  </body>
+</html>
+)~";

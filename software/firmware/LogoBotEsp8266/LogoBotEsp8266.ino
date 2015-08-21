@@ -74,10 +74,16 @@ static void handleBatch() {
   digitalWrite(led, 0);
 }
 
+static void handleDraw() {
+  digitalWrite(led, 1);
+  server.send(200, F("text/html"), drawPage);
+  digitalWrite(led, 0);
+}
+
 static void handleCommand()
 {
   digitalWrite(led, 1);
-  
+
   if (server.hasArg("action")) {
     // Parse args
     String cmd = server.arg("action");
@@ -93,7 +99,7 @@ static void handleCommand()
       urldecode2(temp, arg);
       cmd += " " + String(temp);
     }
-    
+
     // Clear input in anticipation of a response.
     while(Serial.available())
       Serial.read();
@@ -110,25 +116,25 @@ static void handleCommand()
   } else {
     server.send(200, F("text/plain"), F("err"));
   }
-  
+
   digitalWrite(led, 0);
 }
 
 static void handleStat()
 {
   digitalWrite(led, 1);
-  
+
   // Clear input in anticipation of a response.
   while(Serial.available())
     Serial.read();
-  
+
   // Request status from Logobot
   Serial.println("STAT");
-  
+
   // Wait for a limited time for a reply
   Serial.setTimeout(LOGOBOT_RESPONSE_TIME);
   String response = Serial.readStringUntil('\n');
-  
+
   if (response.length() == 0) {
     server.send(401, F("application/json"), F("{\"response\": \"noreply\"}"));
   } else {
@@ -142,7 +148,7 @@ static void handleStat()
       params[i] = response.substring(a, b);
       a = b + 1;
     }
-    
+
     int space = response.indexOf(' ');
     String json = "{\"response\": \"ok\"";
     json += ", \"x\": \"" + params[0] + "\"";
@@ -150,10 +156,10 @@ static void handleStat()
     json += ", \"ang\": \"" + params[2] + "\"";
     json += ", \"qSize\": \"" + params[3] + "\"";
     json += "}";
-    
+
     server.send(200, F("application/json"), json);
   }
-  
+
   digitalWrite(led, 0);
 }
 
@@ -166,7 +172,7 @@ static void handleNetworks() {
   json += ", \"localIP\": \"" + String(WiFi.localIP()) + "\"";
   json += ", \"status\": \"" + String(WiFi.status()) + "\"";
   json += ", \"count\": \"" + String(netCount) + "\"";
-  
+
   json += ", names:[";
   for (uint8_t i=0; i<netCount; i++) {
     if (i > 0) json += ',';
@@ -182,7 +188,7 @@ static void handleNetworks() {
 static void handleJoin()
 {
   digitalWrite(led, 1);
-  
+
   if (server.hasArg("name") && server.hasArg("pw")) {
     // Parse args
     String n = server.arg("name");
@@ -209,7 +215,7 @@ static void handleJoin()
   } else {
     server.send(500, F("text/plain"), F("Missing arguments"));
   }
-  
+
   digitalWrite(led, 0);
 }
 
@@ -235,18 +241,18 @@ static void handleNotFound()
   server.send(404, F("text/plain"), message);
   digitalWrite(led, 0);
 }
- 
+
 void setup(void){
   Serial.begin(9600);
   Serial.println();
   Serial.println(F("Logobot Wifi Interface"));
-  
+
   pinMode(led, OUTPUT);
   digitalWrite(led, 0);
 
   WiFi.mode(WIFI_AP);
   WiFi.softAPConfig(apIP, apIP, mask);
-  if (LOGOBOT_PWD == "") 
+  if (LOGOBOT_PWD == "")
     WiFi.softAP(LOGOBOT_SSID);
   else
     WiFi.softAP(LOGOBOT_SSID, LOGOBOT_PWD);
@@ -255,7 +261,7 @@ void setup(void){
   dnsServer.setErrorReplyCode(DNSReplyCode::NonExistentDomain);
   dnsServer.start(DNS_PORT, LOGOBOT_URL, apIP);
 
-  // Most frequently accesed pages first for speed.  
+  // Most frequently accesed pages first for speed.
   server.on("/stat", handleStat);
   server.on("/cmd", handleCommand);
   server.on("/status", handleStatus);
@@ -265,11 +271,12 @@ void setup(void){
   server.on("/networks", handleNetworks);
   server.on("/join", handleJoin);
   server.on("/leave", handleLeave);
+  server.on("/draw", handleDraw);
   server.onNotFound(handleNotFound);
-  
+
   server.begin();
 }
- 
+
 void loop(void){
   dnsServer.processNextRequest();
   server.handleClient();
