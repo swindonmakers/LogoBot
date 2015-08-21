@@ -5,7 +5,7 @@
 #include "WebPages.h"
 
 /* Settings you may want to configure for your LogoBot */
-#define LOGOBOT_SSID "LogobotPG"
+#define LOGOBOT_SSID "Logobot"
 #define LOGOBOT_PWD "logobot1"
 #define LOGOBOT_URL "logo.bot"
 static const IPAddress apIP(192, 168, 4, 1);
@@ -248,9 +248,11 @@ void setup(void){
 
   WiFi.mode(WIFI_AP);
   WiFi.softAPConfig(apIP, apIP, mask);
-  //WiFi.softAP(LOGOBOT_SSID, LOGOBOT_PWD);
-  WiFi.softAP(LOGOBOT_SSID);
-  
+  if (LOGOBOT_PWD == "") 
+    WiFi.softAP(LOGOBOT_SSID);
+  else
+    WiFi.softAP(LOGOBOT_SSID, LOGOBOT_PWD);
+
   dnsServer.setTTL(300);
   dnsServer.setErrorReplyCode(DNSReplyCode::NonExistentDomain);
   dnsServer.start(DNS_PORT, LOGOBOT_URL, apIP);
