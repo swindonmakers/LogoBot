@@ -253,7 +253,6 @@ ol li img {
     }
 
     h2 {
-        page-break-before: always;
         color: #d72;
         background-color: #fff;
         border-bottom: 1px solid #ccc;
@@ -281,5 +280,13 @@ ol li img {
         text-align: center;
         font-weight: bold;
         border:none;
+    }
+
+    section {
+        page-break-inside: avoid;
+    }
+
+    section img {
+        max-height: 250px;
     }
 }
