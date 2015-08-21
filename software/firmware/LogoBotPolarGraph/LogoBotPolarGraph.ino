@@ -33,7 +33,7 @@ void loop()
   // Parse Logo commands from Serial
   if (Serial.available()) {
     char c = toupper(Serial.read());
-    
+
     if (c == '\r' || c == '\n') {  // if found a line end
       if (cmd != "") {  // check the command isn't blank
         if (cmd == "STAT") { // handle status commands: execute immediately, no need to parse and/or queue
@@ -58,26 +58,26 @@ void loop()
 
   // dequeue commands from textQ, then cmdQ
   // textQ will be emptied before processing anything in cmdQ
-  if (dequeueFrom(textQ))
-    dequeueFrom(cmdQ);
+  if (dequeueFrom(&textQ))
+    dequeueFrom(&cmdQ);
 }
 
-static boolean dequeueFrom(CommandQueue q) {
-  if (!q.isEmpty()) {
+static boolean dequeueFrom(CommandQueue *q) {
+  if (!q->isEmpty()) {
     // see if we can queue the next command to the bot...  two situations where we can dequeue:
     //   1) if the next command is a movement command, and the bots motion queue isn't full
     //   2) the bot has finished whatever it was doing
-    if ( 
-        ( q.peekAtType() <= LOGO_MOVE_CMDS && !bot.isQFull() )
+    if (
+        ( q->peekAtType() <= LOGO_MOVE_CMDS && !bot.isQFull() )
         ||
-        !bot.isBusy()
+        ( !bot.isBusy() )
     ) {
         // dequeue and process next command - ultimately passing it over to the bot object for execution
-        doLogoCommand(q.dequeue());
+        doLogoCommand(q->dequeue());
     }
   }
   // return true when this queue is empty
-  return q.isEmpty();
+  return q->isEmpty();
 }
 
 static void showStatus()
@@ -294,11 +294,11 @@ static void doLogoCommand(COMMAND *c)
 static void writeText(String s) {
   if (s.length() > 0) {
     char c = s[0];  // grab the next character to write
-    
+
     // put the rest of the command back at the beginning of the queue
     cmdQ.insert(s.substring(1), LOGO_CMD_WT);
 
     // use the LogobotText library to write the letter
-    LogobotText::writeChar(c, bot.state.x, bot.state.y);  
-  } 
+    LogobotText::writeChar(c, bot.state.x, bot.state.y);
+  }
 }
