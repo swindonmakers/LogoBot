@@ -13,6 +13,10 @@ p,td,div,li {
   font-size:1em;
 }
 
+.clear-fix {
+    clear:both;
+}
+
 #mdcontent {
     max-width: 50em;
     margin: 0px auto;
@@ -223,12 +227,21 @@ ol li:before {
 ol li img {
     position:relative;
     float:left;
-    margin-top: -0.5em;
+    margin-top: -1em;
     clear:both;
     margin:0;
     padding:0;
     margin-bottom: 2em;
     margin-left: 3em;
+    max-height: 240px;
+}
+
+ol li img:after {
+    content:'';
+    display:block;
+    clear:both;
+    margin:0;
+    padding:0;
 }
 
 @media screen and (max-width: 40em) {
@@ -275,16 +288,27 @@ ol li img {
         display:none;
     }
 
+    ol li {
+        page-break-inside: :avoid;
+    }
+
     ol li:before {
-        background: none;
-        color: #888;
-        font-size:2em;
-        top: -1.5em;
+        content: counter(li);
+        counter-increment: li;
+        position:relative;
+        display:block;
+        float:left;
+        padding: .4em .4em .4em 0.4em;
+        margin: .5em 0;
+        left: -1em;
+        top: -1.3em;
+        background:  none;
+        color:#888;
         height:2em;
         width:2em;
         line-height:2em;
         text-align: center;
         font-weight: bold;
-        border:none;
+        border-radius: 2em;
     }
 }
