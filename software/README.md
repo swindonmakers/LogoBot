@@ -1,12 +1,9 @@
 LogoBot Software
 ================
 
-Will contain the source for various firmware/host applications.
-
+Contains the source for Arduino firmwares, ESP8266 firmwares and other bits (like the LogoBot Simulator)
 
 File Structure
 --------------
-
-**This Directory**
-
-TBC
+* [firmware](firmware) - contains the Arduino and ESP8266 firmwares and supporting libraries
+* [simulator](simulator) - the web-based LogoBot Simulator
