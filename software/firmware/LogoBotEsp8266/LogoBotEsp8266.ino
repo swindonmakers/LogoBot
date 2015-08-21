@@ -20,8 +20,6 @@ static const IPAddress mask(255, 255, 255, 0);
 DNSServer dnsServer;
 ESP8266WebServer server(80);
 
-unsigned long debugTimer = millis();
-
 IPAddress localIP(0,0,0,0);
 
 static void urldecode2(char *dst, const char *src)
