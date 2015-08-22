@@ -19,7 +19,7 @@
   <body onload="ol();">
       <div id="cd"></div>
     <div>
-      <button onclick="clr();">Clear</button>
+      <button onclick="mk();">Random</button>
       <button onclick="gen();s();">Send</button><br />
       <span id="f" class="header-fixed"></span>
     </div>
@@ -29,9 +29,12 @@
      var pts = [];
      var cx=0,cy=0;
      var cmds = [];
+     var numCmds = 0;
      var bigR = 100;
      var r = 76;
      var d = 100;
+
+     function sqr(a) { return a*a;}
 
       function ol() {
         var cd = document.getElementById('cd');
@@ -48,6 +51,7 @@
       }
 
       function redraw() {
+          pts = [];
           ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
           ctx.strokeStyle = "#aaa";
           ctx.beginPath();
@@ -65,28 +69,32 @@
           function y(ang) { return (bigR - r)*Math.sin(ang) - d*Math.sin(r1(ang)) };
           var theta = 0;
           var cycles = 50;
-          var steps = 10;
-          var pts = cycles * steps;
+          var steps = 15;
+          var points = cycles * steps;
           var startx = x(theta);
           var starty = y(theta);
           var i=0;
-          ctx.moveTo(cx + x(theta),cy - y(theta));
-          for (i=1;i<pts;i++) {
+          var lx=0,ly=0;
+          ctx.moveTo(cx + startx,cy - starty);
+          pts.push([startx,starty]);
+          for (i=1;i<points;i++) {
               theta = 2 * Math.PI * i/steps;
               var x1 = x(theta);
               var y1 = y(theta);
-              if (x1 == startx && starty == y1) {
-                  console.log('break at'+i);
+              ctx.lineTo(cx + x1, cy - y1);
+              if (sqr(x1- lx)+ sqr(y1-ly) > 1)
+                pts.push([x1,y1]);
+              if (sqr(x1- startx)+ sqr(starty-y1) < 1) {
                   break;
               }
-              ctx.lineTo(cx + x1, cy - y1);
-          }
-          console.log(i);
-          ctx.stroke();
+              lx = x1; ly=y1;
+          }ctx.stroke();
       }
 
-      function clr() {
-          pts = [];
+      function mk() {
+          bigR = Math.round(Math.random() * 200);
+          var r = Math.round(Math.random() * 100);
+          var d = Math.round(Math.random() * 100);
           redraw();
       }
 
@@ -96,13 +104,13 @@
           for (i=0;i<pts.length;i++) {
               x=pts[i][1];
               y=-pts[i][0];
-              cmds.push("TO "+x/2+" "+y/2);
+              cmds.push("TO "+(x/2).toFixed(1)+" "+(y/2).toFixed(1));
               if (i==0) cmds.push("PD");
           }
           cmds.push("PU");
           cmds.push("TO 0 0");
+          numCmds = cmds.length;
       }
-
 
       function el(id) { return document.getElementById(id); }
       function elv(id) { return el(id).value; }
@@ -130,7 +138,7 @@
             el('f').innerText = 'BUSY';
             setTimeout(s, 2000);
           } else {
-            el('f').innerText = this.responseText;
+            el('f').innerText = this.responseText + ' '+(100*(1-cmds.length/numCmds)).toFixed(0)+'%';
             setTimeout(s, 250);
           }
         };
