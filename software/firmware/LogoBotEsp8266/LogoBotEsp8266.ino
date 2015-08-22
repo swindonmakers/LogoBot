@@ -80,6 +80,12 @@ static void handleDraw() {
   digitalWrite(led, 0);
 }
 
+static void handleSpiro() {
+  digitalWrite(led, 1);
+  server.send(200, F("text/html"), spiroPage);
+  digitalWrite(led, 0);
+}
+
 static void handleCommand()
 {
   digitalWrite(led, 1);
@@ -272,6 +278,7 @@ void setup(void){
   server.on("/join", handleJoin);
   server.on("/leave", handleLeave);
   server.on("/draw", handleDraw);
+  server.on("/spiro", handleSpiro);
   server.onNotFound(handleNotFound);
 
   server.begin();

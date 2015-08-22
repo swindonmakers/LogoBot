@@ -376,3 +376,158 @@ static const char drawPage[] = R"~(
   </body>
 </html>
 )~";
+
+
+static const char spiroPage[] = R"~(
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+  <head>
+    <title>Logobot Spirograph</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+    html,body {height:100%;}
+    canvas {border:1px solid #eee;}
+    #cd {height:80%;}
+    </style>
+  </head>
+  <body onload="ol();">
+      <div id="cd"></div>
+    <div>
+      <button onclick="mk();">Random</button>
+      <button onclick="gen();s();">Send</button><br />
+      <span id="f" class="header-fixed"></span>
+    </div>
+
+    <script type="text/javascript">
+     var ctx;
+     var pts = [];
+     var cx=0,cy=0;
+     var cmds = [];
+     var numCmds = 0;
+     var bigR = 100;
+     var r = 76;
+     var d = 100;
+
+     function sqr(a) { return a*a;}
+
+      function ol() {
+        var cd = document.getElementById('cd');
+        c = document.createElement('canvas');
+        c.setAttribute('width', cd.offsetWidth);
+        c.setAttribute('height', cd.offsetHeight-10);
+        c.setAttribute('id', 'canvas');
+        cd.appendChild(c);
+        ctx = c.getContext("2d");
+        cx = c.width / 2;
+        cy = c.height / 2;
+
+        redraw();
+      }
+
+      function redraw() {
+          pts = [];
+          ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+          ctx.strokeStyle = "#aaa";
+          ctx.beginPath();
+          ctx.moveTo(cx-20, cy);
+          ctx.lineTo(cx+20, cy);
+          ctx.moveTo(cx, cy-20);
+          ctx.lineTo(cx, cy+20);
+          ctx.stroke();
+          ctx.closePath();
+
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          function r1(ang) { return ang * (bigR - r)/r  };
+          function x(ang) { return (bigR - r)*Math.cos(ang) + d*Math.cos(r1(ang)) };
+          function y(ang) { return (bigR - r)*Math.sin(ang) - d*Math.sin(r1(ang)) };
+          var theta = 0;
+          var cycles = 50;
+          var steps = 15;
+          var points = cycles * steps;
+          var startx = x(theta);
+          var starty = y(theta);
+          var i=0;
+          var lx=0,ly=0;
+          ctx.moveTo(cx + startx,cy - starty);
+          pts.push([startx,starty]);
+          for (i=1;i<points;i++) {
+              theta = 2 * Math.PI * i/steps;
+              var x1 = x(theta);
+              var y1 = y(theta);
+              ctx.lineTo(cx + x1, cy - y1);
+              if (sqr(x1- lx)+ sqr(y1-ly) > 1)
+                pts.push([x1,y1]);
+              if (sqr(x1- startx)+ sqr(starty-y1) < 1) {
+                  break;
+              }
+              lx = x1; ly=y1;
+          }ctx.stroke();
+      }
+
+      function mk() {
+          bigR = Math.round(Math.random() * 200);
+          var r = Math.round(Math.random() * 100);
+          var d = Math.round(Math.random() * 100);
+          redraw();
+      }
+
+      function gen() {
+          cmds = [];
+          cmds.push("CS");
+          for (i=0;i<pts.length;i++) {
+              x=pts[i][1];
+              y=-pts[i][0];
+              cmds.push("TO "+(x/2).toFixed(1)+" "+(y/2).toFixed(1));
+              if (i==0) cmds.push("PD");
+          }
+          cmds.push("PU");
+          cmds.push("TO 0 0");
+          numCmds = cmds.length;
+      }
+
+      function el(id) { return document.getElementById(id); }
+      function elv(id) { return el(id).value; }
+
+      function s() {
+        if (pts.length==0) return;
+
+        var next = cmds.shift();
+        if (!next) return;
+
+        el('f').innerText = 'Send: ' + next;
+
+        var nextCmd = next.split(' ');
+        var uri = '/cmd?action=' + nextCmd[0];
+        if (nextCmd.length > 1)
+          uri += '&p1=' + encodeURIComponent(nextCmd[1]);
+        if (nextCmd.length > 2)
+          uri += '&p2=' + encodeURIComponent(nextCmd[2]);
+
+        var xhReq = new XMLHttpRequest();
+        xhReq.open('GET', uri, true);
+        console.log(uri);
+        xhReq.onload = function () {
+          if (this.responseText.trim() == 'BUSY') {
+            el('f').innerText = 'BUSY';
+            setTimeout(s, 2000);
+          } else {
+            el('f').innerText = this.responseText + ' '+(100*(1-cmds.length/numCmds)).toFixed(0)+'%';
+            setTimeout(s, 250);
+          }
+        };
+
+        try {
+          xhReq.send();
+        } catch (ex) {
+          el('f').innerText = 'ERR';
+          setTimeout(s, 2000);
+        }
+      }
+
+
+    </script>
+  </body>
+</html>
+)~";
