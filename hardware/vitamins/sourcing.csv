@@ -1,0 +1,16 @@
+Vitamin,Cost,Source,Notes
+"Arduino Pro Mini Pins on top, inc serial pins",3,http://www.aliexpress.com/item/CP2102-Module-Pro-Mini-Module-Atmega328-3-3V-8M-For-Arduinoi-Compatible-With-Nano-Free-Shipping/2002847394.html,Use 3.3v version for wider compatibility and longer battery life
+AA Battery,0.35,All over the place,Use rechargeables to save cost
+Battery Pack,0.49,http://www.aliexpress.com/item/Black-Color-2-2-AA-Battery-1-5V-Holder-Storage-Boxes-for-DIY-Experiment-Test-Cascade/1981330624.html,"Any 4xAA pack should work fine, or use 2S LIPO, NIMH, NICAD, etc"
+Hook and Loop Tape 40x10mm,0.2,Hardware store,
+JumperWire Female to Female 4pin 100mm,0.05,http://www.ebay.co.uk/itm/40pcs-10cm-Dupont-Female-to-Female-Jumper-Wire-Ribbon-Cable-Pi-Pic-Breadboard-/281423655999?hash=item418628343f,Buy in bulk x40
+JumperWire Female to None 1pin 100mm,0.05,,Chop end off normal jumper
+JumperWire Female to None 1pin 70mm,0.05,,Chop end off normal jumper
+JumperWire None to None 1pin 100mm,0.05,,Use any thin multi-strand or solid core wire
+JumperWire None to None 1pin 50mm,0.05,,Use any thin multi-strand or solid core wire
+16mm Marble,0.13,http://www.ebay.co.uk/itm/NEW-50-16mm-MARBLES-PLUS-ONE-DOBBER-SHOOTER-MARBLE-GREEN-ACK-D60069-/371035484158?hash=item5663702ffe,Buy in bulk x50
+MicroSwitch,0.13,http://www.ebay.co.uk/itm/15Pcs-SPDT-Straight-Hinge-Lever-Momentary-Micro-Switch-AC125V-1A-/291501876300?hash=item43dedda44c,Buy in bulk x15
+SPST6A Mini Toggle Switch,0.56,http://www.ebay.co.uk/itm/10x-Mini-Toggle-Switch-6A-SPST-ON-OFF-/251443706793?,Buy in bulk x10
+28YBJ48 Stepper Motor,1.76,http://www.aliexpress.com/item/5V-Stepper-Motor-28BYJ-48-With-Drive-Test-Module-Board-ULN2003-5-Line-4-Phase-free/1436201179.html,Comes with driver board
+2 Pole 20A Terminal Block,0.2,Hardware store,Break off from long terminal strip
+ULN2003 Driver Board,0,,Ordered with motor
