@@ -328,6 +328,7 @@ static const char drawPage[] = R"~(
               if (i==0) cmds.push("PD");
           }
           cmds.push("PU");
+          cmds.push("TO 0 -1");
           cmds.push("TO 0 0");
       }
 
@@ -336,7 +337,7 @@ static const char drawPage[] = R"~(
       function elv(id) { return el(id).value; }
 
       function s() {
-        if (pts.length==0) return;
+        if (cmds.length==0) return;
 
         var next = cmds.shift();
         if (!next) return;
@@ -351,16 +352,23 @@ static const char drawPage[] = R"~(
           uri += '&p2=' + encodeURIComponent(nextCmd[2]);
 
         var xhReq = new XMLHttpRequest();
+        xhReq.timeout = 1000;
         xhReq.open('GET', uri, true);
         console.log(uri);
         xhReq.onload = function () {
           if (this.responseText.trim() == 'BUSY') {
             el('f').innerText = 'BUSY';
+            cmds.unshift(next);
             setTimeout(s, 2000);
           } else {
             el('f').innerText = this.responseText;
             setTimeout(s, 250);
           }
+        };
+        xhReq.ontimeout = function() {
+          el('f').innerText = 'TIMEOUT';
+          cmds.unshift(next);
+          setTimeout(s, 250);
         };
 
         try {
@@ -396,7 +404,7 @@ static const char spiroPage[] = R"~(
     <div>
       <button onclick="mk();">Random</button>
       <button onclick="gen();s();">Send</button><br />
-      <span id="f" class="header-fixed"></span>
+      <div id="f" class="header-fixed"></div>
     </div>
 
     <script type="text/javascript">
@@ -491,7 +499,7 @@ static const char spiroPage[] = R"~(
       function elv(id) { return el(id).value; }
 
       function s() {
-        if (pts.length==0) return;
+        if (cmds.length==0) return;
 
         var next = cmds.shift();
         if (!next) return;
@@ -506,16 +514,23 @@ static const char spiroPage[] = R"~(
           uri += '&p2=' + encodeURIComponent(nextCmd[2]);
 
         var xhReq = new XMLHttpRequest();
+        xhReq.timeout = 1000;
         xhReq.open('GET', uri, true);
         console.log(uri);
         xhReq.onload = function () {
           if (this.responseText.trim() == 'BUSY') {
             el('f').innerText = 'BUSY';
+            cmds.unshift(next);
             setTimeout(s, 2000);
           } else {
             el('f').innerText = this.responseText + ' '+(100*(1-cmds.length/numCmds)).toFixed(0)+'%';
             setTimeout(s, 250);
           }
+        };
+        xhReq.ontimeout = function() {
+          el('f').innerText = 'TIMEOUT';
+          cmds.unshift(next);
+          setTimeout(s, 250);
         };
 
         try {
