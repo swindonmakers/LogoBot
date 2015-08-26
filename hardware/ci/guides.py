@@ -14,6 +14,9 @@ import views
 import pystache
 from types import *
 from assemblies import machine_dir
+import csv
+
+sourcing = {};
 
 def md_filename(s):
     s = s.replace(" ","")
@@ -332,6 +335,114 @@ def gen_printing_guide(m, target_dir, guide_template):
     return {'title':m['title'] + ' Printing Guide', 'mdfilename':mdfilename, 'htmfilename':htmfilename}
 
 
+def load_sources():
+    print "Loading sourcing info..."
+
+    src_dir = "../vitamins"
+
+    for filename in os.listdir(src_dir):
+        if filename[-4:] == '.csv':
+            print("  Parsing: "+filename)
+            csvfn = os.path.join(src_dir, filename)
+
+            with open(csvfn, 'rb') as csvfile:
+                rdr = csv.DictReader(csvfile)
+                for row in rdr:
+                    vn = row['Vitamin']
+                    if vn not in sourcing:
+                        sourcing[vn] = []
+                    sourcing[vn].append({"Cost":row['Cost'], "Source":row['Source'], 'Notes':row['Notes']});
+
+
+
+def gen_sourcing_guide(m, target_dir, guide_template):
+    print(m['title'])
+
+    if len(m['vitamins']) == 0:
+        return {};
+
+    md = ''
+
+    md += '# '+m['title'] + '\n'
+    md += '# Sourcing Guide\n\n'
+
+    cost = 0
+    qty = 0
+    m['vitamins'].sort(key=vitamin_call, reverse=False)
+
+    for v in m['vitamins']:
+        vn = v['title']
+        md += '### '+str(v['qty']) + 'x ' + vn+'\n\n'
+        qty += v['qty']
+
+
+        # table of sources and effective cost for qty required
+        if vn in sourcing:
+            md += 'Unit Cost | Source | Notes \n'
+            md += '--- | --- | --- \n'
+
+            # calc cheapest option and add to running total
+            lc = 0
+            for src in sourcing[vn]:
+                tc = float(src['Cost'])
+                if tc < lc or lc == 0:
+                    lc = tc
+                md += src['Cost'] + ' | '
+                link = src['Source']
+                if link[:7] == 'http://':
+                    md += '[link]('+link+') | '
+                else:
+                    md += link + ' | '
+                md += src['Notes'] + '\n'
+
+            cost += lc * v['qty']
+
+        else:
+            md += 'No sources found\n'
+
+
+
+        md += '\n'
+        md += '![](../vitamins/images/'+views.view_filename(v['title']+'_view') + ') \n'
+        md += '\n'
+
+        if 'markdown' in v and len(v['markdown']) > 0:
+            md += '**Notes**\n\n'
+            for note in v['markdown']:
+                if 'markdown' in note:
+                    md += ' * ' + note['markdown'] + '\n'
+
+        md += '\n\n'
+
+    md += '\n'
+
+    md += '\n\n'
+
+    md += '## Summary\n\n'
+    md += '### Total Costs\n\n'
+    md += 'Metric | Value \n'
+    md += '--- | --- \n'
+    md += 'Total Vitamins | ' + str(qty) + '\n'
+    md += 'Total Cost (cheapest) | '+str(round(cost,2))+' GBP\n'
+    md += '\n\n'
+
+    print("  Saving markdown")
+    mdfilename = md_filename(m['title'] +'SourcingGuide')
+    mdpath = target_dir + '/' +mdfilename
+    with open(mdpath,'w') as f:
+        f.write(md)
+
+    print("  Generating htm")
+    htmfilename = htm_filename(m['title'] +'SourcingGuide')
+    htmpath = target_dir + '/' + htmfilename
+    with open(htmpath, 'w') as f:
+        for line in open(guide_template, "r").readlines():
+            line = line.replace("{{mdfilename}}", mdfilename)
+            f.write(line)
+
+    return {'title':m['title'] + ' Sourcing Guide', 'mdfilename':mdfilename, 'htmfilename':htmfilename}
+
+
 
 def gen_index(jso, index_file, index_template):
     # Generate index file
@@ -368,6 +479,7 @@ def guides():
 
     assembly_guide_template = os.path.join(target_dir, "templates/AssemblyGuide.htm")
     printing_guide_template = os.path.join(target_dir, "templates/PrintingGuide.htm")
+    sourcing_guide_template = os.path.join(target_dir, "templates/SourcingGuide.htm")
     index_template = os.path.join(target_dir, "templates/index.htm")
     index_file = os.path.join(target_dir, 'index.htm')
 
@@ -375,6 +487,9 @@ def guides():
     jf = open("hardware.json","r")
     jso = json.load(jf)
     jf.close()
+
+    # load sourcing info
+    load_sources()
 
     dl = {'type':'docs', 'assemblyGuides':[], 'printingGuides':[] }
     jso.append(dl)
@@ -389,6 +504,8 @@ def guides():
             m['guides'].append(gen_assembly_guide(m, target_dir, assembly_guide_template))
 
             m['guides'].append(gen_printing_guide(m, target_dir, printing_guide_template))
+
+            m['guides'].append(gen_sourcing_guide(m, target_dir, sourcing_guide_template))
 
 
     gen_index(jso, index_file, index_template)
