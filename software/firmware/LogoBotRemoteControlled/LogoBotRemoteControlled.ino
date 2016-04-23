@@ -72,7 +72,6 @@ static void reactToJoystick(String c)
   int b1 = c.substring(com2 + 1, com3).toInt();
   int b2 = c.substring(com3 + 1).toInt();
 
-  // TODO drive!
   int spd = 0;
   int turn = 0;
   // y: 0 is forward, 1023 back, center ~ 500
