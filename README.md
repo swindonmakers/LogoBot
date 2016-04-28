@@ -3,11 +3,9 @@ LogoBot
 
 Cheap, extensible mobile robot design based on Arduino - inspired by Mirobot and others.  Many of the parts are 3D printed, using a tool-less pin system to connect to the base plate.  The non-printable *vitamins* are low-cost, common and globally available.
 
-See the [Assembly Guides](https://rawgit.com/snhack/LogoBot/master/hardware/docs/index.htm) for easy to follow build instructions and links to the printable STLs.
+See the [Assembly Guides](http://rawgit.com/swindonmakers/LogoBot/master/hardware/docs/index.htm) for easy to follow build instructions and links to the printable STLs.
 
-Developed by the Swindon Hackspace (UK) - see [LogoBot wiki page](https://github.com/snhack/snhack.github.com/wiki/LogoBot) and [related Google Groups thread](https://groups.google.com/d/topic/swindon-hackspace/0EO_l_R9aW0/discussion)
-
-![](https://camo.githubusercontent.com/4a9732c17fa0053f01e0b997ee9f0a1eeb98a663/687474703a2f2f7377696e646f6e2e6861636b73706163652e6f72672e756b2f696d616765732f6c61796f75742f736974655f70616e6f5f362e6a7067)
+Developed by the Swindon Makerspace (UK) - see [LogoBot wiki page](https://github.com/swindonmakers/swindonmakers.github.com/wiki/LogoBot) and [related Google Groups thread](https://groups.google.com/d/topic/swindon-hackspace/0EO_l_R9aW0/discussion)
 
 Various photos of LogoBot builds can be found on the [Flickr group](https://www.flickr.com/groups/logobot/), please contribute if you build one!  Videos are collated in the [LogoBot youtube playlist](https://www.youtube.com/playlist?list=PLYuoVOMOzIhp9adQuXN-J07fskV5hSPBj).
 
@@ -42,4 +40,4 @@ File Structure
 Contributions
 -------------
 
-Development planning will be coordinated through the normal Wednesday Hackspace meetings (i.e. who is working on what).  All project members will be given write access to the repo.
+Development planning will be coordinated through the normal Wednesday meetings (i.e. who is working on what).  All project members will be given write access to the repo.
