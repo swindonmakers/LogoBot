@@ -76,6 +76,7 @@ function invertVector(v) = v * -1;
 
 function invertConnector(a) = [a[0], invertVector(a[1]), a[2], a[3], a[4]];
 function offsetConnector(a, o) = [[a[0][0]+o[0], a[0][1]+o[1], a[0][2]+o[2]], a[1], a[2], a[3], a[4]];
+function rollConnector(a, ang) = [[a[0][0], a[0][1], a[0][2]], a[1], a[2]+ang, a[3], a[4]];
 
 //-------------------------------------------------------------------------
 //--  ATTACH OPERATOR
@@ -86,7 +87,7 @@ function offsetConnector(a, o) = [[a[0][0]+o[0], a[0][1]+o[1], a[0][2]+o[2]], a[
 //--    a -> Connector of the main part
 //--    b -> Connector of the attachable part
 //-------------------------------------------------------------------------
-module attach(a,b, Invert=false, ExplodeSpacing = 10, offset=0, explodeChildren=false)
+module attach(a,b, Invert=false, ExplodeSpacing = 10, offset=0)
 {
   //-- Get the data from the connectors
   pos1 = a[0];  //-- Attachment point. Main part
@@ -100,7 +101,7 @@ module attach(a,b, Invert=false, ExplodeSpacing = 10, offset=0, explodeChildren=
   //-------- Calculations for the "orientate operator"------
   //-- Calculate the rotation axis
   //raxis = cross(vref,v);
-  raxis = v[0]==vref[0] && v[1]==vref[1] ? [0,1,0] : cross(vref,v);
+  raxis = orthogonalTo(vref,v);
 
   //-- Calculate the angle between the vectors
   ang = anglev(vref,v);
@@ -115,13 +116,16 @@ module attach(a,b, Invert=false, ExplodeSpacing = 10, offset=0, explodeChildren=
     translate(pos1)
         //-- Orientate operator. Apply the orientation so that
         //-- both attachment axis are paralell. Also apply the roll angle
-        rotate(a=roll, v=v)  rotate(a=ang, v=raxis)
+        rotate(a=roll, v=v)
+        rotate(a=ang, v=raxis)
         {
              //-- Attachable part to the origin
             translate(-pos2)
-                translate($Explode ? -vref * ExplodeSpacing * au : [0,0,0])
-                assign($Explode= $Explode && explodeChildren)  // turn off explosions for children
-                children(i);
+                translate($Explode ? -vref * ExplodeSpacing * au : [0,0,0]) {
+                    //assign($Explode=false)
+                    $Explode=false; // turn off explosions for children
+                    children(i);
+                }
 
             // Show assembly vector
             if ($Explode) {
@@ -149,8 +153,7 @@ module attachWithOffset(a,b,o, Invert=false, ExplodeSpacing = 10) {
 function attachV(a,b, Invert=false) =
     Invert ? invertVector(a[1]) : a[1];
 
-function attachRAxis(a,b,Invert=false) =
-    attachV(a,b,Invert)[0]==b[1][0] && attachV(a,b,Invert)[1]==b[1][1] ? [0,1,0] : cross(b[1],attachV(a,b,Invert));
+function attachRAxis(a,b,Invert=false) = orthogonalTo(attachV(a,b,Invert), b[1]);
 
 function attachMatrix(a,b, Invert=false, ExplodeSpacing=10) =
     translate(a[0]) *
@@ -215,6 +218,12 @@ function attachedDirection(c1, c2, c3, v=[0,0,-1], ExplodeSpacing=10) =
 // Utilities
 // --------------------------------------
 
+module thread(offset, ExplodeSpacing=10) {
+    if($children)
+        for(i=[0:$children-1])
+            attach(offsetConnector(DefConDown, [0,0,offset]), DefConDown, ExplodeSpacing=ExplodeSpacing * (i+1))
+            children(i);
+}
 
 
 // threads along neg z axis, starting at z=0 with first part

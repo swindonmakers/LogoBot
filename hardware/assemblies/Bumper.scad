@@ -14,6 +14,9 @@ module BumperAssembly()
 		if (DebugCoordinateFrames) frame();
 		if (DebugConnectors) { }
 
+		// generate an animation video for this assembly
+        animation(title="Bumper",framesPerStep=10);
+
 		Bumper_STL();
 
 		step(1,  "Place the Microswitches into the holders.  Make sure to get them the right way round so the bumper hits the metal lever.  Repeat for the second bumper.") {

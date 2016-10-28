@@ -18,6 +18,9 @@ module LeftWheelAssembly( ) {
 
         }
 
+        // generate an animation video for this assembly
+        animation(title="LeftWheel",framesPerStep=10);
+
         LeftMotorClip_STL();
 
         step(1, "Clip the motor into place") {
@@ -65,6 +68,9 @@ module RightWheelAssembly( ) {
         if (DebugConnectors) {
 
         }
+
+        // generate an animation video for this assembly
+        animation(title="RightWheel",framesPerStep=10);
 
         RightMotorClip_STL();
 

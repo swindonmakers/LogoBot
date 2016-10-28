@@ -174,6 +174,9 @@ def gen_assembly(m, a):
             md += '\n'
         md += '\n'
 
+    # cut parts
+    # TODO: !!
+
     # sub-assemblies
     if len(a['assemblies']) > 0:
         md += '### Sub-Assemblies\n\n'
@@ -183,6 +186,13 @@ def gen_assembly(m, a):
             md += str(v['qty']) + ' | '
             md += v['title']
             md += '\n'
+        md += '\n'
+
+    # assembly animation
+    if len(a['animations']) > 0:
+        md += '### Assembly Animation\n\n'
+        for anim in a['animations']:
+            md += '![](../assemblies/'+machine_dir(m['title'])+'/'+anim['title']+'.gif)\n'
         md += '\n'
 
     # assembly steps

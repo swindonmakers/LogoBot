@@ -73,6 +73,10 @@ Qty | Part Name | Image
 --- | --- | ---
 2 | [Bumper](../printedparts/stl/Bumper.stl) | ![](../printedparts/images/Bumper_view.png) | 
 
+### Assembly Animation
+
+![](../assemblies/LogoBotIRSeeker/Bumper.gif)
+
 ### Assembly Steps
 
 1. Place the Microswitches into the holders.  Make sure to get them the right way round so the bumper hits the metal lever.  Repeat for the second bumper.
@@ -95,6 +99,10 @@ Qty | Part Name | Image
 1 | [Left Motor Clip](../printedparts/stl/LeftMotorClip.stl) | ![](../printedparts/images/LeftMotorClip_view.png) | 
 2 | [Pin Tack H7](../printedparts/stl/PinTackH7.stl) | ![](../printedparts/images/PinTackH7_view.png) | 
 1 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
+
+### Assembly Animation
+
+![](../assemblies/LogoBotIRSeeker/LeftWheel.gif)
 
 ### Assembly Steps
 
@@ -125,6 +133,10 @@ Qty | Part Name | Image
 1 | [Right Motor Clip](../printedparts/stl/RightMotorClip.stl) | ![](../printedparts/images/RightMotorClip_view.png) | 
 1 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
 
+### Assembly Animation
+
+![](../assemblies/LogoBotIRSeeker/RightWheel.gif)
+
 ### Assembly Steps
 
 1. Clip the motor into place
@@ -150,6 +162,10 @@ Qty | Vitamin | Image
 Qty | Part Name | Image
 --- | --- | ---
 1 | [Caster Housing](../printedparts/stl/CasterHousing.stl) | ![](../printedparts/images/CasterHousing_view.png) | 
+
+### Assembly Animation
+
+![](../assemblies/LogoBotIRSeeker/MarbleCaster.gif)
 
 ### Assembly Steps
 

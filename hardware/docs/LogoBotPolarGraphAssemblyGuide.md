@@ -81,6 +81,10 @@ Qty | Part Name | Image
 --- | --- | ---
 3 | [Caster Housing](../printedparts/stl/CasterHousing.stl) | ![](../printedparts/images/CasterHousing_view.png) | 
 
+### Assembly Animation
+
+![](../assemblies/LogoBotPolarGraph/MarbleCaster.gif)
+
 ### Assembly Steps
 
 1. Insert the marble into the printed housing

@@ -86,6 +86,10 @@ Qty | Part Name | Image
 2 | [Pin Tack H7](../printedparts/stl/PinTackH7.stl) | ![](../printedparts/images/PinTackH7_view.png) | 
 1 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
 
+### Assembly Animation
+
+![](../assemblies/LogoBotLineFollower/LeftWheel.gif)
+
 ### Assembly Steps
 
 1. Clip the motor into place
@@ -115,6 +119,10 @@ Qty | Part Name | Image
 1 | [Right Motor Clip](../printedparts/stl/RightMotorClip.stl) | ![](../printedparts/images/RightMotorClip_view.png) | 
 1 | [Wheel](../printedparts/stl/Wheel.stl) | ![](../printedparts/images/Wheel_view.png) | 
 
+### Assembly Animation
+
+![](../assemblies/LogoBotLineFollower/RightWheel.gif)
+
 ### Assembly Steps
 
 1. Clip the motor into place
@@ -140,6 +148,10 @@ Qty | Vitamin | Image
 Qty | Part Name | Image
 --- | --- | ---
 1 | [Caster Housing](../printedparts/stl/CasterHousing.stl) | ![](../printedparts/images/CasterHousing_view.png) | 
+
+### Assembly Animation
+
+![](../assemblies/LogoBotLineFollower/MarbleCaster.gif)
 
 ### Assembly Steps
 

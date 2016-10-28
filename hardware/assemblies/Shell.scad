@@ -17,6 +17,9 @@ module ShellAssembly(lid=true) {
 
         if (DebugCoordinateFrames) frame();
 
+        // generate an animation video for this assembly
+        animation(title="Shell",framesPerStep=10);
+
         // STL
         BasicShell_STL();
 

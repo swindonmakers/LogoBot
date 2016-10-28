@@ -88,24 +88,13 @@ def compile_vitamin(v, dom):
         # update hash in json
         v['hash'] = h
 
-        # STL
-        print("    STL Parts")
-        for part in v['children']:
-            if type(part) is DictType and part['type'] == 'part':
-                stlpath = target_dir + '/' + openscad.stl_filename(part['title'])
-                if hashchanged or (not os.path.isfile(stlpath)):
-                    print("      Rendering STL...")
-                    openscad.render_stl(temp_name, stlpath, part['call'], [fn])
-                else:
-                    print("      STL up to date")
-
         # Views
         print("    Views")
         for view in v['children']:
             if type(view) is DictType and view['type'] == 'view':
                 print("      "+view['title'])
 
-                render_view(v['title'], v['call'], view_dir, view, hashchanged, h, [fn], False)
+                render_view(v['title'], v['call'], view_dir, view, hashchanged, h, [fn], False, useVitaminSTL=False)
 
                 png_name = view_dir + '/' + view_filename(v['title'] + '_' + view['title'])
                 view['png_name'] = png_name
@@ -281,15 +270,10 @@ def catalogue():
         errorlevel = 1
 
 
-
     print("Saving markdown")
     mdpath = target_dir + '/VitaminCatalogue.md'
     with open(mdpath,'w') as f:
         f.write(md)
-
-
-
-
 
 
 if __name__ == '__main__':

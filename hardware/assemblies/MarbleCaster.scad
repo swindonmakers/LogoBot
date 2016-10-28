@@ -49,6 +49,9 @@ module MarbleCasterAssembly () {
             connector(MarbleCaster_Con_Default);
         }
 
+        // generate an animation video for this assembly
+        animation(title="MarbleCaster",framesPerStep=10);
+
         // STL
         MarbleCaster_STL();
 

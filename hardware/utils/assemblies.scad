@@ -15,19 +15,19 @@ module attr(name, value, raw=false) {
         } else {
             echo(str(" '",name,"':'",value,"', "));
         }
-    }
+	}
 }
 
 module attrArray(name, close=true) {
     if ($ShowBOM) echo(str(" '",name,"': ["));
-    if ($children > 0) {
-        children();
-        if (close && $ShowBOM)
-            echo(str(" ], "));
-    } else {
-        if (close && $ShowBOM)
-            echo(str(" ], "));
-    }
+	if ($children > 0) {
+		children();
+		if (close && $ShowBOM)
+		    echo(str(" ], "));
+	} else {
+	    if (close && $ShowBOM)
+	        echo(str(" ], "));
+	}
 }
 
 module attrNumArray(name, a) {
@@ -43,22 +43,22 @@ module attrNumArray(name, a) {
 
 module object(close=true) {
     if ($ShowBOM) echo(str(" { "));
-    if ($children > 0) {
-        children();
-    }
-    if (close && $ShowBOM)
-        echo(str(" }, "));
+	if ($children > 0) {
+		children();
+	}
+	if (close && $ShowBOM)
+	    echo(str(" }, "));
 }
 
 module end() {
-    if ($ShowBOM) echo(str(" ] }, "));
+	if ($ShowBOM) echo(str(" ] }, "));
 }
 
 // Specific modules
 // ----------------
 
 module assembly(file, title, call, customAttrs=false) {
-    object(true) {
+	object(true) {
         attr("type","assembly");
         attr("file",file);
         attr("title",title);
@@ -73,11 +73,13 @@ module assembly(file, title, call, customAttrs=false) {
 }
 
 module printedPart(file, title, call, customAttrs=false) {
-    object(true) {
+	object(true) {
         attr("type","printed");
         attr("file",file);
         attr("title",title);
         attr("call",call);
+        // turn off explosions in children
+        $Explode = false;
         if (customAttrs) {
             children();
         } else {
@@ -88,13 +90,16 @@ module printedPart(file, title, call, customAttrs=false) {
 }
 
 module cutPart(file, title, call, completeCall, finalStep, showComplete=false, customAttrs=false) {
-    assign($ShowStep = (showComplete ? finalStep : $ShowStep))
+	//assign($ShowStep = (showComplete ? finalStep : $ShowStep))
+    $ShowStep = (showComplete ? finalStep : $ShowStep);
     object(true) {
         attr("type","cut");
         attr("file",file);
         attr("title",title);
         attr("call",call);
         attr("completeCall",completeCall);
+        // turn off explosions in children
+        $Explode = false;
         if (customAttrs) {
             children();
         } else {
@@ -105,7 +110,7 @@ module cutPart(file, title, call, completeCall, finalStep, showComplete=false, c
 }
 
 module vitamin(file, title, call, customAttrs=false) {
-    object(true) {
+	object(true) {
         attr("type","vitamin");
         attr("file",file);
         attr("title",title);
@@ -121,7 +126,7 @@ module vitamin(file, title, call, customAttrs=false) {
 
 // use for sub-parts of a vitamin, triggers STL generation
 module part(title, call, customAttrs=false) {
-    object(true) {
+	object(true) {
         attr("type","part");
         attr("title",title);
         attr("call",call);
@@ -162,8 +167,9 @@ module step(num=1, desc="") {
     attrArray("children", false);
 
     if (num <= $ShowStep) {
-        assign($Explode= (num == $ShowStep ? true : false), $ShowStep=100 )
-            children();
+        $Explode= (num == $ShowStep ? $Explode : false);
+        $ShowStep=100;
+        children();
     }
 
     end();
@@ -189,6 +195,15 @@ module markdown(section="introduction", markdown="") {
         attr("type","markdown");
         attr("section",section);
         attr("markdown",markdown);
+    }
+}
+
+module animation(title="anim",framesPerStep=10) {
+    object(true) {
+        attr("title",title);
+        attr("type","animation");
+        attr("framesPerStep", framesPerStep, raw=true);
+        children();
     }
 }
 

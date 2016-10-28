@@ -1,7 +1,7 @@
 [
     {
         "cut": [],
-        "hash": "5b507dfa74856fc53782ef4d3c24c7ae",
+        "hash": "acadf06e59c2ee32261d6b5fc0304113",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -159,7 +159,7 @@
                 "file": "vitamins/LED.scad"
             },
             {
-                "hash": "25f0936f568587c8dd3a86ce47cbddd2",
+                "hash": "77479565667951cc1a3b7fc2c50bf7d6",
                 "title": "JumperWire Female to Female 4pin 100mm",
                 "views": [
                     {
@@ -376,7 +376,7 @@
                 "file": "vitamins/TerminalBlock.scad"
             },
             {
-                "hash": "4303bf85dd4b8e6a488aa984def38431",
+                "hash": "827c5b140e7e4437a14041e1424064bb",
                 "title": "JumperWire None to None 1pin 50mm",
                 "views": [
                     {
@@ -407,7 +407,7 @@
                 "file": "vitamins/JumperWire.scad"
             },
             {
-                "hash": "ecd3eadfbd31a7999e61570bbade3739",
+                "hash": "d83f9a4b39d3a52e816bf9ed6fc3e8aa",
                 "title": "JumperWire Female to None 1pin 100mm",
                 "views": [
                     {
@@ -438,7 +438,7 @@
                 "file": "vitamins/JumperWire.scad"
             },
             {
-                "hash": "f93d6ca47944850f0223d6c717dd9968",
+                "hash": "5c33cff6c563a04731d5809d6a23ac74",
                 "title": "JumperWire Female to None 1pin 70mm",
                 "views": [
                     {
@@ -469,7 +469,7 @@
                 "file": "vitamins/JumperWire.scad"
             },
             {
-                "hash": "e87c0d53e246bd5a5e1e53d08f48cb3c",
+                "hash": "cf950b3501e160c773d65b7728ce3c55",
                 "title": "JumperWire None to None 1pin 100mm",
                 "views": [
                     {
@@ -504,7 +504,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "5fae81c6b06fbb283b40b3db5612bc38",
+                "hash": "868abe1fce67128670eacc10bf775958",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -607,6 +607,7 @@
                         "call": "BumperAssembly()",
                         "printed": [],
                         "file": "assemblies/Bumper.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     },
@@ -620,6 +621,7 @@
                         "call": "LeftWheelAssembly()",
                         "printed": [],
                         "file": "assemblies/Wheel.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     },
@@ -633,6 +635,7 @@
                         "call": "RightWheelAssembly()",
                         "printed": [],
                         "file": "assemblies/Wheel.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     },
@@ -646,6 +649,7 @@
                         "call": "MarbleCasterAssembly()",
                         "printed": [],
                         "file": "assemblies/MarbleCaster.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     },
@@ -659,6 +663,7 @@
                         "call": "ShellAssembly()",
                         "printed": [],
                         "file": "assemblies/Shell.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     }
@@ -709,6 +714,13 @@
                     }
                 ],
                 "file": "assemblies/LogoBot.scad",
+                "animations": [
+                    {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "LogoBot"
+                    }
+                ],
                 "steps": [
                     {
                         "desc": "Plug the Pro Mini Clips into the base and then snap the Arduino Pro Mini into them",
@@ -1027,7 +1039,7 @@
             },
             {
                 "cut": [],
-                "hash": "5623323a2a29ec233409dcbbf088b022",
+                "hash": "6165f2fca79d34aad6af9ddad50b4ba0",
                 "vitamins": [
                     {
                         "title": "MicroSwitch",
@@ -1054,6 +1066,13 @@
                     }
                 ],
                 "file": "assemblies/Bumper.scad",
+                "animations": [
+                    {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "Bumper"
+                    }
+                ],
                 "steps": [
                     {
                         "desc": "Place the Microswitches into the holders.  Make sure to get them the right way round so the bumper hits the metal lever.  Repeat for the second bumper.",
@@ -1087,7 +1106,7 @@
             },
             {
                 "cut": [],
-                "hash": "089a411317d0aaa0921d098316d3c1f6",
+                "hash": "ed40ff6a0a294c71641b1da11b362c86",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -1138,6 +1157,13 @@
                     }
                 ],
                 "file": "assemblies/Wheel.scad",
+                "animations": [
+                    {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "LeftWheel"
+                    }
+                ],
                 "steps": [
                     {
                         "desc": "Clip the motor into place",
@@ -1252,7 +1278,7 @@
             },
             {
                 "cut": [],
-                "hash": "cd7da2f6b2768efc7926632036a33ecb",
+                "hash": "2377854e5f38ddfdd421bf33e29562fb",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -1303,6 +1329,13 @@
                     }
                 ],
                 "file": "assemblies/Wheel.scad",
+                "animations": [
+                    {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "RightWheel"
+                    }
+                ],
                 "steps": [
                     {
                         "desc": "Clip the motor into place",
@@ -1417,7 +1450,7 @@
             },
             {
                 "cut": [],
-                "hash": "b4daa7d28a29883a8b5eb1aa11612ed7",
+                "hash": "8786b2a7bc6f176e1acf86bc3a420348",
                 "vitamins": [
                     {
                         "title": "16mm Marble",
@@ -1444,6 +1477,13 @@
                     }
                 ],
                 "file": "assemblies/MarbleCaster.scad",
+                "animations": [
+                    {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "MarbleCaster"
+                    }
+                ],
                 "steps": [
                     {
                         "desc": "Insert the marble into the printed housing",
@@ -1477,7 +1517,7 @@
             },
             {
                 "cut": [],
-                "hash": "de746418638f584d55a3720efb42ab78",
+                "hash": "6ed7948a4753c58f84a36694ae959c70",
                 "vitamins": [],
                 "views": [],
                 "assemblies": [],
@@ -1503,6 +1543,13 @@
                     }
                 ],
                 "file": "assemblies/Shell.scad",
+                "animations": [
+                    {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "Shell"
+                    }
+                ],
                 "steps": [
                     {
                         "desc": "Clip the lid onto the top of the shell",
@@ -1796,7 +1843,7 @@
                         "type": "markdown"
                     }
                 ],
-                "hash": "06cdd2b3fb08d35d062600917f9bd567",
+                "hash": "a1e25cae1309ddd736aeaa4d136d306b",
                 "plasticWeight": 0.006125,
                 "weight": 0.006125,
                 "views": [
@@ -1939,7 +1986,7 @@
                         "type": "markdown"
                     }
                 ],
-                "hash": "f00a9cd723fa05bedccb1360f98cdcc4",
+                "hash": "b4d1dfb663b54ffcafcb6d11b2086855",
                 "plasticWeight": 0.006125,
                 "weight": 0.006125,
                 "views": [
@@ -2235,6 +2282,11 @@
                 "type": "assembly",
                 "children": [
                     {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "LogoBot"
+                    },
+                    {
                         "call": "LogoBotBase_STL()",
                         "type": "printed",
                         "children": [
@@ -2429,6 +2481,11 @@
                                 "call": "BumperAssembly()",
                                 "type": "assembly",
                                 "children": [
+                                    {
+                                        "framesPerStep": 10,
+                                        "type": "animation",
+                                        "title": "Bumper"
+                                    },
                                     {
                                         "call": "Bumper_STL()",
                                         "type": "printed",
@@ -2646,6 +2703,11 @@
                                 "call": "BumperAssembly()",
                                 "type": "assembly",
                                 "children": [
+                                    {
+                                        "framesPerStep": 10,
+                                        "type": "animation",
+                                        "title": "Bumper"
+                                    },
                                     {
                                         "call": "Bumper_STL()",
                                         "type": "printed",
@@ -2886,6 +2948,11 @@
                                 "call": "LeftWheelAssembly()",
                                 "type": "assembly",
                                 "children": [
+                                    {
+                                        "framesPerStep": 10,
+                                        "type": "animation",
+                                        "title": "LeftWheel"
+                                    },
                                     {
                                         "call": "LeftMotorClip_STL()",
                                         "type": "printed",
@@ -3303,6 +3370,11 @@
                                 "call": "RightWheelAssembly()",
                                 "type": "assembly",
                                 "children": [
+                                    {
+                                        "framesPerStep": 10,
+                                        "type": "animation",
+                                        "title": "RightWheel"
+                                    },
                                     {
                                         "call": "RightMotorClip_STL()",
                                         "type": "printed",
@@ -3902,6 +3974,11 @@
                                 "call": "MarbleCasterAssembly()",
                                 "type": "assembly",
                                 "children": [
+                                    {
+                                        "framesPerStep": 10,
+                                        "type": "animation",
+                                        "title": "MarbleCaster"
+                                    },
                                     {
                                         "call": "MarbleCaster_STL()",
                                         "type": "printed",
@@ -4823,6 +4900,11 @@
                                 "type": "assembly",
                                 "children": [
                                     {
+                                        "framesPerStep": 10,
+                                        "type": "animation",
+                                        "title": "Shell"
+                                    },
+                                    {
                                         "call": "BasicShell_STL()",
                                         "type": "printed",
                                         "children": [
@@ -4932,7 +5014,7 @@
     },
     {
         "cut": [],
-        "hash": "fccdfa6b5fa0f6bf5f872b66b017164d",
+        "hash": "181da3d449ea0af5931aa2e3507f3da6",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -5090,7 +5172,7 @@
                 "file": "vitamins/LED.scad"
             },
             {
-                "hash": "25f0936f568587c8dd3a86ce47cbddd2",
+                "hash": "77479565667951cc1a3b7fc2c50bf7d6",
                 "title": "JumperWire Female to Female 4pin 100mm",
                 "views": [
                     {
@@ -5307,7 +5389,7 @@
                 "file": "vitamins/TerminalBlock.scad"
             },
             {
-                "hash": "4303bf85dd4b8e6a488aa984def38431",
+                "hash": "827c5b140e7e4437a14041e1424064bb",
                 "title": "JumperWire None to None 1pin 50mm",
                 "views": [
                     {
@@ -5338,7 +5420,7 @@
                 "file": "vitamins/JumperWire.scad"
             },
             {
-                "hash": "ecd3eadfbd31a7999e61570bbade3739",
+                "hash": "d83f9a4b39d3a52e816bf9ed6fc3e8aa",
                 "title": "JumperWire Female to None 1pin 100mm",
                 "views": [
                     {
@@ -5369,7 +5451,7 @@
                 "file": "vitamins/JumperWire.scad"
             },
             {
-                "hash": "f93d6ca47944850f0223d6c717dd9968",
+                "hash": "5c33cff6c563a04731d5809d6a23ac74",
                 "title": "JumperWire Female to None 1pin 70mm",
                 "views": [
                     {
@@ -5400,7 +5482,7 @@
                 "file": "vitamins/JumperWire.scad"
             },
             {
-                "hash": "e87c0d53e246bd5a5e1e53d08f48cb3c",
+                "hash": "cf950b3501e160c773d65b7728ce3c55",
                 "title": "JumperWire None to None 1pin 100mm",
                 "views": [
                     {
@@ -5541,7 +5623,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "4c136cb77742e25bc05dd3816b1432d2",
+                "hash": "546fbd108af0d48fcd6ef429a0f7e5dc",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -5644,6 +5726,7 @@
                         "call": "BumperAssembly()",
                         "printed": [],
                         "file": "assemblies/Bumper.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     },
@@ -5657,6 +5740,7 @@
                         "call": "LeftWheelAssembly()",
                         "printed": [],
                         "file": "assemblies/Wheel.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     },
@@ -5670,6 +5754,7 @@
                         "call": "RightWheelAssembly()",
                         "printed": [],
                         "file": "assemblies/Wheel.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     },
@@ -5683,6 +5768,7 @@
                         "call": "MarbleCasterAssembly()",
                         "printed": [],
                         "file": "assemblies/MarbleCaster.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     },
@@ -5696,6 +5782,7 @@
                         "call": "LidIRAssembly()",
                         "printed": [],
                         "file": "assemblies/LidIR.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     }
@@ -5770,6 +5857,7 @@
                     }
                 ],
                 "file": "assemblies/LogoBotIRSeeker.scad",
+                "animations": [],
                 "steps": [
                     {
                         "desc": "Plug the Pro Mini Clips into the base and then snap the Arduino Pro Mini into them",
@@ -6142,7 +6230,7 @@
             },
             {
                 "cut": [],
-                "hash": "5623323a2a29ec233409dcbbf088b022",
+                "hash": "6165f2fca79d34aad6af9ddad50b4ba0",
                 "vitamins": [
                     {
                         "title": "MicroSwitch",
@@ -6169,6 +6257,13 @@
                     }
                 ],
                 "file": "assemblies/Bumper.scad",
+                "animations": [
+                    {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "Bumper"
+                    }
+                ],
                 "steps": [
                     {
                         "desc": "Place the Microswitches into the holders.  Make sure to get them the right way round so the bumper hits the metal lever.  Repeat for the second bumper.",
@@ -6202,7 +6297,7 @@
             },
             {
                 "cut": [],
-                "hash": "089a411317d0aaa0921d098316d3c1f6",
+                "hash": "ed40ff6a0a294c71641b1da11b362c86",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -6253,6 +6348,13 @@
                     }
                 ],
                 "file": "assemblies/Wheel.scad",
+                "animations": [
+                    {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "LeftWheel"
+                    }
+                ],
                 "steps": [
                     {
                         "desc": "Clip the motor into place",
@@ -6367,7 +6469,7 @@
             },
             {
                 "cut": [],
-                "hash": "cd7da2f6b2768efc7926632036a33ecb",
+                "hash": "2377854e5f38ddfdd421bf33e29562fb",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -6418,6 +6520,13 @@
                     }
                 ],
                 "file": "assemblies/Wheel.scad",
+                "animations": [
+                    {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "RightWheel"
+                    }
+                ],
                 "steps": [
                     {
                         "desc": "Clip the motor into place",
@@ -6532,7 +6641,7 @@
             },
             {
                 "cut": [],
-                "hash": "b4daa7d28a29883a8b5eb1aa11612ed7",
+                "hash": "8786b2a7bc6f176e1acf86bc3a420348",
                 "vitamins": [
                     {
                         "title": "16mm Marble",
@@ -6559,6 +6668,13 @@
                     }
                 ],
                 "file": "assemblies/MarbleCaster.scad",
+                "animations": [
+                    {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "MarbleCaster"
+                    }
+                ],
                 "steps": [
                     {
                         "desc": "Insert the marble into the printed housing",
@@ -6592,7 +6708,7 @@
             },
             {
                 "cut": [],
-                "hash": "b900fda8873452e01705ecb8b6be6e9d",
+                "hash": "ad8797ded8f2dc346d325bbd6637d0fa",
                 "vitamins": [
                     {
                         "title": "9g Micro Servo",
@@ -6648,6 +6764,7 @@
                     }
                 ],
                 "file": "assemblies/LidIR.scad",
+                "animations": [],
                 "steps": [
                     {
                         "desc": "Push fit the micro servo horn into the base of the lid",
@@ -6893,7 +7010,7 @@
                         "type": "markdown"
                     }
                 ],
-                "hash": "06cdd2b3fb08d35d062600917f9bd567",
+                "hash": "a1e25cae1309ddd736aeaa4d136d306b",
                 "plasticWeight": 0.006375,
                 "title": "Left Motor Clip",
                 "views": [
@@ -7004,7 +7121,7 @@
                         "type": "markdown"
                     }
                 ],
-                "hash": "f00a9cd723fa05bedccb1360f98cdcc4",
+                "hash": "b4d1dfb663b54ffcafcb6d11b2086855",
                 "plasticWeight": 0.006375,
                 "title": "Right Motor Clip",
                 "views": [
@@ -7534,6 +7651,11 @@
                                 "type": "assembly",
                                 "children": [
                                     {
+                                        "framesPerStep": 10,
+                                        "type": "animation",
+                                        "title": "Bumper"
+                                    },
+                                    {
                                         "call": "Bumper_STL()",
                                         "type": "printed",
                                         "children": [
@@ -7750,6 +7872,11 @@
                                 "call": "BumperAssembly()",
                                 "type": "assembly",
                                 "children": [
+                                    {
+                                        "framesPerStep": 10,
+                                        "type": "animation",
+                                        "title": "Bumper"
+                                    },
                                     {
                                         "call": "Bumper_STL()",
                                         "type": "printed",
@@ -7990,6 +8117,11 @@
                                 "call": "LeftWheelAssembly()",
                                 "type": "assembly",
                                 "children": [
+                                    {
+                                        "framesPerStep": 10,
+                                        "type": "animation",
+                                        "title": "LeftWheel"
+                                    },
                                     {
                                         "call": "LeftMotorClip_STL()",
                                         "type": "printed",
@@ -8407,6 +8539,11 @@
                                 "call": "RightWheelAssembly()",
                                 "type": "assembly",
                                 "children": [
+                                    {
+                                        "framesPerStep": 10,
+                                        "type": "animation",
+                                        "title": "RightWheel"
+                                    },
                                     {
                                         "call": "RightMotorClip_STL()",
                                         "type": "printed",
@@ -9006,6 +9143,11 @@
                                 "call": "MarbleCasterAssembly()",
                                 "type": "assembly",
                                 "children": [
+                                    {
+                                        "framesPerStep": 10,
+                                        "type": "animation",
+                                        "title": "MarbleCaster"
+                                    },
                                     {
                                         "call": "MarbleCaster_STL()",
                                         "type": "printed",
@@ -10312,7 +10454,7 @@
     },
     {
         "cut": [],
-        "hash": "9c6e2740bf85734e10aadac694c12995",
+        "hash": "183db194f502cb8c38ae36e9da5a8aeb",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -10346,7 +10488,7 @@
                 "file": "vitamins/ArduinoPro.scad"
             },
             {
-                "hash": "9cf53ec5f5e6ddff35fc240e65d60d27",
+                "hash": "859f109b166f27264833623b40c4a95f",
                 "title": "Line Sensor",
                 "views": [
                     {
@@ -10470,7 +10612,7 @@
                 "file": "vitamins/LED.scad"
             },
             {
-                "hash": "25f0936f568587c8dd3a86ce47cbddd2",
+                "hash": "77479565667951cc1a3b7fc2c50bf7d6",
                 "title": "JumperWire Female to Female 4pin 100mm",
                 "views": [
                     {
@@ -10687,7 +10829,7 @@
                 "file": "vitamins/TerminalBlock.scad"
             },
             {
-                "hash": "4303bf85dd4b8e6a488aa984def38431",
+                "hash": "827c5b140e7e4437a14041e1424064bb",
                 "title": "JumperWire None to None 1pin 50mm",
                 "views": [
                     {
@@ -10718,7 +10860,7 @@
                 "file": "vitamins/JumperWire.scad"
             },
             {
-                "hash": "ecd3eadfbd31a7999e61570bbade3739",
+                "hash": "d83f9a4b39d3a52e816bf9ed6fc3e8aa",
                 "title": "JumperWire Female to None 1pin 100mm",
                 "views": [
                     {
@@ -10749,7 +10891,7 @@
                 "file": "vitamins/JumperWire.scad"
             },
             {
-                "hash": "f93d6ca47944850f0223d6c717dd9968",
+                "hash": "5c33cff6c563a04731d5809d6a23ac74",
                 "title": "JumperWire Female to None 1pin 70mm",
                 "views": [
                     {
@@ -10780,7 +10922,7 @@
                 "file": "vitamins/JumperWire.scad"
             },
             {
-                "hash": "e87c0d53e246bd5a5e1e53d08f48cb3c",
+                "hash": "cf950b3501e160c773d65b7728ce3c55",
                 "title": "JumperWire None to None 1pin 100mm",
                 "views": [
                     {
@@ -10815,7 +10957,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "60dd3b1af7d08ce2b67a810d5adf8318",
+                "hash": "373ac181094082718a817d3ef5c6cf8b",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -10918,6 +11060,7 @@
                         "call": "LineSensorAssembly()",
                         "printed": [],
                         "file": "assemblies/LineSensor.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     },
@@ -10931,6 +11074,7 @@
                         "call": "LeftWheelAssembly()",
                         "printed": [],
                         "file": "assemblies/Wheel.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     },
@@ -10944,6 +11088,7 @@
                         "call": "RightWheelAssembly()",
                         "printed": [],
                         "file": "assemblies/Wheel.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     },
@@ -10957,6 +11102,7 @@
                         "call": "MarbleCasterAssembly()",
                         "printed": [],
                         "file": "assemblies/MarbleCaster.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     }
@@ -10991,6 +11137,7 @@
                     }
                 ],
                 "file": "assemblies/LogoBotLineFollower.scad",
+                "animations": [],
                 "steps": [
                     {
                         "desc": "Plug the Pro Mini Clips into the base and then snap the Arduino Pro Mini into them",
@@ -11261,7 +11408,7 @@
             },
             {
                 "cut": [],
-                "hash": "e6b622ba55821d7b31a7b96f1ae510bd",
+                "hash": "20d8fbfa67e0d9b9c9c23f8f7abc701d",
                 "vitamins": [
                     {
                         "title": "Line Sensor",
@@ -11288,6 +11435,7 @@
                     }
                 ],
                 "file": "assemblies/LineSensor.scad",
+                "animations": [],
                 "steps": [
                     {
                         "desc": "Insert the two line sensor modules",
@@ -11321,7 +11469,7 @@
             },
             {
                 "cut": [],
-                "hash": "089a411317d0aaa0921d098316d3c1f6",
+                "hash": "ed40ff6a0a294c71641b1da11b362c86",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -11372,6 +11520,13 @@
                     }
                 ],
                 "file": "assemblies/Wheel.scad",
+                "animations": [
+                    {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "LeftWheel"
+                    }
+                ],
                 "steps": [
                     {
                         "desc": "Clip the motor into place",
@@ -11486,7 +11641,7 @@
             },
             {
                 "cut": [],
-                "hash": "cd7da2f6b2768efc7926632036a33ecb",
+                "hash": "2377854e5f38ddfdd421bf33e29562fb",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -11537,6 +11692,13 @@
                     }
                 ],
                 "file": "assemblies/Wheel.scad",
+                "animations": [
+                    {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "RightWheel"
+                    }
+                ],
                 "steps": [
                     {
                         "desc": "Clip the motor into place",
@@ -11651,7 +11813,7 @@
             },
             {
                 "cut": [],
-                "hash": "b4daa7d28a29883a8b5eb1aa11612ed7",
+                "hash": "8786b2a7bc6f176e1acf86bc3a420348",
                 "vitamins": [
                     {
                         "title": "16mm Marble",
@@ -11678,6 +11840,13 @@
                     }
                 ],
                 "file": "assemblies/MarbleCaster.scad",
+                "animations": [
+                    {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "MarbleCaster"
+                    }
+                ],
                 "steps": [
                     {
                         "desc": "Insert the marble into the printed housing",
@@ -11850,7 +12019,7 @@
                         "type": "markdown"
                     }
                 ],
-                "hash": "06cdd2b3fb08d35d062600917f9bd567",
+                "hash": "a1e25cae1309ddd736aeaa4d136d306b",
                 "plasticWeight": 0.00625,
                 "title": "Left Motor Clip",
                 "views": [
@@ -11922,7 +12091,7 @@
                         "type": "markdown"
                     }
                 ],
-                "hash": "f00a9cd723fa05bedccb1360f98cdcc4",
+                "hash": "b4d1dfb663b54ffcafcb6d11b2086855",
                 "plasticWeight": 0.00625,
                 "title": "Right Motor Clip",
                 "views": [
@@ -12366,6 +12535,11 @@
                                 "type": "assembly",
                                 "children": [
                                     {
+                                        "framesPerStep": 10,
+                                        "type": "animation",
+                                        "title": "LeftWheel"
+                                    },
+                                    {
                                         "call": "LeftMotorClip_STL()",
                                         "type": "printed",
                                         "children": [
@@ -12781,6 +12955,11 @@
                                 "call": "RightWheelAssembly()",
                                 "type": "assembly",
                                 "children": [
+                                    {
+                                        "framesPerStep": 10,
+                                        "type": "animation",
+                                        "title": "RightWheel"
+                                    },
                                     {
                                         "call": "RightMotorClip_STL()",
                                         "type": "printed",
@@ -13380,6 +13559,11 @@
                                 "call": "MarbleCasterAssembly()",
                                 "type": "assembly",
                                 "children": [
+                                    {
+                                        "framesPerStep": 10,
+                                        "type": "animation",
+                                        "title": "MarbleCaster"
+                                    },
                                     {
                                         "call": "MarbleCaster_STL()",
                                         "type": "printed",
@@ -14168,7 +14352,7 @@
     },
     {
         "cut": [],
-        "hash": "bb8f87efbf32dcfeace62fbe49950748",
+        "hash": "7ee5f2d06aea452bf1619bd249ce5b28",
         "vitamins": [
             {
                 "hash": "da336afd2a62a43e7dcc8dc22d47913c",
@@ -14467,7 +14651,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "9b57ed8215272f78ea04eda9bc449a26",
+                "hash": "508e1e91845f92afbe9e0a65d8b0df92",
                 "vitamins": [
                     {
                         "title": "No6 cs  wood screw x 20mm",
@@ -14498,6 +14682,7 @@
                         "call": "LeftCapstanAssembly()",
                         "printed": [],
                         "file": "assemblies/Capstan.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     },
@@ -14511,6 +14696,7 @@
                         "call": "RightCapstanAssembly()",
                         "printed": [],
                         "file": "assemblies/Capstan.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     },
@@ -14524,6 +14710,7 @@
                         "call": "GondolaAssembly()",
                         "printed": [],
                         "file": "assemblies/Gondola.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     }
@@ -14533,6 +14720,7 @@
                 "call": "LogoBotPolarGraphAssembly()",
                 "printed": [],
                 "file": "assemblies/LogoBotPolarGraph.scad",
+                "animations": [],
                 "steps": [
                     {
                         "desc": "Cut a piece of wood to 500mm long, at least 20mm x 20mm cross section",
@@ -14674,7 +14862,7 @@
             },
             {
                 "cut": [],
-                "hash": "30159a57064a27dceaf00beaeaff1df9",
+                "hash": "82a2b288865918bc88c49b17d2a53fe9",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -14717,6 +14905,7 @@
                     }
                 ],
                 "file": "assemblies/Capstan.scad",
+                "animations": [],
                 "steps": [
                     {
                         "desc": "Clip the motor into place",
@@ -14804,7 +14993,7 @@
             },
             {
                 "cut": [],
-                "hash": "dd8b4dbb45f4a8fc080176e3b0dd5773",
+                "hash": "067c5fd056044ae560cdd53a38e2f462",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -14847,6 +15036,7 @@
                     }
                 ],
                 "file": "assemblies/Capstan.scad",
+                "animations": [],
                 "steps": [
                     {
                         "desc": "Clip the motor into place",
@@ -14934,7 +15124,7 @@
             },
             {
                 "cut": [],
-                "hash": "6c90bf1616777152dadeccef4699e9d0",
+                "hash": "8c7e63055f3d373721879d7141bde700",
                 "vitamins": [
                     {
                         "title": "9g Micro Servo",
@@ -14978,6 +15168,7 @@
                         "call": "PenLiftAssembly()",
                         "printed": [],
                         "file": "assemblies/PenLift.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 3
                     },
@@ -14991,6 +15182,7 @@
                         "call": "MarbleCasterAssembly()",
                         "printed": [],
                         "file": "assemblies/MarbleCaster.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 3
                     }
@@ -15017,6 +15209,7 @@
                     }
                 ],
                 "file": "assemblies/Gondola.scad",
+                "animations": [],
                 "steps": [
                     {
                         "desc": "Attach the pen lift",
@@ -15077,7 +15270,7 @@
             },
             {
                 "cut": [],
-                "hash": "943b3646f2043d16468b3fe42eb2555f",
+                "hash": "5764c2804c64ca3144eb85133dac0609",
                 "vitamins": [
                     {
                         "title": "Fine Line Pen",
@@ -15112,6 +15305,7 @@
                     }
                 ],
                 "file": "assemblies/PenLift.scad",
+                "animations": [],
                 "steps": [
                     {
                         "desc": "Place the pen holder into the pen slider plate.  Ensure they move freely, the two parts should fall apart easily.  Lightly file or sand the pen holder part if they dont.  Fit an elastic band in the lower grooves and over the top of the mechanism so that it pulls the pen holder down in the slider mechanism.",
@@ -15172,7 +15366,7 @@
             },
             {
                 "cut": [],
-                "hash": "b4daa7d28a29883a8b5eb1aa11612ed7",
+                "hash": "8786b2a7bc6f176e1acf86bc3a420348",
                 "vitamins": [
                     {
                         "title": "16mm Marble",
@@ -15199,6 +15393,13 @@
                     }
                 ],
                 "file": "assemblies/MarbleCaster.scad",
+                "animations": [
+                    {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "MarbleCaster"
+                    }
+                ],
                 "steps": [
                     {
                         "desc": "Insert the marble into the printed housing",
@@ -15240,7 +15441,7 @@
                         "type": "markdown"
                     }
                 ],
-                "hash": "06cdd2b3fb08d35d062600917f9bd567",
+                "hash": "a1e25cae1309ddd736aeaa4d136d306b",
                 "plasticWeight": 0.006375,
                 "title": "Left Motor Clip",
                 "views": [
@@ -15312,7 +15513,7 @@
                         "type": "markdown"
                     }
                 ],
-                "hash": "f00a9cd723fa05bedccb1360f98cdcc4",
+                "hash": "b4d1dfb663b54ffcafcb6d11b2086855",
                 "plasticWeight": 0.006375,
                 "title": "Right Motor Clip",
                 "views": [
@@ -16795,6 +16996,11 @@
                                                 "type": "assembly",
                                                 "children": [
                                                     {
+                                                        "framesPerStep": 10,
+                                                        "type": "animation",
+                                                        "title": "MarbleCaster"
+                                                    },
+                                                    {
                                                         "call": "MarbleCaster_STL()",
                                                         "type": "printed",
                                                         "children": [
@@ -16893,6 +17099,11 @@
                                                 "type": "assembly",
                                                 "children": [
                                                     {
+                                                        "framesPerStep": 10,
+                                                        "type": "animation",
+                                                        "title": "MarbleCaster"
+                                                    },
+                                                    {
                                                         "call": "MarbleCaster_STL()",
                                                         "type": "printed",
                                                         "children": [
@@ -16988,6 +17199,11 @@
                                                 "call": "MarbleCasterAssembly()",
                                                 "type": "assembly",
                                                 "children": [
+                                                    {
+                                                        "framesPerStep": 10,
+                                                        "type": "animation",
+                                                        "title": "MarbleCaster"
+                                                    },
                                                     {
                                                         "call": "MarbleCaster_STL()",
                                                         "type": "printed",
@@ -17181,7 +17397,7 @@
     },
     {
         "cut": [],
-        "hash": "38cea061d74ce859bb4c04886fa8feda",
+        "hash": "72d80257415c100081d4dac46110114b",
         "vitamins": [
             {
                 "hash": "dfedbd47a31000dbd5126a6e03809359",
@@ -17339,7 +17555,7 @@
                 "file": "vitamins/LED.scad"
             },
             {
-                "hash": "25f0936f568587c8dd3a86ce47cbddd2",
+                "hash": "77479565667951cc1a3b7fc2c50bf7d6",
                 "title": "JumperWire Female to Female 4pin 100mm",
                 "views": [
                     {
@@ -17662,7 +17878,7 @@
                 "file": "vitamins/TerminalBlock.scad"
             },
             {
-                "hash": "4303bf85dd4b8e6a488aa984def38431",
+                "hash": "827c5b140e7e4437a14041e1424064bb",
                 "title": "JumperWire None to None 1pin 50mm",
                 "views": [
                     {
@@ -17693,7 +17909,7 @@
                 "file": "vitamins/JumperWire.scad"
             },
             {
-                "hash": "ecd3eadfbd31a7999e61570bbade3739",
+                "hash": "d83f9a4b39d3a52e816bf9ed6fc3e8aa",
                 "title": "JumperWire Female to None 1pin 100mm",
                 "views": [
                     {
@@ -17724,7 +17940,7 @@
                 "file": "vitamins/JumperWire.scad"
             },
             {
-                "hash": "f93d6ca47944850f0223d6c717dd9968",
+                "hash": "5c33cff6c563a04731d5809d6a23ac74",
                 "title": "JumperWire Female to None 1pin 70mm",
                 "views": [
                     {
@@ -17755,7 +17971,7 @@
                 "file": "vitamins/JumperWire.scad"
             },
             {
-                "hash": "e87c0d53e246bd5a5e1e53d08f48cb3c",
+                "hash": "cf950b3501e160c773d65b7728ce3c55",
                 "title": "JumperWire None to None 1pin 100mm",
                 "views": [
                     {
@@ -17790,7 +18006,7 @@
         "assemblies": [
             {
                 "cut": [],
-                "hash": "cfaabf7236222f94861c28f7228d3f63",
+                "hash": "aa3f1473de5969f72e2edacec2d9e1d1",
                 "vitamins": [
                     {
                         "title": "Arduino Pro Mini Pins on top, inc serial pins",
@@ -17922,6 +18138,7 @@
                         "call": "BumperAssembly()",
                         "printed": [],
                         "file": "assemblies/Bumper.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     },
@@ -17935,6 +18152,7 @@
                         "call": "LeftWheelAssembly()",
                         "printed": [],
                         "file": "assemblies/Wheel.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     },
@@ -17948,6 +18166,7 @@
                         "call": "RightWheelAssembly()",
                         "printed": [],
                         "file": "assemblies/Wheel.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     },
@@ -17961,6 +18180,7 @@
                         "call": "MarbleCasterAssembly()",
                         "printed": [],
                         "file": "assemblies/MarbleCaster.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     },
@@ -17974,6 +18194,7 @@
                         "call": "PenLiftAssembly()",
                         "printed": [],
                         "file": "assemblies/PenLift.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     },
@@ -17987,6 +18208,7 @@
                         "call": "ShellAssembly()",
                         "printed": [],
                         "file": "assemblies/Shell.scad",
+                        "animations": [],
                         "steps": [],
                         "level": 1
                     }
@@ -18045,6 +18267,13 @@
                     }
                 ],
                 "file": "assemblies/LogoBot.scad",
+                "animations": [
+                    {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "LogoBot"
+                    }
+                ],
                 "steps": [
                     {
                         "desc": "Plug the Pro Mini Clips into the base and then snap the Arduino Pro Mini into them",
@@ -18390,7 +18619,7 @@
             },
             {
                 "cut": [],
-                "hash": "5623323a2a29ec233409dcbbf088b022",
+                "hash": "6165f2fca79d34aad6af9ddad50b4ba0",
                 "vitamins": [
                     {
                         "title": "MicroSwitch",
@@ -18417,6 +18646,13 @@
                     }
                 ],
                 "file": "assemblies/Bumper.scad",
+                "animations": [
+                    {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "Bumper"
+                    }
+                ],
                 "steps": [
                     {
                         "desc": "Place the Microswitches into the holders.  Make sure to get them the right way round so the bumper hits the metal lever.  Repeat for the second bumper.",
@@ -18450,7 +18686,7 @@
             },
             {
                 "cut": [],
-                "hash": "089a411317d0aaa0921d098316d3c1f6",
+                "hash": "ed40ff6a0a294c71641b1da11b362c86",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -18501,6 +18737,13 @@
                     }
                 ],
                 "file": "assemblies/Wheel.scad",
+                "animations": [
+                    {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "LeftWheel"
+                    }
+                ],
                 "steps": [
                     {
                         "desc": "Clip the motor into place",
@@ -18615,7 +18858,7 @@
             },
             {
                 "cut": [],
-                "hash": "cd7da2f6b2768efc7926632036a33ecb",
+                "hash": "2377854e5f38ddfdd421bf33e29562fb",
                 "vitamins": [
                     {
                         "title": "28YBJ48 Stepper Motor",
@@ -18666,6 +18909,13 @@
                     }
                 ],
                 "file": "assemblies/Wheel.scad",
+                "animations": [
+                    {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "RightWheel"
+                    }
+                ],
                 "steps": [
                     {
                         "desc": "Clip the motor into place",
@@ -18780,7 +19030,7 @@
             },
             {
                 "cut": [],
-                "hash": "b4daa7d28a29883a8b5eb1aa11612ed7",
+                "hash": "8786b2a7bc6f176e1acf86bc3a420348",
                 "vitamins": [
                     {
                         "title": "16mm Marble",
@@ -18807,6 +19057,13 @@
                     }
                 ],
                 "file": "assemblies/MarbleCaster.scad",
+                "animations": [
+                    {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "MarbleCaster"
+                    }
+                ],
                 "steps": [
                     {
                         "desc": "Insert the marble into the printed housing",
@@ -18840,7 +19097,7 @@
             },
             {
                 "cut": [],
-                "hash": "943b3646f2043d16468b3fe42eb2555f",
+                "hash": "5764c2804c64ca3144eb85133dac0609",
                 "vitamins": [
                     {
                         "title": "Fine Line Pen",
@@ -18875,6 +19132,7 @@
                     }
                 ],
                 "file": "assemblies/PenLift.scad",
+                "animations": [],
                 "steps": [
                     {
                         "desc": "Place the pen holder into the pen slider plate.  Ensure they move freely, the two parts should fall apart easily.  Lightly file or sand the pen holder part if they dont.  Fit an elastic band in the lower grooves and over the top of the mechanism so that it pulls the pen holder down in the slider mechanism.",
@@ -18935,7 +19193,7 @@
             },
             {
                 "cut": [],
-                "hash": "de746418638f584d55a3720efb42ab78",
+                "hash": "6ed7948a4753c58f84a36694ae959c70",
                 "vitamins": [],
                 "views": [],
                 "assemblies": [],
@@ -18953,6 +19211,13 @@
                     }
                 ],
                 "file": "assemblies/Shell.scad",
+                "animations": [
+                    {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "Shell"
+                    }
+                ],
                 "steps": [],
                 "level": 2
             }
@@ -19153,7 +19418,7 @@
                         "type": "markdown"
                     }
                 ],
-                "hash": "06cdd2b3fb08d35d062600917f9bd567",
+                "hash": "a1e25cae1309ddd736aeaa4d136d306b",
                 "plasticWeight": 0.006125,
                 "weight": 0.006125,
                 "title": "Left Motor Clip",
@@ -19270,7 +19535,7 @@
                         "type": "markdown"
                     }
                 ],
-                "hash": "f00a9cd723fa05bedccb1360f98cdcc4",
+                "hash": "b4d1dfb663b54ffcafcb6d11b2086855",
                 "plasticWeight": 0.006125,
                 "weight": 0.006125,
                 "title": "Right Motor Clip",
@@ -19622,6 +19887,11 @@
                 "type": "assembly",
                 "children": [
                     {
+                        "framesPerStep": 10,
+                        "type": "animation",
+                        "title": "LogoBot"
+                    },
+                    {
                         "call": "LogoBotBase_STL()",
                         "type": "printed",
                         "children": [
@@ -19816,6 +20086,11 @@
                                 "call": "BumperAssembly()",
                                 "type": "assembly",
                                 "children": [
+                                    {
+                                        "framesPerStep": 10,
+                                        "type": "animation",
+                                        "title": "Bumper"
+                                    },
                                     {
                                         "call": "Bumper_STL()",
                                         "type": "printed",
@@ -20033,6 +20308,11 @@
                                 "call": "BumperAssembly()",
                                 "type": "assembly",
                                 "children": [
+                                    {
+                                        "framesPerStep": 10,
+                                        "type": "animation",
+                                        "title": "Bumper"
+                                    },
                                     {
                                         "call": "Bumper_STL()",
                                         "type": "printed",
@@ -20273,6 +20553,11 @@
                                 "call": "LeftWheelAssembly()",
                                 "type": "assembly",
                                 "children": [
+                                    {
+                                        "framesPerStep": 10,
+                                        "type": "animation",
+                                        "title": "LeftWheel"
+                                    },
                                     {
                                         "call": "LeftMotorClip_STL()",
                                         "type": "printed",
@@ -20690,6 +20975,11 @@
                                 "call": "RightWheelAssembly()",
                                 "type": "assembly",
                                 "children": [
+                                    {
+                                        "framesPerStep": 10,
+                                        "type": "animation",
+                                        "title": "RightWheel"
+                                    },
                                     {
                                         "call": "RightMotorClip_STL()",
                                         "type": "printed",
@@ -21289,6 +21579,11 @@
                                 "call": "MarbleCasterAssembly()",
                                 "type": "assembly",
                                 "children": [
+                                    {
+                                        "framesPerStep": 10,
+                                        "type": "animation",
+                                        "title": "MarbleCaster"
+                                    },
                                     {
                                         "call": "MarbleCaster_STL()",
                                         "type": "printed",
@@ -22533,6 +22828,11 @@
                                 "type": "assembly",
                                 "children": [
                                     {
+                                        "framesPerStep": 10,
+                                        "type": "animation",
+                                        "title": "Shell"
+                                    },
+                                    {
                                         "call": "BasicShell_STL()",
                                         "type": "printed",
                                         "children": [
@@ -22581,7 +22881,7 @@
     },
     {
         "cut": [],
-        "hash": "b5b0e7df98b5b3f8224d19486e500ed4",
+        "hash": "c3699322aab14161e9a37b310d9ada3a",
         "vitamins": [],
         "title": "OptionalExtras",
         "assemblies": [],
@@ -22594,7 +22894,7 @@
                         "type": "markdown"
                     }
                 ],
-                "hash": "2861482b08e8a3e826282c7abc23ef49",
+                "hash": "6d5fa89612134709bbc28a5df04c9c59",
                 "plasticWeight": 0.013375,
                 "weight": 0.013375,
                 "views": [

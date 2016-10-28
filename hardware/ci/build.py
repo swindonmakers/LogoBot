@@ -2,7 +2,7 @@
 
 # Run the various build scripts
 
-import sys
+import sys, getopt
 import os
 from parse import parse_machines
 from machines import machines
@@ -15,7 +15,33 @@ from publish import publish
 from catalogue import catalogue
 from subprocess import check_output
 
-def build(do_publish=0):
+def build(argv):
+
+    doCatalogue = True
+    doQuick = False
+    doPublish = False
+    try:
+        opts, args = getopt.getopt(argv,"hcqp",[])
+    except getopt.GetoptError:
+        print 'build.py -h -c -q -p'
+        print ''
+        sys.exit(2)
+    for opt, arg in opts:
+        if opt == '-h':
+            print 'Usage: -h -c -q -p'
+            print ''
+            print '  -c   Skip catalogue'
+            print '  -p   Publish: auto commit and push to git'
+            print '  -q   Quick build - skip assemblies, guide and catalogue'
+            sys.exit()
+        if opt in ("-c"):
+            doCatalogue = False
+        if opt in ("-q"):
+            doQuick = True
+            doCatalogue = False
+        if opt in ("-p"):
+            doPublish = True
+
     print("Build")
     print("-----")
 
@@ -37,17 +63,18 @@ def build(do_publish=0):
         errorlevel += cut()
     if errorlevel == 0:
         errorlevel += printed()
-    if errorlevel == 0:
+    if errorlevel == 0 and not doQuick:
         errorlevel += assemblies()
     if errorlevel == 0:
         errorlevel += machines()
 
-    if errorlevel == 0:
+    if errorlevel == 0 and not doQuick:
         errorlevel += guides()
 
-    catalogue();
+    if doCatalogue and not doQuick:
+        catalogue()
 
-    if errorlevel == 0 and do_publish > 0:
+    if errorlevel == 0 and doPublish > 0:
         publish()
 
 
@@ -68,7 +95,4 @@ def build(do_publish=0):
     return errorlevel
 
 if __name__ == '__main__':
-    if len(sys.argv) == 2:
-        sys.exit(build(sys.argv[1]))
-    else:
-        sys.exit(build(0))
+    build(sys.argv[1:])

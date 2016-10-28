@@ -13,6 +13,8 @@ import hashlib
 # OpenSCAD default background colour
 bkc = (255,255,229,255)
 
+PolishTransparentBackground = True
+PolishCrop = True
 
 def view_filename(s):
     s = s.replace(" ","")
@@ -56,12 +58,13 @@ def polish(filename, w, h, hash="", viewhash=""):
         y2 = 0
 
         # Set background to white and transparent
+
         for y in xrange(img.size[1]):
             solidx = 0
             solidy = 0
             for x in xrange(img.size[0]):
                 if pixdata[x, y] == bkc:
-                    pixdata[x, y] = (255, 255, 255, 0)
+                    pixdata[x, y] = (255, 255, 255, 0 if PolishTransparentBackground else 255)
                 else:
                     if solidx == 0 and x < x1:
                         x1 = x
@@ -81,7 +84,7 @@ def polish(filename, w, h, hash="", viewhash=""):
         img = img.resize((w, h), Image.ANTIALIAS)
 
         # crop
-        if (x1 < x2 and y1 < y2):
+        if (x1 < x2 and y1 < y2 and PolishCrop):
             img = img.crop((x1/2,y1/2,x2/2,y2/2))
 
         # add hash to meta data
@@ -97,7 +100,7 @@ def polish(filename, w, h, hash="", viewhash=""):
         img.save(filename, "PNG", pnginfo=meta)
         img.close()
     except:
-        print("  Exception error")
+        print("  Exception error", sys.exc_info()[0])
 
 
 def render_view_using_file(obj_title, scadfile, dir, view, hashchanged, hash=""):
@@ -145,7 +148,7 @@ def render_view_using_file(obj_title, scadfile, dir, view, hashchanged, hash="")
         print("        View up to date")
 
 
-def render_view(obj_title, obj_call, dir, view, hashchanged, hash="", includes=[], debug=False):
+def render_view(obj_title, obj_call, dir, view, hashchanged, hash="", includes=[], debug=False, useVitaminSTL=True):
     temp_name = 'temp.scad'
 
     # make a file to use the module
@@ -155,7 +158,10 @@ def render_view(obj_title, obj_call, dir, view, hashchanged, hash="", includes=[
     for i in includes:
         f.write("include <"+i+">\n")
     f.write("UseSTL=true;\n");
-    f.write("UseVitaminSTL=true;\n");
+    if useVitaminSTL:
+        f.write("UseVitaminSTL=true;\n")
+    else:
+        f.write("UseVitaminSTL=false;\n")
     if debug:
         f.write("DebugConnectors=true;\n");
         f.write("DebugCoordinateFrames=true;\n");

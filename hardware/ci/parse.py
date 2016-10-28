@@ -211,6 +211,22 @@ def add_views_for(jso, o):
         if type(c) is DictType and c['type'] == 'view':
             add_view(c, o)
 
+def add_animation(jso, o):
+    vfound = None
+    for v in o['animations']:
+        if v['title'] == jso['title']:
+            vfound = v
+            continue
+
+    if vfound == None:
+        vfound = o['animations'].append(jso)
+
+def add_animations_for(jso, o):
+    # check for animations in children
+    for c in jso['children']:
+        if type(c) is DictType and c['type'] == 'animation':
+            add_animation(c, o)
+
 def add_markdown(jso, o):
     vfound = None
     if 'markdown' not in o:
@@ -353,7 +369,7 @@ def add_cut(jso, cl, addSteps=True, addViews=True, addChildren=True):
 
 
 
-def add_assembly(jso, al, pl, vl, cl, addSteps=True, addViews=True, addChildren=True, level=0):
+def add_assembly(jso, al, pl, vl, cl, addSteps=True, addViews=True, addChildren=True, addAnimations=True, level=0):
     #print("  Assembly: "+jso['title'])
     #print("    Level: "+str(level))
 
@@ -369,7 +385,7 @@ def add_assembly(jso, al, pl, vl, cl, addSteps=True, addViews=True, addChildren=
     else:
         afound = {
             'title':jso['title'], 'call':jso['call'], 'file':jso['file'], 'level':level,
-            'qty':1, 'views':[], 'steps':[], 'assemblies':[], 'vitamins':[], 'printed':[], 'cut':[]
+            'qty':1, 'views':[], 'animations':[], 'steps':[], 'assemblies':[], 'vitamins':[], 'printed':[], 'cut':[]
             }
         al.append(afound)
 
@@ -377,6 +393,8 @@ def add_assembly(jso, al, pl, vl, cl, addSteps=True, addViews=True, addChildren=
         add_views_for(jso, afound)
     if addSteps:
         add_steps_for(jso, afound)
+    if addAnimations:
+        add_animations_for(jso, afound)
 
     nvl = afound['vitamins'];
     nal = afound['assemblies'];
@@ -394,7 +412,7 @@ def add_assembly(jso, al, pl, vl, cl, addSteps=True, addViews=True, addChildren=
                     add_vitamin(c, nvl, addViews=False)
 
                 if tn == 'assembly':
-                    add_assembly(c, nal, npl, nvl, ncl, addSteps=False, addViews=False, addChildren=False, level=nextlevel)
+                    add_assembly(c, nal, npl, nvl, ncl, addSteps=False, addViews=False, addChildren=False, addAnimations=False, level=nextlevel)
 
                 if tn == 'cut':
                     add_cut(c, ncl, addViews=False, addSteps=False, addChildren=False)
@@ -411,7 +429,7 @@ def add_assembly(jso, al, pl, vl, cl, addSteps=True, addViews=True, addChildren=
                                 add_vitamin(sc, nvl, addViews=False)
 
                             if tn2 == 'assembly':
-                                add_assembly(sc, nal, npl, nvl, ncl, addSteps=False, addViews=False, addChildren=False, level=nextlevel)
+                                add_assembly(sc, nal, npl, nvl, ncl, addSteps=False, addViews=False, addChildren=False, addAnimations=False, level=nextlevel)
 
                             if tn2 == 'printed':
                                 add_printed(sc, npl, addViews=False)
@@ -426,7 +444,7 @@ def summarise_parts_for(jso, al, pl, vl, cl, level=0):
     # print("sum_parts_for "+str(level))
     if type(jso) is DictType:
         tn = jso['type']
-        
+
         if tn == 'vitamin':
             add_vitamin(jso, vl)
 

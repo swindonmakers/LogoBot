@@ -57,6 +57,9 @@ module LogoBotAssembly ( PenLift=false, Shell=true ) {
 
     assembly("assemblies/LogoBot.scad", "Final Assembly", str("LogoBotAssembly(PenLift=",PenLift,")")) {
 
+        // generate an animation video for this assembly
+        animation(title="LogoBot",framesPerStep=10);
+
         translate([0, 0, GroundClearance]) {
 
             // Default Design Elements
