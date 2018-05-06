@@ -15,3 +15,5 @@
 /software/firmware/lib/*
 /software/firmware/.build_ano/*
 *.pickle
+.vscode/c_cpp_properties.json
+.vscode/arduino.json
