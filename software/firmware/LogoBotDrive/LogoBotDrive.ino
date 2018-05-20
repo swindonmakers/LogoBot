@@ -11,9 +11,10 @@ Bot bot(MOTOR_L_PIN_1, MOTOR_L_PIN_2, MOTOR_L_PIN_3, MOTOR_L_PIN_4, MOTOR_R_PIN_
 String cmd; // cmd received over serial - builds up char at a time
 Adafruit_PN532 nfc(PN532_SCK, PN532_MISO, PN532_MOSI, PN532_SS);
 DMTimer checkTimer(2000000);
-String cardval;
-String oldcardval = "";
+uint32_t cardval;
+uint32_t oldcardval = 0;
 bool bot_drive = 1;
+
 
 void setup()
 {
@@ -40,29 +41,8 @@ void loop()
 
     if(checkTimer.isTimeReached()) {
         Serial.println("timeout");
-        cardval = readNFC();
-        Serial.println(cardval);
-
-        Serial.println(oldcardval);
-        if(! cardval.equals(oldcardval)) {
-          oldcardval = cardval;
-          Serial.println(oldcardval);
-          Serial.println("card change");
-          // different card
-          if(cardval.equals("56721eff")) {
-            Serial.println("stop card");
-            bot_drive = 0;
-          } else if(cardval.equals("3662bbfd")) {
-            bot.turn(270);
-          }
-        } else {
-          if(bot_drive) {
-            bot.drive(10);
-          } else {
-            bot.stop();
-          }
-        }
-      }
+        checkCardAndDirectBot();
+    }
 
     if (!bot.isQFull()) {  // fill up the move queue to get the speed up
         //setLEDColour(0,1,0); // Green, because we are happily doing something
@@ -72,7 +52,42 @@ void loop()
     
 }
 
-String readNFC() {
+void checkCardAndDirectBot() {
+  cardval = readNFC();
+  Serial.println(cardval);
+
+  if( cardval != oldcardval) {
+    oldcardval = cardval;
+    Serial.println("card change");
+    // different card
+
+    switch(cardval) {
+      case 0xFF1E7256: // "56721eff":
+      Serial.println("stop card");
+      bot_drive = 0;
+      break;
+    case 0xFDBB6236: // "3662bbfd":
+      Serial.println("turn 270 card");
+      bot.turn(270);
+      break;
+    case 0xFDC11086: // "8610c1fd":
+      Serial.println("turn 90 card");
+      bot.turn(90);
+      break;
+    default:
+      bot.drive(10);
+    }
+    
+  } else {
+    if(bot_drive) {
+      bot.drive(10);
+    } else {
+      bot.stop();
+    }
+  }
+}
+
+uint32_t readNFC() {
   uint8_t success;
   uint8_t uid[] = { 0, 0, 0, 0, 0, 0, 0 };  // Buffer to store the returned UID
   uint8_t uidLength;                        // Length of the UID (4 or 7 bytes depending on ISO14443A card type)
@@ -86,18 +101,14 @@ String readNFC() {
     // Display some basic information about the card
     //Serial.println("Found an ISO14443A card");
     //Serial.print("  UID Length: ");Serial.print(uidLength, DEC);Serial.println(" bytes");
-    Serial.print("  UID Value: ");
-    nfc.PrintHex(uid, uidLength);
-    Serial.println("");   
+    //Serial.print("  UID Value: ");
+    //nfc.PrintHex(uid, uidLength);
+    uint32_t val = *(uint32_t *)uid;
+    Serial.println(val, HEX);
+    Serial.println("");
+    return val;
   }
-  String direction = "";
 
-  for (int szPos=0; szPos < uidLength; szPos++) {
-      if (uid[szPos] <= 0xF)
-      direction.concat("0");
-      direction.concat(String(uid[szPos]&0xff, HEX));
-  }
-  return direction;
 }
 
 static void handleCollision(byte collisionData)
