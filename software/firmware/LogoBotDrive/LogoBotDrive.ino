@@ -67,15 +67,17 @@ void checkCardAndDirectBot() {
       bot_drive = 0;
       break;
     case 0xFDBB6236: // "3662bbfd":
-      Serial.println("turn 270 card");
-      bot.turn(270);
+    case 0xff286476:
+      Serial.println("turn -90 card");
+      bot.turn(-90);
       break;
     case 0xFDC11086: // "8610c1fd":
+    case 0x2d42cff3:
       Serial.println("turn 90 card");
       bot.turn(90);
       break;
     default:
-      bot.drive(10);
+      bot.drive(40);
     }
     
   } else {
