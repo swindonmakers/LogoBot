@@ -66,6 +66,10 @@ void checkCardAndDirectBot() {
       Serial.println("stop card");
       bot_drive = 0;
       break;
+    case 0xFF1A4F56:
+      Serial.println("
+      bot_drive = 1;
+      break;
     case 0xFDBB6236: // "3662bbfd":
     case 0xff286476:
       Serial.println("turn -90 card");
