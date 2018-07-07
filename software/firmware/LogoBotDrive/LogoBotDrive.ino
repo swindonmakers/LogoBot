@@ -66,21 +66,30 @@ void checkCardAndDirectBot() {
       Serial.println("stop card");
       bot_drive = 0;
       break;
+
     case 0xFF1A4F56:
-      Serial.println("
+      Serial.println("start card");
       bot_drive = 1;
       break;
+
     case 0xFDBB6236: // "3662bbfd":
-    case 0xff286476:
+    case 0xfdce50b6:
+    case 0xff2B6476:
+    case 0xff280cf6:
       Serial.println("turn -90 card");
       bot.turn(-90);
       break;
+
     case 0xFDC11086: // "8610c1fd":
+    case 0xfdccc846:
+    case 0xfdddd586:
     case 0x2d42cff3:
       Serial.println("turn 90 card");
       bot.turn(90);
       break;
     default:
+      Serial.println("unknown card");
+      Serial.println(cardval, HEX);
       bot.drive(40);
     }
     
