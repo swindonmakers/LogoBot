@@ -106,7 +106,7 @@ A4-A7  | Spare headers, not usable on the breadboard
 
 See Also
 --------
-[[OpenSCAD for Machine Design]]
+[OpenSCAD for Machine Design](https://github.com/swindonmakers/wiki/wiki/OpenSCAD-for-Machine-Design)
 
 References
 ----------
